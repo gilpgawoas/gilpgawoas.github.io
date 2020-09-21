@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="cmp/base.js"></script>
+    <script type="module" src="cmp/mi-presentacion.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/presentacion.css">
+    <script type="module">
+      import { SelDiapositivaBase } from "./lib/SelDiapositivaBase.js";
+      customElements.define("mi-selector", class extends SelDiapositivaBase {
+        /** @override
+         * @returns {string} */
+        get html() {
+          return (/* html */
+            `<select>
+              <option value=intro>Aplicaciones Orientadas a Servicios</option>
+              <option value=nube>La Nube</option>
+              <option value=servicio>Servicio en la Nube</option>
+              <option value=tipos>Tipos de Servicios</option>
+              <option value=oferta>Servicios que se ofrecen en la Nube</option>
+              <option value=mas_usados>Servicios de Nube más Usados</option>
+              <option value=apos>Aplicación Orientada a Servicios</option>
+              <option value=mashup>Aplicaciones Web hibridas (Mashup)</option>
+            </select>`);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cortina"></div>
+    <mi-menu></mi-menu>
+    <mi-presentacion class="desplaza">
+      <mi-selector slot=selector></mi-selector>
+      <div id=intro slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h1></h1>
+      </div>
+      <section id="nube" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <figure>
+            <img src="img/Imagen1.png">
+          </figure>
+          <p>
+            Una <dfn>nube computacional</dfn> es el conjunto de servidores
+            remotos en Internet para gestionar archivos y aplicaciones.
+          </p>
+          <p>
+            Una de las ventajas de una nube es que permite que los usuarios
+            utilicen archivos y aplicaciones sin tener que instalar programas en
+            una computadora con acceso a Internet.
+          </p>
+          <p>
+            El concepto de nube salió de los diagramas de red, donde Internet se
+            representa como una nube, en una abstracción de la infraestructura
+            que representa.
+          </p>
+        </div>
+      </section>
+      <section id="servicio" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>Utilidad o función que se utiliza a través de Internet.</p>
+        </div>
+      </section>
+      <section id="tipos" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <dl>
+            <dt><dfn>Software as a Service</dfn> <abbr>(SaaS)</abbr></dt>
+            <dd>
+              <p>
+                El más utilizado. El software está alojado en servidores de los
+                proveedores y el cliente accede a ellos a través del navegador
+                web. Todo lo relacionado con mantenimiento, soporte y
+                disponibilidad es manejado por el proveedor.
+              </p>
+            </dd>
+            <dt><dfn>Platform as a Service</dfn> <abbr>(PaaS)</abbr></dt>
+            <dd>
+              <p>
+                En este tipo de servicios en la nube el proveedor ofrece acceso
+                a un entorno basado en cloud en el cual los usuarios pueden
+                crear y distribuir sus propias aplicaciones. El proveedor
+                proporciona la infraestructura subyacente.
+              </p>
+            </dd>
+            <dt><dfn>Infrastructure as a Service</dfn> <abbr>(IaaS)</abbr></dt>
+            <dd>
+              <p>
+                Un proveedor de servicios proporciona el software y las
+                aplicaciones a través de Internet. Los usuarios se suscriben al
+                software y acceden a él a través de la web o las APIs del
+                proveedor.
+              </p>
+            </dd>
+          </dl>
+        </div>
+      </section>
+      <section id="oferta" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>Almacenamiento</p>
+            </li>
+            <li>
+              <p>Herramientas de Productividad</p>
+            </li>
+            <li>
+              <p>Desarrollo de Aplicaciones</p>
+            </li>
+            <li>
+              <p>Hosting</p>
+            </li>
+            <li>
+              <p>Videoconferencias</p>
+            </li>
+            <li>
+              <p>Mapas</p>
+            </li>
+            <li>
+              <p>Streamming</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="mas_usados" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Amazon Web Services (AWS)
+                <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Microsoft Azure
+                <a
+                  href="https://azure.microsoft.com/">https://azure.microsoft.com/</a>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Google Cloud
+                <a
+                  href="https://cloud.google.com/">https://cloud.google.com/</a>.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="apos" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            Es una aplicación en la que algunas partes se realizan en un
+            servidor independiente.
+          </p>
+          <h3>Características</h3>
+          <ul>
+            <li>
+              <p>El procesamiento se reparte en varias computadoras.</p>
+            </li>
+            <li>
+              <p>Un servicio puede ser utilizado por varias aplicaciones.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="mashup" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>Es una aplicación que usa otras aplicaciones web.</p>
+          <h3>Estructura</h3>
+          <dl>
+            <dt><dfn>Proveedor de contenidos</dfn></dt>
+            <dd>
+              <p>
+                Fuente de los datos. Los datos están disponibles vía una API y
+                diferentes protocolos web como RSS, REST y Web Service.
+              </p>
+            </dd>
+            <dt><dfn>El sitio mashup</dfn></dt>
+            <dd>
+              <p>
+                Es la nueva aplicación web que provee un nuevo servicio
+                utilizando diferente información y de la que no es dueña.
+              </p>
+            </dd>
+            <dt><dfn>El navegador web cliente</dfn></dt>
+            <dd>
+              <p>
+                Interfaz de usuario del mashup. En una aplicación web, el
+                contenido puede ser mezclado por los web browser clientes usando
+                lenguaje web del lado del cliente, por ejemplo, HTML y
+                JavaScript.
+              </p>
+            </dd>
+          </dl>
+          <p><small>Fuente: Wikipedia</small></p>
+        </div>
+      </section>
+    </mi-presentacion>
+  </body>
+  <script type="module" src="lib/title.js"></script>
+</html>
