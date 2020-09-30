@@ -19,6 +19,7 @@ customElements.define("mi-nav", class extends HTMLElement {
         <li><a href="13_objetos.html">Objetos</a></li>
         <li><a href="14_excepciones.html">Excepciones</a></li>
         <li><a href="15_sitio.html">Sitio Web</a></li>
+        <li><a href="17_asociaciones.html">Asociaciones</a></li>
       </ul>`;
   }
 });
