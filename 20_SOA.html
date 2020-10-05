@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="cmp/base.js"></script>
+    <script type="module" src="cmp/mi-presentacion.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/presentacion.css">
+    <script type="module">
+      import { SelDiapositivaBase } from "./lib/SelDiapositivaBase.js";
+      customElements.define("mi-selector", class extends SelDiapositivaBase {
+        /** @override
+         * @returns {string} */
+        get html() {
+          return (/* html */
+            `<select>
+              <option value=intro>Arquitectura Orientada a Servicios</option>
+              <option value=Definicion>Definición</option>
+              <option value=Ventajas>Ventajas</option>
+              <option value=principios>Principios de Diseño de un Servicio</option>
+            </select>`);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cortina"></div>
+    <mi-menu></mi-menu>
+    <mi-presentacion class="desplaza">
+      <mi-selector slot=selector></mi-selector>
+      <div id=intro slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h1></h1>
+      </div>
+      <section id="Definicion" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            Estilo de arquitectura de TI que se apoya en la orientación a
+            servicios.
+          </p>
+          <p>
+            La orientación a servicios es una forma de pensar en servicios, su
+            construcción y sus resultados.
+          </p>
+          <p>
+            Un servicio es una representación lógica de una actividad de negocio
+            que tiene un resultado de negocio específico (ejemplo: comprobar el
+            crédito de un cliente, obtener datos de clima, consolidar reportes
+            de perforación).
+          </p>
+          <p>
+            Fuente:
+            <a href="https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios"
+              target="_blank">https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios</a>
+          </p>
+        </div>
+      </section>
+      <section id="Ventajas" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>Reduce el nivel de acoplamiento.</p>
+            </li>
+            <li>
+              <p>Clara definición de roles de desarrollo.</p>
+            </li>
+            <li>
+              <p>Definición de seguridad más clara.</p>
+            </li>
+            <li>
+              <p>Fácil de probar.</p>
+            </li>
+            <li>
+              <p>Mejora el mantenimiento.</p>
+            </li>
+            <li>
+              <p>Favorece la reutilización.</p>
+            </li>
+            <li>
+              <p>Favorece el desarrollo en paralelo.</p>
+            </li>
+            <li>
+              <p>Favorece la escalabilidad.</p>
+            </li>
+            <li>
+              <p>Permite un mapeo directo entre los procesos y los sistemas.</p>
+            </li>
+            <li>
+              <p>Permite un monitoreo preciso.</p>
+            </li>
+            <li>
+              <p>Permite la interoperabilidad.</p>
+            </li>
+          </ul>
+          <p>
+            Fuente:
+            <a href="http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html"
+              target="_blank">http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html</a>
+          </p>
+        </div>
+      </section>
+      <section id="principios" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Definición clara y estandarizada mediante descriptores de
+                servicio, donde se indique:
+              </p>
+              <ul>
+                <li>
+                  <p>Nombre del Servicio.</p>
+                </li>
+                <li>
+                  <p>Forma de accesos.</p>
+                </li>
+                <li>
+                  <p>Funcionalidades que ofrece.</p>
+                </li>
+                <li>
+                  <p>
+                    Descripción de los datos de entrada de cada funcionalidad
+                    que ofrece.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Descripción de los datos de salida de cada funcionalidad que
+                    ofrece.
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>
+                Sin estado: no guardan valores para ser usados en otras
+                llamadas. (Si se puede acceder a bases de datos.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Pueden también ejecutar unidades discretas de trabajo como
+                serían editar y procesar una transacción.
+              </p>
+            </li>
+            <li>
+              <p>No dependen del estado de otras funciones o procesos.</p>
+            </li>
+          </ul>
+          <p>
+            Fuente:
+            <a href="https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/"
+              target="_blank">https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/</a>
+          </p>
+        </div>
+      </section>
+    </mi-presentacion>
+  </body>
+  <script type="module" src="lib/title.js"></script>
+</html>

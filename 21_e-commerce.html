@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="cmp/base.js"></script>
+    <script type="module" src="cmp/mi-presentacion.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/presentacion.css">
+    <script type="module">
+      import { SelDiapositivaBase } from "./lib/SelDiapositivaBase.js";
+      customElements.define("mi-selector", class extends SelDiapositivaBase {
+        /** @override
+         * @returns {string} */
+        get html() {
+          return (/* html */
+            `<select>
+              <option value=intro>Características de un e-commerce</option>
+              <option value=facilidad>1. Facilidad de navegación</option>
+              <option value=no_destaca>2. El diseño no destaca por encima de los productos</option>
+              <option value=facil>3. Fácil proceso de compra</option>
+              <option value=populares>4. Exhibir los productos más populares</option>
+              <option value=detalle>5. Fotos de productos a detalle</option>
+            </select>`);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cortina"></div>
+    <mi-menu></mi-menu>
+    <mi-presentacion class="desplaza">
+      <mi-selector slot=selector></mi-selector>
+      <div id=intro slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h1></h1>
+        <div class="marco-lectura">
+          <p>
+            Fuente:
+            <a href="https://www.actualidadecommerce.com/las-5-principales-caracteristicas-de-un-sitio-ecommerce-bien-disenado/"
+              target="_blank">https://www.actualidadecommerce.com/las-5-principales-caracteristicas-de-un-sitio-ecommerce-bien-disenado/</a>
+          </p>
+        </div>
+      </div>
+      <section id="facilidad" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            Cuando se trata de vender productos, el primer requisito a cumplir
+            para una tienda Ecommerce es que el comprador tiene que ser capaz de
+            encontrar rápida y de forma especifica, lo que el o ella están
+            buscando. Una navegación eficaz es fundamental para los sitios
+            Ecommerce ya que los visitantes que no pueden encontrar lo que
+            buscan se traducen en ventas perdidas.
+          </p>
+        </div>
+      </section>
+      <section id="no_destaca" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            En un negocio Ecommerce, el foco de atención siempre debe estar
+            en los productos que están disponibles para su compra. Un diseño
+            que es extravagante sin sentido, generalmente hace más daño que
+            beneficio, puesto que al final, el diseño no es lo que se vende,
+            sino los productos.
+          </p>
+        </div>
+      </section>
+      <section id="facil" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            La experiencia del usuario en sitios de comercio electrónico es
+            fundamental para el éxito. Es decir, si el proceso de compra implica
+            demasiados pasos o incluso es confuso, los compradores simplemente
+            terminarán abandonando su carrito de compras. Por ello, el checkout
+            siempre debe implicar la mínima cantidad de pasos y debe ser lo más
+            fácil e intuitivo para los compradores.
+          </p>
+        </div>
+      </section>
+      <section id="populares" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            Muchos negocios Ecommerce se esfuerzan por mostrar los elementos que
+            pueden ser de interés para los potenciales compradores. Un gran
+            número de sitios de comercio electrónico están utilizando espacios
+            muy amplios en la página de inicio para promover las ventas
+            actuales, el lanzamiento de un nuevo producto o lo que sea que
+            genere interés.
+          </p>
+        </div>
+      </section>
+      <section id="detalle" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p>
+            La venta de productos en Internet es diferente de vender en una
+            tienda física porque el comprador no puede tocar o ver en persona el
+            producto antes de tomar la decisión de compra. Al ofrecer fotos de
+            los productos que resaltan a detalle las características principales
+            del mismo, se consigue superar ese inconveniente y se hace más fácil
+            para el comprador decidir si conviene o no comprar el producto.
+          </p>
+        </div>
+      </section>
+    </mi-presentacion>
+  </body>
+  <script type="module" src="lib/title.js"></script>
+</html>
