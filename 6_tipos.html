@@ -8,17 +8,6 @@
     <script type="module" src="cmp/mi-presentacion.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/presentacion.css">
-
-    <script src="fonts/fmathFormulaFonts.js"></script>
-		<script src="fmathFormulaC.js"></script>
-		<script src="menu/basicContext.min.js"></script>
-		<script src="menu/basicModal.min.js"></script>
-
-		<link rel="stylesheet" href="menu/default.min.css">
-		<link rel="stylesheet" href="menu/basicContext.min.css">
-		<link rel="stylesheet" href="menu/basicModal.min.css">
-
-		<link rel="stylesheet" href="allBrowserSolution.css">
     <script type="module">
       import { SelDiapositivaBase } from "./lib/SelDiapositivaBase.js";
       customElements.define("mi-selector", class extends SelDiapositivaBase {
@@ -37,7 +26,7 @@
               <option value=String>String</option>
               <option value=texto>Operadores de Texto</option>
               <option value=Boolean>Boolean</option>
-              <option value=logicos>Ejemplo de Operadores Lógicos</option>
+              <option value=logicos>Ejemplos de Operadores Lógicos</option>
               <option value=Relacionales>Operadores Relacionales</option>
               <option value=Asignacion>Asignación</option>
               <option value=Precedencia>Precedencia de Operadores</option>
@@ -566,7 +555,7 @@
                 el resultado es
                 <code class="language-javascript">y</code>;
                 de lo contrario, el resultado es
-                <code class="language-javascript">true</code>.
+                <code class="language-javascript">z</code>.
               </p>
             </dd>
           </dl>
@@ -584,8 +573,20 @@
         </table>
         <div class="marco-lectura">
           <p>
-            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28false%20%26%26%20true%29%3B%20//%20false%0Aconsole.log%28false%20%26%26%20false%29%3B%20//%20false%0Aconsole.log%28true%20%26%26%20true%29%3B%20//%20true%0Aconsole.log%28true%20%26%26%20false%29%3B%20//%20false%0Aconsole.log%28true%20%26%26%20%22hola%22%29%3B%20//%20hola%0Aconsole.log%283%20%26%26%20%22hola%22%29%3B%20//%20hola%0Aconsole.log%280%20%26%26%20%22hola%22%29%3B%20//%200%0Aconsole.log%28true%20%7C%7C%20true%29%3B%20//%20true%0Aconsole.log%28true%20%7C%7C%20false%29%3B%20//%20true%0Aconsole.log%28false%20%7C%7C%20true%29%3B%20//%20true%0Aconsole.log%28false%20%7C%7C%20false%29%3B%20//%20false%0Aconsole.log%28%22gg%22%20%7C%7C%20%22yy%22%29%3B%20//%20gg%0Aconsole.log%28%22%22%20%7C%7C%20%22bb%22%29%3B%20//%20bb%0Aconsole.log%28!true%29%3B%20//%20false%0Aconsole.log%28!false%29%3B%20//%20true%0Aconsole.log%28!0%29%3B%20//%20true%0Aconsole.log%28!%22h%22%29%3B%20//%20false%0Aconsole.log%28true%20%3F%203%20%3A%208%29%3B%20//%203%0Aconsole.log%28false%20%3F%203%20%3A%208%29%3B%20//%208%0Aconsole.log%28%22h%22%20%3F%203%20%3A%208%29%3B%20//%203%0Aconsole.log%28%22%22%20%3F%203%20%3A%208%29%3B%20//%208&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
-            target=_blank>Visualiza el código en Python Tutor</a>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28false%20%26%26%20true%29%3B%20//%20false%0Aconsole.log%28false%20%26%26%20false%29%3B%20//%20false%0Aconsole.log%28true%20%26%26%20true%29%3B%20//%20true%0Aconsole.log%28true%20%26%26%20false%29%3B%20//%20false%0Aconsole.log%28true%20%26%26%20%22hola%22%29%3B%20//%20hola%0Aconsole.log%283%20%26%26%20%22hola%22%29%3B%20//%20hola%0Aconsole.log%280%20%26%26%20%22hola%22%29%3B%20//%200&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de &&</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28true%20%7C%7C%20true%29%3B%20//%20true%0Aconsole.log%28true%20%7C%7C%20false%29%3B%20//%20true%0Aconsole.log%28false%20%7C%7C%20true%29%3B%20//%20true%0Aconsole.log%28false%20%7C%7C%20false%29%3B%20//%20false%0Aconsole.log%28%22gg%22%20%7C%7C%20%22yy%22%29%3B%20//%20gg%0Aconsole.log%28%22%22%20%7C%7C%20%22bb%22%29%3B%20//%20bb&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de ||</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28!true%29%3B%20//%20false%0Aconsole.log%28!false%29%3B%20//%20true%0Aconsole.log%28!0%29%3B%20//%20true%0Aconsole.log%28!%22h%22%29%3B%20//%20false&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de !</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28true%20%3F%203%20%3A%208%29%3B%20//%203%0Aconsole.log%28false%20%3F%203%20%3A%208%29%3B%20//%208%0Aconsole.log%28%22h%22%20%3F%203%20%3A%208%29%3B%20//%203%0Aconsole.log%28%22%22%20%3F%203%20%3A%208%29%3B%20//%208&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de ?:</a>
           </p>
         </div>
       </section>
@@ -601,8 +602,28 @@
         </table>
         <div class="marco-lectura">
           <p>
-            <a href="http://www.pythontutor.com/javascript.html#code=//%20Igual%20que%20%28%3D%3D%3D%29%0Aconsole.log%28%22h%22%20%3D%3D%3D%20%22gh%22%29%3B%20//%20false%0Aconsole.log%28%22h%22%20%3D%3D%3D%20%22h%22%29%3B%20//%20true%0Aconsole.log%283%20%3D%3D%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3D%3D%3D%20-3%29%3B%20//%20false%0A//%20Diferente%20de%20%28!%3D%3D%29%0Aconsole.log%28%22h%22%20!%3D%3D%20%22gh%22%29%3B%20//%20true%0Aconsole.log%28%22h%22%20!%3D%3D%20%22h%22%29%3B%20//%20false%0Aconsole.log%283%20!%3D%3D%203%29%3B%20//%20false%0Aconsole.log%283%20!%3D%3D%208%29%3B%20//%20true%0A//%20Menor%20que%20%28%3C%29%0Aconsole.log%28%22ah%22%20%3C%20%22aa%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%20%22ah%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%20%22ai%22%29%3B%20//%20true%0Aconsole.log%283%20%3C%200%29%3B%20//%20false%0Aconsole.log%283%20%3C%203%29%3B%20//%20false%0Aconsole.log%283%20%3C%208%29%3B%20//%20true%0A//%20Menor%20o%20igual%20que%20%28%3C%3D%29%0Aconsole.log%28%22ah%22%20%3C%3D%20%22aa%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%3D%20%22ah%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3C%3D%20%22ai%22%29%3B%20//%20true%0Aconsole.log%283%20%3C%3D%200%29%3B%20//%20false%0Aconsole.log%283%20%3C%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3C%3D%208%29%3B%20//%20true%0A//%20Mayor%20que%20%28%3E%29%0Aconsole.log%28%22ah%22%20%3E%20%22aa%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%20%22ah%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3E%20%22ai%22%29%3B%20//%20false%0Aconsole.log%283%20%3E%200%29%3B%20//%20true%0Aconsole.log%283%20%3E%203%29%3B%20//%20false%0Aconsole.log%283%20%3E%208%29%3B%20//%20false%0A//%20Mayor%20o%20igual%20que%20%28%3E%3D%29%0Aconsole.log%28%22ah%22%20%3E%3D%20%22aa%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%3D%20%22ah%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%3D%20%22ai%22%29%3B%20//%20false%0Aconsole.log%283%20%3E%3D%200%29%3B%20//%20true%0Aconsole.log%283%20%3E%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3E%208%29%3B%20//%20false&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
-            target=_blank>Visualiza el código en Python Tutor</a>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22h%22%20%3D%3D%3D%20%22gh%22%29%3B%20//%20false%0Aconsole.log%28%22h%22%20%3D%3D%3D%20%22h%22%29%3B%20//%20true%0Aconsole.log%283%20%3D%3D%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3D%3D%3D%20-3%29%3B%20//%20false&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>igual que</q> (===).</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22h%22%20!%3D%3D%20%22gh%22%29%3B%20//%20true%0Aconsole.log%28%22h%22%20!%3D%3D%20%22h%22%29%3B%20//%20false%0Aconsole.log%283%20!%3D%3D%203%29%3B%20//%20false%0Aconsole.log%283%20!%3D%3D%208%29%3B%20//%20true&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>diferente de</q> (!==).</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22ah%22%20%3C%20%22aa%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%20%22ah%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%20%22ai%22%29%3B%20//%20true%0Aconsole.log%283%20%3C%200%29%3B%20//%20false%0Aconsole.log%283%20%3C%203%29%3B%20//%20false%0Aconsole.log%283%20%3C%208%29%3B%20//%20true&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>menor que</q> (&lt;).</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22ah%22%20%3C%3D%20%22aa%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3C%3D%20%22ah%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3C%3D%20%22ai%22%29%3B%20//%20true%0Aconsole.log%283%20%3C%3D%200%29%3B%20//%20false%0Aconsole.log%283%20%3C%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3C%3D%208%29%3B%20//%20true&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>menor o igual que</q> (&lt;=).</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22ah%22%20%3E%20%22aa%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%20%22ah%22%29%3B%20//%20false%0Aconsole.log%28%22ah%22%20%3E%20%22ai%22%29%3B%20//%20false%0Aconsole.log%283%20%3E%200%29%3B%20//%20true%0Aconsole.log%283%20%3E%203%29%3B%20//%20false%0Aconsole.log%283%20%3E%208%29%3B%20//%20false&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>mayor que</q> (>).</a>
+          </p>
+          <p>
+            <a href="http://www.pythontutor.com/javascript.html#code=console.log%28%22ah%22%20%3E%3D%20%22aa%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%3D%20%22ah%22%29%3B%20//%20true%0Aconsole.log%28%22ah%22%20%3E%3D%20%22ai%22%29%3B%20//%20false%0Aconsole.log%283%20%3E%3D%200%29%3B%20//%20true%0Aconsole.log%283%20%3E%3D%203%29%3B%20//%20true%0Aconsole.log%283%20%3E%208%29%3B%20//%20false&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            target=_blank>Ejemplo animado de <q>mayor o igual que</q> (>=).</a>
           </p>
         </div>
       </section>
@@ -622,7 +643,7 @@
             pero los navegadores más usados si.
           </p>
           <p>
-            <a href="http://www.pythontutor.com/javascript.html#code=let%20b%20%3D%204%3B%0Alet%20c%20%3D%20%22pp%22%3B%0Aconst%20d%20%3D%205%3B%0Ac%20%3D%20%22h%22%3B%20//%20c%20%3D%3D%3D%20%22h%22%0Ac%20%2B%3D%20%22gg%22%3B%20//%20c%20%3D%20c%20%2B%20%22gg%22%3B%20c%20%3D%3D%3D%20%22hgg%22%0Ab%20%3D%20d%3B%20//%20b%20%3D%3D%3D%205%0Ab%20%2B%3D%20d%3B%20//%20b%20%3D%20b%20%2B%20d%3B%20b%20%3D%3D%3D%2010%0Ab%20%2B%3D%203%3B%20//%20b%20%3D%20b%20%2B%203%3B%20b%20%3D%3D%3D%2013%0Ab%20-%3D%202%3B%20//%20b%20%3D%20b%20-%202%3B%20b%20%3D%3D%3D%2011%0Ab%20*%3D%203%3B%20//%20b%20%3D%20b%20*%203%3B%20b%20%3D%3D%3D%2033%0Ab%20/%3D%203%3B%20//%20b%20%3D%20b%20/%2011%3B%20b%20%3D%3D%3D%2011%0Ab%20%25%3D%203%3B%20//%20b%20%3D%20b%20/%203%3B%20b%20%3D%3D%3D%202%0A//b%20**%3D%203%3B%20//%20b%20%3D%20b%20**%203%3B%20b%20%3D%3D%3D%208&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+            <a href="http://www.pythontutor.com/javascript.html#code=let%20b%20%3D%204%3B%0Alet%20c%20%3D%20%22pp%22%3B%0Aconst%20d%20%3D%205%3B%0Ac%20%3D%20%22h%22%3B%20//%20c%20%3D%3D%3D%20%22h%22%0Ac%20%2B%3D%20%22gg%22%3B%20//%20c%20%3D%20c%20%2B%20%22gg%22%3B%20c%20%3D%3D%3D%20%22hgg%22%0Ab%20%3D%20d%3B%20//%20b%20%3D%3D%3D%205%0Ab%20%2B%3D%20d%3B%20//%20b%20%3D%20b%20%2B%20d%3B%20b%20%3D%3D%3D%2010%0Ab%20%2B%3D%203%3B%20//%20b%20%3D%20b%20%2B%203%3B%20b%20%3D%3D%3D%2013%0Ab%20-%3D%202%3B%20//%20b%20%3D%20b%20-%202%3B%20b%20%3D%3D%3D%2011%0Ab%20*%3D%203%3B%20//%20b%20%3D%20b%20*%203%3B%20b%20%3D%3D%3D%2033%0Ab%20/%3D%203%3B%20//%20b%20%3D%20b%20/%203%3B%20b%20%3D%3D%3D%2011%0Ab%20%25%3D%203%3B%20//%20b%20%3D%20b%20/%203%3B%20b%20%3D%3D%3D%202%0A//b%20**%3D%203%3B%20//%20b%20%3D%20b%20**%203%3B%20b%20%3D%3D%3D%208&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
             target=_blank>Visualiza el código en Python Tutor</a>
           </p>
         </div>
@@ -632,27 +653,332 @@
         <header></header>
         <h2></h2>
         <div class="marco-lectura">
-          <ol>
-            <li>()</li>
-            <li>. [] f() new</li>
-            <li>++ -- posfijos (al final)</li>
-            <li>! typeof ++ -- prefijos (al inicio)</li>
-            <li>**</li>
-            <li>* / %</li>
-            <li>+ -</li>
-            <li>&lt;&lt; >> >>></li>
-            <li>&lt; &lt;= > >= in instanceof</li>
-            <li>== === != !==</li>
-            <li>&</li>
-            <li>^</li>
-            <li>|</li>
-            <li>&&</li>
-            <li>||</li>
-            <li>?:</li>
-            <li>+= /= -= *= **= %= &lt; &lt;= >>= >>>= &= ^= |=</li>
-            <li>yield</li>
-            <li>,</li>
-          </ol>
+          <table class="borde">
+            <tr>
+              <th>Orden</th>
+              <th>Descripción</th>
+              <th>Asociatividad</th>
+              <th>Operador</th>
+              <th>ejempo</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>agrupamiento</td>
+              <td>n/a</td>
+              <td><code class="language-javascript"><strong>(</strong>…<strong>)</strong></code></td>
+              <td><code class="language-javascript"><strong>(</strong>2 + 3<strong>)</strong></code></td>
+            </tr>
+            <tr>
+              <td rowspan="4">2</td>
+              <td rowspan="2">miembro</td>
+              <td rowspan="2">izquierda a derecha</td>
+              <td><code class="language-javascript">…<strong>.</strong>…</code></td>
+              <td><code class="language-javascript">a<strong>.</strong>b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">…<strong>[</strong>…<strong>]</strong></code></td>
+              <td><code class="language-javascript">a<strong>[</strong>0<strong>]</strong></code></td>
+            </tr>
+            <tr>
+              <td>new</td>
+              <td>n/a</td>
+              <td><code class="language-javascript"><strong>new</strong> …<strong>(</strong>…<strong>)</strong></code></td>
+              <td><code class="language-javascript"><strong>new</strong> Clase<strong>(</strong>0<strong>)</strong></code></td>
+            </tr>
+            <tr>
+              <td>invocación a función</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">…<strong>(</strong>…<strong>)</strong></code></td>
+              <td><code class="language-javascript">fn<strong>(</strong>x<strong>)</strong></code></td>
+            </tr>
+            <tr>
+              <td rowspan="2">3</td>
+              <td>incremento sufijo</td>
+              <td>n/a</td>
+              <td><code class="language-javascript">…<strong>++</strong></code></td>
+              <td><code class="language-javascript">a<strong>++</strong></code></td>
+            </tr>
+            <tr>
+              <td>decremento sufijo</td>
+              <td>n/a</td>
+              <td><code class="language-javascript">…<strong>--</strong></code></td>
+              <td><code class="language-javascript">a<strong>--</strong></code></td>
+            </tr>
+            <tr>
+              <td rowspan="9">4</td>
+              <td>incremento prefijo</td>
+              <td>n/a</td>
+              <td><code class="language-javascript"><strong>++</strong>…</code></td>
+              <td><code class="language-javascript"><strong>++</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>decremento prefijo</td>
+              <td>n/a</td>
+              <td><code class="language-javascript"><strong>--</strong>…</code></td>
+              <td><code class="language-javascript"><strong>--</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>not lógico</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>!</strong>…</code></td>
+              <td><code class="language-javascript"><strong>!</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>not a nivel de bits</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>~</strong>…</code></td>
+              <td><code class="language-javascript"><strong>~</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>+ unario</a></td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>+</strong>…</code></td>
+              <td><code class="language-javascript"><strong>+</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>negación unaria</a></td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>-</strong>…</code></td>
+              <td><code class="language-javascript"><strong>-</strong>a</code></td>
+            </tr>
+            <tr>
+              <td>typeof</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>typeof</strong> …</code></td>
+              <td><code class="language-javascript"><strong>typeof</strong> a</code></td>
+            </tr>
+            <tr>
+              <td>void</a></td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>void</strong> …</code></td>
+              <td><code class="language-javascript"><strong>void</strong> a</code></td>
+            </tr>
+            <tr>
+              <td>delete</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>delete</strong> …</code></td>
+              <td><code class="language-javascript"><strong>delete</strong> a.nombre</code></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>exponenciación</td>
+              <td>n/a</td>
+              <td><code class="language-javascript">… <strong>**</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>**</strong> b</code></td>
+            </tr>
+            <tr>
+              <td rowspan="3">6</td>
+              <td>multiplicación</a></td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>*</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>*</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>división</a></td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>/</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>/</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>resituo</a></td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>%</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>%</strong> b</code></td>
+            </tr>
+            <tr>
+              <td rowspan="2">7</td>
+              <td>suma</a></td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>+</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>+</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>resta</a></td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>-</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>-</strong> b</code></td>
+            </tr>
+            <tr>
+              <td rowspan="3">8</td>
+              <td rowspan="3">corrimiento de bits</a></td>
+              <td rowspan="3">izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>&lt;&lt;</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&lt;&lt;</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>>></strong> …</code></td>
+              <td><code class="language-javascript">a <strong>>></strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>>>></strong> …</code></td>
+              <td><code class="language-javascript">a <strong>>>></strong> b</code></td>
+            </tr>
+            <tr>
+              <td rowspan="6">9</td>
+              <td rowspan="4">relacional</td>
+              <td rowspan="4">izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>&lt;</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&lt;</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>&lt;=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&lt;=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>></strong> …</code></td>
+              <td><code class="language-javascript">a <strong>></strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>>=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>>=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>in</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>in</strong> …</code></td>
+              <td><code class="language-javascript">"nombre" <strong>in</strong> a</code></td>
+            </tr>
+            <tr>
+              <td>instanceof</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>instanceof</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>instanceof</strong> Array</code></td>
+            </tr>
+            <tr>
+              <td rowspan="4">10</td>
+              <td rowspan="4">igualdad</td>
+              <td rowspan="4">izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>==</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>==</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>!=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>!=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>===</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>===</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>!==</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>!==</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>and de bits</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>&amp;</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&amp;</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>xor de bits</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>^</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>^</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>or de bits</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>|</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>|</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>and lógico</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>&amp;&amp;</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&amp;&amp;</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>or lógico</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>||</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>||</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>condicional</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript">… <strong>?</strong> … <strong>:</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>?</strong> b <strong>:</strong> c</code></td>
+            </tr>
+            <tr>
+              <td rowspan="12">17</td>
+              <td rowspan="12">asignación</td>
+              <td rowspan="12">derecha a izquierda</td>
+              <td><code class="language-javascript">… <strong>=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>+=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>+=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>-=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>-=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>*=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>*=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>/=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>/=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>%=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>%=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>&lt;&lt;=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&lt;&lt;=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>>>=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>>>=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>>>>=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>>>>=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>&amp;=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>&amp;=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>^=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>^=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td><code class="language-javascript">… <strong>|=</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>|=</strong> b</code></td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>yield</td>
+              <td>derecha a izquierda</td>
+              <td><code class="language-javascript"><strong>yield</strong> …</code></td>
+              <td><code class="language-javascript"><strong>yield</strong> a</code></td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>coma</td>
+              <td>izquierda a derecha</td>
+              <td><code class="language-javascript">… <strong>,</strong> …</code></td>
+              <td><code class="language-javascript">a <strong>,</strong> b</code></td>
+            </tr>
+          </table>
+          <p>
+            Fuentes:<br>
+            <small>
+              <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence">https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence</a>
+              y
+              <a href="https://www.w3schools.com/js/js_arithmetic.asp">https://www.w3schools.com/js/js_arithmetic.asp</a>
+            </small>
+          </p>
         </div>
       </section>
       <section id=Expresiones slot=diapositiva>
@@ -667,96 +993,19 @@
           <p>Ejemplos de expresiones aritméticas expresadas en JavaScript:</p>
           <dl>
             <dt>
-              <div>
-                  <math>
-                    <mrow>
-                      <mi>x</mi>
-                      <mo>=</mo>
-                      <mfrac>
-                        <mrow>
-                          <mrow>
-                            <mo>-</mo>
-                            <mi>b</mi>
-                          </mrow>
-                          <mo>+</mo>
-                          <msqrt>
-                            <mrow>
-                              <msup>
-                                <mi>b</mi>
-                                <mn>2</mn>
-                              </msup>
-                              <mo>-</mo>
-                              <mrow>
-                                <mn>4</mn>
-                                <mo>&#x2062;</mo>
-                                <mi>a</mi>
-                                <mo>&#x2062;</mo>
-                                <mi>c</mi>
-                              </mrow>
-                            </mrow>
-                          </msqrt>
-                        </mrow>
-                        <mrow>
-                          <mn>2</mn>
-                          <mo>&#x2062;</mo>
-                          <mi>a</mi>
-                        </mrow>
-                      </mfrac>
-                    </mrow>
-                </math>
-              </div>
+              <figure>
+                <img src="img/cuadratica.png"
+                  alt="x = (-b + Math.sqrt(b**2 - 4*a*c)) / (2*a)">
+              </figure>
             </dt>
             <dd>
               <code class="language-javascript">x = (-b + Math.sqrt(b**2 - 4*a*c)) / (2*a)</code>
             </dd>
             <dt>
-              <div>
-                <math>
-                  <mrow>
-                    <mi>y</mi>
-                    <mo>=</mo>
-                    <mfrac>
-                      <mrow>
-                        <msub>
-                          <mi>y</mi>
-                          <mn>2</mn>
-                        </msub>
-                        <mo>-</mo>
-                        <msub>
-                          <mi>y</mi>
-                          <mn>1</mn>
-                        </msub>
-                      </mrow>
-                      <mrow>
-                        <msub>
-                          <mi>x</mi>
-                          <mn>2</mn>
-                        </msub>
-                        <mo>-</mo>
-                        <msub>
-                          <mi>x</mi>
-                          <mn>1</mn>
-                        </msub>
-                      </mrow>
-                    </mfrac>
-                    <mo>&#x2062;</mo>
-                    <mrow>
-                      (
-                      <mn>x</mn>
-                      <mo>-</mo>
-                      <msub>
-                        <mi>x</mi>
-                        <mn>1</mn>
-                      </msub>
-                      )
-                  </mrow>
-                  <mo>+</mo>
-                  <msub>
-                    <mi>y</mi>
-                    <mn>1</mn>
-                  </msub>
-                </math>
-              </div>
+              <figure>
+                <img src="img/recta.png"
+                  alt="y = ((y2 - y1) / (x2 - x1)) * (x - x1) + y1">
+              </figure>
             </dt>
             <dd>
               <code class="language-javascript">y = ((y2 - y1) / (x2 - x1)) * (x - x1) + y1</code>
