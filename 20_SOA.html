@@ -19,6 +19,12 @@
               <option value=Definicion>Definición</option>
               <option value=Ventajas>Ventajas</option>
               <option value=principios>Principios de Diseño de un Servicio</option>
+              <option value=capas>Principios de Diseño de un Servicio</option>
+              <option value=diagrama>Diagrama de Arquitectura</option>
+              <option value=xml>XML</option>
+              <option value=ejemplo_xml>Ejemplo de XML</option>
+              <option value=dtd_xml>DTD MiContacto</option>
+              <option value=def_xml>Definición</option>
             </select>`);
         }
       });
@@ -54,9 +60,11 @@
             de perforación).
           </p>
           <p>
-            Fuente:
-            <a href="https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios"
-              target="_blank">https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios</a>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios"
+                target="_blank">https://es.wikipedia.org/wiki/Arquitectura_orientada_a_servicios</a>
+            </small>
           </p>
         </div>
       </section>
@@ -101,9 +109,11 @@
             </li>
           </ul>
           <p>
-            Fuente:
-            <a href="http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html"
-              target="_blank">http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html</a>
+            <small>
+              Fuente:
+              <a href="http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html"
+                target="_blank">http://soa-fpuna.blogspot.com/2011/11/ventajas-y-desventajas.html</a>
+            </small>
           </p>
         </div>
       </section>
@@ -159,13 +169,162 @@
             </li>
           </ul>
           <p>
-            Fuente:
-            <a href="https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/"
-              target="_blank">https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/</a>
+            <small>
+              Fuente:
+              <a href="https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/"
+                target="_blank">https://ederluisdsd.wordpress.com/2013/03/17/principios-de-diseno-soa/</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="capas" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <figure>
+            <img src="/img/capas_soa.svg" alt="Capas de SOA">
+          </figure>
+          <dl>
+            <dt>Capa de acceso</dt>
+            <dd>
+              <ul>
+                <li>
+                  <p>
+                    Interfaz de usuario que invoca a los procesos de negocio.
+                  </p>
+                </li>
+                <li>
+                  <p>Interfaces web, escritorio, móvil, etc.</p>
+                </li>
+                <li>
+                  <p>Pueden ejecutarse en varios dispositivos.</p>
+                </li>
+              </ul>
+            </dd>
+            <dt>Capa de procesos de negocio</dt>
+            <dd>
+              <ul>
+                <li>
+                  <p>
+                    Integración de uno o más servicios que resuelven un problema
+                    de negocio.
+                  </p>
+                </li>
+              </ul>
+            </dd>
+            <dt>Capa de servicio</dt>
+            <dd>
+              <ul>
+                <li>
+                  <p>Componentes que se han desarrollado como servicios.</p>
+                </li>
+              </ul>
+            </dd>
+            <dt>Capa de recursos</dt>
+            <dd>
+              <ul>
+                <li>
+                  <p>Recursos operacionales: CRM, ERP, HR, BD.</p>
+                </li>
+                <li>
+                  <p>Tecnologías (Java, .NET, PHP).</p>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa"
+                target="_blank">https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="diagrama" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <figure>
+            <img src="/img/arquitectura_soa.jpg" alt="Capas de SOA">
+          </figure>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa"
+                target="_blank">https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+      </section>
+      <section id="ejemplo_xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="10"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"UTF-8"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #800000;">&lt;!</span><span style="color: #0000ff;">DOCTYPE</span>&nbsp;<span style="color: #0000ff;">MiContacto</span>&nbsp;SYSTEM&nbsp;"MiContacto.dtd"<span style="color: #800000;">&gt;</span></div><div><span style="color: #800000;">&lt;Contacto&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Nombre&gt;</span>Juan<span style="color: #800000;">&lt;/Nombre&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Email&gt;</span>juan@gm.com<span style="color: #800000;">&lt;/Email&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefonos&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>5555555555<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>8888888888<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/Telefonos&gt;</span></div><div><span style="color: #800000;">&lt;/Contacto&gt;</span></div></div></td>
+          </tr>
+        </table>
+      </section>
+      <section id="dtd_xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="7"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"ISO-8859-1"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #008000;">&lt;!--&nbsp;Este&nbsp;es&nbsp;el&nbsp;DTD&nbsp;de&nbsp;Contacto&nbsp;--&gt;</span></div><div>&lt;!ELEMENT&nbsp;Contacto&nbsp;(Nombre,&nbsp;Email,&nbsp;Telefonos)&gt;</div><div>&lt;!ELEMENT&nbsp;Nombre&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Email&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Telefonos&nbsp;(Telefono)*&gt;</div><div>&lt;!ELEMENT&nbsp;Telefono&nbsp;(#PCDATA)&gt;</div></div></td>
+          </tr>
+        </table>
+      </section>
+      <section id="def_xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Siglas en inglés de
+                e<strong>Xtensible Markup Language</strong>,
+                traducido como
+                <strong>Lenguaje de Marcado Extensible o Lenguaje de Marcas
+                  Extensible</strong>.
+              </p>
+            </li>
+            <li>
+              <p>Metalenguaje que permite definir lenguajes de marcas.</p>
+            </li>
+            <li>
+              <p>
+                Desarrollado por el
+                <a href="https://www.w3.org/">World Wide Web Consortium</a>
+                (W3C).
+              </p>
+            </li>
+            <li>
+              <p>Utilizado para almacenar datos en forma legible.</p>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Extensible_Markup_Language"
+                target="_blank">https://es.wikipedia.org/wiki/Extensible_Markup_Language</a>
+            </small>
           </p>
         </div>
       </section>
     </mi-presentacion>
   </body>
-  <script type="module" src="lib/title.js"></script>
+  <script type="module" src="lib/comun.js"></script>
 </html>
