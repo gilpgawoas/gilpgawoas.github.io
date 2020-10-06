@@ -19,12 +19,26 @@
               <option value=Definicion>Definición</option>
               <option value=Ventajas>Ventajas</option>
               <option value=principios>Principios de Diseño de un Servicio</option>
-              <option value=capas>Principios de Diseño de un Servicio</option>
+              <option value=capas>Capas</option>
               <option value=diagrama>Diagrama de Arquitectura</option>
               <option value=xml>XML</option>
+              <option value=def_xml>Definición</option>
               <option value=ejemplo_xml>Ejemplo de XML</option>
               <option value=dtd_xml>DTD MiContacto</option>
-              <option value=def_xml>Definición</option>
+              <option value=SOAP>SOAP</option>
+              <option value=def_SOAP>Definición</option>
+              <option value=estr_SOAP>Estructura de los Mensajes</option>
+              <option value=sol_soap>Ejemplo de Solicitud</option>
+              <option value=resp_soap>Ejemplo de Respuesta</option>
+              <option value=WSDL>WSDL</option>
+              <option value=def_WSDL>Definición</option>
+              <option value=elem_WSDL>Elementos</option>
+              <option value=ejem_WSDL>Ejemplo</option>
+              <option value=UDDI>UDDI</option>
+              <option value=def_UDDI>Definición</option>
+              <option value=REST>REST</option>
+              <option value=def_REST>Definición</option>
+              <option value=estr_REST>Estructura</option>
             </select>`);
         }
       });
@@ -247,8 +261,17 @@
         <header></header>
         <h2></h2>
         <div class="marco-lectura">
+          <p>
+            A continuación se muestra como quedaría el
+            <a href="18_datos.html">ejemplo de bases de datos</a>
+            si se adaptara a SOA.
+          </p>
+          <p>
+            <a href="https://www.uml-diagrams.org/component-diagrams.html"
+              target="_blank">Diagramas de Componentes para SOA.</a>
+          </p>
           <figure>
-            <img src="/img/arquitectura_soa.jpg" alt="Capas de SOA">
+            <img src="/img/arquitectura_soa.svg" alt="Capas de SOA">
           </figure>
           <p>
             <small>
@@ -263,28 +286,6 @@
         <div class="cortina"></div>
         <header></header>
         <h2></h2>
-      </section>
-      <section id="ejemplo_xml" slot=diapositiva>
-        <div class="cortina"></div>
-        <header></header>
-        <h2></h2>
-        <table>
-          <tr>
-            <td class=nums data-total="10"></td>
-            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"UTF-8"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #800000;">&lt;!</span><span style="color: #0000ff;">DOCTYPE</span>&nbsp;<span style="color: #0000ff;">MiContacto</span>&nbsp;SYSTEM&nbsp;"MiContacto.dtd"<span style="color: #800000;">&gt;</span></div><div><span style="color: #800000;">&lt;Contacto&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Nombre&gt;</span>Juan<span style="color: #800000;">&lt;/Nombre&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Email&gt;</span>juan@gm.com<span style="color: #800000;">&lt;/Email&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefonos&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>5555555555<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>8888888888<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/Telefonos&gt;</span></div><div><span style="color: #800000;">&lt;/Contacto&gt;</span></div></div></td>
-          </tr>
-        </table>
-      </section>
-      <section id="dtd_xml" slot=diapositiva>
-        <div class="cortina"></div>
-        <header></header>
-        <h2></h2>
-        <table>
-          <tr>
-            <td class=nums data-total="7"></td>
-            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"ISO-8859-1"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #008000;">&lt;!--&nbsp;Este&nbsp;es&nbsp;el&nbsp;DTD&nbsp;de&nbsp;Contacto&nbsp;--&gt;</span></div><div>&lt;!ELEMENT&nbsp;Contacto&nbsp;(Nombre,&nbsp;Email,&nbsp;Telefonos)&gt;</div><div>&lt;!ELEMENT&nbsp;Nombre&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Email&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Telefonos&nbsp;(Telefono)*&gt;</div><div>&lt;!ELEMENT&nbsp;Telefono&nbsp;(#PCDATA)&gt;</div></div></td>
-          </tr>
-        </table>
       </section>
       <section id="def_xml" slot=diapositiva>
         <div class="cortina"></div>
@@ -324,7 +325,471 @@
           </p>
         </div>
       </section>
+      <section id="ejemplo_xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="10"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"UTF-8"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #800000;">&lt;!</span><span style="color: #0000ff;">DOCTYPE</span>&nbsp;<span style="color: #0000ff;">MiContacto</span>&nbsp;SYSTEM&nbsp;"MiContacto.dtd"<span style="color: #800000;">&gt;</span></div><div><span style="color: #800000;">&lt;Contacto&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Nombre&gt;</span>Juan<span style="color: #800000;">&lt;/Nombre&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Email&gt;</span>juan@gm.com<span style="color: #800000;">&lt;/Email&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefonos&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>5555555555<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;Telefono&gt;</span>8888888888<span style="color: #800000;">&lt;/Telefono&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/Telefonos&gt;</span></div><div><span style="color: #800000;">&lt;/Contacto&gt;</span></div></div></td>
+          </tr>
+        </table>
+      </section>
+      <section id="dtd_xml" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="7"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;?xml</span><span style="color: #ff0000;">&nbsp;version</span>=<span style="color: #0000ff;">"1.0"</span><span style="color: #ff0000;">&nbsp;encoding</span>=<span style="color: #0000ff;">"ISO-8859-1"</span>&nbsp;<span style="color: #800000;">?&gt;</span></div><div><span style="color: #008000;">&lt;!--&nbsp;Este&nbsp;es&nbsp;el&nbsp;DTD&nbsp;de&nbsp;Contacto&nbsp;--&gt;</span></div><div>&lt;!ELEMENT&nbsp;Contacto&nbsp;(Nombre,&nbsp;Email,&nbsp;Telefonos)&gt;</div><div>&lt;!ELEMENT&nbsp;Nombre&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Email&nbsp;(#PCDATA)&gt;</div><div>&lt;!ELEMENT&nbsp;Telefonos&nbsp;(Telefono)*&gt;</div><div>&lt;!ELEMENT&nbsp;Telefono&nbsp;(#PCDATA)&gt;</div></div></td>
+          </tr>
+        </table>
+      </section>
+      <section id="SOAP" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+      </section>
+      <section id="def_SOAP" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Originalmente siglas de Simple Object Access Protocol, Protocolo
+                de Acceso Simple a Objetos.
+              </p>
+            </li>
+            <li>
+              <p>Hoy en día solo es SOAP, sin un significado especial.</p>
+            </li>
+            <li>
+              <p>
+                Protocolo estándar que define cómo dos objetos en diferentes
+                procesos pueden comunicarse por medio de intercambio de datos
+                XML.
+              </p>
+            </li>
+            <li>
+              <p>
+                Es uno de los protocolos utilizados para implementar servicios
+                web.
+              </p>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
+                target="_blank">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="estr_SOAP" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <figure>
+            <img src="/img/mensajes_soap.svg" alt="Mensajes SOAP">
+          </figure>
+          <ul>
+            <li>
+              <p>Usan formato XML.</p>
+            </li>
+            <li>
+              <p>3 elementos:</p>
+              <dl>
+                <dt><dfn>Envelope</dfn> o <dfn>sobre</dfn></dt>
+                <dd><p>El elemento raíz.</p></dd>
+                <dt><dfn>Header</dfn> o <dfn>encabezado</dfn></dt>
+                <dd><p>Especificación de como procesar los datos.</p></dd>
+                <dt><dfn>Body</dfn> o <dfn>cuerpo</dfn></dt>
+                <dd><p>El conenido del mensaje.</p></dd>
+              </dl>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
+                target="_blank">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id=sol_soap slot=diapositiva>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="12"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span style="color: #ff0000;">xmlns:soap</span>=<span style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/envelope/"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:Header&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;t:Transaction</span>&nbsp;<span style="color: #ff0000;">xmlns:t</span>=<span style="color: #0000ff;">"alguna-URI"</span>&nbsp;<span style="color: #ff0000;">soap:mustUnderstand</span>=<span style="color: #0000ff;">"1"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5</div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/t:Transaction&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/soap:Header&gt;</span>&nbsp;</div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:Body&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;getDetalleDeProducto</span>&nbsp;<span style="color: #ff0000;">xmlns</span>=<span style="color: #0000ff;">"http://warehouse.example.com/ws"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;productoId&gt;</span>827635<span style="color: #800000;">&lt;/productoId&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/getDetalleDeProducto&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/soap:Body&gt;</span></div><div><span style="color: #800000;">&lt;/soap:Envelope&gt;</span></div></div></td>
+          </tr>
+        </table>
+        <div class="marco-lectura">
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
+                target="_blank">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id=resp_soap slot=diapositiva>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="12"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span style="color: #ff0000;">xmlns:soap</span>=<span style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/envelope/"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:Body&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;getRespuestaDetalleDeProducto</span>&nbsp;<span style="color: #ff0000;">xmlns</span>=<span style="color: #0000ff;">"http://warehouse.example.com/ws"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;getResultadoDetalleDeProducto&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;productId&gt;</span>827635<span style="color: #800000;">&lt;/productId&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;nombre&gt;</span>Balón&nbsp;de&nbsp;Futbol&lt;/&nbsp;nombre&gt;</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;descripción&gt;</span>Balón&nbsp;de&nbsp;futbol&nbsp;de&nbsp;11”&nbsp;de&nbsp;vinil.<span style="color: #800000;">&lt;/descripción&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;precio&gt;</span>300.0<span style="color: #800000;">&lt;/precio&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/getResultadoDetalleDeProducto&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&nbsp;getRespuestaDetalleDeProducto&nbsp;&gt;</div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/soap:Body&gt;</span></div><div><span style="color: #800000;">&lt;/soap:Envelope&gt;</span></div></div></td>
+          </tr>
+        </table>
+        <div class="marco-lectura">
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
+                target="_blank">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="WSDL" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+      </section>
+      <section id="def_WSDL" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Siglas de
+                <strong>Web Services Description Language</strong>,
+                es un formato de XML que se utiliza para describir servicios Web.
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe los requisitos del protocolo y los formatos de los
+                mensajes necesarios para interactuar con los servicios listados en
+                su catálogo.
+              </p>
+            </li>
+            <li>
+              <p>
+                Las operaciones y mensajes que soporta se describen en abstracto y
+                se ligan después al protocolo concreto de red y al formato del
+                mensaje.
+              </p>
+            </li>
+            <li>
+              <p>
+                Las operaciones y mensajes que soporta se describen en abstracto y
+                se ligan después al protocolo concreto de red y al formato del
+                mensaje.
+              </p>
+            </li>
+            <li>
+              <p>
+                Las operaciones y mensajes que soporta se describen en abstracto y
+                se ligan después al protocolo concreto de red y al formato del
+                mensaje.
+              </p>
+            </li>
+            <li>
+              <p>
+                Las operaciones y mensajes que soporta se describen en abstracto y
+                se ligan después al protocolo concreto de red y al formato del
+                mensaje.
+              </p>
+            </li>
+            <li>
+              <p>Se usa a menudo en combinación con SOAP y XML Schema.</p>
+            </li>
+            <li>
+              <p>
+                Los tipos de datos especiales se incluyen en el archivo WSDL en
+                forma de XML Schema.
+              </p>
+            </li>
+            <li>
+              <p>
+                El cliente puede usar SOAP para hacer la llamada a una de las
+                funciones listadas en el WSDL.
+              </p>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
+                target="_blank">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="elem_WSDL" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <dl>
+            <dt><dfn>types</dfn></dt>
+            <dd>
+              <p>
+                Define los tipos de datos usados en los mensajes. Se utilizan
+                los tipos definidos en la especificación XML Schema.
+              </p>
+            </dd>
+            <dt><dfn>message</dfn></dt>
+            <dd>
+              <p>
+                Define los elementos de mensaje. Cada mensaje puede consistir en
+                una serie de partes lógicas. Las partes pueden ser de cualquiera
+                de los tipos definidos en el elemento message.
+              </p>
+            </dd>
+            <dt><dfn>portType</dfn></dt>
+            <dd>
+              <p>
+                Define las operaciones permitidas y los mensajes intercambiados
+                en el Servicio.
+              </p>
+            </dd>
+            <dt><dfn>binding</dfn></dt>
+            <dd>
+              <p>Especifica los protocolos de comunicación usados.</p>
+            </dd>
+            <dt><dfn>service</dfn></dt>
+            <dd>
+              <p>
+                Conjunto de puertos y dirección de los mismos. Esta parte final
+                hace referencia a lo aportado por las secciones anteriores.
+              </p>
+            </dd>
+          </dl>
+          <p>
+            Con estos elementos no sabemos qué hace un servicio pero sí
+            disponemos de la información necesaria para interactuar con él
+            (funciones, mensajes de entrada/salida, protocolos, etcétera).
+          </p>
+        </div>
+      </section>
+      <section id=ejem_WSDL slot=diapositiva>
+        <header></header>
+        <h2></h2>
+        <table>
+          <tr>
+            <td class=nums data-total="49"></td>
+            <td class=cod><div><div><span style="color: #800000;">&lt;definitions</span>&nbsp;<span style="color: #ff0000;">name</span>=“PrecioProd“</div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">targetNamespace</span>=<span style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">xmlns:tns</span>=<span style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">xmlns:xsd1</span>=<span style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">xmlns:soap</span>=<span style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/soap/"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">xmlns</span>=<span style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;types&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;schema</span>&nbsp;<span style="color: #ff0000;">targetNamespace</span>=<span style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">xmlns</span>=<span style="color: #0000ff;">"http://www.w3.org/2000/10/XMLSchema"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;element</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"SolPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;complexType&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"productoId"</span>&nbsp;<span style="color: #ff0000;">type</span>=<span style="color: #0000ff;">"decimal"</span><span style="color: #800000;">/&gt;&lt;/all&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/complexType&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/element&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;element</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"PrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;complexType&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"precio"</span>&nbsp;<span style="color: #ff0000;">type</span>=<span style="color: #0000ff;">"float"</span><span style="color: #800000;">/&gt;&lt;/all&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/complexType&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/element&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/schema&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/types&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;message</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"InputGetPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;part</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"body"</span>&nbsp;<span style="color: #ff0000;">element</span>=<span style="color: #0000ff;">"xsd1:SolPrecioProd"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/message&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;message</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"OutputGetPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;part</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"body"</span>&nbsp;<span style="color: #ff0000;">element</span>=<span style="color: #0000ff;">"xsd1:PrecioProd"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/message&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;portType</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"PortTypePrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;operation</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"GetPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;input</span>&nbsp;<span style="color: #ff0000;">message</span>=<span style="color: #0000ff;">"tns:InputGetPrecioProd"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;output</span>&nbsp;<span style="color: #ff0000;">message</span>=<span style="color: #0000ff;">"tns:OutputGetPrecioProd"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/operation&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/portType&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;binding</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"BindPrecioProdSoap"</span>&nbsp;<span style="color: #ff0000;">type</span>=<span style="color: #0000ff;">"tns:PortTypePrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:binding</span>&nbsp;<span style="color: #ff0000;">style</span>=<span style="color: #0000ff;">"document"</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000;">transport</span>=<span style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/http"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;operation</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"GetPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:operation</span>&nbsp;<span style="color: #ff0000;">soapAction</span>=<span style="color: #0000ff;">"http://example.com/GetPrecioProd"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;input&gt;&lt;soap:body</span>&nbsp;<span style="color: #ff0000;">use</span>=<span style="color: #0000ff;">"literal"</span><span style="color: #800000;">/&gt;&lt;/input&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;output&gt;&lt;soap:body</span>&nbsp;<span style="color: #ff0000;">use</span>=<span style="color: #0000ff;">"literal"</span><span style="color: #800000;">/&gt;&lt;/output&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/operation&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/binding&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;service</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"ServPrecioProd"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;documentation&gt;</span>Devuelve&nbsp;el&nbsp;precio&nbsp;de&nbsp;un&nbsp;producto.<span style="color: #800000;">&lt;/documentation&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;port</span>&nbsp;<span style="color: #ff0000;">name</span>=<span style="color: #0000ff;">"PuertoPrecioProd"</span>&nbsp;<span style="color: #ff0000;">binding</span>=<span style="color: #0000ff;">"tns:BindPrecioProdSoap"</span><span style="color: #800000;">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;soap:address</span>&nbsp;<span style="color: #ff0000;">location</span>=<span style="color: #0000ff;">"http://example.com/precioprod"</span><span style="color: #800000;">/&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #800000;">&lt;/port&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/service&gt;</span></div><div><span style="color: #800000;">&lt;/definitions&gt;</span></div></div></td>
+          </tr>
+        </table>
+      </section>
+      <section id="UDDI" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+      </section>
+      <section id="def_UDDI" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <p><strong>Este estándar no se usa.</strong></p>
+          <ul>
+            <li>
+              <p>
+                Siglas del catálogo de negocios de Internet denominado
+                <strong>Universal Description, Discovery and Integration</strong>.
+              </p>
+            </li>
+            <li>
+              <p>El registro en el catálogo se hace en XML.</p>
+            </li>
+            <li>
+              <p>
+                Es una iniciativa industrial abierta (sufragada por la OASIS)
+                entroncada en el contexto de los servicios Web.
+              </p>
+            </li>
+            <li>
+              <p>El registro de un negocio en UDDI tiene tres partes:</p>
+              <dl>
+                <dt><dfn>Páginas blancas</dfn></dt>
+                <dd>
+                  <p>dirección, contacto y otros identificadores conocidos.</p>
+                </dd>
+                <dt><dfn>Páginas amarillas</dfn></dt>
+                <dd>
+                  <p>categorización industrial basada en taxonomías.</p>
+                </dd>
+                <dt><dfn>Páginas verdes</dfn></dt>
+                <dd>
+                  <p>
+                    información técnica sobre los servicios que aportan las
+                    propias empresas.
+                  </p>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <p>
+                Es uno de los estándares básicos de los servicios web, cuyo
+                objetivo es ser accedido por los mensajes SOAP y dar paso a
+                documentos WSDL, en los que se describen los requisitos del
+                protocolo y los formatos del mensaje solicitado para interactuar
+                con los servicios Web del catálogo de registros.
+              </p>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuente:
+              <a href="https://es.wikipedia.org/wiki/UDDI"
+                target="_blank">https://es.wikipedia.org/wiki/UDDI</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="REST" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+      </section>
+      <section id="def_REST" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Siglas para
+                <strong>Representational State Transfer</strong>
+                o
+                <em>Transferencia de Estado Representacional</em>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Estilo de arquitectura de software para sistemas distribuidos
+                en la World Wide Web.
+              </p>
+            </li>
+            <li>
+              <p>
+                Es cualquier interfaz entre sistemas que use HTTP para obtener
+                datos o realizar operaciones sobre esos datos usando formatos
+                para intercambio de datos como XML, YAML o JSON.
+              </p>
+            </li>
+          </ul>
+          <p>
+            <small>
+              Fuentes:
+              <a href="https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional"
+                target="_blank">https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional</a>
+              y
+              <a href="https://bbvaopen4u.com/es/actualidad/api-rest-que-es-y-cuales-son-sus-ventajas-en-el-desarrollo-de-proyectos"
+                target="_blank">https://bbvaopen4u.com/es/actualidad/api-rest-que-es-y-cuales-son-sus-ventajas-en-el-desarrollo-de-proyectos</a>
+            </small>
+          </p>
+        </div>
+      </section>
+      <section id="estr_REST" slot=diapositiva>
+        <div class="cortina"></div>
+        <header></header>
+        <h2></h2>
+        <div class="marco-lectura">
+          <ul>
+            <li>
+              <p>
+                Toda página web tiene una URL asociada, pero también puede
+                representar una colección de datos, por ejemplo,
+                <q>https://mirest.com/contactos</q>, o un registro, por ejemplo,
+                <q>https://mirest.com/contactos/69</q>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Para interactuar con la URL hay que enviarle una solicitud, que
+                consta de:
+              </p>
+              <ul>
+                <li>
+                  <p>Una URL con datos (como cuando buscas en Google).</p>
+                </li>
+                <li>
+                  <p>
+                    Un archivo con información adicional, como puede ser el
+                    método de envío o los datos de la solicitud.
+                  </p>
+                </li>
+                <li>
+                  <p>El método de envío puede ser</p>
+                  <dl>
+                    <dt><dfn>GET</dfn></dt>
+                    <dd>
+                      <p>Para consultas. Los datos van en la URL.</p>
+                    </dd>
+                    <dt><dfn>POST</dfn></dt>
+                    <dd>
+                      <p>
+                        Para agregar nuevo contenido. Los datos van en con la
+                        información adicional.
+                      </p>
+                    </dd>
+                    <dt><dfn>PUT</dfn></dt>
+                    <dd>
+                      <p>
+                        Sustituir todo el contenido por los datos enviados. Los
+                        datos van con la información adicional.
+                      </p>
+                    </dd>
+                    <dt><dfn>UPDATE</dfn></dt>
+                    <dd>
+                      <p>
+                        Actualizar solo los datos enviados. Los datos van con la
+                        información adicional.
+                      </p>
+                    </dd>
+                    <dt><dfn>DELETE</dfn></dt>
+                    <dd>
+                      <p>eliminar los datos de la URL</p>
+                    </dd>
+                  </dl>
+                </li>
+                <li>
+                  <p>
+                    Los datos de la solicitud que van dentro de la información
+                    adicional, pueden enviarse en los siguientes formatos:
+                  </p>
+                  <ul>
+                    <li>application/x-www-form-urlencoded</li>
+                    <li>multipart/form-data</li>
+                    <li>text/plain</li>
+                    <li>XML</li>
+                    <li>JSON</li>
+                    <li>YAML</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
     </mi-presentacion>
+    <script type="module" src="lib/comun.js"></script>
   </body>
-  <script type="module" src="lib/comun.js"></script>
 </html>
