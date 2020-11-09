@@ -26,7 +26,7 @@ customElements.define("mi-nav", class extends HTMLElement {
         <li><a href="19_servicios.html">Servicios</a></li>
         <li><a href="20_SOA.html">SOA</a></li>
         <li><a href="21_e-commerce.html">e-commerce</a></li>
-        <li><a href="22_geolocalizacion.html">Geolocallización</a></li>
+        <li><a href="22_geolocalizacion.html">Geolocalización</a></li>
         <li><a href="23_sociales.html">Redes Sociales</a></li>
         <li><a href="24_streaming.html">Streaming</a></li>
       </ul>`;
