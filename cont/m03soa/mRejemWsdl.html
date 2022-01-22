@@ -1,0 +1,188 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;definitions</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=“PrecioProd“</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">targetNamespace</span>=<span
+     style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">xmlns:tns</span>=<span
+     style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">xmlns:xsd1</span>=<span
+     style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">xmlns:soap</span>=<span
+     style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/soap/"</span>
+  </div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">xmlns</span>=<span
+     style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span style="color: #800000;">&lt;types&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;schema</span>&nbsp;<span
+     style="color: #ff0000;">targetNamespace</span>=<span
+     style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">xmlns</span>=<span
+     style="color: #0000ff;">"http://www.w3.org/2000/10/XMLSchema"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;element</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"SolPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;complexType&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"productoId"</span>&nbsp;<span
+     style="color: #ff0000;">type</span>=<span
+     style="color: #0000ff;">"decimal"</span><span
+     style="color: #800000;">/&gt;&lt;/all&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/complexType&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/element&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;element</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"PrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;complexType&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"precio"</span>&nbsp;<span
+     style="color: #ff0000;">type</span>=<span
+     style="color: #0000ff;">"float"</span><span
+     style="color: #800000;">/&gt;&lt;/all&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/complexType&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/element&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/schema&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/types&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;message</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"InputGetPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;part</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"body"</span>&nbsp;<span
+     style="color: #ff0000;">element</span>=<span
+     style="color: #0000ff;">"xsd1:SolPrecioProd"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/message&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;message</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"OutputGetPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;part</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"body"</span>&nbsp;<span
+     style="color: #ff0000;">element</span>=<span
+     style="color: #0000ff;">"xsd1:PrecioProd"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/message&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;portType</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"PortTypePrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;operation</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"GetPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span>&nbsp;<span
+     style="color: #ff0000;">message</span>=<span
+     style="color: #0000ff;">"tns:InputGetPrecioProd"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span>&nbsp;<span
+     style="color: #ff0000;">message</span>=<span
+     style="color: #0000ff;">"tns:OutputGetPrecioProd"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/operation&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+    style="color: #800000;">&lt;/portType&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;binding</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"BindPrecioProdSoap"</span>&nbsp;<span
+     style="color: #ff0000;">type</span>=<span
+     style="color: #0000ff;">"tns:PortTypePrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;soap:binding</span>&nbsp;<span
+     style="color: #ff0000;">style</span>=<span
+     style="color: #0000ff;">"document"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">transport</span>=<span
+     style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/http"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;operation</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"GetPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;soap:operation</span>&nbsp;<span
+     style="color: #ff0000;">soapAction</span>=<span
+     style="color: #0000ff;">"http://example.com/GetPrecioProd"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input&gt;&lt;soap:body</span>&nbsp;<span
+     style="color: #ff0000;">use</span>=<span
+     style="color: #0000ff;">"literal"</span><span
+     style="color: #800000;">/&gt;&lt;/input&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output&gt;&lt;soap:body</span>&nbsp;<span
+     style="color: #ff0000;">use</span>=<span
+     style="color: #0000ff;">"literal"</span><span
+     style="color: #800000;">/&gt;&lt;/output&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/operation&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/binding&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;service</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"ServPrecioProd"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;documentation&gt;</span>Devuelve&nbsp;el&nbsp;precio&nbsp;de&nbsp;un&nbsp;producto.<span
+     style="color: #800000;">&lt;/documentation&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;port</span>&nbsp;<span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"PuertoPrecioProd"</span>&nbsp;<span
+     style="color: #ff0000;">binding</span>=<span
+     style="color: #0000ff;">"tns:BindPrecioProdSoap"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;soap:address</span>&nbsp;<span
+     style="color: #ff0000;">location</span>=<span
+     style="color: #0000ff;">"http://example.com/precioprod"</span><span
+     style="color: #800000;">/&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/port&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/service&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/definitions&gt;</span></div>
+ </div>
+</muestra-codigo>
