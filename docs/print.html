@@ -450,7 +450,7 @@
     </li>
     <li>
      <p>
-      <a href="/m07servicios">Diseño de servicios</a>
+      <a href="/m07servicios">Uso de servicios</a>
      </p>
     </li>
     <li>
@@ -2298,7 +2298,7 @@
       </section>
       </section>
      <section>
-         <h1 class="leccion">7. Diseño de servicios</h1>
+         <h1 class="leccion">7. Uso de servicios</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -2307,7 +2307,7 @@
    </div>
 <div class="lectura">
  <p>
-  En esta lección se presentan las propiedades básicas de CSS.
+  En esta lección se estandariza la forma de procesar servicios.
  </p>
  <nav>
   <h1>Contenido</h1>
@@ -2315,172 +2315,347 @@
    <ol type="A">
     <li>
      <p>
-      <a href="/m07servicios/mAarquitectura.html">Arquitectura</a>
+      <a href="/m07servicios/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mBdespliegue.html">Diagrama de despliegue</a>
+      <a href="/m07servicios/mBarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mCer.html">Diagrama entidad relación</a>
+      <a href="/m07servicios/mCjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mDinstrucciones.html">Instrucciones</a>
+      <a href="/m07servicios/mDejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mEarchivos.html">Archivos</a>
+      <a href="/m07servicios/mEmuestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mFindexHtml.html">www/index.html</a>
+      <a href="/m07servicios/mFsubmitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mGctrlSesion.html">www/CtrlSesion.js</a>
+      <a href="/m07servicios/mGindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mHindexJs.html">index.js</a>
+      <a href="/m07servicios/mHleeValorPhp.html">srv/lib/leeValor.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mIvalidaUsuario.html">validaUsuario.js</a>
+      <a href="/m07servicios/mIServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mJresumen.html">Resumen</a>
+      <a href="/m07servicios/mJSrvErrorPhp.html">srv/SrvError.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mKSrvResultadoPhp.html">srv/SrvResultado.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mLSrvProcesaPhp.html">srv/SrvProcesa.php</a>
      </p>
     </li>
    </ol>
  </nav>
 </div>
      <section >
-         <h1 >A. Arquitectura</h1><div class="lectura">
- <p>
-  En las siguientes páginas se muestra la construcción de un sistema de
-  control de acceso.
- </p>
- <p>
-  También se ejemplifica la forma en que un PWA invoca procesos en el
-  servidor web.
- </p>
- <p>
-  Revisa el código y pruébalo en Replit con la url
-  <a href="https://replit.com/@GilbertoPachec3/aut?v=1"
-    target="_blank"
-    rel="nooper">https://replit.com/@GilbertoPachec3/aut?v=1</a>.
- </p>
- <p>
-  Cada <dfn>servicio</dfn> es una función y para accederlo, el servidor le
-  asigna un <dfn>nombre de recurso</dfn>, el cual es una ruta dentro de la
-  URL; es como si fuera el nombre del archivo. Por ejemplo, en la URL
-  <q>https://aut--gilbertopachec3.repl.co/valida</q>, el nombre del recurso es
-  <q>/valida</q>.
- </p>
- <p>
-  En este caso, a todos los archivos de HTML y JavaScript les llamaremos
-  <df>www</df>.
- </p>
- <p>
-  Para validar el acceso usaremos un servicio llamado
-  <dfn>validaUsuario</dfn>
-  que tiene asociado el nombre de recurso
-  <dfn>valida</dfn>.
- </p>
- <p>
-  Para poder validar el acceso, <q>validaUsuario</q> guarda la contraseña
-  de cada usuario en una entidad llamada <dfn>Usuario</dfn>. En este ejemplo
-  se usa el servidor Atlas para la base de datos tipo MongoDB.
- </p>
- <section>
-  <h1>Diagrama de componentes</h1>
-  <figure>
-   <img class="dc" src="/img/m04sesion/aut_componentes.svg"
-     alt="Diagrama de Componentes">
-  </figure>
- </section>
-</div>
-      </section>
-     <section >
-         <h1 >B. Diagrama de despliegue</h1><div class="lectura">
- <figure>
-  <img src="/img/m04sesion/aut_despliegue.svg"
-    alt="Diagrama de Despliegue">
- </figure>
-</div>
-      </section>
-     <section >
-         <h1 >C. Diagrama entidad relación</h1><div class="lectura">
- <figure>
-   <img src="/img/m04sesion/aut_entidades.svg"
-     alt="Diagrama de Entidad Relación de la Base de Datos">
- </figure>
-</div>
-      </section>
-     <section >
-         <h1 >D. Instrucciones</h1><div class="lectura">
+         <h1 >A. Instrucciones</h1><div class="lectura">
  <ol>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1MOzhSfUtSbia9mABh6tCZSDyYRaC5MtS/view?usp=sharing"
-      target="_blank" rel="nooper">Crea la base de datos en Atlas.</a>
+    Revisa el proyecto en Replit con la URl
+    <a href="https://replit.com/@GilbertoPacheco/phpservs?v=1" rel="nooper"
+      target="_blank">https://replit.com/@GilbertoPacheco/phpservs?v=1</a>
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1dKuFogISfIV1O4rnsysBjuUexmpJFUJl/view?usp=sharing"
-      target="_blank" rel="nooper">Crea un sitio de Replit de tipo
-     <em>Node.js</em>
-     utilizando las páginas que siguen y pruébalo.</a>
+    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
+      target="_blank" rel="nooper">Usa o crea una cuenta de Google.</a>
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1BnRquRDpNmnTUM9iijjeY1WV1J1MrT9z/view?usp=sharing"
-      target="_blank" rel="nooper">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
+      target="_blank" rel="nooper">Crea una cuenta de Replit usando la cuenta de
+     Google.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1MpT73tzI9tJDcgy1uH9eRtXVdKuF1D36/view?usp=sharing"
+      target="_blank" rel="nooper">Crea un proyecto <em>PHP Web Server</em> en
+     Replit y edita o sube los archivos de este proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1pfI0ZZUbXxArDuACZIOeh_L7cQ5a3NsJ/view?usp=sharing"
+      target="_blank" rel="nooper">Depura el proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1d56ZzPMG0xZeGjlncx7ns8sOf4ZU86B0/view?usp=sharingg"
+      target="_blank">Crea la página de spotlight del proyecto.</a>
    </p>
   </li>
  </ol>
 </div>
       </section>
      <section >
-         <h1 >E. Archivos</h1><div class="lectura">
+         <h1 >B. Archivos</h1><div class="lectura">
  <ul>
   <li>
-   <p>www</p>
+   <p>lib</p>
    <ul>
     <li>
-     <p><a href="mGctrlSesion.html">CtrlSesion.js</a></p>
+     <p><a href="mDejecutaJs.html">ejecuta.js</a></p>
     </li>
     <li>
-     <p><a href="mFindexHtml.html">index.html</a></p>
+     <p><a href="mEmuestraErrorJs.html">muestraError.js</a></p>
+    </li>
+    <li>
+     <p><a href="mFsubmitJs.html">submit.js</a></p>
     </li>
    </ul>
   </li>
   <li>
-   <p><a href="mHindexJs.html">index.js</a></p>
+   <p>srv</p>
+   <ul>
+    <li>
+     <p>lib</p>
+     <ul>
+      <li>
+       <p><a href="mHleeValorPhp.html">leeValor.php</a></p>
+      </li>
+      <li>
+       <p><a href="mIServicioPhp.html">Servicio.php</a></p>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <p><a href="mJSrvError.html">SrvError.php</a></p>
+    </li>
+    <li>
+     <p><a href="mLSrvProcesaPhp.html">SrvProcesa.php</a></p>
+    </li>
+    <li>
+     <p><a href="mKSrvResultadoPhp.html">SrvResultado.php</a></p>
+    </li>
+   </ul>
   </li>
   <li>
-   <p><a href="mIvalidaUsuario.html">validaUsuario.js</a></p>
+   <p><a href="mGindexHtml.html">index.html</a></p>
+  </li>
+  <li>
+   <p><a href="mCjsconfigJson.html">jsconfig.json</a></p>
   </li>
  </ul>
 </div>
       </section>
      <section >
-         <h1 >F. www/index.html</h1><muestra-codigo>
+         <h1 >C. jsconfig.json</h1><muestra-codigo>
+ <div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0451a5;">"compilerOptions"</span>: {</div>
+  <div>&nbsp; <span style="color: #0451a5;">"checkJs"</span>: <span
+     style="color: #0000ff;">true</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"module"</span>: <span
+     style="color: #a31515;">"ES6"</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"moduleResolution"</span>: <span
+     style="color: #a31515;">"classic"</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"lib"</span>: [</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"ES2015"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"WebWorker"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"DOM"</span></div>
+  <div>&nbsp; ]</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >D. lib/ejecuta.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
+  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span style="color: #008000;">
+   </span><span style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">fetch</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">export</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">fetch</span>) {</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">resp</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">fetch</span></div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">ok</span>) {</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">json</span>()</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>) {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >E. lib/muestraError.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/** Muestra un error en la consola</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* y un cuadro de alerta con el</span></div>
+  <div><span style="color: #008000;">&nbsp;* mensaje.</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Error}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">e</span><span
+     style="color: #008000;"> descripción</span></div>
+  <div><span style="color: #008000;">&nbsp;* &nbsp;del error. */</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">e</span>) {</div>
+  <div>&nbsp;<span style="color: #001080;">console</span>.<span
+     style="color: #795e26;">error</span>(<span
+     style="color: #001080;">e</span>)</div>
+  <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+     style="color: #001080;">e</span>.<span
+     style="color: #001080;">message</span>)</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >F. lib/submit.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">ejecuta</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Envía los datos de la forma a la</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;* url con el método POST usando la</span>
+  </div>
+  <div><span style="color: #008000;">&nbsp;* función ejecuta. </span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Event}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">evt</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{HTMLFormElement}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">forma</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span style="color: #795e26;">submit</span>(<span
+     style="color: #001080;">evt</span>, <span
+     style="color: #001080;">url</span>, <span
+     style="color: #001080;">forma</span>) {</div>
+  <div>&nbsp;<span style="color: #001080;">evt</span>.<span
+     style="color: #795e26;">preventDefault</span>()</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(</div>
+  <div>&nbsp; <span style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>, {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"POST"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">FormData</span>(<span
+     style="color: #001080;">forma</span>)
+  </div>
+  <div>&nbsp; }))</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >G. index.html</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
@@ -2488,7 +2663,7 @@
   <div><span style="color: #800000;">&lt;html</span> <span
      style="color: #ff0000;">lang</span>=<span
      style="color: #0000ff;">"es"</span><span
-     style="color: #800000;">&gt;</span></div>
+     style="color: #800000;">&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;head&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">charset</span>=<span
@@ -2500,550 +2675,329 @@
   <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Autenticación<span
+  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span>Servicios<span
      style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Autenticación<span
+  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Servicios<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"btnError"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Error</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"btnResultado"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Resultado</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"sesion"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;output</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span><span
-     style="color: #800000;">&gt;&lt;/output&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;button</span> <span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"button"</span></div>
-  <div>&nbsp; &nbsp; <span style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"terminar"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;Terminar sesión</div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/button&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"login"</span><span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"forma"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp; &nbsp; Cue</div>
+  <div>&nbsp; &nbsp; Nombre:</div>
   <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
      style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span><span
+     style="color: #0000ff;">"nombre"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp; &nbsp; Match</div>
-  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"password"</span></div>
-  <div>&nbsp; &nbsp; &nbsp; <span style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"match"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #800000;">&lt;button&gt;</span>Procesa<span
+     style="color: #800000;">&lt;/button&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp; &nbsp; Soy humano</div>
-  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"humano"</span></div>
-  <div>&nbsp; &nbsp; &nbsp; <span style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"range"</span> <span
-     style="color: #ff0000;">value</span>=<span
-     style="color: #0000ff;">"0"</span></div>
-  <div>&nbsp; &nbsp; &nbsp; <span style="color: #ff0000;">min</span>=<span
-     style="color: #0000ff;">"0"</span> <span
-     style="color: #ff0000;">max</span>=<span
-     style="color: #0000ff;">"1"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;button&gt;</span>Iniciar
-   sesión<span style="color: #800000;">&lt;/button&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;footer&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">&amp;copy;</span> 2021</div>
-  <div>&nbsp; &nbsp;Gilberto Pacheco Gallegos</div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/footer&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div><br>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"module"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">src</span>=<span
-     style="color: #0000ff;">"CtrlSesion.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div>
+     style="color: #0000ff;">"module"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/ejecuta.js"</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/muestraError.js"</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/submit.js"</span>;</div><br>
+  <div>&nbsp; <span style="color: #001080;">btnError</span>.<span
+     style="color: #795e26;">addEventListener</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
+     style="color: #795e26;">error</span>)</div>
+  <div>&nbsp; <span style="color: #001080;">btnResultado</span>.<span
+     style="color: #795e26;">addEventListener</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
+     style="color: #795e26;">resultado</span>)</div>
+  <div>&nbsp; <span style="color: #001080;">forma</span>.<span
+     style="color: #795e26;">addEventListener</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"submit"</span>, <span
+     style="color: #795e26;">procesa</span>)</div><br>
+  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">error</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(<span
+     style="color: #a31515;">"srv/SrvError.php"</span>))</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+     style="color: #a31515;">"Ejecutado."</span>)</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">e</span>)</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">resultado</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">json</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(<span
+     style="color: #a31515;">"srv/SrvResultado.php"</span>))</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+     style="color: #a31515;">`Nombre: </span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">json</span>.<span
+     style="color: #001080;">nombre</span><span
+     style="color: #0000ff;">}</span></div>
+  <div><span style="color: #a31515;">Mensaje: </span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">json</span>.<span
+     style="color: #001080;">mensaje</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">`</span>)</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">e</span>)</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span
+     style="color: #008000;">/** @param {Event} evt */</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">procesa</span>(<span
+     style="color: #001080;">evt</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">json</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">submit</span>(<span
+     style="color: #001080;">evt</span>,</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #a31515;">"srv/SrvProcesa.php"</span>, <span
+     style="color: #001080;">forma</span>)</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+     style="color: #0070c1;">json</span>.<span
+     style="color: #001080;">resultado</span>)</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">e</span>)</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >G. www/CtrlSesion.js</h1><muestra-codigo>
+         <h1 >H. srv/lib/leeValor.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">CUE</span> = <span
-     style="color: #a31515;">"cue"</span></div>
-  <div><span style="color: #008000;">/** </span><span
-     style="color: #0000ff;">@type</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLFormElement|null}</span><span
-     style="color: #008000;"> */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">sesion</span> = <span
-     style="color: #001080;">document</span>[<span
-     style="color: #a31515;">"sesion"</span>]</div>
-  <div><span style="color: #008000;">/** </span><span
-     style="color: #0000ff;">@type</span><span style="color: #008000;">
-   </span><span style="color: #267f99;">{HTMLFormElement|null}</span><span
-     style="color: #008000;"> */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">login</span> = <span
-     style="color: #001080;">document</span>[<span
-     style="color: #a31515;">"login"</span>]</div><br>
-  <div><span style="color: #0000ff;">let</span> <span
-     style="color: #001080;">esHumano</span> = <span
-     style="color: #0000ff;">false</span></div><br>
-  <div><span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">sesion</span> !== <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp;<span style="color: #0070c1;">sesion</span>.<span
-     style="color: #001080;">terminar</span>.<span
-     style="color: #795e26;">addEventListener</span>(</div>
-  <div>&nbsp; <span style="color: #a31515;">"click"</span>, <span
-     style="color: #795e26;">terminaSesión</span>)</div>
-  <div>}</div>
-  <div><span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">login</span> !== <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp;<span style="color: #0070c1;">login</span>.<span
-     style="color: #795e26;">addEventListener</span>(<span
-     style="color: #a31515;">"submit"</span>,</div>
-  <div>&nbsp; <span style="color: #795e26;">iniciaSesión</span>)</div>
-  <div>&nbsp;<span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">humano</span>.<span
-     style="color: #795e26;">addEventListener</span>(</div>
-  <div>&nbsp; <span style="color: #a31515;">"input"</span>, () <span
-     style="color: #0000ff;">=&gt;</span> <span
-     style="color: #001080;">esHumano</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">humano</span>.<span
-     style="color: #001080;">valueAsNumber</span> &gt; <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;)</div>
-  <div>}</div><br>
-  <div><span style="color: #795e26;">actualizaFormas</span>()</div><br>
-  <div><span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">actualizaFormas</span>() {</div>
-  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">cue</span> =</div>
-  <div>&nbsp; <span style="color: #001080;">sessionStorage</span>.<span
-     style="color: #795e26;">getItem</span>(<span
-     style="color: #0070c1;">CUE</span>)</div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">sesion</span> !== <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">cue</span> === <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #008000;">// Sesión terminada.</span>
-  </div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">sesion</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">true</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">sesion</span>.<span
-     style="color: #001080;">cue</span>.<span
-     style="color: #001080;">value</span> = <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #008000;">// Sesión iniciada.</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">sesion</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">sesion</span>.<span
-     style="color: #001080;">cue</span>.<span
-     style="color: #001080;">value</span> = <span
-     style="color: #0070c1;">cue</span></div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">login</span> !== <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; <span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">cue</span>.<span
-     style="color: #001080;">value</span> = <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp; <span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">match</span>.<span
-     style="color: #001080;">value</span> = <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp; <span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">humano</span>.<span
-     style="color: #001080;">valueAsNumber</span> = <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp; <span style="color: #001080;">esHumano</span> = <span
-     style="color: #0000ff;">false</span>;</div>
-  <div>&nbsp; <span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0070c1;">cue</span> !== <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;}</div>
-  <div>}</div>
-  <div><span style="color: #008000;">/** </span><span
-     style="color: #0000ff;">@param</span><span
-      style="color: #008000;"> </span><span
-       style="color: #267f99;">{Event}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">evt</span><span
-      style="color: #008000;"> */</span></div>
-  <div><span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">iniciaSesión</span>(<span
-     style="color: #001080;">evt</span>) {</div>
-  <div>&nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; <span style="color: #001080;">evt</span>.<span
-     style="color: #795e26;">preventDefault</span>();</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">login</span> !== <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp; &nbsp;&amp;&amp; <span
-    style="color: #0070c1;">sesion</span> !== <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (!<span
-     style="color: #001080;">esHumano</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-    style="color: #a31515;">"Comprueba que eres humano."</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #008000;">// Toma los datos de la forma.</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">datos</span> =</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">FormData</span>(<span
-     style="color: #0070c1;">login</span>)</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #008000;">/* Usa el método POST para</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp; * enviar los datos de la forma</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp; * al recurso</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp; * &nbsp;"/valida"</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp; * en el servidor. */</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">res</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">fetch</span>(</div>
-  <div>&nbsp; &nbsp; <span style="color: #a31515;">"/valida"</span>,</div>
-  <div>&nbsp; &nbsp; {</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">method</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"POST"</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">body</span><span
-     style="color: #001080;">:</span> <span
-      style="color: #0070c1;">datos</span></div>
-  <div>&nbsp; &nbsp; })</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">res</span>.<span
-      style="color: #0070c1;">ok</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">resp</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">res</span>.<span
-     style="color: #795e26;">text</span>()</div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">resp</span> === <span
-     style="color: #a31515;">"ok"</span>) {</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #001080;">sessionStorage</span>.<span
-     style="color: #795e26;">setItem</span>(<span
-     style="color: #0070c1;">CUE</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">login</span>.<span
-     style="color: #001080;">cue</span>.<span
-     style="color: #001080;">value</span>)</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #795e26;">actualizaFormas</span>()</div>
-  <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Datos incorrectos."</span>)</div>
-  <div>&nbsp; &nbsp; }</div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #0070c1;">res</span>.<span
-     style="color: #0070c1;">statusText</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; <span style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">e</span>)</div>
-  <div>&nbsp; <span style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">e</span>.<span
-     style="color: #001080;">message</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">terminaSesión</span>() {</div>
-  <div>&nbsp;<span style="color: #001080;">sessionStorage</span>.<span
-     style="color: #795e26;">removeItem</span>(<span
-     style="color: #0070c1;">CUE</span>)</div>
-  <div>&nbsp;<span style="color: #795e26;">actualizaFormas</span>()</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >H. index.js</h1><muestra-codigo>
- <div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">express</span> = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"express"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> { <span
-     style="color: #267f99;">Server</span> } = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"http"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> { <span
-     style="color: #795e26;">join</span> } = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"path"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">multer</span> = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">'multer'</span>)</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">validaUsuario</span> =</div>
-  <div>&nbsp;<span style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"./validaUsuario"</span>)</div><br>
-  <div><span
-     style="color: #008000;">// Complemento para el servidor web</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">app</span> = <span
-     style="color: #795e26;">express</span>()</div>
-  <div><span style="color: #008000;">/** Comportamiento base del</span></div>
-  <div><span style="color: #008000;">&nbsp;* servidor web */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">httpServer</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Server</span>(<span
-     style="color: #0070c1;">app</span>)</div>
-  <div><span style="color: #008000;">/** Ubicación de la carpeta de</span></div>
-  <div><span style="color: #008000;">&nbsp;* archivos del sitio. */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">www</span> = <span
-     style="color: #795e26;">join</span>(<span
-     style="color: #001080;">__dirname</span>, <span
-     style="color: #a31515;">"www"</span>)</div>
-  <div><span
-     style="color: #008000;">/** Manejo de datos multipart. */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">multipart</span> = <span
-     style="color: #795e26;">multer</span>()</div><br>
-  <div><span
-     style="color: #008000;">// Utiliza la carpeta de archivos.</span></div>
-  <div><span style="color: #0070c1;">app</span>.<span
-     style="color: #795e26;">use</span>(<span
-     style="color: #795e26;">express</span>.<span
-     style="color: #795e26;">static</span>(<span
-     style="color: #0070c1;">www</span>))</div>
-  <div><span
-     style="color: #008000;">/* El recurso "/valida" procesa</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* solicitudes post en formato</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* multipart sin archivos adjuntos</span></div>
-  <div><span style="color: #008000;">&nbsp;* e invoca la función</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* validaUsuario para procesar la</span></div>
-  <div><span style="color: #008000;">&nbsp;* solicitud. */</span></div>
-  <div><span style="color: #0070c1;">app</span>.<span
-     style="color: #795e26;">post</span>(<span
-     style="color: #a31515;">"/valida"</span>,</div>
-  <div>&nbsp;<span style="color: #0070c1;">multipart</span>.<span
-     style="color: #795e26;">none</span>(),</div>
-  <div>&nbsp;<span style="color: #795e26;">validaUsuario</span>)</div>
-  <div><span
-    style="color: #008000;">/* El servidor empieza a escuchar</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* solucitudes en el puerto 3000.*/</span></div>
-  <div><span style="color: #0070c1;">httpServer</span>.<span
-     style="color: #795e26;">listen</span>(<span
-     style="color: #098658;">3000</span>)</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >I. validaUsuario.js</h1><muestra-codigo>
- <div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">MongoClient</span> =</div>
-  <div>&nbsp;<span style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"mongodb"</span>).<span
-     style="color: #001080;">MongoClient</span></div>
-  <div><span
-    style="color: #008000;">/* Cambia el valor por el que te</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* proporciona Atlas y cambia</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* &lt;password&gt; por la contraseña del</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* usuario que creaste dentro de</span></div>
-  <div><span style="color: #008000;">&nbsp;* Atlas. */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">uri</span> =</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"mongodb+srv://*****************"</span></div><br>
+  <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #008000;">/**</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@param</span><span
-      style="color: #008000;"> </span><span
-       style="color: #267f99;">{import("express").</span></div>
-  <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp; Request}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">req</span><span
-      style="color: #008000;"> solicitud que</span></div>
   <div><span
-    style="color: #008000;">&nbsp;* &nbsp; &nbsp;recibe el servidor web.</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@param</span><span style="color: #008000;">
-   </span><span style="color: #267f99;">{import("express").</span></div>
-  <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp;Response}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">res</span><span
-      style="color: #008000;"> respuesta que</span></div>
+     style="color: #008000;">&nbsp;* Recupera un valor enviado al</span></div>
   <div><span
-    style="color: #008000;">&nbsp;* &nbsp; &nbsp;devuelve el servidor web. */</span></div>
-  <div><span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span style="color: #795e26;">validaUsuario</span>(<span
-     style="color: #001080;">req</span>, <span
-     style="color: #001080;">res</span>) {</div>
-  <div>&nbsp;<span
-    style="color: #008000;">/* Crea un cliente que se conecta</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; * a la base de datos. */</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">client</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #795e26;">MongoClient</span>(</div>
-  <div>&nbsp; <span style="color: #0070c1;">uri</span>,</div>
-  <div>&nbsp; {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">useNewUrlParser</span><span
-     style="color: #001080;">:</span> <span
-      style="color: #0000ff;">true</span>,</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #001080;">useUnifiedTopology</span><span
-     style="color: #001080;">:</span> <span
-      style="color: #0000ff;">true</span>
+     style="color: #008000;">&nbsp;* servicio por medio de GET, POST</span>
   </div>
-  <div>&nbsp; })</div>
-  <div>&nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; <span style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">client</span>.<span
-     style="color: #795e26;">connect</span>()</div>
-  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">usuario</span> = <span
-     style="color: #0070c1;">client</span>.</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">db</span>(<span
-     style="color: #a31515;">"aut"</span>).</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">collection</span>(<span
-     style="color: #a31515;">"usuario"</span>)</div>
-  <div>&nbsp; <span
-    style="color: #008000;">/* Los datos enviados por la</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp;* página vienen en la propiedad</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp;* body de req. */</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">datos</span> = <span
-     style="color: #001080;">req</span>.<span
-     style="color: #001080;">body</span></div>
-  <div>&nbsp; <span style="color: #008000;">/* Cuenta en la base de datos</span>
-  </div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp;* los documentos que tengan</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp;* &nbsp;nombre === datos.cue</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp;* y</span></div>
-  <div><span
-    style="color: #008000;">&nbsp; &nbsp;* &nbsp;contrasena === datos.match</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp;*/</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">total</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">usuario</span>.</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">countDocuments</span>({</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">nombre</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #0070c1;">datos</span>.<span
-     style="color: #001080;">cue</span>,</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">contrasena</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #0070c1;">datos</span>.<span
-     style="color: #001080;">match</span></div>
-  <div>&nbsp; &nbsp;})</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">total</span> &gt; <span
-     style="color: #098658;">0</span>) {</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #008000;">/* Devuelve a la página el texto</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp; * &nbsp;"ok". */</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">res</span>.<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #a31515;">"ok"</span>)</div>
-  <div>&nbsp; } <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; &nbsp;<span
-    style="color: #008000;">/* Devuelve a la página el texto</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp; * &nbsp;"". */</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">res</span>.<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; <span style="color: #001080;">res</span>.<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp; <span style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-      style="color: #001080;">e</span>)</div>
-  <div>&nbsp;} <span style="color: #af00db;">finally</span> {</div>
-  <div>&nbsp; <span style="color: #0070c1;">client</span>.<span
-     style="color: #795e26;">close</span>()</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #795e26;">module</span>.<span
-     style="color: #267f99;">exports</span> = <span
-     style="color: #001080;">validaUsuario</span></div>
+  <div><span style="color: #008000;">&nbsp;* o cookie.</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeValor</span>(</div>
+  <div>&nbsp; <span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span></div>
+  <div>): <span style="color: #0000ff;">string</span> {</div>
+  <div>&nbsp; <span style="color: #001080;">$valor</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>])</div>
+  <div>&nbsp; &nbsp; ? <span style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>]</div>
+  <div>&nbsp; &nbsp; : <span style="color: #a31515;">""</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >J. Resumen</h1><div class="lectura">
- <ul>
-  <li>
-   <p>En esta lección se presentó un ejemplo de control de sesión.</p>
-  </li>
- </ul>
-</div>
+         <h1 >I. srv/lib/Servicio.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #795e26;">mb_internal_encoding</span>(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div>&nbsp; <span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$resultado</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #795e26;">json_encode</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>&nbsp; } <span style="color: #af00db;">catch</span> (\<span
+     style="color: #267f99;">Throwable</span> <span
+     style="color: #001080;">$t</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #795e26;">http_response_code</span>(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$t</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>();</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >J. srv/SrvError.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/lib/Servicio.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvError</span> <span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Ouch"</span>);</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvError</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >K. srv/SrvResultado.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #a31515;">"/lib/Servicio.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvResultado</span> <span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> [</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"nombre"</span> =&gt; <span
+     style="color: #a31515;">"pp"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"mensaje"</span> =&gt; <span
+     style="color: #a31515;">"Hola."</span></div>
+  <div>&nbsp; ];</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvResultado</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >L. srv/SrvProcesa.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvProcesa</span> <span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">leeValor</span>(<span
+     style="color: #a31515;">"nombre"</span>);</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$nombre</span> == <span
+     style="color: #a31515;">""</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"Falta el nombre"</span></div>
+  <div>&nbsp; &nbsp;);</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #001080;">$resultado</span> = <span
+     style="color: #a31515;">"Hola {</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}"</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> [</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"resultado"</span> =&gt; <span
+     style="color: #001080;">$resultado</span></div>
+  <div>&nbsp; ];</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvProcesa</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
       </section>
       </section>
      <section>

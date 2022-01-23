@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>D. Instrucciones - GilPG AWOAS</title>
- <meta name="description" content="Instrucciones para construir y ejecutar el ejemplo de control de sesión.">
+ <title>L. srv/SrvProcesa.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de srv/SrvProcesa.php">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,34 +396,59 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m07servicios/mCer.html" title="C. Diagrama entidad relación">◀</a>
-  <a class="siguiente" href="/m07servicios/mEarchivos.html" title="E. Archivos">▶</a>
+  <a class="anterior" href="/m07servicios/mKSrvResultadoPhp.html" title="K. srv/SrvResultado.php">◀</a>
+  <a class="siguiente" href="/m08renderCliente/index.html" title="8. Renderizado del lado del cliente">▶</a>
  </div>
-   <h1 >D. Instrucciones</h1><div class="lectura">
- <ol>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1MOzhSfUtSbia9mABh6tCZSDyYRaC5MtS/view?usp=sharing"
-      target="_blank" rel="nooper">Crea la base de datos en Atlas.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1dKuFogISfIV1O4rnsysBjuUexmpJFUJl/view?usp=sharing"
-      target="_blank" rel="nooper">Crea un sitio de Replit de tipo
-     <em>Node.js</em>
-     utilizando las páginas que siguen y pruébalo.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1BnRquRDpNmnTUM9iijjeY1WV1J1MrT9z/view?usp=sharing"
-      target="_blank" rel="nooper">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
-   </p>
-  </li>
- </ol>
-</div>
+   <h1 >L. srv/SrvProcesa.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvProcesa</span> <span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">leeValor</span>(<span
+     style="color: #a31515;">"nombre"</span>);</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$nombre</span> == <span
+     style="color: #a31515;">""</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"Falta el nombre"</span></div>
+  <div>&nbsp; &nbsp;);</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #001080;">$resultado</span> = <span
+     style="color: #a31515;">"Hola {</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}"</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> [</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"resultado"</span> =&gt; <span
+     style="color: #001080;">$resultado</span></div>
+  <div>&nbsp; ];</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvProcesa</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -457,56 +482,66 @@
     <a class="paginaAnterior" href="/m06ecommerce/mEdetalle.html"
       title="E. Fotos de productos a detalle">▲</a>
    </p>
-     <h1><a href="/m07servicios/index.html">7. Diseño de servicios</a></h1>
+     <h1><a href="/m07servicios/index.html">7. Uso de servicios</a></h1>
    <ol type="A">
     <li>
      <p>
-      <a href="/m07servicios/mAarquitectura.html">Arquitectura</a>
+      <a href="/m07servicios/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mBdespliegue.html">Diagrama de despliegue</a>
+      <a href="/m07servicios/mBarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mCer.html">Diagrama entidad relación</a>
+      <a href="/m07servicios/mCjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mDinstrucciones.html" class="actual">Instrucciones</a>
+      <a href="/m07servicios/mDejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mEarchivos.html">Archivos</a>
+      <a href="/m07servicios/mEmuestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mFindexHtml.html">www/index.html</a>
+      <a href="/m07servicios/mFsubmitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mGctrlSesion.html">www/CtrlSesion.js</a>
+      <a href="/m07servicios/mGindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mHindexJs.html">index.js</a>
+      <a href="/m07servicios/mHleeValorPhp.html">srv/lib/leeValor.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mIvalidaUsuario.html">validaUsuario.js</a>
+      <a href="/m07servicios/mIServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mJresumen.html">Resumen</a>
+      <a href="/m07servicios/mJSrvErrorPhp.html">srv/SrvError.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mKSrvResultadoPhp.html">srv/SrvResultado.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mLSrvProcesaPhp.html" class="actual">srv/SrvProcesa.php</a>
      </p>
     </li>
    </ol><p>
@@ -523,9 +558,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m07servicios/mCer.html"
+ let urlAnterior = "/m07servicios/mKSrvResultadoPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m07servicios/mEarchivos.html"
+ let urlSiguiente = "/m08renderCliente/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

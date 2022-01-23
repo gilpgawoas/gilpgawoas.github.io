@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>H. index.js - GilPG AWOAS</title>
- <meta name="description" content="Contenido del archivo «index.js».">
+ <title>I. srv/lib/Servicio.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de srv/lib/Servicio.php">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,85 +396,45 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m07servicios/mGctrlSesion.html" title="G. www/CtrlSesion.js">◀</a>
-  <a class="siguiente" href="/m07servicios/mIvalidaUsuario.html" title="I. validaUsuario.js">▶</a>
+  <a class="anterior" href="/m07servicios/mHleeValorPhp.html" title="H. srv/lib/leeValor.php">◀</a>
+  <a class="siguiente" href="/m07servicios/mJSrvErrorPhp.html" title="J. srv/SrvError.php">▶</a>
  </div>
-   <h1 >H. index.js</h1><muestra-codigo>
+   <h1 >I. srv/lib/Servicio.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">express</span> = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"express"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> { <span
-     style="color: #267f99;">Server</span> } = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"http"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> { <span
-     style="color: #795e26;">join</span> } = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"path"</span>)</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">multer</span> = <span
-     style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">'multer'</span>)</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #795e26;">validaUsuario</span> =</div>
-  <div>&nbsp;<span style="color: #795e26;">require</span>(<span
-     style="color: #a31515;">"./validaUsuario"</span>)</div><br>
-  <div><span
-     style="color: #008000;">// Complemento para el servidor web</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">app</span> = <span
-     style="color: #795e26;">express</span>()</div>
-  <div><span style="color: #008000;">/** Comportamiento base del</span></div>
-  <div><span style="color: #008000;">&nbsp;* servidor web */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">httpServer</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Server</span>(<span
-     style="color: #0070c1;">app</span>)</div>
-  <div><span style="color: #008000;">/** Ubicación de la carpeta de</span></div>
-  <div><span style="color: #008000;">&nbsp;* archivos del sitio. */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">www</span> = <span
-     style="color: #795e26;">join</span>(<span
-     style="color: #001080;">__dirname</span>, <span
-     style="color: #a31515;">"www"</span>)</div>
-  <div><span
-     style="color: #008000;">/** Manejo de datos multipart. */</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">multipart</span> = <span
-     style="color: #795e26;">multer</span>()</div><br>
-  <div><span
-     style="color: #008000;">// Utiliza la carpeta de archivos.</span></div>
-  <div><span style="color: #0070c1;">app</span>.<span
-     style="color: #795e26;">use</span>(<span
-     style="color: #795e26;">express</span>.<span
-     style="color: #795e26;">static</span>(<span
-     style="color: #0070c1;">www</span>))</div>
-  <div><span
-     style="color: #008000;">/* El recurso "/valida" procesa</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* solicitudes post en formato</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* multipart sin archivos adjuntos</span></div>
-  <div><span style="color: #008000;">&nbsp;* e invoca la función</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* validaUsuario para procesar la</span></div>
-  <div><span style="color: #008000;">&nbsp;* solicitud. */</span></div>
-  <div><span style="color: #0070c1;">app</span>.<span
-     style="color: #795e26;">post</span>(<span
-     style="color: #a31515;">"/valida"</span>,</div>
-  <div>&nbsp;<span style="color: #0070c1;">multipart</span>.<span
-     style="color: #795e26;">none</span>(),</div>
-  <div>&nbsp;<span style="color: #795e26;">validaUsuario</span>)</div>
-  <div><span
-    style="color: #008000;">/* El servidor empieza a escuchar</span></div>
-  <div><span
-    style="color: #008000;">&nbsp;* solucitudes en el puerto 3000.*/</span></div>
-  <div><span style="color: #0070c1;">httpServer</span>.<span
-     style="color: #795e26;">listen</span>(<span
-     style="color: #098658;">3000</span>)</div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #795e26;">mb_internal_encoding</span>(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div>&nbsp; <span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$resultado</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #795e26;">json_encode</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>&nbsp; } <span style="color: #af00db;">catch</span> (\<span
+     style="color: #267f99;">Throwable</span> <span
+     style="color: #001080;">$t</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #795e26;">http_response_code</span>(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$t</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>();</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -510,56 +470,66 @@
     <a class="paginaAnterior" href="/m06ecommerce/mEdetalle.html"
       title="E. Fotos de productos a detalle">▲</a>
    </p>
-     <h1><a href="/m07servicios/index.html">7. Diseño de servicios</a></h1>
+     <h1><a href="/m07servicios/index.html">7. Uso de servicios</a></h1>
    <ol type="A">
     <li>
      <p>
-      <a href="/m07servicios/mAarquitectura.html">Arquitectura</a>
+      <a href="/m07servicios/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mBdespliegue.html">Diagrama de despliegue</a>
+      <a href="/m07servicios/mBarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mCer.html">Diagrama entidad relación</a>
+      <a href="/m07servicios/mCjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mDinstrucciones.html">Instrucciones</a>
+      <a href="/m07servicios/mDejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mEarchivos.html">Archivos</a>
+      <a href="/m07servicios/mEmuestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mFindexHtml.html">www/index.html</a>
+      <a href="/m07servicios/mFsubmitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mGctrlSesion.html">www/CtrlSesion.js</a>
+      <a href="/m07servicios/mGindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mHindexJs.html" class="actual">index.js</a>
+      <a href="/m07servicios/mHleeValorPhp.html">srv/lib/leeValor.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mIvalidaUsuario.html">validaUsuario.js</a>
+      <a href="/m07servicios/mIServicioPhp.html" class="actual">srv/lib/Servicio.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mJresumen.html">Resumen</a>
+      <a href="/m07servicios/mJSrvErrorPhp.html">srv/SrvError.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mKSrvResultadoPhp.html">srv/SrvResultado.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mLSrvProcesaPhp.html">srv/SrvProcesa.php</a>
      </p>
     </li>
    </ol><p>
@@ -576,9 +546,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m07servicios/mGctrlSesion.html"
+ let urlAnterior = "/m07servicios/mHleeValorPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m07servicios/mIvalidaUsuario.html"
+ let urlSiguiente = "/m07servicios/mJSrvErrorPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

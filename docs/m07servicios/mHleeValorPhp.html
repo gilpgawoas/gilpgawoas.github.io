@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>J. Resumen - GilPG AWOAS</title>
- <meta name="description" content="Resumen de la lección «7. Diseño de servicios.">
+ <title>H. srv/lib/leeValor.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de srv/lib/leeValor.php">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,16 +396,37 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m07servicios/mIvalidaUsuario.html" title="I. validaUsuario.js">◀</a>
-  <a class="siguiente" href="/m08renderCliente/index.html" title="8. Renderizado del lado del cliente">▶</a>
+  <a class="anterior" href="/m07servicios/mGindexHtml.html" title="G. index.html">◀</a>
+  <a class="siguiente" href="/m07servicios/mIServicioPhp.html" title="I. srv/lib/Servicio.php">▶</a>
  </div>
-   <h1 >J. Resumen</h1><div class="lectura">
- <ul>
-  <li>
-   <p>En esta lección se presentó un ejemplo de control de sesión.</p>
-  </li>
- </ul>
-</div>
+   <h1 >H. srv/lib/leeValor.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Recupera un valor enviado al</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* servicio por medio de GET, POST</span>
+  </div>
+  <div><span style="color: #008000;">&nbsp;* o cookie.</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeValor</span>(</div>
+  <div>&nbsp; <span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span></div>
+  <div>): <span style="color: #0000ff;">string</span> {</div>
+  <div>&nbsp; <span style="color: #001080;">$valor</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>])</div>
+  <div>&nbsp; &nbsp; ? <span style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>]</div>
+  <div>&nbsp; &nbsp; : <span style="color: #a31515;">""</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -439,56 +460,66 @@
     <a class="paginaAnterior" href="/m06ecommerce/mEdetalle.html"
       title="E. Fotos de productos a detalle">▲</a>
    </p>
-     <h1><a href="/m07servicios/index.html">7. Diseño de servicios</a></h1>
+     <h1><a href="/m07servicios/index.html">7. Uso de servicios</a></h1>
    <ol type="A">
     <li>
      <p>
-      <a href="/m07servicios/mAarquitectura.html">Arquitectura</a>
+      <a href="/m07servicios/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mBdespliegue.html">Diagrama de despliegue</a>
+      <a href="/m07servicios/mBarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mCer.html">Diagrama entidad relación</a>
+      <a href="/m07servicios/mCjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mDinstrucciones.html">Instrucciones</a>
+      <a href="/m07servicios/mDejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mEarchivos.html">Archivos</a>
+      <a href="/m07servicios/mEmuestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mFindexHtml.html">www/index.html</a>
+      <a href="/m07servicios/mFsubmitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mGctrlSesion.html">www/CtrlSesion.js</a>
+      <a href="/m07servicios/mGindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mHindexJs.html">index.js</a>
+      <a href="/m07servicios/mHleeValorPhp.html" class="actual">srv/lib/leeValor.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mIvalidaUsuario.html">validaUsuario.js</a>
+      <a href="/m07servicios/mIServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mJresumen.html" class="actual">Resumen</a>
+      <a href="/m07servicios/mJSrvErrorPhp.html">srv/SrvError.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mKSrvResultadoPhp.html">srv/SrvResultado.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07servicios/mLSrvProcesaPhp.html">srv/SrvProcesa.php</a>
      </p>
     </li>
    </ol><p>
@@ -505,9 +536,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m07servicios/mIvalidaUsuario.html"
+ let urlAnterior = "/m07servicios/mGindexHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m08renderCliente/index.html"
+ let urlSiguiente = "/m07servicios/mIServicioPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
