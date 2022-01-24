@@ -1,0 +1,118 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #ff0000;">html</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span style="color: #800000;">&lt;html&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+     style="color: #ff0000;">charset</span>=<span
+     style="color: #0000ff;">"UTF-8"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"viewport"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+     style="color: #0000ff;">"width=device-width"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span>Mensajes<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;body&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"forma"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">action</span>=<span
+     style="color: #0000ff;">"javascript:envia()"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;h1&gt;</span>Mensajes<span
+     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp; &nbsp; Alias</div>
+  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"alias"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp; &nbsp; Mensaje</div>
+  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"mensaje"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #800000;">&lt;button&gt;</span>Enviar<span
+     style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;pre</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"pre"</span><span
+     style="color: #800000;">&gt;&lt;/pre&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;script&gt;</span></div>
+  <div>&nbsp; <span
+     style="color: #008000;">/* Cambia la url por la de tu</span></div>
+  <div><span style="color: #008000;">&nbsp; &nbsp;* servicio. */</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">ws</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">WebSocket</span>(</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"wss://phpmensajes.gilbertopacheco.repl.co"</span>)
+  </div>
+  <div>&nbsp; <span style="color: #0070c1;">ws</span>.<span
+     style="color: #001080;">onopen</span> = <span
+     style="color: #795e26;">wsAbierto</span></div>
+  <div>&nbsp; <span style="color: #0070c1;">ws</span>.<span
+     style="color: #001080;">onmessage</span> = <span
+     style="color: #795e26;">recibeMensaje</span></div><br>
+  <div>&nbsp; <span
+     style="color: #008000;">/** @param {MessageEvent} evt */</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">recibeMensaje</span>(<span
+     style="color: #001080;">evt</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">pre</span>.<span
+     style="color: #001080;">textContent</span> +=</div>
+  <div>&nbsp; &nbsp; <span style="color: #001080;">evt</span>.<span
+     style="color: #0070c1;">data</span> + <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n\n</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp; }</div><br>
+  <div>&nbsp; <span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">envia</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">msg</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #a31515;">`</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">forma</span>.<span
+     style="color: #001080;">alias</span>.<span
+     style="color: #001080;">value</span><span
+     style="color: #0000ff;">}</span></div>
+  <div><span style="color: #0000ff;">${</span><span
+     style="color: #001080;">forma</span>.<span
+     style="color: #001080;">mensaje</span>.<span
+     style="color: #001080;">value</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">`</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">ws</span>.<span
+     style="color: #795e26;">send</span>(<span
+     style="color: #0070c1;">msg</span>)</div>
+  <div>&nbsp; }</div><br>
+  <div>&nbsp; <span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">wsAbierto</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">console</span>.<span
+     style="color: #795e26;">log</span>(<span
+     style="color: #a31515;">'Conectado'</span>)</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+ </div>
+</muestra-codigo>

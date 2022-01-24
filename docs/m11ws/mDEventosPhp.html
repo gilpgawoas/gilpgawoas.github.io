@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>11. Protocolos de comunicación - GilPG AWOAS</title>
- <meta name="description" content="Contenido de la lección «11. Protocolos de comunicación».">
+ <title>D. Eventos.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «Eventos.php».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,62 +396,118 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m10bd/m30ServicioPhp.html" title="30. srv/lib/Servicio.php">◀</a>
-  <a class="siguiente" href="/m11ws/mAinstrucciones.html" title="A. Instrucciones">▶</a>
+  <a class="anterior" href="/m11ws/mCarchivos.html" title="C. Archivos">◀</a>
+  <a class="siguiente" href="/m11ws/mEmainPhp.html" title="E. main.php">▶</a>
  </div>
-   <h1 class="leccion">11. Protocolos de comunicación</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <p>
-  En esta lección se presentan un chat sencillo.
- </p>
- <nav>
-  <h1>Contenido</h1>
-  
-   <ol type="A">
-    <li>
-     <p>
-      <a href="/m11ws/mAinstrucciones.html">Instrucciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mBphpmensajes.html">phpmensajes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mCarchivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mDEventosPhp.html">Eventos.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mEmainPhp.html">main.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mFhtmlmensajes.html">htmlmensajes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m11ws/mGindexHtml.html">index.html</a>
-     </p>
-    </li>
-   </ol>
- </nav>
-</div>
+   <h1 >D. Eventos.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div><br>
+  <div><span style="color: #0000ff;">use</span></div>
+  <div>&nbsp;Ratchet\<span
+     style="color: #267f99;">MessageComponentInterface</span>;</div>
+  <div><span style="color: #0000ff;">use</span> Ratchet\<span
+     style="color: #267f99;">ConnectionInterface</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Eventos</span> <span
+     style="color: #0000ff;">implements</span></div>
+  <div>&nbsp;<span
+     style="color: #267f99;">MessageComponentInterface</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span> <span
+     style="color: #001080;">$conexiones</span>;</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #008000;">// Crea un arreglo de
+    objetos.</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexiones</span> =</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">\SplObjectStorage</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onOpen</span>(</div>
+  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$con</span></div>
+  <div>&nbsp;) {</div>
+  <div>&nbsp; <span style="color: #008000;">// Guarda la conexión.</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexiones</span>-&gt;<span
+     style="color: #795e26;">attach</span>(<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp; <span
+     style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Conectado: "</span> .</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
+     style="color: #001080;">resourceId</span> . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onMessage</span>(</div>
+  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$origen</span>,</div>
+  <div>&nbsp; <span style="color: #001080;">$msg</span></div>
+  <div>&nbsp;) {</div>
+  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Recibido: </span><span
+     style="color: #001080;">$msg</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp; <span
+     style="color: #008000;">// Reenvía el mensaje a todos.</span></div>
+  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexiones</span></div>
+  <div>&nbsp; &nbsp;as <span style="color: #001080;">$con</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">send</span>(<span
+     style="color: #001080;">$msg</span>);</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onClose</span>(</div>
+  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$con</span></div>
+  <div>&nbsp;) {</div>
+  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexiones</span>-&gt;<span
+     style="color: #795e26;">detach</span>(<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Desconectado: "</span> .</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
+     style="color: #001080;">resourceId</span> . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onError</span>(</div>
+  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$con</span>,</div>
+  <div>&nbsp; <span style="color: #267f99;">\Exception</span> <span
+     style="color: #001080;">$e</span></div>
+  <div>&nbsp;) {</div>
+  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Error: "</span> .</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$e</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>() . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp; <span style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">close</span>();</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -485,7 +541,7 @@
     <a class="paginaAnterior" href="/m10bd/m30ServicioPhp.html"
       title="30. srv/lib/Servicio.php">▲</a>
    </p>
-     <h1><a href="/m11ws/index.html" class="actual">11. Protocolos de comunicación</a></h1>
+     <h1><a href="/m11ws/index.html">11. Protocolos de comunicación</a></h1>
    <ol type="A">
     <li>
      <p>
@@ -504,7 +560,7 @@
     </li>
     <li>
      <p>
-      <a href="/m11ws/mDEventosPhp.html">Eventos.php</a>
+      <a href="/m11ws/mDEventosPhp.html" class="actual">Eventos.php</a>
      </p>
     </li>
     <li>
@@ -536,9 +592,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m10bd/m30ServicioPhp.html"
+ let urlAnterior = "/m11ws/mCarchivos.html"
  /**@type {string} */
- let urlSiguiente = "/m11ws/mAinstrucciones.html"
+ let urlSiguiente = "/m11ws/mEmainPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

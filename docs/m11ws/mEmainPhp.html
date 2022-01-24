@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>D. Resumen - GilPG AWOAS</title>
- <meta name="description" content="Resumen de la lección «11. Protocolos de comunicación».">
+ <title>E. main.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «main.php».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,29 +396,42 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m11ws/mCdispositivo.html" title="C. Dispositivo.ino">◀</a>
-  <a class="siguiente" href="/m12streaming.html" title="12. Ejemplo de streaming">▶</a>
+  <a class="anterior" href="/m11ws/mDEventosPhp.html" title="D. Eventos.php">◀</a>
+  <a class="siguiente" href="/m11ws/mFhtmlmensajes.html" title="F. htmlmensajes">▶</a>
  </div>
-   <h1 >D. Resumen</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    En esta lección se presentaron los siguientes archivos:
-   </p>
-   <ul>
-    <li>
-     <p>Blinkt.ino</p>
-    </li>
-    <li>
-     <p>Button.ino</p>
-    </li>
-    <li>
-     <p>Dispositivo.ino</p>
-    </li>
-   </ul>
-  </li>
- </ul>
-</div>
+   <h1 >E. main.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">'/vendor/autoload.php'</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #a31515;">"./Eventos.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">use</span> Ratchet\Server\<span
+     style="color: #267f99;">IoServer</span>;</div>
+  <div><span style="color: #0000ff;">use</span> Ratchet\Http\<span
+     style="color: #267f99;">HttpServer</span>;</div>
+  <div><span style="color: #0000ff;">use</span> Ratchet\WebSocket\<span
+     style="color: #267f99;">WsServer</span>;</div><br>
+  <div><span style="color: #001080;">$server</span> = <span
+     style="color: #267f99;">IoServer</span>::<span
+     style="color: #795e26;">factory</span>(</div>
+  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">HttpServer</span>(</div>
+  <div>&nbsp; <span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">WsServer</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Eventos</span>(<span
+     style="color: #001080;">$valor</span>)</div>
+  <div>&nbsp; )</div>
+  <div>&nbsp;),</div>
+  <div>&nbsp;<span style="color: #098658;">80</span></div>
+  <div>);</div><br>
+  <div><span style="color: #001080;">$server</span>-&gt;<span
+     style="color: #795e26;">run</span>();</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -456,22 +469,37 @@
    <ol type="A">
     <li>
      <p>
-      <a href="/m11ws/mAblink.html">Blink.ino</a>
+      <a href="/m11ws/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mBbutton.html">Button.ino</a>
+      <a href="/m11ws/mBphpmensajes.html">phpmensajes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mCdispositivo.html">Dispositivo.ino</a>
+      <a href="/m11ws/mCarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mDresumen.html" class="actual">Resumen</a>
+      <a href="/m11ws/mDEventosPhp.html">Eventos.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m11ws/mEmainPhp.html" class="actual">main.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m11ws/mFhtmlmensajes.html">htmlmensajes</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m11ws/mGindexHtml.html">index.html</a>
      </p>
     </li>
    </ol><p>
@@ -488,9 +516,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m11ws/mCdispositivo.html"
+ let urlAnterior = "/m11ws/mDEventosPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m12streaming.html"
+ let urlSiguiente = "/m11ws/mFhtmlmensajes.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
