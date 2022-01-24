@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>D. Resumen - GilPG AWOAS</title>
- <meta name="description" content="Resumen de la lección «11. Protocolos de comunicación».">
+ <title>5. srv/dao/pasatiempoCrea.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/dao/pasatiempoCrea.php».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,29 +396,37 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m11ws/mCdispositivo.html" title="C. Dispositivo.ino">◀</a>
-  <a class="siguiente" href="/m12streaming.html" title="12. Ejemplo de streaming">▶</a>
+  <a class="anterior" href="/m10bd/m04PasatiempoPhp.html" title="4. srv/modelo/Pasatiempo.php">◀</a>
+  <a class="siguiente" href="/m10bd/m06AccesoBdPhp.html" title="6. srv/lib/AccesoBd.php">▶</a>
  </div>
-   <h1 >D. Resumen</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    En esta lección se presentaron los siguientes archivos:
-   </p>
-   <ul>
-    <li>
-     <p>Blinkt.ino</p>
-    </li>
-    <li>
-     <p>Button.ino</p>
-    </li>
-    <li>
-     <p>Dispositivo.ino</p>
-    </li>
-   </ul>
-  </li>
- </ul>
-</div>
+   <h1 >5. srv/dao/pasatiempoCrea.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Recupera un valor enviado al</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* servicio por medio de GET, POST</span>
+  </div>
+  <div><span style="color: #008000;">&nbsp;* o cookie.</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeValor</span>(</div>
+  <div>&nbsp; <span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span></div>
+  <div>): <span style="color: #0000ff;">string</span> {</div>
+  <div>&nbsp; <span style="color: #001080;">$valor</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>])</div>
+  <div>&nbsp; &nbsp; ? <span style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>]</div>
+  <div>&nbsp; &nbsp; : <span style="color: #a31515;">""</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -449,34 +457,164 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m10bd/m30ServicioPhp.html"
-      title="30. srv/lib/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m09renderServidor/mHServicioPhp.html"
+      title="H. srv/lib/Servicio.php">▲</a>
    </p>
-     <h1><a href="/m11ws/index.html">11. Protocolos de comunicación</a></h1>
-   <ol type="A">
+     <h1><a href="/m10bd/index.html">10. Bases de datos</a></h1>
+   <ol type="1">
     <li>
      <p>
-      <a href="/m11ws/mAblink.html">Blink.ino</a>
+      <a href="/m10bd/m01instrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mBbutton.html">Button.ino</a>
+      <a href="/m10bd/m02archivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mCdispositivo.html">Dispositivo.ino</a>
+      <a href="/m10bd/m03bd.html">Base de datos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mDresumen.html" class="actual">Resumen</a>
+      <a href="/m10bd/m04PasatiempoPhp.html">srv/modelo/Pasatiempo.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m05pasatiempoCreaPhp.html" class="actual">srv/dao/pasatiempoCrea.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m06AccesoBdPhp.html">srv/lib/AccesoBd.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m07AccesoEjemploBdPhp.html">srv/AccesoEjemploBd.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m08listado.html">Listar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m09pasatiempoConsultaPhp.html">srv/dao/pasatiempoConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m10SrvPasatiempos.html">srv/SrvPasatiempos.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m11indexHtml.html">index.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m12agrega.html">Agregar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m13pasatiempoAgregaPhp.html">srv/dao/pasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m14SrvPasatiempoAgrega.html">srv/SrvPasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m15agregaHtml.html">agrega.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m16modifica.html">Modificar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m17pasatiempoBuscaPhp.html">srv/dao/pasatiempoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m18SrvPasatiempoBusca.html">srv/SrvPasatiempoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m19pasatiempoEliminaPhp.html">srv/dao/pasatiempoElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m20SrvPasatiempoElimina.html">srv/SrvPasatiempoElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m21pasatiempoModificaPhp.html">srv/dao/pasatiempoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m22SrvPasatiempoModifica.html">srv/SrvPasatiempoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m23modificaHtml.html">modifica.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m24frecuentes.html">Archivos frecuentes</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m25jsconfigJson.html">jsconfig.json</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m26ejecutaJs.html">lib/ejecuta.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m27muestraErrorJs.html">lib/muestraError.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m28submitJs.html">lib/submit.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m29leeValorPhp.html">srv/lib/leeValor.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m30ServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m12streaming.html"
-      title="12. Ejemplo de streaming">▼</a>
+    <a class="paginaSiguiente" href="/m11ws/index.html"
+      title="11. Protocolos de comunicación">▼</a>
    </p>
 </nav>
  <script>
@@ -488,9 +626,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m11ws/mCdispositivo.html"
+ let urlAnterior = "/m10bd/m04PasatiempoPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m12streaming.html"
+ let urlSiguiente = "/m10bd/m06AccesoBdPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
