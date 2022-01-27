@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>D. Eventos.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «Eventos.php».">
+ <title>19. srv/dao/pasatiempoBusca.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/dao/pasatiempoBusca.php».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,115 +396,62 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m11ws/mCarchivos.html" title="C. Archivos">◀</a>
-  <a class="siguiente" href="/m11ws/mEmainPhp.html" title="E. main.php">▶</a>
+  <a class="anterior" href="/m10bd/m18modifica.html" title="18. Modificar">◀</a>
+  <a class="siguiente" href="/m10bd/m20SrvPasatiempoBusca.html" title="20. srv/SrvPasatiempoBusca.php">▶</a>
  </div>
-   <h1 >D. Eventos.php</h1><muestra-codigo>
+   <h1 >19. srv/dao/pasatiempoBusca.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div><br>
-  <div><span style="color: #0000ff;">use</span></div>
-  <div>&nbsp;Ratchet\<span
-     style="color: #267f99;">MessageComponentInterface</span>;</div>
-  <div><span style="color: #0000ff;">use</span> Ratchet\<span
-     style="color: #267f99;">ConnectionInterface</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Eventos</span> <span
-     style="color: #0000ff;">implements</span></div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #267f99;">MessageComponentInterface</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span> <span
-     style="color: #001080;">$conexiones</span>;</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #008000;">// Crea un arreglo de
-    objetos.</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">\SplObjectStorage</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onOpen</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #008000;">// Guarda la conexión.</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span>-&gt;<span
-     style="color: #795e26;">attach</span>(<span
-     style="color: #001080;">$con</span>);</div>
+     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">pasatiempoBusca</span>(</div>
+  <div>&nbsp;<span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$id</span></div>
+  <div>) {</div>
+  <div>&nbsp;<span style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp; <span style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp; PAS_ID </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> id,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; PAS_NOMBRE </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> nombre</span></div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PASATIEMPO</span></div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> PAS_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$id</span>]);</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(</div>
   <div>&nbsp; <span
-     style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Conectado: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #001080;">resourceId</span> . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onMessage</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$origen</span>,</div>
-  <div>&nbsp; <span style="color: #001080;">$msg</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Recibido: </span><span
-     style="color: #001080;">$msg</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp; <span
-     style="color: #008000;">// Reenvía el mensaje a todos.</span></div>
-  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span></div>
-  <div>&nbsp; &nbsp;as <span style="color: #001080;">$con</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #001080;">$msg</span>);</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onClose</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span>-&gt;<span
-     style="color: #795e26;">detach</span>(<span
-     style="color: #001080;">$con</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Desconectado: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #001080;">resourceId</span> . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onError</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span>,</div>
-  <div>&nbsp; <span style="color: #267f99;">\Exception</span> <span
-     style="color: #001080;">$e</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Error: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$e</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>() . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp; <span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">close</span>();</div>
-  <div>&nbsp;}</div>
+     style="color: #267f99;">PDO</span>::FETCH_CLASS,</div>
+  <div>&nbsp; <span style="color: #a31515;">"Pasatiempo"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
   <div>}</div><br>
  </div>
 </muestra-codigo>
@@ -538,49 +485,174 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m10bd/m32ServicioPhp.html"
-      title="32. srv/lib/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m09renderServidor/mHServicioPhp.html"
+      title="H. srv/lib/Servicio.php">▲</a>
    </p>
-     <h1><a href="/m11ws/index.html">11. Protocolos de comunicación</a></h1>
-   <ol type="A">
+     <h1><a href="/m10bd/index.html">10. Bases de datos</a></h1>
+   <ol type="1">
     <li>
      <p>
-      <a href="/m11ws/mAinstrucciones.html">Instrucciones</a>
+      <a href="/m10bd/m01instrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mBphpmensajes.html">phpmensajes</a>
+      <a href="/m10bd/m02archivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mCarchivos.html">Archivos</a>
+      <a href="/m10bd/m03mensajes.html">Mensajes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mDEventosPhp.html" class="actual">Eventos.php</a>
+      <a href="/m10bd/m04msgFaltaElIdPhp.html">srv/mensajes/msgFaltaElId.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mEmainPhp.html">main.php</a>
+      <a href="/m10bd/m05msgFaltaElNombrePhp.html">srv/mensajes/msgFaltaElNombre.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mFhtmlmensajes.html">htmlmensajes</a>
+      <a href="/m10bd/m06bd.html">Base de datos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m11ws/mGindexHtml.html">index.html</a>
+      <a href="/m10bd/m07PasatiempoPhp.html">srv/modelo/Pasatiempo.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m08pasatiempoCreaPhp.html">srv/dao/pasatiempoCrea.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m09AccesoBdPhp.html">srv/lib/AccesoBd.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m10listado.html">Listar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m11pasatiempoConsultaPhp.html">srv/dao/pasatiempoConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m12SrvPasatiempos.html">srv/SrvPasatiempos.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m13indexHtml.html">index.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m14agrega.html">Agregar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m15pasatiempoAgregaPhp.html">srv/dao/pasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m16SrvPasatiempoAgrega.html">srv/SrvPasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m17agregaHtml.html">agrega.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m18modifica.html">Modificar</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m19pasatiempoBuscaPhp.html" class="actual">srv/dao/pasatiempoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m20SrvPasatiempoBusca.html">srv/SrvPasatiempoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m21pasatiempoEliminaPhp.html">srv/dao/pasatiempoElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m22SrvPasatiempoElimina.html">srv/SrvPasatiempoElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m23pasatiempoModificaPhp.html">srv/dao/pasatiempoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m24SrvPasatiempoModifica.html">srv/SrvPasatiempoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m25modificaHtml.html">modifica.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m26frecuentes.html">Archivos frecuentes</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m27jsconfigJson.html">jsconfig.json</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m28ejecutaJs.html">lib/ejecuta.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m29muestraErrorJs.html">lib/muestraError.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m30submitJs.html">lib/submit.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m31leeValorPhp.html">srv/lib/leeValor.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m32ServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m12streaming.html"
-      title="12. Ejemplo de streaming">▼</a>
+    <a class="paginaSiguiente" href="/m11ws/index.html"
+      title="11. Protocolos de comunicación">▼</a>
    </p>
 </nav>
  <script>
@@ -592,9 +664,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m11ws/mCarchivos.html"
+ let urlAnterior = "/m10bd/m18modifica.html"
  /**@type {string} */
- let urlSiguiente = "/m11ws/mEmainPhp.html"
+ let urlSiguiente = "/m10bd/m20SrvPasatiempoBusca.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
