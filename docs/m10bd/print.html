@@ -393,7 +393,7 @@
     </li>
     <li>
      <p>
-      <a href="/m10bd/m09AccesoBdPhp.html">srv/lib/AccesoBd.php</a>
+      <a href="/m10bd/m09AccesoBdPhp.html">srv/dao/AccesoBd.php</a>
      </p>
     </li>
     <li>
@@ -723,9 +723,10 @@
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">valida</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (!<span
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span>) {</div>
+     style="color: #001080;">nombre</span> === <span
+     style="color: #0000ff;">null</span>) {</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Exception</span>(</div>
@@ -738,9 +739,10 @@
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">validaCambio</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (!<span
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span>) {</div>
+     style="color: #001080;">id</span> === <span
+     style="color: #0000ff;">null</span>) {</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Exception</span>(</div>
@@ -748,9 +750,10 @@
      style="color: #795e26;">msgFaltaElId</span>()</div>
   <div>&nbsp; &nbsp;);</div>
   <div>&nbsp; }</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (!<span
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span>) {</div>
+     style="color: #001080;">nombre</span> === <span
+     style="color: #0000ff;">null</span>) {</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Exception</span>(</div>
@@ -806,7 +809,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. srv/lib/AccesoBd.php</h1><muestra-codigo>
+         <h1 >9. srv/dao/AccesoBd.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
