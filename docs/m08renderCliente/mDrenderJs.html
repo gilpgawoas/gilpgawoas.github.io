@@ -412,13 +412,11 @@
   <div><span style="color: #008000;">&nbsp;*/</span></div><br>
   <div><span style="color: #008000;">/**</span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@typedef</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Object}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">Elemento</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@typedef</span><span </span><span
+      style="color: #267f99;">{Object}</span><span
+      style="color: #008000;"> </span><span
+      style="color: #267f99;">Elemento</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
      style="color: #0000ff;">@property</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{string}</span><span
@@ -462,27 +460,30 @@
   <div><span style="color: #0000ff;">function</span> <span
      style="color: #795e26;">render</span>(<span
      style="color: #001080;">lista</span>) {</div>
-  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">ren</span> = <span
-     style="color: #001080;">lista</span>.</div>
-  <div>&nbsp; <span style="color: #795e26;">map</span>(<span
-     style="color: #001080;">e</span> <span
-     style="color: #0000ff;">=&gt;</span> <span
+  <div>&nbsp;<span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">ren</span> = <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">modelo</span> <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #001080;">lista</span>) {</div>
+  <div>&nbsp; <span style="color: #001080;">ren</span> += <span
      style="color: #008000;">/* html */</span></div>
-  <div>&nbsp; &nbsp;`<span style="color: #800000;">&lt;li&gt;${</span><span
+  <div>&nbsp; &nbsp;`<span
+     style="color: #800000;">&lt;li&gt;${</span><span
      style="color: #795e26;">cod</span>(<span
-     style="color: #001080;">e</span>.<span
+     style="color: #0070c1;">modelo</span>.<span
      style="color: #001080;">nombre</span>)<span
-     style="color: #800000;">}&lt;/li&gt;</span>`).</div>
-  <div>&nbsp; <span style="color: #795e26;">join</span>(<span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp;<span style="color: #795e26;">if</span> (<span
+     style="color: #800000;">}&lt;/li&gt;</span>`</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
      style="color: #001080;">self</span></div>
   <div>&nbsp; <span style="color: #0000ff;">instanceof</span> <span
      style="color: #267f99;">WorkerGlobalScope</span>) {</div>
   <div>&nbsp; <span style="color: #001080;">self</span>.<span
      style="color: #795e26;">postMessage</span>(<span
-     style="color: #0070c1;">ren</span>)</div>
+     style="color: #001080;">ren</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span style="color: #008000;">/**</span></div>
@@ -500,8 +501,8 @@
      style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
   <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@param</span><span style="color: #008000;">
-   </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
      style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">fetch</span></div>
@@ -510,8 +511,7 @@
      style="color: #008000;"> </span><span
      style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div>&nbsp;<span style="color: #001080;">export</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
+  <div><span style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">ejecuta</span>(<span
      style="color: #001080;">fetch</span>) {</div>
@@ -579,11 +579,9 @@
      style="color: #a31515;">""</span>).</div>
   <div>&nbsp; <span style="color: #795e26;">toString</span>().</div>
   <div>&nbsp; <span style="color: #795e26;">replace</span>(<span
-     style="color: #811f3f;">/</span><span
-     style="color: #d16969;">[</span><span
+     style="color: #811f3f;">/</span><span style="color: #d16969;">[</span><span
      style="color: #811f3f;">&lt;&gt;"'</span><span
-     style="color: #d16969;">]</span><span
-     style="color: #811f3f;">/</span><span
+     style="color: #d16969;">]</span><span style="color: #811f3f;">/</span><span
      style="color: #0000ff;">g</span>, <span
      style="color: #795e26;">reemplaza</span>);</div>
   <div>}</div>
