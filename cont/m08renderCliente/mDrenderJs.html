@@ -55,8 +55,7 @@
      style="color: #008000;"> </span><span
      style="color: #267f99;">{Elemento[]}</span><span
      style="color: #008000;"> </span><span
-     style="color: #001080;">lista</span>
-  </div>
+     style="color: #001080;">lista</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #0000ff;">function</span> <span
      style="color: #795e26;">render</span>(<span
@@ -71,11 +70,22 @@
      style="color: #001080;">lista</span>) {</div>
   <div>&nbsp; <span style="color: #001080;">ren</span> += <span
      style="color: #008000;">/* html */</span></div>
-  <div>&nbsp; &nbsp;`<span style="color: #800000;">&lt;li&gt;${</span><span
+  <div>&nbsp; &nbsp;`<span style="color: #800000;">&lt;div</span> <span
+     style="color: #ff0000;">class</span>=<span
+     style="color: #0000ff;">"simple"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #800000;">&lt;div</span> <span
+     style="color: #ff0000;">class</span>=<span
+     style="color: #0000ff;">"primario"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; &nbsp; &nbsp; <span style="color: #800000;">${</span><span
      style="color: #795e26;">cod</span>(<span
      style="color: #0070c1;">modelo</span>.<span
      style="color: #001080;">nombre</span>)<span
-     style="color: #800000;">}&lt;/li&gt;</span>`</div>
+     style="color: #800000;">}</span></div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #800000;">&lt;/div&gt;</span></div>
+  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;/div&gt;</span>`</div>
   <div>&nbsp;}</div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (<span
      style="color: #001080;">self</span></div>
@@ -87,19 +97,6 @@
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
-  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
@@ -148,7 +145,8 @@
   <div><span style="color: #008000;">/**</span></div>
   <div><span
      style="color: #008000;">&nbsp;* Codifica un texto para que</span></div>
-  <div><span style="color: #008000;">&nbsp;* escape los caracteres</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* escape los caracteres</span></div>
   <div><span
      style="color: #008000;">&nbsp;* especiales y no se pueda</span></div>
   <div><span
