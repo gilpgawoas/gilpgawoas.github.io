@@ -422,11 +422,28 @@
   <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
   <div>&nbsp; Acceso a base de datos</div>
   <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;style&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">html</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLs</span>: <span
+     style="color: #0451a5;">#1C1B1F</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBg</span>: <span
+     style="color: #0451a5;">#FFFBFE</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgHv</span>: <span
+     style="color: #0451a5;">#99999966</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgAc</span>: <span
+     style="color: #0451a5;">#999999dd</span>;</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/style&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;link</span> <span
+     style="color: #ff0000;">href</span>=<span
+     style="color: #0000ff;">"lib/css/lista.css"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">rel</span>=<span
+     style="color: #0000ff;">"stylesheet"</span><span
+     style="color: #800000;">&gt;</span></div>
   <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Acceso a base de datos<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Acceso a base de
+   datos<span style="color: #800000;">&lt;/h1&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;a</span></div>
   <div>&nbsp; &nbsp; <span style="color: #ff0000;">href</span>=<span
@@ -434,20 +451,20 @@
      style="color: #800000;">&gt;</span>Agregar<span
      style="color: #800000;">&lt;/a&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;ul</span> <span
+  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
+     style="color: #ff0000;">class</span>=<span
+     style="color: #0000ff;">"lista"</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;li&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp; Cargando<span
-    style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/li&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp; &nbsp;Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
@@ -455,12 +472,12 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/ejecuta.js"</span>;</div>
+     style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span>;</div>
-  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div>
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
+  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div><br>
   <div>&nbsp; <span style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">consulta</span>() {</div>
@@ -518,7 +535,7 @@
       data-logo="true">GilPG AWOAS</a>
    </p><p>
     <a class="paginaAnterior" href="/m09renderServidor/mHServicioPhp.html"
-      title="H. srv/lib/Servicio.php">▲</a>
+      title="H. lib/php/Servicio.php">▲</a>
    </p>
      <h1><a href="/m10bd/index.html">10. Bases de datos</a></h1>
    <ol type="1">
@@ -659,27 +676,32 @@
     </li>
     <li>
      <p>
-      <a href="/m10bd/m28ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m10bd/m33listaCss.html">lib/css/lista.css</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m29muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m10bd/m28ejecutaJs.html">lib/js/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m30submitJs.html">lib/submit.js</a>
+      <a href="/m10bd/m29muestraErrorJs.html">lib/js/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m31leeValorPhp.html">srv/lib/leeValor.php</a>
+      <a href="/m10bd/m30submitJs.html">lib/js/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m32ServicioPhp.html">srv/lib/Servicio.php</a>
+      <a href="/m10bd/m31leeValorPhp.html">lib/php/leeValor.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m32ServicioPhp.html">lib/php/Servicio.php</a>
      </p>
     </li>
    </ol><p>

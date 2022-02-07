@@ -3593,17 +3593,17 @@
     </li>
     <li>
      <p>
-      <a href="/m09renderServidor/mFejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m09renderServidor/mFejecutaJs.html">lib/js/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09renderServidor/mGmuestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m09renderServidor/mGmuestraErrorJs.html">lib/js/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09renderServidor/mHServicioPhp.html">srv/lib/Servicio.php</a>
+      <a href="/m09renderServidor/mHServicioPhp.html">lib/php/Servicio.php</a>
      </p>
     </li>
    </ol>
@@ -3661,10 +3661,23 @@
    <p>lib</p>
    <ul>
     <li>
-     <p><a href="mFejecutaJs.html">ejecuta.js</a></p>
+     <p>js</p>
+     <ul>
+      <li>
+       <p><a href="mFejecutaJs.html">ejecuta.js</a></p>
+      </li>
+      <li>
+       <p><a href="mGmuestraErrorJs.html">muestraError.js</a></p>
+      </li>
+     </ul>
     </li>
     <li>
-     <p><a href="mGmuestraErrorJs.html">muestraError.js</a></p>
+     <p>php</p>
+     <ul>
+      <li>
+       <p><a href="mHServicioPhp.html">Servicio.php</a></p>
+      </li>
+     </ul>
     </li>
    </ul>
   </li>
@@ -3672,15 +3685,7 @@
    <p>srv</p>
    <ul>
     <li>
-     <p>lib</p>
-     <ul>
-      <li>
-       <p><a href="mHServicioPhp.html">Servicio.php</a></p>
-      </li>
-     </ul>
-    </li>
-    <li>
-     <p><a href="mCSrvRender.html">SrvRender.php</a></p>
+     <p><a href="mCSrvRenderPhp.html">SrvRender.php</a></p>
     </li>
    </ul>
   </li>
@@ -3700,7 +3705,7 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvRender</span> <span
      style="color: #0000ff;">extends</span> <span
@@ -3711,17 +3716,13 @@
      style="color: #795e26;">implementacion</span>()</div>
   <div>&nbsp;{</div>
   <div>&nbsp; <span style="color: #001080;">$lista</span> = [</div>
-  <div>&nbsp; &nbsp;[<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"pp"</span>],</div>
-  <div>&nbsp; &nbsp;[<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"kq"</span>],</div>
-  <div>&nbsp; &nbsp;[<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"tt"</span>],</div>
-  <div>&nbsp; &nbsp;[<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"bb"</span>]</div>
   <div>&nbsp; ];</div>
   <div>&nbsp; <span style="color: #001080;">$render</span> = <span
@@ -3733,10 +3734,19 @@
   <div>&nbsp; &nbsp; <span style="color: #795e26;">htmlentities</span>(<span
      style="color: #001080;">$it</span>[<span
      style="color: #a31515;">"nombre"</span>]);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$render</span> .= <span
-     style="color: #a31515;">"&lt;li&gt;{</span><span
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"&lt;div class='simple'&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class='primario'&gt;</span>
+  </div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span
      style="color: #001080;">$nombre</span><span
-     style="color: #a31515;">}&lt;/li&gt;"</span>;</div>
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; &nbsp;&lt;/div&gt;"</span>;</div>
   <div>&nbsp; }</div>
   <div>&nbsp; <span style="color: #af00db;">return</span> [<span
      style="color: #a31515;">"render"</span> =&gt; <span
@@ -3777,24 +3787,22 @@
   <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
   <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Render en el servidor<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;ul</span> <span
+  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Render en el
+   servidor<span style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
+     style="color: #ff0000;">class</span>=<span
+     style="color: #0000ff;">"lista"</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;li&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp; Cargando<span
+  <div>&nbsp; &nbsp;Cargando<span
      style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/li&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
@@ -3802,7 +3810,11 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/ejecuta.js"</span>;</div><br>
+     style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
   <div>&nbsp; <span style="color: #795e26;">render</span>()</div><br>
   <div>&nbsp; <span style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
@@ -3854,7 +3866,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >F. lib/ejecuta.js</h1><muestra-codigo>
+         <h1 >F. lib/js/ejecuta.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #008000;">/**</span></div>
   <div><span
@@ -3919,7 +3931,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >G. lib/muestraError.js</h1><muestra-codigo>
+         <h1 >G. lib/js/muestraError.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/** Muestra un error en la consola</span></div>
@@ -3949,7 +3961,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >H. srv/lib/Servicio.php</h1><muestra-codigo>
+         <h1 >H. lib/php/Servicio.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #0000ff;">abstract</span> <span
@@ -4142,27 +4154,32 @@
     </li>
     <li>
      <p>
-      <a href="/m10bd/m28ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m10bd/m33listaCss.html">lib/css/lista.css</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m29muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m10bd/m28ejecutaJs.html">lib/js/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m30submitJs.html">lib/submit.js</a>
+      <a href="/m10bd/m29muestraErrorJs.html">lib/js/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m31leeValorPhp.html">srv/lib/leeValor.php</a>
+      <a href="/m10bd/m30submitJs.html">lib/js/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m10bd/m32ServicioPhp.html">srv/lib/Servicio.php</a>
+      <a href="/m10bd/m31leeValorPhp.html">lib/php/leeValor.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m10bd/m32ServicioPhp.html">lib/php/Servicio.php</a>
      </p>
     </li>
    </ol>
@@ -4220,13 +4237,37 @@
    <p>lib</p>
    <ul>
     <li>
-     <p><a href="m28ejecutaJs.html">ejecuta.js</a></p>
+     <p>css</p>
+     <ul>
+      <li>
+       <p><a href="m33listaCss.html">lista.css</a></p>
+      </li>
+     </ul>
     </li>
     <li>
-     <p><a href="m29muestraErrorJs.html">muestraError.js</a></p>
+     <p>js</p>
+     <ul>
+      <li>
+       <p><a href="m28ejecutaJs.html">ejecuta.js</a></p>
+      </li>
+      <li>
+       <p><a href="m29muestraErrorJs.html">muestraError.js</a></p>
+      </li>
+      <li>
+       <p><a href="m30submitJs.html">submit.js</a></p>
+      </li>
+     </ul>
     </li>
     <li>
-     <p><a href="m30submitJs.html">submit.js</a></p>
+     <p>php</p>
+     <ul>
+      <li>
+       <p><a href="m31leeValorPhp.html">leeValor.php</a></p>
+      </li>
+      <li>
+       <p><a href="m32ServicioPhp.html">Servicio.php</a></p>
+      </li>
+     </ul>
     </li>
    </ul>
   </li>
@@ -4256,17 +4297,6 @@
       </li>
       <li>
        <p><a href="m23pasatiempoModificaPhp.html">pasatiempoModifica.php</a></p>
-      </li>
-     </ul>
-    </li>
-    <li>
-     <p>lib</p>
-     <ul>
-      <li>
-       <p><a href="m31leeValorPhp.html">leeValor.php</a></p>
-      </li>
-      <li>
-       <p><a href="m32ServicioPhp.html">Servicio.php</a></p>
       </li>
      </ul>
     </li>
@@ -4593,7 +4623,7 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempos</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -4619,20 +4649,22 @@
      style="color: #001080;">$it</span>-&gt;<span
      style="color: #001080;">nombre</span>);</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp; &nbsp; <span style="color: #a31515;">"&lt;li&gt;</span></div>
-  <div><span style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;a</span></div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"&lt;a class='simple'</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;href='modifica.html?id=</span><span
      style="color: #001080;">$id</span><span
      style="color: #a31515;">'&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class='primario'&gt;</span>
+  </div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span
      style="color: #001080;">$nombre</span><span
      style="color: #a31515;">}</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;/a&gt;</span></div>
+     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;/span&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp;&lt;/li&gt;"</span>;</div>
+     style="color: #a31515;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;"</span>;</div>
   <div>&nbsp; }</div>
   <div>&nbsp; <span style="color: #af00db;">return</span> [<span
      style="color: #a31515;">"render"</span> =&gt; <span
@@ -4671,11 +4703,28 @@
   <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
   <div>&nbsp; Acceso a base de datos</div>
   <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;style&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">html</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLs</span>: <span
+     style="color: #0451a5;">#1C1B1F</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBg</span>: <span
+     style="color: #0451a5;">#FFFBFE</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgHv</span>: <span
+     style="color: #0451a5;">#99999966</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgAc</span>: <span
+     style="color: #0451a5;">#999999dd</span>;</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/style&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;link</span> <span
+     style="color: #ff0000;">href</span>=<span
+     style="color: #0000ff;">"lib/css/lista.css"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">rel</span>=<span
+     style="color: #0000ff;">"stylesheet"</span><span
+     style="color: #800000;">&gt;</span></div>
   <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Acceso a base de datos<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Acceso a base de
+   datos<span style="color: #800000;">&lt;/h1&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;a</span></div>
   <div>&nbsp; &nbsp; <span style="color: #ff0000;">href</span>=<span
@@ -4683,20 +4732,20 @@
      style="color: #800000;">&gt;</span>Agregar<span
      style="color: #800000;">&lt;/a&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;ul</span> <span
+  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
+     style="color: #ff0000;">class</span>=<span
+     style="color: #0000ff;">"lista"</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;li&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp; Cargando<span
-    style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/li&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp; &nbsp;Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
@@ -4704,12 +4753,12 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/ejecuta.js"</span>;</div>
+     style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span>;</div>
-  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div>
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
+  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div><br>
   <div>&nbsp; <span style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">consulta</span>() {</div>
@@ -4803,11 +4852,11 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+  <div><span
+     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempoAgrega</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -4827,7 +4876,7 @@
   <div>&nbsp; <span style="color: #795e26;">pasatiempoAgrega</span>(</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">$modelo</span>,</div>
   <div>&nbsp; &nbsp;<span
-    style="color: #a31515;">"Falta el nombre."</span></div>
+     style="color: #a31515;">"Falta el nombre."</span></div>
   <div>&nbsp; );</div>
   <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
   <div>&nbsp;}</div>
@@ -4898,11 +4947,11 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/submit.js"</span>;</div>
+     style="color: #a31515;">"./lib/js/submit.js"</span></div>
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span>;</div><br>
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
   <div>&nbsp; <span style="color: #001080;">forma</span>.<span
      style="color: #795e26;">addEventListener</span>(<span
      style="color: #a31515;">"submit"</span>,</div>
@@ -5007,11 +5056,11 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempoBusca</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -5091,11 +5140,11 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempoElimina</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -5180,18 +5229,19 @@
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/dao/pasatiempoModifica.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
+  <div><span
+     style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempoModifica</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -5215,8 +5265,8 @@
   <div>&nbsp; <span style="color: #795e26;">pasatiempoModifica</span>(</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">$modelo</span>,</div>
   <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el id."</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el nombre."</span>
-  </div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"Falta el nombre."</span></div>
   <div>&nbsp; );</div>
   <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
   <div>&nbsp;}</div>
@@ -5250,8 +5300,7 @@
   <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Modificar<span
+  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span>Modificar<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
@@ -5292,8 +5341,7 @@
      style="color: #0000ff;">"button"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp; &nbsp; Eliminar</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
@@ -5303,15 +5351,15 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/ejecuta.js"</span></div>
+     style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/submit.js"</span></div>
+     style="color: #a31515;">"./lib/js/submit.js"</span></div>
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
   <div>&nbsp; <span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">params</span> =</div>
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
@@ -5453,7 +5501,162 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >28. lib/ejecuta.js</h1><muestra-codigo>
+         <h1 >28. lib/css/lista.css</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">.lista</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">margin</span>: <span
+     style="color: #098658;">0.5rem</span> <span
+     style="color: #098658;">0</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
+     style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLs</span>);</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">*</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
+     style="color: #0451a5;">block</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">text-decoration</span>: <span
+     style="color: #0451a5;">none</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
+     style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLs</span>);</div>
+  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
+  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLsBg</span>);</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">*:hover</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
+  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLsBgHv</span>);</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">a:active</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
+     style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLs</span>);</div>
+  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
+  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--colLsBgAc</span>);</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.simple</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.avatar</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
+     style="color: #098658;">0.5rem</span> <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.imagen</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
+     style="color: #098658;">0.5rem</span> <span
+     style="color: #098658;">1rem</span> <span
+     style="color: #098658;">0.5rem</span> <span
+     style="color: #098658;">0</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">.textos</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
+     style="color: #0451a5;">block</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
+     style="color: #0451a5;">hidden</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">.tresElem</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
+     style="color: #0451a5;">flex</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">align-items</span>: <span
+     style="color: #0451a5;">center</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">.primario</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
+     style="color: #0451a5;">inline-block</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
+     style="color: #0451a5;">middle</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">font-size</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">font-weight</span>: <span
+     style="color: #0451a5;">bold</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
+     style="color: #0451a5;">hidden</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">white-space</span>: <span
+     style="color: #0451a5;">nowrap</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">text-overflow</span>: <span
+     style="color: #0451a5;">ellipsis</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">a</span> <span
+     style="color: #800000;">.primario</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">text-decoration</span>: <span
+     style="color: #0451a5;">underline</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">.material-icons</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
+     style="color: #0451a5;">middle</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
+     style="color: #098658;">2rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">img</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
+     style="color: #0451a5;">middle</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.simple</span> <span
+     style="color: #800000;">img</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
+     style="color: #098658;">2.5rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
+     style="color: #098658;">2.5rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.avatar</span> <span
+     style="color: #800000;">img</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
+     style="color: #098658;">2.5rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
+     style="color: #098658;">2.5rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">border-radius</span>: <span
+     style="color: #098658;">1.25rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span>&gt;<span
+     style="color: #800000;">.imagen</span> <span
+     style="color: #800000;">img</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
+     style="color: #098658;">6.25rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>}</div><br>
+  <div><span style="color: #800000;">.lista</span> <span
+     style="color: #800000;">.unRenglon</span> {</div>
+  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
+     style="color: #0451a5;">block</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
+     style="color: #098658;">1rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">font-size</span>: <span
+     style="color: #098658;">0.75rem</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
+     style="color: #0451a5;">hidden</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">white-space</span>: <span
+     style="color: #0451a5;">nowrap</span>;</div>
+  <div>&nbsp;<span style="color: #ff0000;">text-overflow</span>: <span
+     style="color: #0451a5;">ellipsis</span>;</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >29. lib/js/ejecuta.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #008000;">/**</span></div>
   <div><span
@@ -5518,7 +5721,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >29. lib/muestraError.js</h1><muestra-codigo>
+         <h1 >30. lib/js/muestraError.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/** Muestra un error en la consola</span></div>
@@ -5548,7 +5751,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >30. lib/submit.js</h1><muestra-codigo>
+         <h1 >31. lib/js/submit.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #af00db;">import</span> {</div>
   <div>&nbsp;<span style="color: #001080;">ejecuta</span></div>
@@ -5614,7 +5817,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >31. srv/lib/leeValor.php</h1><muestra-codigo>
+         <h1 >32. lib/php/leeValor.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #008000;">/**</span></div>
@@ -5644,7 +5847,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >32. srv/lib/Servicio.php</h1><muestra-codigo>
+         <h1 >33. lib/php/Servicio.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #0000ff;">abstract</span> <span

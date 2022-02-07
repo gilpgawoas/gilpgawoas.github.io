@@ -199,6 +199,7 @@ const ARCHIVOS = [
    "/m10bd/m30submitJs.html",
    "/m10bd/m31leeValorPhp.html",
    "/m10bd/m32ServicioPhp.html",
+   "/m10bd/m33listaCss.html",
    "/m10bd/print.html",
    "/m11ws/index.html",
    "/m11ws/mAinstrucciones.html",
