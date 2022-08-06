@@ -12,7 +12,16 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/textos/txtFaltaElId.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #811f3f;">"/textos/"</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"txtPasatiempoNoEncontrado.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempoBusca</span></div>
   <div><span style="color: #0000ff;">extends</span> <span
@@ -28,8 +37,18 @@
   <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
      style="color: #795e26;">pasatiempoBusca</span>(<span
      style="color: #001080;">$id</span>);</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modelo</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">return</span> <span
      style="color: #001080;">$modelo</span>;</div>
+  <div>&nbsp; } <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">txtPasatiempoNoEncontrado</span>()</div>
+  <div>&nbsp; &nbsp;);</div>
+  <div>&nbsp; }</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span style="color: #001080;">$servicio</span> =</div>
