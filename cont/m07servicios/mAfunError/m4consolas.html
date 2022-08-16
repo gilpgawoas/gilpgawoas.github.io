@@ -1,0 +1,45 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado2">Despiesta y recibe response.</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado">&nbsp; &nbsp; <span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">ejecuta</span>(</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"srv/SrvError.php"</span>))</div>
+   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+      style="color: #a31515;">"Ejecutado."</span>)</div>
+   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+      style="color: #001080;">e</span>) {</div>
+   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+      style="color: #001080;">e</span>)</div>
+   <div>&nbsp; &nbsp;}</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Response</h1>
+ <dl class="resaltado">
+  <dt>code</dt>
+  <dd>500</dd>
+  <dt>contenido</dt>
+  <dd>Ouch</dd>
+ </dl>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado3">Devuelve response y se duerme.</p>
+ <muestra-codigo>
+  <div>
+   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span>
+    <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Exception</span>(<span
+      style="color: #a31515;">"Ouch"</span>);
+   </div>
+  </div>
+ </muestra-codigo>
+</section>

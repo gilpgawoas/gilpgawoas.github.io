@@ -1,0 +1,59 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Request</h1>
+ <dl style="background-color: yellow; padding: 0.5rem;">
+  <dt>URL</dt>
+  <dd>
+   <p>
+    <a rel="noopener"
+      href="https://phpsrv1.gilbertopacheco.repl.co/servicio.php"
+      target="_blank">servicio.php</a>
+   </p>
+  </dd>
+  <dt>Method</dt>
+  <dd>
+   <p>GET</p>
+  </dd>
+ </dl>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado2">Despierta y recibe request.</p>
+ <muestra-codigo class="resaltado">
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+</section>

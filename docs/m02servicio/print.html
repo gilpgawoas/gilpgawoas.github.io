@@ -204,6 +204,10 @@
   background-color: rgb(255, 214, 139);
  }
 
+ .resaltado3 {
+  background-color: rgb(235, 234, 233);
+ }
+
  table.borde {
   margin-left: auto;
   margin-right: auto;
@@ -346,12 +350,28 @@
    </div>
 <div class="lectura">
  <p>
-  En esta lección se un servicio muy sencillo.
+  En esta lección se muestra un servicio muy sencillo.
+ </p>
+ <p>
+  Puedes probar el ejemplo en
+  <a rel="noopener" href="https://phpsrv1.gilbertopacheco.repl.co/"
+    target="_blank">https://phpsrv1.gilbertopacheco.repl.co/</a>
+  usando los siguientes datos:
  </p>
  <nav>
   <h1>Contenido</h1>
   
    <ol type="A">
+    <li>
+     <p>
+      <a href="/m02servicio/mAdeploy.html">Diagrama de despliegue</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/">Funcionamiento</a>
+     </p>
+    </li>
     <li>
      <p>
       <a href="/m02servicio/mAinstrucciones.html">Instrucciones</a>
@@ -376,7 +396,494 @@
  </nav>
 </div>
      <section >
-         <h1 >A. Instrucciones</h1><div class="lectura">
+         <h1 >A. Diagrama de despliegue</h1><figure>
+ <img style="max-height: none;"
+   src="/img/m02servicio/serviciodistribucion.drawio.svg"
+   alt="Diagrama de despliegue">
+</figure>
+      </section>
+     <section>
+         <h1 >B. Funcionamiento</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  
+   <ol type="1">
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m1wearables.html">Iniciamos al ejecutar código en el cliente</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m2asistentes.html">Se invoca el servicio en el servidor</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m3arduino.html">El servicio procesa la request y genera la response</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m5celulares.html">Verifica si la conexión terminó con éxito</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m6tablets.html">Como la conexión terminó con éxito, recupera el texto de response</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m7laptops.html">Muestra el texto en un alert</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mAfuncionamiento/m8desktops.html">Al cerrar el alert, termina el evento</a>
+     </p>
+    </li>
+   </ol>
+ </nav>
+</div>
+     <section class="pruebaDeEscritorio">
+         <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
+ <h1>index.html</h1>
+ <muestra-codigo class="resaltado">
+  <div>
+   <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >2. Se invoca el servicio en el servidor</h1><section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Request</h1>
+ <dl style="background-color: yellow; padding: 0.5rem;">
+  <dt>URL</dt>
+  <dd>
+   <p>
+    <a rel="noopener"
+      href="https://phpsrv1.gilbertopacheco.repl.co/servicio.php"
+      target="_blank">servicio.php</a>
+   </p>
+  </dd>
+  <dt>Method</dt>
+  <dd>
+   <p>GET</p>
+  </dd>
+ </dl>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado2">Despierta y recibe request.</p>
+ <muestra-codigo class="resaltado">
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado3">Hace wait esperando response.</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div class="resaltado3">&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado2">Procesa la request y genera response (respuesta).</p>
+ <muestra-codigo>
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div class="resaltado"><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Response</h1>
+ <p style="background-color: yellow; padding: 0.5rem;">
+  <sample>Hola</sample>
+ </p>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado2">Despiesta y recibe response.</p>
+ <muestra-codigo>
+  <div>
+   <div class="resaltado">&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <section style="display: block;">
+  <h1>Response</h1>
+  <p class="resaltado" style="padding: 0.5rem;">
+   <sample>Hola</sample>
+  </p>
+ </section>
+ <section style="display: block;">
+  <h1>Memoria</h1>
+  <dl class="resaltado" style="padding: 0.5rem;">
+   <dt>resp</dt>
+   <dd>
+    <dl>
+     <dt>ok</dt>
+     <dd>true</dd>
+     <dt>text</dt>
+     <dd>Hola</dd>
+    </dl>
+   </dd>
+  </dl>
+ </section>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado3">Devuelve response y se duerme.</p>
+ <muestra-codigo class="resaltado3">
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >5. Verifica si la conexión terminó con éxito</h1><section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div class="resaltado">&nbsp; &nbsp; <span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt class="resaltado">ok</dt>
+    <dd class="resaltado">true</dd>
+    <dt>text</dt>
+    <dd>Hola</dd>
+   </dl>
+  </dd>
+ </dl>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >6. Como la conexión terminó con éxito, recupera el texto de response</h1><section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp; <span
+      style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt>ok</dt>
+    <dd>true</dd>
+    <dt class="resaltado">text</dt>
+    <dd class="resaltado">Hola</dd>
+   </dl>
+  </dd>
+  <dt class="resaltado">texto</dt>
+  <dd class="resaltado">Hola</dd>
+ </dl>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >7. Muestra el texto en un alert</h1><section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span
+      style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt>ok</dt>
+    <dd>true</dd>
+    <dt>text</dt>
+    <dd>Hola</dd>
+   </dl>
+  </dd>
+  <dt>texto</dt>
+  <dd>Hola</dd>
+ </dl>
+</section>
+<section>
+ <h1>Alert</h1>
+ <div class="resaltado" style="border: thin solid; padding: 1rem;">
+  <p>Hola</p>
+  <p style="text-align: end;">
+   <button type="button">Aceptar</button>
+  </p>
+  </div>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >8. Al cerrar el alert, termina el evento</h1><section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span
+      style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt>ok</dt>
+    <dd>true</dd>
+    <dt>text</dt>
+    <dd>Hola</dd>
+   </dl>
+  </dd>
+  <dt>texto</dt>
+  <dd>Hola</dd>
+ </dl>
+</section>
+      </section>
+      </section>
+     <section >
+         <h1 >C. Instrucciones</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -429,7 +936,7 @@
 </div>
       </section>
      <section >
-         <h1 >B. Archivos</h1><div class="lectura">
+         <h1 >D. Archivos</h1><div class="lectura">
  <ul>
   <li>
    <p><a href="mBindexHtml.html">index.html</a></p>
@@ -441,7 +948,7 @@
 </div>
       </section>
      <section >
-         <h1 >C. index.html</h1><muestra-codigo>
+         <h1 >E. index.html</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
@@ -520,7 +1027,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >D. servicio.php</h1><muestra-codigo>
+         <h1 >F. servicio.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #795e26;">echo</span> <span

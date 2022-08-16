@@ -1,0 +1,60 @@
+<section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span
+      style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt>ok</dt>
+    <dd>true</dd>
+    <dt>text</dt>
+    <dd>Hola</dd>
+   </dl>
+  </dd>
+  <dt>texto</dt>
+  <dd>Hola</dd>
+ </dl>
+</section>
+<section>
+ <h1>Alert</h1>
+ <div class="resaltado" style="border: thin solid; padding: 1rem;">
+  <p>Hola</p>
+  <p style="text-align: end;">
+   <button type="button">Aceptar</button>
+  </p>
+  </div>
+</section>

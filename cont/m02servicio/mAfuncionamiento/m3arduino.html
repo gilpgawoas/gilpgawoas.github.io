@@ -1,0 +1,48 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado3">Hace wait esperando response.</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div class="resaltado3">&nbsp; &nbsp; &nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>&nbsp; &nbsp; }</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado2">Procesa la request y genera response (respuesta).</p>
+ <muestra-codigo>
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div class="resaltado"><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Response</h1>
+ <p style="background-color: yellow; padding: 0.5rem;">
+  <sample>Hola</sample>
+ </p>
+</section>
