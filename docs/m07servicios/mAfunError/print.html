@@ -341,7 +341,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >A. Ejemplo con errores</h1>
+   <h1 >B. Ejemplo con errores</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -364,7 +364,7 @@
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m3arduino.html">El servicio procesa la request y genera la response</a>
+      <a href="/m07servicios/mAfunError/m3arduino.html">El servicio procesa la request y lanza una excepción</a>
      </p>
     </li>
     <li>
@@ -465,7 +465,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: middle;">
+         <h1 >3. El servicio procesa la request y lanza una excepción</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
  <p class="resaltado3">Hace wait esperando response.</p>
  <muestra-codigo>
@@ -492,7 +492,8 @@
  <p class="resaltado2">Procesa la request y lanza una excepción.</p>
  <muestra-codigo>
   <div>
-   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span> <span
+   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span>
+    <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
       style="color: #a31515;">"Ouch"</span>);</div>
@@ -502,12 +503,10 @@
 <section style="vertical-align: middle;">
  <h1>Response</h1>
  <dl style="background-color: yellow; padding: 0.5rem;">
-  <dl>
-   <dt>code</dt>
-   <dd>500</dd>
-   <dt>contenido</dt>
-   <dd>Ouch</dd>
-  </dl>
+  <dt>code</dt>
+  <dd>500</dd>
+  <dt>contenido</dt>
+  <dd>Ouch</dd>
  </dl>
 </section>
       </section>
@@ -548,7 +547,7 @@
  <p class="resaltado3">Devuelve response y se duerme.</p>
  <muestra-codigo>
   <div>
-   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span>
+   <div class="resaltado3">&nbsp; <span style="color: #af00db;">throw</span>
     <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
@@ -582,19 +581,17 @@
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
- <section style="display: block;">
-  <h1>Memoria</h1>
-  <dl class="resaltado">
-   <dt>e</dt>
-   <dd>
-    <dl>
-     <dt>message</dt>
-     <dd>"Ouch"</dd>
-    </dl>
-   </dd>
-  </dl>
- </section>
+<section>
+ <h1>Memoria</h1>
+ <dl class="resaltado">
+  <dt>e</dt>
+  <dd>
+   <dl>
+    <dt>message</dt>
+    <dd>"Ouch"</dd>
+   </dl>
+  </dd>
+ </dl>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
@@ -676,6 +673,14 @@
    <div>&nbsp; &nbsp;}</div>
   </div>
  </muestra-codigo>
+</section>
+<section>
+ <h1>Consola</h1>
+ <div style="padding: 1rem;">
+  <pre>Error: Ouch
+   at ejecuta (ejecuta.js:19:9)
+   at async HTMLButtonElement.error (VM5:64:5)</pre>
+ </div>
 </section>
       </section>
 </body>

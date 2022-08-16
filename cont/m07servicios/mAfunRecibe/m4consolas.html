@@ -1,0 +1,77 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <p class="resaltado2">Despiesta y recibe response.</p>
+ <muestra-codigo>
+  <div>
+   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado">&nbsp; &nbsp; <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">json</span> = <span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">ejecuta</span>(</div>
+   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"srv/SrvResultado.php"</span>))</div>
+   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+      style="color: #a31515;">`Nombre: </span><span
+      style="color: #0000ff;">${</span><span
+      style="color: #0070c1;">json</span>.<span
+      style="color: #001080;">nombre</span><span
+      style="color: #0000ff;">}</span></div>
+   <div><span style="color: #a31515;">Mensaje: </span><span
+      style="color: #0000ff;">${</span><span
+      style="color: #0070c1;">json</span>.<span
+      style="color: #001080;">mensaje</span><span
+      style="color: #0000ff;">}</span><span
+      style="color: #a31515;">`</span>)</div>
+   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+      style="color: #001080;">e</span>) {</div>
+   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+      style="color: #001080;">e</span>)</div>
+   <div>&nbsp; &nbsp;}</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <section style="display: block;">
+  <h1>Response</h1>
+  <dl class="resaltado" style="padding: 0.5rem;">
+   <dt>code</dt>
+   <dd>200</dd>
+   <dt>contenido</dt>
+   <dd>{"nombre":"pp","mensaje":"Hola."}</dd>
+  </dl>
+ </section>
+ <section style="display: block;">
+  <h1>Memoria</h1>
+  <dl class="resaltado" style="padding: 0.5rem;">
+   <dt>json</dt>
+   <dd>
+    <dl>
+     <dt>nombre</dt>
+     <dd>"pp"</dd>
+     <dt>mensaje</dt>
+     <dd>"Hola."</dd>
+    </dl>
+   </dd>
+  </dl>
+ </section>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <p class="resaltado3">Devuelve response y se duerme.</p>
+ <muestra-codigo>
+  <div>
+   <div class="resaltado3">&nbsp; <span
+      style="color: #af00db;">return</span> [</div>
+   <div class="resaltado3">&nbsp; &nbsp;<span
+      style="color: #a31515;">"nombre"</span> =&gt; <span
+      style="color: #a31515;">"pp"</span>,</div>
+   <div class="resaltado3">&nbsp; &nbsp;<span
+      style="color: #a31515;">"mensaje"</span> =&gt; <span
+      style="color: #a31515;">"Hola."</span></div>
+   <div class="resaltado3">&nbsp; ];</div>
+  </div>
+  </div>
+ </muestra-codigo>
+</section>

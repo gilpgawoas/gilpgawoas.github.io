@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>3. El servicio procesa la request y genera la response - GilPG AWOAS</title>
+ <title>3. El servicio procesa la request y lanza una excepción - GilPG AWOAS</title>
  <meta name="description" content="Muestra como el servidor procesa la solicitud y genera la response.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -537,7 +537,7 @@
  </button>
  <a class="anterior" href="/m07servicios/mAfunError/m2asistentes.html" title="2. Se invoca el servicio en el servidor">◀</a>
  <a class="siguiente" href="/m07servicios/mAfunError/m4consolas.html" title="4. El servicio devuelve la response, que es recibida en el cliente">▶</a>
-   <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: middle;">
+   <h1 >3. El servicio procesa la request y lanza una excepción</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
  <p class="resaltado3">Hace wait esperando response.</p>
  <muestra-codigo>
@@ -564,7 +564,8 @@
  <p class="resaltado2">Procesa la request y lanza una excepción.</p>
  <muestra-codigo>
   <div>
-   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span> <span
+   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span>
+    <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
       style="color: #a31515;">"Ouch"</span>);</div>
@@ -574,12 +575,10 @@
 <section style="vertical-align: middle;">
  <h1>Response</h1>
  <dl style="background-color: yellow; padding: 0.5rem;">
-  <dl>
-   <dt>code</dt>
-   <dd>500</dd>
-   <dt>contenido</dt>
-   <dd>Ouch</dd>
-  </dl>
+  <dt>code</dt>
+  <dd>500</dd>
+  <dt>contenido</dt>
+  <dd>Ouch</dd>
  </dl>
 </section>
  <footer>
@@ -612,10 +611,10 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m07servicios/index.html"
-      title="7. Uso de servicios">▲</a>
+    <a class="paginaAnterior" href="/m07servicios/mAdeploy.html"
+      title="A. Diagrama de despliegue">▲</a>
    </p>
-     <h1><a href="/m07servicios/mAfunError/index.html">A. Ejemplo con errores</a></h1>
+     <h1><a href="/m07servicios/mAfunError/index.html">B. Ejemplo con errores</a></h1>
    <ol type="1">
     <li>
      <p>
@@ -629,7 +628,7 @@
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m3arduino.html" class="actual">El servicio procesa la request y genera la response</a>
+      <a href="/m07servicios/mAfunError/m3arduino.html" class="actual">El servicio procesa la request y lanza una excepción</a>
      </p>
     </li>
     <li>
@@ -653,8 +652,8 @@
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m07servicios/mAinstrucciones.html"
-      title="B. Instrucciones">▼</a>
+    <a class="paginaSiguiente" href="/m07servicios/mAfunRecibe/index.html"
+      title="C. Ejemplo que recibe JSON">▼</a>
    </p>
 </nav>
  <script>

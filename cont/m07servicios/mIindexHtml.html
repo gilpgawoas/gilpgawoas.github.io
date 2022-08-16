@@ -36,6 +36,12 @@
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp; Resultado</div>
   <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"btnEnviaJson"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Envía JSON</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"forma"</span><span
@@ -70,7 +76,15 @@
   <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
   <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/js/submit.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/submit.js"</span></div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">Method</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/Method.js"</span></div>
+  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">enviaJson</span></div>
+  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/enviaJson.js"</span></div><br>
   <div>&nbsp; <span style="color: #001080;">btnError</span>.<span
      style="color: #795e26;">addEventListener</span>(</div>
   <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
@@ -79,6 +93,14 @@
      style="color: #795e26;">addEventListener</span>(</div>
   <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
      style="color: #795e26;">resultado</span>)</div>
+  <div>&nbsp; <span style="color: #001080;">btnResultado</span>.<span
+     style="color: #795e26;">addEventListener</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
+     style="color: #795e26;">resultado</span>)</div>
+  <div>&nbsp; <span style="color: #001080;">btnEnviaJson</span>.<span
+     style="color: #795e26;">addEventListener</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"click"</span>, <span
+     style="color: #795e26;">enviaJsonPost</span>)</div>
   <div>&nbsp; <span style="color: #001080;">forma</span>.<span
      style="color: #795e26;">addEventListener</span>(</div>
   <div>&nbsp; &nbsp;<span style="color: #a31515;">"submit"</span>, <span
@@ -127,6 +149,37 @@
      style="color: #001080;">e</span>)</div>
   <div>&nbsp; &nbsp;}</div>
   <div>&nbsp; }</div><br>
+  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">enviaJsonPost</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">datos</span> = {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">saludo</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"Hola"</span>,</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">nombre</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"pp"</span></div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">json</span> =</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+     style="color: #795e26;">enviaJson</span>(<span
+     style="color: #0070c1;">datos</span>,</div>
+  <div>&nbsp; &nbsp; &nbsp; <span style="color: #001080;">Method</span>.<span
+     style="color: #0070c1;">POST</span>,</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+     style="color: #0070c1;">json</span>.<span
+     style="color: #001080;">resultado</span>)</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">e</span>)</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; }</div><br>
   <div>&nbsp; <span
      style="color: #008000;">/** @param {Event} evt */</span></div>
   <div>&nbsp; <span style="color: #0000ff;">async</span> <span
@@ -153,6 +206,7 @@
   <div>&nbsp; }</div>
   <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
   <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+  <div><span
+    style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
