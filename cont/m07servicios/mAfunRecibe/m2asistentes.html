@@ -1,18 +1,17 @@
 <section style="vertical-align: middle;">
  <h1>index.html</h1>
- <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div class="resaltado">&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado">&nbsp;<span
       style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">json</span> = <span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+   <div class="resaltado">&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvResultado.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">`Nombre: </span><span
       style="color: #0000ff;">${</span><span
       style="color: #0070c1;">json</span>.<span
@@ -24,42 +23,39 @@
       style="color: #001080;">mensaje</span><span
       style="color: #0000ff;">}</span><span
       style="color: #a31515;">`</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Request</h1>
- <dl style="background-color: yellow; padding: 0.5rem;">
+ <dl class="resaltado">
   <dt>URL</dt>
   <dd>
-   <p>
-    <a rel="noopener"
-      href="https://phpservs.gilbertopacheco.repl.co/srv/SrvResultado.php"
-      target="_blank">SrvResultado.php</a>
-   </p>
+   <a rel="noopener"
+     href="https://phpservs.gilbertopacheco.repl.co/srv/SrvResultado.php"
+     target="_blank">SrvResultado.php</a>
   </dd>
   <dt>Method</dt>
-  <dd>
-   <p>GET</p>
-  </dd>
+  <dd>GET</dd>
  </dl>
 </section>
 <section style="vertical-align: middle;">
  <h1>SrvResultado.php</h1>
- <p class="resaltado2">Despierta y recibe request.</p>
  <muestra-codigo class="resaltado">
   <div>
-   <div>&nbsp; <span style="color: #af00db;">return</span> [</div>
-   <div>&nbsp; &nbsp;<span style="color: #a31515;">"nombre"</span> =&gt; <span
+   <div><span style="color: #af00db;">return</span> [</div>
+   <div>&nbsp;<span style="color: #a31515;">"nombre"</span> =&gt; <span
       style="color: #a31515;">"pp"</span>,</div>
-   <div>&nbsp; &nbsp;<span style="color: #a31515;">"mensaje"</span> =&gt; <span
+   <div>&nbsp;<span style="color: #a31515;">"mensaje"</span> =&gt; <span
       style="color: #a31515;">"Hola."</span></div>
-   <div>&nbsp; ];</div>
+   <div>];</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Despierta y recibe request.</p>
 </section>

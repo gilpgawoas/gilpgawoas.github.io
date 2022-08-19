@@ -395,18 +395,18 @@
  <h1>index.html</h1>
  <muestra-codigo class="resaltado">
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div>&nbsp;<span style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(<span
+   <div>&nbsp;&nbsp;<span style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
 </section>
@@ -414,95 +414,91 @@
      <section class="pruebaDeEscritorio">
          <h1 >2. Se invoca el servicio en el servidor</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
- <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div class="resaltado">&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado">&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+   <div class="resaltado">&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Request</h1>
- <dl style="background-color: yellow; padding: 0.5rem;">
+ <dl class="resaltado">
   <dt>URL</dt>
   <dd>
-   <p>
-    <a rel="noopener"
-      href="https://phpservs.gilbertopacheco.repl.co/srv/SrvError.php"
-      target="_blank">SrvError.php</a>
-   </p>
+   <a rel="noopener"
+     href="https://phpservs.gilbertopacheco.repl.co/srv/SrvError.php"
+     target="_blank">SrvError.php</a>
   </dd>
   <dt>Method</dt>
-  <dd>
-   <p>GET</p>
-  </dd>
+  <dd>GET</dd>
  </dl>
 </section>
 <section style="vertical-align: middle;">
  <h1>SrvError.php</h1>
- <p class="resaltado2">Despierta y recibe request.</p>
  <muestra-codigo class="resaltado">
   <div>
-   <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+   <div><span style="color: #af00db;">throw</span> <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
       style="color: #a31515;">"Ouch"</span>);</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
          <h1 >3. El servicio procesa la request y lanza una excepción</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
- <p class="resaltado3">Hace wait esperando response.</p>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div class="resaltado3">&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado3">&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div class="resaltado3">&nbsp; &nbsp; &nbsp;<span
+   <div class="resaltado3">&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section style="vertical-align: middle;">
- <h1>servicio.php</h1>
- <p class="resaltado2">Procesa la request y lanza una excepción.</p>
+ <h1>SrvError.php</h1>
  <muestra-codigo>
   <div>
-   <div class="resaltado">&nbsp; <span style="color: #af00db;">throw</span>
-    <span
+   <div class="resaltado"><span
+      style="color: #af00db;">throw</span> <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
       style="color: #a31515;">"Ouch"</span>);</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Procesa la request y lanza una excepción.</p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Response</h1>
- <dl style="background-color: yellow; padding: 0.5rem;">
+ <dl class="resaltado">
   <dt>code</dt>
   <dd>500</dd>
   <dt>contenido</dt>
@@ -513,25 +509,25 @@
      <section class="pruebaDeEscritorio">
          <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
- <p class="resaltado2">Despiesta y recibe response.</p>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div class="resaltado">&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div class="resaltado">&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+   <div class="resaltado">&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Response</h1>
@@ -543,11 +539,10 @@
  </dl>
 </section>
 <section style="vertical-align: middle;">
- <h1>servicio.php</h1>
- <p class="resaltado3">Devuelve response y se duerme.</p>
+ <h1>SrvError.php</h1>
  <muestra-codigo>
   <div>
-   <div class="resaltado3">&nbsp; <span style="color: #af00db;">throw</span>
+   <div class="resaltado3"><span style="color: #af00db;">throw</span>
     <span
       style="color: #0000ff;">new</span> <span
       style="color: #267f99;">Exception</span>(<span
@@ -555,6 +550,7 @@
    </div>
   </div>
  </muestra-codigo>
+ <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
@@ -562,22 +558,22 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div>&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp; &nbsp; &nbsp;<span
+   <div>&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span
+   <div>&nbsp;<span
       style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div class="resaltado">&nbsp; &nbsp;} <span
+   <div class="resaltado">} <span
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
 </section>
@@ -599,23 +595,23 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div>&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp; &nbsp; &nbsp;<span
+   <div>&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span
+   <div>&nbsp;<span
       style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span
+   <div>} <span
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div class="resaltado">&nbsp; &nbsp; <span
+   <div class="resaltado">&nbsp;<span
       style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
 </section>
@@ -633,7 +629,7 @@
 </section>
 <section>
  <h1>Alert</h1>
- <div class="resaltado" style="border: thin solid; padding: 1rem;">
+ <div class="resaltado" style="border: thin solid; padding: 0 0.5rem;">
   <p>Ouch</p>
   <p style="text-align: end;">
    <button type="button">Aceptar</button>
@@ -654,23 +650,23 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div>&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp; &nbsp; &nbsp;<span
+   <div>&nbsp;&nbsp;<span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp; &nbsp; <span
+   <div>&nbsp;<span
       style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>&nbsp; &nbsp;} <span
+   <div>} <span
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span
+   <div>&nbsp;<span
       style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
 </section>

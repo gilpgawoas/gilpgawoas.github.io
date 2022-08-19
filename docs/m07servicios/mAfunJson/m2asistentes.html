@@ -539,44 +539,44 @@
  <a class="siguiente" href="/m07servicios/mAfunJson/m3aleeDatos.html" title="4. El servicio lee los datos">▶</a>
    <h1 >3. Se invoca el servicio en el servidor</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
- <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
  <muestra-codigo>
   <div>
-   <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp; &nbsp; <span
+   <div><span style="color: #af00db;">try</span> {</div>
+   <div>&nbsp;<span
       style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">datos</span> = {</div>
-   <div>&nbsp; &nbsp; &nbsp;<span
+   <div>&nbsp;&nbsp;<span
       style="color: #001080;">saludo</span><span
       style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp; &nbsp; &nbsp;<span
+   <div>&nbsp;&nbsp;<span
       style="color: #001080;">nombre</span><span
       style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
-   <div>&nbsp; &nbsp; }</div>
-   <div>&nbsp; &nbsp; <span
+   <div>&nbsp;}</div>
+   <div>&nbsp;<span
       style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">json</span> =</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp;<span
+   <div class="resaltado">&nbsp;&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">enviaJson</span>(<span
       style="color: #0070c1;">datos</span>,</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp; <span
+   <div class="resaltado">&nbsp;&nbsp;&nbsp;<span
       style="color: #001080;">Method</span>.<span
       style="color: #0070c1;">POST</span>,</div>
-   <div class="resaltado">&nbsp; &nbsp; &nbsp; <span
+   <div class="resaltado">&nbsp;&nbsp;&nbsp;<span
       style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
       style="color: #0070c1;">json</span>.<span
       style="color: #001080;">resultado</span>)</div>
-   <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+   <div>} <span style="color: #af00db;">catch</span> (<span
       style="color: #001080;">e</span>) {</div>
-   <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
       style="color: #001080;">e</span>)</div>
-   <div>&nbsp; &nbsp;}</div>
+   <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <section style="vertical-align: middle;">
  <section style="display: block;">
@@ -595,19 +595,15 @@
  </section>
  <section style="display: block;">
   <h1>Request</h1>
-  <dl class="resaltado" style="padding: 0.5rem;">
+  <dl class="resaltado">
    <dt>URL</dt>
    <dd>
-    <p>
-     <a rel="noopener"
-       href="https://phpservs--gilbertopacheco.repl.co/srv/SrvJson.php"
-       target="_blank">SrvJson.php</a>
-    </p>
+    <a rel="noopener"
+      href="https://phpservs--gilbertopacheco.repl.co/srv/SrvJson.php"
+      target="_blank">SrvJson.php</a>
    </dd>
    <dt>Method</dt>
-   <dd>
-    <p>POST</p>
-   </dd>
+   <dd>POST</dd>
    <dt>body</dt>
    <dd>
     {"saludo":"Hola","nombre":"pp"}
@@ -617,30 +613,30 @@
 </section>
 <section style="vertical-align: middle;">
  <h1>SrvJson.php</h1>
- <p class="resaltado2">Despierta y recibe request.</p>
  <muestra-codigo class="resaltado">
   <div>
-   <div>&nbsp; <span style="color: #001080;">$json</span> = <span
+   <div><span style="color: #001080;">$json</span> = <span
       style="color: #795e26;">leeJson</span>();</div>
-   <div>&nbsp; <span style="color: #001080;">$saludo</span> = <span
+   <div><span style="color: #001080;">$saludo</span> = <span
       style="color: #001080;">$json</span>-&gt;<span
       style="color: #001080;">saludo</span>;</div>
-   <div>&nbsp; <span style="color: #001080;">$nombre</span> = <span
+   <div><span style="color: #001080;">$nombre</span> = <span
       style="color: #001080;">$json</span>-&gt;<span
       style="color: #001080;">nombre</span>;</div>
-   <div>&nbsp; <span style="color: #001080;">$resultado</span> =</div>
-   <div>&nbsp; &nbsp;<span style="color: #a31515;">"{</span><span
+   <div><span style="color: #001080;">$resultado</span> =</div>
+   <div>&nbsp;<span style="color: #a31515;">"{</span><span
       style="color: #001080;">$saludo</span><span
       style="color: #a31515;">} {</span><span
       style="color: #001080;">$nombre</span><span
       style="color: #a31515;">}."</span>;</div>
-   <div>&nbsp; <span style="color: #af00db;">return</span> [</div>
-   <div>&nbsp; &nbsp;<span
+   <div><span style="color: #af00db;">return</span> [</div>
+   <div>&nbsp;<span
       style="color: #a31515;">"resultado"</span> =&gt; <span
       style="color: #001080;">$resultado</span></div>
-   <div>&nbsp; ];</div>
+   <div>];</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado2">Despierta y recibe request.</p>
 </section>
  <footer>
  <p>
@@ -723,8 +719,8 @@
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m07servicios/mAinstrucciones.html"
-      title="E. Instrucciones">▼</a>
+    <a class="paginaSiguiente" href="/m07servicios/mAfunFormError/index.html"
+      title="E. Ejemplo que procesa forma con error">▼</a>
    </p>
 </nav>
  <script>
