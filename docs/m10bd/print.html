@@ -354,9 +354,8 @@
  </p>
  <p>
   Puedes probar la app en
-  <a rel="noopener" href="https://phpbd--gilbertopacheco.repl.co/"
-    target="_blank">https://phpbd--gilbertopacheco.repl.co/</a>
-  usando los siguientes datos:
+  <a rel="noopener" href="https://phpbd.gilbertopacheco.repl.co/"
+    target="_blank">https://phpbd.gilbertopacheco.repl.co/</a>
  </p>
  <nav>
   <h1>Contenido</h1>
@@ -529,6 +528,11 @@
     </li>
     <li>
      <p>
+      <a href="/m10bd/m32MethodJs.html">lib/js/Method.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
       <a href="/m10bd/m32submitJs.html">lib/js/submit.js</a>
      </p>
     </li>
@@ -567,6 +571,11 @@
      <section >
          <h1 >3. Instrucciones</h1><div class="lectura">
  <ol>
+  <li>
+   <p>
+    <a href="/src/m10bd/phpbd.zip" download>Descarga el ejemplo.</a>
+   </p>
+  </li>
   <li>
    <p>
     Revisa el proyecto en Replit con la URl
@@ -644,6 +653,9 @@
      <ul>
       <li>
        <p><a href="m30ejecutaJs.html">ejecuta.js</a></p>
+      </li>
+      <li>
+       <p><a href="m32MethodJs.html">Method.js</a></p>
       </li>
       <li>
        <p><a href="m31muestraErrorJs.html">muestraError.js</a></p>
@@ -1144,14 +1156,36 @@
   <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;style&gt;</span></div>
   <div>&nbsp; <span style="color: #800000;">html</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLs</span>: <span
-     style="color: #0451a5;">#1C1B1F</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBg</span>: <span
+  <div>&nbsp; &nbsp;<span
+     style="color: #ff0000;">--Font</span>: -apple-system,</div>
+  <div>&nbsp; &nbsp; BlinkMacSystemFont, Roboto,</div>
+  <div>&nbsp; &nbsp; <span style="color: #0451a5;">sans-serif</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--Background</span>: <span
      style="color: #0451a5;">#FFFBFE</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgHv</span>: <span
-     style="color: #0451a5;">#99999966</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--colLsBgAc</span>: <span
-     style="color: #0451a5;">#999999dd</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--OnBackground</span>: <span
+     style="color: #0451a5;">#1C1B1F</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--Surface</span>: <span
+     style="color: #0451a5;">#FFFBFE</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--OnSurface</span>: <span
+     style="color: #0451a5;">#1C1B1F</span>;</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #ff0000;">--OnSurfaceHover</span>: <span
+     style="color: #0451a5;">#1C1B1F14</span>;</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #ff0000;">--OnSurfacePressed</span>: <span
+     style="color: #0451a5;">#1C1B1F1E</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">font-size</span>: <span
+     style="color: #098658;">16px</span>;</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">font-family</span>: <span
+     style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--Font</span>);</div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">color</span>: <span
+     style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--OnBackground</span>);</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #ff0000;">background-color</span>:</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">var</span>(<span
+     style="color: #001080;">--Background</span>);</div>
   <div>&nbsp; }</div>
   <div>&nbsp;<span style="color: #800000;">&lt;/style&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;link</span> <span
@@ -2067,12 +2101,47 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >34. lib/js/submit.js</h1><muestra-codigo>
+         <h1 >34. lib/js/Method.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Métodos para enviar datos por</span></div>
+  <div><span style="color: #008000;">&nbsp;* HTTP.</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@enum</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">const</span> <span
+     style="color: #267f99;">Method</span> = {</div>
+  <div>&nbsp;<span style="color: #001080;">GET</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"GET"</span>,</div>
+  <div>&nbsp;<span style="color: #001080;">POST</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"POST"</span>,</div>
+  <div>&nbsp;<span style="color: #001080;">PUT</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"PUT"</span>,</div>
+  <div>&nbsp;<span style="color: #001080;">DELETE</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"DELETE"</span></div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >35. lib/js/submit.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #af00db;">import</span> {</div>
   <div>&nbsp;<span style="color: #001080;">ejecuta</span></div>
   <div>} <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+     style="color: #a31515;">"./ejecuta.js"</span></div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">Method</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./Method.js"</span></div><br>
   <div><span style="color: #008000;">/**</span></div>
   <div><span
      style="color: #008000;">&nbsp;* Envía los datos de la forma a la</span>
@@ -2120,20 +2189,20 @@
      style="color: #001080;">url</span>, {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">method</span><span
      style="color: #001080;">:</span> <span
-     style="color: #a31515;">"POST"</span>,</div>
+     style="color: #267f99;">Method</span>.<span
+     style="color: #001080;">POST</span>,</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">body</span><span
      style="color: #001080;">:</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">FormData</span>(<span
-     style="color: #001080;">forma</span>)
-  </div>
+     style="color: #001080;">forma</span>)</div>
   <div>&nbsp; }))</div>
   <div>}</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >35. lib/php/leeValor.php</h1><muestra-codigo>
+         <h1 >36. lib/php/leeValor.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #008000;">/**</span></div>
@@ -2163,7 +2232,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >36. lib/php/Servicio.php</h1><muestra-codigo>
+         <h1 >37. lib/php/Servicio.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #0000ff;">abstract</span> <span
@@ -2203,7 +2272,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >37. lib/css/lista.css</h1><muestra-codigo>
+         <h1 >38. lib/css/lista.css</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">.lista</span> {</div>
   <div>&nbsp;<span style="color: #ff0000;">margin</span>: <span
@@ -2211,7 +2280,7 @@
      style="color: #098658;">0</span>;</div>
   <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
      style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLs</span>);</div>
+     style="color: #001080;">--OnSurface</span>);</div>
   <div>}</div><br>
   <div><span style="color: #800000;">.lista</span>&gt;<span
      style="color: #800000;">*</span> {</div>
@@ -2219,27 +2288,24 @@
      style="color: #0451a5;">block</span>;</div>
   <div>&nbsp;<span style="color: #ff0000;">text-decoration</span>: <span
      style="color: #0451a5;">none</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
-     style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLs</span>);</div>
   <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
   <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLsBg</span>);</div>
+     style="color: #001080;">--Surface</span>);</div>
   <div>}</div><br>
   <div><span style="color: #800000;">.lista</span>&gt;<span
      style="color: #800000;">*:hover</span> {</div>
   <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
   <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLsBgHv</span>);</div>
+     style="color: #001080;">--OnSurfaceHover</span>);</div>
   <div>}</div><br>
   <div><span style="color: #800000;">.lista</span> <span
      style="color: #800000;">a:active</span> {</div>
   <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
      style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLs</span>);</div>
+     style="color: #001080;">--OnSurface</span>);</div>
   <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
   <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--colLsBgAc</span>);</div>
+     style="color: #001080;">--OnSurfacePressed</span>);</div>
   <div>}</div><br>
   <div><span style="color: #800000;">.lista</span>&gt;<span
      style="color: #800000;">.simple</span> {</div>
