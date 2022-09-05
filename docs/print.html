@@ -469,12 +469,12 @@
     </li>
     <li>
      <p>
-      <a href="/m07srvresultado/">Servicio que recibe un resultado JSON</a>
+      <a href="/m07srvresultado/">Servicio que devuelve un resultado JSON</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07srvjson/">Servicio que envía y recibe JSON</a>
+      <a href="/m07srvjson/">Servicio que recibe y devuelve JSON</a>
      </p>
     </li>
     <li>
@@ -2534,7 +2534,7 @@
      </p>
     </li>
     <li>
-     <p>El método de envío puede ser</p>
+     <p>Los principales métodos para intercambio de datos son:</p>
      <dl>
       <dt><dfn>GET</dfn></dt>
       <dd>
@@ -2554,7 +2554,7 @@
         información adicional.
        </p>
       </dd>
-      <dt><dfn>UPDATE</dfn></dt>
+      <dt><dfn>PATCH</dfn></dt>
       <dd>
        <p>
         Actualizar solo los datos enviados. Los datos van con la información
@@ -3624,7 +3624,7 @@
       </section>
       </section>
      <section>
-         <h1 class="leccion">8. Servicio que recibe un resultado JSON</h1>
+         <h1 class="leccion">8. Servicio que devuelve un resultado JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -3651,7 +3651,7 @@
     </li>
     <li>
      <p>
-      <a href="/m07srvresultado/mAfunRecibe/">Funcionamiento del servicio que recibe JSON</a>
+      <a href="/m07srvresultado/mAfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
      </p>
     </li>
     <li>
@@ -3705,7 +3705,7 @@
 </figure>
       </section>
      <section>
-         <h1 >B. Funcionamiento del servicio que recibe JSON</h1>
+         <h1 >B. Funcionamiento del servicio que devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -4459,7 +4459,7 @@
       </section>
       </section>
      <section>
-         <h1 class="leccion">9. Servicio que envía y recibe JSON</h1>
+         <h1 class="leccion">9. Servicio que recibe y devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -4486,7 +4486,7 @@
     </li>
     <li>
      <p>
-      <a href="/m07srvjson/mAfunJson/">Funcionamiento del ejemplo que envía y recibe JSON</a>
+      <a href="/m07srvjson/mAfunJson/">Funcionamiento del ejemplo que recibe y devuelve JSON</a>
      </p>
     </li>
     <li>
@@ -4555,7 +4555,7 @@
 </figure>
       </section>
      <section>
-         <h1 >B. Funcionamiento del ejemplo que envía y recibe JSON</h1>
+         <h1 >B. Funcionamiento del ejemplo que recibe y devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -8069,297 +8069,392 @@
      <section >
          <h1 >E. render.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #008000;">/* Ejemplo de render en el cliente</span>
+  <div><span
+     style="color: #008000;">/*&nbsp;Ejemplo de render en el cliente</span>
   </div>
   <div><span
-     style="color: #008000;">&nbsp;* no se usa import porque Firefox</span>
+     style="color: #008000;">&nbsp;*&nbsp;no se usa import porque Firefox</span>
   </div>
   <div><span
-     style="color: #008000;">&nbsp;* no lo soporta en los webworkers.</span>
-  </div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div><br>
-  <div><span style="color: #008000;">/**</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #008000;">&nbsp;*&nbsp;no lo soporta en los
+    webworkers.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@typedef</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{Object}</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">Elemento</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@property</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{string}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">nombre</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div><br>
-  <div><span style="color: #795e26;">render</span>([</div>
-  <div>&nbsp;{ <span style="color: #001080;">nombre</span><span
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">render</span>([</div>
+  <div>&nbsp;&nbsp;{ <span
+     style="color: #001080;">nombre</span><span
      style="color: #001080;">:</span> <span
      style="color: #a31515;">"Pepe"</span> },</div>
-  <div>&nbsp;{ <span style="color: #001080;">nombre</span><span
+  <div>&nbsp;&nbsp;{ <span
+     style="color: #001080;">nombre</span><span
      style="color: #001080;">:</span> <span
      style="color: #a31515;">"Cuca"</span> },</div>
-  <div>&nbsp;{ <span style="color: #001080;">nombre</span><span
+  <div>&nbsp;&nbsp;{ <span
+     style="color: #001080;">nombre</span><span
      style="color: #001080;">:</span> <span
      style="color: #a31515;">"Teté"</span> }])</div>
-  <div><span style="color: #795e26;">setTimeout</span>(<span
+  <div>&nbsp;<span
+     style="color: #795e26;">setTimeout</span>(<span
      style="color: #795e26;">lista</span>, <span
-     style="color: #098658;">5000</span>)</div><br>
-  <div><span style="color: #0000ff;">async</span> <span
+     style="color: #098658;">5000</span>)</div>
+  <div>&nbsp;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">lista</span>() {</div>
-  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #795e26;">lista</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">json</span> = <span
      style="color: #af00db;">await</span> <span
      style="color: #795e26;">ejecuta</span>(</div>
-  <div>&nbsp; <span style="color: #795e26;">fetch</span>(<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">fetch</span>(<span
      style="color: #a31515;">"srv/SrvLista.php"</span>))</div>
-  <div>&nbsp;<span style="color: #795e26;">render</span>(<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">render</span>(<span
      style="color: #0070c1;">json</span>.<span
      style="color: #001080;">lista</span>)</div>
-  <div>}</div><br>
-  <div><span style="color: #008000;">/** </span><span
+  <div>&nbsp;}</div>
+  <div>&nbsp;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{Elemento[]}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">lista</span><span
      style="color: #008000;"> */</span></div>
-  <div><span style="color: #0000ff;">function</span> <span
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> <span
      style="color: #795e26;">render</span>(<span
-     style="color: #001080;">lista</span>) {</div>
-  <div>&nbsp;<span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">lista</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">let</span> <span
      style="color: #001080;">ren</span> = <span
      style="color: #a31515;">""</span></div>
-  <div>&nbsp;<span style="color: #af00db;">for</span> (<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">for</span> (<span
      style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">modelo</span> <span
      style="color: #0000ff;">of</span> <span
-     style="color: #001080;">lista</span>) {</div>
-  <div>&nbsp; <span style="color: #001080;">ren</span> += <span
-     style="color: #008000;">/* html */</span></div>
-  <div>&nbsp; &nbsp;`<span style="color: #800000;">&lt;div</span> <span
-     style="color: #ff0000;">class</span>=<span
-     style="color: #0000ff;">"simple"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #800000;">&lt;div</span> <span
-     style="color: #ff0000;">class</span>=<span
-     style="color: #0000ff;">"primario"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp; &nbsp; <span style="color: #800000;">${</span><span
+     style="color: #001080;">lista</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">ren</span> += <span
+     style="color: #008000;">/*&nbsp;html */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">${</span><span
      style="color: #795e26;">cod</span>(<span
      style="color: #0070c1;">modelo</span>.<span
      style="color: #001080;">nombre</span>)<span
      style="color: #800000;">}</span></div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #800000;">&lt;/div&gt;</span></div>
-  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;/div&gt;</span>`</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span>`</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
      style="color: #001080;">self</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">instanceof</span> <span
-     style="color: #267f99;">WorkerGlobalScope</span>) {</div>
-  <div>&nbsp; <span style="color: #001080;">self</span>.<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">WorkerGlobalScope</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">self</span>.<span
      style="color: #795e26;">postMessage</span>(<span
      style="color: #001080;">ren</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
   <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #008000;">/**</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+  <div>&nbsp;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+     style="color: #267f99;">{Promise&lt;Response&gt;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*</span><span
+     style="color: #267f99;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">fetch</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@returns</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #0000ff;">async</span> <span
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">fetch</span>) {</div>
-  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #001080;">fetch</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">resp</span> = <span
      style="color: #af00db;">await</span> <span
      style="color: #001080;">fetch</span></div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
      style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">ok</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #0070c1;">ok</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
      style="color: #af00db;">await</span> <span
      style="color: #0070c1;">resp</span>.<span
      style="color: #795e26;">json</span>()</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
      style="color: #af00db;">if</span> (</div>
-  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
-     style="color: #001080;">status</span> === <span
-     style="color: #098658;">500</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">await</span> <span
      style="color: #0070c1;">resp</span>.<span
      style="color: #795e26;">text</span>())</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Error</span>(<span
      style="color: #0070c1;">resp</span>.<span
      style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
   <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #008000;">/**</span></div>
+  <div>&nbsp;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**</span></div>
   <div><span
-     style="color: #008000;">&nbsp;* Codifica un texto para que</span></div>
-  <div><span style="color: #008000;">&nbsp;* escape los caracteres</span></div>
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;Codifica&nbsp;un&nbsp;texto&nbsp;para&nbsp;que</span>
+  </div>
   <div><span
-     style="color: #008000;">&nbsp;* especiales y no se pueda</span></div>
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;escape los caracteres</span>
+  </div>
   <div><span
-     style="color: #008000;">&nbsp;* interpretar como HTML. Esta</span></div>
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;especiales y no se pueda</span>
+  </div>
   <div><span
-     style="color: #008000;">&nbsp;* técnica evita la inyección de</span></div>
-  <div><span style="color: #008000;">&nbsp;* código.</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;interpretar&nbsp;como&nbsp;HTML.&nbsp;Esta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp; *&nbsp;técnica evita la inyección de</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{string}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">texto</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@returns</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{string}</span><span
      style="color: #008000;"> un texto que</span></div>
   <div><span
-     style="color: #008000;">&nbsp;* &nbsp;no puede interpretarse como</span>
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;&nbsp;no&nbsp;puede&nbsp;interpretarse&nbsp;como</span>
   </div>
-  <div><span style="color: #008000;">&nbsp;* &nbsp;HTML.</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #0000ff;">function</span> <span
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;&nbsp;HTML.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> <span
      style="color: #795e26;">cod</span>(<span
-     style="color: #001080;">texto</span>) {</div>
-  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #001080;">texto</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
      style="color: #001080;">texto</span>.<span
      style="color: #795e26;">toString</span>().</div>
-  <div>&nbsp; <span style="color: #795e26;">replace</span>(<span
-     style="color: #811f3f;">/</span><span style="color: #d16969;">[</span><span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/</span><span
+     style="color: #d16969;">[</span><span
      style="color: #811f3f;">&lt;&gt;"'</span><span
-     style="color: #d16969;">]</span><span style="color: #811f3f;">/</span><span
+     style="color: #d16969;">]</span><span
+     style="color: #811f3f;">/</span><span
      style="color: #0000ff;">g</span>, <span
      style="color: #795e26;">reemplaza</span>)</div>
-  <div>}</div>
-  <div><span style="color: #008000;">/** </span><span
+  <div>&nbsp;}</div>
+  <div>&nbsp;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
      style="color: #267f99;">{string}</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">letra</span><span
      style="color: #008000;"> */</span></div>
-  <div><span style="color: #0000ff;">function</span> <span
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> <span
      style="color: #795e26;">reemplaza</span>(<span
-     style="color: #001080;">letra</span>) {</div>
-  <div>&nbsp;<span style="color: #af00db;">switch</span> (<span
-     style="color: #001080;">letra</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">case</span> <span
+     style="color: #001080;">letra</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">switch</span> (<span
+     style="color: #001080;">letra</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
      style="color: #a31515;">"&lt;"</span>: <span
      style="color: #af00db;">return</span> <span
      style="color: #a31515;">"&amp;lt;"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">case</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
      style="color: #a31515;">"&gt;"</span>: <span
      style="color: #af00db;">return</span> <span
      style="color: #a31515;">"&amp;gt;"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">case</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
      style="color: #a31515;">'"'</span>: <span
      style="color: #af00db;">return</span> <span
      style="color: #a31515;">"&amp;quot;"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">case</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
      style="color: #a31515;">"'"</span>: <span
      style="color: #af00db;">return</span> <span
      style="color: #a31515;">"&amp;#039;"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">default</span>: <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">default</span>: <span
      style="color: #af00db;">return</span> <span
      style="color: #001080;">letra</span></div>
+  <div>&nbsp;&nbsp;}</div>
   <div>&nbsp;}</div>
-  <div>}</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
          <h1 >F. index.html</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
      style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;html</span> <span
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
      style="color: #ff0000;">lang</span>=<span
      style="color: #0000ff;">"es"</span><span
      style="color: #800000;">&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">charset</span>=<span
      style="color: #0000ff;">"UTF-8"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">name</span>=<span
      style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
-  <div>&nbsp; Render en el cliente</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;body&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span></div>
+  <div>&nbsp;&nbsp;Render en el cliente</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;h1&gt;</span>Render en el cliente<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
-     style="color: #ff0000;">class</span>=<span
-     style="color: #0000ff;">"lista"</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;ul</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;Cargando<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;Cargando<span
      style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">worker</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">new</span> <span
      style="color: #267f99;">Worker</span>(<span
      style="color: #a31515;">"render.js"</span>,</div>
-  <div>&nbsp; &nbsp; { <span style="color: #001080;">type:</span> <span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;{ <span
+     style="color: #001080;">type</span><span
+     style="color: #001080;">:</span> <span
      style="color: #a31515;">"module"</span> })</div>
-  <div>&nbsp; <span style="color: #0070c1;">worker</span>.<span
-     style="color: #001080;">onmessage</span> = <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #0070c1;">worker</span>.<span
+     style="color: #795e26;">onmessage</span> = <span
      style="color: #795e26;">render</span></div><br>
-  <div>&nbsp; <span
-     style="color: #008000;">/** @param {MessageEvent&lt;string&gt;</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;evt&nbsp;*/</span>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">/**&nbsp;@param&nbsp;{MessageEvent&lt;string&gt;</span>
   </div>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;evt&nbsp;*/</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">render</span>(<span
-     style="color: #001080;">evt</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">lista</span>.<span
+     style="color: #001080;">evt</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">lista</span>.<span
      style="color: #001080;">innerHTML</span> = <span
      style="color: #001080;">evt</span>.<span
-     style="color: #0070c1;">data</span></div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+     style="color: #001080;">data</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
@@ -8602,62 +8697,83 @@
      <section >
          <h1 >D. srv/SrvRender.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
+  <div><span
+     style="color: #800000;">&lt;?php</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
+  <div><span
+     style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvRender</span> <span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">Servicio</span></div>
   <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+  <div>&nbsp;<span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> <span
      style="color: #795e26;">implementacion</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$lista</span> = [</div>
-  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$lista</span> = [</div>
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"pp"</span>],</div>
-  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"kq"</span>],</div>
-  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"tt"</span>],</div>
-  <div>&nbsp; &nbsp;[<span style="color: #a31515;">"nombre"</span> =&gt; <span
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
      style="color: #a31515;">"bb"</span>]</div>
-  <div>&nbsp; ];</div>
-  <div>&nbsp; <span style="color: #001080;">$render</span> = <span
+  <div>&nbsp;&nbsp;];</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> = <span
      style="color: #a31515;">""</span>;</div>
-  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
      style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$it</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$nombre</span> =</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$it</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> =</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">htmlentities</span>(<span
      style="color: #001080;">$it</span>[<span
      style="color: #a31515;">"nombre"</span>]);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #a31515;">"&lt;div class='simple'&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;li&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class='primario'&gt;</span>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
   </div>
-  <div><span style="color: #a31515;">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span><span
      style="color: #001080;">$nombre</span><span
      style="color: #a31515;">}</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
+  </div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp;&lt;/div&gt;"</span>;</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [<span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;"</span>;
+  </div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> [<span
      style="color: #a31515;">"render"</span> =&gt; <span
      style="color: #001080;">$render</span>];</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> = <span
+  <div><span
+     style="color: #001080;">$servicio</span> = <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">SrvRender</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+  <div><span
+     style="color: #001080;">$servicio</span>-&gt;<span
      style="color: #795e26;">ejecuta</span>();</div><br>
  </div>
 </muestra-codigo>
@@ -8665,81 +8781,116 @@
      <section >
          <h1 >E. index.html</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
      style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;html</span> <span
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
      style="color: #ff0000;">lang</span>=<span
      style="color: #0000ff;">"es"</span><span
      style="color: #800000;">&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">charset</span>=<span
      style="color: #0000ff;">"UTF-8"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">name</span>=<span
      style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
-  <div>&nbsp; Render en el servidor</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Render en el
-   servidor<span style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
-     style="color: #ff0000;">class</span>=<span
-     style="color: #0000ff;">"lista"</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span></div>
+  <div>&nbsp;&nbsp;Render en el servidor</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;h1&gt;</span>Render en el servidor<span
+     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;ul</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;Cargando<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;Cargando<span
      style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">ejecuta</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">from</span> <span
      style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">muestraError</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">from</span> <span
      style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
-  <div>&nbsp; <span style="color: #795e26;">render</span>()</div><br>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">render</span>()</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">render</span>() {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #795e26;">render</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">json</span> = <span
      style="color: #af00db;">await</span> <span
      style="color: #795e26;">ejecuta</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">fetch</span>(<span
      style="color: #a31515;">"srv/SrvRender.php"</span>))</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">lista</span>.<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">lista</span>.<span
      style="color: #001080;">innerHTML</span> = <span
      style="color: #0070c1;">json</span>.<span
      style="color: #001080;">render</span></div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+  <div>&nbsp;&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraError</span>(<span
      style="color: #001080;">e</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
@@ -9112,11 +9263,6 @@
       <a href="/m10bd/m34ServicioPhp.html">lib/php/Servicio.php</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m10bd/m35listaCss.html">lib/css/lista.css</a>
-     </p>
-    </li>
    </ol>
  </nav>
 </div>
@@ -9206,14 +9352,6 @@
   <li>
    <p>lib</p>
    <ul>
-    <li>
-     <p>css</p>
-     <ul>
-      <li>
-       <p><a href="m35listaCss.html">lista.css</a></p>
-      </li>
-     </ul>
-    </li>
     <li>
      <p>js</p>
      <ul>
@@ -9628,70 +9766,96 @@
      <section >
          <h1 >16. srv/SrvPasatiempos.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
+  <div><span
+     style="color: #800000;">&lt;?php</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/dao/pasatiempoConsulta.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
+  <div><span
+     style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
+  <div><span
+     style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
+  <div><span
+     style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvPasatiempos</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
+  <div><span
+     style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">Servicio</span></div>
   <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+  <div>&nbsp;<span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> <span
      style="color: #795e26;">implementacion</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$lista</span> = <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$lista</span> = <span
      style="color: #795e26;">pasatiempoConsulta</span>();</div>
-  <div>&nbsp; <span style="color: #001080;">$render</span> = <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> = <span
      style="color: #a31515;">""</span>;</div>
-  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
      style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$it</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$id</span> = <span
+     style="color: #001080;">$it</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
      style="color: #795e26;">htmlentities</span>(<span
      style="color: #001080;">$it</span>-&gt;<span
      style="color: #001080;">id</span>);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$nombre</span> =</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">htmlentities</span>(<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> =</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">htmlentities</span>(<span
      style="color: #001080;">$it</span>-&gt;<span
      style="color: #001080;">nombre</span>);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #a31515;">"&lt;a class='simple'</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;li&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a</span>
+  </div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;href='modifica.html?id=</span><span
      style="color: #001080;">$id</span><span
      style="color: #a31515;">'&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class='primario'&gt;</span>
-  </div>
-  <div><span style="color: #a31515;">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span><span
      style="color: #001080;">$nombre</span><span
      style="color: #a31515;">}</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp; &lt;/span&gt;</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;</span>
+  </div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;"</span>;</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [<span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;"</span>;</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> [<span
      style="color: #a31515;">"render"</span> =&gt; <span
      style="color: #001080;">$render</span>];</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> = <span
+  <div><span
+     style="color: #001080;">$servicio</span> = <span
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">SrvPasatiempos</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+  <div><span
+     style="color: #001080;">$servicio</span>-&gt;<span
      style="color: #795e26;">ejecuta</span>();</div><br>
  </div>
 </muestra-codigo>
@@ -9699,130 +9863,127 @@
      <section >
          <h1 >17. index.html</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
      style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;html</span> <span
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
      style="color: #ff0000;">lang</span>=<span
      style="color: #0000ff;">"es"</span><span
      style="color: #800000;">&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">charset</span>=<span
      style="color: #0000ff;">"UTF-8"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
      style="color: #ff0000;">name</span>=<span
      style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
-  <div>&nbsp; Acceso a base de datos</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;style&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">html</span> {</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #ff0000;">--Font</span>: -apple-system,</div>
-  <div>&nbsp; &nbsp; BlinkMacSystemFont, Roboto,</div>
-  <div>&nbsp; &nbsp; <span style="color: #0451a5;">sans-serif</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--Background</span>: <span
-     style="color: #0451a5;">#FFFBFE</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--OnBackground</span>: <span
-     style="color: #0451a5;">#1C1B1F</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--Surface</span>: <span
-     style="color: #0451a5;">#FFFBFE</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">--OnSurface</span>: <span
-     style="color: #0451a5;">#1C1B1F</span>;</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #ff0000;">--OnSurfaceHover</span>: <span
-     style="color: #0451a5;">#1C1B1F14</span>;</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #ff0000;">--OnSurfacePressed</span>: <span
-     style="color: #0451a5;">#1C1B1F1E</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">font-size</span>: <span
-     style="color: #098658;">16px</span>;</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">font-family</span>: <span
-     style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--Font</span>);</div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">color</span>: <span
-     style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--OnBackground</span>);</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #ff0000;">background-color</span>:</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--Background</span>);</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/style&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;link</span> <span
-     style="color: #ff0000;">href</span>=<span
-     style="color: #0000ff;">"lib/css/lista.css"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">rel</span>=<span
-     style="color: #0000ff;">"stylesheet"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;body&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span></div>
+  <div>&nbsp;&nbsp;Acceso a base de datos</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;h1&gt;</span>Acceso a base de datos<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;a</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
      style="color: #ff0000;">href</span>=<span
      style="color: #0000ff;">"agrega.html"</span><span
      style="color: #800000;">&gt;</span>Agregar<span
      style="color: #800000;">&lt;/a&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;div</span> <span
-     style="color: #ff0000;">class</span>=<span
-     style="color: #0000ff;">"lista"</span> <span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;ul</span> <span
      style="color: #ff0000;">id</span>=<span
      style="color: #0000ff;">"lista"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;Cargando<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;Cargando<span
      style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/div&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
      style="color: #0000ff;">"module"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">ejecuta</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">from</span> <span
      style="color: #a31515;">"./lib/js/ejecuta.js"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">muestraError</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">from</span> <span
      style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
-  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div><br>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">consulta</span>()</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">consulta</span>() {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #795e26;">consulta</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">json</span> = <span
      style="color: #af00db;">await</span> <span
      style="color: #795e26;">ejecuta</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp; <span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">fetch</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #a31515;">"srv/SrvPasatiempos.php"</span>))</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">lista</span>.<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">lista</span>.<span
      style="color: #001080;">innerHTML</span> = <span
      style="color: #0070c1;">json</span>.<span
      style="color: #001080;">render</span></div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+  <div>&nbsp;&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">e</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraError</span>(<span
      style="color: #001080;">e</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
@@ -10834,158 +10995,6 @@
   <div>&nbsp; }</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >38. lib/css/lista.css</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">.lista</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">margin</span>: <span
-     style="color: #098658;">0.5rem</span> <span
-     style="color: #098658;">0</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
-     style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--OnSurface</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">*</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
-     style="color: #0451a5;">block</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">text-decoration</span>: <span
-     style="color: #0451a5;">none</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
-  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--Surface</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">*:hover</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
-  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--OnSurfaceHover</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">a:active</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">color</span>: <span
-     style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--OnSurface</span>);</div>
-  <div>&nbsp;<span style="color: #ff0000;">background-color</span>:</div>
-  <div>&nbsp; <span style="color: #795e26;">var</span>(<span
-     style="color: #001080;">--OnSurfacePressed</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.simple</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.avatar</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
-     style="color: #098658;">0.5rem</span> <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.imagen</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">padding</span>: <span
-     style="color: #098658;">0.5rem</span> <span
-     style="color: #098658;">1rem</span> <span
-     style="color: #098658;">0.5rem</span> <span
-     style="color: #098658;">0</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">.textos</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
-     style="color: #0451a5;">block</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
-     style="color: #0451a5;">hidden</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">.tresElem</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
-     style="color: #0451a5;">flex</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">align-items</span>: <span
-     style="color: #0451a5;">center</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">.primario</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
-     style="color: #0451a5;">inline-block</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
-     style="color: #0451a5;">middle</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">font-size</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">font-weight</span>: <span
-     style="color: #0451a5;">bold</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
-     style="color: #0451a5;">hidden</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">white-space</span>: <span
-     style="color: #0451a5;">nowrap</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">text-overflow</span>: <span
-     style="color: #0451a5;">ellipsis</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">a</span> <span
-     style="color: #800000;">.primario</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">text-decoration</span>: <span
-     style="color: #0451a5;">underline</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">.material-icons</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
-     style="color: #0451a5;">middle</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
-     style="color: #098658;">2rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">img</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">vertical-align</span>: <span
-     style="color: #0451a5;">middle</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.simple</span> <span
-     style="color: #800000;">img</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
-     style="color: #098658;">2.5rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
-     style="color: #098658;">2.5rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.avatar</span> <span
-     style="color: #800000;">img</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
-     style="color: #098658;">2.5rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
-     style="color: #098658;">2.5rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">border-radius</span>: <span
-     style="color: #098658;">1.25rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span>&gt;<span
-     style="color: #800000;">.imagen</span> <span
-     style="color: #800000;">img</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">width</span>: <span
-     style="color: #098658;">6.25rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">margin-right</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>}</div><br>
-  <div><span style="color: #800000;">.lista</span> <span
-     style="color: #800000;">.unRenglon</span> {</div>
-  <div>&nbsp;<span style="color: #ff0000;">display</span>: <span
-     style="color: #0451a5;">block</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">height</span>: <span
-     style="color: #098658;">1rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">font-size</span>: <span
-     style="color: #098658;">0.75rem</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">overflow</span>: <span
-     style="color: #0451a5;">hidden</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">white-space</span>: <span
-     style="color: #0451a5;">nowrap</span>;</div>
-  <div>&nbsp;<span style="color: #ff0000;">text-overflow</span>: <span
-     style="color: #0451a5;">ellipsis</span>;</div>
-  <div>}</div>
  </div>
 </muestra-codigo>
       </section>
