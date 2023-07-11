@@ -299,6 +299,7 @@ const ARCHIVOS = [
    "/m11ws/mGindexHtml.html",
    "/m11ws/print.html",
    "/m12streaming.html",
+   "/m13extra.html",
    "/print.html",
    "/site.webmanifest",
    "/src/m03soa/1ejemploXml.xml",
