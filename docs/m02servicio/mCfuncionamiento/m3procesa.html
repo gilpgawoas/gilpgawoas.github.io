@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>5. Verifica si la conexión terminó con éxito - GilPG AWOAS</title>
- <meta name="description" content="Verifica si la conexión terminó con éxito.">
+ <title>3. El servicio procesa la request y genera la response - GilPG AWOAS</title>
+ <meta name="description" content="Muestra como el servidor procesa la solicitud y genera la response.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -223,10 +223,6 @@
  table.borde th,
  table.borde td {
   padding: 0.4rem;
- }
-
- muestra-codigo>div>div {
-  white-space: nowrap;
  }
 
  footer {
@@ -551,21 +547,19 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m02servicio/mAfuncionamiento/m4consolas.html" title="4. El servicio devuelve la response, que es recibida en el cliente">◀</a>
- <a class="siguiente" href="/m02servicio/mAfuncionamiento/m6tablets.html" title="6. Como la conexión terminó con éxito, recupera el texto de response">▶</a>
-   <h1 >5. Verifica si la conexión terminó con éxito</h1><section style="display: inline-block; vertical-align: middle;">
+ <a class="anterior" href="/m02servicio/mCfuncionamiento/m2invoca.html" title="2. Se invoca el servicio en el servidor">◀</a>
+ <a class="siguiente" href="/m02servicio/mCfuncionamiento/m4devuelve.html" title="4. El servicio devuelve la response, que es recibida en el cliente">▶</a>
+   <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
+   <div><span style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">resp</span> =</div>
-   <div>&nbsp;<span
+   <div class="resaltado3">&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"servicio.php"</span>)</div>
-   <div class="resaltado"><span
-      style="color: #af00db;">if</span> (<span
+   <div><span style="color: #af00db;">if</span> (<span
       style="color: #0070c1;">resp</span>.<span
       style="color: #0070c1;">ok</span>) {</div>
    <div>&nbsp;<span style="color: #0000ff;">const</span> <span
@@ -584,20 +578,34 @@
    <div>}</div>
   </div>
  </muestra-codigo>
+ <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section style="vertical-align: middle;">
- <h1>Memoria</h1>
- <dl style="padding: 0.5rem;">
-  <dt>resp</dt>
-  <dd>
-   <dl>
-    <dt class="resaltado">ok</dt>
-    <dd class="resaltado">true</dd>
-    <dt>text</dt>
-    <dd>Hola</dd>
-   </dl>
-  </dd>
+ <h1>servicio.php</h1>
+ <muestra-codigo>
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div class="resaltado"><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+ <p class="resaltado2">
+  Procesa la request y genera
+  <br>la response (respuesta).</p>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Response</h1>
+ <dl class="resaltado">
+  <dt>code</dt>
+  <dd>200</dd>
+  <dt>contenido</dt>
+  <dd>Hola</dd>
  </dl>
+ <p class="resaltado2">
+  El code (o código) 200
+  <br>indica que terminó
+  <br>con éxito.
+ </p>
 </section>
  <footer>
  <p>
@@ -629,54 +637,54 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m02servicio/mAdeploy.html"
-      title="A. Diagrama de despliegue">▲</a>
+    <a class="paginaAnterior" href="/m02servicio/mBdeploy.html"
+      title="B. Diagrama de despliegue">▲</a>
    </p>
-     <h1><a href="/m02servicio/mAfuncionamiento/index.html">B. Funcionamiento</a></h1>
+     <h1><a href="/m02servicio/mCfuncionamiento/index.html">C. Funcionamiento</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m1wearables.html">Iniciamos al ejecutar código en el cliente</a>
+      <a href="/m02servicio/mCfuncionamiento/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m2asistentes.html">Se invoca el servicio en el servidor</a>
+      <a href="/m02servicio/mCfuncionamiento/m2invoca.html">Se invoca el servicio en el servidor</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m3arduino.html">El servicio procesa la request y genera la response</a>
+      <a href="/m02servicio/mCfuncionamiento/m3procesa.html" class="actual">El servicio procesa la request y genera la response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
+      <a href="/m02servicio/mCfuncionamiento/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m5celulares.html" class="actual">Verifica si la conexión terminó con éxito</a>
+      <a href="/m02servicio/mCfuncionamiento/m5verifica.html">Verifica si la conexión terminó con éxito</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m6tablets.html">Como la conexión terminó con éxito, recupera el texto de response</a>
+      <a href="/m02servicio/mCfuncionamiento/m6recupera.html">Como la conexión terminó con éxito, recupera el texto de response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m7laptops.html">Muestra el texto en un alert</a>
+      <a href="/m02servicio/mCfuncionamiento/m7muestra.html">Muestra el texto en un alert</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m8desktops.html">Al cerrar el alert, termina el evento</a>
+      <a href="/m02servicio/mCfuncionamiento/m8termina.html">Al cerrar el alert, termina el evento</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m02servicio/mAinstrucciones.html"
-      title="C. Instrucciones">▼</a>
+    <a class="paginaSiguiente" href="/m02servicio/mDinstrucciones.html"
+      title="D. Instrucciones">▼</a>
    </p>
 </nav>
  <script>
@@ -689,9 +697,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mAfuncionamiento/m4consolas.html"
+ let urlAnterior = "/m02servicio/mCfuncionamiento/m2invoca.html"
  /**@type {string} */
- let urlSiguiente = "/m02servicio/mAfuncionamiento/m6tablets.html"
+ let urlSiguiente = "/m02servicio/mCfuncionamiento/m4devuelve.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

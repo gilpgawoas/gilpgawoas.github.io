@@ -1,19 +1,23 @@
-<section style="vertical-align: middle;">
+<section style="display: inline-block; vertical-align: middle;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span style="color: #0000ff;">const</span> <span
+   <div><span
+      style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">resp</span> =</div>
-   <div class="resaltado3">&nbsp;<span
+   <div>&nbsp;<span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">fetch</span>(<span
       style="color: #a31515;">"servicio.php"</span>)</div>
-   <div><span style="color: #af00db;">if</span> (<span
+   <div><span
+      style="color: #af00db;">if</span> (<span
       style="color: #0070c1;">resp</span>.<span
       style="color: #0070c1;">ok</span>) {</div>
-   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+   <div class="resaltado">&nbsp;<span
+      style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">texto</span> =</div>
-   <div>&nbsp; <span style="color: #af00db;">await</span> <span
+   <div class="resaltado">&nbsp; <span
+      style="color: #af00db;">await</span> <span
       style="color: #0070c1;">resp</span>.<span
       style="color: #795e26;">text</span>()</div>
    <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
@@ -27,25 +31,25 @@
    <div>}</div>
   </div>
  </muestra-codigo>
- <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section style="vertical-align: middle;">
- <h1>servicio.php</h1>
- <muestra-codigo>
-  <div>
-   <div><span style="color: #800000;">&lt;?php</span></div>
-   <div class="resaltado"><span style="color: #795e26;">echo</span> <span
-      style="color: #a31515;">"Hola"</span>;</div><br>
-  </div>
- </muestra-codigo>
- <p class="resaltado2">Procesa la request y genera response (respuesta).</p>
-</section>
-<section style="vertical-align: middle;">
- <h1>Response</h1>
- <dl class="resaltado">
-  <dt>code</dt>
-  <dd>200</dd>
-  <dt>contenido</dt>
-  <dd>Hola</dd>
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt>ok</dt>
+    <dd>true</dd>
+    <dt class="resaltado">text</dt>
+    <dd class="resaltado">Hola</dd>
+   </dl>
+  </dd>
+  <dt class="resaltado">texto</dt>
+  <dd class="resaltado">Hola</dd>
  </dl>
+ <p class="resaltado2">
+  El texto recuperado
+  <br>queda en la
+  <br>constante <var>texto</var>.
+ </p>
 </section>

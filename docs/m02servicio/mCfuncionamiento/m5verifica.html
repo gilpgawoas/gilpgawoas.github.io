@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>F. servicio.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «servicio.php».">
+ <title>5. Verifica si la conexión terminó con éxito - GilPG AWOAS</title>
+ <meta name="description" content="Verifica si la conexión terminó con éxito.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -225,10 +225,6 @@
   padding: 0.4rem;
  }
 
- muestra-codigo>div>div {
-  white-space: nowrap;
- }
-
  footer {
   margin-top: 1rem;
   display: block;
@@ -442,22 +438,163 @@
   }
  }
 </style>
- 
+ <style>
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1em;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
 </head>
-<body class="xmenu">
+<body class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m02servicio/mBindexHtml.html" title="E. index.html">◀</a>
- <a class="siguiente" href="/m03soa/index.html" title="3. Arquitectura orientada a servicios">▶</a>
-   <h1 >F. servicio.php</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Hola"</span>;</div><br>
- </div>
-</muestra-codigo>
+ <a class="anterior" href="/m02servicio/mCfuncionamiento/m4devuelve.html" title="4. El servicio devuelve la response, que es recibida en el cliente">◀</a>
+ <a class="siguiente" href="/m02servicio/mCfuncionamiento/m6recupera.html" title="6. Como la conexión terminó con éxito, recupera el texto de response">▶</a>
+   <h1 >5. Verifica si la conexión terminó con éxito</h1><section style="display: inline-block; vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div><span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div class="resaltado"><span
+      style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>} <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>}</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Memoria</h1>
+ <dl style="padding: 0.5rem;">
+  <dt>resp</dt>
+  <dd>
+   <dl>
+    <dt class="resaltado">ok</dt>
+    <dd class="resaltado">true</dd>
+    <dt>text</dt>
+    <dd>Hola</dd>
+   </dl>
+  </dd>
+ </dl>
+</section>
  <footer>
  <p>
   <a rel="license"
@@ -488,44 +625,54 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m01awoas/mImashups.html"
-      title="I. Aplicación web hibrida (Mashup)">▲</a>
+    <a class="paginaAnterior" href="/m02servicio/mBdeploy.html"
+      title="B. Diagrama de despliegue">▲</a>
    </p>
-     <h1><a href="/m02servicio/index.html">2. Ejemplo de servicio</a></h1>
-   <ol type="A">
+     <h1><a href="/m02servicio/mCfuncionamiento/index.html">C. Funcionamiento</a></h1>
+   <ol type="1">
     <li>
      <p>
-      <a href="/m02servicio/mAdeploy.html">Diagrama de despliegue</a>
+      <a href="/m02servicio/mCfuncionamiento/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/">Funcionamiento</a>
+      <a href="/m02servicio/mCfuncionamiento/m2invoca.html">Se invoca el servicio en el servidor</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAinstrucciones.html">Instrucciones</a>
+      <a href="/m02servicio/mCfuncionamiento/m3procesa.html">El servicio procesa la request y genera la response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mBarchivos.html">Archivos</a>
+      <a href="/m02servicio/mCfuncionamiento/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mBindexHtml.html">index.html</a>
+      <a href="/m02servicio/mCfuncionamiento/m5verifica.html" class="actual">Verifica si la conexión terminó con éxito</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mCservicioPhp.html" class="actual">servicio.php</a>
+      <a href="/m02servicio/mCfuncionamiento/m6recupera.html">Como la conexión terminó con éxito, recupera el texto de response</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mCfuncionamiento/m7muestra.html">Muestra el texto en un alert</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m02servicio/mCfuncionamiento/m8termina.html">Al cerrar el alert, termina el evento</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m03soa/index.html"
-      title="3. Arquitectura orientada a servicios">▼</a>
+    <a class="paginaSiguiente" href="/m02servicio/mDinstrucciones.html"
+      title="D. Instrucciones">▼</a>
    </p>
 </nav>
  <script>
@@ -538,9 +685,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mBindexHtml.html"
+ let urlAnterior = "/m02servicio/mCfuncionamiento/m4devuelve.html"
  /**@type {string} */
- let urlSiguiente = "/m03soa/index.html"
+ let urlSiguiente = "/m02servicio/mCfuncionamiento/m6recupera.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

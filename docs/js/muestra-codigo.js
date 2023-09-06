@@ -8,7 +8,7 @@ const MUESTRA_CODIGO_SHADOW_HTML = /* html */
     margin-left: auto;
     margin-right: auto;
    }
-   #nums {
+   td:first-child {
     text-align: right;
     padding: 0 0 0 0;
     vertical-align: top;
@@ -17,12 +17,16 @@ const MUESTRA_CODIGO_SHADOW_HTML = /* html */
     font-size: 1rem;
     line-height:1.2rem;
    }
-   #cod {
+   td:nth-child(2) {
     padding: 0 0 0 0.25rem;
     vertical-align: top;
     font-family: var(--fontMono);
+    white-space: pre-wrap;
     font-size: 1rem;
     line-height:1.2rem;
+   }
+   div>div {
+    white-space: pre;
    }
    @media print {
     button {
@@ -30,74 +34,84 @@ const MUESTRA_CODIGO_SHADOW_HTML = /* html */
     }
    }
  </style>
- <table>
-  <tr>
-   <td colspan=2>
-    <button type=button title="Copiar al portapapeles">📋</button>
-   </td>
-  </tr>
-  <tr>
-   <td id=nums></td>
-   <td id=cod><slot></slot></td>
-  </tr>
- </table>`
+ <button type=button title="Copiar al portapapeles">📋</button>
+ <table></table>
+ <div hidden style="display: none">
+  <slot></slot>
+ </div>`
 class MuestraCodigo extends HTMLElement {
  constructor() {
-  super();
-  this.copia = this.copia.bind(this)
- }
- connectedCallback() {
+  super()
   const shadowRoot = this.attachShadow({ mode: "open" })
   shadowRoot.innerHTML = MUESTRA_CODIGO_SHADOW_HTML
-  this.cod = shadowRoot.querySelector("#cod")
-  /** @type {HTMLSlotElement | null} */
-  const mislot = shadowRoot.querySelector("slot")
-  if (mislot) {
-   mislot.addEventListener("slotchange", () => {
-    const assignedElements = mislot.assignedElements();
-    for (const assignedElement of assignedElements) {
-     const arr = Array.from(assignedElement.children)
-     switch (arr.length) {
-      case 0:
-       /** @type {Element[]} */
-       this.líneas = []
-       break
-      case 1:
-       this.líneas = Array.from(arr[0].querySelectorAll("div>div"))
-       break
-      default:
-       this.líneas = arr
-       break
-     }
-     /**@type {HTMLElement | null} */
-     const nums = shadowRoot.querySelector("#nums")
-     const total = this.líneas.length
-     let inner = ""
-     for (let i = 1; i <= total; i++) {
-      inner += /* html */ `<div>${i}</div>`
-     }
-     if (nums) {
-      nums.innerHTML = inner
-     }
-    }
-   })
-  }
+  this.copia = this.copia.bind(this)
+  /**
+   * @readonly
+   * @type {HTMLTableElement | null}
+   */
+  this.tabla = shadowRoot.querySelector("table")
   const button = shadowRoot.querySelector("button")
   if (button) {
    button.addEventListener("click", this.copia)
   }
+  /** @type {HTMLSlotElement | null} */
+  const slot = shadowRoot.querySelector("slot")
+  if (slot) {
+   slot.addEventListener("slotchange", () => {
+    const arr = slot.assignedElements()
+    /** @type {string[]} */
+    let codigo = []
+    switch (arr.length) {
+     case 0:
+      codigo = []
+      break
+     case 1:
+      codigo = this.analizaHtml(
+       Array.from(arr[0].children))
+      break
+     default:
+      codigo = this.analizaHtml(arr)
+      break
+    }
+    const total = codigo.length
+    let inner = ""
+    for (let i = 0; i < total;) {
+     const linea = codigo[i]
+     inner += /* html */
+      `<tr>
+         <td>${++i}</td>
+         <td>${linea}</td>
+        </tr>`
+    }
+    if (this.tabla) {
+     this.tabla.innerHTML = inner
+    }
+   })
+  }
+ }
+ /** @param {Element[]} elementos */
+ analizaHtml(elementos) {
+  const codigo = []
+  for (const elemento of elementos) {
+   const innerHTML = elemento.innerHTML
+   const limpio = innerHTML
+    .replace(/(\u00a0|\n\s*|&nbsp;)/g, " ")
+    .replace(/\s+$/g, "")
+   codigo.push(limpio)
+  }
+  return codigo
  }
  async copia() {
   try {
-   const código = this.líneas ?
-    this.líneas.
-     map(ch => ch.textContent ? ch.textContent.replace(/\u00a0/g, ' ') : "").
-     map(s => s ? s.replace(/\s+$/g, '') : "").
-     join("\n")
-    : ""
-   if (código) {
-    await navigator.clipboard.writeText(código)
-    alert("Texto copiado al portapapeles.")
+   if (this.tabla) {
+    const lineas = Array.from(this.tabla.querySelectorAll("td:nth-child(2)"))
+    const codigo = lineas
+     .map(linea => linea.textContent || "")
+     .join("\n")
+    if (codigo) {
+     await navigator.clipboard.writeText(codigo)
+     alert("Texto copiado al portapapeles.")
+    }
    }
   } catch (e) {
    alert(e.message)

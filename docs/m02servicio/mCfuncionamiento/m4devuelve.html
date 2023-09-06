@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>B. Funcionamiento - GilPG AWOAS</title>
- <meta name="description" content="Muestra el funcionamiento del ejemplo.">
+ <title>4. El servicio devuelve la response, que es recibida en el cliente - GilPG AWOAS</title>
+ <meta name="description" content="Fotografía de consolas de videojuegos.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -225,10 +225,6 @@
   padding: 0.4rem;
  }
 
- muestra-codigo>div>div {
-  white-space: nowrap;
- }
-
  footer {
   margin-top: 1rem;
   display: block;
@@ -442,69 +438,191 @@
   }
  }
 </style>
- 
+ <style>
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1em;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
 </head>
-<body class="xmenu">
+<body class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m02servicio/mAdeploy.html" title="A. Diagrama de despliegue">◀</a>
- <a class="siguiente" href="/m02servicio/mAfuncionamiento/m1wearables.html" title="1. Iniciamos al ejecutar código en el cliente">▶</a>
-   <h1 >B. Funcionamiento</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <nav>
-  
-   <ol type="1">
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m1wearables.html">Iniciamos al ejecutar código en el cliente</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m2asistentes.html">Se invoca el servicio en el servidor</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m3arduino.html">El servicio procesa la request y genera la response</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m5celulares.html">Verifica si la conexión terminó con éxito</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m6tablets.html">Como la conexión terminó con éxito, recupera el texto de response</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m7laptops.html">Muestra el texto en un alert</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02servicio/mAfuncionamiento/m8desktops.html">Al cerrar el alert, termina el evento</a>
-     </p>
-    </li>
-   </ol>
- </nav>
-</div>
+ <a class="anterior" href="/m02servicio/mCfuncionamiento/m3procesa.html" title="3. El servicio procesa la request y genera la response">◀</a>
+ <a class="siguiente" href="/m02servicio/mCfuncionamiento/m5verifica.html" title="5. Verifica si la conexión terminó con éxito">▶</a>
+   <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div class="resaltado"><span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resp</span> =</div>
+   <div>&nbsp;<span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">fetch</span>(<span
+      style="color: #a31515;">"servicio.php"</span>)</div>
+   <div><span style="color: #af00db;">if</span> (<span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">ok</span>) {</div>
+   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">texto</span> =</div>
+   <div>&nbsp; <span style="color: #af00db;">await</span> <span
+      style="color: #0070c1;">resp</span>.<span
+      style="color: #795e26;">text</span>()</div>
+   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">texto</span>)</div>
+   <div>} <span style="color: #af00db;">else</span> {</div>
+   <div>&nbsp;<span style="color: #af00db;">throw</span> <span
+      style="color: #0000ff;">new</span> <span
+      style="color: #267f99;">Error</span>(</div>
+   <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
+      style="color: #0070c1;">statusText</span>)</div>
+   <div>}</div>
+  </div>
+ </muestra-codigo>
+ <p class="resaltado2">Despiesta y recibe response.</p>
+</section>
+<section style="vertical-align: middle;">
+ <section style="display: block;">
+  <h1>Response</h1>
+  <dl class="resaltado">
+   <dt>code</dt>
+   <dd>200</dd>
+   <dt>contenido</dt>
+   <dd>Hola</dd>
+  </dl>
+ </section>
+ <section style="display: block;">
+  <h1>Memoria</h1>
+  <dl class="resaltado">
+   <dt>resp</dt>
+   <dd>
+    <dl>
+     <dt>ok</dt>
+     <dd>true</dd>
+     <dt>text</dt>
+     <dd>Hola</dd>
+    </dl>
+   </dd>
+  </dl>
+  <p class="resaltado2">
+   <var>resp</var> tiene lo mismo
+   <br>que la response,
+   <br>pero en un objeto
+   <br>de JavaScript.
+  </p>
+ </section>
+</section>
+<section style="vertical-align: middle;">
+ <h1>servicio.php</h1>
+ <muestra-codigo class="resaltado3">
+  <div>
+   <div><span style="color: #800000;">&lt;?php</span></div>
+   <div><span style="color: #795e26;">echo</span> <span
+      style="color: #a31515;">"Hola"</span>;</div><br>
+  </div>
+ </muestra-codigo>
+ <p class="resaltado3">Devuelve response y se duerme.</p>
+</section>
  <footer>
  <p>
   <a rel="license"
@@ -535,54 +653,54 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m02servicio/mAdeploy.html"
-      title="A. Diagrama de despliegue">▲</a>
+    <a class="paginaAnterior" href="/m02servicio/mBdeploy.html"
+      title="B. Diagrama de despliegue">▲</a>
    </p>
-     <h1><a href="/m02servicio/mAfuncionamiento/index.html" class="actual">B. Funcionamiento</a></h1>
+     <h1><a href="/m02servicio/mCfuncionamiento/index.html">C. Funcionamiento</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m1wearables.html">Iniciamos al ejecutar código en el cliente</a>
+      <a href="/m02servicio/mCfuncionamiento/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m2asistentes.html">Se invoca el servicio en el servidor</a>
+      <a href="/m02servicio/mCfuncionamiento/m2invoca.html">Se invoca el servicio en el servidor</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m3arduino.html">El servicio procesa la request y genera la response</a>
+      <a href="/m02servicio/mCfuncionamiento/m3procesa.html">El servicio procesa la request y genera la response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
+      <a href="/m02servicio/mCfuncionamiento/m4devuelve.html" class="actual">El servicio devuelve la response, que es recibida en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m5celulares.html">Verifica si la conexión terminó con éxito</a>
+      <a href="/m02servicio/mCfuncionamiento/m5verifica.html">Verifica si la conexión terminó con éxito</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m6tablets.html">Como la conexión terminó con éxito, recupera el texto de response</a>
+      <a href="/m02servicio/mCfuncionamiento/m6recupera.html">Como la conexión terminó con éxito, recupera el texto de response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m7laptops.html">Muestra el texto en un alert</a>
+      <a href="/m02servicio/mCfuncionamiento/m7muestra.html">Muestra el texto en un alert</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02servicio/mAfuncionamiento/m8desktops.html">Al cerrar el alert, termina el evento</a>
+      <a href="/m02servicio/mCfuncionamiento/m8termina.html">Al cerrar el alert, termina el evento</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m02servicio/mAinstrucciones.html"
-      title="C. Instrucciones">▼</a>
+    <a class="paginaSiguiente" href="/m02servicio/mDinstrucciones.html"
+      title="D. Instrucciones">▼</a>
    </p>
 </nav>
  <script>
@@ -595,9 +713,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mAdeploy.html"
+ let urlAnterior = "/m02servicio/mCfuncionamiento/m3procesa.html"
  /**@type {string} */
- let urlSiguiente = "/m02servicio/mAfuncionamiento/m1wearables.html"
+ let urlSiguiente = "/m02servicio/mCfuncionamiento/m5verifica.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
