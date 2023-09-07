@@ -1,0 +1,73 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Configura las carpetas para</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;buscar código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tenemos que indicar una carpeta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;raíz; en este caso es la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;carpeta principal del proyecto.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Ten en cuenta que cuando un</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;servidor corre en Windows, el</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;proyecto usa una subcarpeta,</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;mientras que en producción se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;usa la carpeta principal.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tomamos este archivo como punto</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;de referencia. la raíz se ubica</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;subiendo 2 niveles en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;estructura de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;La carpeta del arcivo es</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/lib/php</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/.. es /lib</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/../.. es /</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Incluye la carpeta raíz en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;ruta de búsqueda de archivos.*/</span>
+  </div>
+  <div>set_include_path(</div>
+  <div>&nbsp;get_include_path()</div>
+  <div>&nbsp;&nbsp;. PATH_SEPARATOR</div>
+  <div>&nbsp;&nbsp;. <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../.."</span></div>
+  <div>);</div>
+ </div>
+</muestra-codigo>
