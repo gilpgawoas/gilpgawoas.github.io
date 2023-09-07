@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Iniciamos al ejecutar código en el cliente - GilPG AWOAS</title>
- <meta name="description" content="Muestra el código que se ejecuta en el cliente.">
+ <title>J. lib / php / Servicio.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/Servicio.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -438,136 +438,53 @@
   }
  }
 </style>
- <style>
- .pruebaDeEscritorio section {
-  display: inline-block;
-  vertical-align: top;
-  margin: 1em;
- }
-
- .pruebaDeEscritorio section pre {
-  margin: 0;
- }
-
- .pruebaDeEscritorio samp {
-  font-weight: bold;
- }
-
- .pruebaDeEscritorio .activo {
-  display: inline-block;
-  margin: 0 0.2rem 0 0;
-  vertical-align: top;
-  background-color: var(--colSecundario);
-  border: 1px solid var(--colSecundario);
- }
-
- .pruebaDeEscritorio :target,
- .pruebaDeEscritorio :target caption {
-  background-color: var(--colTarget);
- }
-
- .pruebaDeEscritorio .numero1 {
-  display: inline-block;
-  margin: 0 0.2rem 0 0;
-  color: var(--colStack1);
-  border: 1px solid var(--colStack1);
- }
-
- .pruebaDeEscritorio .numero2 {
-  display: inline-block;
-  color: var(--colStack2);
-  border: 1px solid var(--colStack2);
- }
-
- .pruebaDeEscritorio .numero3 {
-  display: inline-block;
-  color: var(--colStack3);
-  border: 1px solid var(--colStack3);
- }
-
- .pruebaDeEscritorio a.parametro1,
- .pruebaDeEscritorio .parametro1 {
-  color: var(--colPar1);
- }
-
- .pruebaDeEscritorio a.parametro2,
- .pruebaDeEscritorio .parametro2 {
-  color: var(--colPar2);
- }
-
- .pruebaDeEscritorio .descongela {
-  color: var(--colDescongela);
- }
-
- .pruebaDeEscritorio table.tabla1,
- .pruebaDeEscritorio table.tabla1 th,
- .pruebaDeEscritorio table.tabla1 td {
-  border: 1px solid var(--colStack1);
- }
-
- .pruebaDeEscritorio table.tabla2,
- .pruebaDeEscritorio table.tabla2 th,
- .pruebaDeEscritorio table.tabla2 td {
-  border: 1px solid var(--colStack2);
- }
-
- .pruebaDeEscritorio table.tabla3,
- .pruebaDeEscritorio table.tabla3 th,
- .pruebaDeEscritorio table.tabla3 td {
-  border: 1px solid var(--colStack3);
- }
-
- .pruebaDeEscritorio .frame {
-  font-family: var(--fontMono);
-  border-collapse: collapse;
- }
-
- .pruebaDeEscritorio .frame,
- .pruebaDeEscritorio .frame th,
- .pruebaDeEscritorio .frame td {
-  border: thin solid;
- }
-
- .pruebaDeEscritorio .frame caption {
-  font-style: italic;
- }
-
- .pruebaDeEscritorio .objeto caption {
-  text-decoration: underline;
-  font-style: italic;
- }
-
- .pruebaDeEscritorio .creación {
-  display: flex;
- }
-</style>
+ 
 </head>
-<body class="xmenu sinTransicion pruebaDeEscritorio">
+<body class="xmenu">
  <div id="principal">
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m07servicios/mAfunError/index.html" title="B. Funcionamiento del ejemplo con errores">◀</a>
- <a class="siguiente" href="/m07servicios/mAfunError/m2asistentes.html" title="2. Se invoca el servicio en el servidor">▶</a>
-   <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
- <h1>index.html</h1>
- <muestra-codigo class="resaltado">
-  <div>
-   <div><span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp;<span style="color: #af00db;">await</span> <span
-      style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp;&nbsp;<span style="color: #795e26;">fetch</span>(<span
-      style="color: #a31515;">"srv/SrvError.php"</span>))</div>
-   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
-      style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>} <span style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>) {</div>
-   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
-   <div>}</div>
-  </div>
- </muestra-codigo>
-</section>
+ <a class="anterior" href="/m07srverror/mIindexHtml.html" title="I. index.html">◀</a>
+ <a class="siguiente" href="/m07srverror/mMSrvErrorPhp.html" title="K. srv / SrvError.php">▶</a>
+   <h1 >J. lib / php / Servicio.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #795e26;">mb_internal_encoding</span>(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div>&nbsp; <span style="color: #af00db;">try</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$resultado</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #795e26;">implementacion</span>();</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #795e26;">json_encode</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>&nbsp; } <span style="color: #af00db;">catch</span> (\<span
+     style="color: #267f99;">Throwable</span> <span
+     style="color: #001080;">$t</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #795e26;">http_response_code</span>(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$t</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>();</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -598,49 +515,69 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m07servicios/mAdeploy.html"
-      title="A. Diagrama de despliegue">▲</a>
+    <a class="paginaAnterior" href="/m06ecommerce/mEdetalle.html"
+      title="E. Fotos de productos a detalle">▲</a>
    </p>
-     <h1><a href="/m07servicios/mAfunError/index.html">B. Funcionamiento del ejemplo con errores</a></h1>
-   <ol type="1">
+     <h1><a href="/m07srverror/index.html">7. Servicio que falla</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m1wearables.html" class="actual">Iniciamos al ejecutar código en el cliente</a>
+      <a href="/m07srverror/mAintro.html">Introducción</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m2asistentes.html">Se invoca el servicio en el servidor</a>
+      <a href="/m07srverror/mBdeploy.html">Diagrama de despliegue</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m3arduino.html">El servicio procesa la request y lanza una excepción</a>
+      <a href="/m07srverror/mCfunError/">Funcionamiento del ejemplo con errores</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
+      <a href="/m07srverror/mAinstrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m5celulares.html">Como hay error, lanza una excepción que atrapa catch</a>
+      <a href="/m07srverror/mBarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m7laptops.html">Muestra la excepción en la consola y el texto de la excepción en un alert</a>
+      <a href="/m07srverror/mCjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m8desktops.html">Al cerrar el alert, termina el evento</a>
+      <a href="/m07srverror/mDejecutaJs.html">lib / js / ejecuta.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07srverror/mEmuestraErrorJs.html">lib / js / muestraError.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07srverror/mIindexHtml.html">index.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07srverror/mLServicioPhp.html" class="actual">lib / php / Servicio.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m07srverror/mMSrvErrorPhp.html">srv / SrvError.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m07servicios/mAinstrucciones.html"
-      title="C. Instrucciones">▼</a>
+    <a class="paginaSiguiente" href="/m07srvresultado/index.html"
+      title="8. Servicio que devuelve un resultado JSON">▼</a>
    </p>
 </nav>
  <script>
@@ -653,9 +590,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m07servicios/mAfunError/index.html"
+ let urlAnterior = "/m07srverror/mIindexHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m07servicios/mAfunError/m2asistentes.html"
+ let urlSiguiente = "/m07srverror/mMSrvErrorPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -8,7 +8,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
  <title>Funcionamiento del ejemplo con errores - GilPG AWOAS</title>
- <meta name="description" content="Página para imprimir que muestra el funcionamiento de servicios con errores.">
+ <meta name="description" content="Página para imprimir que muestra el funcionamiento de servicios que detectan errores.">
  <style>
  :root {
   --padTop: 2rem;
@@ -337,7 +337,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >B. Funcionamiento del ejemplo con errores</h1>
+   <h1 >C. Funcionamiento del ejemplo con errores</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -350,37 +350,37 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m1wearables.html">Iniciamos al ejecutar código en el cliente</a>
+      <a href="/m07srverror/mCfunError/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m2asistentes.html">Se invoca el servicio en el servidor</a>
+      <a href="/m07srverror/mCfunError/m2servidor.html">Se invoca el servicio en el servidor</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m3arduino.html">El servicio procesa la request y lanza una excepción</a>
+      <a href="/m07srverror/mCfunError/m3procesa.html">El servicio procesa la request, lanza una excepción y genera la response</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m4consolas.html">El servicio devuelve la response, que es recibida en el cliente</a>
+      <a href="/m07srverror/mCfunError/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m5celulares.html">Como hay error, lanza una excepción que atrapa catch</a>
+      <a href="/m07srverror/mCfunError/m5celulares.html">Como hay error, lanza una excepción que atrapa catch</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m7laptops.html">Muestra la excepción en la consola y el texto de la excepción en un alert</a>
+      <a href="/m07srverror/mCfunError/m7laptops.html">Muestra la excepción en la consola y el texto de la excepción en un alert</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m07servicios/mAfunError/m8desktops.html">Al cerrar el alert, termina el evento</a>
+      <a href="/m07srverror/mCfunError/m8desktops.html">Al cerrar el alert, termina el evento</a>
      </p>
     </li>
    </ol>
@@ -457,7 +457,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >3. El servicio procesa la request y lanza una excepción</h1><section style="vertical-align: middle;">
+         <h1 >3. El servicio procesa la request, lanza una excepción y genera la response</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
@@ -490,7 +490,11 @@
       style="color: #a31515;">"Ouch"</span>);</div>
   </div>
  </muestra-codigo>
- <p class="resaltado2">Procesa la request y lanza una excepción.</p>
+ <p class="resaltado2">
+  Procesa la request, lanza una excepción,
+  <br>genera la response y aborta el proceso
+  <br>en el servidor.
+ </p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Response</h1>
@@ -500,6 +504,13 @@
   <dt>contenido</dt>
   <dd>Ouch</dd>
  </dl>
+ <p class="resaltado2">
+  El code 500
+  <br>indica que
+  <br>algo falló en
+  <br>el servidor
+  <br>y terminó con
+  <br>error.
 </section>
       </section>
      <section class="pruebaDeEscritorio">
