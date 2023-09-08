@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>M. lib / js / muestraError.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/muestraError.js».">
+ <title>L. lib / js / ejecuta.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/js/ejecuta.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,36 +445,73 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m09srvjson/mDejecutaJs.html" title="L. lib / js / ejecuta.js">◀</a>
- <a class="siguiente" href="/m09srvjson/mLServicioPhp.html" title="N. lib / php / Servicio.php">▶</a>
-   <h1 >M. lib / js / muestraError.js</h1><muestra-codigo>
+ <a class="anterior" href="/m09srvjson/mKjsconfigJson.html" title="K. jsconfig.json">◀</a>
+ <a class="siguiente" href="/m09srvjson/mMmuestraErrorJs.html" title="M. lib / js / muestraError.js">▶</a>
+   <h1 >L. lib / js / ejecuta.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #008000;">/**</span></div>
   <div><span
-     style="color: #008000;">&nbsp;* Muestra un error en la consola y</span>
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un</span>
   </div>
   <div><span
-     style="color: #008000;">&nbsp;* un cuadro de alerta con el</span></div>
-  <div><span style="color: #008000;">&nbsp;* mensaje.</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #008000;">&nbsp;*&nbsp;fetch termine. Si hay error</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;lanza una excepción. Si no hay</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;error, interpreta la respuesta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;del servidor como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;objeto. </span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{Error}</span><span
+     style="color: #008000;">{Promise&lt;Response&gt;}</span><span
      style="color: #008000;"> </span><span
-     style="color: #001080;">e</span><span
-     style="color: #008000;"> descripción</span></div>
-  <div><span style="color: #008000;">&nbsp;* &nbsp;del error.</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp;<span style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">e</span>)</div>
-  <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">e</span>.<span
-     style="color: #001080;">message</span>)</div>
+     style="color: #008000;">fetch</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #008000;">{Promise&lt;any&gt;}</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">export</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> ejecuta(fetch)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> resp = <span
+     style="color: #0000ff;">await</span> fetch</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">if</span> (resp.ok)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">return</span> <span
+     style="color: #0000ff;">await</span> resp.json()</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #0000ff;">else</span> <span
+     style="color: #0000ff;">if</span> (resp.status === <span
+     style="color: #098658;">500</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">throw</span> <span
+     style="color: #0000ff;">new</span> Error(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">await</span> resp.text())</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #0000ff;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">throw</span> <span
+     style="color: #0000ff;">new</span> Error(resp.statusText)</div>
+  <div>&nbsp;}</div>
   <div>}</div>
  </div>
 </muestra-codigo>
@@ -535,52 +572,62 @@
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mBarchivos.html">Archivos</a>
+      <a href="/m09srvjson/mEarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mFMethodJs.html">lib / js / Method.js</a>
+      <a href="/m09srvjson/mFindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mGenviaJsonJs.html">lib / js / enviaJson.js</a>
+      <a href="/m09srvjson/mGSrvJsonPhp.html">srv / SrvJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mIindexHtml.html">index.html</a>
+      <a href="/m09srvjson/mHenviaJsonJs.html">lib / js / enviaJson.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mKleeJsonPhp.html">lib / php / leeJson.php</a>
+      <a href="/m09srvjson/mIMethodoHttpJs.html">lib / js / MethodoHttp.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mOSrvJsonPhp.html">srv / SrvJson.php</a>
+      <a href="/m09srvjson/mJleeJsonPhp.html">lib / php / leeJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mCjsconfigJson.html">jsconfig.json</a>
+      <a href="/m09srvjson/mKjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mDejecutaJs.html">lib / js / ejecuta.js</a>
+      <a href="/m09srvjson/mLejecutaJs.html" class="actual">lib / js / ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mEmuestraErrorJs.html" class="actual">lib / js / muestraError.js</a>
+      <a href="/m09srvjson/mMmuestraErrorJs.html">lib / js / muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mLServicioPhp.html">lib / php / Servicio.php</a>
+      <a href="/m09srvjson/mNautoloadPhp.html">lib / php / autoload.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mOpathPhp.html">lib / php / path.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mPservicioPhp.html">lib / php / servicio.php</a>
      </p>
     </li>
    </ol><p>
@@ -598,9 +645,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m09srvjson/mDejecutaJs.html"
+ let urlAnterior = "/m09srvjson/mKjsconfigJson.html"
  /**@type {string} */
- let urlSiguiente = "/m09srvjson/mLServicioPhp.html"
+ let urlSiguiente = "/m09srvjson/mMmuestraErrorJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

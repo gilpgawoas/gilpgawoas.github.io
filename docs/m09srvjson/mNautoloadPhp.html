@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>F. lib / js / Method.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/Method.js».">
+ <title>N. lib / php / autoload.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/autoload.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,35 +445,51 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m09srvjson/mBarchivos.html" title="E. Archivos">◀</a>
- <a class="siguiente" href="/m09srvjson/mGenviaJsonJs.html" title="G. lib / js / enviaJson.js">▶</a>
-   <h1 >F. lib / js / Method.js</h1><muestra-codigo>
+ <a class="anterior" href="/m09srvjson/mMmuestraErrorJs.html" title="M. lib / js / muestraError.js">◀</a>
+ <a class="siguiente" href="/m09srvjson/mOpathPhp.html" title="O. lib / php / path.php">▶</a>
+   <h1 >N. lib / php / autoload.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #008000;">/**</span></div>
   <div><span
-     style="color: #008000;">&nbsp;* Métodos para enviar datos por</span></div>
-  <div><span style="color: #008000;">&nbsp;* HTTP.</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@enum</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{string}</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #267f99;">Method</span> = {</div>
-  <div>&nbsp;<span style="color: #001080;">GET</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"GET"</span>,</div>
-  <div>&nbsp;<span style="color: #001080;">POST</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"POST"</span>,</div>
-  <div>&nbsp;<span style="color: #001080;">PUT</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"PUT"</span>,</div>
-  <div>&nbsp;<span style="color: #001080;">DELETE</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"DELETE"</span></div>
-  <div>}</div>
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Permite que las clases se
+    puedan</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;cargar automáticamente sin usar</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;require.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Los nombres se buscan dentro
+    del</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;sistema de archivos usando solo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;minúsculas sin importar como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;se declaren en el código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Primero hay que cargar el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;archivo path.php para
+    configurar</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la búsqueda de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/path.php"</span>;</div><br>
+  <div>spl_autoload_register();</div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -533,52 +549,62 @@
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mBarchivos.html">Archivos</a>
+      <a href="/m09srvjson/mEarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mFMethodJs.html" class="actual">lib / js / Method.js</a>
+      <a href="/m09srvjson/mFindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mGenviaJsonJs.html">lib / js / enviaJson.js</a>
+      <a href="/m09srvjson/mGSrvJsonPhp.html">srv / SrvJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mIindexHtml.html">index.html</a>
+      <a href="/m09srvjson/mHenviaJsonJs.html">lib / js / enviaJson.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mKleeJsonPhp.html">lib / php / leeJson.php</a>
+      <a href="/m09srvjson/mIMethodoHttpJs.html">lib / js / MethodoHttp.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mOSrvJsonPhp.html">srv / SrvJson.php</a>
+      <a href="/m09srvjson/mJleeJsonPhp.html">lib / php / leeJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mCjsconfigJson.html">jsconfig.json</a>
+      <a href="/m09srvjson/mKjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mDejecutaJs.html">lib / js / ejecuta.js</a>
+      <a href="/m09srvjson/mLejecutaJs.html">lib / js / ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mEmuestraErrorJs.html">lib / js / muestraError.js</a>
+      <a href="/m09srvjson/mMmuestraErrorJs.html">lib / js / muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mLServicioPhp.html">lib / php / Servicio.php</a>
+      <a href="/m09srvjson/mNautoloadPhp.html" class="actual">lib / php / autoload.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mOpathPhp.html">lib / php / path.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mPservicioPhp.html">lib / php / servicio.php</a>
      </p>
     </li>
    </ol><p>
@@ -596,9 +622,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m09srvjson/mBarchivos.html"
+ let urlAnterior = "/m09srvjson/mMmuestraErrorJs.html"
  /**@type {string} */
- let urlSiguiente = "/m09srvjson/mGenviaJsonJs.html"
+ let urlSiguiente = "/m09srvjson/mOpathPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

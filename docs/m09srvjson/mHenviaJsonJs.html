@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>E. Archivos - GilPG AWOAS</title>
- <meta name="description" content="Archivos.">
+ <title>H. lib / js / enviaJson.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/js/enviaJson.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,59 +445,88 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m09srvjson/mDinstrucciones.html" title="D. Instrucciones">◀</a>
- <a class="siguiente" href="/m09srvjson/mFMethodJs.html" title="F. lib / js / Method.js">▶</a>
-   <h1 >E. Archivos</h1><div class="lectura">
- <ul>
-  <li>
-   <p>lib</p>
-   <ul>
-    <li>
-     <p>js</p>
-     <ul>
-      <li>
-       <p><a href="mDejecutaJs.html">ejecuta.js</a></p>
-      </li>
-      <li>
-       <p><a href="mGenviaJsonJs.html">enviaJson.js</a></p>
-      </li>
-      <li>
-       <p><a href="mFMethodJs.html">Method.js</a></p>
-      </li>
-      <li>
-       <p><a href="mEmuestraErrorJs.html">muestraError.js</a></p>
-      </li>
-     </ul>
-    </li>
-    <li>
-     <p>php</p>
-     <ul>
-      <li>
-       <p><a href="mKleeJsonPhp.html">leeJson.php</a></p>
-      </li>
-      <li>
-       <p><a href="mLServicioPhp.html">Servicio.php</a></p>
-      </li>
-     </ul>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>srv</p>
-   <ul>
-    <li>
-     <p><a href="mOSrvJsonPhp.html">SrvJson.php</a></p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p><a href="mIindexHtml.html">index.html</a></p>
-  </li>
-  <li>
-   <p><a href="mCjsconfigJson.html">jsconfig.json</a></p>
-  </li>
- </ul>
-</div>
+ <a class="anterior" href="/m09srvjson/mGSrvJsonPhp.html" title="G. srv / SrvJson.php">◀</a>
+ <a class="siguiente" href="/m09srvjson/mIMethodoHttpJs.html" title="I. lib / js / MethodoHttp.js">▶</a>
+   <h1 >H. lib / js / enviaJson.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">ejecuta</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">MetodoHttp</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./MetodoHttp.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Object}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">datos</span></div>
+  <div><span
+     style="color: #008000;">*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{MetodoHttp}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">metodoHttp</span></div>
+  <div><span
+     style="color: #008000;">*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span
+     style="color: #008000;">*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">enviaJson</span></div>
+  <div>&nbsp;(<span
+     style="color: #001080;">datos</span>, <span
+     style="color: #001080;">metodoHttp</span>, <span
+     style="color: #001080;">url</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>,</div>
+  <div>&nbsp;&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">metodoHttp</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">headers</span><span
+     style="color: #001080;">:</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"Content-Type"</span><span
+     style="color: #001080;">:</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"application/json"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;},</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">stringify</span>(<span
+     style="color: #001080;">datos</span>)</div>
+  <div>&nbsp;&nbsp;}))</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -555,52 +584,62 @@
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mBarchivos.html" class="actual">Archivos</a>
+      <a href="/m09srvjson/mEarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mFMethodJs.html">lib / js / Method.js</a>
+      <a href="/m09srvjson/mFindexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mGenviaJsonJs.html">lib / js / enviaJson.js</a>
+      <a href="/m09srvjson/mGSrvJsonPhp.html">srv / SrvJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mIindexHtml.html">index.html</a>
+      <a href="/m09srvjson/mHenviaJsonJs.html" class="actual">lib / js / enviaJson.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mKleeJsonPhp.html">lib / php / leeJson.php</a>
+      <a href="/m09srvjson/mIMethodoHttpJs.html">lib / js / MethodoHttp.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mOSrvJsonPhp.html">srv / SrvJson.php</a>
+      <a href="/m09srvjson/mJleeJsonPhp.html">lib / php / leeJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mCjsconfigJson.html">jsconfig.json</a>
+      <a href="/m09srvjson/mKjsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mDejecutaJs.html">lib / js / ejecuta.js</a>
+      <a href="/m09srvjson/mLejecutaJs.html">lib / js / ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mEmuestraErrorJs.html">lib / js / muestraError.js</a>
+      <a href="/m09srvjson/mMmuestraErrorJs.html">lib / js / muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m09srvjson/mLServicioPhp.html">lib / php / Servicio.php</a>
+      <a href="/m09srvjson/mNautoloadPhp.html">lib / php / autoload.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mOpathPhp.html">lib / php / path.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m09srvjson/mPservicioPhp.html">lib / php / servicio.php</a>
      </p>
     </li>
    </ol><p>
@@ -618,9 +657,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m09srvjson/mDinstrucciones.html"
+ let urlAnterior = "/m09srvjson/mGSrvJsonPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m09srvjson/mFMethodJs.html"
+ let urlSiguiente = "/m09srvjson/mIMethodoHttpJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -3,8 +3,8 @@
   <li>
    <p>
     Toda página web tiene una URL asociada, pero también puede representar una
-    colección de datos, por ejemplo,
-    <q>https://mirest.com/contactos</q>, o un registro, por ejemplo,
+    entidad, que puede ser una colección de datos, por ejemplo,
+    <q>https://mirest.com/contactos</q>, o un objeto, por ejemplo,
     <q>https://mirest.com/contactos/69</q>.
    </p>
   </li>
@@ -12,65 +12,137 @@
    <p>
     Para interactuar con la URL hay que enviarle una solicitud, que consta de:
    </p>
+   <dl>
+    <dt><dfn>URL</dfn>
+    <dd>
+     <p>
+      Con parámetros opcionales que consisten en nombre y
+      valor asociado, separados por & (como cuando buscas en Google).
+     </p>
+    </dd>
+    <dt><dfn>conjunto de encabezados</dfn></dt>
+    <dd>
+     <p>
+      Proporcionan información sobre la computadora y el programa que envían los
+      datos, así como la informacion que esperan recibir.
+     </p>
+    </dd>
+    <dt><dfn>cuerpo</dfn></dt>
+    <dt><dfn>carga útil</dfn></dt>
+    <dd>
+     <p>
+      Contiene datos adicionales, también llamados
+     </p>
+    </dd>
+    <dfn>Método de envío</dfn>
+    <dd>
+     <p>
+      Indica la acción que debe realizarse sobre la URL, usando los datos
+      adicionales.
+     </p>
+    </dd>
+   </dl>
+  </li>
+  <li>
+   <p>Los métodos de envío son:</p>
+   <dl>
+    <dt><dfn>TRACE</dfn></dt>
+    <dd>
+     <p>
+      Realiza una prueba de enviar un mensaje mensaje al servidor de la URL
+      y recibirlo de regreso sin modificaciones.
+     </p>
+    </dd>
+    <dt><dfn>OPTIONS</dfn></dt>
+    <dd>
+     <p>
+      Devuelve una descripción de las opciones de comunicación de laURL.
+     </p>
+    </dd>
+    <dt><dfn>CONNECT</dfn></dt>
+    <dd>
+     <p>
+      Establece un tunel bidireccional hacia el servidor.
+     </p>
+    </dd>
+    <dt><dfn>GET</dfn></dt>
+    <dd>
+     <p>
+      Devuelve los datos de la colección u objeto asociados con la URL, sin
+      modificar el estado del servidor.
+     </p>
+     <p>
+      Puede tomarse en cuenta los parámetros que lleva la URL, como si
+      fueran las condiciones de una cláusula WHERE de SQL.
+     </p>
+    </dd>
+    <dt><dfn>HEAD</dfn></dt>
+    <dd>
+     <p>
+      Devuelve una respuesta como la de GET, pero sin el cuerpo de la
+      respuesta.
+     </p>
+    </dd>
+    <dt><dfn>POST</dfn></dt>
+    <dd>
+     <p>Envía una entidad a una URL.</p>
+     <p>
+      Si la URL representa una lista que no contiene esa entidad, la agrega.
+     </p>
+     <p>
+      Los datos de la entidad se indican en el cuerpo de la solicitud.
+     </p>
+     <p>
+      A menudo causa un cambio o efectos secundarios en el servidor.
+     </p>
+    </dd>
+    <dt><dfn>PUT</dfn></dt>
+    <dd>
+     <p>
+      Reemplaza toda la entidad indicada en la URL. con el contenido del
+      cuerpo de la solicitud.
+     </p>
+    </dd>
+    <dt><dfn>PUT</dfn></dt>
+    <dd>
+     <p>
+      Reemplaza los datos de la URL con el contenido del cuerpo de la
+      solicitud.
+     </p>
+    </dd>
+    <dt><dfn>PATCH</dfn></dt>
+    <dd>
+     <p>
+      Modifica parcialmente la entidad de la URL, modificando solamente los
+      datos enviados en el cuerpo de la solicitud.
+     </p>
+    </dd>
+    <dt><dfn>DELETE</dfn></dt>
+    <dd>
+     <p>Eliminar la entidad de la URL</p>
+    </dd>
+   </dl>
+  </li>
+  <li>
+   <p>
+    Los datos de la solicitud que van dentro de la información adicional,
+    pueden enviarse en los siguientes formatos:
+   </p>
    <ul>
-    <li>
-     <p>Una URL con datos (como cuando buscas en Google).</p>
-    </li>
-    <li>
-     <p>
-      Un archivo con información adicional, como puede ser el método de envío o
-      los datos de la solicitud.
-     </p>
-    </li>
-    <li>
-     <p>Los principales métodos para intercambio de datos son:</p>
-     <dl>
-      <dt><dfn>GET</dfn></dt>
-      <dd>
-       <p>Para consultas. Los datos van en la URL.</p>
-      </dd>
-      <dt><dfn>POST</dfn></dt>
-      <dd>
-       <p>
-        Para agregar nuevo contenido. Los datos van en con la información
-        adicional.
-       </p>
-      </dd>
-      <dt><dfn>PUT</dfn></dt>
-      <dd>
-       <p>
-        Sustituir todo el contenido por los datos enviados. Los datos van con la
-        información adicional.
-       </p>
-      </dd>
-      <dt><dfn>PATCH</dfn></dt>
-      <dd>
-       <p>
-        Actualizar solo los datos enviados. Los datos van con la información
-        adicional.
-       </p>
-      </dd>
-      <dt><dfn>DELETE</dfn></dt>
-      <dd>
-       <p>eliminar los datos de la URL</p>
-      </dd>
-     </dl>
-    </li>
-    <li>
-     <p>
-      Los datos de la solicitud que van dentro de la información adicional,
-      pueden enviarse en los siguientes formatos:
-     </p>
-     <ul>
-      <li>application/x-www-form-urlencoded</li>
-      <li>multipart/form-data</li>
-      <li>text/plain</li>
-      <li>XML</li>
-      <li>JSON</li>
-      <li>YAML</li>
-     </ul>
-    </li>
+    <li>application/x-www-form-urlencoded</li>
+    <li>multipart/form-data</li>
+    <li>text/plain</li>
+    <li>XML</li>
+    <li>JSON</li>
+    <li>YAML</li>
    </ul>
   </li>
  </ul>
+ <p>
+  <small>
+   Fuente:
+   <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Methods" rel="nooper"
+     target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a>
+  </small>
+ </p>
 </div>
