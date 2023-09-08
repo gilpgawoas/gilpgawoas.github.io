@@ -1,0 +1,47 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div><span
+      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
+   <div>&nbsp;saludo: <span
+      style="color: #a31515;">"Hola"</span>,</div>
+   <div>&nbsp;nombre: <span
+      style="color: #a31515;">"pp"</span></div>
+   <div>}</div>
+   <div><span
+      style="color: #0000ff;">const</span> resultado =</div>
+   <div>&nbsp;<span
+      style="color: #0000ff;">await</span> enviaJson(datos,</div>
+   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+   <div>&nbsp;&nbsp;<span
+      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
+   <div><span class="resaltado">alert(resultado)</span></div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Memoria</h1>
+ <dl>
+  <dt>datos</dt>
+  <dd>
+   <dl>
+    <dt>saludo</dt>
+    <dd>"Hola"</dd>
+    <dt>nombre</dt>
+    <dd>"pp"</dd>
+   </dl>
+  </dd>
+  <dt class="resaltado">resultado</dt>
+  <dd class="resaltado">"Hola pp."</dd>
+ </dl>
+</section>
+<section>
+ <h1>Alert</h1>
+ <div class="resaltado" style="border: thin solid; padding: 0 0.5rem;">
+  <p>Hola pp.</p>
+  <p style="text-align: end;">
+   <button type="button">Aceptar</button>
+  </p>
+ </div>
+</section>
