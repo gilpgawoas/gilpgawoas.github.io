@@ -1,0 +1,60 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div><span
+      style="color: #af00db;">try</span>&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> <span
+      style="color: #000000;">=</span> <span
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">submit</span>(</div>
+   <div>&nbsp;&nbsp;<span
+      style="color: #001080;">evt</span>, <span
+      style="color: #a31515;">"srv/SrvProcesa.php"</span>,</div>
+   <div>&nbsp;&nbsp;<span
+      style="color: #001080;">forma</span>)</div>
+   <div>&nbsp;<span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
+   <div>}&nbsp;<span
+      style="color: #af00db;">catch</span> (<span
+      style="color: #001080;">e</span>)&nbsp;{</div>
+   <div>&nbsp;<span class="resaltado"><span
+       style="color: #795e26;">muestraError</span>(<span
+       style="color: #001080;">e</span>)</span></div>
+   <div>}</div>
+  </div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <h1>Memoria</h1>
+ <dl class="resaltado">
+  <dt>e</dt>
+  <dd>
+   <dl>
+    <dt>message</dt>
+    <dd>"Falta el saludo"</dd>
+   </dl>
+  </dd>
+ </dl>
+</section>
+<section>
+ <h1>Alert</h1>
+ <div class="resaltado" style="border: thin solid; padding: 0 0.5rem;">
+  <p>Falta el saludo</p>
+  <p style="text-align: end;">
+   <button type="button">Aceptar</button>
+  </p>
+ </div>
+</section>
+<section>
+ <h1>Consola</h1>
+ <div class="resaltado">
+  <pre>Error: Falta el saludo
+   at ejecuta (ejecuta.js:19:9)
+   at async submit (submit.js:17:9)
+   at async HTMLFormElement.procesa ((índice):102:18)</pre>
+ </div>
+</section>
