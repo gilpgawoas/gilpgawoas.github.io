@@ -1,0 +1,136 @@
+<section style="vertical-align: middle;">
+ <h1>index.html</h1>
+ <muestra-codigo>
+  <div>
+   <div><span
+      style="color: #af00db;">try</span>&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> <span
+      style="color: #000000;">=</span> <span class="resaltado3"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">submit</span>(</span></div>
+   <div>&nbsp;&nbsp;<span class="resaltado3"><span
+       style="color: #001080;">evt</span>, <span
+       style="color: #a31515;">"srv/SrvProcesa.php"</span>,</span></div>
+   <div>&nbsp;&nbsp;<span class="resaltado3"><span
+       style="color: #001080;">forma</span>)</span></div>
+   <div>&nbsp;<span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
+   <div>}&nbsp;<span
+      style="color: #af00db;">catch</span> (<span
+      style="color: #001080;">e</span>)&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #795e26;">muestraError</span>(<span
+      style="color: #001080;">e</span>)</div>
+   <div>}</div>
+  </div>
+ </muestra-codigo>
+ <p class="resaltado3">Hace wait esperando response.</p>
+</section>
+<section style="vertical-align: middle;">
+ <h1>SrvProcesa.php</h1>
+ <muestra-codigo>
+  <div>
+   <div><span
+    style="color: #800000;">&lt;?php</span></div><br>
+ <div><span
+    style="color: #001080;">$saludo</span><span
+    style="color: #000000;"> = </span><span
+    style="color: #795e26;">leeTexto</span><span
+    style="color: #000000;">(</span><span
+    style="color: #a31515;">"saludo"</span><span
+    style="color: #000000;">);</span></div>
+ <div><span
+    style="color: #001080;">$nombre</span><span
+    style="color: #000000;"> = </span><span
+    style="color: #795e26;">leeTexto</span><span
+    style="color: #000000;">(</span><span
+    style="color: #a31515;">"nombre"</span><span
+    style="color: #000000;">);</span></div>
+ <div><span
+    style="color: #af00db;">if</span><span
+    style="color: #000000;"> (</span><span
+    style="color: #001080;">$saludo</span><span
+    style="color: #000000;"> === </span><span
+    style="color: #a31515;">""</span><span
+    style="color: #000000;">)&nbsp;{</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;</span><span
+    style="color: #af00db;">throw</span><span
+    style="color: #000000;"> </span><span
+    style="color: #0000ff;">new</span><span
+    style="color: #000000;"> </span><span
+    style="color: #267f99;">Exception</span><span
+    style="color: #000000;">(</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;&nbsp;</span><span
+    style="color: #a31515;">"Falta el saludo"</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;);</span></div>
+ <div><span
+    style="color: #000000;">}</span></div>
+ <div><span
+    style="color: #af00db;">if</span><span
+    style="color: #000000;"> (</span><span
+    style="color: #001080;">$nombre</span><span
+    style="color: #000000;"> === </span><span
+    style="color: #a31515;">""</span><span
+    style="color: #000000;">)&nbsp;{</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;</span><span
+    style="color: #af00db;">throw</span><span
+    style="color: #000000;"> </span><span
+    style="color: #0000ff;">new</span><span
+    style="color: #000000;"> </span><span
+    style="color: #267f99;">Exception</span><span
+    style="color: #000000;">(</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;&nbsp;</span><span
+    style="color: #a31515;">"Falta el nombre"</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;);</span></div>
+ <div><span
+    style="color: #000000;">}</span></div>
+ <div><span
+    style="color: #001080;">$resultado</span><span
+    style="color: #000000;"> =</span></div>
+ <div><span
+    style="color: #000000;">&nbsp;</span><span
+    style="color: #a31515;">"{</span><span
+    style="color: #001080;">$saludo</span><span
+    style="color: #a31515;">}&nbsp;{</span><span
+    style="color: #001080;">$nombre</span><span
+    style="color: #a31515;">}."</span><span
+    style="color: #000000;">;</span></div>
+ <div><span class="resaltado"><span
+    style="color: #af00db;">return</span><span
+    style="color: #000000;"> </span><span
+    style="color: #001080;">$resultado</span><span
+    style="color: #000000;">;</span></span></div>
+</div>
+ </muestra-codigo>
+</section>
+<section style="vertical-align: middle;">
+ <section style="display: block;">
+  <h1>Memoria (Servidor)</h1>
+  <dl>
+   <dt>$saludo</dt>
+   <dd>"hola"</dd>
+   <dt>$nombre</dt>
+   <dd>"pp"</dd>
+   <dt class="resaltado">$resultado</dt>
+   <dd class="resaltado">"hola pp"</dd>
+   </dl>
+ </section>
+ <section style="display: block;">
+  <h1>Response</h1>
+  <dl class="resaltado">
+   <dt>code</dt>
+   <dd>200</dd>
+   <dt>contenido</dt>
+   <dd>"hola pp"</dd>
+  </dl>
+ </section>
+</section>

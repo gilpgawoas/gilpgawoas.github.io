@@ -1,0 +1,53 @@
+<section style="vertical-align: middle;">
+ <section style="display: block;">
+  <h1>Forma</h1>
+  <form action="javascript:;"
+    style="overflow: auto; padding: 0 1rem;">
+   <p>
+    <label>
+     Saludo:
+     <input name="saludo">
+    </label>
+   </p>
+   <p>
+    <label>
+     Nombre:
+     <input name="nombre">
+    </label>
+   </p>
+   <p>
+    <button>Procesa</button>
+   </p>
+  </form>
+ </section>
+ <section style="display: block;">
+  <h1>index.html</h1>
+  <muestra-codigo class="resaltado">
+   <div>
+    <div><span
+       style="color: #af00db;">try</span>&nbsp;{</div>
+    <div>&nbsp;<span
+       style="color: #0000ff;">const</span> <span
+       style="color: #0070c1;">resultado</span> <span
+       style="color: #000000;">=</span> <span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">submit</span>(</div>
+    <div>&nbsp;&nbsp;<span
+       style="color: #001080;">evt</span>, <span
+       style="color: #a31515;">"srv/SrvProcesa.php"</span>,</div>
+    <div>&nbsp;&nbsp;<span
+       style="color: #001080;">forma</span>)</div>
+    <div>&nbsp;<span
+       style="color: #795e26;">alert</span>(<span
+       style="color: #0070c1;">resultado</span>)</div>
+    <div>}&nbsp;<span
+       style="color: #af00db;">catch</span> (<span
+       style="color: #001080;">e</span>)&nbsp;{</div>
+    <div>&nbsp;<span
+       style="color: #795e26;">muestraError</span>(<span
+       style="color: #001080;">e</span>)</div>
+    <div>}</div>
+   </div>
+  </muestra-codigo>
+ </section>
+</section>

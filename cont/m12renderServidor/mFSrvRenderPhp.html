@@ -1,0 +1,217 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvRender</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$lista</span><span
+     style="color: #000000;"> = [</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"pp"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"color"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"azul"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;],</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"kq"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"color"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"rojo"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;],</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"tt"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"color"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"rosa"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;],</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"bb"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"color"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #a31515;">"azul"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">""</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">foreach</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$lista</span><span
+     style="color: #000000;"> as </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">/*&nbsp;Codifica el nombre para que</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cambie los
+    caracteres</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;especiales y no se
+    pueda</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;interpretar como
+    HTML. Esta</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;técnica evita la
+    inyección de</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;código. */</span>
+  </div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">[</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;">]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$color</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">[</span><span
+     style="color: #a31515;">"color"</span><span
+     style="color: #000000;">]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.=</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"&lt;li&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;{</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}&lt;/strong&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;{</span><span
+     style="color: #001080;">$color</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvRender</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
+ </div>
+</muestra-codigo>
