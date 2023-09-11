@@ -5,7 +5,7 @@
 
 const CACHE = "cache"
 
-const VERSION = "2.34"
+const VERSION = "3.1"
 
 const ARCHIVOS = [
   "/favicon.ico",
@@ -277,6 +277,7 @@ const ARCHIVOS = [
    "/m12renderServidor/print.html",
    "/m13bd/",
    "/m13bd/index.html",
+   "/m13bd/m00intro.html",
    "/m13bd/m01aer.html",
    "/m13bd/m01bdeploy.html",
    "/m13bd/m01instrucciones.html",
@@ -379,7 +380,7 @@ const ARCHIVOS = [
    "/src/m10form/srvform.zip",
    "/src/m11renderCliente/rendercli.zip",
    "/src/m12renderServidor/renderserv.zip",
-   "/src/m13bd/phpbd.zip",
+   "/src/m13bd/srvbd.zip",
    "/src/m14ws/composer.zip",
    "/src/m14ws/phpmensajes.zip",
    "/src/m15streaming/youtube.html",
