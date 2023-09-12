@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>10. srv / dao / AccesoBd.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/dao/AccesoBd.php».">
+ <title>7. Archivos relacionados con la estructura de los datos - GilPG AWOAS</title>
+ <meta name="description" content="Archivos relacionados con la estructura de los datos..">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,91 +445,37 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m13bd/m10bdCreaPhp.html" title="9. srv / dao / bdCrea.php">◀</a>
- <a class="siguiente" href="/m13bd/m12listado.html" title="11. Listar">▶</a>
-   <h1 >10. srv / dao / AccesoBd.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/bdCrea.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">AccesoBd</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">private</span> <span
-     style="color: #0000ff;">static</span> <span
-     style="color: #001080;">$con</span> = <span
-     style="color: #0000ff;">null</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">static</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">getCon</span>(): <span
-     style="color: #267f99;">\PDO</span></div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span> === <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #795e26;">conecta</span>();</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #795e26;">prepara</span>();</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">static</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">conecta</span>(): <span
-     style="color: #267f99;">\PDO</span></div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">PDO</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"sqlite:phpbd.db"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;[<span
-     style="color: #267f99;">PDO</span>::ATTR_ERRMODE =&gt;</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #267f99;">PDO</span>::ERRMODE_EXCEPTION]</div>
-  <div>&nbsp;&nbsp;);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">static</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">prepara</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">bdCrea</span>(<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #795e26;">getCon</span>());</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+ <a class="anterior" href="/m13bd/m06textos/mFplantillaNoEsTextoJs.html" title="F. lib /js / plantilla / plantillaNoEsTexto.js">◀</a>
+ <a class="siguiente" href="/m13bd/m07bd/mAbdCreaPhp.html" title="A. srv / dao / bdCrea.php">▶</a>
+   <h1 >7. Archivos relacionados con la estructura de los datos</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  
+   <ol type="A">
+    <li>
+     <p>
+      <a href="/m13bd/m07bd/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m07bd/mBpasatiempoPhp.html">srv / modelo / pasatiempo.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m07bd/mCaccesobdPhp.html">srv / dao / accesobd.php</a>
+     </p>
+    </li>
+   </ol>
+ </nav>
+</div>
  <footer>
  <p>
   <a rel="license"
@@ -560,194 +506,29 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m12renderServidor/mLservicioPhp.html"
-      title="L. lib / php / servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m13bd/m06textos/mFplantillaNoEsTextoJs.html"
+      title="F. lib /js / plantilla / plantillaNoEsTexto.js">▲</a>
    </p>
-     <h1><a href="/m13bd/index.html">13. Bases de datos</a></h1>
-   <ol type="1">
+     <h1><a href="/m13bd/m07bd/index.html" class="actual">7. Archivos relacionados con la estructura de los datos</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m13bd/m01intro.html">Introducción</a>
+      <a href="/m13bd/m07bd/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m02der.html">Diagrama entidad relación</a>
+      <a href="/m13bd/m07bd/mBpasatiempoPhp.html">srv / modelo / pasatiempo.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m03deploy.html">Diagrama de despliegue</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m04instrucciones.html">Instrucciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m05archivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m06textos/">Archivos con textos que se mustran al usuario</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m08bd.html">Base de datos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m09PasatiempoPhp.html">srv / modelo / Pasatiempo.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m10bdCreaPhp.html">srv / dao / bdCrea.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m11AccesoBdPhp.html" class="actual">srv / dao / AccesoBd.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m12listado.html">Listar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m13pasatiempoConsultaPhp.html">srv / dao / pasatiempoConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m14SrvPasatiempoConsulta.html">srv / SrvPasatiempoConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m15indexHtml.html">index.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m16agrega.html">Agregar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m17pasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m18SrvPasatiempoAgrega.html">srv / SrvPasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m19agregaHtml.html">agrega.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m20modifica.html">Modificar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m21pasatiempoBuscaPhp.html">srv / dao / pasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m22pasatiempoModificaPhp.html">srv / dao / pasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m23pasatiempoEliminaPhp.html">srv / dao / pasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m24SrvPasatiempoBusca.html">srv / SrvPasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m25SrvPasatiempoModifica.html">srv / SrvPasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m26SrvPasatiempoElimina.html">srv / SrvPasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m27modificaHtml.html">modifica.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m28frecuentes.html">Archivos frecuentes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mMjsconfigJson.html">jsconfig.json</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m49ejecutaJs.html">lib / js / ejecuta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m53muestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m52MetodoHttpJs.html">lib / js / MetodoHttp.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m59submitJs.html">lib / js / submit.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mLleeTextoPhp.html">lib / php / leeTexto.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mQautoloadPhp.html">lib / php / autoload.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mRpathPhp.html">lib / php / path.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mSservicioPhp.html">lib / php / servicio.php</a>
+      <a href="/m13bd/m07bd/mCaccesobdPhp.html">srv / dao / accesobd.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m14ws/index.html"
-      title="14. Protocolos de comunicación">▼</a>
+    <a class="paginaSiguiente" href="/m13bd/m08listados/index.html"
+      title="8. Archivos para generar listados">▼</a>
    </p>
 </nav>
  <script>
@@ -760,9 +541,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m13bd/m10bdCreaPhp.html"
+ let urlAnterior = "/m13bd/m06textos/mFplantillaNoEsTextoJs.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m12listado.html"
+ let urlSiguiente = "/m13bd/m07bd/mAbdCreaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

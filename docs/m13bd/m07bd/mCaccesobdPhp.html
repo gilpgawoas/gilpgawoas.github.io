@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>13. srv / SrvPasatiempoConsulta.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/SrvPasatiempoConsulta.php».">
+ <title>C. srv / dao / accesobd.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/dao/accesobd.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,101 +445,180 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m13bd/m13pasatiempoConsultaPhp.html" title="12. srv / dao / pasatiempoConsulta.php">◀</a>
- <a class="siguiente" href="/m13bd/m15indexHtml.html" title="14. index.html">▶</a>
-   <h1 >13. srv / SrvPasatiempoConsulta.php</h1><muestra-codigo>
+ <a class="anterior" href="/m13bd/m07bd/mBpasatiempoPhp.html" title="B. srv / modelo / pasatiempo.php">◀</a>
+ <a class="siguiente" href="/m13bd/m08listados/index.html" title="8. Archivos para generar listados">▶</a>
+   <h1 >C. srv / dao / accesobd.php</h1><muestra-codigo>
  <div>
   <div><span
-     style="color: #800000;">&lt;?php</span></div>
+     style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoConsulta.php"</span>;</div>
+     style="color: #0000ff;">namespace</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">srv\dao</span><span
+     style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/dao/bdCrea.php"</span><span
+     style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">\PDO</span><span
+     style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">SrvPasatiempos</span></div>
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">AccesoBd</span></div>
   <div><span
-     style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">Servicio</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$lista</span> = <span
-     style="color: #795e26;">pasatiempoConsulta</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$it</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">id</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$nombre</span> =</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">nombre</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;li&gt;</span></div>
+     style="color: #000000;">{</span></div><br>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
-  </div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span><span
+     style="color: #000000;"> ?</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a</span>
-  </div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">static</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">(): </span><span
+     style="color: #267f99;">PDO</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;href='modifica.html?id=</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #a31515;">'&gt;</span></div>
+     style="color: #000000;">&nbsp;{</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span><span
-     style="color: #001080;">$nombre</span><span
-     style="color: #a31515;">}</span></div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;</span>
-  </div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">conecta</span><span
+     style="color: #000000;">();</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
-  </div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">prepara</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">);</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;"</span>;</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> [<span
-     style="color: #a31515;">"render"</span> =&gt; <span
-     style="color: #001080;">$render</span>];</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span
-     style="color: #001080;">$servicio</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempos</span>();</div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">;</span></div>
   <div><span
-     style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
+     style="color: #000000;">&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">conecta</span><span
+     style="color: #000000;">(): </span><span
+     style="color: #267f99;">PDO</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// cadena de conexión</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"sqlite:srvbd.db"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// usuario</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// contraseña</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::ATTR_ERRMODE =&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::ERRMODE_EXCEPTION]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">prepara</span><span
+     style="color: #000000;">(</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">bdCrea</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -572,194 +651,29 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m12renderServidor/mLservicioPhp.html"
-      title="L. lib / php / servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m13bd/m06textos/mFplantillaNoEsTextoJs.html"
+      title="F. lib /js / plantilla / plantillaNoEsTexto.js">▲</a>
    </p>
-     <h1><a href="/m13bd/index.html">13. Bases de datos</a></h1>
-   <ol type="1">
+     <h1><a href="/m13bd/m07bd/index.html">7. Archivos relacionados con la estructura de los datos</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m13bd/m01intro.html">Introducción</a>
+      <a href="/m13bd/m07bd/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m02der.html">Diagrama entidad relación</a>
+      <a href="/m13bd/m07bd/mBpasatiempoPhp.html">srv / modelo / pasatiempo.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m03deploy.html">Diagrama de despliegue</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m04instrucciones.html">Instrucciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m05archivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m06textos/">Archivos con textos que se mustran al usuario</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m08bd.html">Base de datos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m09PasatiempoPhp.html">srv / modelo / Pasatiempo.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m10bdCreaPhp.html">srv / dao / bdCrea.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m11AccesoBdPhp.html">srv / dao / AccesoBd.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m12listado.html">Listar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m13pasatiempoConsultaPhp.html">srv / dao / pasatiempoConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m14SrvPasatiempoConsulta.html" class="actual">srv / SrvPasatiempoConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m15indexHtml.html">index.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m16agrega.html">Agregar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m17pasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m18SrvPasatiempoAgrega.html">srv / SrvPasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m19agregaHtml.html">agrega.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m20modifica.html">Modificar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m21pasatiempoBuscaPhp.html">srv / dao / pasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m22pasatiempoModificaPhp.html">srv / dao / pasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m23pasatiempoEliminaPhp.html">srv / dao / pasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m24SrvPasatiempoBusca.html">srv / SrvPasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m25SrvPasatiempoModifica.html">srv / SrvPasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m26SrvPasatiempoElimina.html">srv / SrvPasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m27modificaHtml.html">modifica.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m28frecuentes.html">Archivos frecuentes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mMjsconfigJson.html">jsconfig.json</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m49ejecutaJs.html">lib / js / ejecuta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m53muestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m52MetodoHttpJs.html">lib / js / MetodoHttp.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m59submitJs.html">lib / js / submit.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mLleeTextoPhp.html">lib / php / leeTexto.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mQautoloadPhp.html">lib / php / autoload.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mRpathPhp.html">lib / php / path.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mSservicioPhp.html">lib / php / servicio.php</a>
+      <a href="/m13bd/m07bd/mCaccesobdPhp.html" class="actual">srv / dao / accesobd.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m14ws/index.html"
-      title="14. Protocolos de comunicación">▼</a>
+    <a class="paginaSiguiente" href="/m13bd/m08listados/index.html"
+      title="8. Archivos para generar listados">▼</a>
    </p>
 </nav>
  <script>
@@ -772,9 +686,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m13bd/m13pasatiempoConsultaPhp.html"
+ let urlAnterior = "/m13bd/m07bd/mBpasatiempoPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m15indexHtml.html"
+ let urlSiguiente = "/m13bd/m08listados/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
