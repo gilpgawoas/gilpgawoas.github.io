@@ -12556,22 +12556,7 @@
     </li>
     <li>
      <p>
-      <a href="/m13bd/m16agrega.html">Agregar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m17pasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m18SrvPasatiempoAgrega.html">srv / SrvPasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m19agregaHtml.html">agrega.html</a>
+      <a href="/m13bd/m09agregar/">Archivos para agregar registros</a>
      </p>
     </li>
     <li>
@@ -12676,6 +12661,10 @@
   Puedes probar la app en
   <a rel="noopener" href="https://srvbd.gilbertopachec5.repl.co/"
     target="_blank">https://srvbd.gilbertopachec5.repl.co/</a>
+ </p>
+ <p>
+  Los archivos están agrupados de acuerdo a lo que hacen, para que sea más fácil
+  entender la lección.
  </p>
 </div>
       </section>
@@ -12940,7 +12929,7 @@
       <p><a href="m07bd/mAbdCreaPhp.html">bdCrea.php</a></p>
      </li>
      <li>
-      <p><a href="m17pasatiempoAgregaPhp.html">pasatiempoAgrega.php</a></p>
+      <p><a href="m09agregar/mCpasatiempoAgregaPhp.html">pasatiempoAgrega.php</a></p>
      </li>
      <li>
       <p><a href="m21pasatiempoBuscaPhp.html">pasatiempoBusca.php</a></p>
@@ -12975,7 +12964,7 @@
     </ul>
    </li>
    <li>
-    <p><a href="m18SrvPasatiempoAgrega.html">SrvPasatiempoAgrega.php</a></p>
+    <p><a href="m09agregar/mBSrvPasatiempoAgrega.html">SrvPasatiempoAgrega.php</a></p>
    </li>
    <li>
     <p><a href="m24SrvPasatiempoBusca.html">SrvPasatiempoBusca.php</a></p>
@@ -12993,7 +12982,7 @@
   </ul>
  </li>
  <li>
-  <p><a href="m19agregaHtml.html">agrega.html</a></p>
+  <p><a href="m09agregar/mAagregaHtml.html">agrega.html</a></p>
  </li>
  <li>
   <p><a href="m08listados/mAindexHtml.html">index.html</a></p>
@@ -14025,206 +14014,536 @@
 </muestra-codigo>
       </section>
       </section>
+     <section>
+         <h1 >9. Archivos para agregar registros</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  
+   <ol type="A">
+    <li>
+     <p>
+      <a href="/m13bd/m09agregar/mAagregaHtml.html">agrega.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m09agregar/mBSrvPasatiempoAgrega.html">srv / SrvPasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m09agregar/mCpasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
+     </p>
+    </li>
+   </ol>
+ </nav>
+</div>
      <section >
-         <h1 >9. Agregar</h1>
-      </section>
-     <section >
-         <h1 >10. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
+         <h1 >A. agrega.html</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">pasatiempoAgrega</span>(</div>
-  <div>&nbsp;<span style="color: #267f99;">Pasatiempo</span> <span
-     style="color: #001080;">$modelo</span></div>
-  <div>) {</div>
-  <div>&nbsp;<span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #795e26;">valida</span>();</div>
-  <div>&nbsp;<span style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp; <span style="color: #a31515;">"</span><span
-     style="color: #0000ff;">INSERT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">INTO</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; (PAS_NOMBRE)</span></div>
-  <div><span style="color: #a31515;">&nbsp; &nbsp;</span><span
-     style="color: #0000ff;">VALUES</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp; &nbsp; (:nombre)</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([</div>
-  <div>&nbsp; <span style="color: #a31515;">":nombre"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span></div>
-  <div>&nbsp;]);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >11. srv / SrvPasatiempoAgrega.php</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoAgrega.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div><span
-     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">SrvPasatiempoAgrega</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">Servicio</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>();</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"nombre"</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">pasatiempoAgrega</span>(<span
-     style="color: #001080;">$modelo</span>);</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempoAgrega</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >12. agrega.html</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #ff0000;">html</span><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #e50000;">html</span><span
      style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;html</span> <span
-     style="color: #ff0000;">lang</span>=<span
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
+     style="color: #e50000;">lang</span>=<span
      style="color: #0000ff;">"es"</span><span
      style="color: #800000;">&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">charset</span>=<span
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">charset</span>=<span
      style="color: #0000ff;">"UTF-8"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">name</span>=<span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">name</span>=<span
      style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span>Agregar<span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span>Agregar<span
      style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
-     style="color: #ff0000;">id</span>=<span
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/hipervinculo-cancelar-index.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/boton-agregar.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/campo-nombre.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/indica-campos-obligatorios.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;form</span> <span
+     style="color: #e50000;">id</span>=<span
      style="color: #0000ff;">"forma"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp; &nbsp; Nombre</div>
-  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"nombre"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;a</span></div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">href</span>=<span
-     style="color: #0000ff;">"index.html"</span><span
-     style="color: #800000;">&gt;</span>Cancelar<span
-     style="color: #800000;">&lt;/a&gt;</span></div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #800000;">&lt;button&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/button&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
-     style="color: #ff0000;">type</span>=<span
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;h1&gt;</span>Agregar<span
+     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;hipervinculo-cancelar-index&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/hipervinculo-cancelar-index&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-nombre&gt;&lt;/campo-nombre&gt;</span>
+  </div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/indica-campos-obligatorios&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;boton-agregar&gt;&lt;/boton-agregar&gt;</span>
+  </div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/form&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
      style="color: #0000ff;">"module"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">escuchaEventosAgrega</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/escuchaEventosAgrega.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">submit</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
      style="color: #a31515;">"./lib/js/submit.js"</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/js/muestraError.js"</span></div><br>
-  <div>&nbsp; <span style="color: #001080;">forma</span>.<span
-     style="color: #795e26;">addEventListener</span>(<span
-     style="color: #a31515;">"submit"</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">agrega</span>)</div><br>
-  <div>&nbsp; <span
-     style="color: #008000;">/** @param {Event} evt */</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">agrega</span>(<span
-     style="color: #001080;">evt</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
-     style="color: #795e26;">submit</span>(<span
-     style="color: #001080;">evt</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #a31515;">"srv/SrvPasatiempoAgrega.php"</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">forma</span>)</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">location</span>.<span
-     style="color: #001080;">href</span> = <span
-     style="color: #a31515;">"index.html"</span></div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">e</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraError</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">saltaAIndex</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/saltaAIndex.js"</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">preparaVista</span><span
+     style="color: #000000;">()</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">preparaVista</span><span
+     style="color: #000000;">()&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">escuchaEventosAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">agrega</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #008000;">/**&nbsp;@param&nbsp;{Event}&nbsp;evt */</span>
+  </div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">async</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">agrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">evt</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">try</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">m</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #af00db;">await</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">submit</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">evt</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"srv/SrvPasatiempoAgrega.php"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">saltaAIndex</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">catch</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">e</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraError</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">e</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >13. Modificar</h1>
+         <h1 >B. srv / SrvPasatiempoAgrega.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"lib/php/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"leeSinEspaciosInFin.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/pasatiempoAgrega.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \srv\modelo\</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvPasatiempoAgrega</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">leeSinEspaciosInFin</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvPasatiempoAgrega</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
+ </div>
+</muestra-codigo>
       </section>
      <section >
-         <h1 >14. srv / dao / pasatiempoBusca.php</h1><muestra-codigo>
+         <h1 >C. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">valida</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">prepare</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">INSERT INTO</span><span
+     style="color: #a31515;"> PASATIEMPO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(PAS_NOMBRE)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">VALUES</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:nombre)</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":nombre"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
+    el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">lastInsertId</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+      </section>
+     <section >
+         <h1 >10. Modificar</h1>
+      </section>
+     <section >
+         <h1 >11. srv / dao / pasatiempoBusca.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14282,7 +14601,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >15. srv / dao / pasatiempoModifica.php</h1><muestra-codigo>
+         <h1 >12. srv / dao / pasatiempoModifica.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14333,7 +14652,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >16. srv / dao / pasatiempoElimina.php</h1><muestra-codigo>
+         <h1 >13. srv / dao / pasatiempoElimina.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14374,7 +14693,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >17. srv / SrvPasatiempoBusca.php</h1><muestra-codigo>
+         <h1 >14. srv / SrvPasatiempoBusca.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14436,7 +14755,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >18. srv / SrvPasatiempoModifica.php</h1><muestra-codigo>
+         <h1 >15. srv / SrvPasatiempoModifica.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14489,7 +14808,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >19. srv / SrvPasatiempoElimina.php</h1><muestra-codigo>
+         <h1 >16. srv / SrvPasatiempoElimina.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
@@ -14530,7 +14849,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >20. modifica.html</h1><muestra-codigo>
+         <h1 >17. modifica.html</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
      style="color: #ff0000;">html</span><span
@@ -14741,10 +15060,10 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >21. Archivos frecuentes</h1>
+         <h1 >18. Archivos frecuentes</h1>
       </section>
      <section >
-         <h1 >22. jsconfig.json</h1><div class="lectura">
+         <h1 >19. jsconfig.json</h1><div class="lectura">
  <p>
   Este archivo ayuda a detectar errores en los archivos del proyecto.
  </p>
@@ -14791,7 +15110,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >23. lib / js / ejecuta.js</h1><muestra-codigo>
+         <h1 >20. lib / js / ejecuta.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -14861,7 +15180,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >24. lib / js / muestraError.js</h1><muestra-codigo>
+         <h1 >21. lib / js / muestraError.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -14894,7 +15213,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >25. lib / js / MetodoHttp.js</h1><muestra-codigo>
+         <h1 >22. lib / js / MetodoHttp.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**&nbsp;</span><span
@@ -14948,7 +15267,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >26. lib / js / submit.js</h1><muestra-codigo>
+         <h1 >23. lib / js / submit.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{</div>
@@ -15038,7 +15357,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >27. lib / php / leeTexto.php</h1><muestra-codigo>
+         <h1 >24. lib / php / leeTexto.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -15116,7 +15435,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >28. lib / php / autoload.php</h1><muestra-codigo>
+         <h1 >25. lib / php / autoload.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -15163,7 +15482,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >29. lib / php / path.php</h1><muestra-codigo>
+         <h1 >26. lib / php / path.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -15238,7 +15557,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >30. lib / php / servicio.php</h1><muestra-codigo>
+         <h1 >27. lib / php / servicio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>

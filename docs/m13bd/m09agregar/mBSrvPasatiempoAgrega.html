@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>11. srv / SrvPasatiempoAgrega.php - GilPG AWOAS</title>
+ <title>B. srv / SrvPasatiempoAgrega.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/SrvPasatiempoAgrega.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -445,53 +445,119 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m13bd/m17pasatiempoAgregaPhp.html" title="10. srv / dao / pasatiempoAgrega.php">◀</a>
- <a class="siguiente" href="/m13bd/m19agregaHtml.html" title="12. agrega.html">▶</a>
-   <h1 >11. srv / SrvPasatiempoAgrega.php</h1><muestra-codigo>
+ <a class="anterior" href="/m13bd/m09agregar/mAagregaHtml.html" title="A. agrega.html">◀</a>
+ <a class="siguiente" href="/m13bd/m09agregar/mCpasatiempoAgregaPhp.html" title="C. srv / dao / pasatiempoAgrega.php">▶</a>
+   <h1 >B. srv / SrvPasatiempoAgrega.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoAgrega.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
   <div><span
-     style="color: #a31515;">"/../lib/php/leeValor.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"lib/php/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"leeSinEspaciosInFin.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/pasatiempoAgrega.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \srv\modelo\</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
      style="color: #267f99;">SrvPasatiempoAgrega</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
      style="color: #267f99;">Servicio</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>();</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"nombre"</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">pasatiempoAgrega</span>(<span
-     style="color: #001080;">$modelo</span>);</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempoAgrega</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">leeSinEspaciosInFin</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"nombre"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvPasatiempoAgrega</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -524,164 +590,29 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m12renderServidor/mLservicioPhp.html"
-      title="L. lib / php / servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m13bd/m08listados/mCpasatiempoConsultaPhp.html"
+      title="C. srv / dao / pasatiempoConsulta.php">▲</a>
    </p>
-     <h1><a href="/m13bd/index.html">13. Bases de datos</a></h1>
-   <ol type="1">
+     <h1><a href="/m13bd/m09agregar/index.html">9. Archivos para agregar registros</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m13bd/m01intro.html">Introducción</a>
+      <a href="/m13bd/m09agregar/mAagregaHtml.html">agrega.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m02der.html">Diagrama entidad relación</a>
+      <a href="/m13bd/m09agregar/mBSrvPasatiempoAgrega.html" class="actual">srv / SrvPasatiempoAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m03deploy.html">Diagrama de despliegue</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m04instrucciones.html">Instrucciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m05archivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m06textos/">Archivos con textos que se mustran al usuario</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m07bd/">Archivos relacionados con la estructura de los datos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m08listados/">Archivos para generar listados</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m16agrega.html">Agregar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m17pasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m18SrvPasatiempoAgrega.html" class="actual">srv / SrvPasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m19agregaHtml.html">agrega.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m20modifica.html">Modificar</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m21pasatiempoBuscaPhp.html">srv / dao / pasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m22pasatiempoModificaPhp.html">srv / dao / pasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m23pasatiempoEliminaPhp.html">srv / dao / pasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m24SrvPasatiempoBusca.html">srv / SrvPasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m25SrvPasatiempoModifica.html">srv / SrvPasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m26SrvPasatiempoElimina.html">srv / SrvPasatiempoElimina.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m27modificaHtml.html">modifica.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m28frecuentes.html">Archivos frecuentes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mMjsconfigJson.html">jsconfig.json</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m49ejecutaJs.html">lib / js / ejecuta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m53muestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m52MetodoHttpJs.html">lib / js / MetodoHttp.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/m59submitJs.html">lib / js / submit.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mLleeTextoPhp.html">lib / php / leeTexto.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mQautoloadPhp.html">lib / php / autoload.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mRpathPhp.html">lib / php / path.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m13bd/mSservicioPhp.html">lib / php / servicio.php</a>
+      <a href="/m13bd/m09agregar/mCpasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m14ws/index.html"
-      title="14. Protocolos de comunicación">▼</a>
+    <a class="paginaSiguiente" href="/m13bd/m20modifica.html"
+      title="10. Modificar">▼</a>
    </p>
 </nav>
  <script>
@@ -694,9 +625,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m13bd/m17pasatiempoAgregaPhp.html"
+ let urlAnterior = "/m13bd/m09agregar/mAagregaHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m19agregaHtml.html"
+ let urlSiguiente = "/m13bd/m09agregar/mCpasatiempoAgregaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
