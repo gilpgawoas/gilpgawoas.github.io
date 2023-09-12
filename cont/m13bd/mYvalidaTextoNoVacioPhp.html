@@ -1,0 +1,102 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Declara el espacio de nombre de</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la clase. Es como la carpeta,</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;pero desde el punto de vista
+    del</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">namespace</span> lib\php;</div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Clase base para implementar</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;servicios. Las clases derivadas</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;deben extender esta clase y</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;proporcionar el código para la</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;función llamada implementacion.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">class</span> Servicio</div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">abstract</span> <span
+     style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">function</span> implementacion();</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> ejecuta()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;usaUtf8();</div>
+  <div>&nbsp;&nbsp;&nbsp;$resultado =</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;implementacion();</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;devuelveJson($resultado);</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #0000ff;">catch</span> (\Throwable $t)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;devuelveError($t);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">function</span> usaUtf8()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;mb_internal_encoding(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">function</span> devuelveJson(</div>
+  <div>&nbsp;&nbsp;$resultado</div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;header(<span
+     style="color: #a31515;">"Content-Type: "</span></div>
+  <div>&nbsp;&nbsp;&nbsp;. <span
+     style="color: #a31515;">"application/json"</span>);</div>
+  <div>&nbsp;&nbsp;echo json_encode($resultado);</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">function</span> devuelveError(</div>
+  <div>&nbsp;&nbsp;\Throwable $t</div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;header(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"Content-Type: text/plain"</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;http_response_code(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp;&nbsp;echo $t-&gt;getMessage();</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
