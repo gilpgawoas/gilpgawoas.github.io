@@ -1,10 +1,37 @@
 <muestra-codigo>
  <div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">txtConfirmaEliminacion</span>() {</div>
-  <div>&nbsp;<span style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"Confirma la eliminación"</span></div>
-  <div>}</div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">IndicadorCargando</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;progress</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"100"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"indicador-cargando"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">IndicadorCargando</span>)</div>
+ </div>
  </div>
 </muestra-codigo>

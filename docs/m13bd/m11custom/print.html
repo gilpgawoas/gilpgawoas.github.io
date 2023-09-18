@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>Archivos para modificar registros - GilPG AWOAS</title>
- <meta name="description" content="Página para imprimir que muestra los archivos para modificar registros.">
+ <title>Custom elements - GilPG AWOAS</title>
+ <meta name="description" content="Página para imprimir que muestra los Custom elements.">
  <style>
  :root {
   --padTop: 2rem;
@@ -337,7 +337,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >K. Archivos para modificar registros</h1>
+   <h1 >K. Custom elements</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -353,18 +353,517 @@
       <a href="/m13bd/m11custom/m35boton-agregarJs.html">lib / js / custom / boton-agregar.js</a>
      </p>
     </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m36boton-eliminarJs.html">lib / js / custom / boton-eliminar.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m37boton-guardarJs.html">lib / js / custom / boton-guardar.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m38campo-id-ocultoJs.html">lib / js / custom / campo-id-oculto.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m39campo-nombre-cargandoJs.html">lib / js / custom / campo-nombre-cargando.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m40campo-nombreJs.html">lib / js / custom / campo-nombre.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m41hipervinculo-agregar-agregaJs.html">lib / js / custom / hipervinculo-agregar-agrega.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m42hipervinculo-cancelar-indexJs.html">lib / js / custom / hipervinculo-cancelar-index.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m43indica-campos-obligatoriosJs.html">lib / js / custom / indica-campos-obligatorios.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m44indicador-cargandoJs.html">lib / js / custom / indicador-cargando.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m45lista-principalJs.html">lib / js / custom / lista-principal.js</a>
+     </p>
+    </li>
    </ol>
  </nav>
 </div>
      <section >
          <h1 >1. lib / js / custom / boton-agregar.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">txtConfirmaEliminacion</span>() {</div>
-  <div>&nbsp;<span style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"Confirma la eliminación"</span></div>
-  <div>}</div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">BotonAgregar</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;button&gt;</span>Agregar<span
+     style="color: #800000;">&lt;/button&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"boton-agregar"</span>, <span
+     style="color: #267f99;">BotonAgregar</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / js / custom / boton-eliminar.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">BotonEliminar</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;button</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"btnElimina"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"button"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eliminar</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/button&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"boton-eliminar"</span>, <span
+     style="color: #267f99;">BotonEliminar</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. lib / js / custom / boton-guardar.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">BotonGuardar</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;button&gt;</span>Guardar<span
+     style="color: #800000;">&lt;/button&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"boton-guardar"</span>, <span
+     style="color: #267f99;">BotonGuardar</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >4. lib / js / custom / campo-id-oculto.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoIdOculto</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"hidden"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"id"</span><span
+     style="color: #800000;">&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-id-oculto"</span>, <span
+     style="color: #267f99;">CampoIdOculto</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >5. lib / js / custom / campo-nombre-cargando.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoNombreCargando</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"nombre"</span> <span
+     style="color: #e50000;">required</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"Cargando&amp;hellip;"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-nombre-cargando"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">CampoNombreCargando</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >6. lib / js / custom / campo-nombre.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoNombre</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"nombre"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">required</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-nombre"</span>, <span
+     style="color: #267f99;">CampoNombre</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >7. lib / js / custom / hipervinculo-agregar-agrega.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Hipervínculo para agregar que</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;redirecciona a la página</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;"agrega.html".</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span></div>
+  <div>&nbsp;<span
+     style="color: #267f99;">HipervinculoAgregarAgrega</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"agrega.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agregar<span
+     style="color: #800000;">&lt;/a&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"hipervinculo-agregar-agrega"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">HipervinculoAgregarAgrega</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >8. lib / js / custom / hipervinculo-cancelar-index.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Hipervínculo para cancelar que</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;redirecciona a la página</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;"index.html".</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span></div>
+  <div>&nbsp;<span
+     style="color: #267f99;">HipervinculoCancelarIndex</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"index.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancelar<span
+     style="color: #800000;">&lt;/a&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"hipervinculo-cancelar-index"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">HipervinculoCancelarIndex</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >9. lib / js / custom / indica-campos-obligatorios.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span></div>
+  <div>&nbsp;<span
+     style="color: #267f99;">IndicaCamposObligatorios</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span>*&nbsp;Obligatorio<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"indica-campos-obligatorios"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">IndicaCamposObligatorios</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >10. lib / js / custom / indicador-cargando.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">IndicadorCargando</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;progress</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"100"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"indicador-cargando"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">IndicadorCargando</span>)</div>
+ </div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >11. lib / js / custom / lista-principal.js</h1><muestra-codigo>
+ <div
+   style="color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;">
+  <div><span
+     style="color: #af00db;">import</span> <span
+     style="color: #a31515;">"./indicador-cargando.js"</span></div><br>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">ListaPrincipal</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;ul</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"lista"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"lista-principal"</span>, <span
+     style="color: #267f99;">ListaPrincipal</span>)</div>
  </div>
 </muestra-codigo>
       </section>

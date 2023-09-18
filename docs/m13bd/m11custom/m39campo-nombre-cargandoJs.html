@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>6. srv / dao / pasatiempoModifica.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/dao/pasatiempoModifica.php».">
+ <title>5. lib / js / custom / campo-nombre-cargando.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/js/custom/campo-nombre-cargando.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,101 +445,57 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m13bd/m10modificar/m21pasatiempoBuscaPhp.html" title="5. srv / dao / pasatiempoBusca.php">◀</a>
- <a class="siguiente" href="/m13bd/m10modificar/m23pasatiempoEliminaPhp.html" title="7. srv / dao / pasatiempoElimina.php">▶</a>
-   <h1 >6. srv / dao / pasatiempoModifica.php</h1><muestra-codigo>
+ <a class="anterior" href="/m13bd/m11custom/m38campo-id-ocultoJs.html" title="4. lib / js / custom / campo-id-oculto.js">◀</a>
+ <a class="siguiente" href="/m13bd/m11custom/m40campo-nombreJs.html" title="6. lib / js / custom / campo-nombre.js">▶</a>
+   <h1 >5. lib / js / custom / campo-nombre-cargando.js</h1><muestra-codigo>
  <div>
   <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoNombreCargando</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"nombre"</span> <span
+     style="color: #e50000;">required</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"Cargando&amp;hellip;"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
   <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\dao\</span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoModifica</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$modelo</span></div>
-  <div><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">valida</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">::</span><span
-     style="color: #795e26;">getCon</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">prepare</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">UPDATE</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">SET</span><span
-     style="color: #a31515;"> PAS_NOMBRE </span><span
-     style="color: #000000;">=</span><span
-     style="color: #a31515;"> :nombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span><span
-     style="color: #000000;">=</span><span
-     style="color: #a31515;"> :id</span><span
-     style="color: #a31515;">"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">execute</span><span
-     style="color: #000000;">([</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":id"</span><span
-     style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
-     style="color: #000000;">,</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":nombre"</span><span
-     style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;]);</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-nombre-cargando"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">CampoNombreCargando</span>)</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -572,49 +528,69 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m13bd/m09agregar/mCpasatiempoAgregaPhp.html"
-      title="3. srv / dao / pasatiempoAgrega.php">▲</a>
+    <a class="paginaAnterior" href="/m13bd/m10modificar/m23pasatiempoEliminaPhp.html"
+      title="7. srv / dao / pasatiempoElimina.php">▲</a>
    </p>
-     <h1><a href="/m13bd/m10modificar/index.html">J. Archivos para modificar registros</a></h1>
+     <h1><a href="/m13bd/m11custom/index.html">K. Custom elements</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m27modificaHtml.html">modifica.html</a>
+      <a href="/m13bd/m11custom/m35boton-agregarJs.html">lib / js / custom / boton-agregar.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m24SrvPasatiempoBusca.html">srv / SrvPasatiempoBusca.php</a>
+      <a href="/m13bd/m11custom/m36boton-eliminarJs.html">lib / js / custom / boton-eliminar.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m25SrvPasatiempoModifica.html">srv / SrvPasatiempoModifica.php</a>
+      <a href="/m13bd/m11custom/m37boton-guardarJs.html">lib / js / custom / boton-guardar.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m26SrvPasatiempoElimina.html">srv / SrvPasatiempoElimina.php</a>
+      <a href="/m13bd/m11custom/m38campo-id-ocultoJs.html">lib / js / custom / campo-id-oculto.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m21pasatiempoBuscaPhp.html">srv / dao / pasatiempoBusca.php</a>
+      <a href="/m13bd/m11custom/m39campo-nombre-cargandoJs.html" class="actual">lib / js / custom / campo-nombre-cargando.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m22pasatiempoModificaPhp.html" class="actual">srv / dao / pasatiempoModifica.php</a>
+      <a href="/m13bd/m11custom/m40campo-nombreJs.html">lib / js / custom / campo-nombre.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m13bd/m10modificar/m23pasatiempoEliminaPhp.html">srv / dao / pasatiempoElimina.php</a>
+      <a href="/m13bd/m11custom/m41hipervinculo-agregar-agregaJs.html">lib / js / custom / hipervinculo-agregar-agrega.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m42hipervinculo-cancelar-indexJs.html">lib / js / custom / hipervinculo-cancelar-index.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m43indica-campos-obligatoriosJs.html">lib / js / custom / indica-campos-obligatorios.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m44indicador-cargandoJs.html">lib / js / custom / indicador-cargando.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m13bd/m11custom/m45lista-principalJs.html">lib / js / custom / lista-principal.js</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m13bd/m11custom/index.html"
-      title="K. Custom elements">▼</a>
+    <a class="paginaSiguiente" href="/m13bd/m28frecuentes.html"
+      title="L. Archivos frecuentes">▼</a>
    </p>
 </nav>
  <script>
@@ -627,9 +603,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m13bd/m10modificar/m21pasatiempoBuscaPhp.html"
+ let urlAnterior = "/m13bd/m11custom/m38campo-id-ocultoJs.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m10modificar/m23pasatiempoEliminaPhp.html"
+ let urlSiguiente = "/m13bd/m11custom/m40campo-nombreJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
