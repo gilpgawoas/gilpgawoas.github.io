@@ -1,3 +1,3 @@
 const { server } = require("./lib/generaArchivos")
 
-server()
+server(3001)

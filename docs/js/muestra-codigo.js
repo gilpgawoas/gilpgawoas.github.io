@@ -47,6 +47,7 @@ const MUESTRA_CODIGO_SHADOW_HTML = /* html */
   <caption style="text-align: left">
    <button type=button title="Copiar al portapapeles">📋</button>
   </caption>
+  <tbody></tbody>
  </table>
  <div hidden style="display: none">
   <slot></slot>
@@ -59,9 +60,9 @@ class MuestraCodigo extends HTMLElement {
   this.copia = this.copia.bind(this)
   /**
    * @readonly
-   * @type {HTMLTableElement | null}
+   * @type {HTMLTableSectionElement | null}
    */
-  this.tabla = shadowRoot.querySelector("table")
+  this.tbody = shadowRoot.querySelector("tbody")
   const button = shadowRoot.querySelector("button")
   if (button) {
    button.addEventListener("click", this.copia)
@@ -95,8 +96,8 @@ class MuestraCodigo extends HTMLElement {
         <td>${linea}</td>
        </tr>`
     }
-    if (this.tabla) {
-     this.tabla.innerHTML += inner
+    if (this.tbody) {
+     this.tbody.innerHTML += inner
     }
    })
   }
@@ -115,8 +116,8 @@ class MuestraCodigo extends HTMLElement {
  }
  async copia() {
   try {
-   if (this.tabla) {
-    const lineas = Array.from(this.tabla.querySelectorAll("td:nth-child(2)"))
+   if (this.tbody) {
+    const lineas = Array.from(this.tbody.querySelectorAll("td:nth-child(2)"))
     const codigo = lineas
      .map(linea => linea.textContent || "")
      .join("\n")
