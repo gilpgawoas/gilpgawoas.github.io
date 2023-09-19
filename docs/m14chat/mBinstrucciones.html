@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>E. Eventos.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «Eventos.php».">
+ <title>B. Instrucciones - GilPG AWOAS</title>
+ <meta name="description" content="Instrucciones.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,117 +445,122 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m14ws/mCarchivos.html" title="D. Archivos">◀</a>
- <a class="siguiente" href="/m14ws/mEmainPhp.html" title="F. main.php">▶</a>
-   <h1 >E. Eventos.php</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;?php</span></div><br>
-  <div><span style="color: #0000ff;">use</span></div>
-  <div>&nbsp;Ratchet\<span
-     style="color: #267f99;">MessageComponentInterface</span>;</div>
-  <div><span style="color: #0000ff;">use</span> Ratchet\<span
-     style="color: #267f99;">ConnectionInterface</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Eventos</span> <span
-     style="color: #0000ff;">implements</span></div>
-  <div>&nbsp;<span
-     style="color: #267f99;">MessageComponentInterface</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span> <span
-     style="color: #001080;">$conexiones</span>;</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #008000;">// Crea un arreglo de
-    objetos.</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">\SplObjectStorage</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onOpen</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #008000;">// Guarda la conexión.</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span>-&gt;<span
-     style="color: #795e26;">attach</span>(<span
-     style="color: #001080;">$con</span>);</div>
-  <div>&nbsp; <span
-     style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Conectado: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #001080;">resourceId</span> . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onMessage</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$origen</span>,</div>
-  <div>&nbsp; <span style="color: #001080;">$msg</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Recibido: </span><span
-     style="color: #001080;">$msg</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp; <span
-     style="color: #008000;">// Reenvía el mensaje a todos.</span></div>
-  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span></div>
-  <div>&nbsp; &nbsp;as <span style="color: #001080;">$con</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #001080;">$msg</span>);</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onClose</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">conexiones</span>-&gt;<span
-     style="color: #795e26;">detach</span>(<span
-     style="color: #001080;">$con</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Desconectado: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #001080;">resourceId</span> . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">onError</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">ConnectionInterface</span> <span
-     style="color: #001080;">$con</span>,</div>
-  <div>&nbsp; <span style="color: #267f99;">\Exception</span> <span
-     style="color: #001080;">$e</span></div>
-  <div>&nbsp;) {</div>
-  <div>&nbsp; <span style="color: #795e26;">echo</span> <span
-     style="color: #a31515;">"Error: "</span> .</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$e</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>() . <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n</span><span
-     style="color: #a31515;">"</span>;</div>
-  <div>&nbsp; <span style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">close</span>();</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+ <a class="anterior" href="/m14chat/mAdeploy.html" title="A. Diagrama de despliegue">◀</a>
+ <a class="siguiente" href="/m14chat/mCchathtml/index.html" title="C. Cliente HTML y JS de un chat sencillo">▶</a>
+   <h1 >B. Instrucciones</h1><div class="lectura">
+ <ol>
+  <li>
+   <p>
+    Este ejemplo requiere 2 proyectos
+   </p>
+  </li>
+  <li>
+   <p>
+    Revisa el proyecto en phpmensajes en Replit con la URl
+    <a href="https://replit.com/@GilbertoPacheco/phpmensajes?v=1" rel="nooper"
+      target="_blank">https://replit.com/@GilbertoPacheco/phpmensajes?v=1</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Revisa el proyecto htmlmensajes en Replit con la URl
+    <a href="https://replit.com/@GilbertoPacheco/htmlmensajes?v=1" rel="nooper"
+      target="_blank">https://replit.com/@GilbertoPacheco/htmlmensajes?v=1</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="/src/m11ws/phpmensajes.zip" download>Descarga phpmensajes.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    htmlmensajes puede correr simultáneamente en varios navegadores y
+    computadoras, todos interactuando con la misma instancia de phpmensajes,
+    obteniendo un chat muy simple.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
+      target="_blank" rel="nooper">Usa o crea una cuenta de Google.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
+      target="_blank" rel="nooper">Crea una cuenta de Replit usando la cuenta de
+     Google.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1VIry7_AW6uT5d7zrATxWeDP7Eb_yffW4/view?usp=sharing"
+      target="_blank" rel="nooper">Crea el proyecto phpmensajes con la categoría
+     <em>PHP CLI</em> en Replit y edita o sube los archivos de este
+     proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Para el contenido de la carpeta vendor y los archivos composer tienes 2
+    opciones:
+   </p>
+   <ul>
+    <li>
+     <p>
+      Descargar el siguiente archivo zip:
+      <a href="/src/m11ws/composer.zip"
+        download="composer.zip">composer.zip</a>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Crear una carpeta, usar un shell como CMD, sh o PowerShell en esa carpeta,
+      tener PHP y composer para PHP instalados en tu computadora y usar la
+      orden:
+     </p>
+     <p><samp>composer require cboden/ratchet</samp></p>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1F3sHMnear4JOu1NVKIkkjVBKFg-eoMX4/view?usp=sharing"
+      target="_blank" rel="nooper">Depura el proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
+      target="_blank" rel="nooper">Crea la <b>cover page</b> o página de
+     spotlight del proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1XgYDkmFqbFlCgkcCNEnW8O2AL5HfKyy-/view?usp=sharing"
+      target="_blank" rel="nooper">Crea el proyecto htmlmensajes con la
+     categoría
+     <em>HTML, CSS, JS</em> en Replit y edita o sube los archivos de este
+     proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1F3sHMnear4JOu1NVKIkkjVBKFg-eoMX4/view?usp=sharing"
+      target="_blank" rel="nooper">Depura el proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
+      target="_blank" rel="nooper">Crea la <b>cover page</b> o página de
+     spotlight del proyecto.</a>
+   </p>
+  </li>
+ </ol>
+</div>
  <footer>
  <p>
   <a rel="license"
@@ -589,46 +594,26 @@
     <a class="paginaAnterior" href="/m13bd/mNlibphp/mYvalidaTextoNoVacioPhp.html"
       title="10. lib / php / validaTextoNoVacio.php">▲</a>
    </p>
-     <h1><a href="/m14ws/index.html">14. Protocolos de comunicación</a></h1>
+     <h1><a href="/m14chat/index.html">14. Chat sencillo - Protocolos de comunicación</a></h1>
    <ol type="A">
     <li>
      <p>
-      <a href="/m14ws/mAdeploy.html">Diagrama de despliegue</a>
+      <a href="/m14chat/mAdeploy.html">Diagrama de despliegue</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mAinstrucciones.html">Instrucciones</a>
+      <a href="/m14chat/mBinstrucciones.html" class="actual">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mBphpmensajes.html">phpmensajes</a>
+      <a href="/m14chat/mCchathtml/">Cliente HTML y JS de un chat sencillo</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mCarchivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mDEventosPhp.html" class="actual">Eventos.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mEmainPhp.html">main.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mFhtmlmensajes.html">htmlmensajes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mGindexHtml.html">index.html</a>
+      <a href="/m14chat/mDchatwss/">Servidor de websockets para un chat sencillo</a>
      </p>
     </li>
    </ol><p>
@@ -646,9 +631,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m14ws/mCarchivos.html"
+ let urlAnterior = "/m14chat/mAdeploy.html"
  /**@type {string} */
- let urlSiguiente = "/m14ws/mEmainPhp.html"
+ let urlSiguiente = "/m14chat/mCchathtml/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

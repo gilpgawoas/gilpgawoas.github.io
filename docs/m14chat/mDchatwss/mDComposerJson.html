@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>A. Diagrama de despliegue - GilPG AWOAS</title>
- <meta name="description" content="Diagrama de despliegue del ejemplo.">
+ <title>4. composer.json - GilPG AWOAS</title>
+ <meta name="description" content="Código de «composer.json».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,13 +445,31 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m14ws/index.html" title="14. Protocolos de comunicación">◀</a>
- <a class="siguiente" href="/m14ws/mAinstrucciones.html" title="B. Instrucciones">▶</a>
-   <h1 >A. Diagrama de despliegue</h1><figure>
- <img style="max-height: none;"
-   src="/img/m14ws/chatdistribucion.drawio.svg"
-   alt="Diagrama de despliegue">
-</figure>
+ <a class="anterior" href="/m14chat/mDchatwss/mFmainPhp.html" title="3. main.php">◀</a>
+ <a class="siguiente" href="/m14chat/mDchatwss/mBReplit.html" title="5. .replit">▶</a>
+   <h1 >4. composer.json</h1><muestra-codigo>
+ <div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #0451a5;">"autoload"</span>:&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"psr-4"</span>:&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0451a5;">"Srv</span><span
+     style="color: #ee0000;">\\</span><span
+     style="color: #0451a5;">"</span>: <span
+     style="color: #a31515;">"Srv"</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;},</div>
+  <div>&nbsp;<span
+     style="color: #0451a5;">"require"</span>:&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"cboden/ratchet"</span>: <span
+     style="color: #a31515;">"^0.4"</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -482,49 +500,39 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m13bd/mNlibphp/mYvalidaTextoNoVacioPhp.html"
-      title="10. lib / php / validaTextoNoVacio.php">▲</a>
+    <a class="paginaAnterior" href="/m14chat/mCchathtml/mAindexHtml.html"
+      title="1. index.html">▲</a>
    </p>
-     <h1><a href="/m14ws/index.html">14. Protocolos de comunicación</a></h1>
-   <ol type="A">
+     <h1><a href="/m14chat/mDchatwss/index.html">D. Servidor de websockets para un chat sencillo</a></h1>
+   <ol type="1">
     <li>
      <p>
-      <a href="/m14ws/mAdeploy.html" class="actual">Diagrama de despliegue</a>
+      <a href="/m14chat/mDchatwss/mAarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mAinstrucciones.html">Instrucciones</a>
+      <a href="/m14chat/mDchatwss/mEChatPhp.html">Chat.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mBphpmensajes.html">phpmensajes</a>
+      <a href="/m14chat/mDchatwss/mFmainPhp.html">main.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mCarchivos.html">Archivos</a>
+      <a href="/m14chat/mDchatwss/mDComposerJson.html" class="actual">composer.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mDEventosPhp.html">Eventos.php</a>
+      <a href="/m14chat/mDchatwss/mBReplit.html">.replit</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mEmainPhp.html">main.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mFhtmlmensajes.html">htmlmensajes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mGindexHtml.html">index.html</a>
+      <a href="/m14chat/mDchatwss/mCreplitNix.html">replit.nix</a>
      </p>
     </li>
    </ol><p>
@@ -542,9 +550,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m14ws/index.html"
+ let urlAnterior = "/m14chat/mDchatwss/mFmainPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m14ws/mAinstrucciones.html"
+ let urlSiguiente = "/m14chat/mDchatwss/mBReplit.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

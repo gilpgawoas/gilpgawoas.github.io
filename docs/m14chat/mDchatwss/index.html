@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>H. index.html - GilPG AWOAS</title>
- <meta name="description" content="Código de «index.html».">
+ <title>D. Servidor de websockets para un chat sencillo - GilPG AWOAS</title>
+ <meta name="description" content="Servidor de websockets para un chat sencillo.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,221 +445,52 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m14ws/mFhtmlmensajes.html" title="G. htmlmensajes">◀</a>
- <a class="siguiente" href="/m15streaming.html" title="15. Ejemplo de streaming">▶</a>
-   <h1 >H. index.html</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #ff0000;">html</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;html&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">charset</span>=<span
-     style="color: #0000ff;">"UTF-8"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span> <span
-     style="color: #ff0000;">content</span>=<span
-     style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Mensajes<span
-     style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;form</span> <span
-     style="color: #ff0000;">id</span>=<span
-     style="color: #0000ff;">"forma"</span> <span
-     style="color: #ff0000;">action</span>=<span
-     style="color: #0000ff;">"javascript:envia()"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Mensajes<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Alias</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"alias"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Mensaje</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"mensaje"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;button&gt;</span>Enviar<span
-     style="color: #800000;">&lt;/button&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/form&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;pre</span> <span
-     style="color: #ff0000;">id</span>=<span
-     style="color: #0000ff;">"pre"</span><span
-     style="color: #800000;">&gt;&lt;/pre&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">/*&nbsp;Cambia la url por la de tu</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;servicio. */</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">ws</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">WebSocket</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"wss://phpmensajes.gilbertopacheco.repl.co"</span>)
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ws</span>.<span
-     style="color: #795e26;">onopen</span> = <span
-     style="color: #795e26;">wsAbierto</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ws</span>.<span
-     style="color: #795e26;">onmessage</span> = <span
-     style="color: #795e26;">recibeMensaje</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ws</span>.<span
-     style="color: #795e26;">onerror</span> = <span
-     style="color: #795e26;">error</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ws</span>.<span
-     style="color: #795e26;">onclose</span> = <span
-     style="color: #795e26;">cerrado</span></div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{MessageEvent}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">evt</span><span
-     style="color: #008000;"> */</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">recibeMensaje</span>(<span
-     style="color: #001080;">evt</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">pre</span>.<span
-     style="color: #001080;">textContent</span> +=</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">evt</span>.<span
-     style="color: #001080;">data</span> + <span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n\n</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">envia</span>()&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">msg</span> =</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">`</span><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">forma</span>.<span
-     style="color: #001080;">alias</span>.<span
-     style="color: #001080;">value</span><span
-     style="color: #0000ff;">}</span></div>
-  <div><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">forma</span>.<span
-     style="color: #001080;">mensaje</span>.<span
-     style="color: #001080;">value</span><span
-     style="color: #0000ff;">}</span><span
-     style="color: #a31515;">`</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ws</span>.<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #0070c1;">msg</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">wsAbierto</span>()&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #a31515;">'Conectado'</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">evt</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">evt</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Error en la conexión."</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">cerrado</span>(<span
-     style="color: #001080;">evt</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #001080;">evt</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Conexión terminada."</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #001080;">e</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">e</span>.<span
-     style="color: #001080;">message</span>)</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/html&gt;</span></div>
- </div>
-</muestra-codigo>
+ <a class="anterior" href="/m14chat/mCchathtml/mAindexHtml.html" title="1. index.html">◀</a>
+ <a class="siguiente" href="/m14chat/mDchatwss/mAarchivos.html" title="1. Archivos">▶</a>
+   <h1 >D. Servidor de websockets para un chat sencillo</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  
+   <ol type="1">
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mAarchivos.html">Archivos</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mEChatPhp.html">Chat.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mFmainPhp.html">main.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mDComposerJson.html">composer.json</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mBReplit.html">.replit</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mCreplitNix.html">replit.nix</a>
+     </p>
+    </li>
+   </ol>
+ </nav>
+</div>
  <footer>
  <p>
   <a rel="license"
@@ -690,49 +521,39 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m13bd/mNlibphp/mYvalidaTextoNoVacioPhp.html"
-      title="10. lib / php / validaTextoNoVacio.php">▲</a>
+    <a class="paginaAnterior" href="/m14chat/mCchathtml/mAindexHtml.html"
+      title="1. index.html">▲</a>
    </p>
-     <h1><a href="/m14ws/index.html">14. Protocolos de comunicación</a></h1>
-   <ol type="A">
+     <h1><a href="/m14chat/mDchatwss/index.html" class="actual">D. Servidor de websockets para un chat sencillo</a></h1>
+   <ol type="1">
     <li>
      <p>
-      <a href="/m14ws/mAdeploy.html">Diagrama de despliegue</a>
+      <a href="/m14chat/mDchatwss/mAarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mAinstrucciones.html">Instrucciones</a>
+      <a href="/m14chat/mDchatwss/mEChatPhp.html">Chat.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mBphpmensajes.html">phpmensajes</a>
+      <a href="/m14chat/mDchatwss/mFmainPhp.html">main.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mCarchivos.html">Archivos</a>
+      <a href="/m14chat/mDchatwss/mDComposerJson.html">composer.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mDEventosPhp.html">Eventos.php</a>
+      <a href="/m14chat/mDchatwss/mBReplit.html">.replit</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m14ws/mEmainPhp.html">main.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mFhtmlmensajes.html">htmlmensajes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m14ws/mGindexHtml.html" class="actual">index.html</a>
+      <a href="/m14chat/mDchatwss/mCreplitNix.html">replit.nix</a>
      </p>
     </li>
    </ol><p>
@@ -750,9 +571,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m14ws/mFhtmlmensajes.html"
+ let urlAnterior = "/m14chat/mCchathtml/mAindexHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m15streaming.html"
+ let urlSiguiente = "/m14chat/mDchatwss/mAarchivos.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
