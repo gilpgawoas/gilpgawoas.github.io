@@ -18786,12 +18786,12 @@
     </li>
     <li>
      <p>
-      <a href="/m15chatserio/mCchathtml/">Cliente HTML y JS de un chat sencillo</a>
+      <a href="/m15chatserio/mCchathtml/">Cliente HTML y JS de un chat serio</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m15chatserio/mDchatwss/">Servidor de websockets para un chat sencillo</a>
+      <a href="/m15chatserio/mDchatwss/">Servidor de websockets para un chat serio</a>
      </p>
     </li>
    </ol>
@@ -18932,7 +18932,7 @@
 </div>
       </section>
      <section>
-         <h1 >C. Cliente HTML y JS de un chat sencillo</h1>
+         <h1 >C. Cliente HTML y JS de un chat serio</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -18976,7 +18976,7 @@
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Chat<span
+     style="color: #800000;">&lt;title&gt;</span>Chat Serio<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
@@ -18988,8 +18988,13 @@
      style="color: #0000ff;">"forma"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Chat<span
+     style="color: #800000;">&lt;h1&gt;</span>Chat Serio<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;No puedes usar la palabra wey.</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -18998,7 +19003,7 @@
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"alias"</span> <span
+     style="color: #0000ff;">"outAlias"</span> <span
      style="color: #e50000;">required</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -19013,7 +19018,8 @@
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"mensaje"</span> <span
+     style="color: #0000ff;">"outMensaje"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #e50000;">required</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -19058,7 +19064,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"wss://chatwss.gilbertopachec5.repl.co/"</span><span
+     style="color: #a31515;">"wss://chatseriowss--gilbertopachec5.repl.co/"</span><span
      style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -19107,19 +19113,47 @@
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">msg</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">evt</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">data</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">JSON</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">parse</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0070c1;">msg</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">pre</span><span
      style="color: #000000;">.</span><span
      style="color: #001080;">textContent</span><span
      style="color: #000000;"> +=</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">evt</span><span
+     style="color: #a31515;">`</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">info</span><span
      style="color: #000000;">.</span><span
-     style="color: #001080;">data</span><span
-     style="color: #000000;"> + </span><span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n\n</span><span
-     style="color: #a31515;">"</span></div>
+     style="color: #001080;">alias</span><span
+     style="color: #0000ff;">}</span></div>
+  <div><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">mensaje</span><span
+     style="color: #0000ff;">}</span></div><br>
+  <div><span
+     style="color: #a31515;">`</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div><br>
   <div><span
@@ -19241,29 +19275,56 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
      style="color: #000000;"> </span><span
+     style="color: #0070c1;">alias</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">outAlias</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">value</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">trim</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">mensaje</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">outMensaje</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">value</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">trim</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ </span><span
+     style="color: #001080;">alias</span><span
+     style="color: #000000;">, </span><span
+     style="color: #001080;">mensaje</span><span
+     style="color: #000000;"> }</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
      style="color: #0070c1;">msg</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">`</span><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">alias</span><span
+     style="color: #001080;">JSON</span><span
      style="color: #000000;">.</span><span
-     style="color: #001080;">value</span><span
-     style="color: #000000;">.</span><span
-     style="color: #795e26;">trim</span><span
-     style="color: #000000;">()</span><span
-     style="color: #0000ff;">}</span></div>
-  <div><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">mensaje</span><span
-     style="color: #000000;">.</span><span
-     style="color: #001080;">value</span><span
-     style="color: #000000;">.</span><span
-     style="color: #795e26;">trim</span><span
-     style="color: #000000;">()</span><span
-     style="color: #0000ff;">}</span><span
-     style="color: #a31515;">`</span></div>
+     style="color: #795e26;">stringify</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0070c1;">ws</span><span
@@ -19343,7 +19404,7 @@
       </section>
       </section>
      <section>
-         <h1 >D. Servidor de websockets para un chat sencillo</h1>
+         <h1 >D. Servidor de websockets para un chat serio</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -19361,7 +19422,7 @@
     </li>
     <li>
      <p>
-      <a href="/m15chatserio/mDchatwss/mEChatPhp.html">Chat.php</a>
+      <a href="/m15chatserio/mDchatwss/mEChatPhp.html">ChatSerio.php</a>
      </p>
     </li>
     <li>
@@ -19394,7 +19455,7 @@
    <p>Srv</p>
    <ul>
     <li>
-     <p><a href="mEChatPhp.html">Chat.php</a></p>
+     <p><a href="mEChatPhp.html">ChatSerio.php</a></p>
     </li>
    </ul>
   </li>
@@ -19420,7 +19481,7 @@
 </div>
       </section>
      <section >
-         <h1 >2. Chat.php</h1><muestra-codigo>
+         <h1 >2. ChatSerio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -19446,9 +19507,40 @@
      style="color: #267f99;">ConnectionInterface</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> ID = </span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> CASTIGADO = </span><span
+     style="color: #a31515;">"castigado"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> PERDONAME = </span><span
+     style="color: #a31515;">"perdóname"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> ALIAS = </span><span
+     style="color: #a31515;">"alias"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> ADMINISTRADOR =</span></div>
+  <div><span
+     style="color: #a31515;">"administrador"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> MENSAJE = </span><span
+     style="color: #a31515;">"mensaje"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Chat</span><span
+     style="color: #267f99;">ChatSerio</span><span
      style="color: #000000;"> </span><span
      style="color: #0000ff;">implements</span></div>
   <div><span
@@ -19458,10 +19550,18 @@
      style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">protected</span></div>
+     style="color: #0000ff;">private</span></div>
   <div><span
      style="color: #000000;">&nbsp;SplObjectStorage </span><span
      style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$msgCastigado</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;</span><span
@@ -19488,6 +19588,30 @@
      style="color: #000000;"> </span><span
      style="color: #267f99;">SplObjectStorage</span><span
      style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$info_castigado</span><span
+     style="color: #000000;"> = [</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;ALIAS =&gt; ADMINISTRADOR,</span>
+  </div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;MENSAJE =&gt; CASTIGADO</span>
+  </div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">$this</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">msgCastigado</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">json_encode</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$info_castigado</span><span
+     style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;}</span></div><br>
   <div><span
@@ -19521,10 +19645,19 @@
      style="color: #001080;">$con</span><span
      style="color: #000000;">,</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;ID =&gt; </span><span
      style="color: #001080;">$con</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">resourceId</span></div>
+     style="color: #001080;">resourceId</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;CASTIGADO =&gt;
+   </span><span
+     style="color: #0000ff;">false</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;]</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;);</span></div>
   <div><span
@@ -19569,14 +19702,158 @@
      style="color: #000000;">&nbsp;)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$id</span><span
+     style="color: #001080;">$conexiones</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">$this</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #001080;">conexiones</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$conexiones</span><span
      style="color: #000000;">[</span><span
      style="color: #001080;">$origen</span><span
      style="color: #000000;">];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">[ID];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">[CASTIGADO];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$json</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">json_decode</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$msg</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$alias</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$json</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">alias</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$mensaje</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$json</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">mensaje</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$mensaje</span><span
+     style="color: #000000;"> === PERDONAME)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$origen</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">send</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">$this</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">msgCastigado</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">elseif</span><span
+     style="color: #000000;"> (</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">preg_match</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #811f3f;">"/(</span><span
+     style="color: #000000;">^</span><span
+     style="color: #811f3f;">|\s</span><span
+     style="color: #000000;">+</span><span
+     style="color: #811f3f;">)wey(</span><span
+     style="color: #000000;">$</span><span
+     style="color: #811f3f;">|\s</span><span
+     style="color: #000000;">+</span><span
+     style="color: #811f3f;">)/i"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$mensaje</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;!== </span><span
+     style="color: #098658;">0</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">true</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$origen</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">send</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">$this</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">msgCastigado</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">[CASTIGADO] = </span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$origen</span><span
+     style="color: #000000;">] = </span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #795e26;">echo</span><span
@@ -19587,30 +19864,78 @@
      style="color: #001080;">$id</span><span
      style="color: #a31515;">}</span></div>
   <div><span
-     style="color: #a31515;">Mensaje: </span><span
-     style="color: #001080;">$msg</span><span
-     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">Castigado:&nbsp;{</span><span
+     style="color: #001080;">$castigado</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">alias:&nbsp;{</span><span
+     style="color: #001080;">$alias</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">Mensaje:&nbsp;{</span><span
+     style="color: #001080;">$mensaje</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
      style="color: #a31515;">"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">foreach</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #0000ff;">$this</span><span
+     style="color: #001080;">$conexiones</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">conexiones</span></div>
+     style="color: #795e26;">rewind</span><span
+     style="color: #000000;">();</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;as </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">while</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">valid</span><span
+     style="color: #000000;">())&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">current</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">getInfo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">var_dump</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (!</span><span
+     style="color: #001080;">$info</span><span
+     style="color: #000000;">[CASTIGADO])&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">$con</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #795e26;">send</span><span
      style="color: #000000;">(</span><span
      style="color: #001080;">$msg</span><span
      style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$conexiones</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">next</span><span
+     style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span
@@ -19750,7 +20075,7 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> Srv\</span><span
-     style="color: #267f99;">Chat</span><span
+     style="color: #267f99;">ChatSerio</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -19790,7 +20115,7 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Chat</span><span
+     style="color: #267f99;">ChatSerio</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;)</span></div>

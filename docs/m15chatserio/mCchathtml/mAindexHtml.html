@@ -445,8 +445,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m15chatserio/mCchathtml/index.html" title="C. Cliente HTML y JS de un chat sencillo">◀</a>
- <a class="siguiente" href="/m15chatserio/mDchatwss/index.html" title="D. Servidor de websockets para un chat sencillo">▶</a>
+ <a class="anterior" href="/m15chatserio/mCchathtml/index.html" title="C. Cliente HTML y JS de un chat serio">◀</a>
+ <a class="siguiente" href="/m15chatserio/mDchatwss/index.html" title="D. Servidor de websockets para un chat serio">▶</a>
    <h1 >1. index.html</h1><muestra-codigo>
  <div>
   <div><span
@@ -471,7 +471,7 @@
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Chat<span
+     style="color: #800000;">&lt;title&gt;</span>Chat Serio<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
@@ -483,8 +483,13 @@
      style="color: #0000ff;">"forma"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Chat<span
+     style="color: #800000;">&lt;h1&gt;</span>Chat Serio<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;No puedes usar la palabra wey.</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -493,7 +498,7 @@
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"alias"</span> <span
+     style="color: #0000ff;">"outAlias"</span> <span
      style="color: #e50000;">required</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -508,7 +513,8 @@
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"mensaje"</span> <span
+     style="color: #0000ff;">"outMensaje"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #e50000;">required</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
@@ -553,7 +559,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"wss://chatwss.gilbertopachec5.repl.co/"</span><span
+     style="color: #a31515;">"wss://chatseriowss--gilbertopachec5.repl.co/"</span><span
      style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -602,19 +608,47 @@
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">msg</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">evt</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">data</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">JSON</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">parse</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0070c1;">msg</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">pre</span><span
      style="color: #000000;">.</span><span
      style="color: #001080;">textContent</span><span
      style="color: #000000;"> +=</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">evt</span><span
+     style="color: #a31515;">`</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">info</span><span
      style="color: #000000;">.</span><span
-     style="color: #001080;">data</span><span
-     style="color: #000000;"> + </span><span
-     style="color: #a31515;">"</span><span
-     style="color: #ee0000;">\n\n</span><span
-     style="color: #a31515;">"</span></div>
+     style="color: #001080;">alias</span><span
+     style="color: #0000ff;">}</span></div>
+  <div><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">mensaje</span><span
+     style="color: #0000ff;">}</span></div><br>
+  <div><span
+     style="color: #a31515;">`</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div><br>
   <div><span
@@ -736,29 +770,56 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
      style="color: #000000;"> </span><span
+     style="color: #0070c1;">alias</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">outAlias</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">value</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">trim</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">mensaje</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">outMensaje</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">value</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">trim</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ </span><span
+     style="color: #001080;">alias</span><span
+     style="color: #000000;">, </span><span
+     style="color: #001080;">mensaje</span><span
+     style="color: #000000;"> }</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
      style="color: #0070c1;">msg</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">`</span><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">alias</span><span
+     style="color: #001080;">JSON</span><span
      style="color: #000000;">.</span><span
-     style="color: #001080;">value</span><span
-     style="color: #000000;">.</span><span
-     style="color: #795e26;">trim</span><span
-     style="color: #000000;">()</span><span
-     style="color: #0000ff;">}</span></div>
-  <div><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">mensaje</span><span
-     style="color: #000000;">.</span><span
-     style="color: #001080;">value</span><span
-     style="color: #000000;">.</span><span
-     style="color: #795e26;">trim</span><span
-     style="color: #000000;">()</span><span
-     style="color: #0000ff;">}</span><span
-     style="color: #a31515;">`</span></div>
+     style="color: #795e26;">stringify</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0070c1;">info</span><span
+     style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0070c1;">ws</span><span
@@ -868,7 +929,7 @@
     <a class="paginaAnterior" href="/m15chatserio/mBinstrucciones.html"
       title="B. Instrucciones">▲</a>
    </p>
-     <h1><a href="/m15chatserio/mCchathtml/index.html">C. Cliente HTML y JS de un chat sencillo</a></h1>
+     <h1><a href="/m15chatserio/mCchathtml/index.html">C. Cliente HTML y JS de un chat serio</a></h1>
    <ol type="1">
     <li>
      <p>
@@ -877,7 +938,7 @@
     </li>
    </ol><p>
     <a class="paginaSiguiente" href="/m15chatserio/mDchatwss/index.html"
-      title="D. Servidor de websockets para un chat sencillo">▼</a>
+      title="D. Servidor de websockets para un chat serio">▼</a>
    </p>
 </nav>
  <script>
