@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Archivos - GilPG AWOAS</title>
- <meta name="description" content="Archivos.">
+ <title>7. lib / php / autoload.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/autoload.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,54 +445,53 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m14chat/mDchatwss/index.html" title="D. chatwss">◀</a>
- <a class="siguiente" href="/m14chat/mDchatwss/mEChatPhp.html" title="2. chat.php">▶</a>
-   <h1 >1. Archivos</h1><div class="lectura">
- <ul>
-  <li>
-   <p>lib</p>
-   <ul>
-    <li>
-     <p>php</p>
-     <ul>
-      <li>
-       <p><a href="mQautoloadPhp.html">autoload.php</a></p>
-      </li>
-      <li>
-       <p><a href="mRpathPhp.html">path.php</a></p>
-      </li>
-     </ul>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>srv</p>
-   <ul>
-    <li>
-     <p><a href="mEChatPhp.html">chat.php</a></p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>vendor</p>
-  </li>
-  <li>
-   <p><a href="mBReplit.html">.replit</a></p>
-  </li>
-  <li>
-   <p><a href="mDComposerJson.html">composer.json</a></p>
-  </li>
-  <li>
-   <p>composer.lock</p>
-  </li>
-  <li>
-   <p><a href="mFmainPhp.html">main.php</a></p>
-  </li>
-  <li>
-   <p><a href="mCreplitNix.html">replit.nix</a></p>
-  </li>
- </ul>
-</div>
+ <a class="anterior" href="/m14chat/mDchatwss/mCreplitNix.html" title="6. replit.nix">◀</a>
+ <a class="siguiente" href="/m14chat/mDchatwss/mRpathPhp.html" title="8. lib / php / path.php">▶</a>
+   <h1 >7. lib / php / autoload.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Permite que las clases se
+    puedan</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;cargar automáticamente sin usar</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;require.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Los nombres se buscan dentro
+    del</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;sistema de archivos usando solo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;minúsculas sin importar como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;se declaren en el código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Primero hay que cargar el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;archivo path.php para
+    configurar</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la búsqueda de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/path.php"</span>;</div><br>
+  <div>spl_autoload_register();</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -530,7 +529,7 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m14chat/mDchatwss/mAarchivos.html" class="actual">Archivos</a>
+      <a href="/m14chat/mDchatwss/mAarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
@@ -560,7 +559,7 @@
     </li>
     <li>
      <p>
-      <a href="/m14chat/mDchatwss/mQautoloadPhp.html">lib / php / autoload.php</a>
+      <a href="/m14chat/mDchatwss/mQautoloadPhp.html" class="actual">lib / php / autoload.php</a>
      </p>
     </li>
     <li>
@@ -583,9 +582,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m14chat/mDchatwss/index.html"
+ let urlAnterior = "/m14chat/mDchatwss/mCreplitNix.html"
  /**@type {string} */
- let urlSiguiente = "/m14chat/mDchatwss/mEChatPhp.html"
+ let urlSiguiente = "/m14chat/mDchatwss/mRpathPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

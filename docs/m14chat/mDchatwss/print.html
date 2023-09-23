@@ -355,7 +355,7 @@
     </li>
     <li>
      <p>
-      <a href="/m14chat/mDchatwss/mEChatPhp.html">Chat.php</a>
+      <a href="/m14chat/mDchatwss/mEChatPhp.html">chat.php</a>
      </p>
     </li>
     <li>
@@ -378,6 +378,16 @@
       <a href="/m14chat/mDchatwss/mCreplitNix.html">replit.nix</a>
      </p>
     </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mQautoloadPhp.html">lib / php / autoload.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m14chat/mDchatwss/mRpathPhp.html">lib / php / path.php</a>
+     </p>
+    </li>
    </ol>
  </nav>
 </div>
@@ -385,10 +395,26 @@
          <h1 >1. Archivos</h1><div class="lectura">
  <ul>
   <li>
-   <p>Srv</p>
+   <p>lib</p>
    <ul>
     <li>
-     <p><a href="mEChatPhp.html">Chat.php</a></p>
+     <p>php</p>
+     <ul>
+      <li>
+       <p><a href="mQautoloadPhp.html">autoload.php</a></p>
+      </li>
+      <li>
+       <p><a href="mRpathPhp.html">path.php</a></p>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>srv</p>
+   <ul>
+    <li>
+     <p><a href="mEChatPhp.html">chat.php</a></p>
     </li>
    </ul>
   </li>
@@ -414,7 +440,7 @@
 </div>
       </section>
      <section >
-         <h1 >2. Chat.php</h1><muestra-codigo>
+         <h1 >2. chat.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -714,6 +740,16 @@
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
      style="color: #af00db;">require</span><span
      style="color: #000000;"> </span><span
      style="color: #0000ff;">__DIR__</span><span
@@ -723,24 +759,6 @@
      style="color: #000000;">&nbsp;</span><span
      style="color: #a31515;">'/vendor/autoload.php'</span><span
      style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #008000;">/*&nbsp;Como este ejemplo usa el</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;autoload de composer, los</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;nombres de las clases y de los</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;namespace debe coincidir en</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;mayúsculas y minúsculas con el</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;nombre de las carpetas y de los</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;archivos. */</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> Srv\</span><span
@@ -808,21 +826,10 @@
  <div>
   <div>{</div>
   <div>&nbsp;<span
-     style="color: #0451a5;">"autoload"</span>:&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0451a5;">"psr-4"</span>:&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0451a5;">"Srv</span><span
-     style="color: #ee0000;">\\</span><span
-     style="color: #0451a5;">"</span>: <span
-     style="color: #a31515;">"Srv"</span></div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;},</div>
-  <div>&nbsp;<span
      style="color: #0451a5;">"require"</span>:&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
      style="color: #0451a5;">"cboden/ratchet"</span>: <span
-     style="color: #a31515;">"^0.4"</span></div>
+     style="color: #a31515;">"^0.4.4"</span></div>
   <div>&nbsp;}</div>
   <div>}</div>
  </div>
@@ -846,6 +853,128 @@
  <div>&nbsp;&nbsp;&nbsp;&nbsp;pkgs.php82Packages.composer</div>
  <div>&nbsp;&nbsp;];</div>
  <div>}</div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >7. lib / php / autoload.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Permite que las clases se
+    puedan</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;cargar automáticamente sin usar</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;require.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Los nombres se buscan dentro
+    del</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;sistema de archivos usando solo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;minúsculas sin importar como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;se declaren en el código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Primero hay que cargar el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;archivo path.php para
+    configurar</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la búsqueda de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/path.php"</span>;</div><br>
+  <div>spl_autoload_register();</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >8. lib / php / path.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Configura las carpetas para</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;buscar código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tenemos que indicar una carpeta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;raíz; en este caso es la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;carpeta principal del proyecto.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Ten en cuenta que cuando un</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;servidor corre en Windows, el</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;proyecto usa una subcarpeta,</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;mientras que en producción se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;usa la carpeta principal.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tomamos este archivo como punto</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;de referencia. la raíz se ubica</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;subiendo 2 niveles en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;estructura de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;La carpeta del arcivo es</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/lib/php</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/.. es /lib</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/../.. es /</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Incluye la carpeta raíz en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;ruta de búsqueda de archivos.*/</span>
+  </div>
+  <div>set_include_path(</div>
+  <div>&nbsp;get_include_path()</div>
+  <div>&nbsp;&nbsp;. PATH_SEPARATOR</div>
+  <div>&nbsp;&nbsp;. <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../.."</span></div>
+  <div>);</div>
+ </div>
 </muestra-codigo>
       </section>
 </body>

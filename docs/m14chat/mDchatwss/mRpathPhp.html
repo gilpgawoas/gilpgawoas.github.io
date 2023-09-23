@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Archivos - GilPG AWOAS</title>
- <meta name="description" content="Archivos.">
+ <title>8. lib / php / path.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/path.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -445,54 +445,81 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m14chat/mDchatwss/index.html" title="D. chatwss">◀</a>
- <a class="siguiente" href="/m14chat/mDchatwss/mEChatPhp.html" title="2. chat.php">▶</a>
-   <h1 >1. Archivos</h1><div class="lectura">
- <ul>
-  <li>
-   <p>lib</p>
-   <ul>
-    <li>
-     <p>php</p>
-     <ul>
-      <li>
-       <p><a href="mQautoloadPhp.html">autoload.php</a></p>
-      </li>
-      <li>
-       <p><a href="mRpathPhp.html">path.php</a></p>
-      </li>
-     </ul>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>srv</p>
-   <ul>
-    <li>
-     <p><a href="mEChatPhp.html">chat.php</a></p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>vendor</p>
-  </li>
-  <li>
-   <p><a href="mBReplit.html">.replit</a></p>
-  </li>
-  <li>
-   <p><a href="mDComposerJson.html">composer.json</a></p>
-  </li>
-  <li>
-   <p>composer.lock</p>
-  </li>
-  <li>
-   <p><a href="mFmainPhp.html">main.php</a></p>
-  </li>
-  <li>
-   <p><a href="mCreplitNix.html">replit.nix</a></p>
-  </li>
- </ul>
-</div>
+ <a class="anterior" href="/m14chat/mDchatwss/mQautoloadPhp.html" title="7. lib / php / autoload.php">◀</a>
+ <a class="siguiente" href="/m15chatserio/index.html" title="15. Chat serio">▶</a>
+   <h1 >8. lib / php / path.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Configura las carpetas para</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;buscar código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tenemos que indicar una carpeta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;raíz; en este caso es la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;carpeta principal del proyecto.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Ten en cuenta que cuando un</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;servidor corre en Windows, el</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;proyecto usa una subcarpeta,</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;mientras que en producción se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;usa la carpeta principal.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Tomamos este archivo como punto</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;de referencia. la raíz se ubica</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;subiendo 2 niveles en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;estructura de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;La carpeta del arcivo es</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/lib/php</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/.. es /lib</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;/../.. es /</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Incluye la carpeta raíz en la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;ruta de búsqueda de archivos.*/</span>
+  </div>
+  <div>set_include_path(</div>
+  <div>&nbsp;get_include_path()</div>
+  <div>&nbsp;&nbsp;. PATH_SEPARATOR</div>
+  <div>&nbsp;&nbsp;. <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../.."</span></div>
+  <div>);</div>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -530,7 +557,7 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m14chat/mDchatwss/mAarchivos.html" class="actual">Archivos</a>
+      <a href="/m14chat/mDchatwss/mAarchivos.html">Archivos</a>
      </p>
     </li>
     <li>
@@ -565,7 +592,7 @@
     </li>
     <li>
      <p>
-      <a href="/m14chat/mDchatwss/mRpathPhp.html">lib / php / path.php</a>
+      <a href="/m14chat/mDchatwss/mRpathPhp.html" class="actual">lib / php / path.php</a>
      </p>
     </li>
    </ol><p>
@@ -583,9 +610,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m14chat/mDchatwss/index.html"
+ let urlAnterior = "/m14chat/mDchatwss/mQautoloadPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m14chat/mDchatwss/mEChatPhp.html"
+ let urlSiguiente = "/m15chatserio/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
