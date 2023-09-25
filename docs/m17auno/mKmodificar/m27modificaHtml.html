@@ -566,6 +566,21 @@
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-pasatiempo.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span
@@ -594,6 +609,10 @@
      style="color: #800000;">&lt;campo-nombre-cargando&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/campo-nombre-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-pasatiempo&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/campo-pasatiempo&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
   <div>&nbsp;&nbsp;<span
@@ -708,6 +727,18 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraForaneaNumerica</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraForaneaNumerica.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">escuchaEventosModifica</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
@@ -725,7 +756,32 @@
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">from</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraRender</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraRender.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">descargaPasatiempoOpciones</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./js/descargaPasatiempoOpciones.js"</span></div>
+  <br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -752,6 +808,29 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">try</span><span
      style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">render</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #af00db;">await</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">descargaPasatiempoOpciones</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraRender</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0070c1;">render</span><span
+     style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -825,7 +904,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvPasatiempoBusca.php?"</span></div>
+     style="color: #a31515;">"srv/SrvAmigoBusca.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span
@@ -869,6 +948,24 @@
      style="color: #001080;">nombre</span><span
      style="color: #000000;">)</span></div>
   <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraForaneaNumerica</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;">, </span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -902,11 +999,7 @@
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/"</span><span
-     style="color: #000000;"> +</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"SrvPasatiempoModifica.php"</span><span
+     style="color: #a31515;">"srv/SrvAmigoModifica.php"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -957,12 +1050,10 @@
      style="color: #795e26;">ejecuta</span><span
      style="color: #000000;">(</span><span
      style="color: #795e26;">fetch</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"srv/"</span><span
-     style="color: #000000;"> +</span></div>
+     style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"SrvPasatiempoElimina.php?"</span></div>
+     style="color: #a31515;">"srv/SrvAmigoElimina.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span

@@ -1,71 +1,57 @@
 <muestra-codigo>
  <div>
   <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoPasatiempo</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasatiempo</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;select</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"pasId"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;option</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">""</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargando…</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/option&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/select&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
   <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">bdCrea</span><span
-     style="color: #000000;">(</span><span
-     style="color: #267f99;">PDO</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">)</span></div>
-  <div><span
-     style="color: #000000;">{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">exec</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">'</span><span
-     style="color: #0000ff;">CREATE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">TABLE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">IF</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">EXISTS</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PASATIEMPO (</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">INTEGER</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE
-   </span><span
-     style="color: #0000ff;">TEXT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT NULL</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_PK</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(PAS_ID),</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_NOM_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(PAS_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
-     style="color: #a31515;">'</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-pasatiempo"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">CampoPasatiempo</span>)</div>
  </div>
 </muestra-codigo>

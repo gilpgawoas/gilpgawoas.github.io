@@ -12,23 +12,11 @@
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\dao\</span><span
      style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@return</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #0000ff;">[]</span><span
-     style="color: #008000;"> */</span></div>
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoConsulta</span><span
+     style="color: #795e26;">amigoConsulta</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">{</span></div>
@@ -53,21 +41,35 @@
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">SELECT</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_ID </span><span
      style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> id,</span></div>
+     style="color: #a31515;"> amiId,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_NOMBRE </span><span
      style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> nombre</span></div>
+     style="color: #a31515;"> amiNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PAS_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> pasNombre</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
+     style="color: #a31515;"> AMIGO A</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> PASATIEMPO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> A.PAS_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> P.PAS_ID</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">ORDER BY</span><span
-     style="color: #a31515;"> PAS_NOMBRE</span><span
+     style="color: #a31515;"> A.AMI_NOMBRE</span><span
      style="color: #a31515;">"</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
@@ -82,12 +84,7 @@
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #267f99;">PDO</span><span
-     style="color: #000000;">::FETCH_CLASS,</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">::</span><span
-     style="color: #0000ff;">class</span></div>
+     style="color: #000000;">::FETCH_OBJ</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
   <div><span

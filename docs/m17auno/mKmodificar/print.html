@@ -506,6 +506,21 @@
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-pasatiempo.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span
@@ -534,6 +549,10 @@
      style="color: #800000;">&lt;campo-nombre-cargando&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/campo-nombre-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-pasatiempo&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/campo-pasatiempo&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
   <div>&nbsp;&nbsp;<span
@@ -648,6 +667,18 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraForaneaNumerica</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraForaneaNumerica.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">escuchaEventosModifica</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
@@ -665,7 +696,32 @@
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">from</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraRender</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraRender.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">descargaPasatiempoOpciones</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./js/descargaPasatiempoOpciones.js"</span></div>
+  <br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -692,6 +748,29 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">try</span><span
      style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">render</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #af00db;">await</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">descargaPasatiempoOpciones</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraRender</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0070c1;">render</span><span
+     style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -765,7 +844,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvPasatiempoBusca.php?"</span></div>
+     style="color: #a31515;">"srv/SrvAmigoBusca.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span
@@ -809,6 +888,24 @@
      style="color: #001080;">nombre</span><span
      style="color: #000000;">)</span></div>
   <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraForaneaNumerica</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;">, </span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -842,11 +939,7 @@
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/"</span><span
-     style="color: #000000;"> +</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"SrvPasatiempoModifica.php"</span><span
+     style="color: #a31515;">"srv/SrvAmigoModifica.php"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -897,12 +990,10 @@
      style="color: #795e26;">ejecuta</span><span
      style="color: #000000;">(</span><span
      style="color: #795e26;">fetch</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"srv/"</span><span
-     style="color: #000000;"> +</span></div>
+     style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"SrvPasatiempoElimina.php?"</span></div>
+     style="color: #a31515;">"srv/SrvAmigoElimina.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span
@@ -945,109 +1036,129 @@
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\dao\</span><span
-     style="color: #267f99;">AccesoBd</span><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/amigoBusca.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"txtAmigoNoEncontrado.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvAmigoBusca</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoBusca</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">int</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$id</span></div>
-  <div><span
-     style="color: #000000;">): </span><span
-     style="color: #0000ff;">false</span><span
-     style="color: #000000;">|</span><span
-     style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">::</span><span
-     style="color: #795e26;">getCon</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">prepare</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">SELECT</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> id,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> nombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span><span
-     style="color: #000000;">=</span><span
-     style="color: #a31515;"> :id</span><span
-     style="color: #a31515;">"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">execute</span><span
-     style="color: #000000;">([</span><span
-     style="color: #a31515;">":id"</span><span
-     style="color: #000000;"> =&gt; </span><span
      style="color: #001080;">$id</span><span
-     style="color: #000000;">]);</span></div>
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeEntero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">setFetchMode</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">amigoBusca</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
      style="color: #000000;">(</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #267f99;">PDO</span><span
-     style="color: #000000;">::FETCH_CLASS,</span></div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtAmigoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">::</span><span
-     style="color: #0000ff;">class</span></div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;);</span></div>
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">fetch</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvAmigoBusca</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
  </div>
 </muestra-codigo>
       </section>
@@ -1075,18 +1186,24 @@
   <div><span
      style="color: #af00db;">require_once</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"lib/php/"</span></div>
+     style="color: #a31515;">"lib/php/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #000000;">.</span><span
-     style="color: #000000;"> </span><span
      style="color: #a31515;">"leeSinEspaciosInFin.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoModifica.php"</span><span
+     style="color: #a31515;">"srv/leePasatiempo.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/amigoModifica.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -1096,12 +1213,12 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> \srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoModifica</span></div>
+     style="color: #267f99;">SrvAmigoModifica</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -1125,7 +1242,7 @@
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -1151,7 +1268,17 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoModifica</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">leePasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">amigoModifica</span><span
      style="color: #000000;">(</span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">);</span></div>
@@ -1167,12 +1294,10 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoModifica</span><span
+     style="color: #267f99;">SrvAmigoModifica</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
@@ -1207,17 +1332,17 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoElimina.php"</span><span
+     style="color: #a31515;">"srv/dao/amigoElimina.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> \lib\php\</span><span
      style="color: #267f99;">Servicio</span><span
-     style="color: #000000;">;</span></div><br><br>
+     style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoElimina</span></div>
+     style="color: #267f99;">SrvAmigoElimina</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -1245,7 +1370,7 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoElimina</span><span
+     style="color: #795e26;">amigoElimina</span><span
      style="color: #000000;">(</span><span
      style="color: #001080;">$id</span><span
      style="color: #000000;">);</span></div>
@@ -1259,12 +1384,10 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoElimina</span><span
+     style="color: #267f99;">SrvAmigoElimina</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
@@ -1280,131 +1403,243 @@
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #0000ff;">__DIR__</span><span
-     style="color: #000000;"> </span><span
-     style="color: #000000;">.</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
      style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoBusca.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"srv/txt/"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #000000;">.</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"txtPasatiempoNoEncontrado.php"</span><span
-     style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \lib\php\</span><span
-     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Amigo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #0000ff;">class</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoBusca</span></div>
-  <div><span
-     style="color: #0000ff;">extends</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Servicio</span></div>
-  <div><span
-     style="color: #000000;">{</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">protected</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">implementacion</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeEntero</span><span
+     style="color: #795e26;">amigoBusca</span><span
      style="color: #000000;">(</span><span
-     style="color: #a31515;">"id"</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #0000ff;">int</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$amiId</span><span
+     style="color: #000000;">)</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">pasatiempoBusca</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">prepare</span><span
+     style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> amiId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> amiNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.PAS_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> pasId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PAS_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> pasNombre</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> AMIGO A</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> PASATIEMPO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> A.PAS_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> P.PAS_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> A.AMI_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> :amiId</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":amiId"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$amiId</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">setFetchMode</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::FETCH_OBJ</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">fetch</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #af00db;">if</span><span
      style="color: #000000;"> (</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #001080;">$obj</span><span
      style="color: #000000;"> === </span><span
      style="color: #0000ff;">false</span><span
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #af00db;">throw</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Exception</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #267f99;">Amigo</span><span
+     style="color: #000000;">();</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtPasatiempoNoEncontrado</span><span
-     style="color: #000000;">()</span></div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">amiId</span><span
+     style="color: #000000;">;</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">amiNombre</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">else</span><span
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #af00db;">return</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasId</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasNombre</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$amigo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
      style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
-  <div><span
-     style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoBusca</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #001080;">$servicio</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">ejecuta</span><span
-     style="color: #000000;">();</span></div><br>
  </div>
 </muestra-codigo>
       </section>
@@ -1421,16 +1656,16 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoModifica</span><span
+     style="color: #795e26;">amigoModifica</span><span
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;"> </span><span
      style="color: #001080;">$modelo</span></div>
   <div><span
@@ -1461,17 +1696,23 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">UPDATE</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
+     style="color: #a31515;"> AMIGO</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">SET</span><span
-     style="color: #a31515;"> PAS_NOMBRE </span><span
+     style="color: #a31515;"> AMI_NOMBRE </span><span
      style="color: #000000;">=</span><span
-     style="color: #a31515;"> :nombre</span></div>
+     style="color: #a31515;"> :nombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID
+   </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> :pasId</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span><span
+     style="color: #0000ff;">WHERE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
      style="color: #000000;">=</span><span
      style="color: #a31515;"> :id</span><span
      style="color: #a31515;">"</span></div>
@@ -1497,7 +1738,28 @@
      style="color: #000000;"> =&gt; </span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span></div>
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":pasId"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;=&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;? </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;: </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span></div>
   <div><span
      style="color: #000000;">&nbsp;]);</span></div>
   <div><span
@@ -1518,15 +1780,14 @@
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoElimina</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">amigoElimina</span><span
+     style="color: #000000;">(</span><span
      style="color: #0000ff;">int</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$id</span></div>
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">)</span></div>
   <div><span
-     style="color: #000000;">)&nbsp;{</span></div>
+     style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #001080;">$con</span><span
@@ -1549,11 +1810,12 @@
      style="color: #0000ff;">DELETE</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
+     style="color: #a31515;"> AMIGO</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span><span
+     style="color: #0000ff;">WHERE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
      style="color: #000000;">=</span><span
      style="color: #a31515;"> :id</span><span
      style="color: #a31515;">"</span></div>

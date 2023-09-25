@@ -459,16 +459,16 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoModifica</span><span
+     style="color: #795e26;">amigoModifica</span><span
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;"> </span><span
      style="color: #001080;">$modelo</span></div>
   <div><span
@@ -499,17 +499,23 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">UPDATE</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
+     style="color: #a31515;"> AMIGO</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">SET</span><span
-     style="color: #a31515;"> PAS_NOMBRE </span><span
+     style="color: #a31515;"> AMI_NOMBRE </span><span
      style="color: #000000;">=</span><span
-     style="color: #a31515;"> :nombre</span></div>
+     style="color: #a31515;"> :nombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID
+   </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> :pasId</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span><span
+     style="color: #0000ff;">WHERE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
      style="color: #000000;">=</span><span
      style="color: #a31515;"> :id</span><span
      style="color: #a31515;">"</span></div>
@@ -535,7 +541,28 @@
      style="color: #000000;"> =&gt; </span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span></div>
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":pasId"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;=&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;? </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;: </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span></div>
   <div><span
      style="color: #000000;">&nbsp;]);</span></div>
   <div><span

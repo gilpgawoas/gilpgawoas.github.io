@@ -13,35 +13,47 @@
      style="color: #a31515;">"/../lib/php/autoload.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"lib/php/"</span></div>
+     style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #000000;">.</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
      style="color: #000000;"> </span><span
+     style="color: #a31515;">"lib/php/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #a31515;">"leeSinEspaciosInFin.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoAgrega.php"</span><span
+     style="color: #a31515;">"srv/leePasatiempo.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/amigoAgrega.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \lib\php\</span><span
+     style="color: #000000;"> lib\php\</span><span
      style="color: #267f99;">Servicio</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoAgrega</span></div>
+     style="color: #267f99;">SrvAmigoAgrega</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -65,7 +77,7 @@
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Amigo</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -81,7 +93,17 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasatiempo</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">leePasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">amigoAgrega</span><span
      style="color: #000000;">(</span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">);</span></div>
@@ -97,12 +119,10 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoAgrega</span><span
+     style="color: #267f99;">SrvAmigoAgrega</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span

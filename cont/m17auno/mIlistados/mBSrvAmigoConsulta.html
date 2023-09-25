@@ -16,7 +16,17 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoConsulta.php"</span><span
+     style="color: #a31515;">"srv/dao/amigoConsulta.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"txtSinPasatiempo.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -26,13 +36,13 @@
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoConsulta</span></div>
+     style="color: #267f99;">SrvAmigoConsulta</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
      style="color: #267f99;">Servicio</span></div>
   <div><span
-     style="color: #000000;">{</span></div><br>
+     style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">protected</span></div>
@@ -48,7 +58,15 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #001080;">$lista</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">pasatiempoConsulta</span><span
+     style="color: #795e26;">amigoConsulta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$txtSinPasatiempo</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtSinPasatiempo</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -66,17 +84,7 @@
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$nombre</span><span
+     style="color: #001080;">$amiId</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -84,8 +92,48 @@
      style="color: #000000;">(</span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span><span
+     style="color: #001080;">amiId</span><span
      style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$amiNombre</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">amiNombre</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasNombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasNombre</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;? </span><span
+     style="color: #a31515;">"&lt;em&gt;</span><span
+     style="color: #001080;">$txtSinPasatiempo</span><span
+     style="color: #a31515;">&lt;/em&gt;"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;: </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">pasNombre</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">$render</span><span
@@ -98,13 +146,16 @@
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
   </div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$id</span><span
+     style="color: #a31515;">&nbsp;&lt;a href='modifica.html?id=</span><span
+     style="color: #001080;">$amiId</span><span
      style="color: #a31515;">'&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span><span
-     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&lt;strong&gt;{</span><span
+     style="color: #001080;">$amiNombre</span><span
+     style="color: #a31515;">}&lt;/strong&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&lt;br&gt;{</span><span
+     style="color: #001080;">$pasNombre</span><span
      style="color: #a31515;">}&lt;/a&gt;</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
@@ -126,12 +177,10 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvPasatiempoConsulta</span><span
+     style="color: #267f99;">SrvAmigoConsulta</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
