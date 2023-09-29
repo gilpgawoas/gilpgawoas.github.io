@@ -1,0 +1,81 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">muestraNumero</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraNumero.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@template</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">E</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{E}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">modelo</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">campoId</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">muestraForaneaNumerica</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">modelo</span>, <span
+     style="color: #001080;">campoId</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">modelo</span> <span
+     style="color: #000000;">===</span> <span
+     style="color: #0000ff;">undefined</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #000000;">||</span> <span
+     style="color: #001080;">modelo</span> <span
+     style="color: #000000;">===</span> <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">value</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">id</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #001080;">modelo</span>[<span
+     style="color: #001080;">campoId</span>]</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraNumero</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #0070c1;">id</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
