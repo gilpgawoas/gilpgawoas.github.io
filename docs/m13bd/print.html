@@ -366,6 +366,11 @@
     </li>
     <li>
      <p>
+      <a href="/m13bd/mBpaquetes.html">Diagrama de paquetes</a>
+     </p>
+    </li>
+    <li>
+     <p>
       <a href="/m13bd/mCdeploy.html">Diagrama de despliegue</a>
      </p>
     </li>
@@ -458,14 +463,75 @@
 </figure>
       </section>
      <section >
-         <h1 >D. Diagrama de despliegue</h1><figure>
+         <h1 >D. Diagrama de paquetes</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Para este ejemplo se utilizan algunos principios de diseño conocidos como
+    SOLID.
+   </p>
+  </li>
+  <li>
+   <p>
+    Cada uno de los paquetes apunta con una flecha <q>use</q> a los que utiliza
+    para realizar sus funciones.
+   </p>
+  </li>
+  <li>
+   <p>
+    Cada paquete oculta los detalles de su implementación y tecnología.
+   </p>
+  </li>
+  <li>
+   <p>
+    Los detalles de como se generan los textos, por ejemplo de como se cambian
+    de idioma, se mantienen dentro del paquete <q>txt</q> y no se exponen fuera de
+    dicho paquete.
+   </p>
+  </li>
+  <li>
+   <p>
+    Los detalles de la base de datos, por ejemplo del producto de base de datos
+    y su configuración, se mantienen dentro del paquete <q>dao</q> y no se
+    exponen fuera de dicho paquete.
+   </p>
+  </li>
+  <li>
+   <p>
+    Los detalles de la interfaz gráfica, por ejemplo las api del navegador web,
+    o de las interfaces en Android, se mantienen dentro del paquete
+    <q>access</q> y no se exponen fuera de dicho paquete.
+   </p>
+  </li>
+  <li>
+   <p>
+    El intercambio de datos entre los paquetes <q>access</q> y <q>service</q>
+    de acuerdo al contenido de las lecciones anteriores.
+   </p>
+  </li>
+  <li>
+   <p>
+    El intercambio de datos entre los paquetes <q>service</q> y <q>dao</q>
+    se realiza con el contenido del paquete <q>modelo</q>.
+   </p>
+  </li>
+ </ul>
+</div>
+<figure>
+ <img style="max-height: none;"
+   src="/img/m13bd/bdpaquetes.drawio.svg"
+   alt="Diagrama de paquetes">
+</figure>
+      </section>
+     <section >
+         <h1 >E. Diagrama de despliegue</h1><figure>
  <img style="max-height: none;"
    src="/img/m13bd/bddistribucion.drawio.svg"
    alt="Diagrama de despliegue">
 </figure>
       </section>
      <section >
-         <h1 >E. Instrucciones</h1><div class="lectura">
+         <h1 >F. Instrucciones</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -516,7 +582,7 @@
 </div>
       </section>
      <section >
-         <h1 >F. Archivos</h1><div class="lectura">
+         <h1 >G. Archivos</h1><div class="lectura">
  <ul>
   <li>
    <p>lib</p>
@@ -807,7 +873,7 @@
 </div>
       </section>
      <section >
-         <h1 >G. jsconfig.json</h1><div class="lectura">
+         <h1 >H. jsconfig.json</h1><div class="lectura">
  <p>
   Este archivo ayuda a detectar errores en los archivos del proyecto.
  </p>
@@ -854,7 +920,7 @@
 </muestra-codigo>
       </section>
      <section>
-         <h1 >H. Archivos con textos que se mustran al usuario</h1>
+         <h1 >I. Archivos con textos que se mustran al usuario</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1030,7 +1096,7 @@
       </section>
       </section>
      <section>
-         <h1 >I. Archivos relacionados con la estructura de los datos</h1>
+         <h1 >J. Archivos relacionados con la estructura de los datos</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1376,7 +1442,7 @@
       </section>
       </section>
      <section>
-         <h1 >J. Archivos para generar listados</h1>
+         <h1 >K. Archivos para generar listados</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1872,7 +1938,7 @@
       </section>
       </section>
      <section>
-         <h1 >K. Archivos para agregar registros</h1>
+         <h1 >L. Archivos para agregar registros</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -2397,7 +2463,7 @@
       </section>
       </section>
      <section>
-         <h1 >L. Archivos para modificar registros</h1>
+         <h1 >M. Archivos para modificar registros</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -3636,7 +3702,7 @@
       </section>
       </section>
      <section>
-         <h1 >M. Custom elements</h1>
+         <h1 >N. Custom elements</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -4168,7 +4234,7 @@
       </section>
       </section>
      <section>
-         <h1 >N. librería de JavaScript</h1>
+         <h1 >O. librería de JavaScript</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -4831,7 +4897,7 @@
       </section>
       </section>
      <section>
-         <h1 >O. librería de PHP</h1>
+         <h1 >P. librería de PHP</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
