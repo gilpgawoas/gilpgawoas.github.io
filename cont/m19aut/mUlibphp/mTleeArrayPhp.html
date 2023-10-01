@@ -1,0 +1,87 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Recupera los valores asociados
+    a</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;un parámetro multivaluado, por</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;ejemplo un grupo de checkbox,</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;enviados al servidor por medio</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;de GET, POST o cookie. Si no se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;recibió el parámetro, devuelve</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;un arreglo vacío. Si el valor</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;recibido no es un arreglo, lo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;coloca dentro de uno.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">leeArray</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$parametro</span></div>
+  <div><span
+     style="color: #000000;">): </span><span
+     style="color: #0000ff;">array</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$valor</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">isset</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$_REQUEST</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$parametro</span><span
+     style="color: #000000;">])</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;? </span><span
+     style="color: #001080;">$_REQUEST</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$parametro</span><span
+     style="color: #000000;">]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;: [];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">is_array</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$valor</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;? </span><span
+     style="color: #001080;">$valor</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;: [</span><span
+     style="color: #001080;">$valor</span><span
+     style="color: #000000;">];</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
