@@ -32,14 +32,13 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PASATIEMPO (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USUARIO (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE
-   </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_CUE </span><span
      style="color: #0000ff;">TEXT</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
@@ -47,21 +46,21 @@
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_PK</span></div>
+     style="color: #a31515;"> USU_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(PAS_ID),</span></div>
+     style="color: #a31515;">(USU_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_NOM_UNQ</span></div>
+     style="color: #a31515;"> USU_CUE_UNQ</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(PAS_NOMBRE)</span></div>
+     style="color: #a31515;">(USU_CUE)</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
@@ -84,52 +83,107 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMIGO (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ROL (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
-     style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_ID </span><span
+     style="color: #0000ff;">TEXT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMI_NOMBRE
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_DESCRIPCION
    </span><span
      style="color: #0000ff;">TEXT</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> ROL_PK</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">PRIMARY KEY</span><span
+     style="color: #a31515;">(ROL_ID),</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> ROL_DESCR_UNQ</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">UNIQUE</span><span
+     style="color: #a31515;">(ROL_DESCRIPCION)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">'</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">exec</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">'</span><span
+     style="color: #0000ff;">CREATE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">TABLE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">IF</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">EXISTS</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USU_ROL (</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_ID </span><span
+     style="color: #0000ff;">TEXT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PK</span></div>
+     style="color: #a31515;"> USU_ROL_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(AMI_ID),</span></div>
+     style="color: #a31515;">(USU_ID, ROL_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_NOM_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(AMI_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PAS_FK</span></div>
+     style="color: #a31515;"> USU_ROL_USU_FK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FOREIGN KEY</span><span
-     style="color: #a31515;"> (PAS_ID)</span></div>
+     style="color: #a31515;"> (USU_ID)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">REFERENCES</span><span
-     style="color: #a31515;"> PASATIEMPO(PAS_ID)</span></div>
+     style="color: #a31515;"> USUARIO(USU_ID),</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> USU_ROL_ROL_FK</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FOREIGN KEY</span><span
+     style="color: #a31515;"> (ROL_ID)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">REFERENCES</span><span
+     style="color: #a31515;"> ROL(ROL_ID)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>

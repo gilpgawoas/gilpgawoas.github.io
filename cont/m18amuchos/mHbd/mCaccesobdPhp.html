@@ -16,25 +16,29 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoConsulta.php"</span><span
+     style="color: #a31515;">"srv/dao/rolConsulta.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoAgrega.php"</span><span
+     style="color: #a31515;">"srv/dao/rolAgrega.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"txtAdministraElSistema.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/txt/txtFutbol.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/txt/txtVideojuegos.php"</span><span
+     style="color: #a31515;">"srv/txt/txtRealizaCompras.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -44,7 +48,7 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Rol</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
@@ -144,7 +148,7 @@
      style="color: #008000;">// cadena de conexión</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"sqlite:srvauno.db"</span><span
+     style="color: #a31515;">"sqlite:srvamuchos.db"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -197,11 +201,9 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoConsulta</span><span
+     style="color: #001080;">$roles</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">rolConsulta</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -209,57 +211,73 @@
      style="color: #000000;"> (</span><span
      style="color: #795e26;">sizeof</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$roles</span><span
      style="color: #000000;">) === </span><span
      style="color: #098658;">0</span><span
      style="color: #000000;">)&nbsp;{</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Rol</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">"Administrador"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">descripcion</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtFutbol</span><span
+     style="color: #795e26;">txtAdministraElSistema</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #795e26;">rolAgrega</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;">);</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">Rol</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">"Cliente"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">descripcion</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtVideojuegos</span><span
+     style="color: #795e26;">txtRealizaCompras</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoAgrega</span><span
+     style="color: #795e26;">rolAgrega</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
+     style="color: #001080;">$rol</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>

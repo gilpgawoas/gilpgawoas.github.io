@@ -1,0 +1,118 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/recibeFetchAll.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">usuarioConsulta</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">query</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;U.USU_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> usuId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;U.USU_CUE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> usuCue,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;GROUP_CONCAT(R.ROL_ID, ',
+    ')</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> roles</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> USUARIO U</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> USU_ROL UR</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> U.USU_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> UR.USU_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> ROL R</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> UR.ROL_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> R.ROL_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">GROUP BY</span><span
+     style="color: #a31515;"> U.USU_CUE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ORDER BY</span><span
+     style="color: #a31515;"> U.USU_CUE</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">fetchAll</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::FETCH_OBJ</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">recibeFetchAll</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>

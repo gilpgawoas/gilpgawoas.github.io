@@ -114,6 +114,11 @@
   font-family: var(--fontMono);
  }
 
+ .tree li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
  h1:not(.default) {
   font-family: var(--fontSans);
   color: var(--colTituloLetra);
@@ -370,7 +375,12 @@
     </li>
     <li>
      <p>
-      <a href="/m17auno/mHbd/mCpasatiempoConsultaPhp.html">srv / dao / pasatiempoConsulta.php</a>
+      <a href="/m17auno/mHbd/mDSrvPasatiempoOpciones.html">srv / SrvPasatiempoOpciones.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m17auno/mHbd/mCleePasatiempoPhp.html">srv / leePasatiempo.php</a>
      </p>
     </li>
     <li>
@@ -380,7 +390,7 @@
     </li>
     <li>
      <p>
-      <a href="/m17auno/mHbd/mCleePasatiempoPhp.html">srv / leePasatiempo.php</a>
+      <a href="/m17auno/mHbd/mCpasatiempoConsultaPhp.html">srv / dao / pasatiempoConsulta.php</a>
      </p>
     </li>
    </ol>
@@ -941,7 +951,167 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >5. srv / dao / pasatiempoConsulta.php</h1><muestra-codigo>
+         <h1 >5. srv / SrvPasatiempoOpciones.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/pasatiempoConsulta.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtSinPasatiempo.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvPasatiempoOpciones</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$lista</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">pasatiempoConsulta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$txtSinPasatiempo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtSinPasatiempo</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"&lt;option value=''&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$txtSinPasatiempo</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/option&gt;"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">foreach</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$lista</span><span
+     style="color: #000000;"> as </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.=</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"&lt;option value='</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #a31515;">'&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/option&gt;"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$render</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvPasatiempoOpciones</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >6. srv / leePasatiempo.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -949,105 +1119,77 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/recibeFetchAll.php"</span><span
+     style="color: #a31515;">"lib/php/leeForanea.php"</span><span
      style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\dao\</span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">;</span></div>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
      style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@return</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #0000ff;">[]</span><span
-     style="color: #008000;"> */</span></div>
-  <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">pasatiempoConsulta</span><span
+     style="color: #795e26;">leePasatiempo</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
+     style="color: #001080;">$pasId</span><span
      style="color: #000000;"> = </span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">::</span><span
-     style="color: #795e26;">getCon</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #795e26;">leeForanea</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"pasId"</span><span
+     style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">query</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$pasId</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">SELECT</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> id,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> nombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">ORDER BY</span><span
-     style="color: #a31515;"> PAS_NOMBRE</span><span
-     style="color: #a31515;">"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$resultado</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">fetchAll</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #267f99;">PDO</span><span
-     style="color: #000000;">::FETCH_CLASS,</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">::</span><span
-     style="color: #0000ff;">class</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">recibeFetchAll</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$resultado</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$pasId</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
+         <h1 >7. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1155,7 +1297,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. srv / leePasatiempo.php</h1><muestra-codigo>
+         <h1 >8. srv / dao / pasatiempoConsulta.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1163,70 +1305,98 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeForanea.php"</span><span
+     style="color: #a31515;">"lib/php/recibeFetchAll.php"</span><span
      style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
      style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@return</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #0000ff;">[]</span><span
+     style="color: #008000;"> */</span></div>
+  <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">leePasatiempo</span><span
+     style="color: #795e26;">pasatiempoConsulta</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$pasId</span><span
+     style="color: #001080;">$con</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeForanea</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"pasId"</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">if</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #001080;">$pasId</span><span
-     style="color: #000000;"> === </span><span
-     style="color: #0000ff;">null</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #0000ff;">null</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;}&nbsp;</span><span
-     style="color: #af00db;">else</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
      style="color: #000000;">();</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
      style="color: #000000;"> = </span><span
-     style="color: #001080;">$pasId</span><span
-     style="color: #000000;">;</span></div>
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">query</span><span
+     style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> id,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> nombre</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PASATIEMPO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ORDER BY</span><span
+     style="color: #a31515;"> PAS_NOMBRE</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">fetchAll</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::FETCH_CLASS,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">::</span><span
+     style="color: #0000ff;">class</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;}</span></div>
+     style="color: #795e26;">recibeFetchAll</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
