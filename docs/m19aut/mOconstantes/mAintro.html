@@ -119,6 +119,10 @@
   font-family: var(--fontSans);
  }
 
+ .tree summary {
+  text-decoration: underline;
+ }
+
  .tree li {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -454,21 +458,28 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m19aut/mOconstantes/index.html" title="R. Constantes - En desarrollo a partir de aquí">◀</a>
- <a class="siguiente" href="/m19aut/mOconstantes/mCtxtFaltaElIdPhp.html" title="2. lib / php / txt / txtFaltaElId.php">▶</a>
+ <a class="anterior" href="/m19aut/mOconstantes/index.html" title="R. Constantes">◀</a>
+ <a class="siguiente" href="/m19aut/mOconstantes/mBCUEJs.html" title="2. js / const / CUE.php">▶</a>
    <h1 >1. Introducción</h1><div class="lectura">
- <p>
-  Estos archivos están en carpetas fácilmente reconocibles para ubicarse
-  rápidamente.
- </p>
- <p>
-  Devuelven los textos desde funciones para que posteriormente sea fácil
-  modificarse para manejar distintos idiomas.
- </p>
- <p>
-  Las plantillas reciben parámetros para poder generar correctamente el texto.
-  La posición de los parámetros puede cambiar con el idioma.
- </p>
+ <ul>
+  <li>
+   <p>
+    Estos archivos están en carpetas fácilmente reconocibles para ubicarse
+    rápidamente.
+   </p>
+  </li>
+  <li>
+   <p>
+    Definen valores fijos que no pasan por un proceso de traducción y se usan en
+    todo el proyecto.
+   </p>
+  </li>
+  <li>
+   <p>
+    Se presentan las constantes para JavaScript y para PHP.
+   </p>
+  </li>
+ </ul>
 </div>
  <footer>
  <p>
@@ -503,7 +514,7 @@
     <a class="paginaAnterior" href="/m19aut/mNSrvLogoutPhp.html"
       title="Q. SrvLogout.php">▲</a>
    </p>
-     <h1><a href="/m19aut/mOconstantes/index.html">R. Constantes - En desarrollo a partir de aquí</a></h1>
+     <h1><a href="/m19aut/mOconstantes/index.html">R. Constantes</a></h1>
    <ol type="1">
     <li>
      <p>
@@ -512,12 +523,17 @@
     </li>
     <li>
      <p>
-      <a href="/m19aut/mOconstantes/mCtxtFaltaElIdPhp.html">lib / php / txt / txtFaltaElId.php</a>
+      <a href="/m19aut/mOconstantes/mBCUEJs.html">js / const / CUE.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mOconstantes/mDtxtUsuarioNoEncontradoPhp.html">srv / txt / txtUsuarioNoEncontrado.php</a>
+      <a href="/m19aut/mOconstantes/mCROL_ADMINISTRADORJs.html">js / const / ROL_ADMINISTRADOR.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m19aut/mOconstantes/mDtxtUsuarioNoEncontradoPhp.html">js / const / ROL_ADMINISTRADOR.php</a>
      </p>
     </li>
     <li>
@@ -555,11 +571,6 @@
       <a href="/m19aut/mOconstantes/mFplantillaNoEsTextoJs.html">lib /js / plantilla / plantillaNoEsTexto.js</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m19aut/mOconstantes/mBtxtConfirmaEliminarJs.html">lib /js / txt / txtConfirmaEliminar.js</a>
-     </p>
-    </li>
    </ol><p>
     <a class="paginaSiguiente" href="/m19aut/mPtextos/index.html"
       title="S. Textos que se mustran al usuario">▼</a>
@@ -577,7 +588,7 @@
  /**@type {string} */
  let urlAnterior = "/m19aut/mOconstantes/index.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/mOconstantes/mCtxtFaltaElIdPhp.html"
+ let urlSiguiente = "/m19aut/mOconstantes/mBCUEJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>Constantes - En desarrollo a partir de aquí - GilPG AWOAS</title>
+ <title>Constantes - GilPG AWOAS</title>
  <meta name="description" content="Página para imprimir que muestra los archivos que definen constantes.">
  <style>
  :root {
@@ -116,6 +116,10 @@
 
  .tree {
   font-family: var(--fontSans);
+ }
+
+ .tree summary {
+  text-decoration: underline;
  }
 
  .tree li {
@@ -346,7 +350,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >R. Constantes - En desarrollo a partir de aquí</h1>
+   <h1 >R. Constantes</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -364,12 +368,17 @@
     </li>
     <li>
      <p>
-      <a href="/m19aut/mOconstantes/mCtxtFaltaElIdPhp.html">lib / php / txt / txtFaltaElId.php</a>
+      <a href="/m19aut/mOconstantes/mBCUEJs.html">js / const / CUE.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mOconstantes/mDtxtUsuarioNoEncontradoPhp.html">srv / txt / txtUsuarioNoEncontrado.php</a>
+      <a href="/m19aut/mOconstantes/mCROL_ADMINISTRADORJs.html">js / const / ROL_ADMINISTRADOR.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m19aut/mOconstantes/mDtxtUsuarioNoEncontradoPhp.html">js / const / ROL_ADMINISTRADOR.php</a>
      </p>
     </li>
     <li>
@@ -407,55 +416,61 @@
       <a href="/m19aut/mOconstantes/mFplantillaNoEsTextoJs.html">lib /js / plantilla / plantillaNoEsTexto.js</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m19aut/mOconstantes/mBtxtConfirmaEliminarJs.html">lib /js / txt / txtConfirmaEliminar.js</a>
-     </p>
-    </li>
    </ol>
  </nav>
 </div>
      <section >
          <h1 >1. Introducción</h1><div class="lectura">
- <p>
-  Estos archivos están en carpetas fácilmente reconocibles para ubicarse
-  rápidamente.
- </p>
- <p>
-  Devuelven los textos desde funciones para que posteriormente sea fácil
-  modificarse para manejar distintos idiomas.
- </p>
- <p>
-  Las plantillas reciben parámetros para poder generar correctamente el texto.
-  La posición de los parámetros puede cambiar con el idioma.
- </p>
+ <ul>
+  <li>
+   <p>
+    Estos archivos están en carpetas fácilmente reconocibles para ubicarse
+    rápidamente.
+   </p>
+  </li>
+  <li>
+   <p>
+    Definen valores fijos que no pasan por un proceso de traducción y se usan en
+    todo el proyecto.
+   </p>
+  </li>
+  <li>
+   <p>
+    Se presentan las constantes para JavaScript y para PHP.
+   </p>
+  </li>
+ </ul>
 </div>
       </section>
      <section >
-         <h1 >2. lib / php / txt / txtFaltaElId.php</h1><muestra-codigo>
+         <h1 >2. js / const / CUE.php</h1><muestra-codigo>
  <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">txtFaltaElId</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"Falta el id."</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
+  <div>
+   <span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">CUE</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"cue"</span>
+  </div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. srv / txt / txtUsuarioNoEncontrado.php</h1><muestra-codigo>
+         <h1 >3. js / const / ROL_ADMINISTRADOR.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">ROL_ADMINISTRADOR</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"Administrador"</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >4. js / const / ROL_ADMINISTRADOR.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -478,7 +493,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >4. srv / txt / txtAdministraElSistema.php</h1><muestra-codigo>
+         <h1 >5. srv / txt / txtAdministraElSistema.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -501,7 +516,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >5. srv / txt / txtFaltaElCue.php</h1><muestra-codigo>
+         <h1 >6. srv / txt / txtFaltaElCue.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -524,7 +539,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. srv / txt / txtFaltaLaDescripcion.php</h1><muestra-codigo>
+         <h1 >7. srv / txt / txtFaltaLaDescripcion.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -547,7 +562,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. srv / txt / txtNoEsUnRol.php</h1><muestra-codigo>
+         <h1 >8. srv / txt / txtNoEsUnRol.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -570,7 +585,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. srv / txt / txtRealizaCompras.php</h1><muestra-codigo>
+         <h1 >9. srv / txt / txtRealizaCompras.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -593,7 +608,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib /js / plantilla / plantillaNoEsNumero.js</h1><muestra-codigo>
+         <h1 >10. lib /js / plantilla / plantillaNoEsNumero.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**&nbsp;</span><span
@@ -619,7 +634,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib /js / plantilla / plantillaNoEsTexto.js</h1><muestra-codigo>
+         <h1 >11. lib /js / plantilla / plantillaNoEsTexto.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**&nbsp;</span><span
@@ -640,21 +655,6 @@
      style="color: #001080;">valor</span> <span
      style="color: #000000;">+</span> <span
      style="color: #a31515;">" no es texto."</span></div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >11. lib /js / txt / txtConfirmaEliminar.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">txtConfirmaEliminar</span>()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"Confirma la eliminación"</span></div>
   <div>}</div>
  </div>
 </muestra-codigo>
