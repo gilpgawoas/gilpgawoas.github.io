@@ -351,7 +351,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >W. librería de JavaScript</h1>
+   <h1 >V. librería de JavaScript</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -364,22 +364,12 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m19aut/mTlibjs/m48confirmaEliminarJs.html">lib / js / confirmaEliminar.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
       <a href="/m19aut/mTlibjs/m49ejecutaJs.html">lib / js / ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mTlibjs/m50escuchaEventosAgregaJs.html">lib / js / escuchaEventosAgrega.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mTlibjs/m51escuchaEventosModificaJs.html">lib / js / escuchaEventosModifica.js</a>
+      <a href="/m19aut/mTlibjs/m50htmlentitiesJs.html">lib / js / htmlentities.js</a>
      </p>
     </li>
     <li>
@@ -390,26 +380,6 @@
     <li>
      <p>
       <a href="/m19aut/mTlibjs/m53muestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mTlibjs/m54muestraNumeroJs.html">lib / js / muestraNumero.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mTlibjs/m55muestraRenderJs.html">lib / js / muestraRender.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mTlibjs/m56muestraTextoJs.html">lib / js / muestraTexto.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mTlibjs/m57parametrosDePaginaJs.html">lib / js / parametrosDePagina.js</a>
      </p>
     </li>
     <li>
@@ -426,31 +396,7 @@
  </nav>
 </div>
      <section >
-         <h1 >1. lib / js / confirmaEliminar.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">txtConfirmaEliminar</span></div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./txt/txtConfirmaEliminar.js"</span></div><br>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">confirmaEliminar</span>()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #795e26;">confirm</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">txtConfirmaEliminar</span>())</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >2. lib / js / ejecuta.js</h1><muestra-codigo>
+         <h1 >1. lib / js / ejecuta.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -520,107 +466,122 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. lib / js / escuchaEventosAgrega.js</h1><muestra-codigo>
+         <h1 >2. lib / js / htmlentities.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
   <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLFormElement}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">forma</span></div>
+     style="color: #008000;">&nbsp;*&nbsp;Codifica un texto para que</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;cambie los caracteres</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;especiales y no se pueda</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;interpretar como HTML. Esta</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;técnica evita la inyección de</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;código.</span></div>
   <div><span
      style="color: #008000;">&nbsp;*&nbsp;</span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{EventListener}</span><span
+     style="color: #267f99;">{string}</span><span
      style="color: #008000;"> </span><span
-     style="color: #001080;">agrega</span></div>
+     style="color: #001080;">texto</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> un texto que</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;&nbsp;no puede interpretarse
+    como</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;&nbsp;HTML.</span></div>
   <div><span
      style="color: #008000;">&nbsp;*/</span></div>
   <div><span
      style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span></div>
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">htmlentities</span>(</div>
   <div>&nbsp;<span
-     style="color: #795e26;">escuchaEventosAgrega</span>(<span
-     style="color: #001080;">forma</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">agrega</span>)&nbsp;{</div>
+     style="color: #001080;">texto</span>)&nbsp;{</div>
   <div>&nbsp;<span
-     style="color: #001080;">forma</span>.<span
-     style="color: #795e26;">addEventListener</span>(<span
-     style="color: #a31515;">"submit"</span>,</div>
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">texto</span>.<span
+     style="color: #795e26;">toString</span>().</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">agrega</span>)</div>
+     style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/</span><span
+     style="color: #d16969;">[</span><span
+     style="color: #811f3f;">&lt;&gt;"'</span><span
+     style="color: #d16969;">]</span><span
+     style="color: #811f3f;">/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #795e26;">reemplaza</span>)</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Devuelve una cadena de
+    reemplazo</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;para evitar que el texto se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;interprete como HTML. </span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">texto</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">reemplaza</span>(<span
+     style="color: #001080;">texto</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">switch</span> (<span
+     style="color: #001080;">texto</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"&lt;"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;lt;"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"&gt;"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;gt;"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">'"'</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;quot;"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"'"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;#039;"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">default</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">texto</span></div>
+  <div>&nbsp;}</div>
   <div>}</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >4. lib / js / escuchaEventosModifica.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLFormElement}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">forma</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{EventListener}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">modifica</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLElement}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">btnElimina</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{EventListener}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">elimina</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">escuchaEventosModifica</span>(<span
-     style="color: #001080;">forma</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">modifica</span>, <span
-     style="color: #001080;">btnElimina</span>, <span
-     style="color: #795e26;">elimina</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">forma</span>.<span
-     style="color: #795e26;">addEventListener</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"submit"</span>, <span
-     style="color: #795e26;">modifica</span>)</div>
-  <div>&nbsp;<span
-     style="color: #001080;">btnElimina</span>.<span
-     style="color: #795e26;">addEventListener</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"click"</span>, <span
-     style="color: #795e26;">elimina</span>)</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >5. lib / js / MetodoHttp.js</h1><muestra-codigo>
+         <h1 >3. lib / js / MetodoHttp.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**&nbsp;</span><span
@@ -674,7 +635,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. lib / js / muestraError.js</h1><muestra-codigo>
+         <h1 >4. lib / js / muestraError.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -707,207 +668,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. lib / js / muestraNumero.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">plantillaNoEsNumero</span></div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./plantilla/plantillaNoEsNumero.js"</span></div>
-  <br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@template</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">E</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{E}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">elementoHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{any}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valor</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraNumero</span>(</div>
-  <div>&nbsp;<span
-     style="color: #001080;">elementoHtml</span>, <span
-     style="color: #001080;">valor</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">valor</span> <span
-     style="color: #000000;">===</span> <span
-     style="color: #a31515;">"number"</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #000000;">&amp;&amp;</span> <span
-     style="color: #000000;">!</span><span
-     style="color: #795e26;">isNaN</span>(<span
-     style="color: #001080;">valor</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">value</span> <span
-     style="color: #000000;">=</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">valor</span>.<span
-     style="color: #795e26;">toString</span>()</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">plantillaNoEsNumero</span>(<span
-     style="color: #001080;">valor</span>))</div>
-  <div>&nbsp;}</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >8. lib / js / muestraRender.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLElement}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">lista</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{string}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">render</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraRender</span>(</div>
-  <div>&nbsp;<span
-     style="color: #001080;">lista</span>, <span
-     style="color: #001080;">render</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">lista</span>.<span
-     style="color: #001080;">innerHTML</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #001080;">render</span></div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >9. lib / js / muestraTexto.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">plantillaNoEsTexto</span></div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./plantilla/plantillaNoEsTexto.js"</span></div>
-  <br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@template</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">E</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{E}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">elementoHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{string}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valor</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraTexto</span>(</div>
-  <div>&nbsp;<span
-     style="color: #001080;">elementoHtml</span>, <span
-     style="color: #001080;">valor</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">valor</span> <span
-     style="color: #000000;">===</span> <span
-     style="color: #a31515;">"string"</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">value</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #001080;">valor</span></div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">plantillaNoEsTexto</span>(<span
-     style="color: #001080;">valor</span>))</div>
-  <div>&nbsp;}</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >10. lib / js / parametrosDePagina.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">parametrosDePagina</span>()&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">URL</span>(<span
-     style="color: #001080;">location</span>.<span
-     style="color: #001080;">href</span>).</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0070c1;">searchParams</span></div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >11. lib / js / saltaAIndex.js</h1><muestra-codigo>
+         <h1 >5. lib / js / saltaAIndex.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -923,7 +684,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >12. lib / js / submit.js</h1><muestra-codigo>
+         <h1 >6. lib / js / submit.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{</div>

@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>2. lib / js / custom / boton-eliminar.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/js/custom/boton-eliminar.js».">
+ <title>1. js / custom / mi-nav.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «js/mi-nav.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,14 +459,44 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m19aut/mScustom/m35boton-agregarJs.html" title="1. lib / js / custom / boton-agregar.js">◀</a>
- <a class="siguiente" href="/m19aut/mScustom/m37boton-guardarJs.html" title="3. lib / js / custom / boton-guardar.js">▶</a>
-   <h1 >2. lib / js / custom / boton-eliminar.js</h1><muestra-codigo>
+ <a class="anterior" href="/m19aut/mScustom/index.html" title="U. Custom elements">◀</a>
+ <a class="siguiente" href="/m19aut/mScustom/mCmuestra-rolesJs.html" title="2. js / custom / muestra-roles.js">▶</a>
+   <h1 >1. js / custom / mi-nav.js</h1><muestra-codigo>
  <div>
+  <div><span
+     style="color: #af00db;">import</span> <span
+     style="color: #a31515;">"../../lib/js/custom/indicador-cargando.js"</span>
+  </div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">htmlentities</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../../lib/js/htmlentities.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">Sesion</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../Sesion.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">ROL_ADMINISTRADOR</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../const/ROL_ADMINISTRADOR.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">ROL_CLIENTE</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../const/ROL_CLIENTE.js"</span></div><br>
   <div><span
      style="color: #af00db;">export</span> <span
      style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">BotonEliminar</span></div>
+     style="color: #267f99;">MiNav</span></div>
   <div>&nbsp;<span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
@@ -474,28 +504,260 @@
      style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
      style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
      style="color: #001080;">innerHTML</span> <span
      style="color: #000000;">=</span> <span
      style="color: #008000;">/*&nbsp;HTML */</span></div>
   <div>&nbsp;&nbsp;&nbsp;`<span
-     style="color: #800000;">&lt;button</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"btnElimina"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"button"</span><span
+     style="color: #800000;">&lt;nav&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;ul</span> <span
+     style="color: #e50000;">style</span>=<span
+     style="color: #0000ff;">"display: flex;</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap:
+    wrap;</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:0;</span>
+  </div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap:
+    0.5em;</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list-style-type:
+    none"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eliminar</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/button&gt;</span>`</div>
+     style="color: #800000;">&lt;/nav&gt;</span>`</div><br>
   <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Sesion}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">sesion</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">set</span> <span
+     style="color: #001080;">sesion</span>(<span
+     style="color: #001080;">sesion</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">cue</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #001080;">sesion</span>.<span
+     style="color: #001080;">cue</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">rolIds</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #001080;">sesion</span>.<span
+     style="color: #001080;">rolIds</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #795e26;">hipervinculoInicio</span>()</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">+=</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #795e26;">hipervinculosAdmin</span>(<span
+     style="color: #001080;">rolIds</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">+=</span> <span
+     style="color: #0000ff;">this</span></div>
+  <div>&nbsp;&nbsp;&nbsp;.<span
+     style="color: #795e26;">hipervinculosCliente</span>(<span
+     style="color: #001080;">rolIds</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">+=</span> <span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #795e26;">usuario</span>(<span
+     style="color: #001080;">cue</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">+=</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #795e26;">hipervinculoPerfil</span>()</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">ul</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #795e26;">querySelector</span>(<span
+     style="color: #a31515;">"ul"</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">ul</span> <span
+     style="color: #000000;">!==</span> <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">ul</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #001080;">innerHTML</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">hipervinculoInicio</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> (<span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"index.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inicio<span
+     style="color: #800000;">&lt;/a&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span>`)</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">cue</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">usuario</span>(<span
+     style="color: #001080;">cue</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;const <span
+     style="color: #001080;">cueHtml</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">cue</span>)</div>
+  <div>&nbsp;&nbsp;return cue === "" ?</div>
+  <div>&nbsp;&nbsp;&nbsp;""</div>
+  <div>&nbsp;&nbsp;&nbsp;: <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;${</span><span
+     style="color: #001080;">cueHtml</span><span
+     style="color: #800000;">}&lt;/li&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">hipervinculoPerfil</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">return</span> (<span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"perfil.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perfil<span
+     style="color: #800000;">&lt;/a&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span>`)</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Set&lt;string&gt;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">rolIds</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">hipervinculosAdmin</span>(<span
+     style="color: #001080;">rolIds</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">rolIds</span>.</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">has</span>(<span
+     style="color: #0070c1;">ROL_ADMINISTRADOR</span>) <span
+     style="color: #000000;">?</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"admin.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para administradores<span
+     style="color: #800000;">&lt;/a&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span>`</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #000000;">:</span> <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Set&lt;string&gt;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">rolIds</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">hipervinculosCliente</span>(<span
+     style="color: #001080;">rolIds</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">rolIds</span>.<span
+     style="color: #795e26;">has</span>(<span
+     style="color: #0070c1;">ROL_CLIENTE</span>) <span
+     style="color: #000000;">?</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"cliente.html"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para clientes<span
+     style="color: #800000;">&lt;/a&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span>`</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #000000;">:</span> <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span
-     style="color: #001080;">customElements</span>.<span
-     style="color: #795e26;">define</span>(</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"boton-eliminar"</span>, <span
-     style="color: #267f99;">BotonEliminar</span>)</div>
+     style="color: #001080;">customElements</span></div>
+  <div>&nbsp;.<span
+     style="color: #795e26;">define</span>(<span
+     style="color: #a31515;">"mi-nav"</span>, <span
+     style="color: #001080;">MiNav</span>)</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -528,44 +790,19 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m19aut/mRjs/mCcampo-rolesJs.html"
-      title="3. js / custom / campo-roles.js">▲</a>
+    <a class="paginaAnterior" href="/m19aut/mQdao/mIusuRolConsultaPhp.html"
+      title="12. srv / dao / usuRolConsulta.php">▲</a>
    </p>
-     <h1><a href="/m19aut/mScustom/index.html">V. Custom elements</a></h1>
+     <h1><a href="/m19aut/mScustom/index.html">U. Custom elements</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m19aut/mScustom/m35boton-agregarJs.html">lib / js / custom / boton-agregar.js</a>
+      <a href="/m19aut/mScustom/mAmi-navJs.html" class="actual">js / custom / mi-nav.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mScustom/m36boton-eliminarJs.html" class="actual">lib / js / custom / boton-eliminar.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m37boton-guardarJs.html">lib / js / custom / boton-guardar.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m38campo-id-ocultoJs.html">lib / js / custom / campo-id-oculto.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m41hipervinculo-agregar-agregaJs.html">lib / js / custom / hipervinculo-agregar-agrega.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m42hipervinculo-cancelar-indexJs.html">lib / js / custom / hipervinculo-cancelar-index.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m43indica-campos-obligatoriosJs.html">lib / js / custom / indica-campos-obligatorios.js</a>
+      <a href="/m19aut/mScustom/mCmuestra-rolesJs.html">js / custom / muestra-roles.js</a>
      </p>
     </li>
     <li>
@@ -573,14 +810,9 @@
       <a href="/m19aut/mScustom/m44indicador-cargandoJs.html">lib / js / custom / indicador-cargando.js</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m19aut/mScustom/m45lista-principalJs.html">lib / js / custom / lista-principal.js</a>
-     </p>
-    </li>
    </ol><p>
     <a class="paginaSiguiente" href="/m19aut/mTlibjs/index.html"
-      title="W. librería de JavaScript">▼</a>
+      title="V. librería de JavaScript">▼</a>
    </p>
 </nav>
  <script>
@@ -593,9 +825,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/mScustom/m35boton-agregarJs.html"
+ let urlAnterior = "/m19aut/mScustom/index.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/mScustom/m37boton-guardarJs.html"
+ let urlSiguiente = "/m19aut/mScustom/mCmuestra-rolesJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

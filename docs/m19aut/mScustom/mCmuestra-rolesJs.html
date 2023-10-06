@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>2. lib / php / leeArray.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/php/leeArray.php».">
+ <title>2. js / custom / muestra-roles.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «js/custom/muestra-roles.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,93 +459,64 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m19aut/mUlibphp/mQautoloadPhp.html" title="1. lib / php / autoload.php">◀</a>
- <a class="siguiente" href="/m19aut/mUlibphp/mTleeEnteroPhp.html" title="3. lib / php / leeEntero.php">▶</a>
-   <h1 >2. lib / php / leeArray.php</h1><muestra-codigo>
+ <a class="anterior" href="/m19aut/mScustom/mAmi-navJs.html" title="1. js / custom / mi-nav.js">◀</a>
+ <a class="siguiente" href="/m19aut/mScustom/m44indicador-cargandoJs.html" title="3. lib / js / custom / indicador-cargando.js">▶</a>
+   <h1 >2. js / custom / muestra-roles.js</h1><muestra-codigo>
  <div>
   <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
+     style="color: #af00db;">import</span> <span
+     style="color: #a31515;">"../../lib/js/custom/indicador-cargando.js"</span>
+  </div><br>
   <div><span
-     style="color: #008000;">/**</span></div>
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">MuestraRoles</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;fieldset&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;legend&gt;</span>Roles<span
+     style="color: #800000;">&lt;/legend&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;ul</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"roles"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/li&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/ul&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/fieldset&gt;</span>`</div><br>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
   <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera los valores asociados
-    a</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;un parámetro multivaluado, por</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;ejemplo un grupo de checkbox,</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;enviados al servidor por medio</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;de GET, POST o cookie. Si no se</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibió el parámetro, devuelve</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;un arreglo vacío. Si el valor</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibido no es un arreglo, lo</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;coloca dentro de uno.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">leeArray</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">string</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$parametro</span></div>
-  <div><span
-     style="color: #000000;">): </span><span
-     style="color: #0000ff;">array</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">isset</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$_REQUEST</span><span
-     style="color: #000000;">[</span><span
-     style="color: #001080;">$parametro</span><span
-     style="color: #000000;">])</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;? </span><span
-     style="color: #001080;">$_REQUEST</span><span
-     style="color: #000000;">[</span><span
-     style="color: #001080;">$parametro</span><span
-     style="color: #000000;">]</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;: [];</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">is_array</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;">)</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;? </span><span
-     style="color: #001080;">$valor</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;: [</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;">];</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"muestra-roles"</span>, <span
+     style="color: #267f99;">MuestraRoles</span>)</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -578,69 +549,29 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m19aut/mTlibjs/m59submitJs.html"
-      title="12. lib / js / submit.js">▲</a>
+    <a class="paginaAnterior" href="/m19aut/mQdao/mIusuRolConsultaPhp.html"
+      title="12. srv / dao / usuRolConsulta.php">▲</a>
    </p>
-     <h1><a href="/m19aut/mUlibphp/index.html">X. librería de PHP</a></h1>
+     <h1><a href="/m19aut/mScustom/index.html">U. Custom elements</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m19aut/mUlibphp/mQautoloadPhp.html">lib / php / autoload.php</a>
+      <a href="/m19aut/mScustom/mAmi-navJs.html">js / custom / mi-nav.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mUlibphp/mTleeArrayPhp.html" class="actual">lib / php / leeArray.php</a>
+      <a href="/m19aut/mScustom/mCmuestra-rolesJs.html" class="actual">js / custom / muestra-roles.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mUlibphp/mTleeEnteroPhp.html">lib / php / leeEntero.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mUleeSinEspaciosInFinPhp.html">lib / php / leeSinEspaciosInFin.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mLleeTextoPhp.html">lib / php / leeTexto.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mRpathPhp.html">lib / php / path.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mVrecibeFetchAllPhp.html">lib / php / recibeFetchAll.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mSservicioPhp.html">lib / php / servicio.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mWvalidaPhp.html">lib / php / valida.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mXvalidaIdNoVacioPhp.html">lib / php / validaIdNoVacio.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mYvalidaTextoNoVacioPhp.html">lib / php / validaTextoNoVacio.php</a>
+      <a href="/m19aut/mScustom/m44indicador-cargandoJs.html">lib / js / custom / indicador-cargando.js</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m17extra.html"
-      title="20. Ejemplos adicionales">▼</a>
+    <a class="paginaSiguiente" href="/m19aut/mTlibjs/index.html"
+      title="V. librería de JavaScript">▼</a>
    </p>
 </nav>
  <script>
@@ -653,9 +584,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/mUlibphp/mQautoloadPhp.html"
+ let urlAnterior = "/m19aut/mScustom/mAmi-navJs.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/mUlibphp/mTleeEnteroPhp.html"
+ let urlSiguiente = "/m19aut/mScustom/m44indicador-cargandoJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -351,7 +351,7 @@
 </style>
 </head>
 <body class="print">
-   <h1 >X. librería de PHP</h1>
+   <h1 >W. librería de PHP</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -365,16 +365,6 @@
     <li>
      <p>
       <a href="/m19aut/mUlibphp/mQautoloadPhp.html">lib / php / autoload.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mTleeArrayPhp.html">lib / php / leeArray.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mUlibphp/mTleeEnteroPhp.html">lib / php / leeEntero.php</a>
      </p>
     </li>
     <li>
@@ -468,155 +458,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. lib / php / leeArray.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera los valores asociados
-    a</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;un parámetro multivaluado, por</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;ejemplo un grupo de checkbox,</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;enviados al servidor por medio</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;de GET, POST o cookie. Si no se</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibió el parámetro, devuelve</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;un arreglo vacío. Si el valor</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibido no es un arreglo, lo</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;coloca dentro de uno.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">leeArray</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">string</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$parametro</span></div>
-  <div><span
-     style="color: #000000;">): </span><span
-     style="color: #0000ff;">array</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">isset</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$_REQUEST</span><span
-     style="color: #000000;">[</span><span
-     style="color: #001080;">$parametro</span><span
-     style="color: #000000;">])</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;? </span><span
-     style="color: #001080;">$_REQUEST</span><span
-     style="color: #000000;">[</span><span
-     style="color: #001080;">$parametro</span><span
-     style="color: #000000;">]</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;: [];</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">is_array</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;">)</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;? </span><span
-     style="color: #001080;">$valor</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;: [</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;">];</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >3. lib / php / leeEntero.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"lib/php/"</span><span
-     style="color: #000000;"> </span><span
-     style="color: #000000;">.</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"leeSinEspaciosInFin.php"</span><span
-     style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera el valor entero de un</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;parámetro enviado al servidor</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;por medio de GET, POST o</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;cookie.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">leeEntero</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">string</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$parametro</span></div>
-  <div><span
-     style="color: #000000;">): </span><span
-     style="color: #0000ff;">int</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">leeSinEspaciosInFin</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$parametro</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >4. lib / php / leeSinEspaciosInFin.php</h1><muestra-codigo>
+         <h1 >2. lib / php / leeSinEspaciosInFin.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -672,7 +514,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >5. lib / php / leeTexto.php</h1><muestra-codigo>
+         <h1 >3. lib / php / leeTexto.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -750,7 +592,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. lib / php / path.php</h1><muestra-codigo>
+         <h1 >4. lib / php / path.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -825,7 +667,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. lib / php / recibeFetchAll.php</h1><muestra-codigo>
+         <h1 >5. lib / php / recibeFetchAll.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -873,7 +715,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. lib / php / servicio.php</h1><muestra-codigo>
+         <h1 >6. lib / php / servicio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -977,7 +819,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib / php / valida.php</h1><muestra-codigo>
+         <h1 >7. lib / php / valida.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1026,7 +868,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / php / validaIdNoVacio.php</h1><muestra-codigo>
+         <h1 >8. lib / php / validaIdNoVacio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1074,7 +916,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / php / validaTextoNoVacio.php</h1><muestra-codigo>
+         <h1 >9. lib / php / validaTextoNoVacio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
