@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>5. srv / SrvRolOpciones.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/SrvRolOpciones.php».">
+ <title>8. srv / dao / usuarioAgrega.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/dao/usuarioAgrega.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,162 +459,155 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m19aut/mQdao/mCaccesobdPhp.html" title="4. srv / dao / accesobd.php">◀</a>
- <a class="siguiente" href="/m19aut/mQdao/mEcreaArrayDeRolesPhp.html" title="6. srv / creaArrayDeRoles.php">▶</a>
-   <h1 >5. srv / SrvRolOpciones.php</h1><muestra-codigo>
+ <a class="anterior" href="/m19aut/mQdao/mGrolConsultaPhp.html" title="7. srv / dao / rolConsulta.php">◀</a>
+ <a class="siguiente" href="/m19aut/mQdao/mJusuarioBuscaCuePhp.html" title="9. srv / dao / usuarioBuscaCue.php">▶</a>
+   <h1 >8. srv / dao / usuarioAgrega.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #0000ff;">__DIR__</span><span
-     style="color: #000000;"> </span><span
-     style="color: #000000;">.</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/rolConsulta.php"</span><span
+     style="color: #a31515;">"srv/dao/usuRolAgrega.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \lib\php\</span><span
-     style="color: #267f99;">Servicio</span><span
-     style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #0000ff;">class</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvRolOpciones</span></div>
-  <div><span
-     style="color: #0000ff;">extends</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Servicio</span></div>
-  <div><span
-     style="color: #000000;">{</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">protected</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">implementacion</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$lista</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">rolConsulta</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #a31515;">""</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">foreach</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #001080;">$lista</span><span
-     style="color: #000000;"> as </span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Usuario</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">usuarioAgrega</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #267f99;">Usuario</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span></div>
+  <div><span
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$id</span><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">valida</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">beginTransaction</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">prepare</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">INSERT INTO</span><span
+     style="color: #a31515;"> USUARIO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(USU_CUE, USU_MATCH)</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">VALUES</span></div>
+  <div><span class="resaltado"><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:cue, :match)</span><span
+     style="color: #a31515;">"</span></span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":cue"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cue</span><span
+     style="color: #000000;">,</span></div>
+  <div><span class="resaltado"><span
+      style="color: #000000;">&nbsp;&nbsp;</span><span
+      style="color: #a31515;">":match"</span></span></div>
+  <div><span class="resaltado"><span
+     style="color: #000000;">&nbsp;&nbsp;=&gt; </span><span
+     style="color: #795e26;">password_hash</span><span
+     style="color: #000000;">(</span></span></div>
+  <div><span class="resaltado"><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">match</span><span
+     style="color: #000000;">,</span></span></div>
+  <div><span class="resaltado"><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;PASSWORD_DEFAULT</span></span></div>
+  <div><span class="resaltado"><span
+     style="color: #000000;">&nbsp;&nbsp;)</span></span></div>
+  <div><span
+     style="color: #000000;">&nbsp;]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
+    el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #001080;">id</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$descripcion</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">descripcion</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;"> </span><span
-     style="color: #000000;">.=</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"&lt;p&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label
-    style='display: flex'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
-    type='checkbox'</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name='rolIds[]'</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value='</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #a31515;">'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;{</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #a31515;">}&lt;/strong&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;{</span><span
-     style="color: #001080;">$descripcion</span><span
-     style="color: #a31515;">}</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+     style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;}</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
-  <div><span
-     style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvRolOpciones</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">lastInsertId</span><span
      style="color: #000000;">();</span></div>
   <div><span
-     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">usuRolAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">ejecuta</span><span
-     style="color: #000000;">();</span></div><br>
+     style="color: #795e26;">commit</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -650,8 +643,13 @@
     <a class="paginaAnterior" href="/m19aut/mPtextos/mItxtRealizaComprasPhp.html"
       title="12. srv / txt / txtRealizaCompras.php">▲</a>
    </p>
-     <h1><a href="/m19aut/mQdao/index.html">T. Acceso a la base de datos - En desarrollo a partir de aquí</a></h1>
+     <h1><a href="/m19aut/mQdao/index.html">T. Manejo de datos</a></h1>
    <ol type="1">
+    <li>
+     <p>
+      <a href="/m19aut/mQdao/mASesionJs.html">js / Sesion.js</a>
+     </p>
+    </li>
     <li>
      <p>
       <a href="/m19aut/mQdao/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
@@ -674,22 +672,27 @@
     </li>
     <li>
      <p>
-      <a href="/m19aut/mQdao/mDSrvRolOpciones.html" class="actual">srv / SrvRolOpciones.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m19aut/mQdao/mEcreaArrayDeRolesPhp.html">srv / creaArrayDeRoles.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
       <a href="/m19aut/mQdao/mFrolAgregaPhp.html">srv / dao / rolAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
       <a href="/m19aut/mQdao/mGrolConsultaPhp.html">srv / dao / rolConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m19aut/mQdao/mCusuarioAgregaPhp.html" class="actual">srv / dao / usuarioAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m19aut/mQdao/mJusuarioBuscaCuePhp.html">srv / dao / usuarioBuscaCue.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m19aut/mQdao/mEusuarioVerificaPhp.html">srv / dao / usuarioVerifica.php</a>
      </p>
     </li>
     <li>
@@ -702,14 +705,9 @@
       <a href="/m19aut/mQdao/mIusuRolConsultaPhp.html">srv / dao / usuRolConsulta.php</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m19aut/mQdao/mJusuRolEliminaPhp.html">srv / dao / usuRolElimina.php</a>
-     </p>
-    </li>
    </ol><p>
     <a class="paginaSiguiente" href="/m19aut/mRjs/index.html"
-      title="U. Archivos de JavaScript">▼</a>
+      title="U. Archivos de JavaScript - En desarrollo a partir de aquí">▼</a>
    </p>
 </nav>
  <script>
@@ -722,9 +720,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/mQdao/mCaccesobdPhp.html"
+ let urlAnterior = "/m19aut/mQdao/mGrolConsultaPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/mQdao/mEcreaArrayDeRolesPhp.html"
+ let urlSiguiente = "/m19aut/mQdao/mJusuarioBuscaCuePhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -34,13 +34,23 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtFaltaElMatch.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #a31515;">"srv/txt/txtNoEsUnRol.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
      style="color: #267f99;">Rol</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">\Exception</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
@@ -64,6 +74,14 @@
      style="color: #000000;"> </span><span
      style="color: #001080;">$cue</span><span
      style="color: #000000;">;</span></div>
+  <div><span class="resaltado"><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">public</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$match</span><span
+     style="color: #000000;">;</span></span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #008000;">/**&nbsp;</span><span
@@ -82,6 +100,8 @@
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">public</span><span
+     style="color: #000000;"> </span><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
      style="color: #795e26;">valida</span><span
@@ -90,86 +110,74 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">$this</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">validaCueNoVacio</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">$this</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">validaRoles</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;}</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">validaCueNoVacio</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">validaTextoNoVacio</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">$this</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #001080;">cue</span><span
-     style="color: #000000;">,</span></div>
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtFaltaElCue</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;}</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">validaRoles</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">foreach</span><span
-     style="color: #000000;"> (</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;|| </span><span
      style="color: #0000ff;">$this</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;"> as </span><span
-     style="color: #001080;">$rol</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
+     style="color: #001080;">cue</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #a31515;">""</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">valida</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
-     style="color: #000000;"> instanceof </span><span
-     style="color: #267f99;">Rol</span><span
-     style="color: #000000;">,</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtNoEsUnRol</span><span
+     style="color: #795e26;">txtFaltaElCue</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
   <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span></div>
+  <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">validaIdNoVacio</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #0000ff;">$this</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #001080;">match</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;|| </span><span
+     style="color: #0000ff;">$this</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">match</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #a31515;">""</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtFaltaElMatch</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span

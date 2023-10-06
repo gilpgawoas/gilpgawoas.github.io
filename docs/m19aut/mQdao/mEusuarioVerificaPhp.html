@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>6. srv / txt / txtDatosIncorrectos.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/txt/txtDatosIncorrectos.php».">
+ <title>10. srv / dao / usuarioVerifica.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/dao/usuarioVerifica.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,25 +459,90 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m19aut/mPtextos/mDtxtAdministraElSistemaPhp.html" title="5. srv / txt / txtAdministraElSistema.php">◀</a>
- <a class="siguiente" href="/m19aut/mPtextos/mFtxtFaltaElCuePhp.html" title="7. srv / txt / txtFaltaElCue.php">▶</a>
-   <h1 >6. srv / txt / txtDatosIncorrectos.php</h1><muestra-codigo>
+ <a class="anterior" href="/m19aut/mQdao/mJusuarioBuscaCuePhp.html" title="9. srv / dao / usuarioBuscaCue.php">◀</a>
+ <a class="siguiente" href="/m19aut/mQdao/mHusuRolAgregaPhp.html" title="11. srv / dao / usuRolAgrega.php">▶</a>
+   <h1 >10. srv / dao / usuarioVerifica.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">txtDatosIncorrectos</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">{</span></div>
+     style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/usuarioBuscaCue.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">usuarioVerifica</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$cue</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$match</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$usuario</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">usuarioBuscaCue</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$cue</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$usuario</span><span
+     style="color: #000000;"> !== </span><span
+     style="color: #0000ff;">false</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&amp;&amp; </span><span
+     style="color: #795e26;">password_verify</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$match</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$usuario</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">match</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"Datos incorrectos."</span><span
+     style="color: #001080;">$usuario</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">roles</span><span
      style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
@@ -512,74 +577,74 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m19aut/mOconstantes/mGROL_IDSPhp.html"
-      title="9. srv / const / ROL_IDS.php">▲</a>
+    <a class="paginaAnterior" href="/m19aut/mPtextos/mItxtRealizaComprasPhp.html"
+      title="12. srv / txt / txtRealizaCompras.php">▲</a>
    </p>
-     <h1><a href="/m19aut/mPtextos/index.html">S. Textos que se mustran al usuario</a></h1>
+     <h1><a href="/m19aut/mQdao/index.html">T. Manejo de datos</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mAintro.html">Introducción</a>
+      <a href="/m19aut/mQdao/mASesionJs.html">js / Sesion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mBtxtCueIncorrectoJs.html">js / txt / txtCueIncorrecto.js</a>
+      <a href="/m19aut/mQdao/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mCtxtRolIdsIncorrectoJs.html">js / txt / txtRolIdsIncorrecto.js</a>
+      <a href="/m19aut/mQdao/mBrolPhp.html">srv / modelo / rol.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mDtxtFaltaElIdPhp.html">lib / php  / txt / txtFaltaElId.php</a>
+      <a href="/m19aut/mQdao/mBusuarioPhp.html">srv / modelo / usuario.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mDtxtAdministraElSistemaPhp.html">srv / txt / txtAdministraElSistema.php</a>
+      <a href="/m19aut/mQdao/mCaccesobdPhp.html">srv / dao / accesobd.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mEtxtDatosIncorrectosPhp.html" class="actual">srv / txt / txtDatosIncorrectos.php</a>
+      <a href="/m19aut/mQdao/mFrolAgregaPhp.html">srv / dao / rolAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mFtxtFaltaElCuePhp.html">srv / txt / txtFaltaElCue.php</a>
+      <a href="/m19aut/mQdao/mGrolConsultaPhp.html">srv / dao / rolConsulta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mGtxtFaltaElMatchPhp.html">srv / txt / txtFaltaElMatch.php</a>
+      <a href="/m19aut/mQdao/mCusuarioAgregaPhp.html">srv / dao / usuarioAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mGtxtFaltaLaDescripcionPhp.html">srv / txt / txtFaltaLaDescripcion.php</a>
+      <a href="/m19aut/mQdao/mJusuarioBuscaCuePhp.html">srv / dao / usuarioBuscaCue.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mHtxtNoEsUnRolPhp.html">srv / txt / txtNoEsUnRol.php</a>
+      <a href="/m19aut/mQdao/mEusuarioVerificaPhp.html" class="actual">srv / dao / usuarioVerifica.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mHtxtNoPermitidoPhp.html">srv / txt / txtNoPermitido.php</a>
+      <a href="/m19aut/mQdao/mHusuRolAgregaPhp.html">srv / dao / usuRolAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m19aut/mPtextos/mItxtRealizaComprasPhp.html">srv / txt / txtRealizaCompras.php</a>
+      <a href="/m19aut/mQdao/mIusuRolConsultaPhp.html">srv / dao / usuRolConsulta.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m19aut/mQdao/index.html"
-      title="T. Manejo de datos">▼</a>
+    <a class="paginaSiguiente" href="/m19aut/mRjs/index.html"
+      title="U. Archivos de JavaScript - En desarrollo a partir de aquí">▼</a>
    </p>
 </nav>
  <script>
@@ -592,9 +657,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/mPtextos/mDtxtAdministraElSistemaPhp.html"
+ let urlAnterior = "/m19aut/mQdao/mJusuarioBuscaCuePhp.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/mPtextos/mFtxtFaltaElCuePhp.html"
+ let urlSiguiente = "/m19aut/mQdao/mHusuRolAgregaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
