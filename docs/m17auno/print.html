@@ -415,11 +415,6 @@
     </li>
     <li>
      <p>
-      <a href="/m17auno/mHjs/">Archivos de JavaScript</a>
-     </p>
-    </li>
-    <li>
-     <p>
       <a href="/m17auno/mIlistados/">Archivos para generar listados</a>
      </p>
     </li>
@@ -619,7 +614,7 @@
        <ul>
         <li>
          <p><a
-            href="mHjs/mAcampo-pasatiempoJs.html">campo-pasatiempo.js</a>
+            href="mLcustom/mAcampo-pasatiempoJs.html">campo-pasatiempo.js</a>
          </p>
         </li>
        </ul>
@@ -627,7 +622,7 @@
      </li>
      <li>
       <p><a
-         href="mHjs/mBdescargaPasatiempoOpcionesJs.html">descargaPasatiempoOpciones.js</a>
+         href="mHbd/mBdescargaPasatiempoOpcionesJs.html">descargaPasatiempoOpciones.js</a>
       </p>
      </li>
     </ul>
@@ -1327,6 +1322,11 @@
     </li>
     <li>
      <p>
+      <a href="/m17auno/mHbd/mBdescargaPasatiempoOpcionesJs.html">js / descargaPasatiempoOpciones.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
       <a href="/m17auno/mHbd/mDSrvPasatiempoOpciones.html">srv / SrvPasatiempoOpciones.php</a>
      </p>
     </li>
@@ -1903,7 +1903,36 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >5. srv / SrvPasatiempoOpciones.php</h1><muestra-codigo>
+         <h1 >5. js / descargaPasatiempoOpciones.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">ejecuta</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../lib/js/ejecuta.js"</span></div><br>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">descargaPasatiempoOpciones</span>()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #a31515;">"srv/"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #000000;">+</span> <span
+     style="color: #a31515;">"SrvPasatiempoOpciones.php"</span>))</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >6. srv / SrvPasatiempoOpciones.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -2063,7 +2092,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. srv / leePasatiempo.php</h1><muestra-codigo>
+         <h1 >7. srv / leePasatiempo.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -2141,7 +2170,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
+         <h1 >8. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -2249,7 +2278,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. srv / dao / pasatiempoConsulta.php</h1><muestra-codigo>
+         <h1 >9. srv / dao / pasatiempoConsulta.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -2356,121 +2385,7 @@
       </section>
       </section>
      <section>
-         <h1 >K. Archivos de JavaScript</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <nav>
-  
-   <ol type="1">
-    <li>
-     <p>
-      <a href="/m17auno/mHjs/mAcampo-pasatiempoJs.html">js / custom / campo-pasatiempo.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m17auno/mHjs/mBdescargaPasatiempoOpcionesJs.html">js / descargaPasatiempoOpciones.js</a>
-     </p>
-    </li>
-   </ol>
- </nav>
-</div>
-     <section >
-         <h1 >1. js / custom / campo-pasatiempo.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoPasatiempo</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
-  <div>&nbsp;<span
-     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #0070c1;">style</span>.<span
-     style="color: #001080;">display</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #a31515;">"block"</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">innerHTML</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #008000;">/*&nbsp;HTML */</span></div>
-  <div>&nbsp;&nbsp;&nbsp;`<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasatiempo</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;select</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"pasId"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;option</span> <span
-     style="color: #e50000;">value</span>=<span
-     style="color: #0000ff;">""</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargando…</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/option&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/select&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span>`</div>
-  <div>&nbsp;}</div><br>
-  <div>}</div><br>
-  <div><span
-     style="color: #001080;">customElements</span>.<span
-     style="color: #795e26;">define</span>(</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"campo-pasatiempo"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #267f99;">CampoPasatiempo</span>)</div>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >2. js / descargaPasatiempoOpciones.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">ejecuta</span></div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../lib/js/ejecuta.js"</span></div><br>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">descargaPasatiempoOpciones</span>()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #795e26;">fetch</span>(<span
-     style="color: #a31515;">"srv/"</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #000000;">+</span> <span
-     style="color: #a31515;">"SrvPasatiempoOpciones.php"</span>))</div>
-  <div>}</div>
- </div>
-</muestra-codigo>
-      </section>
-      </section>
-     <section>
-         <h1 >L. Archivos para generar listados</h1>
+         <h1 >K. Archivos para generar listados</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -3006,7 +2921,7 @@
       </section>
       </section>
      <section>
-         <h1 >M. Archivos para agregar registros</h1>
+         <h1 >L. Archivos para agregar registros</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -3678,7 +3593,7 @@
       </section>
       </section>
      <section>
-         <h1 >N. Archivos para modificar registros</h1>
+         <h1 >M. Archivos para modificar registros</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -5179,7 +5094,7 @@
       </section>
       </section>
      <section>
-         <h1 >O. Custom elements</h1>
+         <h1 >N. Custom elements</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -5190,6 +5105,11 @@
  <nav>
   
    <ol type="1">
+    <li>
+     <p>
+      <a href="/m17auno/mLcustom/mAcampo-pasatiempoJs.html">js / custom / campo-pasatiempo.js</a>
+     </p>
+    </li>
     <li>
      <p>
       <a href="/m17auno/mLcustom/m35boton-agregarJs.html">lib / js / custom / boton-agregar.js</a>
@@ -5249,7 +5169,66 @@
  </nav>
 </div>
      <section >
-         <h1 >1. lib / js / custom / boton-agregar.js</h1><muestra-codigo>
+         <h1 >1. js / custom / campo-pasatiempo.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">CampoPasatiempo</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #0070c1;">style</span>.<span
+     style="color: #001080;">display</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #a31515;">"block"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">this</span>.<span
+     style="color: #001080;">innerHTML</span> <span
+     style="color: #000000;">=</span> <span
+     style="color: #008000;">/*&nbsp;HTML */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasatiempo</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;select</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"pasId"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;option</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">""</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargando…</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/option&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/select&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
+  <div>}</div><br>
+  <div><span
+     style="color: #001080;">customElements</span>.<span
+     style="color: #795e26;">define</span>(</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"campo-pasatiempo"</span>,</div>
+  <div>&nbsp;<span
+     style="color: #267f99;">CampoPasatiempo</span>)</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / js / custom / boton-agregar.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5280,7 +5259,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. lib / js / custom / boton-eliminar.js</h1><muestra-codigo>
+         <h1 >3. lib / js / custom / boton-eliminar.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5319,7 +5298,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. lib / js / custom / boton-guardar.js</h1><muestra-codigo>
+         <h1 >4. lib / js / custom / boton-guardar.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5350,7 +5329,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >4. lib / js / custom / campo-id-oculto.js</h1><muestra-codigo>
+         <h1 >5. lib / js / custom / campo-id-oculto.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5386,7 +5365,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >5. lib / js / custom / campo-nombre-cargando.js</h1><muestra-codigo>
+         <h1 >6. lib / js / custom / campo-nombre-cargando.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5439,7 +5418,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. lib / js / custom / campo-nombre.js</h1><muestra-codigo>
+         <h1 >7. lib / js / custom / campo-nombre.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5489,7 +5468,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. lib / js / custom / hipervinculo-agregar-agrega.js</h1><muestra-codigo>
+         <h1 >8. lib / js / custom / hipervinculo-agregar-agrega.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -5537,7 +5516,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. lib / js / custom / hipervinculo-cancelar-index.js</h1><muestra-codigo>
+         <h1 >9. lib / js / custom / hipervinculo-cancelar-index.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -5585,7 +5564,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib / js / custom / indica-campos-obligatorios.js</h1><muestra-codigo>
+         <h1 >10. lib / js / custom / indica-campos-obligatorios.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5624,7 +5603,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / js / custom / indicador-cargando.js</h1><muestra-codigo>
+         <h1 >11. lib / js / custom / indicador-cargando.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -5663,7 +5642,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / js / custom / lista-principal.js</h1><muestra-codigo>
+         <h1 >12. lib / js / custom / lista-principal.js</h1><muestra-codigo>
  <div
    style="color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;">
   <div><span
@@ -5711,7 +5690,7 @@
       </section>
       </section>
      <section>
-         <h1 >P. librería de JavaScript</h1>
+         <h1 >O. librería de JavaScript</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -6462,7 +6441,7 @@
       </section>
       </section>
      <section>
-         <h1 >Q. librería de PHP</h1>
+         <h1 >P. librería de PHP</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para

@@ -1,0 +1,76 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeForanea.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">leePasatiempo</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$pasId</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeForanea</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"pasId"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$pasId</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Pasatiempo</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$pasId</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$pasatiempo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
