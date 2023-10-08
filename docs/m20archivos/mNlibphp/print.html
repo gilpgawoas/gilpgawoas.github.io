@@ -369,12 +369,12 @@
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mNlibphp/mTleeEnteroPhp.html">lib / php / leeEntero.php</a>
+      <a href="/m20archivos/mNlibphp/mTleeBytesPhp.html">lib / php / leeBytes.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mNlibphp/mTleeForaneaPhp.html">lib / php / leeForanea.php</a>
+      <a href="/m20archivos/mNlibphp/mTleeEnteroPhp.html">lib / php / leeEntero.php</a>
      </p>
     </li>
     <li>
@@ -399,6 +399,11 @@
     </li>
     <li>
      <p>
+      <a href="/m20archivos/mNlibphp/mVseRecibioElArchivoPhp.html">lib / php / seRecibioElArchivo.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
       <a href="/m20archivos/mNlibphp/mSservicioPhp.html">lib / php / servicio.php</a>
      </p>
     </li>
@@ -410,6 +415,11 @@
     <li>
      <p>
       <a href="/m20archivos/mNlibphp/mXvalidaNombreNoVacioPhp.html">lib / php / validaNombreNoVacio.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m20archivos/mNlibphp/mXvalidaNombreNoNullPhp.html">lib / php / validaNoNull.php</a>
      </p>
     </li>
     <li>
@@ -468,7 +478,79 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. lib / php / leeEntero.php</h1><muestra-codigo>
+         <h1 >2. lib / php / leeBytes.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/seRecibioElArchivo.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">leeBytes</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$archivo</span></div>
+  <div><span
+     style="color: #000000;">): </span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$contents</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">seRecibioElArchivo</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$archivo</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;?&nbsp;&nbsp;</span><span
+     style="color: #795e26;">file_get_contents</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$_FILES</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$archivo</span><span
+     style="color: #000000;">][</span><span
+     style="color: #a31515;">"tmp_name"</span><span
+     style="color: #000000;">]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;: </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$contents</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;? </span><span
+     style="color: #a31515;">""</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;: </span><span
+     style="color: #001080;">$contents</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. lib / php / leeEntero.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -521,87 +603,6 @@
      style="color: #001080;">$parametro</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">}</span></div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >3. lib / php / leeForanea.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeTexto.php"</span><span
-     style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera el texto de un</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;parámetro correspindiente a una</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;llave foránea numérica enviada</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;al servidor por medio de GET,</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;POST o cookie.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">leeForanea</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">string</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$parametro</span></div>
-  <div><span
-     style="color: #000000;">): ?</span><span
-     style="color: #0000ff;">string</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #008000;">/*&nbsp;Si el parámetro no está</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;asignado o es un texto
-    vacío,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve null; de lo
-    contrario,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve el valor recibido.
-    */</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeTexto</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$parametro</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;"> === </span><span
-     style="color: #a31515;">""</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;? </span><span
-     style="color: #0000ff;">null</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;: </span><span
-     style="color: #001080;">$valor</span><span
-     style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
@@ -865,7 +866,52 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. lib / php / servicio.php</h1><muestra-codigo>
+         <h1 >8. lib / php / seRecibioElArchivo.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">seRecibioElArchivo</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$parametro</span></div>
+  <div><span
+     style="color: #000000;">): </span><span
+     style="color: #0000ff;">bool</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">isset</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$_FILES</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$parametro</span><span
+     style="color: #000000;">]) &amp;&amp;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$_FILES</span><span
+     style="color: #000000;">[</span><span
+     style="color: #001080;">$parametro</span><span
+     style="color: #000000;">][</span><span
+     style="color: #a31515;">"size"</span><span
+     style="color: #000000;">] &gt; </span><span
+     style="color: #098658;">0</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >9. lib / php / servicio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -969,7 +1015,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib / php / valida.php</h1><muestra-codigo>
+         <h1 >10. lib / php / valida.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1018,7 +1064,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / php / validaNombreNoVacio.php</h1><muestra-codigo>
+         <h1 >11. lib / php / validaNombreNoVacio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -1070,7 +1116,53 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / php / validaTextoNoVacio.php</h1><muestra-codigo>
+         <h1 >12. lib / php / validaNoNull.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"lib/php/valida.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">validaNoNull</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$valor</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">string</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$mensajeDeError</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">valida</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$valor</span><span
+     style="color: #000000;"> !== </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$mensajeDeError</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >13. lib / php / validaTextoNoVacio.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>

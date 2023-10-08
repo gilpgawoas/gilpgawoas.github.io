@@ -459,8 +459,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m20archivos/mHbd/mBamigoPhp.html" title="3. srv / modelo / amigo.php">◀</a>
- <a class="siguiente" href="/m20archivos/mHbd/mDSrvPasatiempoOpciones.html" title="5. srv / SrvPasatiempoOpciones.php">▶</a>
+ <a class="anterior" href="/m20archivos/mHbd/mBproductoPhp.html" title="3. srv / modelo / producto.php">◀</a>
+ <a class="siguiente" href="/m20archivos/mHbd/mDSrvArchivoPhp.html" title="5. srv / SrvArchivo.php">▶</a>
    <h1 >4. srv / dao / accesobd.php</h1><muestra-codigo>
  <div>
   <div><span
@@ -474,40 +474,11 @@
      style="color: #af00db;">require_once</span><span
      style="color: #000000;"> </span><span
      style="color: #a31515;">"srv/dao/bdCrea.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoConsulta.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/pasatiempoAgrega.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/txt/txtFutbol.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/txt/txtVideojuegos.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> </span><span
      style="color: #267f99;">\PDO</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Pasatiempo</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
@@ -607,7 +578,7 @@
      style="color: #008000;">// cadena de conexión</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"sqlite:srvauno.db"</span><span
+     style="color: #a31515;">"sqlite:srvarchivos.db"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -659,74 +630,6 @@
      style="color: #001080;">$con</span><span
      style="color: #000000;">);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoConsulta</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">if</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #795e26;">sizeof</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">) === </span><span
-     style="color: #098658;">0</span><span
-     style="color: #000000;">)&nbsp;{</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtFutbol</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoAgrega</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">);</span></div><br>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">nombre</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtVideojuegos</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">pasatiempoAgrega</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$pasatiempo</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}</span></div>
-  <div><span
      style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
@@ -763,7 +666,7 @@
       data-logo="true">GilPG AWOAS</a>
    </p><p>
     <a class="paginaAnterior" href="/m20archivos/mGtextos/mFplantillaNoEsTextoJs.html"
-      title="9. lib /js / plantilla / plantillaNoEsTexto.js">▲</a>
+      title="10. lib /js / plantilla / plantillaNoEsTexto.js">▲</a>
    </p>
      <h1><a href="/m20archivos/mHbd/index.html">J. Archivos relacionados con la estructura de los datos</a></h1>
    <ol type="1">
@@ -774,12 +677,12 @@
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mHbd/mBpasatiempoPhp.html">srv / modelo / pasatiempo.php</a>
+      <a href="/m20archivos/mHbd/mBarchivoPhp.html">srv / modelo / archivo.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mHbd/mBamigoPhp.html">srv / modelo / amigo.php</a>
+      <a href="/m20archivos/mHbd/mBproductoPhp.html">srv / modelo / producto.php</a>
      </p>
     </li>
     <li>
@@ -789,22 +692,12 @@
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mHbd/mDSrvPasatiempoOpciones.html">srv / SrvPasatiempoOpciones.php</a>
+      <a href="/m20archivos/mHbd/mDSrvArchivoPhp.html">srv / SrvArchivo.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mHbd/mCleePasatiempoPhp.html">srv / leePasatiempo.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m20archivos/mHbd/mCpasatiempoAgregaPhp.html">srv / dao / pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m20archivos/mHbd/mCpasatiempoConsultaPhp.html">srv / dao / pasatiempoConsulta.php</a>
+      <a href="/m20archivos/mHbd/mEarchivoBuscaPhp.html">srv / dao / archivoBusca.php</a>
      </p>
     </li>
    </ol><p>
@@ -822,9 +715,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m20archivos/mHbd/mBamigoPhp.html"
+ let urlAnterior = "/m20archivos/mHbd/mBproductoPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m20archivos/mHbd/mDSrvPasatiempoOpciones.html"
+ let urlSiguiente = "/m20archivos/mHbd/mDSrvArchivoPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

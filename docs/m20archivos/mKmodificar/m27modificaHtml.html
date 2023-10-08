@@ -460,7 +460,7 @@
   &#x2630;
  </button>
  <a class="anterior" href="/m20archivos/mKmodificar/index.html" title="M. Archivos para modificar registros">◀</a>
- <a class="siguiente" href="/m20archivos/mKmodificar/m24SrvAmigBusca.html" title="2. srv / SrvAmigoBusca.php">▶</a>
+ <a class="siguiente" href="/m20archivos/mKmodificar/m24SrvProductoBuscaPhp.html" title="2. srv / SrvProductoBusca.php">▶</a>
    <h1 >1. modifica.html</h1><muestra-codigo>
  <div>
   <div><span
@@ -590,7 +590,22 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #e50000;">src</span><span
      style="color: #000000;">=</span><span
-     style="color: #0000ff;">"./js/custom/campo-pasatiempo.js"</span><span
+     style="color: #0000ff;">"./js/custom/campo-sube-imagen.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-muestra-imagen.js"</span><span
      style="color: #800000;">&gt;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -624,9 +639,9 @@
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/campo-nombre-cargando&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;campo-pasatiempo&gt;</span></div>
+     style="color: #800000;">&lt;campo-sube-imagen&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/campo-pasatiempo&gt;</span></div>
+     style="color: #800000;">&lt;/campo-sube-imagen&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
   <div>&nbsp;&nbsp;<span
@@ -642,8 +657,12 @@
      style="color: #800000;">&lt;/boton-eliminar&gt;</span></div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-muestra-imagen&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/campo-muestra-imagen&gt;</span></div><br>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;/form&gt;</span></div><br>
+     style="color: #800000;">&lt;/form&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;script</span><span
      style="color: #000000;"> </span><span
@@ -741,18 +760,6 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">muestraForaneaNumerica</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
-     style="color: #af00db;">from</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/muestraForaneaNumerica.js"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">import</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">escuchaEventosModifica</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
@@ -770,32 +777,7 @@
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">from</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">import</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">muestraRender</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
-     style="color: #af00db;">from</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/muestraRender.js"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">import</span><span
-     style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">descargaPasatiempoOpciones</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
-     style="color: #af00db;">from</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"./js/descargaPasatiempoOpciones.js"</span></div>
-  <br>
+     style="color: #a31515;">"./lib/js/confirmaEliminar.js"</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -822,29 +804,6 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">try</span><span
      style="color: #000000;">&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">const</span><span
-     style="color: #000000;"> </span><span
-     style="color: #0070c1;">render</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #af00db;">await</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">descargaPasatiempoOpciones</span><span
-     style="color: #000000;">()</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">muestraRender</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">forma</span><span
-     style="color: #000000;">.</span><span
-     style="color: #001080;">pasId</span><span
-     style="color: #000000;">,</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0070c1;">render</span><span
-     style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
@@ -918,7 +877,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvAmigoBusca.php?"</span></div>
+     style="color: #a31515;">"srv/SrvProductoBusca.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span
@@ -963,22 +922,75 @@
      style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">muestraForaneaNumerica</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">forma</span><span
-     style="color: #000000;">.</span><span
-     style="color: #001080;">pasId</span><span
-     style="color: #000000;">, </span><span
+     style="color: #795e26;">muestraArchivo</span><span
+     style="color: #000000;">(</span><span
      style="color: #001080;">modelo</span><span
      style="color: #000000;">.</span><span
-     style="color: #001080;">pasatiempo</span><span
-     style="color: #000000;">,</span></div>
+     style="color: #001080;">archivo</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">muestraArchivo</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">archivo</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">archivo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">id</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #0000ff;">typeof</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">id</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #a31515;">"number"</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">searchParams</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">URLSearchParams</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[</span><span
      style="color: #a31515;">"id"</span><span
-     style="color: #000000;">)</span></div>
+     style="color: #000000;">, </span><span
+     style="color: #0070c1;">id</span><span
+     style="color: #000000;">.</span><span
+     style="color: #795e26;">toString</span><span
+     style="color: #000000;">()]])</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">img</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">src</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">"srv/SrvArchivo.php?"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
+     style="color: #0070c1;">searchParams</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;}</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
   <div><span
@@ -1013,7 +1025,7 @@
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvAmigoModifica.php"</span><span
+     style="color: #a31515;">"srv/SrvProductoModifica.php"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -1067,7 +1079,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvAmigoElimina.php?"</span></div>
+     style="color: #a31515;">"srv/SrvProductoElimina.php?"</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ </span><span
      style="color: #0070c1;">parametros</span><span
@@ -1133,8 +1145,8 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m20archivos/mJagregar/mCamigoAgregaPhp.html"
-      title="3. srv / dao / amigoAgrega.php">▲</a>
+    <a class="paginaAnterior" href="/m20archivos/mJagregar/mDarchivoAgregaPhp.html"
+      title="4. srv / dao / archivoAgrega.php">▲</a>
    </p>
      <h1><a href="/m20archivos/mKmodificar/index.html">M. Archivos para modificar registros</a></h1>
    <ol type="1">
@@ -1145,32 +1157,42 @@
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m24SrvAmigBusca.html">srv / SrvAmigoBusca.php</a>
+      <a href="/m20archivos/mKmodificar/m24SrvProductoBuscaPhp.html">srv / SrvProductoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m25SrvAmigoModifica.html">srv / SrvAmigoModifica.php</a>
+      <a href="/m20archivos/mKmodificar/m25SrvProductoModificaPhp.html">srv / SrvProductoModifica.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m26SrvAmigoElimina.html">srv / SrvAmigoElimina.php</a>
+      <a href="/m20archivos/mKmodificar/m26SrvProductoEliminaPhp.html">srv / SrvProductoElimina.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m21amigoBuscaPhp.html">srv / dao / amigoBusca.php</a>
+      <a href="/m20archivos/mKmodificar/m21productoBuscaPhp.html">srv / dao / productoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m22amigoModificaPhp.html">srv / dao / amigoModifica.php</a>
+      <a href="/m20archivos/mKmodificar/m22productoModificaPhp.html">srv / dao / productoModifica.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mKmodificar/m23amigoEliminaPhp.html">srv / dao / amigoElimina.php</a>
+      <a href="/m20archivos/mKmodificar/m23productoEliminaPhp.html">srv / dao / productoElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m20archivos/mKmodificar/m22archivoModificaPhp.html">srv / dao / archivoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m20archivos/mKmodificar/m23archivoEliminaPhp.html">srv / dao / archivoElimina.php</a>
      </p>
     </li>
    </ol><p>
@@ -1190,7 +1212,7 @@
  /**@type {string} */
  let urlAnterior = "/m20archivos/mKmodificar/index.html"
  /**@type {string} */
- let urlSiguiente = "/m20archivos/mKmodificar/m24SrvAmigBusca.html"
+ let urlSiguiente = "/m20archivos/mKmodificar/m24SrvProductoBuscaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

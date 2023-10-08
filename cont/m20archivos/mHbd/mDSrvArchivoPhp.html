@@ -1,0 +1,177 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/archivoBusca.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeBytes.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"txtArchivoNoEncontrado.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #795e26;">mb_internal_encoding</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"UTF-8"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #af00db;">try</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">header</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"Cache-Control: no-store, "</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"no-cache, must-revalidate, "</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"max-age=0"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">header</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"Cache-Control: post-check=0, "</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"pre-check=0"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">false</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">header</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"Pragma: no-cache"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeEntero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$archivo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">archivoBusca</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$archivo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtArchivoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">echo</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$archivo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">bytes</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">}&nbsp;</span><span
+     style="color: #af00db;">catch</span><span
+     style="color: #000000;"> (\</span><span
+     style="color: #267f99;">Throwable</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$t</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">http_response_code</span><span
+     style="color: #000000;">(</span><span
+     style="color: #098658;">500</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">echo</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$t</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">getMessage</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>

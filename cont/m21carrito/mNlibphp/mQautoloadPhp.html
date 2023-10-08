@@ -1,0 +1,45 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Permite que las clases se
+    puedan</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;cargar automáticamente sin usar</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;require.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Los nombres se buscan dentro
+    del</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;sistema de archivos usando solo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;minúsculas sin importar como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;se declaren en el código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Primero hay que cargar el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;archivo path.php para
+    configurar</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la búsqueda de archivos.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/path.php"</span>;</div><br>
+  <div>spl_autoload_register();</div><br>
+ </div>
+</muestra-codigo>

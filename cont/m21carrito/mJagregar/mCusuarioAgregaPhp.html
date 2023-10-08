@@ -1,0 +1,130 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/usuRolAgrega.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Usuario</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">usuarioAgrega</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #267f99;">Usuario</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">valida</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">beginTransaction</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">prepare</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">INSERT INTO</span><span
+     style="color: #a31515;"> USUARIO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(USU_CUE)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">VALUES</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:cue)</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":cue"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cue</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
+    el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">lastInsertId</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #795e26;">usuRolAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">commit</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>

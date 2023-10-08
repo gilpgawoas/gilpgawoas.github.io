@@ -1,0 +1,289 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">namespace</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">srv\dao</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/dao/bdCrea.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/rolConsulta.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/rolAgrega.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;">.</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"txtAdministraElSistema.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtRealizaCompras.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">\PDO</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Rol</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">AccesoBd</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span><span
+     style="color: #000000;"> ?</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">static</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">(): </span><span
+     style="color: #267f99;">PDO</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">conecta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">prepara</span><span
+     style="color: #000000;">(</span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">self</span><span
+     style="color: #000000;">::</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">conecta</span><span
+     style="color: #000000;">(): </span><span
+     style="color: #267f99;">PDO</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// cadena de conexión</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"sqlite:srvamuchos.db"</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// usuario</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #008000;">// contraseña</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;[</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::ATTR_ERRMODE</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;=&gt; </span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::ERRMODE_EXCEPTION]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">private</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">prepara</span><span
+     style="color: #000000;">(</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">bdCrea</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$roles</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">rolConsulta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #795e26;">sizeof</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$roles</span><span
+     style="color: #000000;">) === </span><span
+     style="color: #098658;">0</span><span
+     style="color: #000000;">)&nbsp;{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Rol</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">"Administrador"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">descripcion</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtAdministraElSistema</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">rolAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">);</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Rol</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #a31515;">"Cliente"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">descripcion</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtRealizaCompras</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">rolAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$rol</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>

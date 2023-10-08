@@ -32,36 +32,26 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PASATIEMPO (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCHIVO (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_BYTES BLOB
    </span><span
-     style="color: #0000ff;">TEXT</span><span
-     style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_PK</span></div>
+     style="color: #a31515;"> ARCH_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(PAS_ID),</span></div>
+     style="color: #a31515;">(ARCH_ID)</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_NOM_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(PAS_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
@@ -84,52 +74,54 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMIGO (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PRODUCTO (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMI_NOMBRE
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_NOMBRE
    </span><span
      style="color: #0000ff;">TEXT</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PK</span></div>
+     style="color: #a31515;"> PROD_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(AMI_ID),</span></div>
+     style="color: #a31515;">(PROD_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_NOM_UNQ</span></div>
+     style="color: #a31515;"> PROD_NOM_UNQ</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(AMI_NOMBRE)</span></div>
+     style="color: #a31515;">(PROD_NOMBRE)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PAS_FK</span></div>
+     style="color: #a31515;"> PROD_ARCH_FK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FOREIGN KEY</span><span
-     style="color: #a31515;"> (PAS_ID)</span></div>
+     style="color: #a31515;"> (ARCH_ID)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">REFERENCES</span><span
-     style="color: #a31515;"> PASATIEMPO(PAS_ID)</span></div>
+     style="color: #a31515;"> ARCHIVO(ARCH_ID)</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>

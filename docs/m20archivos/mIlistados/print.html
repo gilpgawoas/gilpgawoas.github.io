@@ -369,12 +369,12 @@
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mIlistados/mBSrvAmigoConsulta.html">srv / SrvAmigoConsulta.php</a>
+      <a href="/m20archivos/mIlistados/mBSrvProductoConsultaPhp.html">srv / SrvProductoConsulta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m20archivos/mIlistados/mCamigoConsultaPhp.html">srv / dao / amigoConsulta.php</a>
+      <a href="/m20archivos/mIlistados/mCproductoConsultaPhp.html">srv / dao / productoConsulta.php</a>
      </p>
     </li>
    </ol>
@@ -408,7 +408,7 @@
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Relaciones a uno<span
+     style="color: #800000;">&lt;title&gt;</span>Archivos<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;script</span><span
@@ -445,7 +445,7 @@
   <div><span
      style="color: #800000;">&lt;body&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Relaciones a uno<span
+     style="color: #800000;">&lt;h1&gt;</span>Archivos<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;p&gt;</span></div>
@@ -575,7 +575,7 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvAmigoConsulta.php"</span><span
+     style="color: #a31515;">"srv/SrvProductoConsulta.php"</span><span
      style="color: #000000;">))</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>
@@ -590,7 +590,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. srv / SrvAmigoConsulta.php</h1><muestra-codigo>
+         <h1 >2. srv / SrvProductoConsulta.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -608,17 +608,7 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/amigoConsulta.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"srv/txt/"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #000000;">.</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"txtSinPasatiempo.php"</span><span
+     style="color: #a31515;">"srv/dao/productoConsulta.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -628,13 +618,13 @@
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvAmigoConsulta</span></div>
+     style="color: #267f99;">SrvProductoConsulta</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
      style="color: #267f99;">Servicio</span></div>
   <div><span
-     style="color: #000000;">{</span></div>
+     style="color: #000000;">{</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">protected</span></div>
@@ -650,15 +640,7 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #001080;">$lista</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">amigoConsulta</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$txtSinPasatiempo</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtSinPasatiempo</span><span
+     style="color: #795e26;">productoConsulta</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
@@ -672,60 +654,54 @@
      style="color: #000000;"> (</span><span
      style="color: #001080;">$lista</span><span
      style="color: #000000;"> as </span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #001080;">$it</span><span
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$amiId</span><span
+     style="color: #001080;">$prodId</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #795e26;">htmlentities</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #001080;">$it</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">amiId</span><span
+     style="color: #001080;">prodId</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$amiNombre</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">amiNombre</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$pasNombre</span><span
+     style="color: #001080;">$prodNombre</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #795e26;">htmlentities</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$it</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">pasNombre</span><span
+     style="color: #001080;">prodNombre</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$archId</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$it</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">archId</span><span
      style="color: #000000;"> === </span><span
      style="color: #0000ff;">null</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;? </span><span
-     style="color: #a31515;">"&lt;em&gt;</span><span
-     style="color: #001080;">$txtSinPasatiempo</span><span
-     style="color: #a31515;">&lt;/em&gt;"</span></div>
+     style="color: #a31515;">""</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;: </span><span
      style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$it</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">pasNombre</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;);</span></div>
+     style="color: #001080;">archId</span><span
+     style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">$render</span><span
@@ -738,17 +714,32 @@
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
   </div>
   <div><span
-     style="color: #a31515;">&nbsp;&lt;a href='modifica.html?id=</span><span
-     style="color: #001080;">$amiId</span><span
+     style="color: #a31515;">&lt;a style='display: flex;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align-items:
+    center;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap:
+    0.5rem'</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;href='modifica.html?id=</span><span
+     style="color: #001080;">$prodId</span><span
      style="color: #a31515;">'&gt;</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&lt;strong&gt;{</span><span
-     style="color: #001080;">$amiNombre</span><span
-     style="color: #a31515;">}&lt;/strong&gt;</span></div>
+     style="color: #a31515;">&nbsp;&lt;img style='width: 50%'</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&lt;br&gt;{</span><span
-     style="color: #001080;">$pasNombre</span><span
-     style="color: #a31515;">}&lt;/a&gt;</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;alt='Imagen del producto'</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;src=</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;'srv/SrvArchivo.php?id=</span><span
+     style="color: #001080;">$archId</span><span
+     style="color: #a31515;">'&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&lt;strong&gt;{</span><span
+     style="color: #001080;">$prodNombre</span><span
+     style="color: #a31515;">}&lt;/strong&gt;&lt;/a&gt;</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
   </div>
@@ -769,10 +760,12 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> = </span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvAmigoConsulta</span><span
+     style="color: #267f99;">SrvProductoConsulta</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
@@ -783,7 +776,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. srv / dao / amigoConsulta.php</h1><muestra-codigo>
+         <h1 >3. srv / dao / productoConsulta.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -801,7 +794,7 @@
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">amigoConsulta</span><span
+     style="color: #795e26;">productoConsulta</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">{</span></div>
@@ -826,35 +819,35 @@
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">SELECT</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_ID </span><span
      style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiId,</span></div>
+     style="color: #a31515;"> prodId,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_NOMBRE </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
      style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiNombre,</span></div>
+     style="color: #a31515;"> prodNombre,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PAS_NOMBRE </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.ARCH_ID </span><span
      style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> pasNombre</span></div>
+     style="color: #a31515;"> archId</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> AMIGO A</span></div>
+     style="color: #a31515;"> PRODUCTO P</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">LEFT JOIN</span><span
-     style="color: #a31515;"> PASATIEMPO P</span></div>
+     style="color: #a31515;"> ARCHIVO A</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">ON</span><span
-     style="color: #a31515;"> A.PAS_ID </span><span
+     style="color: #a31515;"> P.ARCH_ID </span><span
      style="color: #000000;">=</span><span
-     style="color: #a31515;"> P.PAS_ID</span></div>
+     style="color: #a31515;"> A.ARCH_ID</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">ORDER BY</span><span
-     style="color: #a31515;"> A.AMI_NOMBRE</span><span
+     style="color: #a31515;"> P.PROD_NOMBRE</span><span
      style="color: #a31515;">"</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
