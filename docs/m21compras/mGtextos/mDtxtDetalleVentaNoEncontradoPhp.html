@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>11. srv / dao / usuRolElimina.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/dao/usuRolElimina.php».">
+ <title>5. srv / txt / txtDetalleVentaNoEncontrado.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/txt/txtDetalleVentaNoEncontrado.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,73 +459,30 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mHbd/mIusuRolConsultaPhp.html" title="10. srv / dao / usuRolConsulta.php">◀</a>
- <a class="siguiente" href="/m21compras/mIlistados/index.html" title="K. Archivos para generar listados">▶</a>
-   <h1 >11. srv / dao / usuRolElimina.php</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mGtextos/mDtxtCantidadIncorrectaPhp.html" title="4. srv / txt / txtCantidadIncorrecta.php">◀</a>
+ <a class="siguiente" href="/m21compras/mGtextos/mFtxtExistenciasIncorrectasPhp.html" title="6. srv / txt / txtExistenciasIncorrectas.php">▶</a>
+   <h1 >5. srv / txt / txtDetalleVentaNoEncontrado.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\dao\</span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">;</span></div><br>
+     style="color: #0000ff;">function</span></div>
   <div><span
-     style="color: #0000ff;">function</span><span
-     style="color: #000000;"> </span><span
-     style="color: #795e26;">usuRolElimina</span><span
-     style="color: #000000;">(</span><span
-     style="color: #0000ff;">int</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$usuId</span><span
-     style="color: #000000;">)</span></div>
+     style="color: #795e26;">txtDetalleVentaNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">::</span><span
-     style="color: #795e26;">getCon</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">prepare</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"Detalle de venta no "</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">DELETE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> USU_ROL</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> USU_ID </span><span
-     style="color: #000000;">=</span><span
-     style="color: #a31515;"> :usuId</span><span
-     style="color: #a31515;">"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">execute</span><span
-     style="color: #000000;">([</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":usuId"</span><span
-     style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$usuId</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;]);</span></div>
+     style="color: #a31515;">"encontrado."</span><span
+     style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
@@ -560,69 +517,99 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m21compras/mGtextos/mFplantillaNoEsTextoJs.html"
-      title="17. lib /js / plantilla / plantillaNoEsTexto.js">▲</a>
+    <a class="paginaAnterior" href="/m21compras/mFjsconfigJson.html"
+      title="H. jsconfig.json">▲</a>
    </p>
-     <h1><a href="/m21compras/mHbd/index.html">J. Archivos relacionados con la estructura de los datos</a></h1>
+     <h1><a href="/m21compras/mGtextos/index.html">I. Textos que se mustran al usuario</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m21compras/mHbd/mAbdCreaPhp.html">srv / dao / bdCrea.php</a>
+      <a href="/m21compras/mGtextos/mAintro.html">Introducción</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBrolPhp.html">srv / modelo / rol.php</a>
+      <a href="/m21compras/mGtextos/mJtxtConfirmaProcesamientoJs.html">js / txt / txtConfirmaProcesamiento.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBusuarioPhp.html">srv / modelo / usuario.php</a>
+      <a href="/m21compras/mGtextos/mKtxtProductoAgregadoJs.html">js / txt / txtProductoAgregado.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mCaccesobdPhp.html">srv / dao / accesobd.php</a>
+      <a href="/m21compras/mGtextos/mDtxtCantidadIncorrectaPhp.html">srv / txt / txtCantidadIncorrecta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mDSrvRolOpciones.html">srv / SrvRolOpciones.php</a>
+      <a href="/m21compras/mGtextos/mDtxtDetalleVentaNoEncontradoPhp.html" class="actual">srv / txt / txtDetalleVentaNoEncontrado.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mEcreaArrayDeRolesPhp.html">srv / creaArrayDeRoles.php</a>
+      <a href="/m21compras/mGtextos/mFtxtExistenciasIncorrectasPhp.html">srv / txt / txtExistenciasIncorrectas.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mFrolAgregaPhp.html">srv / dao / rolAgrega.php</a>
+      <a href="/m21compras/mGtextos/mFtxtHamburguesaPhp.html">srv / txt / txtHamburguesa.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mGrolConsultaPhp.html">srv / dao / rolConsulta.php</a>
+      <a href="/m21compras/mGtextos/mGtxtHotDogPhp.html">srv / txt / txtHotDog.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mHusuRolAgregaPhp.html">srv / dao / usuRolAgrega.php</a>
+      <a href="/m21compras/mGtextos/mHtxtNoEsDetallePhp.html">srv / txt / txtNoEsDetalle.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mIusuRolConsultaPhp.html">srv / dao / usuRolConsulta.php</a>
+      <a href="/m21compras/mGtextos/mItxtPrecioIncorrectoPhp.html">srv / txt / txtPrecioIncorrecto.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mJusuRolEliminaPhp.html" class="actual">srv / dao / usuRolElimina.php</a>
+      <a href="/m21compras/mGtextos/mItxtProductoNoEncontradoPhp.html">srv / txt / txtProductoNoEncontrado.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mItxtSandwichPhp.html">srv / txt / txtSandwich.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mItxtVentaNoEncontradaPhp.html">srv / txt / txtVentaNoEncontrada.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mBtxtConfirmaEliminarJs.html">lib /js / txt / txtConfirmaEliminar.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mCtxtFaltaElNombrePhp.html">lib / php / txt / txtFaltaElNombre.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mEplantillaNoEsNumeroJs.html">lib /js / plantilla / plantillaNoEsNumero.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mGtextos/mFplantillaNoEsTextoJs.html">lib /js / plantilla / plantillaNoEsTexto.js</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m21compras/mIlistados/index.html"
-      title="K. Archivos para generar listados">▼</a>
+    <a class="paginaSiguiente" href="/m21compras/mHbd/index.html"
+      title="J. Archivos relacionados con la estructura de los datos">▼</a>
    </p>
 </nav>
  <script>
@@ -635,9 +622,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mHbd/mIusuRolConsultaPhp.html"
+ let urlAnterior = "/m21compras/mGtextos/mDtxtCantidadIncorrectaPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mIlistados/index.html"
+ let urlSiguiente = "/m21compras/mGtextos/mFtxtExistenciasIncorrectasPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
