@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>4. srv / dao / accesobd.php - GilPG AWOAS</title>
+ <title>5. srv / dao / accesobd.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/dao/accesobd.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -459,9 +459,9 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mHbd/mBusuarioPhp.html" title="3. srv / modelo / usuario.php">◀</a>
- <a class="siguiente" href="/m21compras/mHbd/mDSrvRolOpciones.html" title="5. srv / SrvRolOpciones.php">▶</a>
-   <h1 >4. srv / dao / accesobd.php</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mHbd/mBventaPhp.html" title="4. srv / modelo / venta.php">◀</a>
+ <a class="siguiente" href="/m21compras/mHbd/mDproductoAgregaPhp.html" title="6. srv / productoAgrega.php">▶</a>
+   <h1 >5. srv / dao / accesobd.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -479,29 +479,43 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/rolConsulta.php"</span><span
+     style="color: #a31515;">"srv/dao/productoCuenta.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/rolAgrega.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"srv/txt/"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #000000;">.</span><span
-     style="color: #000000;"> </span><span
-     style="color: #a31515;">"txtAdministraElSistema.php"</span><span
+     style="color: #a31515;">"srv/dao/productoAgrega.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/txt/txtRealizaCompras.php"</span><span
+     style="color: #a31515;">"srv/dao/ventaCuenta.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/ventaAgrega.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtSandwich.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtHotDog.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/txt/txtHamburguesa.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -511,7 +525,12 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Rol</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Venta</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
@@ -533,8 +552,11 @@
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #0000ff;">static</span><span
+     style="color: #0000ff;">public</span><span
      style="color: #000000;"> </span><span
+     style="color: #0000ff;">static</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
      style="color: #795e26;">getCon</span><span
@@ -611,7 +633,7 @@
      style="color: #008000;">// cadena de conexión</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"sqlite:srvamuchos.db"</span><span
+     style="color: #a31515;">"sqlite:srvcompras.db"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -638,7 +660,7 @@
   <div><span
      style="color: #000000;">&nbsp;&nbsp;);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;}</span></div><br>
+     style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">private</span><span
@@ -664,83 +686,167 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">rolConsulta</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #af00db;">if</span><span
      style="color: #000000;"> (</span><span
-     style="color: #795e26;">sizeof</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;">) === </span><span
+     style="color: #795e26;">productoCuenta</span><span
+     style="color: #000000;">()=== </span><span
      style="color: #098658;">0</span><span
      style="color: #000000;">)&nbsp;{</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Rol</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #a31515;">"Administrador"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">descripcion</span><span
+     style="color: #001080;">nombre</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtAdministraElSistema</span><span
+     style="color: #795e26;">txtSandwich</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">rolAgrega</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">existencias</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">50</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">15</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">productoAgrega</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">);</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Rol</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
+     style="color: #001080;">nombre</span><span
      style="color: #000000;"> = </span><span
-     style="color: #a31515;">"Cliente"</span><span
+     style="color: #795e26;">txtHotDog</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">existencias</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">40</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">descripcion</span><span
-     style="color: #000000;"> =</span></div>
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">30</span><span
+     style="color: #000000;">;</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">txtRealizaCompras</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">productoAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">);</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">rolAgrega</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtHamburguesa</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">existencias</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">30</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #098658;">40</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">productoAgrega</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #795e26;">ventaCuenta</span><span
+     style="color: #000000;">() === </span><span
+     style="color: #098658;">0</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Venta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">activa</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">true</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">detalles</span><span
+     style="color: #000000;"> = [];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">ventaAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$venta</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div>
@@ -792,12 +898,17 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBrolPhp.html">srv / modelo / rol.php</a>
+      <a href="/m21compras/mHbd/mBproductoPhp.html">srv / modelo / producto.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBusuarioPhp.html">srv / modelo / usuario.php</a>
+      <a href="/m21compras/mHbd/mBdetalleventaPhp.html">srv / modelo / detalleventa.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mHbd/mBventaPhp.html">srv / modelo / venta.php</a>
      </p>
     </li>
     <li>
@@ -807,37 +918,22 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mDSrvRolOpciones.html">srv / SrvRolOpciones.php</a>
+      <a href="/m21compras/mHbd/mDproductoAgregaPhp.html">srv / productoAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mEcreaArrayDeRolesPhp.html">srv / creaArrayDeRoles.php</a>
+      <a href="/m21compras/mHbd/mEproductoCuentaPhp.html">srv / productoCuenta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mFrolAgregaPhp.html">srv / dao / rolAgrega.php</a>
+      <a href="/m21compras/mHbd/mFventaAgregaPhp.html">srv / ventaAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mGrolConsultaPhp.html">srv / dao / rolConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mHusuRolAgregaPhp.html">srv / dao / usuRolAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mIusuRolConsultaPhp.html">srv / dao / usuRolConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mJusuRolEliminaPhp.html">srv / dao / usuRolElimina.php</a>
+      <a href="/m21compras/mHbd/mGventaCuentaPhp.html">srv / ventaCuenta.php</a>
      </p>
     </li>
    </ol><p>
@@ -855,9 +951,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mHbd/mBusuarioPhp.html"
+ let urlAnterior = "/m21compras/mHbd/mBventaPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mHbd/mDSrvRolOpciones.html"
+ let urlSiguiente = "/m21compras/mHbd/mDproductoAgregaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

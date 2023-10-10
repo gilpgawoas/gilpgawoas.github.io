@@ -32,35 +32,28 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USUARIO (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;VENTA (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VENT_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_CUE </span><span
-     style="color: #0000ff;">TEXT</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VENT_ACTIVA
+   </span><span
+     style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> USU_PK</span></div>
+     style="color: #a31515;"> VENT_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(USU_ID),</span></div>
+     style="color: #a31515;">(VENT_ID)</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> USU_CUE_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(USU_CUE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
@@ -83,36 +76,49 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ROL (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PRODUCTO (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_ID </span><span
-     style="color: #0000ff;">TEXT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_ID </span><span
+     style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_DESCRIPCION
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_NOMBRE
    </span><span
      style="color: #0000ff;">TEXT</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_EXISTENCIAS
+   </span><span
+     style="color: #0000ff;">REAL</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_PRECIO
+   </span><span
+     style="color: #0000ff;">REAL</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> ROL_PK</span></div>
+     style="color: #a31515;"> PROD_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(ROL_ID),</span></div>
+     style="color: #a31515;">(PROD_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> ROL_DESCR_UNQ</span></div>
+     style="color: #a31515;"> PROD_NOM_UNQ</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(ROL_DESCRIPCION)</span></div>
+     style="color: #a31515;">(PROD_NOMBRE)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>
@@ -137,51 +143,67 @@
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">EXISTS</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USU_ROL (</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DET_VENTA (</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USU_ID </span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VENT_ID </span><span
      style="color: #0000ff;">INTEGER</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROL_ID </span><span
-     style="color: #0000ff;">TEXT</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_ID </span><span
+     style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DTV_CANTIDAD
+   </span><span
+     style="color: #0000ff;">REAL</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DTV_PRECIO
+   </span><span
+     style="color: #0000ff;">REAL</span><span
      style="color: #a31515;"> </span><span
      style="color: #0000ff;">NOT NULL</span><span
      style="color: #a31515;">,</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> USU_ROL_PK</span></div>
+     style="color: #a31515;"> DTV_PK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(USU_ID, ROL_ID),</span></div>
+     style="color: #0000ff;">PRIMARY KEY</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(VENT_ID,
+    PROD_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> USU_ROL_USU_FK</span></div>
+     style="color: #a31515;"> DTV_VENT_FK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FOREIGN KEY</span><span
-     style="color: #a31515;"> (USU_ID)</span></div>
+     style="color: #a31515;"> (VENT_ID)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">REFERENCES</span><span
-     style="color: #a31515;"> USUARIO(USU_ID),</span></div>
+     style="color: #a31515;"> VENTA(VENT_ID),</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> USU_ROL_ROL_FK</span></div>
+     style="color: #a31515;"> DTV_PROD_FK</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">FOREIGN KEY</span><span
-     style="color: #a31515;"> (ROL_ID)</span></div>
+     style="color: #a31515;"> (PROD_ID)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">REFERENCES</span><span
-     style="color: #a31515;"> ROL(ROL_ID)</span></div>
+     style="color: #a31515;"> PRODUCTO(PROD_ID)</span></div>
   <div><span
      style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
      style="color: #a31515;">'</span></div>

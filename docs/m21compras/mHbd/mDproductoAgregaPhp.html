@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>9. srv / dao / usuRolAgrega.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/dao/usuRolAgrega.php».">
+ <title>6. srv / productoAgrega.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/productoAgrega.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,9 +459,9 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mHbd/mGrolConsultaPhp.html" title="8. srv / dao / rolConsulta.php">◀</a>
- <a class="siguiente" href="/m21compras/mHbd/mIusuRolConsultaPhp.html" title="10. srv / dao / usuRolConsulta.php">▶</a>
-   <h1 >9. srv / dao / usuRolAgrega.php</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mHbd/mCaccesobdPhp.html" title="5. srv / dao / accesobd.php">◀</a>
+ <a class="siguiente" href="/m21compras/mHbd/mEproductoCuentaPhp.html" title="7. srv / productoCuenta.php">▶</a>
+   <h1 >6. srv / productoAgrega.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -473,40 +473,28 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">usuRolAgrega</span><span
+     style="color: #795e26;">productoAgrega</span><span
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$usuario</span></div>
+     style="color: #001080;">$modelo</span></div>
   <div><span
      style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;">;</span></div>
+     style="color: #795e26;">valida</span><span
+     style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #af00db;">if</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #795e26;">sizeof</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;">) &gt; </span><span
-     style="color: #098658;">0</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #001080;">$con</span><span
      style="color: #000000;"> = </span><span
      style="color: #267f99;">AccesoBd</span><span
@@ -514,7 +502,7 @@
      style="color: #795e26;">getCon</span><span
      style="color: #000000;">();</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #001080;">$stmt</span><span
      style="color: #000000;"> = </span><span
      style="color: #001080;">$con</span><span
@@ -522,61 +510,83 @@
      style="color: #795e26;">prepare</span><span
      style="color: #000000;">(</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">INSERT INTO</span><span
-     style="color: #a31515;"> USU_ROL</span></div>
+     style="color: #a31515;"> PRODUCTO</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(USU_ID,
-    ROL_ID)</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(PROD_NOMBRE,
+    PROD_EXISTENCIAS,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROD_PRECIO)</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">VALUES</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(:usuId,
-    :rolId)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:nombre,
+    :existencias,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:precio)</span><span
      style="color: #a31515;">"</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+     style="color: #000000;">&nbsp;);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">foreach</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;"> as </span><span
-     style="color: #001080;">$rol</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #001080;">$stmt</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #795e26;">execute</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #000000;">([</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;[</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":usuId"</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":nombre"</span><span
      style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
+     style="color: #001080;">nombre</span><span
      style="color: #000000;">,</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":rolId"</span><span
-     style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$rol</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":existencias"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;=&gt; </span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span></div>
+     style="color: #001080;">existencias</span><span
+     style="color: #000000;">,</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;]</span></div>
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":precio"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+     style="color: #000000;">&nbsp;]);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
   <div><span
-     style="color: #000000;">&nbsp;}</span></div>
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
+    el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">lastInsertId</span><span
+     style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>
@@ -623,12 +633,17 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBrolPhp.html">srv / modelo / rol.php</a>
+      <a href="/m21compras/mHbd/mBproductoPhp.html">srv / modelo / producto.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mBusuarioPhp.html">srv / modelo / usuario.php</a>
+      <a href="/m21compras/mHbd/mBdetalleventaPhp.html">srv / modelo / detalleventa.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mHbd/mBventaPhp.html">srv / modelo / venta.php</a>
      </p>
     </li>
     <li>
@@ -638,37 +653,22 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mDSrvRolOpciones.html">srv / SrvRolOpciones.php</a>
+      <a href="/m21compras/mHbd/mDproductoAgregaPhp.html" class="actual">srv / productoAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mEcreaArrayDeRolesPhp.html">srv / creaArrayDeRoles.php</a>
+      <a href="/m21compras/mHbd/mEproductoCuentaPhp.html">srv / productoCuenta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mFrolAgregaPhp.html">srv / dao / rolAgrega.php</a>
+      <a href="/m21compras/mHbd/mFventaAgregaPhp.html">srv / ventaAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mHbd/mGrolConsultaPhp.html">srv / dao / rolConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mHusuRolAgregaPhp.html" class="actual">srv / dao / usuRolAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mIusuRolConsultaPhp.html">srv / dao / usuRolConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mHbd/mJusuRolEliminaPhp.html">srv / dao / usuRolElimina.php</a>
+      <a href="/m21compras/mHbd/mGventaCuentaPhp.html">srv / ventaCuenta.php</a>
      </p>
     </li>
    </ol><p>
@@ -686,9 +686,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mHbd/mGrolConsultaPhp.html"
+ let urlAnterior = "/m21compras/mHbd/mCaccesobdPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mHbd/mIusuRolConsultaPhp.html"
+ let urlSiguiente = "/m21compras/mHbd/mEproductoCuentaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
