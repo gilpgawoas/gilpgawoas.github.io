@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>2. srv / SrvUsuarioConsulta.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/SrvUsuarioConsulta.php».">
+ <title>5. srv / SrvVentaActivaProcesa.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/SrvVentaActivaProcesa.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,9 +459,9 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mIlistados/mAindexHtml.html" title="1. index.html">◀</a>
- <a class="siguiente" href="/m21compras/mIlistados/mCusuarioConsultaPhp.html" title="3. srv / dao / usuarioConsulta.php">▶</a>
-   <h1 >2. srv / SrvUsuarioConsulta.php</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mIlistados/mBSrvVentaActivaBuscaPhp.html" title="4. srv / SrvVentaActivaBusca.php">◀</a>
+ <a class="siguiente" href="/m21compras/mIlistados/mCproductoConsultaPhp.html" title="6. srv / dao / productoConsulta.php">▶</a>
+   <h1 >5. srv / SrvVentaActivaProcesa.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -479,7 +479,7 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuarioConsulta.php"</span><span
+     style="color: #a31515;">"srv/dao/ventaActivaProcesa.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -489,13 +489,13 @@
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioConsulta</span></div>
+     style="color: #267f99;">SrvVentaActivaProcesa</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
      style="color: #267f99;">Servicio</span></div>
   <div><span
-     style="color: #000000;">{</span></div><br>
+     style="color: #000000;">{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">protected</span></div>
@@ -509,112 +509,12 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$lista</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">usuarioConsulta</span><span
+     style="color: #795e26;">ventaActivaProcesa</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #a31515;">""</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #af00db;">foreach</span><span
-     style="color: #000000;"> (</span><span
-     style="color: #001080;">$lista</span><span
-     style="color: #000000;"> as </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuId</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">usuId</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuCue</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">usuCue</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;"> === </span><span
-     style="color: #0000ff;">null</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;|| </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;"> === </span><span
-     style="color: #a31515;">""</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;? </span><span
-     style="color: #a31515;">"&lt;em&gt;-- Sin roles --&lt;/em&gt;"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;: </span><span
-     style="color: #795e26;">htmlentities</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;"> </span><span
-     style="color: #000000;">.=</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"&lt;li&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&lt;a href='modifica.html?id=</span><span
-     style="color: #001080;">$usuId</span><span
-     style="color: #a31515;">'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&lt;strong&gt;{</span><span
-     style="color: #001080;">$usuCue</span><span
-     style="color: #a31515;">}&lt;/strong&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&lt;br&gt;{</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #a31515;">}&lt;/a&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;}</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$render</span><span
-     style="color: #000000;">;</span></div>
+     style="color: #000000;"> [];</span></div>
   <div><span
      style="color: #000000;">&nbsp;}</span></div>
   <div><span
@@ -626,7 +526,7 @@
      style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioConsulta</span><span
+     style="color: #267f99;">SrvVentaActivaProcesa</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
@@ -668,7 +568,7 @@
     <a class="paginaAnterior" href="/m21compras/mHbd/mGventaCuentaPhp.html"
       title="9. srv / ventaCuenta.php">▲</a>
    </p>
-     <h1><a href="/m21compras/mIlistados/index.html">K. Archivos para generar listados</a></h1>
+     <h1><a href="/m21compras/mIlistados/index.html">K. Listados y transacciones</a></h1>
    <ol type="1">
     <li>
      <p>
@@ -677,12 +577,42 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mIlistados/mBSrvUsuarioConsulta.html" class="actual">srv / SrvUsuarioConsulta.php</a>
+      <a href="/m21compras/mIlistados/mAcarritoHtml.html">carrito.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mIlistados/mCusuarioConsultaPhp.html">srv / dao / usuarioConsulta.php</a>
+      <a href="/m21compras/mIlistados/mBSrvProductoConsultaPhp.html">srv / SrvProductoConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mBSrvVentaActivaBuscaPhp.html">srv / SrvVentaActivaBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mBSrvVentaActivaProcesaPhp.html" class="actual">srv / SrvVentaActivaProcesa.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mCproductoConsultaPhp.html">srv / dao / productoConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mCventaActivaBuscaPhp.html">srv / dao / ventaActivaBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mCventaActivaProcesaPhp.html">srv / dao / ventaActivaProcesa.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mIlistados/mCdetalleVentaConsultaPhp.html">srv / dao / detalleVentaConsulta.php</a>
      </p>
     </li>
    </ol><p>
@@ -700,9 +630,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mIlistados/mAindexHtml.html"
+ let urlAnterior = "/m21compras/mIlistados/mBSrvVentaActivaBuscaPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mIlistados/mCusuarioConsultaPhp.html"
+ let urlSiguiente = "/m21compras/mIlistados/mCproductoConsultaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

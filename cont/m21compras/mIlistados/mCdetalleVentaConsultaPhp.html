@@ -1,0 +1,293 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/recibeFetchAll.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Venta</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">detalleVentaConsulta</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #267f99;">Venta</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$venta</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">query</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_EXISTENCIAS</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodExistencias,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_PRECIO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodPrecio,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.DTV_CANTIDAD
+   </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> cantidad,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.DTV_PRECIO </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> precio</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> DET_VENTA DV, PRODUCTO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.PROD_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> P.PROD_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">AND</span><span
+     style="color: #a31515;"> DV.VENT_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> :ventId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ORDER BY</span><span
+     style="color: #a31515;"> P.PROD_NOMBRE</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":ventId"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">fetchAll</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::FETCH_OBJ</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$objs</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">recibeFetchAll</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$resultado</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@var</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #0000ff;">[]</span><span
+     style="color: #008000;"> */</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$detalles</span><span
+     style="color: #000000;"> = [];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">foreach</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$objs</span><span
+     style="color: #000000;"> as </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">prodId</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">prodNombre</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">existencias</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">prodExistencias</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">prodPrecio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">venta</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cantidad</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cantidad</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$obj</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$detalles</span><span
+     style="color: #000000;">[] = </span><span
+     style="color: #001080;">$detalle</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$detalles</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>OF
+</muestra-codigo>
