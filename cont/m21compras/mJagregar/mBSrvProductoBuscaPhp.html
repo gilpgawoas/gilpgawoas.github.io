@@ -22,40 +22,27 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeSinEspaciosInFin.php"</span><span
+     style="color: #a31515;">"srv/dao/productoBusca.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #af00db;">require_once</span></div>
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeArray.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/creaArrayDeRoles.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuarioModifica.php"</span><span
+     style="color: #a31515;">"txtProductoNoEncontrado.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> \lib\php\</span><span
      style="color: #267f99;">Servicio</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioModifica</span></div>
+     style="color: #267f99;">SrvProductoBusca</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -75,17 +62,7 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #0000ff;">new</span><span
-     style="color: #000000;"> </span><span
-     style="color: #267f99;">Usuario</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
+     style="color: #001080;">$id</span><span
      style="color: #000000;"> = </span><span
      style="color: #795e26;">leeEntero</span><span
      style="color: #000000;">(</span><span
@@ -93,60 +70,56 @@
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">cue</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">leeSinEspaciosInFin</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"cue"</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rolIds</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeArray</span><span
+     style="color: #795e26;">productoBusca</span><span
      style="color: #000000;">(</span><span
-     style="color: #a31515;">"rolIds"</span><span
+     style="color: #001080;">$id</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;"> =</span></div>
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">creaArrayDeRoles</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$rolIds</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">usuarioModifica</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtProductoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span
      style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
+     style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioModifica</span><span
+     style="color: #267f99;">SrvProductoBusca</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span

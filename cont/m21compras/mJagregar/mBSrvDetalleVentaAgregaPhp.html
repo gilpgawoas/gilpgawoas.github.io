@@ -16,25 +16,19 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeSinEspaciosInFin.php"</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeArray.php"</span><span
+     style="color: #a31515;">"lib/php/leeDecimal.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/creaArrayDeRoles.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuarioAgrega.php"</span><span
+     style="color: #a31515;">"srv/dao/detalleVentaAgrega.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
@@ -43,13 +37,18 @@
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">DetalleVenta</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioAgrega</span></div>
+     style="color: #267f99;">SrvDetalleVentaAgrega</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -69,55 +68,77 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">cue</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">leeSinEspaciosInFin</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"cue"</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rolIds</span><span
+     style="color: #001080;">id</span><span
      style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeArray</span><span
+     style="color: #795e26;">leeEntero</span><span
      style="color: #000000;">(</span><span
-     style="color: #a31515;">"rolIds"</span><span
+     style="color: #a31515;">"id"</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cantidad</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">creaArrayDeRoles</span><span
+     style="color: #795e26;">leeDecimal</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$rolIds</span><span
+     style="color: #a31515;">"cantidad"</span><span
      style="color: #000000;">);</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">usuarioAgrega</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">detalleVentaAgrega</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">detalles</span><span
+     style="color: #000000;"> = [];</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #000000;">&nbsp;}</span></div>
@@ -125,10 +146,12 @@
      style="color: #000000;">}</span></div><br>
   <div><span
      style="color: #001080;">$servicio</span><span
-     style="color: #000000;"> = </span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioAgrega</span><span
+     style="color: #267f99;">SrvDetalleVentaAgrega</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span

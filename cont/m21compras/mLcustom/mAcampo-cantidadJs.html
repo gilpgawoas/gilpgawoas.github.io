@@ -3,7 +3,7 @@
   <div><span
      style="color: #af00db;">export</span> <span
      style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoCueCargando</span></div>
+     style="color: #267f99;">CampoCantidad</span></div>
   <div>&nbsp;<span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
@@ -24,23 +24,20 @@
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">&lt;!-- Usamos cue para que los</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navegadores no
-    bloqueen la</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;página.
-    --&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cue *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad *</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span> <span
-     style="color: #e50000;">required</span></div>
+     style="color: #0000ff;">"cantidad"</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">value</span>=<span
-     style="color: #0000ff;">"Cargando&amp;hellip;"</span><span
+     style="color: #e50000;">required</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"number"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">min</span>=<span
+     style="color: #0000ff;">"0"</span> <span
+     style="color: #e50000;">step</span>=<span
+     style="color: #0000ff;">"0.01"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/label&gt;</span></div>
@@ -52,8 +49,7 @@
      style="color: #001080;">customElements</span>.<span
      style="color: #795e26;">define</span>(</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"campo-cue-cargando"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #267f99;">CampoCueCargando</span>)</div>
+     style="color: #a31515;">"campo-cantidad"</span>, <span
+     style="color: #267f99;">CampoCantidad</span>)</div>
  </div>
 </muestra-codigo>

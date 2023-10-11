@@ -364,17 +364,17 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mAcampo-cue-cargandoJs.html">js / custom / campo-cue-cargando.js</a>
+      <a href="/m21compras/mLcustom/mAcampo-cantidadJs.html">js / custom / campo-cantidad.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mBcampo-cueJs.html">js / custom / campo-cue.js</a>
+      <a href="/m21compras/mLcustom/mBcampo-precioJs.html">js / custom / campo-precio.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mCcampo-rolesJs.html">js / custom / campo-roles.js</a>
+      <a href="/m21compras/mLcustom/mCcampo-productoJs.html">js / custom / campo-producto.js</a>
      </p>
     </li>
     <li>
@@ -421,12 +421,12 @@
  </nav>
 </div>
      <section >
-         <h1 >1. js / custom / campo-cue-cargando.js</h1><muestra-codigo>
+         <h1 >1. js / custom / campo-cantidad.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
      style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoCueCargando</span></div>
+     style="color: #267f99;">CampoCantidad</span></div>
   <div>&nbsp;<span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
@@ -447,23 +447,20 @@
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">&lt;!-- Usamos cue para que los</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navegadores no
-    bloqueen la</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;página.
-    --&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cue *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad *</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;input</span> <span
      style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span> <span
-     style="color: #e50000;">required</span></div>
+     style="color: #0000ff;">"cantidad"</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">value</span>=<span
-     style="color: #0000ff;">"Cargando&amp;hellip;"</span><span
+     style="color: #e50000;">required</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"number"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">min</span>=<span
+     style="color: #0000ff;">"0"</span> <span
+     style="color: #e50000;">step</span>=<span
+     style="color: #0000ff;">"0.01"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/label&gt;</span></div>
@@ -475,19 +472,22 @@
      style="color: #001080;">customElements</span>.<span
      style="color: #795e26;">define</span>(</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"campo-cue-cargando"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #267f99;">CampoCueCargando</span>)</div>
+     style="color: #a31515;">"campo-cantidad"</span>, <span
+     style="color: #267f99;">CampoCantidad</span>)</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. js / custom / campo-cue.js</h1><muestra-codigo>
+         <h1 >2. js / custom / campo-precio.js</h1><muestra-codigo>
  <div>
+  <div><span
+     style="color: #af00db;">import</span> <span
+     style="color: #a31515;">"../../lib/js/custom/indicador-cargando.js"</span>
+  </div><br>
   <div><span
      style="color: #af00db;">export</span> <span
      style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoCue</span></div>
+     style="color: #267f99;">CampoPrecio</span></div>
   <div>&nbsp;<span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
@@ -508,38 +508,35 @@
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precio</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">&lt;!-- Usamos cue para que los</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navegadores no
-    bloqueen la</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;página.
-    --&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cue *</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
+     style="color: #800000;">&lt;output</span> <span
      style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span> <span
-     style="color: #e50000;">required</span><span
+     style="color: #0000ff;">"precio"</span><span
      style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/output&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/label&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/p&gt;</span>`</div>
-  <div>&nbsp;}</div>
+  <div>&nbsp;}</div><br>
   <div>}</div><br>
   <div><span
      style="color: #001080;">customElements</span>.<span
-     style="color: #795e26;">define</span>(<span
-     style="color: #a31515;">"campo-cue"</span>,</div>
+     style="color: #795e26;">define</span>(</div>
   <div>&nbsp;<span
-     style="color: #267f99;">CampoCue</span>)</div>
+     style="color: #a31515;">"campo-precio"</span>, <span
+     style="color: #267f99;">CampoPrecio</span>)</div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. js / custom / campo-roles.js</h1><muestra-codigo>
+         <h1 >3. js / custom / campo-producto.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span> <span
@@ -548,7 +545,7 @@
   <div><span
      style="color: #af00db;">export</span> <span
      style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoRoles</span></div>
+     style="color: #267f99;">CampoProducto</span></div>
   <div>&nbsp;<span
      style="color: #0000ff;">extends</span> <span
      style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
@@ -566,31 +563,33 @@
      style="color: #000000;">=</span> <span
      style="color: #008000;">/*&nbsp;HTML */</span></div>
   <div>&nbsp;&nbsp;&nbsp;`<span
-     style="color: #800000;">&lt;fieldset&gt;</span></div>
+     style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;legend&gt;</span>Roles<span
-     style="color: #800000;">&lt;/legend&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;div</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"roles"</span><span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Producto</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"producto"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/output&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/div&gt;</span></div>
+     style="color: #800000;">&lt;/label&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/fieldset&gt;</span>`</div><br>
-  <div>&nbsp;}</div>
+     style="color: #800000;">&lt;/p&gt;</span>`</div>
+  <div>&nbsp;}</div><br>
   <div>}</div><br>
   <div><span
      style="color: #001080;">customElements</span>.<span
      style="color: #795e26;">define</span>(</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"campo-roles"</span>, <span
-     style="color: #267f99;">CampoRoles</span>)</div>
+     style="color: #a31515;">"campo-producto"</span>, <span
+     style="color: #267f99;">CampoProducto</span>)</div>
  </div>
 </muestra-codigo>
       </section>

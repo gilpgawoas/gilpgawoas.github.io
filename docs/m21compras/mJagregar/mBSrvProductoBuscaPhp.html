@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>7. lib / js / muestraNumero.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/muestraNumero.js».">
+ <title>2. srv / SrvProductoBusca.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/SrvProductoBusca.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,79 +459,136 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mMlibjs/m53muestraErrorJs.html" title="6. lib / js / muestraError.js">◀</a>
- <a class="siguiente" href="/m21compras/mMlibjs/m54muestraPrecioJs.html" title="8. lib / js / muestraPrecio.js">▶</a>
-   <h1 >7. lib / js / muestraNumero.js</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mJagregar/mAagregaHtml.html" title="1. agrega.html">◀</a>
+ <a class="siguiente" href="/m21compras/mJagregar/mBSrvDetalleVentaAgregaPhp.html" title="3. srv / SrvDetalleVentaAgrega.php">▶</a>
+   <h1 >2. srv / SrvProductoBusca.php</h1><muestra-codigo>
  <div>
   <div><span
-     style="color: #af00db;">import</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">plantillaNoEsNumero</span></div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./plantilla/plantillaNoEsNumero.js"</span></div>
-  <br>
+     style="color: #800000;">&lt;?php</span></div><br>
   <div><span
-     style="color: #008000;">/**</span></div>
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
   <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@template</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">E</span></div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
   <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{E}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">elementoHtml</span></div>
+     style="color: #af00db;">require_once</span></div>
   <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{any}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valor</span></div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
+     style="color: #000000;">;</span></div>
   <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
+     style="color: #af00db;">require_once</span></div>
   <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraNumero</span>(</div>
-  <div>&nbsp;<span
-     style="color: #001080;">elementoHtml</span>, <span
-     style="color: #001080;">valor</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">valor</span> <span
-     style="color: #000000;">===</span> <span
-     style="color: #a31515;">"number"</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #000000;">&amp;&amp;</span> <span
-     style="color: #000000;">!</span><span
-     style="color: #795e26;">isNaN</span>(<span
-     style="color: #001080;">valor</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">value</span> <span
-     style="color: #000000;">=</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">valor</span>.<span
-     style="color: #795e26;">toString</span>()</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">plantillaNoEsNumero</span>(<span
-     style="color: #001080;">valor</span>))</div>
-  <div>&nbsp;}</div>
-  <div>}</div>
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/productoBusca.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"txtProductoNoEncontrado.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvProductoBusca</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeEntero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">productoBusca</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtProductoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvProductoBusca</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -564,79 +621,39 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m21compras/mLcustom/m45lista-principalJs.html"
-      title="11. lib / js / custom / lista-principal.js">▲</a>
+    <a class="paginaAnterior" href="/m21compras/mIlistados/mCdetalleVentaConsultaPhp.html"
+      title="9. srv / dao / detalleVentaConsulta.php">▲</a>
    </p>
-     <h1><a href="/m21compras/mMlibjs/index.html">O. librería de JavaScript</a></h1>
+     <h1><a href="/m21compras/mJagregar/index.html">L. Archivos para agregar registros</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m21compras/mMlibjs/m48confirmaEliminarJs.html">lib / js / confirmaEliminar.js</a>
+      <a href="/m21compras/mJagregar/mAagregaHtml.html">agrega.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mMlibjs/m49ejecutaJs.html">lib / js / ejecuta.js</a>
+      <a href="/m21compras/mJagregar/mBSrvProductoBuscaPhp.html" class="actual">srv / SrvProductoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mMlibjs/m50escuchaEventosAgregaJs.html">lib / js / escuchaEventosAgrega.js</a>
+      <a href="/m21compras/mJagregar/mBSrvDetalleVentaAgregaPhp.html">srv / SrvDetalleVentaAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mMlibjs/m51escuchaEventosModificaJs.html">lib / js / escuchaEventosModifica.js</a>
+      <a href="/m21compras/mJagregar/mCproductoBuscaPhp.html">srv / dao / productoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mMlibjs/m52MetodoHttpJs.html">lib / js / MetodoHttp.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m53muestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m54muestraNumeroJs.html" class="actual">lib / js / muestraNumero.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m54muestraPrecioJs.html">lib / js / muestraPrecio.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m55muestraRenderJs.html">lib / js / muestraRender.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m56muestraTextoJs.html">lib / js / muestraTexto.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m57parametrosDePaginaJs.html">lib / js / parametrosDePagina.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m58saltaAIndexJs.html">lib / js / saltaAIndex.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m21compras/mMlibjs/m59submitJs.html">lib / js / submit.js</a>
+      <a href="/m21compras/mJagregar/mCdetalleVentaAgregaPhp.html">srv / dao / detalleVentaAgrega.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m21compras/mNlibphp/index.html"
-      title="P. librería de PHP">▼</a>
+    <a class="paginaSiguiente" href="/m21compras/mKmodificar/index.html"
+      title="M. Archivos para modificar registros">▼</a>
    </p>
 </nav>
  <script>
@@ -649,9 +666,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mMlibjs/m53muestraErrorJs.html"
+ let urlAnterior = "/m21compras/mJagregar/mAagregaHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mMlibjs/m54muestraPrecioJs.html"
+ let urlSiguiente = "/m21compras/mJagregar/mBSrvDetalleVentaAgregaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

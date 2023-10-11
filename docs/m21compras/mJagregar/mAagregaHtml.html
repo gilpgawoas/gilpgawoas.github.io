@@ -460,7 +460,7 @@
   &#x2630;
  </button>
  <a class="anterior" href="/m21compras/mJagregar/index.html" title="L. Archivos para agregar registros">◀</a>
- <a class="siguiente" href="/m21compras/mJagregar/mBSrvUsuarioAgrega.html" title="2. srv / SrvUsuarioAgrega.php">▶</a>
+ <a class="siguiente" href="/m21compras/mJagregar/mBSrvProductoBuscaPhp.html" title="2. srv / SrvProductoBusca.php">▶</a>
    <h1 >1. agrega.html</h1><muestra-codigo>
  <div>
   <div><span
@@ -491,6 +491,19 @@
      style="color: #800000;">&lt;title&gt;</span>Agregar<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/campo-id-oculto.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #800000;">&lt;/script&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;script</span><span
@@ -547,7 +560,7 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #e50000;">src</span><span
      style="color: #000000;">=</span><span
-     style="color: #0000ff;">"./js/custom/campo-cue.js"</span><span
+     style="color: #0000ff;">"./lib/js/custom/indicador-cargando.js"</span><span
      style="color: #800000;">&gt;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -562,7 +575,37 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #e50000;">src</span><span
      style="color: #000000;">=</span><span
-     style="color: #0000ff;">"./js/custom/campo-roles.js"</span><span
+     style="color: #0000ff;">"./js/custom/campo-producto.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-precio.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-cantidad.js"</span><span
      style="color: #800000;">&gt;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -580,6 +623,10 @@
      style="color: #800000;">&lt;h1&gt;</span>Agregar<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
   <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-id-oculto&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/campo-id-oculto&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;hipervinculo-cancelar-index&gt;</span></div>
@@ -588,9 +635,13 @@
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;campo-cue&gt;&lt;/campo-cue&gt;</span></div>
+     style="color: #800000;">&lt;campo-producto&gt;&lt;/campo-producto&gt;</span>
+  </div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;campo-roles&gt;&lt;/campo-roles&gt;</span>
+     style="color: #800000;">&lt;campo-precio&gt;&lt;/campo-precio&gt;</span>
+  </div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-cantidad&gt;&lt;/campo-cantidad&gt;</span>
   </div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
@@ -654,6 +705,18 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">parametrosDePagina</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/parametrosDePagina.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">saltaAIndex</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
@@ -678,12 +741,58 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">muestraRender</span></div>
+     style="color: #001080;">muestraNumero</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">from</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/muestraRender.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/muestraNumero.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraTexto</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraTexto.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraPrecio</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraPrecio.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">txtProductoAgregado</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./js/txt/txtProductoAgregado.js"</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">parametros</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">parametrosDePagina</span><span
+     style="color: #000000;">()</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #795e26;">preparaVista</span><span
@@ -692,9 +801,8 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #0000ff;">async</span><span
      style="color: #000000;"> </span><span
-     style="color: #0000ff;">function</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
      style="color: #795e26;">preparaVista</span><span
      style="color: #000000;">()&nbsp;{</span></div>
   <div><span
@@ -705,21 +813,19 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
      style="color: #000000;"> </span><span
-     style="color: #0070c1;">render</span><span
+     style="color: #0070c1;">modelo</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">await</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">descargaRolOpciones</span><span
+     style="color: #795e26;">buscaEnElServidor</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">muestraRender</span><span
+     style="color: #795e26;">muestra</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;">, </span><span
-     style="color: #0070c1;">render</span><span
+     style="color: #0070c1;">modelo</span><span
      style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -758,7 +864,7 @@
      style="color: #0000ff;">function</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">descargaRolOpciones</span><span
+     style="color: #795e26;">buscaEnElServidor</span><span
      style="color: #000000;">()&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -772,10 +878,66 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvRolOpciones.php"</span><span
+     style="color: #a31515;">"srv/SrvProductoBusca.php?"</span><span
+     style="color: #000000;"> +</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0070c1;">parametros</span><span
      style="color: #000000;">))</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">muestra</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraNumero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraTexto</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraPrecio</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div><br><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #008000;">/**&nbsp;@param&nbsp;{Event}&nbsp;evt */</span>
@@ -808,12 +970,22 @@
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvUsuarioAgrega.php"</span><span
+     style="color: #a31515;">"srv/"</span><span
+     style="color: #000000;"> +</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"SrvDetalleVentaAgrega.php"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">forma</span><span
      style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">alert</span><span
+     style="color: #000000;">(</span><span
+     style="color: #795e26;">txtProductoAgregado</span><span
+     style="color: #000000;">())</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #795e26;">saltaAIndex</span><span
@@ -885,12 +1057,22 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mBSrvUsuarioAgrega.html">srv / SrvUsuarioAgrega.php</a>
+      <a href="/m21compras/mJagregar/mBSrvProductoBuscaPhp.html">srv / SrvProductoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mCusuarioAgregaPhp.html">srv / dao / usuarioAgrega.php</a>
+      <a href="/m21compras/mJagregar/mBSrvDetalleVentaAgregaPhp.html">srv / SrvDetalleVentaAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mJagregar/mCproductoBuscaPhp.html">srv / dao / productoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mJagregar/mCdetalleVentaAgregaPhp.html">srv / dao / detalleVentaAgrega.php</a>
      </p>
     </li>
    </ol><p>
@@ -910,7 +1092,7 @@
  /**@type {string} */
  let urlAnterior = "/m21compras/mJagregar/index.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mJagregar/mBSrvUsuarioAgrega.html"
+ let urlSiguiente = "/m21compras/mJagregar/mBSrvProductoBuscaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

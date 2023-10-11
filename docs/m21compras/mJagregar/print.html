@@ -369,12 +369,22 @@
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mBSrvUsuarioAgrega.html">srv / SrvUsuarioAgrega.php</a>
+      <a href="/m21compras/mJagregar/mBSrvProductoBuscaPhp.html">srv / SrvProductoBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mCusuarioAgregaPhp.html">srv / dao / usuarioAgrega.php</a>
+      <a href="/m21compras/mJagregar/mBSrvDetalleVentaAgregaPhp.html">srv / SrvDetalleVentaAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mJagregar/mCproductoBuscaPhp.html">srv / dao / productoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mJagregar/mCdetalleVentaAgregaPhp.html">srv / dao / detalleVentaAgrega.php</a>
      </p>
     </li>
    </ol>
@@ -411,6 +421,19 @@
      style="color: #800000;">&lt;title&gt;</span>Agregar<span
      style="color: #800000;">&lt;/title&gt;</span></div>
   <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./lib/js/custom/campo-id-oculto.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #800000;">&lt;/script&gt;</span></div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;script</span><span
@@ -467,7 +490,7 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #e50000;">src</span><span
      style="color: #000000;">=</span><span
-     style="color: #0000ff;">"./js/custom/campo-cue.js"</span><span
+     style="color: #0000ff;">"./lib/js/custom/indicador-cargando.js"</span><span
      style="color: #800000;">&gt;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -482,7 +505,37 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #e50000;">src</span><span
      style="color: #000000;">=</span><span
-     style="color: #0000ff;">"./js/custom/campo-roles.js"</span><span
+     style="color: #0000ff;">"./js/custom/campo-producto.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-precio.js"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #800000;">&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span><span
+     style="color: #000000;"> </span><span
+     style="color: #e50000;">type</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"module"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #e50000;">src</span><span
+     style="color: #000000;">=</span><span
+     style="color: #0000ff;">"./js/custom/campo-cantidad.js"</span><span
      style="color: #800000;">&gt;</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -500,6 +553,10 @@
      style="color: #800000;">&lt;h1&gt;</span>Agregar<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
   <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-id-oculto&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/campo-id-oculto&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;p&gt;</span></div>
   <div>&nbsp;&nbsp;&nbsp;<span
      style="color: #800000;">&lt;hipervinculo-cancelar-index&gt;</span></div>
@@ -508,9 +565,13 @@
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;campo-cue&gt;&lt;/campo-cue&gt;</span></div>
+     style="color: #800000;">&lt;campo-producto&gt;&lt;/campo-producto&gt;</span>
+  </div>
   <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;campo-roles&gt;&lt;/campo-roles&gt;</span>
+     style="color: #800000;">&lt;campo-precio&gt;&lt;/campo-precio&gt;</span>
+  </div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;campo-cantidad&gt;&lt;/campo-cantidad&gt;</span>
   </div>
   <div>&nbsp;&nbsp;<span
      style="color: #800000;">&lt;indica-campos-obligatorios&gt;</span></div>
@@ -574,6 +635,18 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">parametrosDePagina</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/parametrosDePagina.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">saltaAIndex</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
@@ -598,12 +671,58 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #001080;">muestraRender</span></div>
+     style="color: #001080;">muestraNumero</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
      style="color: #af00db;">from</span><span
      style="color: #000000;"> </span><span
-     style="color: #a31515;">"./lib/js/muestraRender.js"</span></div><br>
+     style="color: #a31515;">"./lib/js/muestraNumero.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraTexto</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraTexto.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">muestraPrecio</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./lib/js/muestraPrecio.js"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">import</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">txtProductoAgregado</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">from</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"./js/txt/txtProductoAgregado.js"</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">const</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0070c1;">parametros</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">parametrosDePagina</span><span
+     style="color: #000000;">()</span></div><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #795e26;">preparaVista</span><span
@@ -612,9 +731,8 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #0000ff;">async</span><span
      style="color: #000000;"> </span><span
-     style="color: #0000ff;">function</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
      style="color: #795e26;">preparaVista</span><span
      style="color: #000000;">()&nbsp;{</span></div>
   <div><span
@@ -625,21 +743,19 @@
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">const</span><span
      style="color: #000000;"> </span><span
-     style="color: #0070c1;">render</span><span
+     style="color: #0070c1;">modelo</span><span
      style="color: #000000;"> =</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #af00db;">await</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">descargaRolOpciones</span><span
+     style="color: #795e26;">buscaEnElServidor</span><span
      style="color: #000000;">()</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">muestraRender</span><span
+     style="color: #795e26;">muestra</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;">, </span><span
-     style="color: #0070c1;">render</span><span
+     style="color: #0070c1;">modelo</span><span
      style="color: #000000;">)</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -678,7 +794,7 @@
      style="color: #0000ff;">function</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">descargaRolOpciones</span><span
+     style="color: #795e26;">buscaEnElServidor</span><span
      style="color: #000000;">()&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
@@ -692,10 +808,66 @@
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvRolOpciones.php"</span><span
+     style="color: #a31515;">"srv/SrvProductoBusca.php?"</span><span
+     style="color: #000000;"> +</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0070c1;">parametros</span><span
      style="color: #000000;">))</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;}</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">muestra</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraNumero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraTexto</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraPrecio</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">forma</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">modelo</span><span
+     style="color: #000000;">.</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div><br><br>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #008000;">/**&nbsp;@param&nbsp;{Event}&nbsp;evt */</span>
@@ -728,12 +900,22 @@
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"srv/SrvUsuarioAgrega.php"</span><span
+     style="color: #a31515;">"srv/"</span><span
+     style="color: #000000;"> +</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"SrvDetalleVentaAgrega.php"</span><span
      style="color: #000000;">,</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #001080;">forma</span><span
      style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">alert</span><span
+     style="color: #000000;">(</span><span
+     style="color: #795e26;">txtProductoAgregado</span><span
+     style="color: #000000;">())</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #795e26;">saltaAIndex</span><span
@@ -765,7 +947,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. srv / SrvUsuarioAgrega.php</h1><muestra-codigo>
+         <h1 >2. srv / SrvProductoBusca.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -783,40 +965,33 @@
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeSinEspaciosInFin.php"</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"lib/php/leeArray.php"</span><span
+     style="color: #a31515;">"srv/dao/productoBusca.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #af00db;">require_once</span></div>
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/creaArrayDeRoles.php"</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #af00db;">require_once</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuarioAgrega.php"</span><span
+     style="color: #a31515;">"txtProductoNoEncontrado.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> \lib\php\</span><span
      style="color: #267f99;">Servicio</span><span
-     style="color: #000000;">;</span></div>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> \srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">class</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioAgrega</span></div>
+     style="color: #267f99;">SrvProductoBusca</span></div>
   <div><span
      style="color: #0000ff;">extends</span><span
      style="color: #000000;"> </span><span
@@ -836,56 +1011,54 @@
      style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$id</span><span
      style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeEntero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">productoBusca</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">Usuario</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">cue</span><span
-     style="color: #000000;"> =</span></div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtProductoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">leeSinEspaciosInFin</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"cue"</span><span
-     style="color: #000000;">);</span></div>
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$rolIds</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #795e26;">leeArray</span><span
-     style="color: #000000;">(</span><span
-     style="color: #a31515;">"rolIds"</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #000000;"> =</span></div>
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">creaArrayDeRoles</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$rolIds</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #795e26;">usuarioAgrega</span><span
-     style="color: #000000;">(</span><span
-     style="color: #001080;">$usuario</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #af00db;">return</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$usuario</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
   <div><span
      style="color: #000000;">&nbsp;}</span></div>
   <div><span
@@ -895,7 +1068,7 @@
      style="color: #000000;"> = </span><span
      style="color: #0000ff;">new</span><span
      style="color: #000000;"> </span><span
-     style="color: #267f99;">SrvUsuarioAgrega</span><span
+     style="color: #267f99;">SrvProductoBusca</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #001080;">$servicio</span><span
@@ -906,16 +1079,174 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >3. srv / dao / usuarioAgrega.php</h1><muestra-codigo>
+         <h1 >3. srv / SrvDetalleVentaAgrega.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuRolAgrega.php"</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"lib/php/leeDecimal.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/detalleVentaAgrega.php"</span><span
      style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvDetalleVentaAgrega</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">leeEntero</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"id"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">cantidad</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">leeDecimal</span><span
+     style="color: #000000;">(</span><span
+     style="color: #a31515;">"cantidad"</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #795e26;">detalleVentaAgrega</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">detalles</span><span
+     style="color: #000000;"> = [];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvDetalleVentaAgrega</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >4. srv / dao / productoBusca.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\dao\</span><span
@@ -924,26 +1255,24 @@
   <div><span
      style="color: #0000ff;">use</span><span
      style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #267f99;">Producto</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">usuarioAgrega</span><span
+     style="color: #795e26;">productoBusca</span><span
      style="color: #000000;">(</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #0000ff;">int</span><span
      style="color: #000000;"> </span><span
-     style="color: #001080;">$modelo</span></div>
+     style="color: #001080;">$id</span></div>
   <div><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">valida</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #000000;">): </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">|</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">&nbsp;{</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
      style="color: #001080;">$con</span><span
@@ -954,9 +1283,246 @@
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;"> = </span><span
      style="color: #001080;">$con</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">beginTransaction</span><span
+     style="color: #795e26;">prepare</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> id,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> nombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_PRECIO </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> precio</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PRODUCTO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> PROD_ID </span><span
+     style="color: #000000;">=</span><span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">execute</span><span
+     style="color: #000000;">([</span><span
+     style="color: #a31515;">":id"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$id</span><span
+     style="color: #000000;">]);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">setFetchMode</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">PDO</span><span
+     style="color: #000000;">::FETCH_CLASS,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #267f99;">Producto</span><span
+     style="color: #000000;">::</span><span
+     style="color: #0000ff;">class</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$stmt</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">fetch</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">}</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >5. srv / dao / detalleVentaAgrega.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"txtVentaNoEncontrada.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"txtProductoNoEncontrado.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/ventaActivaBusca.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/productoBusca.php"</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\dao\</span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> srv\modelo\</span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span><span
+     style="color: #000000;"> </span><span
+     style="color: #795e26;">detalleVentaAgrega</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #267f99;">DetalleVenta</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span></div>
+  <div><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$con</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #267f99;">AccesoBd</span><span
+     style="color: #000000;">::</span><span
+     style="color: #795e26;">getCon</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">productoBusca</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">id</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtProductoNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #795e26;">ventaActivaBusca</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtVentaNoEncontrada</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">venta</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$venta</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">producto</span><span
+     style="color: #000000;"> = </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">valida</span><span
      style="color: #000000;">();</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
@@ -970,14 +1536,22 @@
      style="color: #000000;">&nbsp;&nbsp;</span><span
      style="color: #a31515;">"</span><span
      style="color: #0000ff;">INSERT INTO</span><span
-     style="color: #a31515;"> USUARIO</span></div>
+     style="color: #a31515;"> DET_VENTA</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(USU_CUE)</span></div>
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(VENT_ID,
+    PROD_ID,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DTV_CANTIDAD,
+    DTV_PRECIO)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
      style="color: #0000ff;">VALUES</span></div>
   <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:cue)</span><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(:ventId,
+    :prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:cantidad,
+    :precio)</span><span
      style="color: #a31515;">"</span></div>
   <div><span
      style="color: #000000;">&nbsp;);</span></div>
@@ -986,52 +1560,45 @@
      style="color: #001080;">$stmt</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #795e26;">execute</span><span
-     style="color: #000000;">([</span></div>
+     style="color: #000000;">(</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":cue"</span><span
+     style="color: #000000;">&nbsp;&nbsp;[</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":ventId"</span><span
      style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">cue</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;]);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
-    el</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
-    */</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #001080;">$venta</span><span
      style="color: #000000;">-&gt;</span><span
      style="color: #001080;">id</span><span
-     style="color: #000000;"> =</span></div>
+     style="color: #000000;">,</span></div>
   <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$con</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":prodId"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$producto</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">lastInsertId</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #001080;">id</span><span
+     style="color: #000000;">,</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #795e26;">usuRolAgrega</span><span
-     style="color: #000000;">(</span><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":cantidad"</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;=&gt; </span><span
      style="color: #001080;">$modelo</span><span
-     style="color: #000000;">);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">commit</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #001080;">cantidad</span><span
+     style="color: #000000;">,</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #a31515;">":precio"</span><span
+     style="color: #000000;"> =&gt; </span><span
+     style="color: #001080;">$producto</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">precio</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;]</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;);</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
  </div>

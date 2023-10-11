@@ -399,6 +399,11 @@
     </li>
     <li>
      <p>
+      <a href="/m21compras/mMlibjs/m54muestraPrecioJs.html">lib / js / muestraPrecio.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
       <a href="/m21compras/mMlibjs/m55muestraRenderJs.html">lib / js / muestraRender.js</a>
      </p>
     </li>
@@ -782,7 +787,85 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. lib / js / muestraRender.js</h1><muestra-codigo>
+         <h1 >8. lib / js / muestraPrecio.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">plantillaNoEsNumero</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./plantilla/plantillaNoEsNumero.js"</span></div>
+  <br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@template</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">E</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{E}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraPrecio</span>(</div>
+  <div>&nbsp;<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> <span
+     style="color: #000000;">===</span> <span
+     style="color: #a31515;">"number"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #000000;">&amp;&amp;</span> <span
+     style="color: #000000;">!</span><span
+     style="color: #795e26;">isNaN</span>(<span
+     style="color: #001080;">valor</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">value</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"$"</span> <span
+     style="color: #000000;">+</span> <span
+     style="color: #001080;">valor</span>.<span
+     style="color: #795e26;">toFixed</span>(<span
+     style="color: #098658;">2</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">plantillaNoEsNumero</span>(<span
+     style="color: #001080;">valor</span>))</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >9. lib / js / muestraRender.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -819,7 +902,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib / js / muestraTexto.js</h1><muestra-codigo>
+         <h1 >10. lib / js / muestraTexto.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{</div>
@@ -887,7 +970,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / js / parametrosDePagina.js</h1><muestra-codigo>
+         <h1 >11. lib / js / parametrosDePagina.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -907,7 +990,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / js / saltaAIndex.js</h1><muestra-codigo>
+         <h1 >12. lib / js / saltaAIndex.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">export</span> <span
@@ -923,7 +1006,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >12. lib / js / submit.js</h1><muestra-codigo>
+         <h1 >13. lib / js / submit.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{</div>

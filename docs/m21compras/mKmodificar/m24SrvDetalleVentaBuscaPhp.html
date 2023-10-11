@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>3. srv / dao / usuarioAgrega.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «srv/dao/usuarioAgrega.php».">
+ <title>2. srv / SrvDetalleVentaBusca.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/SrvDetalleVentaBusca.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,136 +459,148 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mJagregar/mBSrvUsuarioAgrega.html" title="2. srv / SrvUsuarioAgrega.php">◀</a>
- <a class="siguiente" href="/m21compras/mKmodificar/index.html" title="M. Archivos para modificar registros">▶</a>
-   <h1 >3. srv / dao / usuarioAgrega.php</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mKmodificar/m27modificaHtml.html" title="1. modifica.html">◀</a>
+ <a class="siguiente" href="/m21compras/mKmodificar/m25SrvDetalleVentaModificaPhp.html" title="3. srv / SrvDetalleVentaModifica.php">▶</a>
+   <h1 >2. srv / SrvDetalleVentaBusca.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
   <div><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">__DIR__</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"/../lib/php/autoload.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
      style="color: #af00db;">require_once</span></div>
   <div><span
      style="color: #000000;">&nbsp;</span><span
-     style="color: #a31515;">"srv/dao/usuRolAgrega.php"</span><span
-     style="color: #000000;">;</span></div><br>
-  <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\dao\</span><span
-     style="color: #267f99;">AccesoBd</span><span
+     style="color: #a31515;">"lib/php/leeEntero.php"</span><span
      style="color: #000000;">;</span></div>
   <div><span
-     style="color: #0000ff;">use</span><span
-     style="color: #000000;"> srv\modelo\</span><span
-     style="color: #267f99;">Usuario</span><span
+     style="color: #af00db;">require_once</span><span
+     style="color: #000000;"> </span><span
+     style="color: #a31515;">"srv/txt/"</span><span
+     style="color: #000000;"> </span><span
+     style="color: #000000;">.</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"txtDetalleVentaNoEncontrado.php"</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #af00db;">require_once</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #a31515;">"srv/dao/detalleVentaBusca.php"</span><span
      style="color: #000000;">;</span></div><br>
   <div><span
+     style="color: #0000ff;">use</span><span
+     style="color: #000000;"> \lib\php\</span><span
+     style="color: #267f99;">Servicio</span><span
+     style="color: #000000;">;</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvDetalleVentaBusca</span></div>
+  <div><span
+     style="color: #0000ff;">extends</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Servicio</span></div>
+  <div><span
+     style="color: #000000;">{</span></div><br>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">protected</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
      style="color: #0000ff;">function</span><span
      style="color: #000000;"> </span><span
-     style="color: #795e26;">usuarioAgrega</span><span
-     style="color: #000000;">(</span></div>
+     style="color: #795e26;">implementacion</span><span
+     style="color: #000000;">()</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #267f99;">Usuario</span><span
-     style="color: #000000;"> </span><span
-     style="color: #001080;">$modelo</span></div>
+     style="color: #000000;">&nbsp;{</span></div>
   <div><span
-     style="color: #000000;">)&nbsp;{</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">valida</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$prodId</span><span
      style="color: #000000;"> = </span><span
-     style="color: #267f99;">AccesoBd</span><span
-     style="color: #000000;">::</span><span
-     style="color: #795e26;">getCon</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">beginTransaction</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;"> = </span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">prepare</span><span
-     style="color: #000000;">(</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">INSERT INTO</span><span
-     style="color: #a31515;"> USUARIO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(USU_CUE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">VALUES</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:cue)</span><span
-     style="color: #a31515;">"</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$stmt</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">execute</span><span
-     style="color: #000000;">([</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #a31515;">":cue"</span><span
-     style="color: #000000;"> =&gt; </span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">cue</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;]);</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #008000;">/*&nbsp;Si usas una secuencia para</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;generar el id, pasa como</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;parámetro de lastInsertId
-    el</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
-    */</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$modelo</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #001080;">id</span><span
-     style="color: #000000;"> =</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;&nbsp;</span><span
-     style="color: #001080;">$con</span><span
-     style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">lastInsertId</span><span
-     style="color: #000000;">();</span></div>
-  <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #795e26;">usuRolAgrega</span><span
+     style="color: #795e26;">leeEntero</span><span
      style="color: #000000;">(</span><span
-     style="color: #001080;">$modelo</span><span
+     style="color: #a31515;">"prodId"</span><span
      style="color: #000000;">);</span></div>
   <div><span
-     style="color: #000000;">&nbsp;</span><span
-     style="color: #001080;">$con</span><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">detalleVentaBusca</span><span
+     style="color: #000000;">(</span><span
+     style="color: #001080;">$prodId</span><span
+     style="color: #000000;">);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #000000;"> (</span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;"> === </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #000000;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">throw</span><span
+     style="color: #000000;"> </span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">Exception</span><span
+     style="color: #000000;">(</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">txtDetalleVentaNoEncontrado</span><span
+     style="color: #000000;">()</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;);</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">else</span><span
+     style="color: #000000;">&nbsp;{</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">$modelo</span><span
      style="color: #000000;">-&gt;</span><span
-     style="color: #795e26;">commit</span><span
-     style="color: #000000;">();</span></div>
+     style="color: #001080;">venta</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #001080;">detalles</span><span
+     style="color: #000000;"> = [];</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">return</span><span
+     style="color: #000000;"> </span><span
+     style="color: #001080;">$modelo</span><span
+     style="color: #000000;">;</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;}</span></div>
   <div><span
      style="color: #000000;">}</span></div><br>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;"> =</span></div>
+  <div><span
+     style="color: #000000;">&nbsp;</span><span
+     style="color: #0000ff;">new</span><span
+     style="color: #000000;"> </span><span
+     style="color: #267f99;">SrvDetalleVentaBusca</span><span
+     style="color: #000000;">();</span></div>
+  <div><span
+     style="color: #001080;">$servicio</span><span
+     style="color: #000000;">-&gt;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #000000;">();</span></div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -621,29 +633,49 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m21compras/mIlistados/mCdetalleVentaConsultaPhp.html"
-      title="9. srv / dao / detalleVentaConsulta.php">▲</a>
+    <a class="paginaAnterior" href="/m21compras/mJagregar/mCdetalleVentaAgregaPhp.html"
+      title="5. srv / dao / detalleVentaAgrega.php">▲</a>
    </p>
-     <h1><a href="/m21compras/mJagregar/index.html">L. Archivos para agregar registros</a></h1>
+     <h1><a href="/m21compras/mKmodificar/index.html">M. Archivos para modificar registros</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mAagregaHtml.html">agrega.html</a>
+      <a href="/m21compras/mKmodificar/m27modificaHtml.html">modifica.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mBSrvUsuarioAgrega.html">srv / SrvUsuarioAgrega.php</a>
+      <a href="/m21compras/mKmodificar/m24SrvDetalleVentaBuscaPhp.html" class="actual">srv / SrvDetalleVentaBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mJagregar/mCusuarioAgregaPhp.html" class="actual">srv / dao / usuarioAgrega.php</a>
+      <a href="/m21compras/mKmodificar/m25SrvDetalleVentaModificaPhp.html">srv / SrvDetalleVentaModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mKmodificar/m26SrvDetalleVentaEliminaPhp.html">srv / SrvDetalleVentaElimina.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mKmodificar/m21detalleVentaBuscaPhp.html">srv / dao / detalleVentaBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mKmodificar/m22detalleVentaModificaPhp.html">srv / dao / detalleVentaModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mKmodificar/m23detalleVentaEliminaPhp.html">srv / dao / detalleVentaElimina.php</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m21compras/mKmodificar/index.html"
-      title="M. Archivos para modificar registros">▼</a>
+    <a class="paginaSiguiente" href="/m21compras/mLcustom/index.html"
+      title="N. Custom elements">▼</a>
    </p>
 </nav>
  <script>
@@ -656,9 +688,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mJagregar/mBSrvUsuarioAgrega.html"
+ let urlAnterior = "/m21compras/mKmodificar/m27modificaHtml.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mKmodificar/index.html"
+ let urlSiguiente = "/m21compras/mKmodificar/m25SrvDetalleVentaModificaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

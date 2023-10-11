@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>3. js / custom / campo-roles.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «js/custom/campo-roles.js».">
+ <title>8. lib / js / muestraPrecio.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/muestraPrecio.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -459,60 +459,82 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m21compras/mLcustom/mBcampo-cueJs.html" title="2. js / custom / campo-cue.js">◀</a>
- <a class="siguiente" href="/m21compras/mLcustom/m35boton-agregarJs.html" title="4. lib / js / custom / boton-agregar.js">▶</a>
-   <h1 >3. js / custom / campo-roles.js</h1><muestra-codigo>
+ <a class="anterior" href="/m21compras/mMlibjs/m54muestraNumeroJs.html" title="7. lib / js / muestraNumero.js">◀</a>
+ <a class="siguiente" href="/m21compras/mMlibjs/m55muestraRenderJs.html" title="9. lib / js / muestraRender.js">▶</a>
+   <h1 >8. lib / js / muestraPrecio.js</h1><muestra-codigo>
  <div>
   <div><span
-     style="color: #af00db;">import</span> <span
-     style="color: #a31515;">"../../lib/js/custom/indicador-cargando.js"</span>
-  </div><br>
+     style="color: #af00db;">import</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">plantillaNoEsNumero</span></div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./plantilla/plantillaNoEsNumero.js"</span></div>
+  <br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@template</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{&nbsp;{value:string}&nbsp;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">E</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{E}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
   <div><span
      style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">CampoRoles</span></div>
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraPrecio</span>(</div>
   <div>&nbsp;<span
-     style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
   <div>&nbsp;<span
-     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div>
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> <span
+     style="color: #000000;">===</span> <span
+     style="color: #a31515;">"number"</span></div>
   <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #0070c1;">style</span>.<span
-     style="color: #001080;">display</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #a31515;">"block"</span></div>
+     style="color: #000000;">&amp;&amp;</span> <span
+     style="color: #000000;">!</span><span
+     style="color: #795e26;">isNaN</span>(<span
+     style="color: #001080;">valor</span>))&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">innerHTML</span> <span
-     style="color: #000000;">=</span> <span
-     style="color: #008000;">/*&nbsp;HTML */</span></div>
-  <div>&nbsp;&nbsp;&nbsp;`<span
-     style="color: #800000;">&lt;fieldset&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;legend&gt;</span>Roles<span
-     style="color: #800000;">&lt;/legend&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;div</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"roles"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;indicador-cargando&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/indicador-cargando&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/div&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/fieldset&gt;</span>`</div><br>
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">value</span> <span
+     style="color: #000000;">=</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"$"</span> <span
+     style="color: #000000;">+</span> <span
+     style="color: #001080;">valor</span>.<span
+     style="color: #795e26;">toFixed</span>(<span
+     style="color: #098658;">2</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">plantillaNoEsNumero</span>(<span
+     style="color: #001080;">valor</span>))</div>
   <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #001080;">customElements</span>.<span
-     style="color: #795e26;">define</span>(</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"campo-roles"</span>, <span
-     style="color: #267f99;">CampoRoles</span>)</div>
+  <div>}</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -545,69 +567,79 @@
     <a href="/index.html"
       data-logo="true">GilPG AWOAS</a>
    </p><p>
-    <a class="paginaAnterior" href="/m21compras/mKmodificar/m23usuarioEliminaPhp.html"
-      title="7. srv / dao / usuarioElimina.php">▲</a>
+    <a class="paginaAnterior" href="/m21compras/mLcustom/m45lista-principalJs.html"
+      title="11. lib / js / custom / lista-principal.js">▲</a>
    </p>
-     <h1><a href="/m21compras/mLcustom/index.html">N. Custom elements</a></h1>
+     <h1><a href="/m21compras/mMlibjs/index.html">O. librería de JavaScript</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mAcampo-cue-cargandoJs.html">js / custom / campo-cue-cargando.js</a>
+      <a href="/m21compras/mMlibjs/m48confirmaEliminarJs.html">lib / js / confirmaEliminar.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mBcampo-cueJs.html">js / custom / campo-cue.js</a>
+      <a href="/m21compras/mMlibjs/m49ejecutaJs.html">lib / js / ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/mCcampo-rolesJs.html" class="actual">js / custom / campo-roles.js</a>
+      <a href="/m21compras/mMlibjs/m50escuchaEventosAgregaJs.html">lib / js / escuchaEventosAgrega.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m35boton-agregarJs.html">lib / js / custom / boton-agregar.js</a>
+      <a href="/m21compras/mMlibjs/m51escuchaEventosModificaJs.html">lib / js / escuchaEventosModifica.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m36boton-eliminarJs.html">lib / js / custom / boton-eliminar.js</a>
+      <a href="/m21compras/mMlibjs/m52MetodoHttpJs.html">lib / js / MetodoHttp.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m37boton-guardarJs.html">lib / js / custom / boton-guardar.js</a>
+      <a href="/m21compras/mMlibjs/m53muestraErrorJs.html">lib / js / muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m38campo-id-ocultoJs.html">lib / js / custom / campo-id-oculto.js</a>
+      <a href="/m21compras/mMlibjs/m54muestraNumeroJs.html">lib / js / muestraNumero.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m42hipervinculo-cancelar-indexJs.html">lib / js / custom / hipervinculo-cancelar-index.js</a>
+      <a href="/m21compras/mMlibjs/m54muestraPrecioJs.html" class="actual">lib / js / muestraPrecio.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m43indica-campos-obligatoriosJs.html">lib / js / custom / indica-campos-obligatorios.js</a>
+      <a href="/m21compras/mMlibjs/m55muestraRenderJs.html">lib / js / muestraRender.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m44indicador-cargandoJs.html">lib / js / custom / indicador-cargando.js</a>
+      <a href="/m21compras/mMlibjs/m56muestraTextoJs.html">lib / js / muestraTexto.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m21compras/mLcustom/m45lista-principalJs.html">lib / js / custom / lista-principal.js</a>
+      <a href="/m21compras/mMlibjs/m57parametrosDePaginaJs.html">lib / js / parametrosDePagina.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mMlibjs/m58saltaAIndexJs.html">lib / js / saltaAIndex.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m21compras/mMlibjs/m59submitJs.html">lib / js / submit.js</a>
      </p>
     </li>
    </ol><p>
-    <a class="paginaSiguiente" href="/m21compras/mMlibjs/index.html"
-      title="O. librería de JavaScript">▼</a>
+    <a class="paginaSiguiente" href="/m21compras/mNlibphp/index.html"
+      title="P. librería de PHP">▼</a>
    </p>
 </nav>
  <script>
@@ -620,9 +652,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m21compras/mLcustom/mBcampo-cueJs.html"
+ let urlAnterior = "/m21compras/mMlibjs/m54muestraNumeroJs.html"
  /**@type {string} */
- let urlSiguiente = "/m21compras/mLcustom/m35boton-agregarJs.html"
+ let urlSiguiente = "/m21compras/mMlibjs/m55muestraRenderJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
