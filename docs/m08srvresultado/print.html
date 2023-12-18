@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/js/muestra-codigo.js"></script>
+<script src="/lib/js/muestra-codigo.js"></script>
  <title>Servicio que devuelve un resultado JSON - GilPG AWOAS</title>
  <meta name="description" content="Página para imprimir de la lección «Servicio que devuelve un resultado JSON».">
  <style>
@@ -350,8 +351,9 @@
  }
 </style>
 </head>
+
 <body class="print">
-   <h1 class="leccion">8. Servicio que devuelve un resultado JSON</h1>
+   <h1 >8. Servicio que devuelve un resultado JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -363,71 +365,72 @@
   <h1>Contenido</h1>
   
    <ol type="A">
-    <li>
-     <p>
-      <a href="/m08srvresultado/mAintro.html">Introducción</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mBdeploy.html">Diagrama de despliegue</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mDinstrucciones.html">Instrucciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mEarchivos.html">Archivos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mFindexHtml.html">index.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mGSrvResultadoPhp.html">srv / SrvResultado.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mHjsconfigJson.html">jsconfig.json</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mIejecutaJs.html">lib / js / ejecuta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mJmuestraErrorJs.html">lib / js / muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mKautoloadPhp.html">lib / php / autoload.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mLpathPhp.html">lib / php / path.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mMservicioPhp.html">lib / php / servicio.php</a>
-     </p>
-    </li>
+    
+   <li>
+    <p>
+     <a href="/m08srvresultado/mAintro.html">Introducción</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mBdeploy.html">Diagrama de despliegue</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mDinstrucciones.html">Instrucciones</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mEarchivos.html">Archivos</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mFindexHtml.html">index.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mGSrvResultadoPhp.html">srv / SrvResultado.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mHjsconfigJson.html">jsconfig.json</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mIejecutaJs.html">lib / js / ejecuta.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mJmuestraErrorJs.html">lib / js / muestraError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mKautoloadPhp.html">lib / php / autoload.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mLpathPhp.html">lib / php / path.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mMservicioPhp.html">lib / php / servicio.php</a>
+    </p>
+   </li>
    </ol>
  </nav>
 </div>
@@ -462,36 +465,37 @@
  <nav>
   
    <ol type="1">
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m2servidor.html">Se invoca el servicio en el servidor</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m3procesa.html">El servicio procesa la request y genera la response</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m5muestra.html">Muestra el objeto recibido en un alert</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m08srvresultado/mCfunRecibe/m6termina.html">Al cerrar el alert, termina el evento</a>
-     </p>
-    </li>
+    
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m1cliente.html">Iniciamos al ejecutar código en el cliente</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m2servidor.html">Se invoca el servicio en el servidor</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m3procesa.html">El servicio procesa la request y genera la response</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m5muestra.html">Muestra el objeto recibido en un alert</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvresultado/mCfunRecibe/m6termina.html">Al cerrar el alert, termina el evento</a>
+    </p>
+   </li>
    </ol>
  </nav>
 </div>
@@ -1456,4 +1460,5 @@
 </muestra-codigo>
       </section>
 </body>
+
 </html>

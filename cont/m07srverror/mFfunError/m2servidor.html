@@ -2,23 +2,31 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span style="color: #af00db;">try</span> {</div>
-   <div><span class="resaltado">&nbsp;<span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">ejecuta</span>(</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;<span
-      style="color: #795e26;">fetch</span>(<span
-      style="color: #a31515;">"srv/SrvError.php"</span>))</span></div>
-   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+   <div><span
+      style="color: #af00db;">try</span>&nbsp;{</div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">ejecuta</span>(</mark></div>
+   <div><mark class="resaltado">&nbsp;&nbsp;<span
+       style="color: #a31515;">"srv/srvError.php"</span>)</mark></div>
+   <div>&nbsp;<span
+      style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">"Ejecutado."</span>)</div>
-   <div>} <span style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>) {</div>
-   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
+   <div>}&nbsp;<span
+      style="color: #af00db;">catch</span> (<span
+      style="color: #001080;">error</span>)&nbsp;{</div>
+   <div> <span
+      style="color: #795e26;">muestraError</span>(<span
+      style="color: #001080;">error</span>)</div>
    <div>}</div>
   </div>
  </muestra-codigo>
- <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
+ <p>
+  <mark class="resaltado2">
+   Ejecuta fetch y envía
+  <br>request (solicitud).
+  </mark>
+ </p>
 </section>
 <section style="vertical-align: middle;">
  <h1>Request</h1>
@@ -26,15 +34,15 @@
   <dt>URL</dt>
   <dd>
    <a rel="noopener"
-     href="https://phpservs.gilbertopacheco.repl.co/srv/SrvError.php"
-     target="_blank">SrvError.php</a>
+     href="https://srverror.gilbertopachec5.repl.co/srv/srvError.php"
+     target="_blank">srvError.php</a>
   </dd>
   <dt>Method</dt>
   <dd>GET</dd>
  </dl>
 </section>
 <section style="vertical-align: middle;">
- <h1>SrvError.php</h1>
+ <h1>srvError.php</h1>
  <muestra-codigo class="resaltado">
   <div>
    <div><span style="color: #af00db;">throw</span> <span
@@ -43,5 +51,5 @@
       style="color: #a31515;">"Ouch"</span>);</div>
   </div>
  </muestra-codigo>
- <p class="resaltado2">Despierta y recibe request.</p>
+ <p><mark class="resaltado2">Despierta y recibe request.</mark></p>
 </section>
