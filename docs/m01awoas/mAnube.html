@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>A. La nube - GilPG AWOAS</title>
- <meta name="description" content="Definición de la nube.">
+ <title>B. Nube computacional - GilPG AWOAS</title>
+ <meta name="description" content="Definición de la nube computacional.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -458,24 +457,32 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >A. <dfn>La nube</dfn></h1><div class="lectura">
- <figure>
-  <img src="/img/m01awoas/Imagen1.png">
- </figure>
- <p>
-  Una <dfn>nube computacional</dfn> es el conjunto de servidores remotos en
-  Internet para gestionar archivos y aplicaciones.
- </p>
- <p>
-  Una de las ventajas de una nube es que permite que los usuarios utilicen
-  archivos y aplicaciones sin tener que instalar programas en una computadora
-  con acceso a Internet.
- </p>
- <p>
-  El concepto de nube salió de los diagramas de red, donde Internet se
-  representa como una nube, en una abstracción de la infraestructura que
-  representa.
- </p>
+   <h1 >B. <dfn>Nube computacional</dfn></h1><figure>
+ <img src="/img/m01awoas/Imagen1.png">
+</figure>
+<div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Es el conjunto de servidores remotos en Internet para gestionar archivos y
+    aplicaciones.
+   </p>
+  </li>
+  <li>
+   <p>
+    Una de las ventajas de una nube es que permite que los usuarios utilicen
+    archivos y aplicaciones sin tener que instalar programas en una computadora
+    con acceso a Internet.
+   </p>
+  </li>
+  <li>
+   <p>
+    El concepto de nube salió de los diagramas de red, donde Internet se
+    representa como una nube, en una abstracción de la infraestructura que
+    representa.
+   </p>
+  </li>
+ </ul>
 </div>
  <footer>
  <p>
@@ -500,8 +507,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m01awoas/index.html" title="1. Aplicaciones Orientadas a Servicios">◀</a>
- <a class="siguiente" href="/m01awoas/mBaw.html" title="B. Aplicación web">▶</a>
+ <a class="anterior" href="/m01awoas/mAintro.html" title="A. Introduccion">◀</a>
+ <a class="siguiente" href="/m01awoas/mBaw.html" title="C. Aplicación web">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -515,13 +522,22 @@
    </p>
    
    
-   <h1><a href="/m01awoas/index.html">1. Aplicaciones Orientadas a Servicios</a></h1>
+     <p>
+      <a class="paginaAnterior" href="/m00instrucciones.html"
+        title="2. Instrucciones de navegación">▲</a>
+     </p>
+   <h1><a href="/m01awoas/index.html">3. Aplicaciones Orientadas a Servicios</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m01awoas/mAnube.html" class="actual"><dfn>La nube</dfn></a>
+     <a href="/m01awoas/mAintro.html">Introduccion</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mAnube.html" class="actual"><dfn>Nube computacional</dfn></a>
     </p>
    </li>
    <li>
@@ -564,11 +580,16 @@
      <a href="/m01awoas/mImashups.html"><dfn>Aplicación web hibrida (Mashup)</dfn></a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mJresumen.html">Resumen</a>
+    </p>
+   </li>
    </ol>
    
     <p>
      <a class="paginaSiguiente" href="/m02servicio/index.html"
-       title="2. Ejemplo de servicio">▼</a>
+       title="4. Ejemplo de servicio">▼</a>
     </p>
  
 </nav>
@@ -582,7 +603,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m01awoas/index.html"
+ let urlAnterior = "/m01awoas/mAintro.html"
  /**@type {string} */
  let urlSiguiente = "/m01awoas/mBaw.html"
  /**@type {number|null} */

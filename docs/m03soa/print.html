@@ -145,13 +145,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -353,7 +352,7 @@
 </head>
 
 <body class="print">
-   <h1 >3. Arquitectura orientada a servicios</h1>
+   <h1 >5. Arquitectura orientada a servicios</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -361,14 +360,16 @@
     </p>
    </div>
 <div class="lectura">
- <p>
-  En esta lección se presenta la arquitectura orientada a servicios.
- </p>
  <nav>
   <h1>Contenido</h1>
   
    <ol type="A">
     
+   <li>
+    <p>
+     <a href="/m03soa/mAintro.html">Introducción</a>
+    </p>
+   </li>
    <li>
     <p>
      <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
@@ -396,99 +397,51 @@
    </li>
    <li>
     <p>
-     <a href="/m03soa/mFxml.html">Introducción a XML</a>
+     <a href="/m03soa/mFxml/">Introducción a XML</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mGdefXml.html"><dfn>XML</dfn></a>
+     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mHejXml.html">Ejemplo de XML</a>
+     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mIdtdXml.html">DTD MiContacto</a>
+     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mJsoap.html">Introducción a SOAP</a>
+     <a href="/m03soa/mJrest/">Introducción a REST</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mKdefSoap.html"><dfn>SOAP</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mLestrSoap.html">Estructura de los mensajes de SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mMsolSoap.html">Ejemplo de solicitud SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mNrespSoap.html">Ejemplo de respuesta SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mOwsdl.html">Introducción a WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mPdefWsdl.html"><dfn>WSDL</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mQelemWsdl.html">Elementos de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mRejemWsdl.html">Ejemplo de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mSuddi.html">Introducción a UDDI</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mTdefUddi.html"><dfn>UDDI</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mUrest.html">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mVdefRest.html"><dfn>REST</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mWestrRest.html">Estructura de REST</a>
+     <a href="/m03soa/mKresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
  </nav>
 </div>
      <section >
-         <h1 >A. <dfn>Arquitectura orientada a servicios</dfn></h1><div class="lectura">
+         <h1 >A. Introducción</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    En esta lección se presentan el concepto y los componentes de una
+    arquitectura orientada a servicios.
+   </p>
+  </li>
+ </ul>
+</div>
+      </section>
+     <section >
+         <h1 >B. <dfn>Arquitectura orientada a servicios</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -521,7 +474,7 @@
 </div>
       </section>
      <section >
-         <h1 >B. Ventajas</h1><div class="lectura">
+         <h1 >C. Ventajas</h1><div class="lectura">
  <ul>
   <li>
    <p>Reduce el nivel de acoplamiento.</p>
@@ -567,7 +520,7 @@
 </div>
       </section>
      <section >
-         <h1 >C. Principios de diseño de un servicio</h1><div class="lectura">
+         <h1 >D. Principios de diseño de un servicio</h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -622,10 +575,10 @@
 </div>
       </section>
      <section >
-         <h1 >D. Capas</h1><div class="marco-lectura">
- <figure>
-  <img src="/img/m03soa/capas_soa.svg" alt="Capas de SOA">
- </figure>
+         <h1 >E. Capas</h1><figure>
+ <img src="/img/m03soa/capas_soa.svg" alt="Capas de SOA">
+</figure>
+<div class="lectura">
  <dl>
   <dt>Capa de acceso</dt>
   <dd>
@@ -675,24 +628,27 @@
   <small>
    Fuente:
    <a href="https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa"
-     target="_blank" rel="nooper">https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa</a>
+     target="_blank"
+     rel="nooper">https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa</a>
   </small>
  </p>
 </div>
       </section>
      <section >
-         <h1 >E. <dfn>Diagrama de Arquitectura</dfn></h1><div class="lectura">
+         <h1 >F. <dfn>Diagrama de Arquitectura</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
-    A continuación se muestra como quedaría un ejemplo de bases de datos
-    si se adaptara a SOA.
+    Puedes encontrar información sobre este tipo de diagramas en:
+    <a href="https://www.uml-diagrams.org/component-diagrams.html"
+      target="_blank"
+      rel="nooper">https://www.uml-diagrams.org/component-diagrams.html</a>.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://www.uml-diagrams.org/component-diagrams.html"
-      target="_blank" rel="nooper">Diagramas de Componentes para SOA.</a>
+    A continuación se muestra como quedaría un sitio con bases de datos
+    si se adaptara a SOA.
    </p>
   </li>
  </ul>
@@ -701,22 +657,41 @@
  <img style="max-height: none;" src="/img/m03soa/arquitectura_soa.svg"
    alt="Capas de SOA">
 </figure>
+      </section>
+     <section>
+         <h1 >G. Introducción a XML</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
 <div class="lectura">
- <p>
-  <small>
-   Fuente:
-   <a href="https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa"
-     target="_blank"
-     rel="nooper">https://www.slideshare.net/imcinstitute/service-oriented-architecture-soa-15-introduction-to-soa</a>
-  </small>
- </p>
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m03soa/mFxml/m1defXml.html"><dfn>XML</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mFxml/m2ejXml.html">Ejemplo de XML</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mFxml/m3dtdXml.html">DTD MiContacto</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
 </div>
-      </section>
      <section >
-         <h1 >F. Introducción a XML</h1>
-      </section>
-     <section >
-         <h1 >G. <dfn>XML</dfn></h1><div class="lectura">
+         <h1 >1. <dfn>XML</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -752,7 +727,7 @@
 </div>
       </section>
      <section >
-         <h1 >H. Ejemplo de XML</h1><muestra-codigo>
+         <h1 >2. Ejemplo de XML</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?xml</span><span
      style="color: #ff0000;">&nbsp;version</span>=<span
@@ -786,7 +761,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >I. DTD MiContacto</h1><muestra-codigo>
+         <h1 >3. DTD MiContacto</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?xml</span><span
      style="color: #ff0000;">&nbsp;version</span>=<span
@@ -807,11 +782,46 @@
  </div>
 </muestra-codigo>
       </section>
-     <section >
-         <h1 >J. Introducción a SOAP</h1>
       </section>
+     <section>
+         <h1 >H. Introducción a SOAP</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m03soa/mGsoap/mKdefSoap.html"><dfn>SOAP</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mGsoap/mLestrSoap.html">Estructura de los mensajes de SOAP</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mGsoap/mMsolSoap.html">Ejemplo de solicitud SOAP</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mGsoap/mNrespSoap.html">Ejemplo de respuesta SOAP</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
+</div>
      <section >
-         <h1 >K. <dfn>SOAP</dfn></h1><div class="lectura">
+         <h1 >1. <dfn>SOAP</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -845,7 +855,7 @@
 </div>
       </section>
      <section >
-         <h1 >L. Estructura de los mensajes de SOAP</h1><div class="marco-lectura">
+         <h1 >2. Estructura de los mensajes de SOAP</h1><div class="marco-lectura">
  <figure>
   <img src="/img/m03soa/mensajes_soap.svg" alt="Mensajes SOAP">
  </figure>
@@ -882,7 +892,7 @@
 </div>
       </section>
      <section >
-         <h1 >M. Ejemplo de solicitud SOAP</h1><muestra-codigo>
+         <h1 >3. Ejemplo de solicitud SOAP</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span
      style="color: #ff0000;">xmlns:soap</span>=<span
@@ -931,7 +941,7 @@
 </div>
       </section>
      <section >
-         <h1 >N. Ejemplo de respuesta SOAP</h1><muestra-codigo>
+         <h1 >4. Ejemplo de respuesta SOAP</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span
      style="color: #ff0000;">xmlns:soap</span>=<span
@@ -981,11 +991,41 @@
  </p>
 </div>
       </section>
-     <section >
-         <h1 >O. Introducción a WSDL</h1>
       </section>
+     <section>
+         <h1 >I. Introducción a WSDL</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m03soa/mHwsdl/mPdefWsdl.html"><dfn>WSDL</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mHwsdl/mQelemWsdl.html">Elementos de WSDL</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mHwsdl/mRejemWsdl.html">Ejemplo de WSDL</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
+</div>
      <section >
-         <h1 >P. <dfn>WSDL</dfn></h1><div class="lectura">
+         <h1 >1. <dfn>WSDL</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1033,7 +1073,7 @@
 </div>
       </section>
      <section >
-         <h1 >Q. Elementos de WSDL</h1><div class="lectura">
+         <h1 >2. Elementos de WSDL</h1><div class="lectura">
  <dl>
   <dt><dfn>types</dfn></dt>
   <dd>
@@ -1077,7 +1117,7 @@
 </div>
       </section>
      <section >
-         <h1 >R. Ejemplo de WSDL</h1><muestra-codigo>
+         <h1 >3. Ejemplo de WSDL</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;definitions</span>&nbsp;<span
      style="color: #ff0000;">name</span>=“PrecioProd“</div>
@@ -1266,11 +1306,9 @@
  </div>
 </muestra-codigo>
       </section>
-     <section >
-         <h1 >S. Introducción a UDDI</h1>
       </section>
      <section >
-         <h1 >T. <dfn>UDDI</dfn></h1><div class="lectura">
+         <h1 >J. <dfn>UDDI</dfn></h1><div class="lectura">
  <p><strong>Este estándar no se usa.</strong></p>
  <ul>
   <li>
@@ -1325,11 +1363,40 @@
  </p>
 </div>
       </section>
+     <section>
+         <h1 >K. Introducción a REST</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m03soa/mJrest/m1defRest.html"><dfn>REST</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mJrest/m2dirsRest.html"><dfn>Solicitud HTTP</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m03soa/mJrest/m3metodosRes.html">Métodos de envío HTTP</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
+</div>
      <section >
-         <h1 >U. Introducción a REST</h1>
-      </section>
-     <section >
-         <h1 >V. <dfn>REST</dfn></h1><div class="lectura">
+         <h1 >1. <dfn>REST</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1343,13 +1410,6 @@
    <p>
     Estilo de arquitectura de software para sistemas distribuidos en la World
     Wide Web.
-   </p>
-  </li>
-  <li>
-   <p>
-    Es cualquier interfaz entre sistemas que use HTTP para obtener datos o
-    realizar operaciones sobre esos datos usando formatos para intercambio de
-    datos como XML, YAML o JSON.
    </p>
   </li>
  </ul>
@@ -1368,7 +1428,7 @@
 </div>
       </section>
      <section >
-         <h1 >W. Estructura de REST</h1><div class="lectura">
+         <h1 >2. <dfn>Solicitud HTTP</dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1401,10 +1461,31 @@
     <dt><dfn>carga útil</dfn></dt>
     <dd>
      <p>
-      Contiene datos adicionales, también llamados
+      Contiene datos adicionales,Pueden representarse en los siguientes
+      formatos:
      </p>
+     <ul>
+      <li>
+       <p>application/x-www-form-urlencoded</p>
+      </li>
+      <li>
+       <p>multipart/form-data</p>
+      </li>
+      <li>
+       <p>text/plain</p>
+      </li>
+      <li>
+       <p>XML</p>
+      </li>
+      <li>
+       <p>JSON</p>
+      </li>
+      <li>
+       <p>YAML</p>
+      </li>
+     </ul>
     </dd>
-    <dfn>Método de envío</dfn>
+    <dt><dfn>Método de envío</dfn></dt>
     <dd>
      <p>
       Indica la acción que debe realizarse sobre la URL, usando los datos
@@ -1412,93 +1493,6 @@
      </p>
     </dd>
    </dl>
-  </li>
-  <li>
-   <p>Los métodos de envío son:</p>
-   <dl>
-    <dt><dfn>TRACE</dfn></dt>
-    <dd>
-     <p>
-      Realiza una prueba de enviar un mensaje mensaje al servidor de la URL
-      y recibirlo de regreso sin modificaciones.
-     </p>
-    </dd>
-    <dt><dfn>OPTIONS</dfn></dt>
-    <dd>
-     <p>
-      Devuelve una descripción de las opciones de comunicación de laURL.
-     </p>
-    </dd>
-    <dt><dfn>CONNECT</dfn></dt>
-    <dd>
-     <p>
-      Establece un tunel bidireccional hacia el servidor.
-     </p>
-    </dd>
-    <dt><dfn>GET</dfn></dt>
-    <dd>
-     <p>
-      Devuelve los datos de la colección u objeto asociados con la URL, sin
-      modificar el estado del servidor.
-     </p>
-     <p>
-      Puede tomarse en cuenta los parámetros que lleva la URL, como si
-      fueran las condiciones de una cláusula WHERE de SQL.
-     </p>
-    </dd>
-    <dt><dfn>HEAD</dfn></dt>
-    <dd>
-     <p>
-      Devuelve una respuesta como la de GET, pero sin el cuerpo de la
-      respuesta.
-     </p>
-    </dd>
-    <dt><dfn>POST</dfn></dt>
-    <dd>
-     <p>Envía una entidad a una URL.</p>
-     <p>
-      Si la URL representa una lista que no contiene esa entidad, la agrega.
-     </p>
-     <p>
-      Los datos de la entidad se indican en el cuerpo de la solicitud.
-     </p>
-     <p>
-      A menudo causa un cambio o efectos secundarios en el servidor.
-     </p>
-    </dd>
-    <dt><dfn>PUT</dfn></dt>
-    <dd>
-     <p>
-      Reemplaza toda la entidad indicada en la URL con el contenido del
-      cuerpo de la solicitud.
-     </p>
-    </dd>
-    <dt><dfn>PATCH</dfn></dt>
-    <dd>
-     <p>
-      Modifica parcialmente la entidad de la URL, modificando solamente los
-      datos enviados en el cuerpo de la solicitud.
-     </p>
-    </dd>
-    <dt><dfn>DELETE</dfn></dt>
-    <dd>
-     <p>Eliminar la entidad de la URL</p>
-    </dd>
-   </dl>
-  </li>
-  <li>
-   <p>
-    Los datos de la solicitud que van dentro de la información adicional,
-    pueden enviarse en los siguientes formatos:
-   </p>
-   <ul>
-    <li>application/x-www-form-urlencoded</li>
-    <li>multipart/form-data</li>
-    <li>text/plain</li>
-    <li>XML</li>
-    <li>JSON</li>
-    <li>YAML</li>
-   </ul>
   </li>
  </ul>
  <p>
@@ -1508,6 +1502,129 @@
      target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a>
   </small>
  </p>
+</div>
+      </section>
+     <section >
+         <h1 >3. Métodos de envío HTTP</h1><div class="lectura">
+ <dl>
+  <dt><dfn>TRACE</dfn></dt>
+  <dd>
+   <p>
+    Realiza una prueba de enviar un mensaje mensaje al servidor de la URL
+    y recibirlo de regreso sin modificaciones.
+   </p>
+  </dd>
+  <dt><dfn>OPTIONS</dfn></dt>
+  <dd>
+   <p>
+    Devuelve una descripción de las opciones de comunicación de laURL.
+   </p>
+  </dd>
+  <dt><dfn>CONNECT</dfn></dt>
+  <dd>
+   <p>
+    Establece un tunel bidireccional hacia el servidor.
+   </p>
+  </dd>
+  <dt><dfn>GET</dfn></dt>
+  <dd>
+   <p>
+    Devuelve los datos de la colección u objeto asociados con la URL, sin
+    modificar el estado del servidor.
+   </p>
+   <p>
+    Puede tomarse en cuenta los parámetros que lleva la URL, como si
+    fueran las condiciones de una cláusula WHERE de SQL.
+   </p>
+  </dd>
+  <dt><dfn>HEAD</dfn></dt>
+  <dd>
+   <p>
+    Devuelve una respuesta como la de GET, pero sin el cuerpo de la
+    respuesta.
+   </p>
+  </dd>
+  <dt><dfn>POST</dfn></dt>
+  <dd>
+   <p>Envía una entidad a una URL.</p>
+   <p>
+    Si la URL representa una lista que no contiene esa entidad, la agrega.
+   </p>
+   <p>
+    Los datos de la entidad se indican en el cuerpo de la solicitud.
+   </p>
+   <p>
+    A menudo causa un cambio o efectos secundarios en el servidor.
+   </p>
+  </dd>
+  <dt><dfn>PUT</dfn></dt>
+  <dd>
+   <p>
+    Reemplaza toda la entidad indicada en la URL con el contenido del
+    cuerpo de la solicitud.
+   </p>
+  </dd>
+  <dt><dfn>PATCH</dfn></dt>
+  <dd>
+   <p>
+    Modifica parcialmente la entidad de la URL, modificando solamente los
+    datos enviados en el cuerpo de la solicitud.
+   </p>
+  </dd>
+  <dt><dfn>DELETE</dfn></dt>
+  <dd>
+   <p>Eliminar la entidad de la URL</p>
+  </dd>
+ </dl>
+ <p>
+  <small>
+   Fuente:
+   <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Methods" rel="nooper"
+     target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a>
+  </small>
+ </p>
+</div>
+      </section>
+      </section>
+     <section >
+         <h1 >L. Resumen</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>En esta lección se introdujeron los siguientes temas:</p>
+   <ul>
+    <li>
+     <p>Arquitectura orientada a servicios</p>
+    </li>
+    <li>
+     <p>Ventajas de una arquitectura orientada a servicios</p>
+    </li>
+    <li>
+     <p>Principios de diseño de un servici</p>
+    </li>
+    <li>
+     <p>Capas de una arquitectura orientada a servicios</p>
+    </li>
+    <li>
+     <p>Diagrama de Arquitectura</p>
+    </li>
+    <li>
+     <p>XML</p>
+    </li>
+    <li>
+     <p>SOAP</p>
+    </li>
+    <li>
+     <p>WSDL</p>
+    </li>
+    <li>
+     <p>UDDI</p>
+    </li>
+    <li>
+     <p>REST</p>
+    </li>
+   </ul>
+  </li>
+ </ul>
 </div>
       </section>
 </body>

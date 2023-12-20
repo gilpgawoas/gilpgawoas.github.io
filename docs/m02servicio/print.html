@@ -145,13 +145,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -353,7 +352,7 @@
 </head>
 
 <body class="print">
-   <h1 >2. Ejemplo de servicio</h1>
+   <h1 >4. Ejemplo de servicio</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -383,7 +382,7 @@
    </li>
    <li>
     <p>
-     <a href="/m02servicio/mDinstrucciones.html">Instrucciones</a>
+     <a href="/m02servicio/mDinstrucciones.html">Hazlo funcionar</a>
     </p>
    </li>
    <li>
@@ -399,6 +398,11 @@
    <li>
     <p>
      <a href="/m02servicio/mGservicioPhp.html">servicio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m02servicio/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
@@ -433,6 +437,7 @@
    </div>
 <div class="lectura">
  <nav>
+  <h1>Contenido</h1>
   
    <ol type="1">
     
@@ -929,7 +934,7 @@
       </section>
       </section>
      <section >
-         <h1 >D. Instrucciones</h1><div class="lectura">
+         <h1 >D. Hazlo funcionar</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -1006,7 +1011,7 @@
      style="color: #0000ff;">"es"</span><span
      style="color: #800000;">&gt;</span></div><br>
   <div><span
-     style="color: #800000;">&lt;head&gt;</span></div>
+     style="color: #800000;">&lt;head&gt;</span></div><br>
   <div>&nbsp;<span
      style="color: #800000;">&lt;meta</span> <span
      style="color: #e50000;">charset</span>=<span
@@ -1015,69 +1020,87 @@
   <div>&nbsp;<span
      style="color: #800000;">&lt;meta</span> <span
      style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">"viewport"</span> <span
      style="color: #e50000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div>
+     style="color: #800000;">&gt;</span></div><br>
   <div>&nbsp;<span
      style="color: #800000;">&lt;title&gt;</span>Servicio<span
-     style="color: #800000;">&lt;/title&gt;</span></div>
+     style="color: #800000;">&lt;/title&gt;</span></div><br>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span
-     style="color: #800000;">&lt;body&gt;</span></div>
+     style="color: #800000;">&lt;body&gt;</span></div><br>
   <div>&nbsp;<span
      style="color: #800000;">&lt;h1&gt;</span>Servicio<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
+     style="color: #800000;">&lt;/h1&gt;</span></div><br>
   <div>&nbsp;<span
      style="color: #800000;">&lt;button</span> <span
      style="color: #e50000;">onclick</span>=<span
      style="color: #0000ff;">"</span><span
-     style="color: #0000ff;">ejecuta()"</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #0000ff;">()"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp;&nbsp;Ejecuta</div>
   <div>&nbsp;<span
      style="color: #800000;">&lt;/button&gt;</span></div><br>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;script&gt;</span></div>
+     style="color: #800000;">&lt;script&gt;</span></div><br>
   <div>&nbsp;&nbsp;<span
      style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> ejecuta()&nbsp;{</div>
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>()&nbsp;{</div>
   <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">try</span>&nbsp;{</div>
+     style="color: #af00db;">try</span>&nbsp;{</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">/*&nbsp;Se conecta a servicio.php</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;y recibe su
-    respuesta. */</span></div>
+     style="color: #008000;">// Se conecta a servicio.php y recibe su
+    respuesta.</span></div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> resp =</div>
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">resp</span> =</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">await</span> fetch(<span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">fetch</span>(<span
      style="color: #a31515;">"servicio.php"</span>)</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">if</span> (resp.ok)&nbsp;{</div>
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #001080;">ok</span>)&nbsp;{</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> texto =</div>
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">texto</span> =</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">await</span> resp.text()</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(texto)</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span
-     style="color: #0000ff;">else</span>&nbsp;{</div>
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">text</span>()</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">throw</span> <span
-     style="color: #0000ff;">new</span> Error(</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resp.statusText)</div>
+     style="color: #795e26;">alert</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #001080;">statusText</span>)</div>
   <div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
   <div>&nbsp;&nbsp;&nbsp;}&nbsp;<span
-     style="color: #0000ff;">catch</span> (e)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;console.error(e)</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;alert(e.message)</div>
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">error</span>(<span
+     style="color: #001080;">error</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">alert</span>(<span
+     style="color: #001080;">error</span>.<span
+     style="color: #001080;">message</span>)</div>
   <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div><br>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;/script&gt;</span></div>
+     style="color: #800000;">&lt;/script&gt;</span></div><br>
   <div><span
      style="color: #800000;">&lt;/body&gt;</span></div><br>
   <div><span
@@ -1090,10 +1113,20 @@
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
-  <div>echo <span
+  <div><span
+     style="color: #795e26;">echo</span> <span
      style="color: #a31515;">"Hola"</span>;</div><br>
  </div>
 </muestra-codigo>
+      </section>
+     <section >
+         <h1 >H. Resumen</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>En esta lección se mostró el funcionamiento de un servicio.</p>
+  </li>
+ </ul>
+</div>
       </section>
 </body>
 

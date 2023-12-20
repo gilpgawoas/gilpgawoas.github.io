@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -564,30 +563,27 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span style="color: #af00db;">try</span> {</div>
-   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+   <div><span
+      style="color: #0000ff;">const</span> <span
       style="color: #0070c1;">json</span> = <span
       style="color: #af00db;">await</span> <span
       style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp;&nbsp;<span style="color: #795e26;">fetch</span>(<span
-      style="color: #a31515;">"srv/SrvResultado.php"</span>))</div>
-   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+   <div>&nbsp;<span
+      style="color: #a31515;">"srv/srvResultado.php"</span>)</div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">`Nombre: </span><span
       style="color: #0000ff;">${</span><span
       style="color: #0070c1;">json</span>.<span
       style="color: #001080;">nombre</span><span
       style="color: #0000ff;">}</span></div>
-   <div><span style="color: #a31515;">Mensaje: </span><span
+   <div><span
+      style="color: #a31515;">Mensaje: </span><span
       style="color: #0000ff;">${</span><span
       style="color: #0070c1;">json</span>.<span
       style="color: #001080;">mensaje</span><span
       style="color: #0000ff;">}</span><span
       style="color: #a31515;">`</span>)</div>
-   <div>} <span style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>) {</div>
-   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
-   <div>}</div>
   </div>
  </muestra-codigo>
 </section>
@@ -615,7 +611,7 @@
   &#x2630;
  </button>
  <a class="anterior" href="/m08srvresultado/mCfunRecibe/m5muestra.html" title="5. Muestra el objeto recibido en un alert">◀</a>
- <a class="siguiente" href="/m08srvresultado/mDinstrucciones.html" title="D. Instrucciones">▶</a>
+ <a class="siguiente" href="/m08srvresultado/mDinstrucciones.html" title="D. Hazlo funcionar">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -629,7 +625,7 @@
    </p>
    
    <p>
-    <a href="/m08srvresultado/">8. Servicio que devuelve un resultado JSON</a>
+    <a href="/m08srvresultado/">10. Servicio que devuelve un resultado JSON</a>
    </p>
    
      <p>
@@ -674,7 +670,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m08srvresultado/mDinstrucciones.html"
-       title="D. Instrucciones">▼</a>
+       title="D. Hazlo funcionar">▼</a>
     </p>
  
 </nav>

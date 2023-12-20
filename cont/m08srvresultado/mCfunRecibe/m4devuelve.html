@@ -1,38 +1,33 @@
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span style="color: #af00db;">try</span> {</div>
-   <div><span class="resaltado">&nbsp;<span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">json</span> = <span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">ejecuta</span>(</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;<span
-      style="color: #795e26;">fetch</span>(<span
-      style="color: #a31515;">"srv/SrvResultado.php"</span>))</span></div>
-   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+   <div><mark class="resaltado"><span
+       style="color: #0000ff;">const</span> <span
+       style="color: #0070c1;">json</span> = <span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">ejecuta</span>(</mark></div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #a31515;">"srv/srvResultado.php"</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
       style="color: #a31515;">`Nombre: </span><span
       style="color: #0000ff;">${</span><span
       style="color: #0070c1;">json</span>.<span
       style="color: #001080;">nombre</span><span
       style="color: #0000ff;">}</span></div>
-   <div><span style="color: #a31515;">Mensaje: </span><span
+   <div><span
+      style="color: #a31515;">Mensaje: </span><span
       style="color: #0000ff;">${</span><span
       style="color: #0070c1;">json</span>.<span
       style="color: #001080;">mensaje</span><span
       style="color: #0000ff;">}</span><span
       style="color: #a31515;">`</span>)</div>
-   <div>} <span style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>) {</div>
-   <div>&nbsp;<span style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
-   <div>}</div>
   </div>
  </muestra-codigo>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top; overflow-wrap: anywhere;">
  <section style="display: block;">
   <h1>Response</h1>
   <dl class="resaltado">
@@ -57,18 +52,18 @@
   </dl>
  </section>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvResultado.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvResultado.php</h1>
  <muestra-codigo>
   <div>
    <div><span class="resaltado3"><span
-      style="color: #af00db;">return</span> [</span></div>
+       style="color: #af00db;">return</span> [</span></div>
    <div><span class="resaltado3">&nbsp;<span
-      style="color: #a31515;">"nombre"</span> =&gt; <span
-      style="color: #a31515;">"pp"</span>,</span></div>
+       style="color: #a31515;">"nombre"</span> =&gt; <span
+       style="color: #a31515;">"pp"</span>,</span></div>
    <div><span class="resaltado3">&nbsp;<span
-      style="color: #a31515;">"mensaje"</span> =&gt; <span
-      style="color: #a31515;">"Hola."</span></span></div>
+       style="color: #a31515;">"mensaje"</span> =&gt; <span
+       style="color: #a31515;">"Hola."</span></span></div>
    <div><span class="resaltado3">];</span></div>
   </div>
  </muestra-codigo>

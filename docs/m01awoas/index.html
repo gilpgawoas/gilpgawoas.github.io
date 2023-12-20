@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>1. Aplicaciones Orientadas a Servicios - GilPG AWOAS</title>
+ <title>3. Aplicaciones Orientadas a Servicios - GilPG AWOAS</title>
  <meta name="description" content="Contenido de la lección «Aplicaciones Orientadas a Servicios»">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -458,7 +457,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >1. Aplicaciones Orientadas a Servicios</h1>
+   <h1 >3. Aplicaciones Orientadas a Servicios</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -466,10 +465,6 @@
     </p>
    </div>
 <div class="lectura">
- <p>
-  En esta lección se presentan loa conceptos de aplicaciones web orientadas a
-  servicios y mashups.
- </p>
  <nav>
   <h1>Contenido</h1>
   
@@ -477,7 +472,12 @@
     
    <li>
     <p>
-     <a href="/m01awoas/mAnube.html"><dfn>La nube</dfn></a>
+     <a href="/m01awoas/mAintro.html">Introduccion</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mAnube.html"><dfn>Nube computacional</dfn></a>
     </p>
    </li>
    <li>
@@ -518,6 +518,11 @@
    <li>
     <p>
      <a href="/m01awoas/mImashups.html"><dfn>Aplicación web hibrida (Mashup)</dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mJresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
@@ -546,8 +551,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/index.html" title="Aplicaciones web orientadas a servicios y mashups">◀</a>
- <a class="siguiente" href="/m01awoas/mAnube.html" title="A. La nube">▶</a>
+ <a class="anterior" href="/m00instrucciones.html" title="2. Instrucciones de navegación">◀</a>
+ <a class="siguiente" href="/m01awoas/mAintro.html" title="A. Introduccion">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -561,13 +566,22 @@
    </p>
    
    
-   <h1><a href="/m01awoas/index.html" class="actual">1. Aplicaciones Orientadas a Servicios</a></h1>
+     <p>
+      <a class="paginaAnterior" href="/m00instrucciones.html"
+        title="2. Instrucciones de navegación">▲</a>
+     </p>
+   <h1><a href="/m01awoas/index.html" class="actual">3. Aplicaciones Orientadas a Servicios</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m01awoas/mAnube.html"><dfn>La nube</dfn></a>
+     <a href="/m01awoas/mAintro.html">Introduccion</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mAnube.html"><dfn>Nube computacional</dfn></a>
     </p>
    </li>
    <li>
@@ -610,11 +624,16 @@
      <a href="/m01awoas/mImashups.html"><dfn>Aplicación web hibrida (Mashup)</dfn></a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m01awoas/mJresumen.html">Resumen</a>
+    </p>
+   </li>
    </ol>
    
     <p>
      <a class="paginaSiguiente" href="/m02servicio/index.html"
-       title="2. Ejemplo de servicio">▼</a>
+       title="4. Ejemplo de servicio">▼</a>
     </p>
  
 </nav>
@@ -628,9 +647,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/index.html"
+ let urlAnterior = "/m00instrucciones.html"
  /**@type {string} */
- let urlSiguiente = "/m01awoas/mAnube.html"
+ let urlSiguiente = "/m01awoas/mAintro.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

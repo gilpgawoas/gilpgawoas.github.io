@@ -145,13 +145,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -362,6 +361,7 @@
    </div>
 <div class="lectura">
  <nav>
+  <h1>Contenido</h1>
   
    <ol type="1">
     
@@ -646,8 +646,8 @@
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">error</span>) {</div>
    <div><mark class="resaltado">&nbsp;<span
-      style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">error</span>)</mark></div>
+       style="color: #795e26;">muestraError</span>(<span
+       style="color: #001080;">error</span>)</mark></div>
    <div>}</div>
   </div>
  </muestra-codigo>
@@ -675,11 +675,12 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div class="resaltado" style="padding: 1rem;">
-  <pre>Error: Ouch
-   at ejecuta (ejecuta.js:19:9)
-   at async HTMLButtonElement.error (VM5:64:5)</pre>
- </div>
+ <muestra-codigo class="resaltado">
+  <div>Error: Ouch</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaError ((índice):28:5)</div>
+ </muestra-codigo>
+
 </section>
       </section>
      <section class="pruebaDeEscritorio">
@@ -708,11 +709,11 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div style="padding: 1rem;">
-  <pre>Error: Ouch
-   at ejecuta (ejecuta.js:19:9)
-   at async HTMLButtonElement.error (VM5:64:5)</pre>
- </div>
+ <muestra-codigo>
+  <div>Error: Ouch</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaError ((índice):28:5)</div>
+ </muestra-codigo>
 </section>
       </section>
 </body>

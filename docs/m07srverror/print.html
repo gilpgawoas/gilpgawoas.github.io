@@ -145,13 +145,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -353,7 +352,7 @@
 </head>
 
 <body class="print">
-   <h1 >7. Servicio que falla</h1>
+   <h1 >9. Servicio que falla</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -373,7 +372,7 @@
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mBejecuta.html">La función <code>ejecuta</code>.</a>
+     <a href="/m07srverror/mBejecuta.html">La función <code>ejecuta</code> de JavaScript.</a>
     </p>
    </li>
    <li>
@@ -383,7 +382,7 @@
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mDservicio.html">La clase <code>Servicio</code>.</a>
+     <a href="/m07srverror/mDservicio.html">La función <code>ejecuta</code> de PHP.</a>
     </p>
    </li>
    <li>
@@ -398,7 +397,7 @@
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mGinstrucciones.html">Instrucciones</a>
+     <a href="/m07srverror/mGinstrucciones.html">Hazlo funcionar</a>
     </p>
    </li>
    <li>
@@ -418,6 +417,11 @@
    </li>
    <li>
     <p>
+     <a href="/m07srverror/m-srv/">Carpeta « srv » </a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m07srverror/m-jsconfig-json.html">jsconfig.json</a>
     </p>
    </li>
@@ -428,7 +432,7 @@
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-srv/">Carpeta « srv » </a>
+     <a href="/m07srverror/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
@@ -436,99 +440,106 @@
 </div>
      <section >
          <h1 >A. Introducción</h1><div class="lectura">
- <p>
-  A partir de esta lección se estandariza la forma de procesar servicios.
- </p>
- <p>
-  Este ejemplo muestra como procesar un servicio que detecta errores al
-  ejecutarse.
- </p>
- <p>
-  Puedes probar el ejemplo en
-  <a rel="noopener" href="https://srverror.gilbertopachec5.repl.co/"
-    target="_blank">https://srverror.gilbertopachec5.repl.co/</a>.
- </p>
+ <ul>
+  <li>
+   <p>
+    A partir de esta lección se estandariza la forma de procesar servicios.
+   </p>
+  </li>
+  <li>
+   <p>
+    Este ejemplo muestra como procesar un servicio que detecta errores al
+    ejecutarse.
+   </p>
+  </li>
+  <li>
+   <p>
+    Puedes probar el ejemplo en
+    <a rel="noopener" href="https://srverror.gilbertopachec5.repl.co/"
+      target="_blank">https://srverror.gilbertopachec5.repl.co/</a>.
+   </p>
+  </li>
+ </ul>
 </div>
       </section>
      <section >
-         <h1 >B. La función <code>ejecuta</code>.</h1><div class="lectura">
- <p>
-  El código que se muestra en el ejemplo de servicio se repite en muchos
-  ejemplos posteriores; pero además debe realizar algunas cuastiones
-  adicionales. Para no repetir tanto, se introduce la función
-  <code>ejecuta</code>, que realiza todo lo necesario para controlar la conxión
-  desde el navegador web hacia el servidor.
- </p>
- <p>
-  Para usarla, debes importar el archivo donde está definida esta función y
-  luego invocarla usando el resultado de la invocacíon de un fetch.
- </p>
- <p>
-  A lo largo de esta lección y las siguientes, se profundiza en el uso y
-  estructura de esta función.
- </p>
+         <h1 >B. La función <code>ejecuta</code> de JavaScript.</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    El código que se muestra en el ejemplo de servicio se repite en muchos
+    ejemplos posteriores; pero además debe realizar algunas cuastiones
+    adicionales. Para simplificar el trabajo, se introduce la función
+    <code>ejecuta</code>, que realiza todo lo necesario para controlar la
+    conxión desde el navegador web hacia el servidor.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla, debes importar el archivo donde está definida esta función y
+    luego invocarla pasándole la url del servicio, o alternativamente, pasándole
+    el resultado de invocar la función fetch que comunica al servicio.
+   </p>
+  </li>
+  <li>
+   <p>
+    A lo largo de esta lección y las siguientes, se profundiza en el uso y
+    estructura de esta función.
+   </p>
+  </li>
+ </ul>
 </div>
       </section>
      <section >
          <h1 >C. La función <code>muestraError</code>.</h1><div class="lectura">
- <p>
-  También manejamos los errores de una manera uniforme con la función
-  <code>muestraError</code>, la cual muestra la excepción correspondiente en la
-  consola del navegador. El mensaje del error se despliega en un cuadro de
-  alert.
- </p>
- <p>
-  Para usarla, debes importar el archivo donde está definida esta función y
-  colocarla dentro de un catch. Se le pasa como parámetro la excepción atrapada
-  por el catch.
- </p>
- <p>
-  A lo largo de esta lección y las siguientes, se profundiza en el uso y
-  estructura de esta función.
- </p>
+ <ul>
+  <li>
+   <p>
+    También manejamos los errores de una manera uniforme con la función
+    <code>muestraError</code>, la cual muestra la excepción correspondiente en
+    la consola del navegador y el mensaje de la excepción en un cuadro de alert.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla, debes importar el archivo donde está definida esta función y
+    colocarla dentro de un catch. Se le pasa como parámetro la excepción
+    atrapada por el catch.
+   </p>
+  </li>
+  <li>
+   <p>
+    A lo largo de esta lección y las siguientes, se profundiza en el uso y
+    estructura de esta función.
+   </p>
+  </li>
+ </ul>
 </div>
       </section>
      <section >
-         <h1 >D. La clase <code>Servicio</code>.</h1><div class="lectura">
- <p>
-  Para que el desarrollo de servicios del lado del servidor se realice de
-  manera sencilla, uniforme y no repetir código, se introduce la clase
-  <code>Servicio</code>, escrita en PHP.
- </p>
- <p>
-  Para usarla, debes seguir los siguientes pasos, que se explican y ejemplifican
-  detalladamente más adelante.
- </p>
- <ol>
+         <h1 >D. La función <code>ejecuta</code> de PHP.</h1><div class="lectura">
+ <ul>
   <li>
    <p>
-    Importar el archivo donde está definida esta clase, usando autoload y
-    la instrucción <code>use</code>.
+    Para que el desarrollo de servicios del lado del servidor se realice de
+    manera sencilla, uniforme y no repetir código, se introduce la función
+    <code>ejecuta</code>, escrita en PHP.
    </p>
   </li>
   <li>
    <p>
-    Se define una subclase que extienda la clase <code>Servicio</code> y defina
-    el método <code>implementacion</code>, en el cual se coloca todo el código
-    que debe realizar el servicio.
+    Para usarla, debes importar el archivo donde está definida esta función
+    usando <code>require</code> o <code>require_once</code> y luego invocarla
+    pasándole la función con el código del servicio.
    </p>
   </li>
   <li>
    <p>
-    Se crea un instancia de la clase que se está definiendo para el servicio.
+    A lo largo de esta lección y las siguientes, se profundiza en el uso y
+    estructura de esta clase.
    </p>
   </li>
-  <li>
-   <p>
-    Al objeto resultante del paso anteriorm se le invoca el método
-    <code>ejecuta</code>.
-   </p>
-  </li>
- </ol>
- <p>
-  A lo largo de esta lección y las siguientes, se profundiza en el uso y
-  estructura de esta clase.
- </p>
+ </ul>
 </div>
       </section>
      <section >
@@ -548,6 +559,7 @@
    </div>
 <div class="lectura">
  <nav>
+  <h1>Contenido</h1>
   
    <ol type="1">
     
@@ -832,8 +844,8 @@
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">error</span>) {</div>
    <div><mark class="resaltado">&nbsp;<span
-      style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">error</span>)</mark></div>
+       style="color: #795e26;">muestraError</span>(<span
+       style="color: #001080;">error</span>)</mark></div>
    <div>}</div>
   </div>
  </muestra-codigo>
@@ -861,11 +873,12 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div class="resaltado" style="padding: 1rem;">
-  <pre>Error: Ouch
-   at ejecuta (ejecuta.js:19:9)
-   at async HTMLButtonElement.error (VM5:64:5)</pre>
- </div>
+ <muestra-codigo class="resaltado">
+  <div>Error: Ouch</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaError ((índice):28:5)</div>
+ </muestra-codigo>
+
 </section>
       </section>
      <section class="pruebaDeEscritorio">
@@ -894,16 +907,16 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div style="padding: 1rem;">
-  <pre>Error: Ouch
-   at ejecuta (ejecuta.js:19:9)
-   at async HTMLButtonElement.error (VM5:64:5)</pre>
- </div>
+ <muestra-codigo>
+  <div>Error: Ouch</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaError ((índice):28:5)</div>
+ </muestra-codigo>
 </section>
       </section>
       </section>
      <section >
-         <h1 >G. Instrucciones</h1><div class="lectura">
+         <h1 >G. Hazlo funcionar</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -1206,8 +1219,52 @@
  </div>
 </muestra-codigo>
       </section>
+     <section>
+         <h1 >K. Carpeta « srv » </h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m07srverror/m-srv/m-srvError-php.html">srv / srvError.php</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
+</div>
      <section >
-         <h1 >K. jsconfig.json</h1><div class="lectura">
+         <h1 >A. srv / srvError.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Ouch"</span>);</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+      </section>
+     <section >
+         <h1 >L. jsconfig.json</h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1262,7 +1319,7 @@
 </muestra-codigo>
       </section>
      <section>
-         <h1 >L. Carpeta « lib »</h1>
+         <h1 >M. Carpeta « lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1590,49 +1647,16 @@
       </section>
       </section>
       </section>
-     <section>
-         <h1 >M. Carpeta « srv » </h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <nav>
-  <h1>Contenido</h1>
-  
-   <ol type="A">
-    
-   <li>
-    <p>
-     <a href="/m07srverror/m-srv/m-srvError-php.html">srv / srvError.php</a>
-    </p>
-   </li>
-   </ol>
- </nav>
-</div>
      <section >
-         <h1 >A. srv / srvError.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Ouch"</span>);</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
+         <h1 >N. Resumen</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    En esta lección se mostró el funcionamiento de un servicio cuando falla.
+   </p>
+  </li>
+ </ul>
+</div>
       </section>
 </body>
 

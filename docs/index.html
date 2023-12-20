@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -488,86 +487,51 @@
  <ul>
   <li>
    <p>
-    Este sitio es continuación de
-    <a href="https://gilpgiti.github.io" rel="nooper"
-      target="_blank">https://gilpgiti.github.io</a>,
-    <a href="https://gilpgijs.github.io" rel="nooper"
-      target="_blank">https://gilpgijs.github.io</a>,
-    <a href="https://gilpgpoojs.github.io" rel="nooper"
-      target="_blank">https://gilpgpoojs.github.io</a>,
-    y
-    <a href="https://gilpgihc.github.io" rel="nooper"
-      target="_blank">https://gilpgihc.github.io</a>
+    Este curso trata sobre páginas web que se comunican, sin recargarse, con un
+    tipo de software conocido como <dfn>servicio</dfn>, alojado en servidores.
    </p>
   </li>
   <li>
    <p>
-    Puedes ver el listado de mis sitios educativos en
-    <a href="https://gilpgcl.github.io" target="_blank"
-      rel="noopener">https://gilpgcl.github.io</a>.
+    Otros tipos de app, como apps móviles y de wscritorio también se pueden
+    conectar a un servicio.
    </p>
   </li>
   <li>
    <p>
-    Mucho contenido que originalmente aparecía en este sitio, se ha desplazado a
-    los sitios anteriormente mencionados.
+    Este curso también se muestra la construcción de <dfn>mashups</dfn>, técnica
+    que consiste en agregar el contenido de otros sitios.
+   </p>
+  </li>
+  <li>
+   <p>
+    También se muestran los fundamentos para construir e-commerce.
+   </p>
+  </li>
+  <li>
+   <p>
+    Utiliza el botón &#x2630; para mostrar el menú de navegación, o el botón
+    ▶ para avanzar a las siguietes paginas. La página
+    <a href="m00instrucciones.html">Instrucciones de navegación</a>
+    te muestra otras opciones para desplazarte por el sitio.
    </p>
   </li>
  </ul>
- <section class="noPrint">
- <h1>Instrucciones de navegación</h1>
- <ul>
-  <li>
-   <p>
-    Los siguientes controles te permitirán navegar por todo el contenido del
-    sitio.
-   </p>
-   <dl>
-    <dt>
-     <button type="button" title="Cierra">&#x2715;</button>
-    </dt>
-    <dd>
-     <p>Oculta el menú de navegación.</p>
-    </dd>
-    <dt>
-     <button type="button" title="Menú">&#x2630;</button>
-    </dt>
-    <dd>
-     <p>Muestra el menú de navegación.</p>
-    </dd>
-    <dt>
-     <span class="anterior" title="Página anterior">◀</span>
-    </dt>
-    <dt>
-     <kbd>←</kbd> (Tecla flecha a la izquierda)
-    </dt>
-    <dt>
-     Swipe hacia la derecha
-    </dt>
-    <dd>
-     <p>Regresa a la página anterior.</p>
-    </dd>
-    <dt>
-     <span class="siguiente" title="Página siguiente">▶</span>
-    </dt>
-    <dt>
-     <kbd>→</kbd> (Tecla flecha a la derecha)
-    </dt>
-    <dt>
-     Swipe hacia la izquierda
-    </dt>
-    <dd>
-     <p>Avanza a la página siguiente.</p>
-    </dd>
-   </dl>
-  </li>
- </ul>
-</section>
  <nav>
   <h1>Lecciones</h1>
   
    <ol type="1">
     
+   <li>
+    <p>
+     <a href="/m00previos.html">Conocimientos requeridos</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m00instrucciones.html">Instrucciones de navegación</a>
+    </p>
+   </li>
    <li>
     <p>
      <a href="/m01awoas/">Aplicaciones Orientadas a Servicios</a>
@@ -705,7 +669,7 @@
   &#x2630;
  </button>
  
- <a class="siguiente" href="/m01awoas/index.html" title="1. Aplicaciones Orientadas a Servicios">▶</a>
+ <a class="siguiente" href="/m00previos.html" title="1. Conocimientos requeridos">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -714,7 +678,7 @@
  </button>
  
    <p>
-    <a href="/"
+    <a href="/" class="actual"
       data-logo="true">GilPG AWOAS</a>
    </p>
    
@@ -723,6 +687,16 @@
    
    <ol type="1">
     
+   <li>
+    <p>
+     <a href="/m00previos.html">Conocimientos requeridos</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m00instrucciones.html">Instrucciones de navegación</a>
+    </p>
+   </li>
    <li>
     <p>
      <a href="/m01awoas/">Aplicaciones Orientadas a Servicios</a>
@@ -849,7 +823,7 @@
  /**@type {string} */
  let urlAnterior = ""
  /**@type {string} */
- let urlSiguiente = "/m01awoas/index.html"
+ let urlSiguiente = "/m00previos.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

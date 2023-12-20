@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>3. Arquitectura orientada a servicios - GilPG AWOAS</title>
+ <title>5. Arquitectura orientada a servicios - GilPG AWOAS</title>
  <meta name="description" content="Contenido de la lección «Arquitectura orientada a servicios».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -458,7 +457,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >3. Arquitectura orientada a servicios</h1>
+   <h1 >5. Arquitectura orientada a servicios</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -466,14 +465,16 @@
     </p>
    </div>
 <div class="lectura">
- <p>
-  En esta lección se presenta la arquitectura orientada a servicios.
- </p>
  <nav>
   <h1>Contenido</h1>
   
    <ol type="A">
     
+   <li>
+    <p>
+     <a href="/m03soa/mAintro.html">Introducción</a>
+    </p>
+   </li>
    <li>
     <p>
      <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
@@ -501,92 +502,32 @@
    </li>
    <li>
     <p>
-     <a href="/m03soa/mFxml.html">Introducción a XML</a>
+     <a href="/m03soa/mFxml/">Introducción a XML</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mGdefXml.html"><dfn>XML</dfn></a>
+     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mHejXml.html">Ejemplo de XML</a>
+     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mIdtdXml.html">DTD MiContacto</a>
+     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mJsoap.html">Introducción a SOAP</a>
+     <a href="/m03soa/mJrest/">Introducción a REST</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mKdefSoap.html"><dfn>SOAP</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mLestrSoap.html">Estructura de los mensajes de SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mMsolSoap.html">Ejemplo de solicitud SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mNrespSoap.html">Ejemplo de respuesta SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mOwsdl.html">Introducción a WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mPdefWsdl.html"><dfn>WSDL</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mQelemWsdl.html">Elementos de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mRejemWsdl.html">Ejemplo de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mSuddi.html">Introducción a UDDI</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mTdefUddi.html"><dfn>UDDI</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mUrest.html">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mVdefRest.html"><dfn>REST</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mWestrRest.html">Estructura de REST</a>
+     <a href="/m03soa/mKresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
@@ -615,8 +556,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m02servicio/mGservicioPhp.html" title="G. servicio.php">◀</a>
- <a class="siguiente" href="/m03soa/mAsoa.html" title="A. Arquitectura orientada a servicios">▶</a>
+ <a class="anterior" href="/m02servicio/mHresumen.html" title="H. Resumen">◀</a>
+ <a class="siguiente" href="/m03soa/mAintro.html" title="A. Introducción">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -631,13 +572,18 @@
    
    
      <p>
-      <a class="paginaAnterior" href="/m02servicio/mGservicioPhp.html"
-        title="G. servicio.php">▲</a>
+      <a class="paginaAnterior" href="/m02servicio/mHresumen.html"
+        title="H. Resumen">▲</a>
      </p>
-   <h1><a href="/m03soa/index.html" class="actual">3. Arquitectura orientada a servicios</a></h1>
+   <h1><a href="/m03soa/index.html" class="actual">5. Arquitectura orientada a servicios</a></h1>
    
    <ol type="A">
     
+   <li>
+    <p>
+     <a href="/m03soa/mAintro.html">Introducción</a>
+    </p>
+   </li>
    <li>
     <p>
      <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
@@ -665,99 +611,39 @@
    </li>
    <li>
     <p>
-     <a href="/m03soa/mFxml.html">Introducción a XML</a>
+     <a href="/m03soa/mFxml/">Introducción a XML</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mGdefXml.html"><dfn>XML</dfn></a>
+     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mHejXml.html">Ejemplo de XML</a>
+     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mIdtdXml.html">DTD MiContacto</a>
+     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mJsoap.html">Introducción a SOAP</a>
+     <a href="/m03soa/mJrest/">Introducción a REST</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mKdefSoap.html"><dfn>SOAP</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mLestrSoap.html">Estructura de los mensajes de SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mMsolSoap.html">Ejemplo de solicitud SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mNrespSoap.html">Ejemplo de respuesta SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mOwsdl.html">Introducción a WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mPdefWsdl.html"><dfn>WSDL</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mQelemWsdl.html">Elementos de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mRejemWsdl.html">Ejemplo de WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mSuddi.html">Introducción a UDDI</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mTdefUddi.html"><dfn>UDDI</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mUrest.html">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mVdefRest.html"><dfn>REST</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mWestrRest.html">Estructura de REST</a>
+     <a href="/m03soa/mKresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
    
     <p>
      <a class="paginaSiguiente" href="/m04geolocalizacion.html"
-       title="4. Ejemplo de geolocalización">▼</a>
+       title="6. Ejemplo de geolocalización">▼</a>
     </p>
  
 </nav>
@@ -771,9 +657,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mGservicioPhp.html"
+ let urlAnterior = "/m02servicio/mHresumen.html"
  /**@type {string} */
- let urlSiguiente = "/m03soa/mAsoa.html"
+ let urlSiguiente = "/m03soa/mAintro.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

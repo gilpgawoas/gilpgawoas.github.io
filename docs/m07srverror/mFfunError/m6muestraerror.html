@@ -146,13 +146,12 @@
  }
 
  figure img {
-  max-width: 100%;
-  max-height: 65vh;
+  width: 100%;
  }
-
+/* 
  figure img.med {
   max-height: 55vh;
- }
+ } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -577,8 +576,8 @@
       style="color: #af00db;">catch</span> (<span
       style="color: #001080;">error</span>) {</div>
    <div><mark class="resaltado">&nbsp;<span
-      style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">error</span>)</mark></div>
+       style="color: #795e26;">muestraError</span>(<span
+       style="color: #001080;">error</span>)</mark></div>
    <div>}</div>
   </div>
  </muestra-codigo>
@@ -606,11 +605,12 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div class="resaltado" style="padding: 1rem;">
-  <pre>Error: Ouch
-   at ejecuta (ejecuta.js:19:9)
-   at async HTMLButtonElement.error (VM5:64:5)</pre>
- </div>
+ <muestra-codigo class="resaltado">
+  <div>Error: Ouch</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaError ((índice):28:5)</div>
+ </muestra-codigo>
+
 </section>
  <footer>
  <p>
@@ -650,7 +650,7 @@
    </p>
    
    <p>
-    <a href="/m07srverror/">7. Servicio que falla</a>
+    <a href="/m07srverror/">9. Servicio que falla</a>
    </p>
    
      <p>
@@ -700,7 +700,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m07srverror/mGinstrucciones.html"
-       title="G. Instrucciones">▼</a>
+       title="G. Hazlo funcionar">▼</a>
     </p>
  
 </nav>
