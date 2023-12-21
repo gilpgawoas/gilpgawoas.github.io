@@ -559,40 +559,40 @@
 
 <body  class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
-   <h1 >9. Muestra la excepción en la consola y el texto de la excepción en un alert</h1><section style="vertical-align: middle;">
+   <h1 >9. Muestra la excepción en la consola y el texto de la excepción en un alert</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
       style="color: #af00db;">try</span>&nbsp;{</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> <span
-      style="color: #000000;">=</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;&nbsp;<span
       style="color: #af00db;">await</span> <span
-      style="color: #795e26;">submit</span>(</div>
-   <div>&nbsp;&nbsp;<span
-      style="color: #001080;">evt</span>, <span
-      style="color: #a31515;">"srv/SrvProcesa.php"</span>,</div>
-   <div>&nbsp;&nbsp;<span
+      style="color: #795e26;">submitForma</span>(</div>
+   <div>&nbsp;&nbsp;&nbsp;<span
+      style="color: #a31515;">"srv/srvProcesa.php"</span>,</div>
+   <div>&nbsp;&nbsp;&nbsp;<span
+      style="color: #001080;">event</span>, <span
       style="color: #001080;">forma</span>)</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #795e26;">alert</span>(<span
       style="color: #0070c1;">resultado</span>)</div>
    <div>}&nbsp;<span
       style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>)&nbsp;{</div>
-   <div>&nbsp;<span class="resaltado"><span
+      style="color: #001080;">error</span>)&nbsp;{</div>
+   <div> <mark class="resaltado"><span
        style="color: #795e26;">muestraError</span>(<span
-       style="color: #001080;">e</span>)</span></div>
+       style="color: #001080;">error</span>)</mark></div>
    <div>}</div>
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl class="resaltado">
-  <dt>e</dt>
+  <dt>error</dt>
   <dd>
    <dl>
     <dt>message</dt>
@@ -612,12 +612,11 @@
 </section>
 <section>
  <h1>Consola</h1>
- <div class="resaltado">
-  <pre>Error: Falta el saludo
-   at ejecuta (ejecuta.js:19:9)
-   at async submit (submit.js:17:9)
-   at async HTMLFormElement.procesa ((índice):102:18)</pre>
- </div>
+ <muestra-codigo class="resaltado">
+  <div>Error: Falta el saludo</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaForma ((índice):50:6)</div>
+ </muestra-codigo>
 </section>
  <footer>
  <p>

@@ -559,44 +559,43 @@
 
 <body  class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
-   <h1 >10. Al cerrar el alert, termina el evento</h1><section style="vertical-align: middle;">
+   <h1 >10. Al cerrar el alert, termina el evento</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
       style="color: #af00db;">try</span>&nbsp;{</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> <span
-      style="color: #000000;">=</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;&nbsp;<span
       style="color: #af00db;">await</span> <span
-      style="color: #795e26;">submit</span>(</div>
-   <div>&nbsp;&nbsp;<span
-      style="color: #001080;">evt</span>, <span
-      style="color: #a31515;">"srv/SrvProcesa.php"</span>,</div>
-   <div>&nbsp;&nbsp;<span
+      style="color: #795e26;">submitForma</span>(</div>
+   <div>&nbsp;&nbsp;&nbsp;<span
+      style="color: #a31515;">"srv/srvProcesa.php"</span>,</div>
+   <div>&nbsp;&nbsp;&nbsp;<span
+      style="color: #001080;">event</span>, <span
       style="color: #001080;">forma</span>)</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #795e26;">alert</span>(<span
       style="color: #0070c1;">resultado</span>)</div>
    <div>}&nbsp;<span
       style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>)&nbsp;{</div>
-   <div>&nbsp;<span
+      style="color: #001080;">error</span>)&nbsp;{</div>
+   <div> <span
       style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
+      style="color: #001080;">error</span>)</div>
    <div>}</div>
   </div>
  </muestra-codigo>
 </section>
 <section>
  <h1>Consola</h1>
- <div>
-  <pre>Error: Falta el saludo
-   at ejecuta (ejecuta.js:19:9)
-   at async submit (submit.js:17:9)
-   at async HTMLFormElement.procesa ((índice):102:18)</pre>
- </div>
+ <muestra-codigo>
+  <div>Error: Falta el saludo</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaForma ((índice):50:6)</div>
+ </muestra-codigo>
 </section>
  <footer>
  <p>

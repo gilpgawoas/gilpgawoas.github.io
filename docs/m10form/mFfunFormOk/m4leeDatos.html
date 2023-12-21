@@ -559,39 +559,39 @@
 
 <body  class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
-   <h1 >4. El servicio lee los datos</h1><section style="vertical-align: middle;">
+   <h1 >4. El servicio lee los datos</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
       style="color: #af00db;">try</span>&nbsp;{</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> <span
-      style="color: #000000;">=</span> <span class="resaltado3"><span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
        style="color: #af00db;">await</span> <span
-       style="color: #795e26;">submit</span>(</span></div>
-   <div>&nbsp;&nbsp;<span class="resaltado3"><span
-       style="color: #001080;">evt</span>, <span
-       style="color: #a31515;">"srv/SrvProcesa.php"</span>,</span></div>
-   <div>&nbsp;&nbsp;<span class="resaltado3"><span
-       style="color: #001080;">forma</span>)</span></div>
-   <div>&nbsp;<span
+       style="color: #795e26;">submitForma</span>(</mark></div>
+   <div>&nbsp;&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #a31515;">"srv/srvProcesa.php"</span>,</mark></div>
+   <div>&nbsp;&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #001080;">event</span>, <span
+       style="color: #001080;">forma</span>)</mark></div>
+   <div> <span
       style="color: #795e26;">alert</span>(<span
       style="color: #0070c1;">resultado</span>)</div>
    <div>}&nbsp;<span
       style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>)&nbsp;{</div>
-   <div>&nbsp;<span
+      style="color: #001080;">error</span>)&nbsp;{</div>
+   <div> <span
       style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
+      style="color: #001080;">error</span>)</div>
    <div>}</div>
   </div>
  </muestra-codigo>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvProcesa.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvProcesa.php</h1>
  <muestra-codigo>
   <div>
    <div><span
@@ -673,15 +673,15 @@
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Request</h1>
   <dl>
    <dt>URL</dt>
    <dd>
     <a rel="noopener"
-      href="https://phpservs.gilbertopacheco.repl.co/srv/SrvProcesa.php"
-      target="_blank">SrvProcesa.php</a>
+      href="https://srvform.gilbertopachec5.repl.co/srv/srvProcesa.php"
+      target="_blank">srvProcesa.php</a>
    </dd>
    <dt>Method</dt>
    <dd>POST</dd>
@@ -814,7 +814,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m10form/mGinstrucciones.html"
-       title="G. Instrucciones">▼</a>
+       title="G. Hazlo funcionar">▼</a>
     </p>
  
 </nav>

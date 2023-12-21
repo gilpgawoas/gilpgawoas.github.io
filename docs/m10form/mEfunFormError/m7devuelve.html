@@ -559,38 +559,38 @@
 
 <body  class="xmenu sinTransicion pruebaDeEscritorio">
  <div id="principal">
-   <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: middle;">
+   <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
       style="color: #af00db;">try</span>&nbsp;{</div>
-   <div>&nbsp;<span
+   <div> <span
       style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> <span
-      style="color: #000000;">=</span> <span class="resaltado"><span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;&nbsp;<mark class="resaltado"><span
        style="color: #af00db;">await</span> <span
-       style="color: #795e26;">submit</span>(</span></div>
-   <div>&nbsp;&nbsp;<span class="resaltado"><span
-       style="color: #001080;">evt</span>, <span
-       style="color: #a31515;">"srv/SrvProcesa.php"</span>,</span></div>
-   <div>&nbsp;&nbsp;<span class="resaltado"><span
-       style="color: #001080;">forma</span>)</span></div>
-   <div>&nbsp;<span
+       style="color: #795e26;">submitForma</span>(</mark></div>
+   <div>&nbsp;&nbsp;&nbsp;<mark class="resaltado"><span
+       style="color: #a31515;">"srv/srvProcesa.php"</span>,</mark></div>
+   <div>&nbsp;&nbsp;&nbsp;<mark class="resaltado"><span
+       style="color: #001080;">event</span>, <span
+       style="color: #001080;">forma</span>)</mark></div>
+   <div> <span
       style="color: #795e26;">alert</span>(<span
       style="color: #0070c1;">resultado</span>)</div>
    <div>}&nbsp;<span
       style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">e</span>)&nbsp;{</div>
-   <div>&nbsp;<span
+      style="color: #001080;">error</span>)&nbsp;{</div>
+   <div> <span
       style="color: #795e26;">muestraError</span>(<span
-      style="color: #001080;">e</span>)</div>
+      style="color: #001080;">error</span>)</div>
    <div>}</div>
   </div>
  </muestra-codigo>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Response</h1>
  <dl class="resaltado" style="padding: 0.5rem;">
   <dt>code</dt>
@@ -599,8 +599,8 @@
   <dd>Falta el saludo</dd>
  </dl>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvProcesa.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvProcesa.php</h1>
  <muestra-codigo class="resaltado3">
   <div>
    <div><span
