@@ -361,6 +361,7 @@
    </div>
 <div class="lectura">
  <nav>
+  <h1>Contenido</h1>
   
    <ol type="1">
     
@@ -418,20 +419,29 @@
  <muestra-codigo class="resaltado">
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
    <div>&nbsp;<span
-      style="color: #0000ff;">await</span> enviaJson(datos,</div>
-   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">enviaJson</span>(</div>
    <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div>alert(resultado)</div>
+      style="color: #a31515;">"srv/srvJson.php"</span>, <span
+      style="color: #0070c1;">datos</span>)</div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
 </section>
@@ -441,64 +451,82 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span class="resaltado"><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</span></div>
-   <div><span class="resaltado">&nbsp;saludo: <span
-      style="color: #a31515;">"Hola"</span>,</span></div>
-   <div><span class="resaltado">&nbsp;nombre: <span
-      style="color: #a31515;">"pp"</span></span></div>
-   <div><span class="resaltado">}</span></div>
+   <div><mark class="resaltado"><span
+       style="color: #0000ff;">const</span> <span
+       style="color: #0070c1;">datos</span> =&nbsp;{</mark></div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #001080;">saludo</span><span
+       style="color: #001080;">:</span> <span
+       style="color: #a31515;">"Hola"</span>,</mark></div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #001080;">nombre</span><span
+       style="color: #001080;">:</span> <span
+       style="color: #a31515;">"pp"</span></mark></div>
+   <div><mark class="resaltado">}</mark></div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
    <div>&nbsp;<span
-      style="color: #0000ff;">await</span> enviaJson(datos,</div>
-   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">enviaJson</span>(</div>
    <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div>alert(resultado)</div>
+      style="color: #a31515;">"srv/srvJson.php"</span>, <span
+      style="color: #0070c1;">datos</span>)</div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
- <dl>
-  <dt class="resaltado">datos</dt>
-  <dd class="resaltado">
-   <dl>
-    <dt>saludo</dt>
-    <dd>"Hola"</dd>
-    <dt>nombre</dt>
-    <dd>"pp"</dd>
-   </dl>
+ <dl class="resaltado">
+  <dt>datos</dt>
+  <dd>
+    <dl>
+     <dt>saludo</dt>
+     <dd>"Hola"</dd>
+     <dt>nombre</dt>
+     <dd>"pp"</dd>
+    </dl>
   </dd>
  </dl>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >3. Se invoca el servicio en el servidor</h1><section style="vertical-align: middle;">
+         <h1 >3. Se invoca el servicio en el servidor</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
-   <div>&nbsp;<span class="resaltado"><span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div>&nbsp;<span class="resaltado">&nbsp;MetodoHttp.POST,</span></div>
-   <div>&nbsp;<span class="resaltado">&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;<mark class="resaltado"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Memoria</h1>
   <dl>
@@ -515,12 +543,12 @@
  </section>
  <section style="display: block;">
   <h1>Request</h1>
-  <dl class="resaltado">
+  <dl class="resaltado" style="overflow-wrap: anywhere;">
    <dt>URL</dt>
    <dd>
     <a rel="noopener"
-      href="https://phpservs--gilbertopacheco.repl.co/srv/SrvJson.php"
-      target="_blank">SrvJson.php</a>
+      href="https://srvjson.gilbertopachec5.repl.co/srv/srvJson.php"
+      target="_blank">srvJson.php</a>
    </dd>
    <dt>Method</dt>
    <dd>POST</dd>
@@ -531,8 +559,8 @@
   </dl>
  </section>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo class="resaltado">
   <div>
    <div><span
@@ -576,30 +604,39 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >4. El servicio lee los datos</h1><section style="vertical-align: middle;">
+         <h1 >4. El servicio lee los datos</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
-   <div>&nbsp;<span class="resaltado3"><span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;MetodoHttp.POST,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;<mark class="resaltado3"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -613,29 +650,29 @@
   </dd>
  </dl>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo>
   <div>
-   <div><span class="resaltado"><span
+   <div><mark class="resaltado"><span
        style="color: #001080;">$json</span><span
        style="color: #000000;"> = </span><span
        style="color: #795e26;">leeJson</span><span
-       style="color: #000000;">();</span></span></div>
-   <div><span class="resaltado"><span
+       style="color: #000000;">();</span></mark></div>
+   <div><mark class="resaltado"><span
        style="color: #001080;">$saludo</span><span
        style="color: #000000;"> = </span><span
        style="color: #001080;">$json</span><span
        style="color: #000000;">-&gt;</span><span
        style="color: #001080;">saludo</span><span
-       style="color: #000000;">;</span></span></div>
-   <div><span class="resaltado"><span
+       style="color: #000000;">;</span></mark></div>
+   <div><mark class="resaltado"><span
        style="color: #001080;">$nombre</span><span
        style="color: #000000;"> = </span><span
        style="color: #001080;">$json</span><span
        style="color: #000000;">-&gt;</span><span
        style="color: #001080;">nombre</span><span
-       style="color: #000000;">;</span></span></div>
+       style="color: #000000;">;</span></mark></div>
    <div><span
       style="color: #001080;">$resultado</span><span
       style="color: #000000;"> =</span></div>
@@ -658,12 +695,12 @@
 <section style="vertical-align: middle;">
  <section style="display: block;">
   <h1>Request</h1>
-  <dlstyle="padding: 0.5rem;">
+  <dl style="padding: 0.5rem; overflow-wrap: anywhere;">
    <dt>URL</dt>
    <dd>
     <a rel="noopener"
-      href="https://phpservs--gilbertopacheco.repl.co/srv/SrvJson.php"
-      target="_blank">SrvJson.php</a>
+      href="https://srvjson.gilbertopachec5.repl.co/srv/srvJson.php"
+      target="_blank">srvJson.php</a>
    </dd>
    <dt>Method</dt>
    <dd>POST</dd>
@@ -694,30 +731,39 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >5. El servicio procesa los datos</h1><section style="vertical-align: middle;">
+         <h1 >5. El servicio procesa los datos</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
-   <div>&nbsp;<span class="resaltado3"><span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;MetodoHttp.POST,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;<mark class="resaltado3"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -731,8 +777,8 @@
   </dd>
  </dl>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo>
   <div>
    <div><span
@@ -754,17 +800,17 @@
       style="color: #000000;">-&gt;</span><span
       style="color: #001080;">nombre</span><span
       style="color: #000000;">;</span></div>
-   <div><span class="resaltado"><span
+   <div><mark class="resaltado"><span
        style="color: #001080;">$resultado</span><span
-       style="color: #000000;"> =</span></span></div>
-   <div><span class="resaltado"><span
+       style="color: #000000;"> =</span></mark></div>
+   <div><mark class="resaltado"><span
        style="color: #000000;">&nbsp;</span><span
        style="color: #a31515;">"{</span><span
        style="color: #001080;">$saludo</span><span
        style="color: #a31515;">}&nbsp;{</span><span
        style="color: #001080;">$nombre</span><span
        style="color: #a31515;">}."</span><span
-       style="color: #000000;">;</span></span></div>
+       style="color: #000000;">;</span></mark></div>
    <div><span
       style="color: #af00db;">return</span><span
       style="color: #000000;"> </span><span
@@ -773,7 +819,7 @@
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria (Servidor)</h1>
  <dl>
   <dt>$json</dt>
@@ -795,30 +841,39 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >6. El servicio genera la response</h1><section style="vertical-align: middle;">
+         <h1 >6. El servicio genera la response</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
-   <div>&nbsp;<span class="resaltado3"><span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;MetodoHttp.POST,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;<mark class="resaltado3"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -832,8 +887,8 @@
   </dd>
  </dl>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo>
   <div>
    <div><span
@@ -866,15 +921,15 @@
       style="color: #001080;">$nombre</span><span
       style="color: #a31515;">}."</span><span
       style="color: #000000;">;</span></div>
-   <div><span class="resaltado"><span
+   <div><mark class="resaltado"><span
        style="color: #af00db;">return</span><span
        style="color: #000000;"> </span><span
        style="color: #001080;">$resultado</span><span
-       style="color: #000000;">;</span></span></div>
+       style="color: #000000;">;</span></mark></div>
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Memoria (Servidor)</h1>
   <dl>
@@ -907,30 +962,39 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: middle;">
+         <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
-   <div><span class="resaltado"><span
-       style="color: #0000ff;">const</span> resultado =</span></div>
-   <div><span class="resaltado">&nbsp;<span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;MetodoHttp.POST,</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+   <div><mark class="resaltado"><span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</mark></div>
+   <div>&nbsp;<mark class="resaltado"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Response</h1>
   <dl class="resaltado">
@@ -957,8 +1021,8 @@
   </dl>
  </section>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo class="resaltado3">
   <div>
    <div><span
@@ -1007,20 +1071,29 @@
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
    <div>&nbsp;<span
-      style="color: #0000ff;">await</span> enviaJson(datos,</div>
-   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">enviaJson</span>(</div>
    <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div><span class="resaltado">alert(resultado)</span></div>
+      style="color: #a31515;">"srv/srvJson.php"</span>, <span
+      style="color: #0070c1;">datos</span>)</div>
+   <div><mark class="resaltado"><span
+       style="color: #795e26;">alert</span>(<span
+       style="color: #0070c1;">resultado</span>)</mark></div>
   </div>
  </muestra-codigo>
 </section>
@@ -1056,20 +1129,29 @@
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
    <div>&nbsp;<span
-      style="color: #0000ff;">await</span> enviaJson(datos,</div>
-   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">enviaJson</span>(</div>
    <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div>alert(resultado)</div>
+      style="color: #a31515;">"srv/srvJson.php"</span>, <span
+      style="color: #0070c1;">datos</span>)</div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
 </section>

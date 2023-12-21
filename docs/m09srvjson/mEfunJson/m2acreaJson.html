@@ -563,35 +563,44 @@
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
-   <div><span class="resaltado"><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</span></div>
-   <div><span class="resaltado">&nbsp;saludo: <span
-      style="color: #a31515;">"Hola"</span>,</span></div>
-   <div><span class="resaltado">&nbsp;nombre: <span
-      style="color: #a31515;">"pp"</span></span></div>
-   <div><span class="resaltado">}</span></div>
+   <div><mark class="resaltado"><span
+       style="color: #0000ff;">const</span> <span
+       style="color: #0070c1;">datos</span> =&nbsp;{</mark></div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #001080;">saludo</span><span
+       style="color: #001080;">:</span> <span
+       style="color: #a31515;">"Hola"</span>,</mark></div>
+   <div><mark class="resaltado">&nbsp;<span
+       style="color: #001080;">nombre</span><span
+       style="color: #001080;">:</span> <span
+       style="color: #a31515;">"pp"</span></mark></div>
+   <div><mark class="resaltado">}</mark></div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
    <div>&nbsp;<span
-      style="color: #0000ff;">await</span> enviaJson(datos,</div>
-   <div>&nbsp;&nbsp;MetodoHttp.POST,</div>
+      style="color: #af00db;">await</span> <span
+      style="color: #795e26;">enviaJson</span>(</div>
    <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/SrvJson.php"</span>)</div>
-   <div>alert(resultado)</div>
+      style="color: #a31515;">"srv/srvJson.php"</span>, <span
+      style="color: #0070c1;">datos</span>)</div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
- <dl>
-  <dt class="resaltado">datos</dt>
-  <dd class="resaltado">
-   <dl>
-    <dt>saludo</dt>
-    <dd>"Hola"</dd>
-    <dt>nombre</dt>
-    <dd>"pp"</dd>
-   </dl>
+ <dl class="resaltado">
+  <dt>datos</dt>
+  <dd>
+    <dl>
+     <dt>saludo</dt>
+     <dd>"Hola"</dd>
+     <dt>nombre</dt>
+     <dd>"pp"</dd>
+    </dl>
   </dd>
  </dl>
 </section>
@@ -693,7 +702,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m09srvjson/mFinstrucciones.html"
-       title="F. Instrucciones">▼</a>
+       title="F. Hazlo funcionar">▼</a>
     </p>
  
 </nav>

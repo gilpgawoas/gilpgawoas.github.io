@@ -1,27 +1,36 @@
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
-   <div><span class="resaltado"><span
-       style="color: #0000ff;">const</span> resultado =</span></div>
-   <div><span class="resaltado">&nbsp;<span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;MetodoHttp.POST,</span></div>
-   <div><span class="resaltado">&nbsp;&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+   <div><mark class="resaltado"><span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</mark></div>
+   <div>&nbsp;<mark class="resaltado"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Response</h1>
   <dl class="resaltado">
@@ -48,8 +57,8 @@
   </dl>
  </section>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo class="resaltado3">
   <div>
    <div><span

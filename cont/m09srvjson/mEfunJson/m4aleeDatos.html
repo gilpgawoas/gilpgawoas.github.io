@@ -1,27 +1,36 @@
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
    <div><span
-      style="color: #0000ff;">const</span> datos =&nbsp;{</div>
-   <div>&nbsp;saludo: <span
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">datos</span> =&nbsp;{</div>
+   <div>&nbsp;<span
+      style="color: #001080;">saludo</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;nombre: <span
+   <div>&nbsp;<span
+      style="color: #001080;">nombre</span><span
+      style="color: #001080;">:</span> <span
       style="color: #a31515;">"pp"</span></div>
    <div>}</div>
    <div><span
-      style="color: #0000ff;">const</span> resultado =</div>
-   <div>&nbsp;<span class="resaltado3"><span
-       style="color: #0000ff;">await</span> enviaJson(datos,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;MetodoHttp.POST,</span></div>
-   <div>&nbsp;<span class="resaltado3">&nbsp;<span
-       style="color: #a31515;">"srv/SrvJson.php"</span>)</span></div>
-   <div>alert(resultado)</div>
+      style="color: #0000ff;">const</span> <span
+      style="color: #0070c1;">resultado</span> =</div>
+   <div>&nbsp;<mark class="resaltado3"><span
+       style="color: #af00db;">await</span> <span
+       style="color: #795e26;">enviaJson</span>(</mark></div>
+   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
+       style="color: #a31515;">"srv/srvJson.php"</span>, <span
+       style="color: #0070c1;">datos</span>)</mark></div>
+   <div><span
+      style="color: #795e26;">alert</span>(<span
+      style="color: #0070c1;">resultado</span>)</div>
   </div>
  </muestra-codigo>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -35,29 +44,29 @@
   </dd>
  </dl>
 </section>
-<section style="vertical-align: middle;">
- <h1>SrvJson.php</h1>
+<section style="vertical-align: top;">
+ <h1>srvJson.php</h1>
  <muestra-codigo>
   <div>
-   <div><span class="resaltado"><span
+   <div><mark class="resaltado"><span
        style="color: #001080;">$json</span><span
        style="color: #000000;"> = </span><span
        style="color: #795e26;">leeJson</span><span
-       style="color: #000000;">();</span></span></div>
-   <div><span class="resaltado"><span
+       style="color: #000000;">();</span></mark></div>
+   <div><mark class="resaltado"><span
        style="color: #001080;">$saludo</span><span
        style="color: #000000;"> = </span><span
        style="color: #001080;">$json</span><span
        style="color: #000000;">-&gt;</span><span
        style="color: #001080;">saludo</span><span
-       style="color: #000000;">;</span></span></div>
-   <div><span class="resaltado"><span
+       style="color: #000000;">;</span></mark></div>
+   <div><mark class="resaltado"><span
        style="color: #001080;">$nombre</span><span
        style="color: #000000;"> = </span><span
        style="color: #001080;">$json</span><span
        style="color: #000000;">-&gt;</span><span
        style="color: #001080;">nombre</span><span
-       style="color: #000000;">;</span></span></div>
+       style="color: #000000;">;</span></mark></div>
    <div><span
       style="color: #001080;">$resultado</span><span
       style="color: #000000;"> =</span></div>
@@ -80,12 +89,12 @@
 <section style="vertical-align: middle;">
  <section style="display: block;">
   <h1>Request</h1>
-  <dlstyle="padding: 0.5rem;">
+  <dl style="padding: 0.5rem; overflow-wrap: anywhere;">
    <dt>URL</dt>
    <dd>
     <a rel="noopener"
-      href="https://phpservs--gilbertopacheco.repl.co/srv/SrvJson.php"
-      target="_blank">SrvJson.php</a>
+      href="https://srvjson.gilbertopachec5.repl.co/srv/srvJson.php"
+      target="_blank">srvJson.php</a>
    </dd>
    <dt>Method</dt>
    <dd>POST</dd>

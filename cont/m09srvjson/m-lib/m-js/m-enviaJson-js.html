@@ -1,0 +1,78 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">ejecuta</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Object }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">datos</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ "GET" | "POST"| "PUT" | "PATCH" | "DELETE" |
+    "TRACE" | "OPTIONS"</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;">&nbsp;&nbsp;| "CONNECT" | "HEAD" }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">metodoHttp</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">enviaJson</span>(<span
+     style="color: #001080;">url</span>, <span
+     style="color: #001080;">datos</span>, <span
+     style="color: #001080;">metodoHttp</span> = <span
+     style="color: #a31515;">"POST"</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>,&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">metodoHttp</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">headers</span><span
+     style="color: #001080;">:</span>&nbsp;{ <span
+     style="color: #a31515;">"Content-Type"</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"application/json"</span> },</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">stringify</span>(<span
+     style="color: #001080;">datos</span>)</div>
+  <div>&nbsp;}))</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"enviaJson"</span>] = <span
+     style="color: #795e26;">enviaJson</span></div>
+ </div>
+</muestra-codigo>
