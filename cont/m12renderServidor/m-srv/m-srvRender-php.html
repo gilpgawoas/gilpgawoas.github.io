@@ -1,0 +1,94 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$lista</span> = [</div>
+  <div>&nbsp;&nbsp;[</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
+     style="color: #a31515;">"pp"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"color"</span> =&gt; <span
+     style="color: #a31515;">"azul"</span></div>
+  <div>&nbsp;&nbsp;],</div>
+  <div>&nbsp;&nbsp;[</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
+     style="color: #a31515;">"qk"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"color"</span> =&gt; <span
+     style="color: #a31515;">"rojo"</span></div>
+  <div>&nbsp;&nbsp;],</div>
+  <div>&nbsp;&nbsp;[</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
+     style="color: #a31515;">"tt"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"color"</span> =&gt; <span
+     style="color: #a31515;">"rosa"</span></div>
+  <div>&nbsp;&nbsp;],</div>
+  <div>&nbsp;&nbsp;[</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"nombre"</span> =&gt; <span
+     style="color: #a31515;">"bb"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"color"</span> =&gt; <span
+     style="color: #a31515;">"azul"</span></div>
+  <div>&nbsp;&nbsp;]</div>
+  <div>&nbsp;];</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Genera el código HTML de la lista.</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$render</span> = <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$lista</span> as <span
+     style="color: #001080;">$modelo</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">/*&nbsp;Codifica nombre y color para que cambie
+    los</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;caracteres especiales y el
+    texto no se pueda</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;interpretar como HTML.
+    Esta técnica evita la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;inyección de código.
+    */</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>[<span
+     style="color: #a31515;">"nombre"</span>]);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$color</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>[<span
+     style="color: #a31515;">"color"</span>]);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;dt&gt;{</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}&lt;/dt&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;{</span><span
+     style="color: #001080;">$color</span><span
+     style="color: #a31515;">}&lt;/dd&gt;"</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$render</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

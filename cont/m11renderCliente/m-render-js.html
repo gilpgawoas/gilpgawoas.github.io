@@ -1,0 +1,273 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/*&nbsp;Ejemplo de render en el cliente. No se usa
+    import</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;porque Firefox no lo soporta en los
+    web workers. */</span></div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #a31515;">"srv/srvLista.php"</span>)</div>
+  <div>&nbsp;.<span
+     style="color: #795e26;">then</span>(<span
+     style="color: #001080;">lista</span> <span
+     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Genera el código HTML de la lista.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">render</span> = <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">modelo</span> <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #001080;">lista</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">/*&nbsp;Codifica nombre y color para que cambie
+    los</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;caracteres
+    especiales y el texto no se pueda</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;interpretar como
+    HTML. Esta técnica evita la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;inyección de código.
+    */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">nombre</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #0070c1;">modelo</span>.<span
+     style="color: #001080;">nombre</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">color</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #0070c1;">modelo</span>.<span
+     style="color: #001080;">color</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">render</span> += <span
+     style="color: #008000;">/*&nbsp;html */</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;`<span
+     style="color: #800000;">&lt;dt&gt;${</span><span
+     style="color: #0070c1;">nombre</span><span
+     style="color: #800000;">}&lt;/dt&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;dd&gt;${</span><span
+     style="color: #0070c1;">color</span><span
+     style="color: #800000;">}&lt;/dd&gt;</span>`</div>
+  <div>&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Verifica si el código corre dentro de un web
+    worker.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">self</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">WorkerGlobalScope</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Envía el render a la página que invocó este web
+    worker.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">self</span>.<span
+     style="color: #795e26;">postMessage</span>(<span
+     style="color: #001080;">render</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;})</div>
+  <div>&nbsp;.<span
+     style="color: #795e26;">catch</span>(<span
+     style="color: #001080;">error</span> <span
+     style="color: #0000ff;">=&gt;</span> <span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">log</span>(<span
+     style="color: #001080;">error</span>))</div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un fetch
+    termine. Si</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;hay error, lanza una excepción. Si no
+    hay error,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;interpreta la respuesta del servidor
+    como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de objeto.
+   </span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string | Promise&lt;Response&gt; }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">servicio</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">servicio</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">f</span> = <span
+     style="color: #001080;">servicio</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">servicio</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">f</span> = <span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">servicio</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (!(<span
+     style="color: #001080;">f</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">Promise</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">"Servicio de tipo incorrecto."</span>)</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">respuesta</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">f</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">ok</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">texto</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>()</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">parse</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Codifica un texto para que cambie los
+    caracteres</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;especiales y no se pueda interpretar
+    como</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;etiiqueta HTML. Esta técnica evita la
+    inyección</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;de código.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">texto</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> un texto que no puede</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;&nbsp;interpretarse como HTML.
+    */</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">texto</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">texto</span>.<span
+     style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/</span><span
+     style="color: #d16969;">[</span><span
+     style="color: #811f3f;">&lt;&gt;"'</span><span
+     style="color: #d16969;">]</span><span
+     style="color: #811f3f;">/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #001080;">textoDetectado</span> <span
+     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">switch</span> (<span
+     style="color: #001080;">textoDetectado</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"&lt;"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;lt;"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"&gt;"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;gt;"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">'"'</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;quot;"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">case</span> <span
+     style="color: #a31515;">"'"</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #a31515;">"&amp;#039;"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">default</span>: <span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">textoDetectado</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;})</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>

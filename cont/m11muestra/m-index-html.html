@@ -1,0 +1,454 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #e50000;">html</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
+     style="color: #e50000;">lang</span>=<span
+     style="color: #0000ff;">"es"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">charset</span>=<span
+     style="color: #0000ff;">"UTF-8"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"viewport"</span> <span
+     style="color: #e50000;">content</span>=<span
+     style="color: #0000ff;">"width=device-width"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span>Muestra datos<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/ejecuta.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/muestraError.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/muestraObjeto.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body</span> <span
+     style="color: #e50000;">onload</span>=<span
+     style="color: #0000ff;">"</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #a31515;">'srv/srvDatos.php'</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">then</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">json</span><span
+     style="color: #0000ff;"> =&gt; </span><span
+     style="color: #795e26;">muestraObjeto</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">document</span><span
+     style="color: #0000ff;">, </span><span
+     style="color: #001080;">json</span><span
+     style="color: #0000ff;">))</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">catch</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">muestraError</span><span
+     style="color: #0000ff;">)"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;h1&gt;</span>Muestra datos<span
+     style="color: #800000;">&lt;/h1&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">&lt;!-- Al mostrar un dato, se usan los atributos
+    "id", "name" o "data-name"</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;para buscar la propiedad a desplegar en
+    la página. --&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Nombre</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad nombre del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;value del output.
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"nombre"</span><span
+     style="color: #800000;">&gt;&lt;/output&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Apellido</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad apellido del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;value del input.
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"apellido"</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"text"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Edad</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad edad del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;valueAsNumber del input.
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">data-name</span>=<span
+     style="color: #0000ff;">"edad"</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"number"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Número de la suerte</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad numero del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;value del output.
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"numero"</span><span
+     style="color: #800000;">&gt;&lt;/output&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad aprobado del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;checked del input, poeque
+    el tipo del dato es boolean y el input tiene</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;type="checkbox".
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"aprobado"</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"checkbox"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Aprobado</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Gracioso</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad gracioso del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;value del output.
+    --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"gracioso"</span><span
+     style="color: #800000;">&gt;&lt;/output&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Emplacado</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad gracioso del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;valueAsNumber del input con
+    false -&gt; 0 y true -&gt; 1. --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">data-name</span>=<span
+     style="color: #0000ff;">"emplacado"</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"range"</span> <span
+     style="color: #e50000;">min</span>=<span
+     style="color: #0000ff;">"0"</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"1"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span>Dirección<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad direccion del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;textContent del pre. El atributo
+    data-text-content="true" indica usar la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;propiedad textContent. --&gt;</span>
+  </div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;pre</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"direccion"</span> <span
+     style="color: #e50000;">data-text-content</span>=<span
+     style="color: #0000ff;">"true"</span><span
+     style="color: #800000;">&gt;&lt;/pre&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Encabezado</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad encabezado del objeto
+    descargado, usando la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;propiedad innerHTML del
+    span, porque este tipo de elemento no tiene la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;propiedad value y no se usa
+    el atributo data-text-content="true". --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;span</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"encabezado"</span><span
+     style="color: #800000;">&gt;&lt;/span&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Nacimiento</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad nacimiento del objeto
+    descargado, usando la</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;propiedad value del input.
+    Revisa la especificación de input para</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;los distintos formatos de
+    fecha que se pueden usar. --&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"nacimiento"</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"date"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;figure&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad imagen1 del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;src del img. --&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;img</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"imagen1"</span> <span
+     style="color: #e50000;">alt</span>=<span
+     style="color: #0000ff;">"Imagen 2"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;figcaption&gt;</span>Imagen 1<span
+     style="color: #800000;">&lt;/figcaption&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/figure&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;figure&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad imagen2 del objeto
+    descargado, usando la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;src del img. Como el valor es "",
+    se oculta el img. --&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;img</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"imagen2"</span> <span
+     style="color: #e50000;">alt</span>=<span
+     style="color: #0000ff;">"Imagen 2"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;figcaption&gt;</span>Imagen 2<span
+     style="color: #800000;">&lt;/figcaption&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/figure&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad pasatiempos[] del
+    objeto descargado; como es un</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;array, usa los elementos con
+    name="pasatiempos[]" y les pone la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;checked en true si su value está
+    en el array; de lo contrario se las pone en</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;false. Los corchetes([]), le
+    indican a PHP que la propiedad es un array</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;qpuede llegar a tener 0, 1 o más
+    elementos. --&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;fieldset&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;legend&gt;</span>Pasatiempos<span
+     style="color: #800000;">&lt;/legend&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"checkbox"</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"pasatiempos[]"</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"fut"</span><span
+     style="color: #800000;">&gt;</span>Futbol</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"checkbox"</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"pasatiempos[]"</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"chess"</span><span
+     style="color: #800000;">&gt;</span>Ajedrez</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"checkbox"</span> <span
+     style="color: #e50000;">data-name</span>=<span
+     style="color: #0000ff;">"pasatiempos[]"</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"basket"</span><span
+     style="color: #800000;">&gt;</span>Basketbol</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/fieldset&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">&lt;!-- Muestra la propiedad madrugador del objeto
+    descargado; como es un</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;array, usa los elementos con
+    name="madrugador" y les pone la propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;checked en true si su value está
+    en el array; de lo contrario se las pone en</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;false. Como el name no tiene [],
+    el array solo tiene 0 o un elemento. --&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;fieldset&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;legend&gt;</span>Madrugador<span
+     style="color: #800000;">&lt;/legend&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"radio"</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"madrugador"</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"si"</span><span
+     style="color: #800000;">&gt;</span>Si<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;&lt;input</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"radio"</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"madrugador"</span> <span
+     style="color: #e50000;">value</span>=<span
+     style="color: #0000ff;">"no"</span><span
+     style="color: #800000;">&gt;</span>No<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/fieldset&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
+ </div>
+</muestra-codigo>
