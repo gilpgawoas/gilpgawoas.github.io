@@ -1,0 +1,42 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/pasatiempoAgrega.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">trim</span>(<span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #a31515;">"nombre"</span>));</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Pasatiempo</span>(nombre: <span
+     style="color: #001080;">$nombre</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">pasatiempoAgrega</span>(<span
+     style="color: #001080;">$modelo</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$modelo</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>
