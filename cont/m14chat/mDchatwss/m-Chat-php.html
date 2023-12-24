@@ -1,0 +1,162 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">use</span> <span
+     style="color: #267f99;">\SplObjectStorage</span>;</div>
+  <div><span
+     style="color: #0000ff;">use</span> Ratchet\<span
+     style="color: #267f99;">MessageComponentInterface</span>;</div>
+  <div><span
+     style="color: #0000ff;">use</span> Ratchet\<span
+     style="color: #267f99;">ConnectionInterface</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Chat</span> <span
+     style="color: #0000ff;">implements</span> <span
+     style="color: #267f99;">MessageComponentInterface</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">protected</span> <span
+     style="color: #267f99;">SplObjectStorage</span> <span
+     style="color: #001080;">$conexionesDeClientes</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Crea una colección que se accesa usando
+    objetos.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexionesDeClientes</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SplObjectStorage</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;Se invoca al abrirse una conexión desde un
+    cliente. */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onOpen</span>(<span
+     style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$conexionDeCliente</span>)</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Guarda la conexión.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexionesDeClientes</span>-&gt;<span
+     style="color: #795e26;">attach</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$conexionDeCliente</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$conexionDeCliente</span>-&gt;<span
+     style="color: #001080;">resourceId</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Conectado: "</span> . <span
+     style="color: #001080;">$conexionDeCliente</span>-&gt;<span
+     style="color: #001080;">resourceId</span> . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;Se invoca al recibir un mensaje de un
+    cliente. */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onMessage</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$conexionDeClienteQueEnvia</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$mensaje</span></div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexionesDeClientes</span>[<span
+     style="color: #001080;">$conexionDeClienteQueEnvia</span>];</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"</span></div>
+  <div><span
+     style="color: #a31515;">Origen:&nbsp;{</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #a31515;">}</span></div>
+  <div><span
+     style="color: #a31515;">Mensaje: </span><span
+     style="color: #001080;">$mensaje</span></div>
+  <div><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexionesDeClientes</span> as <span
+     style="color: #001080;">$conexionDeCliente</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$conexionDeCliente</span>-&gt;<span
+     style="color: #795e26;">send</span>(<span
+     style="color: #001080;">$mensaje</span>);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;Se invoca al cerrar la conexión de un
+    cliente. */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onClose</span>(<span
+     style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$conexionDeCliente</span>)</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">conexionesDeClientes</span>-&gt;<span
+     style="color: #795e26;">detach</span>(<span
+     style="color: #001080;">$conexionDeCliente</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Desconectado: "</span> . <span
+     style="color: #001080;">$conexionDeCliente</span>-&gt;<span
+     style="color: #001080;">resourceId</span> . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;Se invoca cuando hay un error en la
+    conexión de un cliente. */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">onError</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">ConnectionInterface</span> <span
+     style="color: #001080;">$conexionDeCliente</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">Exception</span> <span
+     style="color: #001080;">$error</span></div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #a31515;">"Error: "</span> . <span
+     style="color: #001080;">$error</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>() . <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$conexionDeCliente</span>-&gt;<span
+     style="color: #795e26;">close</span>();</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

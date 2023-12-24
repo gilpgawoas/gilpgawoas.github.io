@@ -1,0 +1,243 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #e50000;">html</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;html&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">charset</span>=<span
+     style="color: #0000ff;">"UTF-8"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"viewport"</span> <span
+     style="color: #e50000;">content</span>=<span
+     style="color: #0000ff;">"width=device-width"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span>Chat<span
+     style="color: #800000;">&lt;/title&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraError</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/muestraError.js"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">errorEnWebSocket</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/errorEnWebSocket.js"</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">webSocketCerrado</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./lib/js/webSocketCerrado.js"</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Cambia la url por la de tu servicio. */</span>
+  </div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">ws</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">WebSocket</span>(<span
+     style="color: #a31515;">"wss://chatwss.gilbertopachec5.repl.co/"</span>)
+  </div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Se invoca cuando se ha establecido una conexión
+    al servidor.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">ws</span>.<span
+     style="color: #795e26;">onopen</span> = () <span
+     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">pre</span>.<span
+     style="color: #001080;">textContent</span> = <span
+     style="color: #a31515;">"Conectado.</span><span
+     style="color: #ee0000;">\n</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">log</span>(<span
+     style="color: #a31515;">"Conectado"</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Se invoca al presentarse un error en la conexión
+    al servidor.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">ws</span>.<span
+     style="color: #795e26;">onerror</span> = <span
+     style="color: #001080;">errorEnWebSocket</span></div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Se invoca cuando se cierra la conexión al
+    servidor.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">ws</span>.<span
+     style="color: #795e26;">onclose</span> = <span
+     style="color: #001080;">webSocketCerrado</span></div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Se invoca al recibir un mensaje del
+    servidor.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">ws</span>.<span
+     style="color: #795e26;">onmessage</span> = <span
+     style="color: #001080;">event</span> <span
+     style="color: #0000ff;">=&gt;</span> <span
+     style="color: #001080;">pre</span>.<span
+     style="color: #001080;">textContent</span> += <span
+     style="color: #001080;">event</span>.<span
+     style="color: #001080;">data</span> + <span
+     style="color: #a31515;">"</span><span
+     style="color: #ee0000;">\n\n</span><span
+     style="color: #a31515;">"</span></div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    variable.</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"ws"</span>] = <span
+     style="color: #0070c1;">ws</span></div><br>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">error</span>)</div>
+  <div>&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/script&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;form</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"forma"</span> <span
+     style="color: #e50000;">onsubmit</span>=<span
+     style="color: #0000ff;">"</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #af00db;">try</span><span
+     style="color: #0000ff;">&nbsp;{</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">event</span><span
+     style="color: #0000ff;">.</span><span
+     style="color: #795e26;">preventDefault</span><span
+     style="color: #0000ff;">()</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const </span><span
+     style="color: #0070c1;">message</span><span
+     style="color: #0000ff;"> </span>=<span
+     style="color: #0000ff;"> </span><span
+     style="color: #a31515;">`</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">alias</span>.<span
+     style="color: #001080;">value</span>.<span
+     style="color: #795e26;">trim</span>()<span
+     style="color: #0000ff;">}</span></div>
+  <div><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">mensaje</span>.<span
+     style="color: #001080;">value</span>.<span
+     style="color: #795e26;">trim</span>()<span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">`</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #001080;">ws</span><span
+     style="color: #0000ff;">.</span><span
+     style="color: #795e26;">send</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #0070c1;">message</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+     style="color: #af00db;">catch</span><span
+     style="color: #0000ff;"> (</span><span
+     style="color: #001080;">error</span><span
+     style="color: #0000ff;">)&nbsp;{</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">muestraError</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">error</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;}</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;h1&gt;</span>Chat<span
+     style="color: #800000;">&lt;/h1&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;Alias *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"alias"</span> <span
+     style="color: #e50000;">required</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;Mensaje *</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;input</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"mensaje"</span> <span
+     style="color: #e50000;">required</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span>*&nbsp;Obligatorio<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;p&gt;&lt;button</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"submit"</span><span
+     style="color: #800000;">&gt;</span>Enviar<span
+     style="color: #800000;">&lt;/button&gt;&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/form&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;pre</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"pre"</span><span
+     style="color: #800000;">&gt;&lt;progress</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"100"</span><span
+     style="color: #800000;">&gt;</span>Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span><span
+     style="color: #800000;">&lt;/progress&gt;&lt;/pre&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
+ </div>
+</muestra-codigo>
