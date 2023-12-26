@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>13. lib / js / muestraString.js - GilPG AWOAS</title>
+ <title>14. lib / js / muestraString.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/muestraString.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -457,8 +457,18 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >13. lib / js / muestraString.js</h1><muestra-codigo>
+   <h1 >14. lib / js / muestraString.js</h1><muestra-codigo>
  <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraInnerHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraInnerHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraTextContent</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraTextContent.js"</span></div><br>
   <div><span
      style="color: #008000;">/**</span></div>
   <div><span
@@ -500,15 +510,15 @@
      style="color: #a31515;">"data-text-content"</span>) !== <span
      style="color: #0000ff;">null</span>)&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">textContent</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}&nbsp;<span
      style="color: #af00db;">else</span>&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span
@@ -543,8 +553,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m13bd/m-lib/m-js/m-muestraObjeto-js.html" title="12. lib / js / muestraObjeto.js">◀</a>
- <a class="siguiente" href="/m13bd/m-lib/m-js/m-muestraValor-js.html" title="14. lib / js / muestraValor.js">▶</a>
+ <a class="anterior" href="/m13bd/m-lib/m-js/m-muestraObjeto-js.html" title="13. lib / js / muestraObjeto.js">◀</a>
+ <a class="siguiente" href="/m13bd/m-lib/m-js/m-muestraTextContent-js.html" title="15. lib / js / muestraTextContent.js">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -624,6 +634,11 @@
    </li>
    <li>
     <p>
+     <a href="/m13bd/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m13bd/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
     </p>
    </li>
@@ -635,6 +650,11 @@
    <li>
     <p>
      <a href="/m13bd/m-lib/m-js/m-muestraString-js.html" class="actual">lib / js / muestraString.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
     </p>
    </li>
    <li>
@@ -667,7 +687,7 @@
  /**@type {string} */
  let urlAnterior = "/m13bd/m-lib/m-js/m-muestraObjeto-js.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m-lib/m-js/m-muestraValor-js.html"
+ let urlSiguiente = "/m13bd/m-lib/m-js/m-muestraTextContent-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

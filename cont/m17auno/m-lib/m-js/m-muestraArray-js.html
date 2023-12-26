@@ -1,0 +1,87 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any[]}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valores</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraArray</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">propiedad</span>, <span
+     style="color: #001080;">valores</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">conjunto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Set</span>(<span
+     style="color: #001080;">valores</span>)</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elementos</span> = <span
+     style="color: #001080;">raizHtml</span>.<span
+     style="color: #795e26;">querySelectorAll</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">`[name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"],[data-name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"]`</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #267f99;">Array</span>.<span
+     style="color: #795e26;">from</span>(<span
+     style="color: #0070c1;">elementos</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">checked</span> = <span
+     style="color: #0070c1;">conjunto</span>.<span
+     style="color: #795e26;">has</span>(<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">value</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraArray"</span>] = <span
+     style="color: #795e26;">muestraArray</span></div><br>
+ </div>
+</muestra-codigo>

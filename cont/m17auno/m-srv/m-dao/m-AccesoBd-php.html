@@ -1,0 +1,125 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/bdCrea.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/pasatiempoConsulta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/pasatiempoAgrega.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">AccesoBd</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> ?<span
+     style="color: #267f99;">PDO</span> <span
+     style="color: #001080;">$con</span> = <span
+     style="color: #0000ff;">null</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">getCon</span>(): <span
+     style="color: #267f99;">PDO</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #795e26;">conecta</span>();</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #795e26;">prepara</span>(<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">conecta</span>(): <span
+     style="color: #267f99;">PDO</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">PDO</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// cadena de conexión</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"sqlite:srvauno.db"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// usuario</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// contraseña</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #267f99;">PDO</span>::ATTR_ERRMODE =&gt; <span
+     style="color: #267f99;">PDO</span>::ERRMODE_EXCEPTION]</div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">prepara</span>(<span
+     style="color: #267f99;">PDO</span> <span
+     style="color: #001080;">$con</span>)</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">bdCrea</span>(<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$pasatiempo</span> = <span
+     style="color: #795e26;">pasatiempoConsulta</span>();</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">sizeof</span>(<span
+     style="color: #001080;">$pasatiempo</span>) === <span
+     style="color: #098658;">0</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$pasatiempo</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Pasatiempo</span>(nombre: <span
+     style="color: #a31515;">"Futbol"</span>);</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">pasatiempoAgrega</span>(<span
+     style="color: #001080;">$pasatiempo</span>);</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$pasatiempo</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Pasatiempo</span>(nombre: <span
+     style="color: #a31515;">"Videojuegos"</span>);</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">pasatiempoAgrega</span>(<span
+     style="color: #001080;">$pasatiempo</span>);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

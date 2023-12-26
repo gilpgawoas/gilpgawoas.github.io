@@ -441,6 +441,11 @@
    </li>
    <li>
     <p>
+     <a href="/m11muestra/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m11muestra/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
     </p>
    </li>
@@ -452,6 +457,11 @@
    <li>
     <p>
      <a href="/m11muestra/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m11muestra/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
     </p>
    </li>
    <li>
@@ -1260,7 +1270,55 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / js / muestraNumber.js</h1><muestra-codigo>
+         <h1 >10. lib / js / muestraInnerHtml.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">innerHTML</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraInnerHtml"</span>] = <span
+     style="color: #795e26;">muestraInnerHtml</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >11. lib / js / muestraNumber.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
@@ -1319,7 +1377,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / js / muestraObjeto.js</h1><muestra-codigo>
+         <h1 >12. lib / js / muestraObjeto.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
@@ -1413,8 +1471,18 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >12. lib / js / muestraString.js</h1><muestra-codigo>
+         <h1 >13. lib / js / muestraString.js</h1><muestra-codigo>
  <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraInnerHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraInnerHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraTextContent</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraTextContent.js"</span></div><br>
   <div><span
      style="color: #008000;">/**</span></div>
   <div><span
@@ -1456,15 +1524,15 @@
      style="color: #a31515;">"data-text-content"</span>) !== <span
      style="color: #0000ff;">null</span>)&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">textContent</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}&nbsp;<span
      style="color: #af00db;">else</span>&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span
@@ -1478,7 +1546,55 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >13. lib / js / muestraValor.js</h1><muestra-codigo>
+         <h1 >14. lib / js / muestraTextContent.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">textContent</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraTextContent"</span>] = <span
+     style="color: #795e26;">muestraTextContent</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >15. lib / js / muestraValor.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span

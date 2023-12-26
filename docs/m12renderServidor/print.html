@@ -533,6 +533,9 @@
    <p><a href="m-lib/m-js/m-getInputParaElementoHtml-js.html">getInputParaElementoHtml.js</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-js/m-muestraArray-js.html">muestraArray.js</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-js/m-muestraBoolean-js.html">muestraBoolean.js</a></p>
   </li>
   <li>
@@ -542,10 +545,19 @@
    <p><a href="m-lib/m-js/m-muestraImagen-js.html">muestraImagen.js</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-js/m-muestraInnerHtml-js.html">muestraInnerHtml.js</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-js/m-muestraNumber-js.html">muestraNumber.js</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-js/m-muestraObjeto-js.html">muestraObjeto.js</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-js/m-muestraString-js.html">muestraString.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-js/m-muestraTextContent-js.html">muestraTextContent.js</a></p>
   </li>
   <li>
    <p><a href="m-lib/m-js/m-muestraValor-js.html">muestraValor.js</a></p>
@@ -627,7 +639,7 @@
      style="color: #e50000;">type</span>=<span
      style="color: #0000ff;">"module"</span> <span
      style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraValor.js"</span><span
+     style="color: #0000ff;">"lib/js/muestraInnerHtml.js"</span><span
      style="color: #800000;">&gt;&lt;/script&gt;</span></div><br>
   <div><span
      style="color: #800000;">&lt;/head&gt;</span></div><br>
@@ -645,10 +657,8 @@
      style="color: #0000ff;">(</span><span
      style="color: #001080;">render</span><span
      style="color: #0000ff;"> =&gt; </span><span
-     style="color: #795e26;">muestraValor</span><span
+     style="color: #795e26;">muestraInnerHtml</span><span
      style="color: #0000ff;">(</span><span
-     style="color: #001080;">document</span><span
-     style="color: #0000ff;">, </span><span
      style="color: #001080;">lista</span><span
      style="color: #0000ff;">, </span><span
      style="color: #001080;">render</span><span
@@ -813,6 +823,11 @@
    </li>
    <li>
     <p>
+     <a href="/m12renderServidor/m-lib/m-js/m-muestraArray-js.html">lib / js / muestraArray.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
     </p>
    </li>
@@ -828,12 +843,27 @@
    </li>
    <li>
     <p>
+     <a href="/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
     </p>
    </li>
    <li>
     <p>
+     <a href="/m12renderServidor/m-lib/m-js/m-muestraObjeto-js.html">lib / js / muestraObjeto.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m12renderServidor/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12renderServidor/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
     </p>
    </li>
    <li>
@@ -1266,7 +1296,96 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >6. lib / js / muestraBoolean.js</h1><muestra-codigo>
+         <h1 >6. lib / js / muestraArray.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any[]}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valores</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraArray</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">propiedad</span>, <span
+     style="color: #001080;">valores</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">conjunto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Set</span>(<span
+     style="color: #001080;">valores</span>)</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elementos</span> = <span
+     style="color: #001080;">raizHtml</span>.<span
+     style="color: #795e26;">querySelectorAll</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">`[name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"],[data-name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"]`</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #267f99;">Array</span>.<span
+     style="color: #795e26;">from</span>(<span
+     style="color: #0070c1;">elementos</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">checked</span> = <span
+     style="color: #0070c1;">conjunto</span>.<span
+     style="color: #795e26;">has</span>(<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">value</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraArray"</span>] = <span
+     style="color: #795e26;">muestraArray</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >7. lib / js / muestraBoolean.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
@@ -1349,7 +1468,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >7. lib / js / muestraError.js</h1><muestra-codigo>
+         <h1 >8. lib / js / muestraError.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #008000;">/**</span></div>
@@ -1408,7 +1527,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >8. lib / js / muestraImagen.js</h1><muestra-codigo>
+         <h1 >9. lib / js / muestraImagen.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
@@ -1553,7 +1672,55 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >9. lib / js / muestraNumber.js</h1><muestra-codigo>
+         <h1 >10. lib / js / muestraInnerHtml.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">innerHTML</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraInnerHtml"</span>] = <span
+     style="color: #795e26;">muestraInnerHtml</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >11. lib / js / muestraNumber.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
@@ -1612,8 +1779,112 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >10. lib / js / muestraString.js</h1><muestra-codigo>
+         <h1 >12. lib / js / muestraObjeto.js</h1><muestra-codigo>
  <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">buscaElementoHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./buscaElementoHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraArray</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraArray.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraValor</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraValor.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ any }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">objeto</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraObjeto</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">objeto</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> [<span
+     style="color: #0070c1;">propiedad</span>, <span
+     style="color: #0070c1;">valor</span>] <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #267f99;">Object</span>.<span
+     style="color: #795e26;">entries</span>(<span
+     style="color: #001080;">objeto</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #267f99;">Array</span>.<span
+     style="color: #795e26;">isArray</span>(<span
+     style="color: #0070c1;">valor</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraArray</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">propiedad</span>, <span
+     style="color: #0070c1;">valor</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elementoHtml</span> = <span
+     style="color: #795e26;">buscaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">propiedad</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">elementoHtml</span> !== <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">muestraValor</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">elementoHtml</span>, <span
+     style="color: #0070c1;">valor</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraObjeto"</span>] = <span
+     style="color: #795e26;">muestraObjeto</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >13. lib / js / muestraString.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraInnerHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraInnerHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraTextContent</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraTextContent.js"</span></div><br>
   <div><span
      style="color: #008000;">/**</span></div>
   <div><span
@@ -1655,15 +1926,15 @@
      style="color: #a31515;">"data-text-content"</span>) !== <span
      style="color: #0000ff;">null</span>)&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">textContent</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}&nbsp;<span
      style="color: #af00db;">else</span>&nbsp;{</div>
   <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">valor</span></div>
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
   <div><span
@@ -1677,7 +1948,55 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >11. lib / js / muestraValor.js</h1><muestra-codigo>
+         <h1 >14. lib / js / muestraTextContent.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">textContent</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraTextContent"</span>] = <span
+     style="color: #795e26;">muestraTextContent</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >15. lib / js / muestraValor.js</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #af00db;">import</span>&nbsp;{ <span
