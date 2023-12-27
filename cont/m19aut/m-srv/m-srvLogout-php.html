@@ -1,0 +1,44 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/const/CUE.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/const/ROL_IDS.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">session_start</span>();</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[CUE]))&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$_SESSION</span>[CUE]);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[ROL_IDS]))&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$_SESSION</span>[ROL_IDS]);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">session_destroy</span>();</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> [];</div>
+  <div>&nbsp;});</div><br>
+ </div>
+</muestra-codigo>

@@ -1,0 +1,65 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Rol</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$descripcion</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$descripcion</span> = <span
+     style="color: #a31515;">""</span>, <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$id</span> = <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">descripcion</span> = <span
+     style="color: #001080;">$descripcion</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">valida</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">id</span> === <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el id"</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">descripcion</span> === <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Faltala la descripción."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

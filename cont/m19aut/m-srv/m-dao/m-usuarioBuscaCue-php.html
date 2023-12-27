@@ -1,0 +1,105 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Usuario.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/usuRolConsulta.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">usuarioBuscaCue</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$cue</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USU_ID </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> id,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USU_CUE </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> cue,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;USU_MATCH </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> match</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> USUARIO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> USU_CUE </span>=<span
+     style="color: #a31515;"> :cue</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":cue"</span> =&gt; <span
+     style="color: #001080;">$cue</span>]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">PDO</span>::FETCH_CLASS | <span
+     style="color: #267f99;">PDO</span>::FETCH_PROPS_LATE,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">Usuario</span>::<span
+     style="color: #0000ff;">class</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@var</span><span
+     style="color: #008000;"> </span><span
+     style="color: #0000ff;">false</span><span
+     style="color: #008000;">|</span><span
+     style="color: #267f99;">Usuario</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$usuario</span> = <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$usuario</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">false</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$usuario</span>-&gt;<span
+     style="color: #001080;">roles</span> = <span
+     style="color: #795e26;">usuRolConsulta</span>(<span
+     style="color: #001080;">$usuario</span>-&gt;<span
+     style="color: #001080;">id</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$usuario</span>;</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
