@@ -1,0 +1,94 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/Rol.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Usuario</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$cue</span>;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@var</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">Rol</span><span
+     style="color: #0000ff;">[]</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">array</span> <span
+     style="color: #001080;">$roles</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$cue</span> = <span
+     style="color: #a31515;">""</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">array</span> <span
+     style="color: #001080;">$roles</span> = [],</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span> = <span
+     style="color: #098658;">0</span></div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">cue</span> = <span
+     style="color: #001080;">$cue</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">roles</span> = <span
+     style="color: #001080;">$roles</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">valida</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">cue</span> === <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el cue."</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">roles</span> as <span
+     style="color: #001080;">$rol</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (!(<span
+     style="color: #001080;">$rol</span> instanceof <span
+     style="color: #267f99;">Rol</span>))</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Tipo incorrecto para un rol."</span>);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

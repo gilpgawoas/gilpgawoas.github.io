@@ -1,0 +1,72 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/usuarioConsulta.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$lista</span> = <span
+     style="color: #795e26;">usuarioConsulta</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$render</span> = <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$lista</span> as <span
+     style="color: #001080;">$modelo</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$usuId</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">usuId</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$usuCue</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">usuCue</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$roles</span> = <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">roles</span> === <span
+     style="color: #0000ff;">null</span> || <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">roles</span> === <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;&nbsp;&nbsp;? <span
+     style="color: #a31515;">"&lt;em&gt;-- Sin roles --&lt;/em&gt;"</span></div>
+  <div>&nbsp;&nbsp;&nbsp;: <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">roles</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;dt&gt;&lt;a
+    href='modifica.html?id=</span><span
+     style="color: #001080;">$usuId</span><span
+     style="color: #a31515;">'&gt;{</span><span
+     style="color: #001080;">$usuCue</span><span
+     style="color: #a31515;">}&lt;/a&gt;&lt;/dt&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;&lt;a
+    href='modifica.html?id=</span><span
+     style="color: #001080;">$usuId</span><span
+     style="color: #a31515;">'&gt;{</span><span
+     style="color: #001080;">$roles</span><span
+     style="color: #a31515;">}&lt;/a&gt;&lt;/dd&gt;"</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$render</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

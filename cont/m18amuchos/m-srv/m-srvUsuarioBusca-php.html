@@ -1,0 +1,75 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/usuarioBusca.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #795e26;">leeEntero</span>(<span
+     style="color: #a31515;">"id"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$id</span> === <span
+     style="color: #0000ff;">null</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #795e26;">usuarioBusca</span>(<span
+     style="color: #001080;">$id</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modelo</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Usuario no encontrado."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$rolIds</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">roles</span> as <span
+     style="color: #001080;">$rol</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$rolIds</span>[] = <span
+     style="color: #001080;">$rol</span>-&gt;<span
+     style="color: #001080;">id</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> [</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"id"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"cue"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">cue</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"rolIds[]"</span> =&gt; <span
+     style="color: #001080;">$rolIds</span></div>
+  <div>&nbsp;];</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

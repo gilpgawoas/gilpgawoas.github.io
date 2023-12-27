@@ -1,0 +1,70 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeArray.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/modelo/Rol.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/usuarioAgrega.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$cue</span> = <span
+     style="color: #795e26;">trim</span>(<span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #a31515;">"cue"</span>));</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$rolIds</span> = <span
+     style="color: #795e26;">leeArray</span>(<span
+     style="color: #a31515;">"rolIds"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@var</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">Rol</span><span
+     style="color: #0000ff;">[]</span><span
+     style="color: #008000;"> $roles */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$roles</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$rolIds</span> as <span
+     style="color: #001080;">$rolId</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$roles</span>[] = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Rol</span>(id: <span
+     style="color: #001080;">$rolId</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$usuario</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Usuario</span>(cue: <span
+     style="color: #001080;">$cue</span>, roles: <span
+     style="color: #001080;">$roles</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">usuarioAgrega</span>(<span
+     style="color: #001080;">$usuario</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$usuario</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

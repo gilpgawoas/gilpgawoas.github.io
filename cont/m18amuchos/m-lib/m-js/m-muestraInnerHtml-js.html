@@ -1,0 +1,46 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">innerHTML</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraInnerHtml"</span>] = <span
+     style="color: #795e26;">muestraInnerHtml</span></div>
+ </div>
+</muestra-codigo>
