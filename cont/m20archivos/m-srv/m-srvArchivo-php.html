@@ -1,0 +1,85 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/AccesoBd.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/archivoBusca.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">mb_internal_encoding</span>(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div><span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #008000;">// Evita que la imagen se cargue en el caché de la
+    computadora.</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">header</span>(<span
+     style="color: #a31515;">"Cache-Control: no-store, no-cache,
+    must-revalidate, max-age=0"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">header</span>(<span
+     style="color: #a31515;">"Cache-Control: post-check=0, pre-check=0"</span>,
+   <span
+     style="color: #0000ff;">false</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">header</span>(<span
+     style="color: #a31515;">"Pragma: no-cache"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #795e26;">leeEntero</span>(<span
+     style="color: #a31515;">"id"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$id</span> === <span
+     style="color: #0000ff;">null</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #795e26;">archivoBusca</span>(<span
+     style="color: #001080;">$id</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$archivo</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Archivo no encontrado."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$archivo</span>-&gt;<span
+     style="color: #001080;">bytes</span>;</div>
+  <div>}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #267f99;">Throwable</span> <span
+     style="color: #001080;">$t</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">http_response_code</span>(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$t</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

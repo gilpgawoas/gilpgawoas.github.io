@@ -1,0 +1,143 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">getDataUrlDeSeleccion</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./getDataUrlDeSeleccion.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">getInputParaElementoHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./getInputParaElementoHtml.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ HTMLImageElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">img</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraImagen</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">img</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #0070c1;">dataset</span>.<span
+     style="color: #001080;">inicial</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">input</span> = <span
+     style="color: #795e26;">getInputParaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">img</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> === <span
+     style="color: #0000ff;">null</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">true</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> === <span
+     style="color: #0000ff;">null</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> !== <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">dataUrl</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">getDataUrlDeSeleccion</span>(<span
+     style="color: #0070c1;">input</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> === <span
+     style="color: #a31515;">""</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{ <span
+     style="color: #008000;">// input !== null</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">true</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> === <span
+     style="color: #a31515;">""</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #0070c1;">dataUrl</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraImagen"</span>] = <span
+     style="color: #795e26;">muestraImagen</span></div><br>
+ </div>
+</muestra-codigo>

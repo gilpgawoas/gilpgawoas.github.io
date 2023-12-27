@@ -1,0 +1,127 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoBusca</span>(<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$prodId</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.ARCH_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> archId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PRODUCTO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> ARCHIVO A</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> P.ARCH_ID </span>=<span
+     style="color: #a31515;"> A.ARCH_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> P.PROD_ID </span>=<span
+     style="color: #a31515;"> :prodId</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":prodId"</span> =&gt; <span
+     style="color: #001080;">$prodId</span></div>
+  <div>&nbsp;]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(<span
+     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$obj</span> = <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$obj</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">false</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodId</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodNombre</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archId</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">archId</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #001080;">$archId</span> === <span
+     style="color: #0000ff;">null</span> ? <span
+     style="color: #0000ff;">null</span> : <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Archivo</span>(id: <span
+     style="color: #001080;">$archId</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Producto</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;id: <span
+     style="color: #001080;">$id</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;nombre: <span
+     style="color: #001080;">$nombre</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;archivo: <span
+     style="color: #001080;">$archivo</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$producto</span>;</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

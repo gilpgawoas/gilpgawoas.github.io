@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" sizes="32x32" href="/favicon.ico">
+<meta name="theme-color" content="#039623">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/lib/js/muestra-codigo.js"></script>
+ <title>Carpeta « srv / dao » - GilPG AWOAS</title>
+ <meta name="description" content="">
+ <style>
+ :root {
+  --padTop: 2rem;
+  --introDuracion: 2s;
+  --introFuncion: ease-out;
+  --padCont: 0.5rem;
+  --padNav: 0.75rem 0.5rem;
+  --anchoNav: 300px;
+  --anchoLectura: 900px;
+  --colLetra: black;
+  --colFondo: white;
+  --colTituloLetra: #00811c;
+  --colTituloShadow: 3px 1px 2px #bdbdbd;
+  --colTituloStrong: #684601;
+  --colTituloStrongSel: #ffdc97;
+  --colTarget: #cef4ff;
+  --colSombra: #49494980;
+  --navSombra: 0.5rem 0 0.5rem var(--colSombra);
+  --padCtrl: 0.2rem 0.3rem;
+  --borderCtrl: solid thin;
+  --colFondoNav: #f2f2f2;
+  --colNavResaltada: #7a2c99;
+  --colSecundario: #ffff82;
+  --colStack1: black;
+  --colStack2: #224ba5;
+  --colStack3: #92731f;
+  --colScrollbar: #CFD8DC;
+  --colThumb: #90a4ae;
+  --colThumbActivo: #3f3f3f;
+  --anchoThumb: 7px;
+  --borderRadiusThumb: 3.5px;
+  --gap: 0.5rem;
+  --fontMono: monospace;
+  --fontSans: sans-serif;
+  --fontSerif: serif;
+  font-family: var(--fontSerif);
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ body::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ body::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ .anterior,
+ .siguiente {
+  display: inline-block;
+  text-decoration: none;
+  padding: var(--padCtrl);
+  border: var(--borderCtrl);
+  cursor: pointer;
+ }
+
+ .anterior.bye,
+ .siguiente.bye {
+  display: none;
+ }
+
+ a[data-logo] {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  padding-left: 54px;
+  margin-top: 1rem;
+  background-image: url("/img/icono/maskable_icon_x48.png");
+  background-position: 3px center;
+  background-repeat: no-repeat;
+ }
+
+ a strong,
+ a code,
+ h1 strong,
+ h1 code {
+  color: var(--colTituloStrong);
+ }
+
+ nav a {
+  font-family: var(--fontSans);
+ }
+
+ pre {
+  font-family: var(--fontMono);
+ }
+
+ code {
+  color: var(--colTituloStrong);
+  font-family: var(--fontMono);
+ }
+
+ .tree {
+  font-family: var(--fontSans);
+ }
+
+ .tree summary {
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .tree li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
+ h1:not(.default) {
+  font-family: var(--fontSans);
+  color: var(--colTituloLetra);
+ }
+
+ .autor {
+  font-family: var(--fontSans);
+  font-size: 1.5rem;
+  color: var(--colTituloLetra);
+ }
+
+ figure {
+  text-align: center;
+ }
+
+ figure img {
+  width: 100%;
+ }
+/* 
+ figure img.med {
+  max-height: 55vh;
+ } */
+
+ figcaption {
+  font-family: var(--fontMono);
+ }
+
+ .print .noPrint {
+  display: none;
+ }
+
+ @media print {
+  .noPrint {
+   display: none;
+  }
+
+  .pruebaDeEscritorio {
+   page-break-before: always;
+  }
+ }
+
+ iframe {
+  box-sizing: border-box;
+  width: 100%;
+ }
+
+ .lectura {
+  max-width: var(--anchoLectura);
+  margin: 1rem auto;
+ }
+
+ .lectura p,
+ .lectura blockquote {
+  text-align: justify;
+ }
+
+ /* No funciona bien con display:flex en pantallas pequeñas. */
+ .horizontal {
+  text-align: center;
+ }
+
+ .horizontal>* {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+ }
+
+ .horizontal>*:not(:first-child) {
+  margin-left: 1rem;
+ }
+
+ .columnas4 {
+  columns: 4 180px;
+  column-gap: 1rem;
+ }
+
+ .columnas2 {
+  columns: 2 360px;
+  column-gap: 1rem;
+ }
+
+ .resaltado {
+  background-color: rgb(255, 255, 89);
+ }
+
+ .resaltado2 {
+  background-color: rgb(255, 214, 139);
+ }
+
+ .resaltado3 {
+  background-color: rgb(235, 234, 233);
+ }
+
+ table.borde {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ table.borde,
+ table.borde td {
+  border: thin solid;
+  border-collapse: collapse;
+ }
+
+ table.borde th,
+ table.borde td {
+  padding: 0.4rem;
+ }
+
+ footer {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-family: var(--fontSans);
+  font-size: small;
+ }
+</style>
+ <style>
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1em;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
+</head>
+
+<body class="print">
+   <h1 >B. Carpeta « srv / dao »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-bdCrea-php.html">srv / dao / bdCrea.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-AccesoBd-php.html">srv / dao / AccesoBd.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-archivoAgrega-php.html">srv / dao / archivoAgrega.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-archivoBusca-php.html">srv / dao / archivoBusca.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-archivoElimina-php.html">srv / dao / archivoElimina.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-archivoModifica-php.html">srv / dao / archivoModifica.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-productoAgrega-php.html">srv / dao / productoAgrega.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-productoBusca-php.html">srv / dao / productoBusca.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-productoConsulta-php.html">srv / dao / productoConsulta.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-productoElimina-php.html">srv / dao / productoElimina.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-dao/m-productoModifica-php.html">srv / dao / productoModifica.php</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. srv / dao / bdCrea.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">bdCrea</span>(<span
+     style="color: #267f99;">PDO</span> <span
+     style="color: #001080;">$con</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">exec</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">'</span><span
+     style="color: #0000ff;">CREATE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">TABLE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">IF</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">EXISTS</span><span
+     style="color: #a31515;"> ARCHIVO (</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span><span
+     style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_BYTES BLOB
+   </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> ARCH_PK</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">PRIMARY KEY</span><span
+     style="color: #a31515;">(ARCH_ID)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">'</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">exec</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">'</span><span
+     style="color: #0000ff;">CREATE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">TABLE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">IF</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">EXISTS</span><span
+     style="color: #a31515;"> PRODUCTO (</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_ID </span><span
+     style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_NOMBRE </span><span
+     style="color: #0000ff;">TEXT</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span><span
+     style="color: #0000ff;">INTEGER</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">NOT NULL</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> PROD_PK</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">PRIMARY KEY</span><span
+     style="color: #a31515;">(PROD_ID),</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> PROD_NOM_UNQ</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">UNIQUE</span><span
+     style="color: #a31515;">(PROD_NOMBRE)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">CONSTRAINT</span><span
+     style="color: #a31515;"> PROD_ARCH_FK</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FOREIGN KEY</span><span
+     style="color: #a31515;"> (ARCH_ID) </span><span
+     style="color: #0000ff;">REFERENCES</span><span
+     style="color: #a31515;"> ARCHIVO(ARCH_ID)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;)</span><span
+     style="color: #a31515;">'</span></div>
+  <div>&nbsp;);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. srv / dao / AccesoBd.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/bdCrea.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">AccesoBd</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> ?<span
+     style="color: #267f99;">PDO</span> <span
+     style="color: #001080;">$con</span> = <span
+     style="color: #0000ff;">null</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">getCon</span>(): <span
+     style="color: #267f99;">PDO</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #795e26;">conecta</span>();</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #795e26;">prepara</span>(<span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">self</span>::<span
+     style="color: #001080;">$con</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">conecta</span>(): <span
+     style="color: #267f99;">PDO</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">PDO</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// cadena de conexión</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"sqlite:srvarchivos.db"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// usuario</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// contraseña</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;[<span
+     style="color: #267f99;">PDO</span>::ATTR_ERRMODE =&gt; <span
+     style="color: #267f99;">PDO</span>::ERRMODE_EXCEPTION]</div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">private</span> <span
+     style="color: #0000ff;">static</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">prepara</span>(<span
+     style="color: #267f99;">PDO</span> <span
+     style="color: #001080;">$con</span>)</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">bdCrea</span>(<span
+     style="color: #001080;">$con</span>);</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. srv / dao / archivoAgrega.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">archivoAgrega</span>(<span
+     style="color: #267f99;">Archivo</span> <span
+     style="color: #001080;">$modelo</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #795e26;">valida</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">INSERT INTO</span><span
+     style="color: #a31515;"> ARCHIVO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(ARCH_BYTES)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">VALUES</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:bytes)</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":bytes"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">bytes</span></div>
+  <div>&nbsp;]);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para generar el
+    id,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;pasa como parámetro de
+    lastInsertId el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">lastInsertId</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >4. srv / dao / archivoBusca.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">archivoBusca</span>(<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span>): <span
+     style="color: #0000ff;">false</span>|<span
+     style="color: #267f99;">Archivo</span></div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> id,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_BYTES </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> bytes</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> ARCHIVO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> ARCH_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$id</span>]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">PDO</span>::FETCH_CLASS | <span
+     style="color: #267f99;">PDO</span>::FETCH_PROPS_LATE,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">Archivo</span>::<span
+     style="color: #0000ff;">class</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >5. srv / dao / archivoElimina.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">archivoElimina</span>(<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">DELETE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> ARCHIVO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> ARCH_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$id</span>]);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >6. srv / dao / archivoModifica.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">archivoModifica</span>(<span
+     style="color: #267f99;">Archivo</span> <span
+     style="color: #001080;">$modelo</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #795e26;">valida</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">UPDATE</span><span
+     style="color: #a31515;"> ARCHIVO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">SET</span><span
+     style="color: #a31515;"> ARCH_BYTES </span>=<span
+     style="color: #a31515;"> :bytes</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> ARCH_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":bytes"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">bytes</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span></div>
+  <div>&nbsp;]);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >7. srv / dao / productoAgrega.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/archivoAgrega.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoAgrega</span>(<span
+     style="color: #267f99;">Producto</span> <span
+     style="color: #001080;">$modelo</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #795e26;">validaNuevo</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">beginTransaction</span>();</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">archivoAgrega</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">archivo</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">INSERT INTO</span><span
+     style="color: #a31515;"> PRODUCTO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(PROD_NOMBRE,
+    ARCH_ID)</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">VALUES</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:nombre,
+    :archId)</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":nombre"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">nombre</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":archId"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">archivo</span>-&gt;<span
+     style="color: #001080;">id</span></div>
+  <div>&nbsp;]);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/*&nbsp;Si usas una secuencia para generar el
+    id,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;pasa como parámetro de
+    lastInsertId el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
+    */</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">lastInsertId</span>();</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">commit</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >8. srv / dao / productoBusca.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Archivo.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoBusca</span>(<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$prodId</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.ARCH_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> archId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PRODUCTO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> ARCHIVO A</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> P.ARCH_ID </span>=<span
+     style="color: #a31515;"> A.ARCH_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> P.PROD_ID </span>=<span
+     style="color: #a31515;"> :prodId</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":prodId"</span> =&gt; <span
+     style="color: #001080;">$prodId</span></div>
+  <div>&nbsp;]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(<span
+     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$obj</span> = <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$obj</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">false</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodId</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodNombre</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archId</span> = <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">archId</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #001080;">$archId</span> === <span
+     style="color: #0000ff;">null</span> ? <span
+     style="color: #0000ff;">null</span> : <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Archivo</span>(id: <span
+     style="color: #001080;">$archId</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Producto</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;id: <span
+     style="color: #001080;">$id</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;nombre: <span
+     style="color: #001080;">$nombre</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;archivo: <span
+     style="color: #001080;">$archivo</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$producto</span>;</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >9. srv / dao / productoConsulta.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../../lib/php/recibeFetchAll.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoConsulta</span>()</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">query</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.ARCH_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> archId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PRODUCTO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">LEFT JOIN</span><span
+     style="color: #a31515;"> ARCHIVO A</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ON</span><span
+     style="color: #a31515;"> P.ARCH_ID </span>=<span
+     style="color: #a31515;"> A.ARCH_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ORDER BY</span><span
+     style="color: #a31515;"> P.PROD_NOMBRE</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$resultado</span> = <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetchAll</span>(<span
+     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #795e26;">recibeFetchAll</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >10. srv / dao / productoElimina.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/archivoElimina.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/productoBusca.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoElimina</span>(<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">beginTransaction</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #795e26;">productoBusca</span>(<span
+     style="color: #001080;">$id</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modelo</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">rollBack</span>();</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">archivoElimina</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">archivo</span>-&gt;<span
+     style="color: #001080;">id</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">DELETE</span><span
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PRODUCTO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> PROD_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>]);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">commit</span>();</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >11. srv / dao / productoModifica.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/productoBusca.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/archivoModifica.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">productoModifica</span>(<span
+     style="color: #267f99;">Producto</span> <span
+     style="color: #001080;">$modelo</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #795e26;">valida</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">beginTransaction</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">archivo</span>;</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$anterior</span> = <span
+     style="color: #795e26;">productoBusca</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$anterior</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Producto no encontrado."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$anterior</span>-&gt;<span
+     style="color: #001080;">archivo</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el archivo anterior."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$archivo</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #001080;">$anterior</span>-&gt;<span
+     style="color: #001080;">archivo</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">archivo</span> = <span
+     style="color: #001080;">$archivo</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$archivo</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$anterior</span>-&gt;<span
+     style="color: #001080;">archivo</span>-&gt;<span
+     style="color: #001080;">id</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">archivoModifica</span>(<span
+     style="color: #001080;">$archivo</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">UPDATE</span><span
+     style="color: #a31515;"> PRODUCTO</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">SET</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PROD_NOMBRE </span>=<span
+     style="color: #a31515;"> :nombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ID </span>=<span
+     style="color: #a31515;"> :archId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> PROD_ID </span>=<span
+     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":id"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":nombre"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">nombre</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">":archId"</span> =&gt; <span
+     style="color: #001080;">$archivo</span>-&gt;<span
+     style="color: #001080;">id</span></div>
+  <div>&nbsp;]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">commit</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+</body>
+
+</html>

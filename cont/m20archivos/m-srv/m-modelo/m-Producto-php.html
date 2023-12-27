@@ -1,0 +1,103 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span>&nbsp;&nbsp;<span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/Archivo.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">Producto</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> ?<span
+     style="color: #267f99;">Archivo</span> <span
+     style="color: #001080;">$archivo</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #a31515;">""</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #267f99;">Archivo</span> <span
+     style="color: #001080;">$archivo</span> = <span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$id</span> = <span
+     style="color: #098658;">0</span>,</div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">id</span> = <span
+     style="color: #001080;">$id</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">nombre</span> = <span
+     style="color: #001080;">$nombre</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">archivo</span> = <span
+     style="color: #001080;">$archivo</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">validaNuevo</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">nombre</span> === <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el nombre."</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">archivo</span> === <span
+     style="color: #0000ff;">null</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el archivo."</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">archivo</span>-&gt;<span
+     style="color: #795e26;">valida</span>();</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">valida</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">nombre</span> === <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el nombre."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
