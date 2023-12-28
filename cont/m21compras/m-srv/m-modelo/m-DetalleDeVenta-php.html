@@ -1,0 +1,107 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/Venta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/Producto.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">DetalleDeVenta</span></div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> ?<span
+     style="color: #267f99;">Venta</span> <span
+     style="color: #001080;">$venta</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> ?<span
+     style="color: #267f99;">Producto</span> <span
+     style="color: #001080;">$producto</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">float</span> <span
+     style="color: #001080;">$cantidad</span>;</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">float</span> <span
+     style="color: #001080;">$precio</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">__construct</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">float</span> <span
+     style="color: #001080;">$cantidad</span> = NAN,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">float</span> <span
+     style="color: #001080;">$precio</span> = NAN,</div>
+  <div>&nbsp;&nbsp;?<span
+     style="color: #267f99;">Producto</span> <span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp;&nbsp;?<span
+     style="color: #267f99;">Venta</span> <span
+     style="color: #001080;">$venta</span> = <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp;)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">cantidad</span> = <span
+     style="color: #001080;">$cantidad</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">precio</span> = <span
+     style="color: #001080;">$precio</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">producto</span> = <span
+     style="color: #001080;">$producto</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">venta</span> = <span
+     style="color: #001080;">$venta</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">valida</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">producto</span> === <span
+     style="color: #0000ff;">null</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Detalle de venta sin producto."</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">is_nan</span>(<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">cantidad</span>))</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"La cantidad no puede ser NAN."</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">is_nan</span>(<span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">precio</span>))</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"El precio no puede ser NAN."</span>);</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

@@ -1,0 +1,66 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeDecimal.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/modelo/DetalleDeVenta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/detalleDeVentaModifica.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$prodId</span> = <span
+     style="color: #795e26;">leeEntero</span>(<span
+     style="color: #a31515;">"prodId"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Producto</span>(id: <span
+     style="color: #001080;">$prodId</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$cantidad</span> = <span
+     style="color: #795e26;">leeDecimal</span>(<span
+     style="color: #a31515;">"cantidad"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">DetalleDeVenta</span>(producto: <span
+     style="color: #001080;">$producto</span>, cantidad: <span
+     style="color: #001080;">$cantidad</span>);</div>
+  <div>&nbsp;<span
+     style="color: #795e26;">detalleDeVentaModifica</span>(<span
+     style="color: #001080;">$modelo</span>);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">// Rompe el ciclo de referencias para poder generar
+    JSON.</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">venta</span>-&gt;<span
+     style="color: #001080;">detalles</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$modelo</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

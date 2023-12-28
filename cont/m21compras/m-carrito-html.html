@@ -1,0 +1,202 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #e50000;">html</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span
+     style="color: #800000;">&lt;html</span> <span
+     style="color: #e50000;">lang</span>=<span
+     style="color: #0000ff;">"es"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;head&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">charset</span>=<span
+     style="color: #0000ff;">"UTF-8"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;meta</span> <span
+     style="color: #e50000;">name</span>=<span
+     style="color: #0000ff;">"viewport"</span> <span
+     style="color: #e50000;">content</span>=<span
+     style="color: #0000ff;">"width=device-width"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span>Carrito<span
+     style="color: #800000;">&lt;/title&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/ejecuta.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/muestraError.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">"module"</span> <span
+     style="color: #e50000;">src</span>=<span
+     style="color: #0000ff;">"lib/js/muestraObjeto.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;script&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Obtiene los parámetros de la página.</span>
+  </div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">parametros</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">URL</span>(<span
+     style="color: #001080;">location</span>.<span
+     style="color: #001080;">href</span>).<span
+     style="color: #001080;">searchParams</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/script&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;body</span> <span
+     style="color: #e50000;">onload</span>=<span
+     style="color: #0000ff;">"</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #a31515;">'srv/srvVentaEnCapturaBusca.php'</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">then</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">venta</span><span
+     style="color: #0000ff;"> =&gt; </span><span
+     style="color: #795e26;">muestraObjeto</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">document</span><span
+     style="color: #0000ff;">, </span><span
+     style="color: #001080;">venta</span><span
+     style="color: #0000ff;">))</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">catch</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">muestraError</span><span
+     style="color: #0000ff;">)"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;h1&gt;</span>Carrito<span
+     style="color: #800000;">&lt;/h1&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;a</span> <span
+     style="color: #e50000;">href</span>=<span
+     style="color: #0000ff;">"index.html"</span><span
+     style="color: #800000;">&gt;</span>Productos<span
+     style="color: #800000;">&lt;/a&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;button</span> <span
+     style="color: #e50000;">type</span>=<span
+     style="color: #0000ff;">'button'</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #e50000;">onclick</span>=<span
+     style="color: #0000ff;">"</span><span
+     style="color: #af00db;">if</span><span
+     style="color: #0000ff;"> (</span><span
+     style="color: #795e26;">confirm</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #a31515;">'Confirma procesar'</span><span
+     style="color: #0000ff;">))&nbsp;{</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #795e26;">ejecuta</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #a31515;">'srv/srvVentaEnCapturaProcesa.php'</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">then</span><span
+     style="color: #0000ff;">(() =&gt; </span><span
+     style="color: #001080;">location</span><span
+     style="color: #0000ff;">.</span><span
+     style="color: #001080;">href</span><span
+     style="color: #0000ff;"> </span>=<span
+     style="color: #0000ff;"> </span><span
+     style="color: #a31515;">'index.html'</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+     style="color: #795e26;">catch</span><span
+     style="color: #0000ff;">(</span><span
+     style="color: #001080;">muestraError</span><span
+     style="color: #0000ff;">)</span></div>
+  <div><span
+     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;}"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Procesar compra</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/button&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;label&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;Folio</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;output</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"folio"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;progress</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"100"</span><span
+     style="color: #800000;">&gt;</span>Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span><span
+     style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/output&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/label&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/p&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;fieldset&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;legend&gt;</span>Detalle<span
+     style="color: #800000;">&lt;/legend&gt;</span></div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;dl</span> <span
+     style="color: #e50000;">id</span>=<span
+     style="color: #0000ff;">"detalles"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;dt&gt;</span>Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span><span
+     style="color: #800000;">&lt;/dt&gt;</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;dd&gt;&lt;progress</span> <span
+     style="color: #e50000;">max</span>=<span
+     style="color: #0000ff;">"100"</span><span
+     style="color: #800000;">&gt;</span>Cargando<span
+     style="color: #0000ff;">&amp;hellip;</span><span
+     style="color: #800000;">&lt;/progress&gt;&lt;/dd&gt;</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #800000;">&lt;/dl&gt;</span></div><br>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;/fieldset&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span
+     style="color: #800000;">&lt;/html&gt;</span></div>
+ </div>
+</muestra-codigo>

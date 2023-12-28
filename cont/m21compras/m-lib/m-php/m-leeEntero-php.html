@@ -1,0 +1,52 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/leeTexto.php"</span>;</div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Devuelve el valor entero de un
+    parámetro</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;recibido en el servidor por medio de
+    GET,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;POST o cookie. Si parámetro no se
+    puede</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;convertir a entero, se genera un
+    error.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Si el parámetro no se recibe,
+    devuelve</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;null.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeEntero</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$parametro</span>): ?<span
+     style="color: #0000ff;">int</span></div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$valor</span> = <span
+     style="color: #795e26;">trim</span>(<span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #001080;">$parametro</span>));</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span> === <span
+     style="color: #a31515;">""</span></div>
+  <div>&nbsp;&nbsp;? <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp;&nbsp;: <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

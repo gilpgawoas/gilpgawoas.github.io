@@ -1,0 +1,158 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../../lib/php/recibeFetchAll.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Venta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/DetalleDeVenta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../modelo/Producto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">detalleDeVentaConsulta</span>(<span
+     style="color: #267f99;">Venta</span> <span
+     style="color: #001080;">$venta</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">query</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.PROD_ID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodId,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodNombre,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_EXISTENCIAS
+   </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodExistencias,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PROD_PRECIO </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> prodPrecio,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.DTV_CANTIDAD
+   </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> cantidad,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.DTV_PRECIO </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> precio</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> DET_VENTA DV, PRODUCTO P</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;DV.PROD_ID </span>=<span
+     style="color: #a31515;"> P.PROD_ID</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">AND</span><span
+     style="color: #a31515;"> DV.VENT_ID </span>=<span
+     style="color: #a31515;"> :ventId</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
+     style="color: #0000ff;">ORDER BY</span><span
+     style="color: #a31515;"> P.PROD_NOMBRE</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>([<span
+     style="color: #a31515;">":ventId"</span> =&gt; <span
+     style="color: #001080;">$venta</span>-&gt;<span
+     style="color: #001080;">id</span>]);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$resultado</span> = <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetchAll</span>(<span
+     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$objs</span> = <span
+     style="color: #795e26;">recibeFetchAll</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/**&nbsp;</span><span
+     style="color: #0000ff;">@var</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">DetalleDeVenta</span><span
+     style="color: #0000ff;">[]</span><span
+     style="color: #008000;"> */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$detalles</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$objs</span> as <span
+     style="color: #001080;">$obj</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Producto</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;id: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodId</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;nombre: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodNombre</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;existencias: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodExistencias</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;precio: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">prodPrecio</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$detalle</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">DetalleDeVenta</span>(</div>
+  <div>&nbsp;&nbsp;&nbsp;venta: <span
+     style="color: #001080;">$venta</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;producto: <span
+     style="color: #001080;">$producto</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;cantidad: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">cantidad</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;precio: <span
+     style="color: #001080;">$obj</span>-&gt;<span
+     style="color: #001080;">precio</span></div>
+  <div>&nbsp;&nbsp;);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$detalles</span>[] = <span
+     style="color: #001080;">$detalle</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$detalles</span>;</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

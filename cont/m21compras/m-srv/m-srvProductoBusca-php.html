@@ -1,0 +1,60 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/productoBusca.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #795e26;">leeEntero</span>(<span
+     style="color: #a31515;">"id"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #795e26;">productoBusca</span>(<span
+     style="color: #001080;">$id</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modelo</span> === <span
+     style="color: #0000ff;">false</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Producto no encontrado."</span>);</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> [</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"id"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"producto"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">nombre</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"precio"</span> =&gt; <span
+     style="color: #a31515;">"$"</span> . <span
+     style="color: #795e26;">number_format</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">precio</span>, <span
+     style="color: #098658;">2</span>),</div>
+  <div>&nbsp;&nbsp;];</div>
+  <div>&nbsp;}</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

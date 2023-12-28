@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" sizes="32x32" href="/favicon.ico">
+<meta name="theme-color" content="#039623">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/lib/js/muestra-codigo.js"></script>
+ <title>Carpeta « lib / js » - GilPG AWOAS</title>
+ <meta name="description" content="">
+ <style>
+ :root {
+  --padTop: 2rem;
+  --introDuracion: 2s;
+  --introFuncion: ease-out;
+  --padCont: 0.5rem;
+  --padNav: 0.75rem 0.5rem;
+  --anchoNav: 300px;
+  --anchoLectura: 900px;
+  --colLetra: black;
+  --colFondo: white;
+  --colTituloLetra: #00811c;
+  --colTituloShadow: 3px 1px 2px #bdbdbd;
+  --colTituloStrong: #684601;
+  --colTituloStrongSel: #ffdc97;
+  --colTarget: #cef4ff;
+  --colSombra: #49494980;
+  --navSombra: 0.5rem 0 0.5rem var(--colSombra);
+  --padCtrl: 0.2rem 0.3rem;
+  --borderCtrl: solid thin;
+  --colFondoNav: #f2f2f2;
+  --colNavResaltada: #7a2c99;
+  --colSecundario: #ffff82;
+  --colStack1: black;
+  --colStack2: #224ba5;
+  --colStack3: #92731f;
+  --colScrollbar: #CFD8DC;
+  --colThumb: #90a4ae;
+  --colThumbActivo: #3f3f3f;
+  --anchoThumb: 7px;
+  --borderRadiusThumb: 3.5px;
+  --gap: 0.5rem;
+  --fontMono: monospace;
+  --fontSans: sans-serif;
+  --fontSerif: serif;
+  font-family: var(--fontSerif);
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ body::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ body::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ .anterior,
+ .siguiente {
+  display: inline-block;
+  text-decoration: none;
+  padding: var(--padCtrl);
+  border: var(--borderCtrl);
+  cursor: pointer;
+ }
+
+ .anterior.bye,
+ .siguiente.bye {
+  display: none;
+ }
+
+ a[data-logo] {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  padding-left: 54px;
+  margin-top: 1rem;
+  background-image: url("/img/icono/maskable_icon_x48.png");
+  background-position: 3px center;
+  background-repeat: no-repeat;
+ }
+
+ a strong,
+ a code,
+ h1 strong,
+ h1 code {
+  color: var(--colTituloStrong);
+ }
+
+ nav a {
+  font-family: var(--fontSans);
+ }
+
+ pre {
+  font-family: var(--fontMono);
+ }
+
+ code {
+  color: var(--colTituloStrong);
+  font-family: var(--fontMono);
+ }
+
+ .tree {
+  font-family: var(--fontSans);
+ }
+
+ .tree summary {
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .tree li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
+ h1:not(.default) {
+  font-family: var(--fontSans);
+  color: var(--colTituloLetra);
+ }
+
+ .autor {
+  font-family: var(--fontSans);
+  font-size: 1.5rem;
+  color: var(--colTituloLetra);
+ }
+
+ figure {
+  text-align: center;
+ }
+
+ figure img {
+  width: 100%;
+ }
+/* 
+ figure img.med {
+  max-height: 55vh;
+ } */
+
+ figcaption {
+  font-family: var(--fontMono);
+ }
+
+ .print .noPrint {
+  display: none;
+ }
+
+ @media print {
+  .noPrint {
+   display: none;
+  }
+
+  .pruebaDeEscritorio {
+   page-break-before: always;
+  }
+ }
+
+ iframe {
+  box-sizing: border-box;
+  width: 100%;
+ }
+
+ .lectura {
+  max-width: var(--anchoLectura);
+  margin: 1rem auto;
+ }
+
+ .lectura p,
+ .lectura blockquote {
+  text-align: justify;
+ }
+
+ /* No funciona bien con display:flex en pantallas pequeñas. */
+ .horizontal {
+  text-align: center;
+ }
+
+ .horizontal>* {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+ }
+
+ .horizontal>*:not(:first-child) {
+  margin-left: 1rem;
+ }
+
+ .columnas4 {
+  columns: 4 180px;
+  column-gap: 1rem;
+ }
+
+ .columnas2 {
+  columns: 2 360px;
+  column-gap: 1rem;
+ }
+
+ .resaltado {
+  background-color: rgb(255, 255, 89);
+ }
+
+ .resaltado2 {
+  background-color: rgb(255, 214, 139);
+ }
+
+ .resaltado3 {
+  background-color: rgb(235, 234, 233);
+ }
+
+ table.borde {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ table.borde,
+ table.borde td {
+  border: thin solid;
+  border-collapse: collapse;
+ }
+
+ table.borde th,
+ table.borde td {
+  padding: 0.4rem;
+ }
+
+ footer {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-family: var(--fontSans);
+  font-size: small;
+ }
+</style>
+ <style>
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1em;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
+</head>
+
+<body class="print">
+   <h1 >A. Carpeta « lib / js »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-buscaElementoHtml-js.html">lib / js / buscaElementoHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-confirmaEliminar-js.html">lib / js / confirmaEliminar.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-getArchivoSeleccionado-js.html">lib / js / getArchivoSeleccionado.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-getDataUrlDeSeleccion-js.html">lib / js / getDataUrlDeSeleccion.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-getInputParaElementoHtml-js.html">lib / js / getInputParaElementoHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraArray-js.html">lib / js / muestraArray.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraImagen-js.html">lib / js / muestraImagen.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraObjeto-js.html">lib / js / muestraObjeto.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-muestraValor-js.html">lib / js / muestraValor.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-lib/m-js/m-submitForma-js.html">lib / js / submitForma.js</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. lib / js / buscaElementoHtml.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">nombre</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">buscaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">nombre</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">raizHtml</span>.<span
+     style="color: #795e26;">querySelector</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">`#</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">,[name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"],[data-name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">nombre</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"]`</span>)</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"buscaElementoHtml"</span>] = <span
+     style="color: #795e26;">buscaElementoHtml</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / js / confirmaEliminar.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">confirmaEliminar</span>()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #795e26;">confirm</span>(<span
+     style="color: #a31515;">"Confirma la eliminación"</span>)</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"confirmaEliminar"</span>] = <span
+     style="color: #795e26;">confirmaEliminar</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. lib / js / ejecuta.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un fetch
+    termine. Si</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;hay error, lanza una excepción. Si no
+    hay error,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;interpreta la respuesta del servidor
+    como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de objeto.
+   </span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string | Promise&lt;Response&gt; }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">servicio</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">servicio</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">f</span> = <span
+     style="color: #001080;">servicio</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">servicio</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">f</span> = <span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">servicio</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (!(<span
+     style="color: #001080;">f</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">Promise</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">"Servicio de tipo incorrecto."</span>)</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">respuesta</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">f</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">ok</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">texto</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>()</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">parse</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"ejecuta"</span>] = <span
+     style="color: #795e26;">ejecuta</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >4. lib / js / getArchivoSeleccionado.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ HTMLInputElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">input</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">getArchivoSeleccionado</span>(<span
+     style="color: #001080;">input</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">seleccion</span> = <span
+     style="color: #001080;">input</span>.<span
+     style="color: #001080;">files</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">seleccion</span> === <span
+     style="color: #0000ff;">null</span> || <span
+     style="color: #0070c1;">seleccion</span>.<span
+     style="color: #0070c1;">length</span> === <span
+     style="color: #098658;">0</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0070c1;">seleccion</span>.<span
+     style="color: #795e26;">item</span>(<span
+     style="color: #098658;">0</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"getArchivoSeleccionado"</span>] = <span
+     style="color: #795e26;">getArchivoSeleccionado</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >5. lib / js / getDataUrlDeSeleccion.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">getArchivoSeleccionado</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./getArchivoSeleccionado.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{HTMLInputElement}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">input</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;string&gt;}</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">getDataUrlDeSeleccion</span>(<span
+     style="color: #001080;">input</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Promise</span>((<span
+     style="color: #795e26;">resolve</span>, <span
+     style="color: #795e26;">reject</span>) <span
+     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">seleccion</span> = <span
+     style="color: #795e26;">getArchivoSeleccionado</span>(<span
+     style="color: #001080;">input</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">seleccion</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">reader</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">FileReader</span>()</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">reader</span>.<span
+     style="color: #795e26;">onload</span> = () <span
+     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">dataUrl</span> = <span
+     style="color: #0070c1;">reader</span>.<span
+     style="color: #0070c1;">result</span></div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #0070c1;">dataUrl</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #0070c1;">dataUrl</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">reader</span>.<span
+     style="color: #795e26;">onerror</span> = () <span
+     style="color: #0000ff;">=&gt;</span> <span
+     style="color: #795e26;">reject</span>(<span
+     style="color: #0070c1;">reader</span>.<span
+     style="color: #0070c1;">error</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">reader</span>.<span
+     style="color: #795e26;">readAsDataURL</span>(<span
+     style="color: #0070c1;">seleccion</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #001080;">error</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;})</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"getDataUrlDeSeleccion"</span>] = <span
+     style="color: #795e26;">getDataUrlDeSeleccion</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >6. lib / js / getInputParaElementoHtml.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">buscaElementoHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./buscaElementoHtml.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">getInputParaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">elementoHtml</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">posibleInputId</span> = <span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #795e26;">getAttribute</span>(<span
+     style="color: #a31515;">"data-input"</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">posibleInputId</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">posibleInput</span> = <span
+     style="color: #795e26;">buscaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">posibleInputId</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">posibleInput</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0070c1;">posibleInput</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"getInputParaElementoHtml"</span>] = <span
+     style="color: #795e26;">getInputParaElementoHtml</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >7. lib / js / muestraArray.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">propiedad</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any[]}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valores</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraArray</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">propiedad</span>, <span
+     style="color: #001080;">valores</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">conjunto</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Set</span>(<span
+     style="color: #001080;">valores</span>)</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elementos</span> = <span
+     style="color: #001080;">raizHtml</span>.<span
+     style="color: #795e26;">querySelectorAll</span>(</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">`[name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"],[data-name="</span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #001080;">propiedad</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;">"]`</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #267f99;">Array</span>.<span
+     style="color: #795e26;">from</span>(<span
+     style="color: #0070c1;">elementos</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">elemento</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">checked</span> = <span
+     style="color: #0070c1;">conjunto</span>.<span
+     style="color: #795e26;">has</span>(<span
+     style="color: #0070c1;">elemento</span>.<span
+     style="color: #001080;">value</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraArray"</span>] = <span
+     style="color: #795e26;">muestraArray</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >8. lib / js / muestraBoolean.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraString</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraString.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{boolean}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraBoolean</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">elementoHtml</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span></div>
+  <div>&nbsp;&nbsp;&amp;&amp; <span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">type</span> === <span
+     style="color: #a31515;">"checkbox"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">checked</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">elementoHtml</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLInputElement</span></div>
+  <div>&nbsp;&nbsp;&amp;&amp; <span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">type</span> === <span
+     style="color: #a31515;">"range"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">valueAsNumber</span> = <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #0000ff;">true</span> ? <span
+     style="color: #098658;">1</span> : <span
+     style="color: #098658;">0</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #0000ff;">true</span> ? <span
+     style="color: #a31515;">"verdadero"</span> : <span
+     style="color: #a31515;">"falso"</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraBoolean"</span>] = <span
+     style="color: #795e26;">muestraBoolean</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >9. lib / js / muestraError.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Muestra un error en la consola y en un
+    cuadro de</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;alerta el mensaje de una
+    excepción.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Error | null }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">error</span><span
+     style="color: #008000;"> descripción del error.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">error</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">log</span>(<span
+     style="color: #a31515;">"Error"</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">alert</span>(<span
+     style="color: #a31515;">"Error"</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">error</span>(<span
+     style="color: #001080;">error</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">alert</span>(<span
+     style="color: #001080;">error</span>.<span
+     style="color: #001080;">message</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraError"</span>] = <span
+     style="color: #795e26;">muestraError</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >10. lib / js / muestraImagen.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">getDataUrlDeSeleccion</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./getDataUrlDeSeleccion.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">getInputParaElementoHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./getInputParaElementoHtml.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ HTMLImageElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">img</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraImagen</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">img</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #0070c1;">dataset</span>.<span
+     style="color: #001080;">inicial</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">input</span> = <span
+     style="color: #795e26;">getInputParaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">img</span>)</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> === <span
+     style="color: #0000ff;">null</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">true</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> === <span
+     style="color: #0000ff;">null</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">input</span> !== <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">dataUrl</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">getDataUrlDeSeleccion</span>(<span
+     style="color: #0070c1;">input</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> === <span
+     style="color: #a31515;">""</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{ <span
+     style="color: #008000;">// input !== null</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">true</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> === <span
+     style="color: #a31515;">""</span> &amp;&amp; <span
+     style="color: #001080;">valor</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">dataUrl</span> !== <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">hidden</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">img</span>.<span
+     style="color: #001080;">src</span> = <span
+     style="color: #0070c1;">dataUrl</span></div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraImagen"</span>] = <span
+     style="color: #795e26;">muestraImagen</span></div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >11. lib / js / muestraInnerHtml.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{any}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">innerHTML</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraInnerHtml"</span>] = <span
+     style="color: #795e26;">muestraInnerHtml</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >12. lib / js / muestraNumber.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraString</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraString.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Element }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ number }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraNumber</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">isNaN</span>(<span
+     style="color: #001080;">valor</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>.<span
+     style="color: #795e26;">toString</span>())</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraNumber"</span>] = <span
+     style="color: #795e26;">muestraNumber</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >13. lib / js / muestraObjeto.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">buscaElementoHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./buscaElementoHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraArray</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraArray.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraValor</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraValor.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ any }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">objeto</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraObjeto</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">objeto</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">const</span> [<span
+     style="color: #0070c1;">propiedad</span>, <span
+     style="color: #0070c1;">valor</span>] <span
+     style="color: #0000ff;">of</span> <span
+     style="color: #267f99;">Object</span>.<span
+     style="color: #795e26;">entries</span>(<span
+     style="color: #001080;">objeto</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #267f99;">Array</span>.<span
+     style="color: #795e26;">isArray</span>(<span
+     style="color: #0070c1;">valor</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraArray</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">propiedad</span>, <span
+     style="color: #0070c1;">valor</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">elementoHtml</span> = <span
+     style="color: #795e26;">buscaElementoHtml</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">propiedad</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">elementoHtml</span> !== <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">muestraValor</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #0070c1;">elementoHtml</span>, <span
+     style="color: #0070c1;">valor</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraObjeto"</span>] = <span
+     style="color: #795e26;">muestraObjeto</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >14. lib / js / muestraString.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraInnerHtml</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraInnerHtml.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraTextContent</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraTextContent.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Element }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #a31515;">"value"</span> <span
+     style="color: #0000ff;">in</span> <span
+     style="color: #001080;">elementoHtml</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">value</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #795e26;">getAttribute</span>(<span
+     style="color: #a31515;">"data-text-content"</span>) !== <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraInnerHtml</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraString"</span>] = <span
+     style="color: #795e26;">muestraString</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >15. lib / js / muestraTextContent.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Element}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraTextContent</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">textContent</span> = <span
+     style="color: #001080;">valor</span></div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraTextContent"</span>] = <span
+     style="color: #795e26;">muestraTextContent</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >16. lib / js / muestraValor.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraBoolean</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraBoolean.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraImagen</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraImagen.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraNumber</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraNumber.js"</span></div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">muestraString</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./muestraString.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Document | HTMLElement }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">raizHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Element }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">elementoHtml</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ any }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">valor</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraValor</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">elementoHtml</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">HTMLImageElement</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">muestraImagen</span>(<span
+     style="color: #001080;">raizHtml</span>, <span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"number"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraNumber</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">valor</span> === <span
+     style="color: #0000ff;">null</span> || <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #0000ff;">undefined</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraString</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #a31515;">""</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">valor</span> === <span
+     style="color: #a31515;">"boolean"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">muestraBoolean</span>(<span
+     style="color: #001080;">elementoHtml</span>, <span
+     style="color: #001080;">valor</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">name</span> = <span
+     style="color: #a31515;">"name"</span> <span
+     style="color: #0000ff;">in</span> <span
+     style="color: #001080;">elementoHtml</span></div>
+  <div>&nbsp;&nbsp;&nbsp;? <span
+     style="color: #001080;">elementoHtml</span>[<span
+     style="color: #a31515;">"name"</span>]</div>
+  <div>&nbsp;&nbsp;&nbsp;: <span
+     style="color: #001080;">elementoHtml</span>.<span
+     style="color: #001080;">id</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">`El valor de </span><span
+     style="color: #0000ff;">${</span><span
+     style="color: #0070c1;">name</span><span
+     style="color: #0000ff;">}</span><span
+     style="color: #a31515;"> no es soportado.`</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraValor"</span>] = <span
+     style="color: #795e26;">muestraValor</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >17. lib / js / submitForma.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">ejecuta</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Envía los datos de la forma a la url
+    usando la codificación</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;multipart/form-data.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Event}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">event</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{HTMLFormElement}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">forma</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ "GET" | "POST"| "PUT" | "PATCH" | "DELETE" |
+    "TRACE" | "OPTIONS"</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;">&nbsp;&nbsp;| "CONNECT" | "HEAD" }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">metodoHttp</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">submitForma</span>(<span
+     style="color: #001080;">url</span>, <span
+     style="color: #001080;">event</span>, <span
+     style="color: #001080;">forma</span>, <span
+     style="color: #001080;">metodoHttp</span> = <span
+     style="color: #a31515;">"POST"</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">event</span>.<span
+     style="color: #795e26;">preventDefault</span>()</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>,&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">metodoHttp</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">FormData</span>(<span
+     style="color: #001080;">forma</span>)</div>
+  <div>&nbsp;}))</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"submitForma"</span>] = <span
+     style="color: #795e26;">submitForma</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+</body>
+
+</html>

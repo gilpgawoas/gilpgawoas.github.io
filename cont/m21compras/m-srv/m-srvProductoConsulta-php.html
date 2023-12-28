@@ -1,0 +1,96 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/productoConsulta.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$lista</span> = <span
+     style="color: #795e26;">productoConsulta</span>();</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$render</span> = <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$lista</span> as <span
+     style="color: #001080;">$modelo</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">nombre</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$precio</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #a31515;">"$"</span> . <span
+     style="color: #795e26;">number_format</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">precio</span>, <span
+     style="color: #098658;">2</span>));</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$existencias</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #795e26;">number_format</span>(<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">existencias</span>, <span
+     style="color: #098658;">2</span>));</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$render</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;dt&gt;</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">&lt;/dt&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
+    href='agrega.html?id=</span><span
+     style="color: #001080;">$id</span><span
+     style="color: #a31515;">'&gt;Agregar al carrito&lt;/a&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dl&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Precio&lt;/dt&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
+     style="color: #001080;">$precio</span><span
+     style="color: #a31515;">&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Existencias&lt;/dt&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
+     style="color: #001080;">$existencias</span><span
+     style="color: #a31515;">&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dl&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;"</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$render</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

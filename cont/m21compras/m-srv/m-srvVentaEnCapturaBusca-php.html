@@ -1,0 +1,143 @@
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/modelo/DetalleDeVenta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/dao/ventaEnCapturaBusca.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span> = <span
+     style="color: #795e26;">ventaEnCapturaBusca</span>();</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modelo</span> === <span
+     style="color: #0000ff;">false</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Venta no encontrada"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$detalles</span> = <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">detalles</span>;</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$productoIds</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$detalles</span> as <span
+     style="color: #001080;">$detalle</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$id</span> = <span
+     style="color: #001080;">$detalle</span>-&gt;<span
+     style="color: #001080;">producto</span>-&gt;<span
+     style="color: #001080;">id</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$productoIds</span>[<span
+     style="color: #001080;">$id</span>] = <span
+     style="color: #0000ff;">true</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$renderDetalles</span> = <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$detalles</span> as <span
+     style="color: #001080;">$detalle</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$producto</span> = <span
+     style="color: #001080;">$detalle</span>-&gt;<span
+     style="color: #001080;">producto</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$prodId</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$producto</span>-&gt;<span
+     style="color: #001080;">id</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$prodNombre</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #001080;">$producto</span>-&gt;<span
+     style="color: #001080;">nombre</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$precio</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #a31515;">"$"</span> . <span
+     style="color: #795e26;">number_format</span>(<span
+     style="color: #001080;">$detalle</span>-&gt;<span
+     style="color: #001080;">precio</span>, <span
+     style="color: #098658;">2</span>));</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$cantidad</span> = <span
+     style="color: #795e26;">htmlentities</span>(<span
+     style="color: #795e26;">number_format</span>(<span
+     style="color: #001080;">$detalle</span>-&gt;<span
+     style="color: #001080;">cantidad</span>, <span
+     style="color: #098658;">2</span>));</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$renderDetalles</span> .=</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"&lt;dt&gt;</span><span
+     style="color: #001080;">$prodNombre</span><span
+     style="color: #a31515;">&lt;/dt&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=
+    'modifica.html?prodId=</span><span
+     style="color: #001080;">$prodId</span><span
+     style="color: #a31515;">'&gt;Modificar o eliminar&lt;/a&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dl&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Cantidad&lt;/dt&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
+     style="color: #001080;">$cantidad</span><span
+     style="color: #a31515;">&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Precio&lt;/dt&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
+     style="color: #001080;">$precio</span><span
+     style="color: #a31515;">&lt;/dd&gt;</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dl&gt;</span>
+  </div>
+  <div><span
+     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;"</span>;</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">detalles</span> = [];</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> [</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"folio"</span> =&gt; <span
+     style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">id</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"detalles"</span> =&gt; <span
+     style="color: #001080;">$renderDetalles</span></div>
+  <div>&nbsp;];</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>
