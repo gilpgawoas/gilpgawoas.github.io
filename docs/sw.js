@@ -983,6 +983,7 @@ const ARCHIVOS = [
  "/m22pruebas/mDjasmine/mArchivos.html",
  "/m22pruebas/mDjasmine/print.html",
  "/m22pruebas/mEapp.html",
+ "/m22pruebas/mFcurl.html",
  "/m22pruebas/mTresumen.html",
  "/m22pruebas/print.html",
  "/print.html",
