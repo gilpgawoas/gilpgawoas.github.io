@@ -1,1 +1,99 @@
-<muestra-codigo></muestra-codigo>
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">session_start</span>();</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$criptografiaFuerte</span> = <span
+     style="color: #0000ff;">true</span>;</div>
+  <div>&nbsp;<span
+     style="color: #008000;">// Crea el token</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$token</span> = [</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// El token expira en 5 minutos.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"expiracion"</span> =&gt; <span
+     style="color: #795e26;">time</span>() + <span
+     style="color: #098658;">60</span> *&nbsp;<span
+     style="color: #098658;">5</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// El token es de 80 caracteres, criptográficamente
+    fuerte.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"texto"</span> =&gt; <span
+     style="color: #795e26;">bin2hex</span>(<span
+     style="color: #795e26;">openssl_random_pseudo_bytes</span>(<span
+     style="color: #098658;">80</span>, <span
+     style="color: #001080;">$criptografiaFuerte</span>))</div>
+  <div>&nbsp;];</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Verifica que ya haya tokens para la pagina
+    "formulario".</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>]))&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$tokensParaFormulario</span> = <span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>];</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Como ya exite el arreglo, elimina los tokens
+    expirados para esta pagina.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$tokensParaFormulario</span> as <span
+     style="color: #001080;">$llave</span> =&gt; <span
+     style="color: #001080;">$tokenParaFormulario</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$tokenParaFormulario</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &gt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaFormulario</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Se puede usar uno o varios tokens por
+    forma.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$tokensParaFormulario</span>[] = <span
+     style="color: #001080;">$token</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>] = <span
+     style="color: #001080;">$tokensParaFormulario</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Se puede usar uno o varios tokens por forma
+   </span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>] = [<span
+     style="color: #001080;">$token</span>];</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$token</span>[<span
+     style="color: #a31515;">"texto"</span>];</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>A. srv / srvProcesa.php - GilPG AWOAS</title>
+ <title>B. srv / srvProcesa.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvProcesa.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -463,7 +463,161 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >A. srv / srvProcesa.php</h1><muestra-codigo></muestra-codigo>
+   <h1 >B. srv / srvProcesa.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div><br>
+  <div><span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #0000ff;">function</span> ()&nbsp;{</div><br>
+  <div>&nbsp;<span
+     style="color: #795e26;">session_start</span>();</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$token</span> = <span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #a31515;">"token"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">false</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>]))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Formulario no registrado."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$tokensParaFormulario</span> = <span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>];</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">is_array</span>(<span
+     style="color: #001080;">$tokensParaFormulario</span>))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Valida que el token se haya registrado.</span>
+  </div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$tokensParaFormulario</span> as <span
+     style="color: #001080;">$llave</span> =&gt; <span
+     style="color: #001080;">$tokenParaFormulario</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">strcmp</span>(<span
+     style="color: #001080;">$token</span>, <span
+     style="color: #001080;">$tokenParaFormulario</span>[<span
+     style="color: #a31515;">"texto"</span>]) === <span
+     style="color: #098658;">0</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$tokenParaFormulario</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &lt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaFormulario</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>] = <span
+     style="color: #001080;">$tokensParaFormulario</span>;</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Te tardaste mucho."</span>);</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">true</span>;</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">elseif</span> (<span
+     style="color: #001080;">$tokenParaFormulario</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &gt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Elimina tokens expirados</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaFormulario</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #a31515;">"formulario"</span>] = <span
+     style="color: #001080;">$tokensParaFormulario</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$hallado</span> === <span
+     style="color: #0000ff;">false</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No autorizado"</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Si el token se halló, precesa normalmente la
+    forma.</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$saludo</span> = <span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #a31515;">"saludo"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$nombre</span> = <span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #a31515;">"nombre"</span>);</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$saludo</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el saludo"</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$nombre</span> === <span
+     style="color: #a31515;">""</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Falta el nombre"</span>);</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$resultado</span> =</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"{</span><span
+     style="color: #001080;">$saludo</span><span
+     style="color: #a31515;">}&nbsp;{</span><span
+     style="color: #001080;">$nombre</span><span
+     style="color: #a31515;">}."</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$resultado</span>;</div>
+  <div>});</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -487,8 +641,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m23token/m-srv/index.html" title="G. Carpeta « srv »">◀</a>
- <a class="siguiente" href="/m23token/m-srv/m-srvRegistra-php.html" title="B. srv / srvRegistra.php">▶</a>
+ <a class="anterior" href="/m23token/m-srv/m-srvRegistra-php.html" title="A. srv / srvRegistra.php">◀</a>
+ <a class="siguiente" href="/m23token/m-jsconfig-json.html" title="H. jsconfig.json">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -515,12 +669,12 @@
     
    <li>
     <p>
-     <a href="/m23token/m-srv/m-srvProcesa-php.html" class="actual">srv / srvProcesa.php</a>
+     <a href="/m23token/m-srv/m-srvRegistra-php.html">srv / srvRegistra.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-srv/m-srvRegistra-php.html">srv / srvRegistra.php</a>
+     <a href="/m23token/m-srv/m-srvProcesa-php.html" class="actual">srv / srvProcesa.php</a>
     </p>
    </li>
    </ol>
@@ -541,9 +695,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m23token/m-srv/index.html"
+ let urlAnterior = "/m23token/m-srv/m-srvRegistra-php.html"
  /**@type {string} */
- let urlSiguiente = "/m23token/m-srv/m-srvRegistra-php.html"
+ let urlSiguiente = "/m23token/m-jsconfig-json.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

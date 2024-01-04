@@ -61,6 +61,7 @@ const ARCHIVOS = [
  "/img/m21compras/comprasder.drawio.svg",
  "/img/m21compras/compraspaquetes.drawio.svg",
  "/img/m21compras/comprasrel.drawio.svg",
+ "/img/m23token/srvtokendistribucion.drawio.svg",
  "/img/marcas.svg",
  "/img/mensajes_soap.svg",
  "/",
@@ -1049,7 +1050,8 @@ const ARCHIVOS = [
  "/src/m20archivos/srvarchivos.zip",
  "/src/m21compras/srvcompras.zip",
  "/src/m22pruebas/jasmine.zip",
- "/src/m22pruebas/phpunit.zip"
+ "/src/m22pruebas/phpunit.zip",
+ "/src/m23token/srvtoken.zip"
 ]
 
 // Verifica si el código corre dentro de un service worker.
