@@ -134,6 +134,13 @@
   color: var(--colTituloLetra);
  }
 
+ h1,
+ .lectura a,
+ .lectura p,
+ .lectura blockquote {
+  overflow-wrap: anywhere;
+ }
+
  .autor {
   font-family: var(--fontSans);
   font-size: 1.5rem;
@@ -147,10 +154,6 @@
  figure img {
   width: 100%;
  }
-/* 
- figure img.med {
-  max-height: 55vh;
- } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -172,7 +175,7 @@
 
  iframe {
   box-sizing: border-box;
-  width: 100%;
+  width: 300px;
  }
 
  .lectura {
@@ -185,19 +188,21 @@
   text-align: justify;
  }
 
- /* No funciona bien con display:flex en pantallas pequeñas. */
  .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  justify-content: center;
+ }
+
+ .horizontal>*:first-child {
+  flex: 1 1 300px;
   text-align: center;
  }
 
- .horizontal>* {
-  display: inline-block;
-  vertical-align: top;
-  text-align: left;
- }
-
- .horizontal>*:not(:first-child) {
-  margin-left: 1rem;
+ .horizontal>*:nth-child(2) {
+  flex: 1 1 auto;
  }
 
  .columnas4 {
@@ -522,6 +527,11 @@
    <li>
     <p>
      <a href="/m22pruebas/">Pruebas</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/">Servicio con token</a>
     </p>
    </li>
    </ol>
@@ -47686,6 +47696,801 @@
   <li>
    <p>
     En esta lección se mostró como probar una aplicación web.
+   </p>
+  </li>
+ </ul>
+</div>
+      </section>
+      </section>
+     <section>
+         <h1 >26. Servicio con token</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+<div class="lectura">
+ <nav>
+  <h1>Contenido</h1>
+  
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m23token/mAintro.html">Introducción</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/mDdeploy.html">Diagrama de despliegue</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/mGinstrucciones.html">Hazlo funcionar</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/mArchivos.html">Archivos</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-index-html.html">index.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-formulario-html.html">formulario.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-srv/">Carpeta « srv »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-jsconfig-json.html">jsconfig.json</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/">Carpeta « lib »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/mTresumen.html">Resumen</a>
+    </p>
+   </li>
+   </ol>
+ </nav>
+</div>
+     <section >
+         <h1 >A. Introducción</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Este ejemplo muestra como proteger servicios y formas con el uso de tokens.
+   </p>
+  </li>
+  <li>
+   <p>
+    Puedes probar el ejemplo en
+    <a rel="noopener" href="https://replit.com/@GilbertoPachec2/srvtoken?v=1"
+      target="_blank">https://replit.com/@GilbertoPachec2/srvtoken?v=1</a>.
+    Hazle fork al proyecto y córrelo.
+   </p>
+  </li>
+ </ul>
+</div>
+      </section>
+     <section >
+         <h1 >B. Diagrama de despliegue</h1><figure>
+ <img style="max-height: none;"
+   src="/img/m10form/srvformdistribucion.drawio.svg"
+   alt="Diagrama de despliegue">
+</figure>
+      </section>
+     <section >
+         <h1 >C. Hazlo funcionar</h1><div class="lectura">
+ <ol>
+  <li>
+   <p>
+    <a href="/src/m10form/srvform.zip" download>Descarga el ejemplo.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Revisa el proyecto en Replit con la URl
+    <a href="https://replit.com/@GilbertoPachec5/srvform?v=1" rel="nooper"
+      target="_blank">https://replit.com/@GilbertoPachec5/srvform?v=1</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
+      target="_blank" rel="nooper">Usa o crea una cuenta de Google.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
+      target="_blank" rel="nooper">Crea una cuenta de Replit usando la cuenta de
+     Google.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1uH3T58ZJrmihJb3wRdnEFhtbgil9ED6w/view?usp=sharing"
+      target="_blank" rel="nooper">Crea un proyecto <em>PHP Web Server</em> en
+     Replit y edita o sube los archivos de este proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1F3sHMnear4JOu1NVKIkkjVBKFg-eoMX4/view?usp=sharing"
+      target="_blank" rel="nooper">Depura el proyecto.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
+      target="_blank" rel="nooper">Crea la <b>cover page</b> o página de
+     spotlight del proyecto.</a>
+   </p>
+  </li>
+ </ol>
+</div>
+      </section>
+     <section >
+         <h1 >D. Archivos</h1><div class="lectura">
+ <p>Haz clic en los triángulos para expandir las carpetas</p>
+ <ul class="tree">
+  <li>
+   <p><a href="m-formulario-html.html">formulario.html</a></p>
+  </li>
+  <li>
+   <p><a href="m-index-html.html">index.html</a></p>
+  </li>
+  <li>
+   <p><a href="m-jsconfig-json.html">jsconfig.json</a></p>
+  </li>
+  <li>
+   <details>
+    <summary>lib</summary>
+    <ul>
+     <li>
+      <details>
+       <summary>js</summary>
+       <ul>
+        <li>
+         <p><a href="m-lib/m-js/m-ejecuta-js.html">ejecuta.js</a></p>
+        </li>
+        <li>
+         <p><a href="m-lib/m-js/m-muestraError-js.html">muestraError.js</a></p>
+        </li>
+        <li>
+         <p><a href="m-lib/m-js/m-submitForma-js.html">submitForma.js</a></p>
+        </li>
+       </ul>
+      </details>
+     </li>
+     <li>
+      <details>
+       <summary>php</summary>
+       <ul>
+        <li>
+         <p><a href="m-lib/m-php/m-ejecuta-php.html">ejecuta.php</a></p>
+        </li>
+        <li>
+         <p><a href="m-lib/m-php/m-leeTexto-php.html">leeTexto.php</a></p>
+        </li>
+       </ul>
+      </details>
+     </li>
+    </ul>
+   </details>
+  </li>
+  <li>
+   <details>
+    <summary>srv</summary>
+    <ul>
+     <li>
+      <p><a href="m-srv/m-srvProcesa-php.html">srvProcesa.php</a></p>
+     </li>
+     <li>
+      <p><a href="m-srv/m-srvRegistra-php.html">srvRegistra.php</a></p>
+     </li>
+    </ul>
+   </details>
+  </li>
+ </ul>
+</div>
+      </section>
+     <section >
+         <h1 >E. index.html</h1><muestra-codigo></muestra-codigo>
+      </section>
+     <section >
+         <h1 >F. formulario.html</h1><muestra-codigo></muestra-codigo>
+      </section>
+     <section>
+         <h1 >G. Carpeta « srv »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m23token/m-srv/m-srvProcesa-php.html">srv / srvProcesa.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-srv/m-srvRegistra-php.html">srv / srvRegistra.php</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >A. srv / srvProcesa.php</h1><muestra-codigo></muestra-codigo>
+      </section>
+     <section >
+         <h1 >B. srv / srvRegistra.php</h1><muestra-codigo></muestra-codigo>
+      </section>
+      </section>
+     <section >
+         <h1 >H. jsconfig.json</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Este archivo ayuda a detectar errores en los archivos del proyecto.
+   </p>
+  </li>
+  <li>
+   <p>
+    Lo utiliza principalmente Visual Studio Code.
+   </p>
+  </li>
+  <li>
+   <p>
+    No se explica aquí su estructura, pero puede encontrarse la explicación de
+    todo en la documentación del sitio de Visual Studio Code.
+   </p>
+  </li>
+ </ul>
+</div>
+<muestra-codigo>
+ <div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #0451a5;">"compilerOptions"</span>:&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"checkJs"</span>: <span
+     style="color: #0000ff;">true</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"strictNullChecks"</span>: <span
+     style="color: #0000ff;">true</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"target"</span>: <span
+     style="color: #a31515;">"ES6"</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"module"</span>: <span
+     style="color: #a31515;">"ES6"</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"moduleResolution"</span>: <span
+     style="color: #a31515;">"classic"</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0451a5;">"lib"</span>: [</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"ES2017"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"WebWorker"</span>,</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #a31515;">"DOM"</span></div>
+  <div>&nbsp;&nbsp;]</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section>
+         <h1 >I. Carpeta « lib »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/">Carpeta « lib / js »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/">Carpeta « lib / php »</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section>
+         <h1 >A. Carpeta « lib / js »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-submitForma-js.html">lib / js / submitForma.js</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. lib / js / ejecuta.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un fetch
+    termine. Si</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;hay error, lanza una excepción. Si no
+    hay error,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;interpreta la respuesta del servidor
+    como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de objeto.
+   </span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ string | Promise&lt;Response&gt; }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">servicio</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">servicio</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">f</span> = <span
+     style="color: #001080;">servicio</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0000ff;">typeof</span> <span
+     style="color: #001080;">servicio</span> === <span
+     style="color: #a31515;">"string"</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">f</span> = <span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">servicio</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (!(<span
+     style="color: #001080;">f</span> <span
+     style="color: #0000ff;">instanceof</span> <span
+     style="color: #267f99;">Promise</span>))&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">"Servicio de tipo incorrecto."</span>)</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">respuesta</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">f</span></div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">ok</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">texto</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>()</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">parse</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">texto</span>)</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #0070c1;">respuesta</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"ejecuta"</span>] = <span
+     style="color: #795e26;">ejecuta</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / js / muestraError.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Muestra un error en la consola y en un
+    cuadro de</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;alerta el mensaje de una
+    excepción.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ Error | null }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">error</span><span
+     style="color: #008000;"> descripción del error.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">muestraError</span>(<span
+     style="color: #001080;">error</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">error</span> === <span
+     style="color: #0000ff;">null</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">log</span>(<span
+     style="color: #a31515;">"Error"</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">alert</span>(<span
+     style="color: #a31515;">"Error"</span>)</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">console</span>.<span
+     style="color: #795e26;">error</span>(<span
+     style="color: #001080;">error</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">alert</span>(<span
+     style="color: #001080;">error</span>.<span
+     style="color: #001080;">message</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"muestraError"</span>] = <span
+     style="color: #795e26;">muestraError</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. lib / js / submitForma.js</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #af00db;">import</span>&nbsp;{ <span
+     style="color: #001080;">ejecuta</span> }&nbsp;<span
+     style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Envía los datos de la forma a la url
+    usando la codificación</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;multipart/form-data.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Event}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">event</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{HTMLFormElement}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">forma</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;</span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{ "GET" | "POST"| "PUT" | "PATCH" | "DELETE" |
+    "TRACE" | "OPTIONS"</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;">&nbsp;&nbsp;| "CONNECT" | "HEAD" }</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">metodoHttp</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">submitForma</span>(<span
+     style="color: #001080;">url</span>, <span
+     style="color: #001080;">event</span>, <span
+     style="color: #001080;">forma</span>, <span
+     style="color: #001080;">metodoHttp</span> = <span
+     style="color: #a31515;">"POST"</span>)&nbsp;{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">event</span>.<span
+     style="color: #795e26;">preventDefault</span>()</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>,&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">metodoHttp</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">FormData</span>(<span
+     style="color: #001080;">forma</span>)</div>
+  <div>&nbsp;}))</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">// Permite que los eventos de html usen la
+    función.</span></div>
+  <div><span
+     style="color: #001080;">window</span>[<span
+     style="color: #a31515;">"submitForma"</span>] = <span
+     style="color: #795e26;">submitForma</span></div>
+ </div>
+</muestra-codigo>
+      </section>
+      </section>
+     <section>
+         <h1 >B. Carpeta « lib / php »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. lib / php / ejecuta.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Ejecuta una funcion que implementa un
+    servicio.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">$servicio</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">try</span>&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Usa utf8.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">mb_internal_encoding</span>(<span
+     style="color: #a31515;">"UTF-8"</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$resultado</span> = <span
+     style="color: #001080;">$servicio</span>();</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Devuelve JSON.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">header</span>(<span
+     style="color: #a31515;">"Content-Type: application/json"</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$json</span> = <span
+     style="color: #795e26;">json_encode</span>(<span
+     style="color: #001080;">$resultado</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$json</span> === <span
+     style="color: #0000ff;">false</span>)</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"El valor de regreso no puede representarse como
+    JSON"</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$json</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">catch</span> (<span
+     style="color: #267f99;">Throwable</span> <span
+     style="color: #001080;">$t</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Devuelve error.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">header</span>(<span
+     style="color: #a31515;">"Content-Type: text/plain"</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">http_response_code</span>(<span
+     style="color: #098658;">500</span>);</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #795e26;">echo</span> <span
+     style="color: #001080;">$t</span>-&gt;<span
+     style="color: #795e26;">getMessage</span>();</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / php / leeTexto.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;Recupera el texto de un parámetro
+    enviado al</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*&nbsp;servidor por medio de GET, POST o
+    cookie.</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;*/</span></div>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeTexto</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$parametro</span>): <span
+     style="color: #0000ff;">string</span></div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #008000;">/*&nbsp;Si el parámetro está asignado en
+    $_REQUEST,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve su valor; de lo
+    contrario,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve "". */</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$valor</span> = <span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$parametro</span>])</div>
+  <div>&nbsp;&nbsp;? <span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$parametro</span>]</div>
+  <div>&nbsp;&nbsp;: <span
+     style="color: #a31515;">""</span>;</div>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+      </section>
+      </section>
+     <section >
+         <h1 >J. Resumen</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    En esta lección se mostró como proteger servicios y formas con el uso de
+    tokens.
    </p>
   </li>
  </ul>

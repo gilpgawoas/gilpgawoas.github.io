@@ -135,6 +135,13 @@
   color: var(--colTituloLetra);
  }
 
+ h1,
+ .lectura a,
+ .lectura p,
+ .lectura blockquote {
+  overflow-wrap: anywhere;
+ }
+
  .autor {
   font-family: var(--fontSans);
   font-size: 1.5rem;
@@ -148,10 +155,6 @@
  figure img {
   width: 100%;
  }
-/* 
- figure img.med {
-  max-height: 55vh;
- } */
 
  figcaption {
   font-family: var(--fontMono);
@@ -173,7 +176,7 @@
 
  iframe {
   box-sizing: border-box;
-  width: 100%;
+  width: 300px;
  }
 
  .lectura {
@@ -186,19 +189,21 @@
   text-align: justify;
  }
 
- /* No funciona bien con display:flex en pantallas pequeñas. */
  .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  justify-content: center;
+ }
+
+ .horizontal>*:first-child {
+  flex: 1 1 300px;
   text-align: center;
  }
 
- .horizontal>* {
-  display: inline-block;
-  vertical-align: top;
-  text-align: left;
- }
-
- .horizontal>*:not(:first-child) {
-  margin-left: 1rem;
+ .horizontal>*:nth-child(2) {
+  flex: 1 1 auto;
  }
 
  .columnas4 {
@@ -324,6 +329,7 @@
   transition: transform 0.7s ease-in-out;
   scrollbar-width: thin;
   scrollbar-color: var(--colThumb) var(--colScrollbar);
+  overflow-wrap: anywhere;
  }
 
  #nav::-webkit-scrollbar {
@@ -647,6 +653,11 @@
      <a href="/m22pruebas/">Pruebas</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m23token/">Servicio con token</a>
+    </p>
+   </li>
    </ol>
  </nav>
 </div>
@@ -815,6 +826,11 @@
    <li>
     <p>
      <a href="/m22pruebas/">Pruebas</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/">Servicio con token</a>
     </p>
    </li>
    </ol>
