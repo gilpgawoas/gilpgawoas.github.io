@@ -703,6 +703,16 @@
     
    <li>
     <p>
+     <a href="/m23token/m-lib/m-php/m-creaToken-php.html">lib / php / creaToken.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
     </p>
    </li>
@@ -715,7 +725,209 @@
    </nav>
   </div>
      <section >
-         <h1 >1. lib / php / ejecuta.php</h1><muestra-codigo>
+         <h1 >1. lib / php / creaToken.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">creaToken</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$pagina</span>, <span
+     style="color: #0000ff;">int</span> <span
+     style="color: #001080;">$duracionEnMinutos</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span
+     style="color: #001080;">$criptografiaFuerte</span> = <span
+     style="color: #0000ff;">true</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Crea el token</span></div>
+  <div>&nbsp;<span
+     style="color: #001080;">$token</span> = [</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"expiracion"</span> =&gt; <span
+     style="color: #795e26;">time</span>() + <span
+     style="color: #098658;">60</span> *&nbsp;<span
+     style="color: #001080;">$duracionEnMinutos</span>,</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// El token es de 80 caracteres, criptográficamente
+    fuerte.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #a31515;">"texto"</span> =&gt; <span
+     style="color: #795e26;">bin2hex</span>(<span
+     style="color: #795e26;">openssl_random_pseudo_bytes</span>(<span
+     style="color: #098658;">80</span>, <span
+     style="color: #001080;">$criptografiaFuerte</span>))</div>
+  <div>&nbsp;];</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Verifica que ya haya tokens $pagina.</span>
+  </div>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>]))&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$tokensParaPagina</span> = <span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>];</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Como ya exite el arreglo, elimina los tokens
+    expirados para esta pagina.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$tokensParaPagina</span> as <span
+     style="color: #001080;">$llave</span> =&gt; <span
+     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &gt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div>
+  <div>&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Se puede usar uno o varios tokens por
+    pagina.</span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$tokensParaPagina</span>[] = <span
+     style="color: #001080;">$token</span>;</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = <span
+     style="color: #001080;">$tokensParaPagina</span>;</div>
+  <div>&nbsp;}&nbsp;<span
+     style="color: #af00db;">else</span>&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #008000;">// Se puede usar uno o varios tokens por pagina
+   </span></div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = [<span
+     style="color: #001080;">$token</span>];</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">return</span> <span
+     style="color: #001080;">$token</span>[<span
+     style="color: #a31515;">"texto"</span>];</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >2. lib / php / validaToken.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">validaToken</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$pagina</span>, <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$token</span>)</div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>]))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Página </span><span
+     style="color: #001080;">$pagina</span><span
+     style="color: #a31515;"> no registrada."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$tokensParaPagina</span> = <span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>];</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">is_array</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">false</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Valida que el token se haya registrado.</span>
+  </div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$tokensParaPagina</span> as <span
+     style="color: #001080;">$llave</span> =&gt; <span
+     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">strcmp</span>(<span
+     style="color: #001080;">$token</span>, <span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"texto"</span>]) === <span
+     style="color: #098658;">0</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &lt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = <span
+     style="color: #001080;">$tokensParaPagina</span>;</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Tiempo de expiración excedido."</span>);</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">true</span>;</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">elseif</span> (<span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &gt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Elimina tokens expirados</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = <span
+     style="color: #001080;">$tokensParaPagina</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$hallado</span> === <span
+     style="color: #0000ff;">false</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No autorizado"</span>);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
+      </section>
+     <section >
+         <h1 >3. lib / php / ejecuta.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>
@@ -785,7 +997,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >2. lib / php / leeTexto.php</h1><muestra-codigo>
+         <h1 >4. lib / php / leeTexto.php</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;?php</span></div><br>

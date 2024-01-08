@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>J. Resumen - GilPG AWOAS</title>
- <meta name="description" content="Resumen de la lección «Servicio con token».">
+ <title>2. lib / php / validaToken.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/validaToken.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -463,16 +463,112 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >J. Resumen</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    En esta lección se mostró como proteger servicios y formas con el uso de
-    tokens.
-   </p>
-  </li>
- </ul>
-</div>
+   <h1 >2. lib / php / validaToken.php</h1><muestra-codigo>
+ <div>
+  <div><span
+     style="color: #800000;">&lt;?php</span></div><br>
+  <div><span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">validaToken</span>(<span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$pagina</span>, <span
+     style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$token</span>)</div>
+  <div>{</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>]))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Página </span><span
+     style="color: #001080;">$pagina</span><span
+     style="color: #a31515;"> no registrada."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$tokensParaPagina</span> = <span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>];</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (!<span
+     style="color: #795e26;">is_array</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>))</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">false</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #008000;">// Valida que el token se haya registrado.</span>
+  </div>
+  <div>&nbsp;<span
+     style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$tokensParaPagina</span> as <span
+     style="color: #001080;">$llave</span> =&gt; <span
+     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #795e26;">strcmp</span>(<span
+     style="color: #001080;">$token</span>, <span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"texto"</span>]) === <span
+     style="color: #098658;">0</span>)&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &lt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = <span
+     style="color: #001080;">$tokensParaPagina</span>;</div>
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"Tiempo de expiración excedido."</span>);</div>
+  <div>&nbsp;&nbsp;&nbsp;}</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #001080;">$hallado</span> = <span
+     style="color: #0000ff;">true</span>;</div>
+  <div>&nbsp;&nbsp;}&nbsp;<span
+     style="color: #af00db;">elseif</span> (<span
+     style="color: #001080;">$tokenParaPagina</span>[<span
+     style="color: #a31515;">"expiracion"</span>] &gt; <span
+     style="color: #795e26;">time</span>())&nbsp;{</div><br>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #008000;">// Elimina tokens expirados</span></div>
+  <div>&nbsp;&nbsp;&nbsp;<span
+     style="color: #795e26;">unset</span>(<span
+     style="color: #001080;">$tokensParaPagina</span>[<span
+     style="color: #001080;">$llave</span>]);</div>
+  <div>&nbsp;&nbsp;}</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span
+     style="color: #001080;">$_SESSION</span>[<span
+     style="color: #001080;">$pagina</span>] = <span
+     style="color: #001080;">$tokensParaPagina</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$hallado</span> === <span
+     style="color: #0000ff;">false</span>)</div>
+  <div>&nbsp;&nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Exception</span>(<span
+     style="color: #a31515;">"No autorizado"</span>);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -496,8 +592,8 @@
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
   &#x2630;
  </button>
- <a class="anterior" href="/m23token/m-lib/m-php/m-leeTexto-php.html" title="4. lib / php / leeTexto.php">◀</a>
- 
+ <a class="anterior" href="/m23token/m-lib/m-php/m-creaToken-php.html" title="1. lib / php / creaToken.php">◀</a>
+ <a class="siguiente" href="/m23token/m-lib/m-php/m-ejecuta-php.html" title="3. lib / php / ejecuta.php">▶</a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
@@ -510,67 +606,47 @@
       data-logo="true">GilPG AWOAS</a>
    </p>
    
+   <p>
+    <a href="/m23token/">26. Servicio con token</a>
+   </p>
+   <p>
+    <a href="/m23token/m-lib/">I. Carpeta « lib »</a>
+   </p>
    
      <p>
-      <a class="paginaAnterior" href="/m22pruebas/mTresumen.html"
-        title="G. Resumen">▲</a>
+      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForma-js.html"
+        title="3. lib / js / submitForma.js">▲</a>
      </p>
-   <h1><a href="/m23token/index.html">26. Servicio con token</a></h1>
+   <h1><a href="/m23token/m-lib/m-php/index.html">B. Carpeta « lib / php »</a></h1>
    
-   <ol type="A">
+   <ol type="1">
     
    <li>
     <p>
-     <a href="/m23token/mAintro.html">Introducción</a>
+     <a href="/m23token/m-lib/m-php/m-creaToken-php.html">lib / php / creaToken.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/mDdeploy.html">Diagrama de despliegue</a>
+     <a href="/m23token/m-lib/m-php/m-validaToken-php.html" class="actual">lib / php / validaToken.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/mGinstrucciones.html">Hazlo funcionar</a>
+     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/mArchivos.html">Archivos</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/m-index-html.html">index.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/m-formulario-html.html">formulario.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/m-srv/">Carpeta « srv »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/m-jsconfig-json.html">jsconfig.json</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/m-lib/">Carpeta « lib »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m23token/mTresumen.html" class="actual">Resumen</a>
+     <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
     </p>
    </li>
    </ol>
    
+    <p>
+     <a class="paginaSiguiente" href="/m23token/mTresumen.html"
+       title="J. Resumen">▼</a>
+    </p>
  
 </nav>
  <script>
@@ -583,9 +659,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m23token/m-lib/m-php/m-leeTexto-php.html"
+ let urlAnterior = "/m23token/m-lib/m-php/m-creaToken-php.html"
  /**@type {string} */
- let urlSiguiente = ""
+ let urlSiguiente = "/m23token/m-lib/m-php/m-ejecuta-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

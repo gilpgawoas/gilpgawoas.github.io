@@ -474,7 +474,11 @@
   <div><span
      style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div>
+  <div><span
+     style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> . <span
+     style="color: #a31515;">"/../lib/php/validaToken.php"</span>;</div><br>
   <div><span
      style="color: #795e26;">ejecuta</span>(<span
      style="color: #0000ff;">function</span> ()&nbsp;{</div><br>
@@ -485,94 +489,9 @@
      style="color: #795e26;">leeTexto</span>(<span
      style="color: #a31515;">"token"</span>);</div>
   <div>&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">false</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #a31515;">"formulario"</span>]))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Formulario no registrado."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$tokensParaFormulario</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #a31515;">"formulario"</span>];</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">is_array</span>(<span
-     style="color: #001080;">$tokensParaFormulario</span>))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Valida que el token se haya registrado.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaFormulario</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaFormulario</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">strcmp</span>(<span
-     style="color: #001080;">$token</span>, <span
-     style="color: #001080;">$tokenParaFormulario</span>[<span
-     style="color: #a31515;">"texto"</span>]) === <span
-     style="color: #098658;">0</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaFormulario</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &lt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaFormulario</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #a31515;">"formulario"</span>] = <span
-     style="color: #001080;">$tokensParaFormulario</span>;</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Te tardaste mucho."</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">true</span>;</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">elseif</span> (<span
-     style="color: #001080;">$tokenParaFormulario</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// Elimina tokens expirados</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaFormulario</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #a31515;">"formulario"</span>] = <span
-     style="color: #001080;">$tokensParaFormulario</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$hallado</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No autorizado"</span>);</div><br>
+     style="color: #795e26;">validaToken</span>(<span
+     style="color: #a31515;">"formulario"</span>, <span
+     style="color: #001080;">$token</span>);</div><br>
   <div>&nbsp;<span
      style="color: #008000;">// Si el token se halló, precesa normalmente la
     forma.</span></div>
