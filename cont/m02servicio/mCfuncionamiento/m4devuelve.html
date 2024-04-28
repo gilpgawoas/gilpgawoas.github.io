@@ -1,36 +1,18 @@
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span class="resaltado"><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resp</span> =</span></div>
-   <div>&nbsp;<span class="resaltado"><span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">fetch</span>(<span
-      style="color: #a31515;">"servicio.php"</span>)</span></div>
-   <div><span style="color: #af00db;">if</span> (<span
-      style="color: #0070c1;">resp</span>.<span
-      style="color: #0070c1;">ok</span>) {</div>
-   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">texto</span> =</div>
-   <div>&nbsp; <span style="color: #af00db;">await</span> <span
-      style="color: #0070c1;">resp</span>.<span
-      style="color: #795e26;">text</span>()</div>
-   <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
-      style="color: #0070c1;">texto</span>)</div>
-   <div>} <span style="color: #af00db;">else</span> {</div>
-   <div>&nbsp;<span style="color: #af00db;">throw</span> <span
-      style="color: #0000ff;">new</span> <span
-      style="color: #267f99;">Error</span>(</div>
-   <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
-      style="color: #0070c1;">statusText</span>)</div>
-   <div>}</div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> resp =</td></tr></span>
+<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
+<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
+<span> <span class="codeReserved">const</span> texto =</td></tr></span>
+<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
+<span> alert(texto)</td></tr></span>
+<span>} <span class="codeReserved">else</span> {</td></tr></span>
+<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
+<span>  resp.statusText)</td></tr></span>
+<span>}</td></tr></span></code></pre>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <section style="display: block;">
   <h1>Response</h1>
   <dl class="resaltado">
@@ -61,14 +43,10 @@
   </p>
  </section>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>servicio.php</h1>
- <muestra-codigo class="resaltado3">
-  <div>
-   <div><span style="color: #800000;">&lt;?php</span></div>
-   <div><span style="color: #795e26;">echo</span> <span
-      style="color: #a31515;">"Hola"</span>;</div><br>
-  </div>
- </muestra-codigo>
+ <pre class="resaltado3"><code class="language-php"><span>&lt;?<span class="codeReserved">php</span></span>
+<span></span>
+<span>echo <span class="codeString">&quot;Hola&quot;</span>;</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>

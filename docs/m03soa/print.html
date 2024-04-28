@@ -21,15 +21,22 @@
   --anchoLectura: 900px;
   --colLetra: black;
   --colFondo: white;
+  --colFondoPush: transparent;
+  --colFondoPushHover: #ee82ee11;
+  --colFondoPushFocus: #ee82ee33;
+  --colFondoPushActive: #ee82ee77;
+  --paddingPush: 0.2rem 0.3rem;
+  --borderPush: solid thin;
+  --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
+  --colA: violet;
+  --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
   --colTituloStrongSel: #ffdc97;
   --colTarget: #cef4ff;
   --colSombra: #49494980;
   --navSombra: 0.5rem 0 0.5rem var(--colSombra);
-  --padCtrl: 0.2rem 0.3rem;
-  --borderCtrl: solid thin;
   --colFondoNav: #f2f2f2;
   --colNavResaltada: #7a2c99;
   --colSecundario: #ffff82;
@@ -39,6 +46,13 @@
   --colScrollbar: #CFD8DC;
   --colThumb: #90a4ae;
   --colThumbActivo: #3f3f3f;
+  --colResaltado: rgb(255, 255, 89);
+  --colResaltado2: rgb(255, 214, 139);
+  --colResaltado3: rgb(235, 234, 233);
+  --colLetraResaltado: black;
+  --colLetraCodeComment: green;
+  --colLetraCodeString: red;
+  --colLetraCodeReserved: blue;
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
@@ -50,6 +64,61 @@
   background-color: var(--colFondo);
   scrollbar-width: thin;
   scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+   --colLetra: white;
+   --colFondo: #272727;
+   --colA: cyan;
+   --colSombra: #00000080;
+   --colTituloLetra: #21ef4e;
+   --colTituloShadow: 3px 1px 2px black;
+   --colFondoNav: black;
+   --colNavResaltada: #efbff3;
+   --colScrollbar: #616161;
+   --colThumb: #ffffff;
+   --colAActive: red;
+   --colResaltado: rgb(77, 77, 1);
+   --colResaltado2: rgb(78, 52, 4);
+   --colResaltado3: rgb(69, 69, 69);
+   --colLetraResaltado: white;
+   --colLetraCodeComment: rgb(109, 168, 109);
+   --colLetraCodeString: rgb(255, 152, 152);
+   --colLetraCodeReserved: rgb(149, 149, 238);
+  }
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
+ }
+
+ .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
  }
 
  body::-webkit-scrollbar {
@@ -70,17 +139,70 @@
   background-color: var(--colThumbActivo);
  }
 
+ a {
+  color: var(--colNavResaltada);
+ }
+
+ a:visited {
+  color: var(--colA);
+ }
+
+ a:active {
+  color: var(--colAActive);
+ }
+
  .anterior,
- .siguiente {
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente,
+ button {
   display: inline-block;
+  padding: var(--paddingPush);
+  border: var(--borderPush);
+  border-radius: var(--borderRadiusPush);
+  color: var(--colLetra);
+  background-color: var(--colFondoPush);
+  text-align: center;
   text-decoration: none;
-  padding: var(--padCtrl);
-  border: var(--borderCtrl);
-  cursor: pointer;
+ }
+
+ .anterior span,
+ .siguiente span,
+ .paginaAnterior span,
+ .paginaSiguiente span,
+ button span {
+  vertical-align: middle;
+ }
+
+ .anterior:hover,
+ .siguiente:hover,
+ .paginaAnterior:hover,
+ .paginaSiguiente:hover,
+ button:hover {
+  background-color: var(--colFondoPushHover);
+ }
+
+ .anterior:focus,
+ .siguiente:focus,
+ .paginaAnterior:focus,
+ .paginaSiguiente:focus,
+ button:focus {
+  background-color: var(--colFondoPushFocus);
+ }
+
+ .anterior:active,
+ .siguiente:active,
+ .paginaAnterior:active,
+ .paginaSiguiente:active,
+
+ button:active {
+  background-color: var(--colFondoPushActive);
  }
 
  .anterior.bye,
- .siguiente.bye {
+ .siguiente.bye,
+ .paginaAnterior.bye,
+ .paginaSiguiente.bye {
   display: none;
  }
 
@@ -100,6 +222,7 @@
  h1 strong,
  h1 code {
   color: var(--colTituloStrong);
+  font-size: 1em;
  }
 
  nav a {
@@ -111,8 +234,8 @@
  }
 
  code {
-  color: var(--colTituloStrong);
   font-family: var(--fontMono);
+  font-size: 1rem;
  }
 
  .tree {
@@ -216,15 +339,18 @@
  }
 
  .resaltado {
-  background-color: rgb(255, 255, 89);
+  background-color: var(--colResaltado);
+  color: var(--colLetraResaltado);
  }
 
  .resaltado2 {
-  background-color: rgb(255, 214, 139);
+  background-color: var(--colResaltado2);
+  color: var(--colLetraResaltado);
  }
 
  .resaltado3 {
-  background-color: rgb(235, 234, 233);
+  background-color: var(--colResaltado3);
+  color: var(--colLetraResaltado);
  }
 
  table.borde {
@@ -242,6 +368,57 @@
  table.borde td {
   padding: 0.4rem;
  }
+
+ table.codeShow {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .codeShow td:first-child {
+  text-align: right;
+  padding: 0 0 0 0;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  /* Avoid selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+
+ .codeShow td:nth-child(2) {
+  padding: 0 0 0 0.25rem;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.2rem;
+ }
+
+ .codeReserved {
+  color: var(--colLetraCodeReserved);
+  font-weight: bolder;
+ }
+
+ .codeString {
+  color: var(--colLetraCodeString);
+  font-weight: 600;
+ }
+
+ .codeComment {
+  color: var(--colLetraCodeComment);
+  font-style: oblique;
+ }
+
+ @media print {
+  .codeShow button {
+   display: none;
+  }
+ }
+
 
  footer {
   margin-top: 1rem;
@@ -732,60 +909,49 @@
 </div>
       </section>
      <section >
-         <h1 >2. Ejemplo de XML</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;?xml</span><span
-     style="color: #ff0000;">&nbsp;version</span>=<span
-     style="color: #0000ff;">"1.0"</span><span
-     style="color: #ff0000;">&nbsp;encoding</span>=<span
-     style="color: #0000ff;">"UTF-8"</span>&nbsp;<span
-     style="color: #800000;">?&gt;</span></div>
-  <div><span style="color: #800000;">&lt;!</span><span
-     style="color: #0000ff;">DOCTYPE</span>&nbsp;<span
-     style="color: #0000ff;">MiContacto</span>&nbsp;SYSTEM&nbsp;"MiContacto.dtd"<span
-     style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;Contacto&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;Nombre&gt;</span>Juan<span
-     style="color: #800000;">&lt;/Nombre&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;Email&gt;</span>juan@gm.com<span
-     style="color: #800000;">&lt;/Email&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;Telefonos&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;Telefono&gt;</span>5555555555<span
-     style="color: #800000;">&lt;/Telefono&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;Telefono&gt;</span>8888888888<span
-     style="color: #800000;">&lt;/Telefono&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/Telefonos&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/Contacto&gt;</span></div>
- </div>
-</muestra-codigo>
+         <h1 >2. Ejemplo de XML</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;UTF-8&quot;</span> ?&gt;</td></tr>
+  <tr><td>2</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> MiContacto SYSTEM <span class="codeString">&quot;MiContacto.dtd&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td>&lt;<span class="codeReserved">Contacto</span>&gt;</td></tr>
+  <tr><td>4</td><td> &lt;<span class="codeReserved">Nombre</span>&gt;Juan&lt;/<span class="codeReserved">Nombre</span>&gt;</td></tr>
+  <tr><td>5</td><td> &lt;<span class="codeReserved">Email</span>&gt;juan@gm.com&lt;/<span class="codeReserved">Email</span>&gt;</td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">Telefonos</span>&gt;</td></tr>
+  <tr><td>7</td><td>  &lt;<span class="codeReserved">Telefono</span>&gt;5555555555&lt;/<span class="codeReserved">Telefono</span>&gt;</td></tr>
+  <tr><td>8</td><td>  &lt;<span class="codeReserved">Telefono</span>&gt;8888888888&lt;/<span class="codeReserved">Telefono</span>&gt;</td></tr>
+  <tr><td>9</td><td> &lt;/<span class="codeReserved">Telefonos</span>&gt;</td></tr>
+  <tr><td>10</td><td>&lt;/<span class="codeReserved">Contacto</span>&gt;</td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >3. DTD MiContacto</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;?xml</span><span
-     style="color: #ff0000;">&nbsp;version</span>=<span
-     style="color: #0000ff;">"1.0"</span><span
-     style="color: #ff0000;">&nbsp;encoding</span>=<span
-     style="color: #0000ff;">"ISO-8859-1"</span>&nbsp;<span
-     style="color: #800000;">?&gt;</span></div>
-  <div><span
-     style="color: #008000;">&lt;!--&nbsp;Este&nbsp;es&nbsp;el&nbsp;DTD&nbsp;de&nbsp;Contacto&nbsp;--&gt;</span>
-  </div>
-  <div>
-   &lt;!ELEMENT&nbsp;Contacto&nbsp;(Nombre,&nbsp;Email,&nbsp;Telefonos)&gt;
-  </div>
-  <div>&lt;!ELEMENT&nbsp;Nombre&nbsp;(#PCDATA)&gt;</div>
-  <div>&lt;!ELEMENT&nbsp;Email&nbsp;(#PCDATA)&gt;</div>
-  <div>&lt;!ELEMENT&nbsp;Telefonos&nbsp;(Telefono)*&gt;</div>
-  <div>&lt;!ELEMENT&nbsp;Telefono&nbsp;(#PCDATA)&gt;</div>
- </div>
-</muestra-codigo>
+         <h1 >3. DTD MiContacto</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;ISO-8859-1&quot;</span> ?&gt;</td></tr>
+  <tr><td>2</td><td><span class="codeComment">&lt;!-- Este es el DTD de Contacto --&gt;</span></td></tr>
+  <tr><td>3</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Contacto (Nombre, Email, Telefonos)&gt;</td></tr>
+  <tr><td>4</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Nombre (#PCDATA)&gt;</td></tr>
+  <tr><td>5</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Email (#PCDATA)&gt;</td></tr>
+  <tr><td>6</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Telefonos (Telefono)*&gt;</td></tr>
+  <tr><td>7</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Telefono (#PCDATA)&gt;</td></tr>
+ </tbody>
+</table>
       </section>
       </section>
      <section>
@@ -897,104 +1063,56 @@
 </div>
       </section>
      <section >
-         <h1 >3. Ejemplo de solicitud SOAP</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span
-     style="color: #ff0000;">xmlns:soap</span>=<span
-     style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/envelope/"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:Header&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;t:Transaction</span>&nbsp;<span
-     style="color: #ff0000;">xmlns:t</span>=<span
-     style="color: #0000ff;">"alguna-URI"</span>&nbsp;<span
-     style="color: #ff0000;">soap:mustUnderstand</span>=<span
-     style="color: #0000ff;">"1"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/t:Transaction&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/soap:Header&gt;</span>&nbsp;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:Body&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;getDetalleDeProducto</span>&nbsp;<span
-     style="color: #ff0000;">xmlns</span>=<span
-     style="color: #0000ff;">"http://warehouse.example.com/ws"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;productoId&gt;</span>827635<span
-     style="color: #800000;">&lt;/productoId&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/getDetalleDeProducto&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/soap:Body&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/soap:Envelope&gt;</span></div>
- </div>
-</muestra-codigo>
-<div class="lectura">
- <p>
-  <small>
-   Fuente:
-   <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
-     target="_blank"
-     rel="nooper">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
-  </small>
- </p>
-</div>
+         <h1 >3. Ejemplo de solicitud SOAP</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;<span class="codeReserved">soap</span>:Envelope xmlns:soap=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</td></tr>
+  <tr><td>2</td><td> &lt;<span class="codeReserved">soap</span>:Header&gt;</td></tr>
+  <tr><td>3</td><td>  &lt;<span class="codeReserved">t</span>:Transaction xmlns:t=<span class="codeString">&quot;alguna-URI&quot;</span> soap:mustUnderstand=<span class="codeString">&quot;1&quot;</span>&gt;</td></tr>
+  <tr><td>4</td><td>   5</td></tr>
+  <tr><td>5</td><td>  &lt;/<span class="codeReserved">t</span>:Transaction&gt;</td></tr>
+  <tr><td>6</td><td> &lt;/<span class="codeReserved">soap</span>:Header&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">soap</span>:Body&gt;</td></tr>
+  <tr><td>8</td><td>  &lt;<span class="codeReserved">getDetalleDeProducto</span> xmlns=<span class="codeString">&quot;http:&#47;/warehouse.example.com/ws&quot;</span>&gt;</td></tr>
+  <tr><td>9</td><td>   &lt;<span class="codeReserved">productoId</span>&gt;827635&lt;/<span class="codeReserved">productoId</span>&gt;</td></tr>
+  <tr><td>10</td><td>  &lt;/<span class="codeReserved">getDetalleDeProducto</span>&gt;</td></tr>
+  <tr><td>11</td><td> &lt;/<span class="codeReserved">soap</span>:Body&gt;</td></tr>
+  <tr><td>12</td><td>&lt;/<span class="codeReserved">soap</span>:Envelope&gt;</td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >4. Ejemplo de respuesta SOAP</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;soap:Envelope</span>&nbsp;<span
-     style="color: #ff0000;">xmlns:soap</span>=<span
-     style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/envelope/"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:Body&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;getRespuestaDetalleDeProducto</span>&nbsp;<span
-     style="color: #ff0000;">xmlns</span>=<span
-     style="color: #0000ff;">"http://warehouse.example.com/ws"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;getResultadoDetalleDeProducto&gt;</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;productId&gt;</span>827635<span
-     style="color: #800000;">&lt;/productId&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;nombre&gt;</span>Balón&nbsp;de&nbsp;Futbol&lt;/&nbsp;nombre&gt;
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;descripción&gt;</span>Balón&nbsp;de&nbsp;futbol&nbsp;de&nbsp;11”&nbsp;de&nbsp;vinil.<span
-     style="color: #800000;">&lt;/descripción&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;precio&gt;</span>300.0<span
-     style="color: #800000;">&lt;/precio&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/getResultadoDetalleDeProducto&gt;</span>
-  </div>
-  <div>
-   &nbsp;&nbsp;&nbsp;&nbsp;&lt;/&nbsp;getRespuestaDetalleDeProducto&nbsp;&gt;
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #800000;">&lt;/soap:Body&gt;</span>
-  </div>
-  <div><span style="color: #800000;">&lt;/soap:Envelope&gt;</span></div>
- </div>
-</muestra-codigo>
-<div class="lectura">
- <p>
-  <small>
-   Fuente:
-   <a href="https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol"
-     target="_blank"
-     rel="nooper">https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol</a>
-  </small>
- </p>
-</div>
+         <h1 >4. Ejemplo de respuesta SOAP</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;<span class="codeReserved">soap</span>:Envelope xmlns:soap=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</td></tr>
+  <tr><td>2</td><td> &lt;<span class="codeReserved">soap</span>:Body&gt;</td></tr>
+  <tr><td>3</td><td>  &lt;<span class="codeReserved">getRespuestaDetalleDeProducto</span> xmlns=<span class="codeString">&quot;http:&#47;/warehouse.example.com/ws&quot;</span>&gt;</td></tr>
+  <tr><td>4</td><td>   &lt;<span class="codeReserved">getResultadoDetalleDeProducto</span>&gt;</td></tr>
+  <tr><td>5</td><td>    &lt;<span class="codeReserved">productId</span>&gt;827635&lt;/<span class="codeReserved">productId</span>&gt;</td></tr>
+  <tr><td>6</td><td>    &lt;<span class="codeReserved">nombre</span>&gt;Balón de Futbol&lt;/<span class="codeReserved">nombre</span>&gt;</td></tr>
+  <tr><td>7</td><td>    &lt;<span class="codeReserved">descripcion</span>&gt;Balón de futbol de 11” de vinil.&lt;/<span class="codeReserved">descripcion</span>&gt;</td></tr>
+  <tr><td>8</td><td>    &lt;<span class="codeReserved">precio</span>&gt;300.0&lt;/<span class="codeReserved">precio</span>&gt;</td></tr>
+  <tr><td>9</td><td>   &lt;/<span class="codeReserved">getResultadoDetalleDeProducto</span>&gt;</td></tr>
+  <tr><td>10</td><td>  &lt;/<span class="codeReserved">getRespuestaDetalleDeProducto</span>&gt;</td></tr>
+  <tr><td>11</td><td> &lt;/<span class="codeReserved">soap</span>:Body&gt;</td></tr>
+  <tr><td>12</td><td>&lt;/<span class="codeReserved">soap</span>:Envelope&gt;</td></tr>
+ </tbody>
+</table>
       </section>
       </section>
      <section>
@@ -1122,194 +1240,74 @@
 </div>
       </section>
      <section >
-         <h1 >3. Ejemplo de WSDL</h1><muestra-codigo>
- <div>
-  <div><span style="color: #800000;">&lt;definitions</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=“PrecioProd“</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">targetNamespace</span>=<span
-     style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">xmlns:tns</span>=<span
-     style="color: #0000ff;">"http://example.com/stockquote.wsdl"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">xmlns:xsd1</span>=<span
-     style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">xmlns:soap</span>=<span
-     style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/soap/"</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">xmlns</span>=<span
-     style="color: #0000ff;">"http://schemas.xmlsoap.org/wsdl/"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span style="color: #800000;">&lt;types&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;schema</span>&nbsp;<span
-     style="color: #ff0000;">targetNamespace</span>=<span
-     style="color: #0000ff;">"http://example.com/stockquote.xsd"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">xmlns</span>=<span
-     style="color: #0000ff;">"http://www.w3.org/2000/10/XMLSchema"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;element</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"SolPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;complexType&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"productoId"</span>&nbsp;<span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"decimal"</span><span
-     style="color: #800000;">/&gt;&lt;/all&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/complexType&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/element&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;element</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"PrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;complexType&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;all&gt;&lt;element</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"precio"</span>&nbsp;<span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"float"</span><span
-     style="color: #800000;">/&gt;&lt;/all&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/complexType&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/element&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/schema&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/types&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;message</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"InputGetPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;part</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"body"</span>&nbsp;<span
-     style="color: #ff0000;">element</span>=<span
-     style="color: #0000ff;">"xsd1:SolPrecioProd"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/message&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;message</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"OutputGetPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;part</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"body"</span>&nbsp;<span
-     style="color: #ff0000;">element</span>=<span
-     style="color: #0000ff;">"xsd1:PrecioProd"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/message&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;portType</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"PortTypePrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;operation</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"GetPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span>&nbsp;<span
-     style="color: #ff0000;">message</span>=<span
-     style="color: #0000ff;">"tns:InputGetPrecioProd"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;output</span>&nbsp;<span
-     style="color: #ff0000;">message</span>=<span
-     style="color: #0000ff;">"tns:OutputGetPrecioProd"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/operation&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-    style="color: #800000;">&lt;/portType&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;binding</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"BindPrecioProdSoap"</span>&nbsp;<span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"tns:PortTypePrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:binding</span>&nbsp;<span
-     style="color: #ff0000;">style</span>=<span
-     style="color: #0000ff;">"document"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #ff0000;">transport</span>=<span
-     style="color: #0000ff;">"http://schemas.xmlsoap.org/soap/http"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;operation</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"GetPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:operation</span>&nbsp;<span
-     style="color: #ff0000;">soapAction</span>=<span
-     style="color: #0000ff;">"http://example.com/GetPrecioProd"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input&gt;&lt;soap:body</span>&nbsp;<span
-     style="color: #ff0000;">use</span>=<span
-     style="color: #0000ff;">"literal"</span><span
-     style="color: #800000;">/&gt;&lt;/input&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;output&gt;&lt;soap:body</span>&nbsp;<span
-     style="color: #ff0000;">use</span>=<span
-     style="color: #0000ff;">"literal"</span><span
-     style="color: #800000;">/&gt;&lt;/output&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/operation&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/binding&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;service</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"ServPrecioProd"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;documentation&gt;</span>Devuelve&nbsp;el&nbsp;precio&nbsp;de&nbsp;un&nbsp;producto.<span
-     style="color: #800000;">&lt;/documentation&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;port</span>&nbsp;<span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"PuertoPrecioProd"</span>&nbsp;<span
-     style="color: #ff0000;">binding</span>=<span
-     style="color: #0000ff;">"tns:BindPrecioProdSoap"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;soap:address</span>&nbsp;<span
-     style="color: #ff0000;">location</span>=<span
-     style="color: #0000ff;">"http://example.com/precioprod"</span><span
-     style="color: #800000;">/&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/port&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/service&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/definitions&gt;</span></div>
- </div>
-</muestra-codigo>
+         <h1 >3. Ejemplo de WSDL</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;<span class="codeReserved">definitions</span> name=“PrecioProd“</td></tr>
+  <tr><td>2</td><td> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></td></tr>
+  <tr><td>3</td><td> xmlns:tns=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></td></tr>
+  <tr><td>4</td><td> xmlns:xsd1=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></td></tr>
+  <tr><td>5</td><td> xmlns:soap=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/soap/&quot;</span></td></tr>
+  <tr><td>6</td><td> xmlns=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">types</span>&gt;</td></tr>
+  <tr><td>8</td><td>  &lt;<span class="codeReserved">schema</span> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></td></tr>
+  <tr><td>9</td><td>   xmlns=<span class="codeString">&quot;http:&#47;/www.w3.org/2000/10/XMLSchema&quot;</span>&gt;</td></tr>
+  <tr><td>10</td><td>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;SolPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>11</td><td>    &lt;<span class="codeReserved">complexType</span>&gt;</td></tr>
+  <tr><td>12</td><td>     &lt;<span class="codeReserved">all</span>&gt;</td></tr>
+  <tr><td>13</td><td>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;productoId&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;decimal&quot;</span>/&gt;</td></tr>
+  <tr><td>14</td><td>     &lt;/<span class="codeReserved">all</span>&gt;</td></tr>
+  <tr><td>15</td><td>    &lt;/<span class="codeReserved">complexType</span>&gt;</td></tr>
+  <tr><td>16</td><td>   &lt;/<span class="codeReserved">element</span>&gt;</td></tr>
+  <tr><td>17</td><td>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;PrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>18</td><td>    &lt;<span class="codeReserved">complexType</span>&gt;</td></tr>
+  <tr><td>19</td><td>     &lt;<span class="codeReserved">all</span>&gt;</td></tr>
+  <tr><td>20</td><td>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;precio&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;float&quot;</span>/&gt;</td></tr>
+  <tr><td>21</td><td>     &lt;/<span class="codeReserved">all</span>&gt;</td></tr>
+  <tr><td>22</td><td>    &lt;/<span class="codeReserved">complexType</span>&gt;</td></tr>
+  <tr><td>23</td><td>   &lt;/<span class="codeReserved">element</span>&gt;</td></tr>
+  <tr><td>24</td><td>  &lt;/<span class="codeReserved">schema</span>&gt;</td></tr>
+  <tr><td>25</td><td> &lt;/<span class="codeReserved">types</span>&gt;</td></tr>
+  <tr><td>26</td><td> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;InputGetPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>27</td><td>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:SolPrecioProd&quot;</span>/&gt;</td></tr>
+  <tr><td>28</td><td> &lt;/<span class="codeReserved">message</span>&gt;</td></tr>
+  <tr><td>29</td><td> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;OutputGetPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>30</td><td>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:PrecioProd&quot;</span>/&gt;</td></tr>
+  <tr><td>31</td><td> &lt;/<span class="codeReserved">message</span>&gt;</td></tr>
+  <tr><td>32</td><td> &lt;<span class="codeReserved">portType</span> name=<span class="codeString">&quot;PortTypePrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>33</td><td>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>34</td><td>   &lt;<span class="codeReserved">input</span> message=<span class="codeString">&quot;tns:InputGetPrecioProd&quot;</span>/&gt;</td></tr>
+  <tr><td>35</td><td>   &lt;<span class="codeReserved">output</span> message=<span class="codeString">&quot;tns:OutputGetPrecioProd&quot;</span>/&gt;</td></tr>
+  <tr><td>36</td><td>  &lt;/<span class="codeReserved">operation</span>&gt;</td></tr>
+  <tr><td>37</td><td> &lt;/<span class="codeReserved">portType</span>&gt;</td></tr>
+  <tr><td>38</td><td> &lt;<span class="codeReserved">binding</span> name=<span class="codeString">&quot;BindPrecioProdSoap&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;tns:PortTypePrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>39</td><td>  &lt;<span class="codeReserved">soap</span>:binding style=<span class="codeString">&quot;document&quot;</span> transport=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/soap/http&quot;</span>/&gt;</td></tr>
+  <tr><td>40</td><td>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>41</td><td>   &lt;<span class="codeReserved">soap</span>:operation soapAction=<span class="codeString">&quot;http:&#47;/example.com/GetPrecioProd&quot;</span>/&gt;</td></tr>
+  <tr><td>42</td><td>   &lt;<span class="codeReserved">input</span>&gt;</td></tr>
+  <tr><td>43</td><td>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</td></tr>
+  <tr><td>44</td><td>   &lt;/<span class="codeReserved">input</span>&gt;</td></tr>
+  <tr><td>45</td><td>   &lt;<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>46</td><td>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</td></tr>
+  <tr><td>47</td><td>   &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>48</td><td>  &lt;/<span class="codeReserved">operation</span>&gt;</td></tr>
+  <tr><td>49</td><td> &lt;/<span class="codeReserved">binding</span>&gt;</td></tr>
+  <tr><td>50</td><td> &lt;<span class="codeReserved">service</span> name=<span class="codeString">&quot;ServPrecioProd&quot;</span>&gt;</td></tr>
+  <tr><td>51</td><td>  &lt;<span class="codeReserved">documentation</span>&gt;Devuelve el precio de un producto.&lt;/<span class="codeReserved">documentation</span>&gt;</td></tr>
+  <tr><td>52</td><td>  &lt;<span class="codeReserved">port</span> name=<span class="codeString">&quot;PuertoPrecioProd&quot;</span> binding=<span class="codeString">&quot;tns:BindPrecioProdSoap&quot;</span>&gt;</td></tr>
+  <tr><td>53</td><td>   &lt;<span class="codeReserved">soap</span>:address location=<span class="codeString">&quot;http:&#47;/example.com/precioprod&quot;</span>/&gt;</td></tr>
+  <tr><td>54</td><td>  &lt;/<span class="codeReserved">port</span>&gt;</td></tr>
+  <tr><td>55</td><td> &lt;/<span class="codeReserved">service</span>&gt;</td></tr>
+  <tr><td>56</td><td>&lt;/<span class="codeReserved">definitions</span>&gt;</td></tr>
+ </tbody>
+</table>
       </section>
       </section>
      <section >

@@ -22,15 +22,22 @@
   --anchoLectura: 900px;
   --colLetra: black;
   --colFondo: white;
+  --colFondoPush: transparent;
+  --colFondoPushHover: #ee82ee11;
+  --colFondoPushFocus: #ee82ee33;
+  --colFondoPushActive: #ee82ee77;
+  --paddingPush: 0.2rem 0.3rem;
+  --borderPush: solid thin;
+  --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
+  --colA: violet;
+  --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
   --colTituloStrongSel: #ffdc97;
   --colTarget: #cef4ff;
   --colSombra: #49494980;
   --navSombra: 0.5rem 0 0.5rem var(--colSombra);
-  --padCtrl: 0.2rem 0.3rem;
-  --borderCtrl: solid thin;
   --colFondoNav: #f2f2f2;
   --colNavResaltada: #7a2c99;
   --colSecundario: #ffff82;
@@ -40,6 +47,13 @@
   --colScrollbar: #CFD8DC;
   --colThumb: #90a4ae;
   --colThumbActivo: #3f3f3f;
+  --colResaltado: rgb(255, 255, 89);
+  --colResaltado2: rgb(255, 214, 139);
+  --colResaltado3: rgb(235, 234, 233);
+  --colLetraResaltado: black;
+  --colLetraCodeComment: green;
+  --colLetraCodeString: red;
+  --colLetraCodeReserved: blue;
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
@@ -51,6 +65,61 @@
   background-color: var(--colFondo);
   scrollbar-width: thin;
   scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+   --colLetra: white;
+   --colFondo: #272727;
+   --colA: cyan;
+   --colSombra: #00000080;
+   --colTituloLetra: #21ef4e;
+   --colTituloShadow: 3px 1px 2px black;
+   --colFondoNav: black;
+   --colNavResaltada: #efbff3;
+   --colScrollbar: #616161;
+   --colThumb: #ffffff;
+   --colAActive: red;
+   --colResaltado: rgb(77, 77, 1);
+   --colResaltado2: rgb(78, 52, 4);
+   --colResaltado3: rgb(69, 69, 69);
+   --colLetraResaltado: white;
+   --colLetraCodeComment: rgb(109, 168, 109);
+   --colLetraCodeString: rgb(255, 152, 152);
+   --colLetraCodeReserved: rgb(149, 149, 238);
+  }
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
+ }
+
+ .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
  }
 
  body::-webkit-scrollbar {
@@ -71,17 +140,70 @@
   background-color: var(--colThumbActivo);
  }
 
+ a {
+  color: var(--colNavResaltada);
+ }
+
+ a:visited {
+  color: var(--colA);
+ }
+
+ a:active {
+  color: var(--colAActive);
+ }
+
  .anterior,
- .siguiente {
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente,
+ button {
   display: inline-block;
+  padding: var(--paddingPush);
+  border: var(--borderPush);
+  border-radius: var(--borderRadiusPush);
+  color: var(--colLetra);
+  background-color: var(--colFondoPush);
+  text-align: center;
   text-decoration: none;
-  padding: var(--padCtrl);
-  border: var(--borderCtrl);
-  cursor: pointer;
+ }
+
+ .anterior span,
+ .siguiente span,
+ .paginaAnterior span,
+ .paginaSiguiente span,
+ button span {
+  vertical-align: middle;
+ }
+
+ .anterior:hover,
+ .siguiente:hover,
+ .paginaAnterior:hover,
+ .paginaSiguiente:hover,
+ button:hover {
+  background-color: var(--colFondoPushHover);
+ }
+
+ .anterior:focus,
+ .siguiente:focus,
+ .paginaAnterior:focus,
+ .paginaSiguiente:focus,
+ button:focus {
+  background-color: var(--colFondoPushFocus);
+ }
+
+ .anterior:active,
+ .siguiente:active,
+ .paginaAnterior:active,
+ .paginaSiguiente:active,
+
+ button:active {
+  background-color: var(--colFondoPushActive);
  }
 
  .anterior.bye,
- .siguiente.bye {
+ .siguiente.bye,
+ .paginaAnterior.bye,
+ .paginaSiguiente.bye {
   display: none;
  }
 
@@ -101,6 +223,7 @@
  h1 strong,
  h1 code {
   color: var(--colTituloStrong);
+  font-size: 1em;
  }
 
  nav a {
@@ -112,8 +235,8 @@
  }
 
  code {
-  color: var(--colTituloStrong);
   font-family: var(--fontMono);
+  font-size: 1rem;
  }
 
  .tree {
@@ -217,15 +340,18 @@
  }
 
  .resaltado {
-  background-color: rgb(255, 255, 89);
+  background-color: var(--colResaltado);
+  color: var(--colLetraResaltado);
  }
 
  .resaltado2 {
-  background-color: rgb(255, 214, 139);
+  background-color: var(--colResaltado2);
+  color: var(--colLetraResaltado);
  }
 
  .resaltado3 {
-  background-color: rgb(235, 234, 233);
+  background-color: var(--colResaltado3);
+  color: var(--colLetraResaltado);
  }
 
  table.borde {
@@ -243,6 +369,57 @@
  table.borde td {
   padding: 0.4rem;
  }
+
+ table.codeShow {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .codeShow td:first-child {
+  text-align: right;
+  padding: 0 0 0 0;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  /* Avoid selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+
+ .codeShow td:nth-child(2) {
+  padding: 0 0 0 0.25rem;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.2rem;
+ }
+
+ .codeReserved {
+  color: var(--colLetraCodeReserved);
+  font-weight: bolder;
+ }
+
+ .codeString {
+  color: var(--colLetraCodeString);
+  font-weight: 600;
+ }
+
+ .codeComment {
+  color: var(--colLetraCodeComment);
+  font-style: oblique;
+ }
+
+ @media print {
+  .codeShow button {
+   display: none;
+  }
+ }
+
 
  footer {
   margin-top: 1rem;
@@ -371,15 +548,6 @@
  #nav a.actual {
   color: var(--colFondo);
   background-color: var(--colNavResaltada);
- }
-
- #nav a.paginaAnterior,
- #nav a.paginaSiguiente {
-  text-align: center;
-  text-decoration: none;
-  padding: var(--padCtrl);
-  border: var(--borderCtrl);
-  cursor: pointer;
  }
 
  @media screen and (max-width: 999px) {
@@ -576,15 +744,23 @@
  </p>
 </footer>
  <button id="abre" type="button" title="Menú" class="cambiaMenu">
-  &#x2630;
+  <span class="material-symbols-outlined">
+   menu
+  </span>
  </button>
- <a class="anterior" href="/m12renderServidor/m-lib/index.html" title="G. Carpeta « lib »">◀</a>
- <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-buscaElementoHtml-js.html" title="1. lib / js / buscaElementoHtml.js">▶</a>
+ <a class="anterior" href="/m12renderServidor/m-lib/index.html" title="G. Carpeta « lib »"><span class="material-symbols-outlined">
+     skip_previous
+    </span></a>
+ <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-buscaElementoHtml-js.html" title="1. lib / js / buscaElementoHtml.js"><span class="material-symbols-outlined">
+     skip_next
+     </span></a>
 </div>
 <div id="cierra" class="cambiaMenu"></div>
 <nav id="nav">
  <button type="button" title="Cierra" class="cambiaMenu">
-  &#x2715;
+  <span class="material-symbols-outlined">
+   close
+  </span>
  </button>
  
    <p>
@@ -601,7 +777,10 @@
    
      <p>
       <a class="paginaAnterior" href="/m12renderServidor/m-lib/index.html"
-        title="G. Carpeta « lib »">▲</a>
+        title="G. Carpeta « lib »"><span
+        class="material-symbols-outlined">
+         arrow_upward
+        </span></a>
      </p>
    <h1><a href="/m12renderServidor/m-lib/m-js/index.html" class="actual">A. Carpeta « lib / js »</a></h1>
    
@@ -686,7 +865,10 @@
    
     <p>
      <a class="paginaSiguiente" href="/m12renderServidor/m-lib/m-php/index.html"
-       title="B. Carpeta « lib / php »">▼</a>
+       title="B. Carpeta « lib / php »"><span
+       class="material-symbols-outlined">
+        arrow_downward
+       </span></a>
     </p>
  
 </nav>
@@ -750,6 +932,24 @@
  function muestraError(e) {
   console.error(e)
   alert(e.message)
+ }
+
+ async function copyToClipboard(button) {
+  try {
+   const table = button.closest("table")
+   if (table !== null) {
+    const lineas = Array.from(table.querySelectorAll("td:nth-child(2)"))
+    const codigo = lineas
+     .map(linea => linea.textContent || "")
+     .join("\n")
+    if (codigo) {
+     await navigator.clipboard.writeText(codigo)
+     alert("Texto copiado al portapapeles.")
+    }
+   }
+  } catch (e) {
+   alert(e.message)
+  }
  }
 
  function cambiaMenu() {
