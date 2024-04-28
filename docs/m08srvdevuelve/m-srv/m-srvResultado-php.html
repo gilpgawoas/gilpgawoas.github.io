@@ -22,10 +22,10 @@
   --anchoLectura: 900px;
   --colLetra: black;
   --colFondo: white;
-  --colFondoPush: transparent;
-  --colFondoPushHover: #ee82ee11;
-  --colFondoPushFocus: #ee82ee33;
-  --colFondoPushActive: #ee82ee77;
+  --colFondoPush: var(--colFondo);
+  --colFondoPushHover: #e0ade0;
+  --colFondoPushFocus: #da86da;
+  --colFondoPushActive: #c555c5;
   --paddingPush: 0.2rem 0.3rem;
   --borderPush: solid thin;
   --borderRadiusPush: 0.6em;
@@ -78,6 +78,9 @@
   :root {
    --colLetra: white;
    --colFondo: #272727;
+   --colFondoPushHover: #6f1e6f;
+   --colFondoPushFocus: #874e87;
+   --colFondoPushActive: #9e529e;
    --colA: cyan;
    --colSombra: #00000080;
    --colTituloLetra: #21ef4e;
@@ -179,6 +182,7 @@
  .siguiente:hover,
  .paginaAnterior:hover,
  .paginaSiguiente:hover,
+ #nav button:hover,
  button:hover {
   background-color: var(--colFondoPushHover);
  }
@@ -187,6 +191,7 @@
  .siguiente:focus,
  .paginaAnterior:focus,
  .paginaSiguiente:focus,
+ #nav button:focus,
  button:focus {
   background-color: var(--colFondoPushFocus);
  }
@@ -195,7 +200,7 @@
  .siguiente:active,
  .paginaAnterior:active,
  .paginaSiguiente:active,
-
+ #nav button:active,
  button:active {
   background-color: var(--colFondoPushActive);
  }
@@ -465,22 +470,24 @@
   position: fixed;
   top: var(--gap);
   left: var(--gap);
-  transition: 0.7s ease-in-out;
+  transition-property: top, left;
+  transition-duration: 0.7s, 0.7s;
+  transition-timing-function: ease-in-out;
  }
 
  #principal>.anterior {
   position: fixed;
   top: var(--gap);
-  background-color: var(--colFondo);
-  transition: 0.7s ease-in-out;
+  transition-property: top, left;
+  transition-duration: 0.7s, 0.7s;
+  transition-timing-function: ease-in-out;
  }
 
  #principal>.siguiente {
   position: fixed;
   top: var(--gap);
   right: var(--gap);
-  background-color: var(--colFondo);
-  transition: 0.7s ease-in-out;
+  transition: top 0.7s ease-in-out;
  }
 
  .scroll #principal>#abre,
@@ -529,6 +536,10 @@
 
  #nav p {
   margin: 0;
+ }
+
+ #nav button {
+  background-color: var(--colFondoNav);
  }
 
  #nav a:not([data-logo]) {
