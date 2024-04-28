@@ -1,7 +1,7 @@
 /* Espera 11 minutos después de hacer los cambios en tu sitio, para depués
  * actualizar este archivo. */
 
-const VERSION = "4.16"
+const VERSION = "4.17"
 
 const CACHE = "cache"
 
@@ -10,6 +10,10 @@ const ARCHIVOS = [
  "/fonts/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].codepoints",
  "/fonts/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf",
  "/fonts/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].woff2",
+ "/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2",
+ "/fonts/purple-purse-v23-latin_latin-ext-regular.woff2",
+ "/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2",
+ "/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2",
  "/img/arquitectura_saludo.svg",
  "/img/arquitectura_soa.svg",
  "/img/clases_saludo.svg",
