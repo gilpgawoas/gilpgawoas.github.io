@@ -11,58 +11,6 @@
  <title>Funcionamiento del servicio que devuelve JSON - GilPG AWOAS</title>
  <meta name="description" content="Página para imprimir que muestra el funcionamiento del servicio que devuelve JSON.">
  <style>
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- @font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  src:
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
- }
-
  :root {
   --padTop: 2rem;
   --introDuracion: 2s;
@@ -81,7 +29,7 @@
   --borderPush: solid thin;
   --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
-  --colA: violet;
+  --colA: #7a2c99;
   --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
@@ -136,11 +84,13 @@
    --colSombra: #00000080;
    --colTituloLetra: #21ef4e;
    --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
+   --colTituloStrong: yellow;
+   --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
    --colNavResaltada: #efbff3;
    --colScrollbar: #616161;
    --colThumb: #ffffff;
-   --colAActive: red;
+   --colAActive: #da83da;
    --colResaltado: rgb(77, 77, 1);
    --colResaltado2: rgb(78, 52, 4);
    --colResaltado3: rgb(69, 69, 69);
@@ -149,6 +99,58 @@
    --colLetraCodeString: rgb(255, 152, 152);
    --colLetraCodeReserved: rgb(149, 149, 238);
   }
+ }
+
+ /* xanh-mono-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* xanh-mono-italic - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
+ }
+
+ /* patrick-hand-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* purple-purse-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Purple Purse';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
  }
 
  .material-symbols-outlined {
@@ -583,7 +585,7 @@
 </head>
 
 <body class="print">
-   <h1 >C. Funcionamiento del servicio que devuelve JSON</h1>
+   <h1 >H. Funcionamiento del servicio que devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -773,8 +775,8 @@
    <dl>
     <dt>status</dt>
     <dd>200</dd>
-    <dt class="resaltado">body</dt>
-    <dd class="resaltado">
+    <dt class="resaltado2">body</dt>
+    <dd class="resaltado2">
      <dl>
       <dt>nombre</dt>
       <dd>"pp"</dd>
@@ -785,7 +787,7 @@
    </dl>
   </dd>
   <dt class="resaltado">body</dt>
-  <dd class="resaltado">ref->respuesta.body</dd>
+  <dd class="resaltado2">ref->respuesta.body</dd>
  </dl>
 </section>
       </section>
@@ -795,22 +797,31 @@
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
 <span> <span class="codeReserved">await</span> invocaServicio(</span>
 <span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span class="resaltado"><span class="codeReserved">const</span> body = respuesta.body</span>
-<span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
+<span><span class="codeReserved">const</span> body = respuesta.body</span>
+<span class="resaltado">alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
+<span class="resaltado"><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
 </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>
- <dl class="resaltado">
-  <dt>json</dt>
+ <dl>
+  <dt>respuesta</dt>
   <dd>
    <dl>
-    <dt>nombre</dt>
-    <dd>"pp"</dd>
-    <dt>mensaje</dt>
-    <dd>"Hola."</dd>
+    <dt>status</dt>
+    <dd>200</dd>
+    <dt class="resaltado2">body</dt>
+    <dd class="resaltado2">
+     <dl>
+      <dt class="resaltado">nombre</dt>
+      <dd class="resaltado">"pp"</dd>
+      <dt class="resaltado">mensaje</dt>
+      <dd class="resaltado">"Hola."</dd>
+     </dl>
+    </dd>
    </dl>
   </dd>
+  <dt class="resaltado">body</dt>
+  <dd class="resaltado2">ref->respuesta.body</dd>
  </dl>
 </section>
 <section>
@@ -824,33 +835,14 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >7. Al cerrar el alert, termina el evento</h1><section style="vertical-align: middle;">
+         <h1 >7. Al cerrar el alert, termina el evento</h1><section>
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">json</span> = <span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">ejecuta</span>(</div>
-   <div>&nbsp;<span
-      style="color: #a31515;">"srv/srvResultado.php"</span>)</div>
-   <div><span
-      style="color: #795e26;">alert</span>(<span
-      style="color: #a31515;">`Nombre: </span><span
-      style="color: #0000ff;">${</span><span
-      style="color: #0070c1;">json</span>.<span
-      style="color: #001080;">nombre</span><span
-      style="color: #0000ff;">}</span></div>
-   <div><span
-      style="color: #a31515;">Mensaje: </span><span
-      style="color: #0000ff;">${</span><span
-      style="color: #0070c1;">json</span>.<span
-      style="color: #001080;">mensaje</span><span
-      style="color: #0000ff;">}</span><span
-      style="color: #a31515;">`</span>)</div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span>  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span><span class="codeReserved">const</span> body = respuesta.body</span>
+<span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
+<span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
 </section>
       </section>
 </body>

@@ -8,62 +8,10 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>C. La función <code>muestraError</code>. - GilPG AWOAS</title>
- <meta name="description" content="Se presenta la función muestraError.">
+ <title>E. Las clases ProblemDetails de JavaScript y PHP - GilPG AWOAS</title>
+ <meta name="description" content="Se presentan las clases ProblemDetails de JavaScript y PHP.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- @font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  src:
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
- }
-
  :root {
   --padTop: 2rem;
   --introDuracion: 2s;
@@ -82,7 +30,7 @@
   --borderPush: solid thin;
   --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
-  --colA: violet;
+  --colA: #7a2c99;
   --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
@@ -137,11 +85,13 @@
    --colSombra: #00000080;
    --colTituloLetra: #21ef4e;
    --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
+   --colTituloStrong: yellow;
+   --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
    --colNavResaltada: #efbff3;
    --colScrollbar: #616161;
    --colThumb: #ffffff;
-   --colAActive: red;
+   --colAActive: #da83da;
    --colResaltado: rgb(77, 77, 1);
    --colResaltado2: rgb(78, 52, 4);
    --colResaltado3: rgb(69, 69, 69);
@@ -150,6 +100,58 @@
    --colLetraCodeString: rgb(255, 152, 152);
    --colLetraCodeReserved: rgb(149, 149, 238);
   }
+ }
+
+ /* xanh-mono-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* xanh-mono-italic - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
+ }
+
+ /* patrick-hand-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* purple-purse-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Purple Purse';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
  }
 
  .material-symbols-outlined {
@@ -483,7 +485,7 @@
   scroll-padding-top: var(--padTop);
  }
 
- body:not(.sinTransicion) #principal {
+ body:not(.sinTransicion) {
   animation-timing-function: var(--introFuncion);
   animation-duration: var(--introDuracion);
   animation-fill-mode: forwards;
@@ -686,26 +688,39 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >C. La función <code>muestraError</code>.</h1><div class="lectura">
+   <h1 >E. Las clases <dfn><code>ProblemDetails</code></dfn> de JavaScript y PHP</h1><div class="lectura">
  <ul>
   <li>
    <p>
-    También manejamos los errores de una manera uniforme con la función
-    <code>muestraError</code>, la cual muestra la excepción correspondiente en
-    la consola del navegador y el mensaje de la excepción en un cuadro de alert.
+    Se acuerdo a los estándares de internet, cuando un servicio falla, debe
+    devolver una estructura JSON conocida como <dfn>Problem Details</dfn> que
+    informa los detalles del fallo.
    </p>
   </li>
   <li>
    <p>
-    Para usarla, debes importar el archivo donde está definida esta función y
-    colocarla dentro de un catch. Se le pasa como parámetro la excepción
-    atrapada por el catch.
+    El tipo de fallo se describe en el campo <var>type</var>, del problem
+    details y, adicionalmente, todo tipo de fallo debe tener una pequeña página
+    donde se describe el problema. En estos ejemplos, se usa la carpeta
+    <dfn>error</dfn> para almacenar las páginas que decriben los errores.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla en JavaScript, debes importar el archivo donde está definida
+    esta clase.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla en PHP, debes importar el archivo donde está definida esta
+    clase usando <code>require</code> o <code>require_once</code>.
    </p>
   </li>
   <li>
    <p>
     A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta función.
+    estructura de estas clases.
    </p>
   </li>
  </ul>
@@ -735,10 +750,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m07srverror/mBejecuta.html" title="B. La función &lt;code&gt;ejecuta&lt;/code&gt; de JavaScript."><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/mD1JsonResponse.html" title="D. Las clases JsonResponse de JavaScript y PHP"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m07srverror/mDservicio.html" title="D. La función &lt;code&gt;ejecuta&lt;/code&gt; de PHP."><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m08srvdevuelve/mD3muestraerror.html" title="F. La función muestraError"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -757,91 +772,101 @@
    
    
      <p>
-      <a class="paginaAnterior" href="/m10form/mTresumen.html"
-        title="N. Resumen"><span
+      <a class="paginaAnterior" href="/m06ecommerce/mFresumen.html"
+        title="G. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m07srverror/index.html">12. Servicio que falla</a></h1>
+   <h1><a href="/m08srvdevuelve/index.html">9. Servicio que devuelve un resultado JSON</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m07srverror/mAintro.html">Introducción</a>
+     <a href="/m08srvdevuelve/mAintro.html">Introducción</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mBejecuta.html">La función <code>ejecuta</code> de JavaScript.</a>
+     <a href="/m08srvdevuelve/mBinvoca.html">La función <dfn><code>invocaServicio</code></dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mCmuestraerror.html" class="actual">La función <code>muestraError</code>.</a>
+     <a href="/m08srvdevuelve/mCejecutaServicio.html">La función <dfn><code>ejecutaServicio</code></dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mDservicio.html">La función <code>ejecuta</code> de PHP.</a>
+     <a href="/m08srvdevuelve/mD1JsonResponse.html">Las clases <dfn><code>JsonResponse</code></dfn> de JavaScript y PHP</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mEdeploy.html">Diagrama de despliegue</a>
+     <a href="/m08srvdevuelve/mD2ProblemDetails.html" class="actual">Las clases <dfn><code>ProblemDetails</code></dfn> de JavaScript y PHP</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mFfunError/">Funcionamiento del ejemplo con errores</a>
+     <a href="/m08srvdevuelve/mD3muestraerror.html">La función <dfn><code>muestraError</code></dfn></a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mGinstrucciones.html">Hazlo funcionar</a>
+     <a href="/m08srvdevuelve/mBdeploy.html">Diagrama de despliegue</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mArchivos.html">Archivos</a>
+     <a href="/m08srvdevuelve/mCfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-index-html.html">index.html</a>
+     <a href="/m08srvdevuelve/mDinstrucciones.html">Hazlo funcionar</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-corto-html.html">corto.html</a>
+     <a href="/m08srvdevuelve/mArchivos.html">Archivos</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-srv/">Carpeta « srv » </a>
+     <a href="/m08srvdevuelve/m-index-html.html">index.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-jsconfig-json.html">jsconfig.json</a>
+     <a href="/m08srvdevuelve/m-srv/">Carpeta « srv »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/m-lib/">Carpeta « lib »</a>
+     <a href="/m08srvdevuelve/m-jsconfig-json.html">jsconfig.json</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mHresumen.html">Resumen</a>
+     <a href="/m08srvdevuelve/m-error/">Carpeta « error »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-lib/">Carpeta « lib »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m11muestra/index.html"
-       title="13. Mostrar datos en el cliente"><span
+     <a class="paginaSiguiente" href="/m09srvjson/index.html"
+       title="10. Servicio que recibe y devuelve JSON"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -858,9 +883,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m07srverror/mBejecuta.html"
+ let urlAnterior = "/m08srvdevuelve/mD1JsonResponse.html"
  /**@type {string} */
- let urlSiguiente = "/m07srverror/mDservicio.html"
+ let urlSiguiente = "/m08srvdevuelve/mD3muestraerror.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

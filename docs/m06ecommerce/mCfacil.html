@@ -12,58 +12,6 @@
  <meta name="description" content="Fácil proceso de compra.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- @font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  src:
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
- }
-
  :root {
   --padTop: 2rem;
   --introDuracion: 2s;
@@ -82,7 +30,7 @@
   --borderPush: solid thin;
   --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
-  --colA: violet;
+  --colA: #7a2c99;
   --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
@@ -137,11 +85,13 @@
    --colSombra: #00000080;
    --colTituloLetra: #21ef4e;
    --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
+   --colTituloStrong: yellow;
+   --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
    --colNavResaltada: #efbff3;
    --colScrollbar: #616161;
    --colThumb: #ffffff;
-   --colAActive: red;
+   --colAActive: #da83da;
    --colResaltado: rgb(77, 77, 1);
    --colResaltado2: rgb(78, 52, 4);
    --colResaltado3: rgb(69, 69, 69);
@@ -150,6 +100,58 @@
    --colLetraCodeString: rgb(255, 152, 152);
    --colLetraCodeReserved: rgb(149, 149, 238);
   }
+ }
+
+ /* xanh-mono-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* xanh-mono-italic - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
+ }
+
+ /* patrick-hand-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* purple-purse-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Purple Purse';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
  }
 
  .material-symbols-outlined {
@@ -483,7 +485,7 @@
   scroll-padding-top: var(--padTop);
  }
 
- body:not(.sinTransicion) #principal {
+ body:not(.sinTransicion) {
   animation-timing-function: var(--introFuncion);
   animation-duration: var(--introDuracion);
   animation-fill-mode: forwards;

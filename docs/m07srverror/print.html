@@ -11,58 +11,6 @@
  <title>Servicio que falla - GilPG AWOAS</title>
  <meta name="description" content="Página para imprimir de la lección «Servicio que falla».">
  <style>
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- @font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  src:
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
-   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
- }
-
  :root {
   --padTop: 2rem;
   --introDuracion: 2s;
@@ -81,7 +29,7 @@
   --borderPush: solid thin;
   --borderRadiusPush: 0.6em;
   --colTituloLetra: #00811c;
-  --colA: violet;
+  --colA: #7a2c99;
   --colAActive: red;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
@@ -136,11 +84,13 @@
    --colSombra: #00000080;
    --colTituloLetra: #21ef4e;
    --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
+   --colTituloStrong: yellow;
+   --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
    --colNavResaltada: #efbff3;
    --colScrollbar: #616161;
    --colThumb: #ffffff;
-   --colAActive: red;
+   --colAActive: #da83da;
    --colResaltado: rgb(77, 77, 1);
    --colResaltado2: rgb(78, 52, 4);
    --colResaltado3: rgb(69, 69, 69);
@@ -149,6 +99,58 @@
    --colLetraCodeString: rgb(255, 152, 152);
    --colLetraCodeReserved: rgb(149, 149, 238);
   }
+ }
+
+ /* xanh-mono-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* xanh-mono-italic - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
+ }
+
+ /* patrick-hand-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* purple-purse-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Purple Purse';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
  }
 
  .material-symbols-outlined {
@@ -603,21 +605,6 @@
    </li>
    <li>
     <p>
-     <a href="/m07srverror/mBejecuta.html">La función <code>ejecuta</code> de JavaScript.</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m07srverror/mCmuestraerror.html">La función <code>muestraError</code>.</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m07srverror/mDservicio.html">La función <code>ejecuta</code> de PHP.</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m07srverror/mEdeploy.html">Diagrama de despliegue</a>
     </p>
    </li>
@@ -695,94 +682,14 @@
 </div>
       </section>
      <section >
-         <h1 >B. La función <code>ejecuta</code> de JavaScript.</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    El código que se muestra en el ejemplo de servicio se repite en muchos
-    ejemplos posteriores; pero además debe realizar algunas cuastiones
-    adicionales. Para simplificar el trabajo, se introduce la función
-    <code>ejecuta</code>, que realiza todo lo necesario para controlar la
-    conxión desde el navegador web hacia el servidor.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para usarla, debes importar el archivo donde está definida esta función y
-    luego invocarla pasándole la url del servicio, o alternativamente, pasándole
-    el resultado de invocar la función fetch que comunica al servicio.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta función.
-   </p>
-  </li>
- </ul>
-</div>
-      </section>
-     <section >
-         <h1 >C. La función <code>muestraError</code>.</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    También manejamos los errores de una manera uniforme con la función
-    <code>muestraError</code>, la cual muestra la excepción correspondiente en
-    la consola del navegador y el mensaje de la excepción en un cuadro de alert.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para usarla, debes importar el archivo donde está definida esta función y
-    colocarla dentro de un catch. Se le pasa como parámetro la excepción
-    atrapada por el catch.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta función.
-   </p>
-  </li>
- </ul>
-</div>
-      </section>
-     <section >
-         <h1 >D. La función <code>ejecuta</code> de PHP.</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    Para que el desarrollo de servicios del lado del servidor se realice de
-    manera sencilla, uniforme y no repetir código, se introduce la función
-    <code>ejecuta</code>, escrita en PHP.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para usarla, debes importar el archivo donde está definida esta función
-    usando <code>require</code> o <code>require_once</code> y luego invocarla
-    pasándole la función con el código del servicio.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta clase.
-   </p>
-  </li>
- </ul>
-</div>
-      </section>
-     <section >
-         <h1 >E. Diagrama de despliegue</h1><figure>
+         <h1 >B. Diagrama de despliegue</h1><figure>
  <img style="max-height: none;"
    src="/img/m07srverror/srverrordistribucion.drawio.svg"
    alt="Diagrama de despliegue">
 </figure>
       </section>
      <section>
-         <h1 >F. Funcionamiento del ejemplo con errores</h1>
+         <h1 >C. Funcionamiento del ejemplo con errores</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1148,7 +1055,7 @@
       </section>
       </section>
      <section >
-         <h1 >G. Hazlo funcionar</h1><div class="lectura">
+         <h1 >D. Hazlo funcionar</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -1200,7 +1107,7 @@
 </div>
       </section>
      <section >
-         <h1 >H. Archivos</h1><div class="lectura">
+         <h1 >E. Archivos</h1><div class="lectura">
  <p>Haz clic en los triángulos para expandir las carpetas</p>
  <ul class="tree">
   <li>
@@ -1256,7 +1163,7 @@
 </div>
       </section>
      <section >
-         <h1 >I. index.html</h1><muestra-codigo>
+         <h1 >F. index.html</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;!DOCTYPE</span> <span
@@ -1360,7 +1267,7 @@
 </muestra-codigo>
       </section>
      <section >
-         <h1 >J. corto.html</h1><muestra-codigo>
+         <h1 >G. corto.html</h1><muestra-codigo>
  <div>
   <div><span
      style="color: #800000;">&lt;!DOCTYPE</span> <span
@@ -1453,7 +1360,7 @@
 </muestra-codigo>
       </section>
      <section>
-         <h1 >K. Carpeta « srv » </h1>
+         <h1 >H. Carpeta « srv » </h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1497,7 +1404,7 @@
       </section>
       </section>
      <section >
-         <h1 >L. jsconfig.json</h1><div class="lectura">
+         <h1 >I. jsconfig.json</h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1552,7 +1459,7 @@
 </muestra-codigo>
       </section>
      <section>
-         <h1 >M. Carpeta « lib »</h1>
+         <h1 >J. Carpeta « lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1881,7 +1788,7 @@
       </section>
       </section>
      <section >
-         <h1 >N. Resumen</h1><div class="lectura">
+         <h1 >K. Resumen</h1><div class="lectura">
  <ul>
   <li>
    <p>
