@@ -719,31 +719,31 @@
      <section class="pruebaDeEscritorio">
          <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
  <h1>index.html</h1>
- <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
          <h1 >2. Se invoca el servicio en el servidor</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
  <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <section style="vertical-align: top;">
@@ -770,16 +770,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span class="resaltado3"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span class="resaltado3"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section style="vertical-align: top;">
@@ -809,16 +809,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> resp =</td></tr></span>
-<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> resp =</span>
+<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
 <section style="vertical-align: top;">
@@ -863,16 +863,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >5. Verifica si la conexión terminó con éxito</h1><section style="display: inline-block; vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span class="resaltado"><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span class="resaltado"><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
 </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>
@@ -892,16 +892,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >6. Como la conexión terminó con éxito, recupera el texto de response</h1><section style="display: inline-block; vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span class="resaltado"> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span class="resaltado">  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span class="resaltado"> <span class="codeReserved">const</span> texto =</span>
+<span class="resaltado">  <span class="codeReserved">await</span> resp.text()</span>
+<span> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
 </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>
@@ -928,16 +928,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >7. Muestra el texto en un alert</h1><section style="display: inline-block; vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</td></tr></span>
-<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr></span>
-<span><span class="codeReserved">if</span> (resp.ok) {</td></tr></span>
-<span> <span class="codeReserved">const</span> texto =</td></tr></span>
-<span>  <span class="codeReserved">await</span> resp.text()</td></tr></span>
-<span class="resaltado"> alert(texto)</td></tr></span>
-<span>} <span class="codeReserved">else</span> {</td></tr></span>
-<span> throw <span class="codeReserved">new</span> Error(</td></tr></span>
-<span>  resp.statusText)</td></tr></span>
-<span>}</td></tr></span></code></pre>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
+<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
+<span><span class="codeReserved">if</span> (resp.ok) {</span>
+<span> <span class="codeReserved">const</span> texto =</span>
+<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span class="resaltado"> alert(texto)</span>
+<span>} <span class="codeReserved">else</span> {</span>
+<span> throw <span class="codeReserved">new</span> Error(</span>
+<span>  resp.statusText)</span>
+<span>}</span></code></pre>
 </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>

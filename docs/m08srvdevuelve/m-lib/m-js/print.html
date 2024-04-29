@@ -590,15 +590,21 @@
       imprimir.</a>
     </p>
    </div>
-<div class="lectura">
- <nav>
-  <h1>Contenido</h1>
-  
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
    <ol type="1">
     
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+     <a href="/m08srvdevuelve/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-lib/m-js/m-JsonResponse-js.html">lib / js / JsonResponse.js</a>
     </p>
    </li>
    <li>
@@ -606,188 +612,210 @@
      <a href="/m08srvdevuelve/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
+    </p>
+   </li>
    </ol>
- </nav>
-</div>
+   </nav>
+  </div>
      <section >
-         <h1 >1. lib / js / ejecuta.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un fetch
-    termine. Si</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;hay error, lanza una excepción. Si no
-    hay error,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;interpreta la respuesta del servidor
-    como JSON y</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de objeto.
-   </span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string | Promise&lt;Response&gt; }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">servicio</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">servicio</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">let</span> <span
-     style="color: #001080;">f</span> = <span
-     style="color: #001080;">servicio</span></div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">servicio</span> === <span
-     style="color: #a31515;">"string"</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">f</span> = <span
-     style="color: #795e26;">fetch</span>(<span
-     style="color: #001080;">servicio</span>)</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (!(<span
-     style="color: #001080;">f</span> <span
-     style="color: #0000ff;">instanceof</span> <span
-     style="color: #267f99;">Promise</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #a31515;">"Servicio de tipo incorrecto."</span>)</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">respuesta</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #001080;">f</span></div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">ok</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">texto</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #795e26;">text</span>()</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">JSON</span>.<span
-     style="color: #795e26;">parse</span>(<span
-     style="color: #0070c1;">texto</span>)</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">error</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #0070c1;">texto</span>)</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">status</span> === <span
-     style="color: #098658;">500</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #795e26;">text</span>())</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">statusText</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"ejecuta"</span>] = <span
-     style="color: #795e26;">ejecuta</span></div>
- </div>
-</muestra-codigo>
+         <h1 >1. lib / js / invocaServicio.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> {</td></tr>
+  <tr><td>2</td><td> JsonResponse, JsonResponse_Created, JsonResponse_NoContent, JsonResponse_OK</td></tr>
+  <tr><td>3</td><td>} <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;JsonResponse.js&quot;</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">import</span> {</td></tr>
+  <tr><td>5</td><td> ProblemDetails, ProblemDetails_InternalServerError</td></tr>
+  <tr><td>6</td><td>} <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;ProblemDetails.js&quot;</span></td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * hay error, lanza una excepción. Si no hay error,</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * interpreta la respuesta del servidor como JSON y</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * la convierte en una literal de objeto. </span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> * @param { string | Promise&lt;<span class="codeReserved">Response</span>&gt; } servicio</span></td></tr>
+  <tr><td>14</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>15</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> invocaServicio(servicio) {</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">let</span> f = servicio</td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> servicio === <span class="codeString">&quot;string&quot;</span>) {</td></tr>
+  <tr><td>18</td><td>  f = fetch(servicio, {</td></tr>
+  <tr><td>19</td><td>   headers: { <span class="codeString">&quot;Accept&quot;</span>: <span class="codeString">&quot;application&#47;json, application&#47;problem+json&quot;</span> }</td></tr>
+  <tr><td>20</td><td>  })</td></tr>
+  <tr><td>21</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (!(f <span class="codeReserved">instanceof</span> Promise)) {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;Servicio de tipo incorrecto.&quot;</span>)</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> f</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">if</span> (respuesta.ok) {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">if</span> (respuesta.status === JsonResponse_NoContent) {</td></tr>
+  <tr><td>27</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_NoContent)</td></tr>
+  <tr><td>28</td><td>  }</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>30</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>31</td><td>   <span class="codeReserved">const</span> body = JSON.parse(texto)</td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">if</span> (respuesta.status === JsonResponse_Created) {</td></tr>
+  <tr><td>33</td><td>    <span class="codeReserved">const</span> location = respuesta.headers.get(<span class="codeString">&quot;location&quot;</span>)</td></tr>
+  <tr><td>34</td><td>    <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_Created, body,</td></tr>
+  <tr><td>35</td><td>     location === <span class="codeReserved">null</span> ? undefined : location)</td></tr>
+  <tr><td>36</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>37</td><td>    <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_OK, body)</td></tr>
+  <tr><td>38</td><td>   }</td></tr>
+  <tr><td>39</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>40</td><td>   <span class="codeComment">// El contenido no es JSON. Probablemente sea texto.</span></td></tr>
+  <tr><td>41</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(ProblemDetails_InternalServerError,</td></tr>
+  <tr><td>42</td><td>    <span class="codeString">&quot;Problema interno en el servidor.&quot;</span>, texto)</td></tr>
+  <tr><td>43</td><td>  }</td></tr>
+  <tr><td>44</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>45</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>46</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>47</td><td>   <span class="codeReserved">const</span> { type, title, detail } = JSON.parse(texto)</td></tr>
+  <tr><td>48</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status,</td></tr>
+  <tr><td>49</td><td>    <span class="codeReserved">typeof</span> title === <span class="codeString">&quot;string&quot;</span> ? title : <span class="codeString">&quot;&quot;</span>,</td></tr>
+  <tr><td>50</td><td>    <span class="codeReserved">typeof</span> detail === <span class="codeString">&quot;string&quot;</span> ? detail : undefined,</td></tr>
+  <tr><td>51</td><td>    <span class="codeReserved">typeof</span> type === <span class="codeString">&quot;string&quot;</span> ? type : undefined)</td></tr>
+  <tr><td>52</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>53</td><td>   <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>54</td><td>    <span class="codeReserved">throw</span> error</td></tr>
+  <tr><td>55</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>56</td><td>    <span class="codeComment">// El contenido no es JSON. Probablemente sea texto.</span></td></tr>
+  <tr><td>57</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, respuesta.statusText, texto)</td></tr>
+  <tr><td>58</td><td>   }</td></tr>
+  <tr><td>59</td><td>  }</td></tr>
+  <tr><td>60</td><td> }</td></tr>
+  <tr><td>61</td><td>}</td></tr>
+  <tr><td>62</td><td></td></tr>
+  <tr><td>63</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>64</td><td>window[<span class="codeString">&quot;invocaServicio&quot;</span>] = invocaServicio</td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. lib / js / muestraError.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Muestra un error en la consola y en un
-    cuadro de</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;alerta el mensaje de una
-    excepción.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Error | null }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">error</span><span
-     style="color: #008000;"> descripción del error.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">error</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">error</span> === <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">error</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">error</span>.<span
-     style="color: #001080;">message</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraError"</span>] = <span
-     style="color: #795e26;">muestraError</span></div>
- </div>
-</muestra-codigo>
+         <h1 >2. lib / js / JsonResponse.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_OK = 200</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_Created = 201</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_NoContent = 204</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> JsonResponse {</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * @param {any} [body]</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * @param {string} [location]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">constructor</span>(status, body, location) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.body = body</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.location = location</td></tr>
+  <tr><td>19</td><td> }</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>}</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >3. lib / js / muestraError.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;ProblemDetails.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Muestra un error en la consola y en un cuadro de</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * alerta el mensaje de una excepción.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { ProblemDetails | Error | <span class="codeReserved">null</span> } error descripción del error.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>10</td><td>  console.log(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>11</td><td>  alert(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>12</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">let</span> mensaje = error.title</td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">if</span> (error.detail) {</td></tr>
+  <tr><td>15</td><td>   mensaje += <span class="codeString">`\n\n${error.detail}`</span></td></tr>
+  <tr><td>16</td><td>  }</td></tr>
+  <tr><td>17</td><td>  mensaje += <span class="codeString">`\n\nCódigo: ${error.status}`</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">if</span> (error.type) {</td></tr>
+  <tr><td>19</td><td>   mensaje += <span class="codeString">` ${error.type}`</span></td></tr>
+  <tr><td>20</td><td>  }</td></tr>
+  <tr><td>21</td><td>  console.error(mensaje)</td></tr>
+  <tr><td>22</td><td>  console.error(error)</td></tr>
+  <tr><td>23</td><td>  alert(mensaje)</td></tr>
+  <tr><td>24</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>25</td><td>  console.error(error)</td></tr>
+  <tr><td>26</td><td>  alert(error.message)</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>31</td><td>window[<span class="codeString">&quot;muestraError&quot;</span>] = muestraError</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. lib / js / ProblemDetails.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_BadRequest = 400</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_NotFound = 404</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_InternalServerError = 500</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails extends Error {</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * @param {string} title</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * @param {string} [detail]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * @param {string} [type]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, title, detail, type) {</td></tr>
+  <tr><td>14</td><td>  super(title)</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
+  <tr><td>21</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td>}</td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 
