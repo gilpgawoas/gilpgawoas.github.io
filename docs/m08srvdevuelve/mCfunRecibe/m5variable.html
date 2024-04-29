@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>4. El servicio devuelve la response, que es recibida en el cliente - GilPG AWOAS</title>
- <meta name="description" content="Muestra como el servicio devuelve la response, que es recibida en el cliente.">
+ <title>5. Se crea la constante body, que apunta al cuerpo de la respuesta - GilPG AWOAS</title>
+ <meta name="description" content="Se crea la constante body, que apunta al cuerpo de la respuesta.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* xanh-mono-regular - latin_latin-ext */
@@ -788,55 +788,37 @@
 
 <body  class="xmenu pruebaDeEscritorio">
  <div id="principal">
-   <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: top;">
+   <h1 >5. Se crea la constante body, que apunta al cuerpo de la respuesta</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> invocaServicio(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span><span class="codeReserved">const</span> body = respuesta.body</span>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span class="resaltado"><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
 <span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
- <p class="resaltado2">Despiesta y recibe response.</p>
-</section>
-<section style="vertical-align: top; overflow-wrap: anywhere;">
- <section style="display: block;">
-  <h1>Response</h1>
-  <dl class="resaltado">
-   <dt>code</dt>
-   <dd>200</dd>
-   <dt>contenido</dt>
-   <dd>{"nombre":"pp","mensaje":"Hola."}</dd>
-  </dl>
- </section>
- <section style="display: block;">
-  <h1>Memoria</h1>
-  <dl class="resaltado">
-   <dt>respuesta</dt>
-   <dd>
-    <dl>
-     <dt>status</dt>
-     <dd>200</dd>
-     <dt>body</dt>
-     <dd>
-      <dl>
-       <dt>nombre</dt>
-       <dd>"pp"</dd>
-       <dt>mensaje</dt>
-       <dd>"Hola."</dd>
-      </dl>
-     </dd>
-    </dl>
-   </dd>
-  </dl>
- </section>
 </section>
 <section style="vertical-align: top;">
- <h1>srv&#47;devuelve.php</h1>
- <pre class="resaltado3"><code class="language-php"><span><span class="codeReserved">return</span> [</span>
-<span> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
-<span> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
-<span>];</span></code></pre>
- <p class="resaltado3">Devuelve response y se duerme.</p>
+ <h1>Memoria</h1>
+ <dl>
+  <dt>respuesta</dt>
+  <dd>
+   <dl>
+    <dt>status</dt>
+    <dd>200</dd>
+    <dt class="resaltado">body</dt>
+    <dd class="resaltado">
+     <dl>
+      <dt>nombre</dt>
+      <dd>"pp"</dd>
+      <dt>mensaje</dt>
+      <dd>"Hola."</dd>
+     </dl>
+    </dd>
+   </dl>
+  </dd>
+  <dt class="resaltado">body</dt>
+  <dd class="resaltado">ref->respuesta.body</dd>
+ </dl>
 </section>
  <footer>
  <p>
@@ -863,10 +845,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m08srvdevuelve/mCfunRecibe/m3procesa.html" title="3. El servicio procesa la request y genera la response"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/mCfunRecibe/m4devuelve.html" title="4. El servicio devuelve la response, que es recibida en el cliente"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m08srvdevuelve/mCfunRecibe/m5variable.html" title="5. Se crea la constante body, que apunta al cuerpo de la respuesta"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m08srvdevuelve/mCfunRecibe/m5muestra.html" title="6. Muestra el objeto recibido en un alert"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -915,12 +897,12 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mCfunRecibe/m4devuelve.html" class="actual">El servicio devuelve la response, que es recibida en el cliente</a>
+     <a href="/m08srvdevuelve/mCfunRecibe/m4devuelve.html">El servicio devuelve la response, que es recibida en el cliente</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mCfunRecibe/m5variable.html">Se crea la constante body, que apunta al cuerpo de la respuesta</a>
+     <a href="/m08srvdevuelve/mCfunRecibe/m5variable.html" class="actual">Se crea la constante body, que apunta al cuerpo de la respuesta</a>
     </p>
    </li>
    <li>
@@ -954,9 +936,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m08srvdevuelve/mCfunRecibe/m3procesa.html"
+ let urlAnterior = "/m08srvdevuelve/mCfunRecibe/m4devuelve.html"
  /**@type {string} */
- let urlSiguiente = "/m08srvdevuelve/mCfunRecibe/m5variable.html"
+ let urlSiguiente = "/m08srvdevuelve/mCfunRecibe/m5muestra.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

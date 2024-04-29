@@ -710,6 +710,11 @@
    </li>
    <li>
     <p>
+     <a href="/m08srvdevuelve/mCfunRecibe/m5variable.html">Se crea la constante body, que apunta al cuerpo de la respuesta</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m08srvdevuelve/mCfunRecibe/m5muestra.html">Muestra el objeto recibido en un alert</a>
     </p>
    </li>
@@ -814,13 +819,20 @@
  <section style="display: block;">
   <h1>Memoria</h1>
   <dl class="resaltado">
-   <dt>json</dt>
+   <dt>respuesta</dt>
    <dd>
     <dl>
-     <dt>nombre</dt>
-     <dd>"pp"</dd>
-     <dt>mensaje</dt>
-     <dd>"Hola."</dd>
+     <dt>status</dt>
+     <dd>200</dd>
+     <dt>body</dt>
+     <dd>
+      <dl>
+       <dt>nombre</dt>
+       <dd>"pp"</dd>
+       <dt>mensaje</dt>
+       <dd>"Hola."</dd>
+      </dl>
+     </dd>
     </dl>
    </dd>
   </dl>
@@ -836,7 +848,41 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >5. Muestra el objeto recibido en un alert</h1><section style="vertical-align: top;">
+         <h1 >5. Se crea la constante body, que apunta al cuerpo de la respuesta</h1><section style="vertical-align: top;">
+ <h1>index.html</h1>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span class="resaltado"><span class="codeReserved">const</span> body = respuesta.body</span>
+<span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
+<span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
+</section>
+<section style="vertical-align: top;">
+ <h1>Memoria</h1>
+ <dl>
+  <dt>respuesta</dt>
+  <dd>
+   <dl>
+    <dt>status</dt>
+    <dd>200</dd>
+    <dt class="resaltado">body</dt>
+    <dd class="resaltado">
+     <dl>
+      <dt>nombre</dt>
+      <dd>"pp"</dd>
+      <dt>mensaje</dt>
+      <dd>"Hola."</dd>
+     </dl>
+    </dd>
+   </dl>
+  </dd>
+  <dt class="resaltado">body</dt>
+  <dd class="resaltado">ref->respuesta.body</dd>
+ </dl>
+</section>
+      </section>
+     <section class="pruebaDeEscritorio">
+         <h1 >6. Muestra el objeto recibido en un alert</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
 <span> <span class="codeReserved">await</span> invocaServicio(</span>
@@ -870,7 +916,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >6. Al cerrar el alert, termina el evento</h1><section style="vertical-align: middle;">
+         <h1 >7. Al cerrar el alert, termina el evento</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
  <muestra-codigo>
   <div>
