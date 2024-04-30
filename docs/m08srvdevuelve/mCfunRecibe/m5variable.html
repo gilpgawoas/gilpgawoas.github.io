@@ -12,8 +12,11 @@
  <meta name="description" content="Se crea la constante body, que apunta al cuerpo de la respuesta.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
+ /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
  :root {
-  --padTop: 2rem;
+  --marginTop: 0.25rem;
+  --padTop: 0;
+  --h1PadTop: 2.5rem;
   --introDuracion: 2s;
   --introFuncion: ease-out;
   --padCont: 0.5rem;
@@ -25,51 +28,61 @@
   --colPush: var(--colFondo);
   --colPushHover: var(--colFondo);
   --colPushFocus: var(--colFondo);
-  --colPushActive: var(--colLetra);
-  --colFondoPush: rgb(58, 58, 255);
-  --colFondoPushHover: rgb(134, 134, 254);
-  --colFondoPushFocus: blue;
-  --colFondoPushActive: rgb(159, 159, 255);
+  --colPushActive: #bae397;
+  --colFondoPush: #609732;
+  --colFondoPushHover: #8abd5f;
+  --colFondoPushFocus: #3e7213;
+  --colFondoPushActive: #224c00;
   --paddingPush: 0.2rem 0.3rem;
   --borderPush: none;
   --borderRadiusPush: 0.6em;
-  --colA: purple;
-  --colAVisited: blue;
-  --colAActive: red;
-  --colAPush: violet;
-  --colAVisitedPush: cyan;
-  --colAPushHover: violet;
-  --colAVisitedPushHover: cyan;
-  --colAPushFocus: violet;
-  --colAVisitedPushFocus: cyan;
-  --colAPushActive: yellow;
-  --colAVisitedPushActive: yellow;
-  --colFondoAPush: rgb(0, 154, 0);
-  --colFondoAPushHover: rgb(0, 172, 0);
-  --colFondoAPushFocus: green;
-  --colFondoAPushActive: rgb(11, 67, 11);
-  --colTituloLetra: #00811c;
+  --colA: #6a7b15;
+  --colAVisited: #6f256f;
+  --colAActive: #e498af;
+  --colAPush: var(--colFondo);
+  --colAVisitedPush: var(--colFondo);
+  --colAPushHover: var(--colFondo);
+  --colAVisitedPushHover: var(--colFondo);
+  --colAPushFocus: var(--colFondo);
+  --colAVisitedPushFocus: var(--colFondo);
+  --colAPushActive: var(--colFondo);
+  --colAVisitedPushActive: var(--colFondo);
+  --colFondoAPush: #6a7b15;
+  --colFondoAVisitedPush: #6f256f;
+  --colFondoAPushHover: #91a437;
+  --colFondoAVisitedPushHover: #a66fa6;
+  --colFondoAPushFocus: #445200;
+  --colFondoAVisitedPushFocus: #530e53;
+  --colFondoAPushActive: #e498af;
+  --colFondoAVisitedPushActive: #e498af;
+  --colTitulo: #bae397;
+  --colTituloFondo: #609732;
   --colSombra: #49494980;
-  --colTituloShadow: 3px 1px 2px #bdbdbd;
-  --colTituloStrong: #684601;
-  --colTituloStrongSel: #ffdc97;
+  --shadowTitulo: 3px 1px 2px black;
+  --colPrincipalTituloStrong: #ffdc97;
+  --colAStrong: var(--colLetra);
+  --colTituloStrongSel: #721330;
+  --colNavH1Sel: #b35f7c;
   --colTarget: #cef4ff;
   --navSombra: 0.5rem 0 0.5rem var(--colSombra);
-  --colFondoNav: #f2f2f2;
-  --colSecundario: #ffff82;
+  /* --colFondoNav: #f2f2f2; */
+  --colFondoNav: white;
+  --colFondoNavSel: #e498af;
+  --colFondoNavH1Sel: #be5f7c;
+  --colSecundario: #e498af;
   --colStack1: black;
   --colStack2: #224ba5;
   --colStack3: #92731f;
   --colScrollbar: #CFD8DC;
   --colThumb: #90a4ae;
   --colThumbActivo: #3f3f3f;
-  --colResaltado: rgb(255, 255, 89);
-  --colResaltado2: rgb(255, 214, 139);
-  --colResaltado3: rgb(235, 234, 233);
+  --colResaltado: #e9c8d2;
+  --colResaltado2: #bae397;
+  --colResaltado3: #cfcfcf;
   --colLetraResaltado: black;
-  --colLetraCodeComment: green;
-  --colLetraCodeString: red;
-  --colLetraCodeReserved: blue;
+  --colLetraCodeComment: #224c00;
+  --colLetraCodeString: #903357;
+  --colLetraCodeReserved: #445200;
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
@@ -91,31 +104,30 @@
  }
 
  @media (prefers-color-scheme: dark) {
+
   :root {
    --colLetra: white;
-   --colFondo: #272727;
-   --colFondoPush: rgb(147, 212, 255);
-   --colFondoPushHover: rgb(200, 233, 255);
-   --colFondoPushFocus: rgb(100, 193, 255);
-   --colFondoPushActive: blue;
-   --colA: violet;
-   --colAVisited: cyan;
-   --colAActive: yellow;
-   --colAPush: rgb(164, 95, 164);
-   --colAVisitedPush: rgb(90, 143, 143);
-   --colAPushHover: rgb(164, 95, 164);
-   --colAVisitedPushHover: rgb(90, 143, 143);
-   --colAPushFocus: rgb(164, 95, 164);
-   --colAVisitedPushFocus: rgb(90, 143, 143);
-   --colAPushActive: red;
-   --colAVisitedPushActive: red;
-   --colFondoAPush: rgb(255, 255, 148);
-   --colFondoAPushHover: rgb(255, 255, 255);
-   --colFondoAPushFocus: rgb(208, 208, 63);
-   --colFondoAPushActive: rgb(168, 168, 2);
-   --colTituloLetra: #21ef4e;
+   /* --colFondo: #272727; */
+   --colFondo: black;
+   --colPushActive: #e3f5d4;
+   --colFondoPush: #bbe697;
+   --colFondoPushHover: #d0eeb7;
+   --colFondoPushFocus: #9ed372;
+   --colFondoPushActive: #7db84d;
+   --colA: #e9f7a3;
+   --colAVisited: #c89ac8;
+   --colAActive: #983351;
+   --colFondoAPush: #e9f7a3;
+   --colFondoAVisitedPush: #c89ac8;
+   --colFondoAPushHover: #91a437;
+   --colFondoAVisitedPushHover: #a66fa6;
+   --colFondoAPushFocus: #445200;
+   --colFondoAVisitedPushFocus: #530e53;
+   --colFondoAPushActive: #e498af;
+   --colFondoAVisitedPushActive: #e498af;
+   --colTitulo: #21ef4e;
    --colSombra: #00000080;
-   --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
+   --shadowTitulo: 3px 1px 2px rgb(124, 124, 124);
    --colTituloStrong: yellow;
    --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
@@ -218,6 +230,10 @@
   background-color: var(--colThumbActivo);
  }
 
+ body {
+  margin-top: 0;
+ }
+
  a {
   color: var(--colA);
  }
@@ -256,6 +272,7 @@
  .paginaAnterior:visited,
  .paginaSiguiente:visited {
   color: var(--colAVisitedPush);
+  background-color: var(--colFondoAVisitedPush);
  }
 
  .anterior.bye,
@@ -278,6 +295,7 @@
  .paginaAnterior:visited:hover,
  .paginaSiguiente:visited:hover {
   color: var(--colAVisitedPushHover);
+  background-color: var(--colFondoAVisitedPushHover);
  }
 
  .anterior:focus,
@@ -293,6 +311,7 @@
  .paginaAnterior:visited:focus,
  .paginaSiguiente:visited:focus {
   color: var(--colAVisitedPushFocus);
+  background-color: var(--colFondoAVisitedPushFocus);
  }
 
  .anterior:active,
@@ -308,6 +327,7 @@
  .paginaAnterior:visited:active,
  .paginaSiguiente:visited:active {
   color: var(--colAVisitedPushActive);
+  background-color: var(--colFondoAVisitedPushActive);
  }
 
  button {
@@ -353,8 +373,12 @@
  a code,
  h1 strong,
  h1 code {
-  color: var(--colTituloStrong);
   font-size: 1em;
+ }
+
+ a strong,
+ a code {
+  color: var(--colAStrong);
  }
 
  nav a {
@@ -386,7 +410,7 @@
 
  h1:not(.default) {
   font-family: var(--fontSans);
-  color: var(--colTituloLetra);
+  color: var(--colTituloFondo);
  }
 
  h1,
@@ -399,7 +423,7 @@
  .autor {
   font-family: var(--fontSans);
   font-size: 1.5rem;
-  color: var(--colTituloLetra);
+  color: var(--colTituloFondo);
  }
 
  figure {
@@ -622,8 +646,17 @@
   top: -10rem;
  }
 
- #principal h1:not(.default) {
-  text-shadow: var(--colTituloShadow);
+ #principal>h1:not(.default) {
+  margin-top: var(--marginTop);
+  padding: var(--h1PadTop) 1rem 1rem 1rem;
+  text-shadow: var(--shadowTitulo);
+  color: var(--colTitulo);
+  background-color: var(--colTituloFondo);
+ }
+
+ #principal>h1:not(.default) strong,
+ #principal>h1:not(.default) code {
+  color: var(--colPrincipalTituloStrong);
  }
 
  #nav {
@@ -671,16 +704,26 @@
 
  #nav a.actual code,
  #nav a.actual strong {
-  color: var(--colTituloStrongSel);
+  color: var(--colAStrong);
  }
 
  #nav h1 a {
-  color: var(--colTituloLetra);
+  color: var(--colTitulo);
+  background-color: var(--colTituloFondo);
+  text-shadow: var(--shadowTitulo);
  }
 
  #nav a.actual {
-  color: var(--colFondo);
-  background-color: var(--colA);
+  background-color: var(--colFondoNavSel);
+ }
+
+ #nav h1 a.actual {
+  background-color: var(--colNavH1Sel);
+ }
+
+ #nav h1 a.actual code,
+ #nav h1 a.actual strong {
+  color: var(--colPrincipalTituloStrong);
  }
 
  @media screen and (max-width: 999px) {

@@ -1,7 +1,7 @@
 /* Espera 11 minutos después de hacer los cambios en tu sitio, para depués
  * actualizar este archivo. */
 
-const VERSION = "4.19"
+const VERSION = "4.20"
 
 const CACHE = "cache"
 
