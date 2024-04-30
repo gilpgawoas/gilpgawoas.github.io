@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>L. Carpeta « lib » - GilPG AWOAS</title>
+ <title>J. Carpeta « lib » - GilPG AWOAS</title>
  <meta name="description" content="Archivos de la carpeta «lib».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -22,24 +22,40 @@
   --anchoLectura: 900px;
   --colLetra: black;
   --colFondo: white;
-  --colFondoPush: var(--colFondo);
-  --colFondoPushHover: #e0ade0;
-  --colFondoPushFocus: #da86da;
-  --colFondoPushActive: #c555c5;
+  --colPush: var(--colFondo);
+  --colPushHover: var(--colFondo);
+  --colPushFocus: var(--colFondo);
+  --colPushActive: var(--colLetra);
+  --colFondoPush: rgb(58, 58, 255);
+  --colFondoPushHover: rgb(134, 134, 254);
+  --colFondoPushFocus: blue;
+  --colFondoPushActive: rgb(159, 159, 255);
   --paddingPush: 0.2rem 0.3rem;
-  --borderPush: solid thin;
+  --borderPush: none;
   --borderRadiusPush: 0.6em;
-  --colTituloLetra: #00811c;
-  --colA: #7a2c99;
+  --colA: purple;
+  --colAVisited: blue;
   --colAActive: red;
+  --colAPush: violet;
+  --colAVisitedPush: cyan;
+  --colAPushHover: violet;
+  --colAVisitedPushHover: cyan;
+  --colAPushFocus: violet;
+  --colAVisitedPushFocus: cyan;
+  --colAPushActive: yellow;
+  --colAVisitedPushActive: yellow;
+  --colFondoAPush: rgb(0, 154, 0);
+  --colFondoAPushHover: rgb(0, 172, 0);
+  --colFondoAPushFocus: green;
+  --colFondoAPushActive: rgb(11, 67, 11);
+  --colTituloLetra: #00811c;
+  --colSombra: #49494980;
   --colTituloShadow: 3px 1px 2px #bdbdbd;
   --colTituloStrong: #684601;
   --colTituloStrongSel: #ffdc97;
   --colTarget: #cef4ff;
-  --colSombra: #49494980;
   --navSombra: 0.5rem 0 0.5rem var(--colSombra);
   --colFondoNav: #f2f2f2;
-  --colNavResaltada: #7a2c99;
   --colSecundario: #ffff82;
   --colStack1: black;
   --colStack2: #224ba5;
@@ -78,20 +94,33 @@
   :root {
    --colLetra: white;
    --colFondo: #272727;
-   --colFondoPushHover: #6f1e6f;
-   --colFondoPushFocus: #874e87;
-   --colFondoPushActive: #9e529e;
-   --colA: cyan;
-   --colSombra: #00000080;
+   --colFondoPush: rgb(147, 212, 255);
+   --colFondoPushHover: rgb(200, 233, 255);
+   --colFondoPushFocus: rgb(100, 193, 255);
+   --colFondoPushActive: blue;
+   --colA: violet;
+   --colAVisited: cyan;
+   --colAActive: yellow;
+   --colAPush: rgb(164, 95, 164);
+   --colAVisitedPush: rgb(90, 143, 143);
+   --colAPushHover: rgb(164, 95, 164);
+   --colAVisitedPushHover: rgb(90, 143, 143);
+   --colAPushFocus: rgb(164, 95, 164);
+   --colAVisitedPushFocus: rgb(90, 143, 143);
+   --colAPushActive: red;
+   --colAVisitedPushActive: red;
+   --colFondoAPush: rgb(255, 255, 148);
+   --colFondoAPushHover: rgb(255, 255, 255);
+   --colFondoAPushFocus: rgb(208, 208, 63);
+   --colFondoAPushActive: rgb(168, 168, 2);
    --colTituloLetra: #21ef4e;
+   --colSombra: #00000080;
    --colTituloShadow: 3px 1px 2px rgb(124, 124, 124);
    --colTituloStrong: yellow;
    --colTituloStrongSel: rgb(0, 63, 0);
    --colFondoNav: black;
-   --colNavResaltada: #efbff3;
    --colScrollbar: #616161;
    --colThumb: #ffffff;
-   --colAActive: #da83da;
    --colResaltado: rgb(77, 77, 1);
    --colResaltado2: rgb(78, 52, 4);
    --colResaltado3: rgb(69, 69, 69);
@@ -190,11 +219,11 @@
  }
 
  a {
-  color: var(--colNavResaltada);
+  color: var(--colA);
  }
 
  a:visited {
-  color: var(--colA);
+  color: var(--colAVisited);
  }
 
  a:active {
@@ -210,10 +239,95 @@
   padding: var(--paddingPush);
   border: var(--borderPush);
   border-radius: var(--borderRadiusPush);
-  color: var(--colLetra);
-  background-color: var(--colFondoPush);
   text-align: center;
   text-decoration: none;
+ }
+
+ .anterior,
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente {
+  color: var(--colAPush);
+  background-color: var(--colFondoAPush);
+ }
+
+ .anterior:visited,
+ .siguiente:visited,
+ .paginaAnterior:visited,
+ .paginaSiguiente:visited {
+  color: var(--colAVisitedPush);
+ }
+
+ .anterior.bye,
+ .siguiente.bye,
+ .paginaAnterior.bye,
+ .paginaSiguiente.bye {
+  display: none;
+ }
+
+ .anterior:hover,
+ .siguiente:hover,
+ .paginaAnterior:hover,
+ .paginaSiguiente:hover {
+  color: var(--colAPushHover);
+  background-color: var(--colFondoAPushHover);
+ }
+
+ .anterior:visited:hover,
+ .siguiente:visited:hover,
+ .paginaAnterior:visited:hover,
+ .paginaSiguiente:visited:hover {
+  color: var(--colAVisitedPushHover);
+ }
+
+ .anterior:focus,
+ .siguiente:focus,
+ .paginaAnterior:focus,
+ .paginaSiguiente:focus {
+  color: var(--colAPushFocus);
+  background-color: var(--colFondoAPushFocus);
+ }
+
+ .anterior:visited:focus,
+ .siguiente:visited:focus,
+ .paginaAnterior:visited:focus,
+ .paginaSiguiente:visited:focus {
+  color: var(--colAVisitedPushFocus);
+ }
+
+ .anterior:active,
+ .siguiente:active,
+ .paginaAnterior:active,
+ .paginaSiguiente:active {
+  color: var(--colAPushActive);
+  background-color: var(--colFondoAPushActive);
+ }
+
+ .anterior:visited:active,
+ .siguiente:visited:active,
+ .paginaAnterior:visited:active,
+ .paginaSiguiente:visited:active {
+  color: var(--colAVisitedPushActive);
+ }
+
+ button {
+  color: var(--colPush);
+  background-color: var(--colFondoPush);
+ }
+
+ button:hover {
+  color: var(--colPushHover);
+  background-color: var(--colFondoPushHover);
+ }
+
+ button:focus {
+  color: var(--colPushFocus);
+  background-color: var(--colFondoPushFocus);
+ }
+
+ button:active {
+  color: var(--colPushActive);
+  background-color: var(--colFondoPushActive);
  }
 
  .anterior span,
@@ -222,40 +336,6 @@
  .paginaSiguiente span,
  button span {
   vertical-align: middle;
- }
-
- .anterior:hover,
- .siguiente:hover,
- .paginaAnterior:hover,
- .paginaSiguiente:hover,
- #nav button:hover,
- button:hover {
-  background-color: var(--colFondoPushHover);
- }
-
- .anterior:focus,
- .siguiente:focus,
- .paginaAnterior:focus,
- .paginaSiguiente:focus,
- #nav button:focus,
- button:focus {
-  background-color: var(--colFondoPushFocus);
- }
-
- .anterior:active,
- .siguiente:active,
- .paginaAnterior:active,
- .paginaSiguiente:active,
- #nav button:active,
- button:active {
-  background-color: var(--colFondoPushActive);
- }
-
- .anterior.bye,
- .siguiente.bye,
- .paginaAnterior.bye,
- .paginaSiguiente.bye {
-  display: none;
  }
 
  a[data-logo] {
@@ -584,10 +664,6 @@
   margin: 0;
  }
 
- #nav button {
-  background-color: var(--colFondoNav);
- }
-
  #nav a:not([data-logo]) {
   display: block;
   padding: var(--padNav);
@@ -604,7 +680,7 @@
 
  #nav a.actual {
   color: var(--colFondo);
-  background-color: var(--colNavResaltada);
+  background-color: var(--colA);
  }
 
  @media screen and (max-width: 999px) {
@@ -688,7 +764,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >L. Carpeta « lib »</h1>
+   <h1 >J. Carpeta « lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -740,7 +816,7 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m09srvjson/m-jsconfig-json.html" title="K. jsconfig.json"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m09srvjson/m-srv/m-json-php.html" title="A. srv / json.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
  <a class="siguiente" href="/m09srvjson/m-lib/m-js/index.html" title="A. Carpeta « lib / js »"><span class="material-symbols-outlined">
@@ -765,13 +841,13 @@
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m09srvjson/m-jsconfig-json.html"
-        title="K. jsconfig.json"><span
+      <a class="paginaAnterior" href="/m09srvjson/m-srv/m-json-php.html"
+        title="A. srv / json.php"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m09srvjson/m-lib/index.html" class="actual">L. Carpeta « lib »</a></h1>
+   <h1><a href="/m09srvjson/m-lib/index.html" class="actual">J. Carpeta « lib »</a></h1>
    
    <ol type="A">
     
@@ -788,8 +864,8 @@
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m09srvjson/mSresumen.html"
-       title="M. Resumen"><span
+     <a class="paginaSiguiente" href="/m09srvjson/m-jsconfig-json.html"
+       title="K. jsconfig.json"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -806,7 +882,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m09srvjson/m-jsconfig-json.html"
+ let urlAnterior = "/m09srvjson/m-srv/m-json-php.html"
  /**@type {string} */
  let urlSiguiente = "/m09srvjson/m-lib/m-js/index.html"
  /**@type {number|null} */

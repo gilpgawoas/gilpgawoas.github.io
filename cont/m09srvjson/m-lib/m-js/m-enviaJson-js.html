@@ -1,78 +1,33 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">ejecuta</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./ejecuta.js"</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">url</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Object }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">datos</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ "GET" | "POST"| "PUT" | "PATCH" | "DELETE" |
-    "TRACE" | "OPTIONS"</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;">&nbsp;&nbsp;| "CONNECT" | "HEAD" }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">metodoHttp</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">enviaJson</span>(<span
-     style="color: #001080;">url</span>, <span
-     style="color: #001080;">datos</span>, <span
-     style="color: #001080;">metodoHttp</span> = <span
-     style="color: #a31515;">"POST"</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #795e26;">fetch</span>(<span
-     style="color: #001080;">url</span>,&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">method</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #001080;">metodoHttp</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">headers</span><span
-     style="color: #001080;">:</span>&nbsp;{ <span
-     style="color: #a31515;">"Content-Type"</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"application/json"</span> },</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">body</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #001080;">JSON</span>.<span
-     style="color: #795e26;">stringify</span>(<span
-     style="color: #001080;">datos</span>)</div>
-  <div>&nbsp;}))</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"enviaJson"</span>] = <span
-     style="color: #795e26;">enviaJson</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { invocaServicio } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;invocaServicio.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * @param { string } url</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * @param { Object } body</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { <span class="codeString">&quot;GET&quot;</span> | <span class="codeString">&quot;POST&quot;</span>| <span class="codeString">&quot;PUT&quot;</span> | <span class="codeString">&quot;PATCH&quot;</span> | <span class="codeString">&quot;DELETE&quot;</span> | <span class="codeString">&quot;TRACE&quot;</span> | <span class="codeString">&quot;OPTIONS&quot;</span></span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> *  | <span class="codeString">&quot;CONNECT&quot;</span> | <span class="codeString">&quot;HEAD&quot;</span> } metodoHttp</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> enviaJson(url, body, metodoHttp = <span class="codeString">&quot;POST&quot;</span>) {</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">return</span> <span class="codeReserved">await</span> invocaServicio(fetch(url, {</td></tr>
+  <tr><td>11</td><td>  method: metodoHttp,</td></tr>
+  <tr><td>12</td><td>  headers: {</td></tr>
+  <tr><td>13</td><td>   <span class="codeString">&quot;Content-Type&quot;</span>: <span class="codeString">&quot;application&#47;json&quot;</span>,</td></tr>
+  <tr><td>14</td><td>   <span class="codeString">&quot;Accept&quot;</span>: <span class="codeString">&quot;application&#47;json, application&#47;problem+json&quot;</span></td></tr>
+  <tr><td>15</td><td>  },</td></tr>
+  <tr><td>16</td><td>  body: JSON.stringify(body)</td></tr>
+  <tr><td>17</td><td> }))</td></tr>
+  <tr><td>18</td><td>}</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>21</td><td>window[<span class="codeString">&quot;enviaJson&quot;</span>] = enviaJson</td></tr>
+ </tbody>
+</table>
