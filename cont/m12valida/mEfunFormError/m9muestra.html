@@ -1,49 +1,36 @@
-<section style="vertical-align: top;">
+<section>
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #af00db;">try</span>&nbsp;{</div>
-   <div> <span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> =</div>
-   <div>&nbsp;&nbsp;<span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">submitForma</span>(</div>
-   <div>&nbsp;&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/srvProcesa.php"</span>,</div>
-   <div>&nbsp;&nbsp;&nbsp;<span
-      style="color: #001080;">event</span>, <span
-      style="color: #001080;">forma</span>)</div>
-   <div> <span
-      style="color: #795e26;">alert</span>(<span
-      style="color: #0070c1;">resultado</span>)</div>
-   <div>}&nbsp;<span
-      style="color: #af00db;">catch</span> (<span
-      style="color: #001080;">error</span>)&nbsp;{</div>
-   <div> <mark class="resaltado"><span
-       style="color: #795e26;">muestraError</span>(<span
-       style="color: #001080;">error</span>)</mark></div>
-   <div>}</div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
+<span> <span class="codeReserved">const</span> respuesta =</span>
+<span>  <span class="codeReserved">await</span> submitForm(</span>
+<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
+<span> alert(respuesta.body)</span>
+<span>} <span class="codeReserved">catch</span> (error) {</span>
+<span class="resaltado"> muestraError(error)</span>
+<span>}</span></code></pre>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>Memoria</h1>
  <dl class="resaltado">
   <dt>error</dt>
+  <dt>ProblemDetails</dt>
   <dd>
    <dl>
-    <dt>message</dt>
-    <dd>"Falta el saludo"</dd>
+    <dt>status</dt>
+    <dd>400</dd>
+    <dt>type</dt>
+    <dd>"/error/faltasaludo.html"</dd>
+    <dt>title</dt>
+    <dd>"Falta el saludo."</dd>
    </dl>
   </dd>
- </dl>
+</dl>
 </section>
 <section>
  <h1>Alert</h1>
  <div class="resaltado" style="border: thin solid; padding: 0 0.5rem;">
   <p>Falta el saludo</p>
+  <p>Código 400 /error/faltasaludo.html</p>
   <p style="text-align: end;">
    <button type="button">Aceptar</button>
   </p>
@@ -51,9 +38,11 @@
 </section>
 <section>
  <h1>Consola</h1>
- <muestra-codigo class="resaltado">
-  <div>Error: Falta el saludo</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;at ejecuta (ejecuta.js:24:9)</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;at async procesaForma ((índice):50:6)</div>
- </muestra-codigo>
+ <pre class="resaltado">Falta el saludo
+
+Código: 400 /error/faltasaludo.html
+Error: Falta el saludo
+  at invocaServicio (invocaServicio.js:48:10)
+  at async procesaForma ((índice):52:6)
+</pre>
 </section>
