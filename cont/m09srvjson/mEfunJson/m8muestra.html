@@ -1,35 +1,15 @@
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">datos</span> =&nbsp;{</div>
-   <div>&nbsp;<span
-      style="color: #001080;">saludo</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;<span
-      style="color: #001080;">nombre</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"pp"</span></div>
-   <div>}</div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> =</div>
-   <div>&nbsp;<span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">enviaJson</span>(</div>
-   <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/srvJson.php"</span>, <span
-      style="color: #0070c1;">datos</span>)</div>
-   <div><mark class="resaltado"><span
-       style="color: #795e26;">alert</span>(<span
-       style="color: #0070c1;">resultado</span>)</mark></div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
+<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
+<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
+<span>}</span>
+<span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> enviaJson(</span>
+<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
+<span class="resaltado">alert(respuesta.body)</span></code></pre>
 </section>
-<section style="vertical-align: middle;">
+<section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -41,8 +21,15 @@
     <dd>"pp"</dd>
    </dl>
   </dd>
-  <dt class="resaltado">resultado</dt>
-  <dd class="resaltado">"Hola pp."</dd>
+  <dt class="resaltado">respuesta</dt>
+  <dd>
+   <dl>
+    <dt>status</dt>
+    <dd>200</dd>
+    <dt class="resaltado">body</dt>
+    <dd class="resaltado">"Hola pp."</dd>
+   </dl>
+  </dd>
  </dl>
 </section>
 <section>

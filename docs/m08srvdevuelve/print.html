@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>Servicio que devuelve un resultado JSON - GilPG AWOAS</title>
+ <title>Servicio que devuelve JSON - GilPG AWOAS</title>
  <meta name="description" content="Página para imprimir de la lección «Servicio que devuelve un resultado JSON».">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -566,6 +566,10 @@
  }
 
  @media print {
+  h1 {
+   text-shadow: var(--shadowTitulo);
+  }
+
   .codeShow button {
    display: none;
   }
@@ -581,6 +585,11 @@
  }
 </style>
  <style>
+ .pruebaDeEscritorio {
+  font-family: var(--fontSans);
+ }
+
+ .pruebaDeEscritorio .section,
  .pruebaDeEscritorio section {
   display: inline-block;
   vertical-align: top;
@@ -686,7 +695,7 @@
 </head>
 
 <body class="print">
-   <h1 >9. Servicio que devuelve un resultado JSON</h1>
+   <h1 >9. Servicio que devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -736,7 +745,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mCfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
+     <a href="/m08srvdevuelve/mCfunRecibe/">Funcionamiento</a>
     </p>
    </li>
    <li>
@@ -982,7 +991,7 @@
 </figure>
       </section>
      <section>
-         <h1 >H. Funcionamiento del servicio que devuelve JSON</h1>
+         <h1 >H. Funcionamiento</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1045,7 +1054,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >2. Se invoca el servicio en el servidor</h1><section style="vertical-align: top;">
+         <h1 >2. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
 <span class="resaltado"> <span class="codeReserved">await</span> invocaServicio(</span>
@@ -1055,7 +1064,7 @@
 <span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
  <p class="resaltado2">Ejecuta invocaServicio y<br>envía request (solicitud).</p>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>Request</h1>
  <dl class="resaltado">
   <dt>URL</dt>
@@ -1064,7 +1073,7 @@
   <dd>GET</dd>
  </dl>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>srv&#47;devuelve.php</h1>
  <pre class="resaltado"><code class="language-php"><span><span class="codeReserved">return</span> [</span>
 <span> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
@@ -1074,7 +1083,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >3. El servicio procesa la request y genera la response</h1><section style="vertical-align: top;">
+         <h1 >3. El servicio procesa la request y genera la response</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
 <span class="resaltado3"> <span class="codeReserved">await</span> invocaServicio(</span>
@@ -1084,7 +1093,7 @@
 <span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>srv&#47;devuelve.php</h1>
  <pre><code class="language-php"><span class="resaltado"><span class="codeReserved">return</span> [</span>
 <span class="resaltado"> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
@@ -1097,13 +1106,13 @@
  <dl class="resaltado">
   <dt>code</dt>
   <dd>200</dd>
-  <dt>contenido</dt>
+  <dt>body</dt>
   <dd>{"nombre":"pp","mensaje":"Hola."}</dd>
  </dl>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section style="vertical-align: top;">
+         <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
 <span class="resaltado"> <span class="codeReserved">await</span> invocaServicio(</span>
@@ -1113,13 +1122,13 @@
 <span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
  <p class="resaltado2">Despiesta y recibe response.</p>
 </section>
-<section style="vertical-align: top; overflow-wrap: anywhere;">
+<div class="section">
  <section style="display: block;">
   <h1>Response</h1>
   <dl class="resaltado">
    <dt>code</dt>
    <dd>200</dd>
-   <dt>contenido</dt>
+   <dt>body</dt>
    <dd>{"nombre":"pp","mensaje":"Hola."}</dd>
   </dl>
  </section>
@@ -1144,8 +1153,8 @@
    </dd>
   </dl>
  </section>
-</section>
-<section style="vertical-align: top;">
+</div>
+<section>
  <h1>srv&#47;devuelve.php</h1>
  <pre class="resaltado3"><code class="language-php"><span><span class="codeReserved">return</span> [</span>
 <span> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
@@ -1189,7 +1198,7 @@
 </section>
       </section>
      <section class="pruebaDeEscritorio">
-         <h1 >6. Muestra el objeto recibido en un alert</h1><section style="vertical-align: top;">
+         <h1 >6. Muestra el objeto recibido en un alert</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
 <span> <span class="codeReserved">await</span> invocaServicio(</span>
@@ -1198,7 +1207,7 @@
 <span class="resaltado">alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
 <span class="resaltado"><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>Memoria</h1>
  <dl>
   <dt>respuesta</dt>
@@ -1207,12 +1216,12 @@
     <dt>status</dt>
     <dd>200</dd>
     <dt class="resaltado2">body</dt>
-    <dd class="resaltado2">
+    <dd>
      <dl>
-      <dt class="resaltado">nombre</dt>
-      <dd class="resaltado">"pp"</dd>
-      <dt class="resaltado">mensaje</dt>
-      <dd class="resaltado">"Hola."</dd>
+      <dt class="resaltado2">nombre</dt>
+      <dd class="resaltado2">"pp"</dd>
+      <dt class="resaltado2">mensaje</dt>
+      <dd class="resaltado2">"Hola."</dd>
      </dl>
     </dd>
    </dl>

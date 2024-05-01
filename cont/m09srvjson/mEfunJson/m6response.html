@@ -1,36 +1,16 @@
-<section style="vertical-align: top;">
+<section>
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">datos</span> =&nbsp;{</div>
-   <div>&nbsp;<span
-      style="color: #001080;">saludo</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;<span
-      style="color: #001080;">nombre</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"pp"</span></div>
-   <div>}</div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> =</div>
-   <div>&nbsp;<mark class="resaltado3"><span
-       style="color: #af00db;">await</span> <span
-       style="color: #795e26;">enviaJson</span>(</mark></div>
-   <div>&nbsp;&nbsp;<mark class="resaltado3"><span
-       style="color: #a31515;">"srv/srvJson.php"</span>, <span
-       style="color: #0070c1;">datos</span>)</mark></div>
-   <div><span
-      style="color: #795e26;">alert</span>(<span
-      style="color: #0070c1;">resultado</span>)</div>
-  </div>
- </muestra-codigo>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
+<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
+<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
+<span>}</span>
+<span><span class="codeReserved">const</span> respuesta =</span>
+<span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
+<span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
+<span>alert(respuesta.body)</span></code></pre>
+   <p class="resaltado3">Hace wait esperando response.</p>
 </section>
-<section style="vertical-align: top;">
+<section>
  <h1>Memoria</h1>
  <dl>
   <dt>datos</dt>
@@ -44,49 +24,16 @@
   </dd>
  </dl>
 </section>
-<section style="vertical-align: top;">
- <h1>srvJson.php</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #795e26;">leeJson</span><span
-      style="color: #000000;">();</span></div>
-   <div><span
-      style="color: #001080;">$saludo</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;">-&gt;</span><span
-      style="color: #001080;">saludo</span><span
-      style="color: #000000;">;</span></div>
-   <div><span
-      style="color: #001080;">$nombre</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;">-&gt;</span><span
-      style="color: #001080;">nombre</span><span
-      style="color: #000000;">;</span></div>
-   <div><span
-      style="color: #001080;">$resultado</span><span
-      style="color: #000000;"> =</span></div>
-   <div><span
-      style="color: #000000;">&nbsp;</span><span
-      style="color: #a31515;">"{</span><span
-      style="color: #001080;">$saludo</span><span
-      style="color: #a31515;">}&nbsp;{</span><span
-      style="color: #001080;">$nombre</span><span
-      style="color: #a31515;">}."</span><span
-      style="color: #000000;">;</span></div>
-   <div><mark class="resaltado"><span
-       style="color: #af00db;">return</span><span
-       style="color: #000000;"> </span><span
-       style="color: #001080;">$resultado</span><span
-       style="color: #000000;">;</span></mark></div>
-  </div>
- </muestra-codigo>
+<section>
+ <h1>srv/json.php</h1>
+ <pre><code class="language-javascript"><span>$json = leeJson();</span>
+<span>$saludo = $json-&gt;saludo;</span>
+<span>$nombre = $json-&gt;nombre;</span>
+<span>$resultado =</span>
+<span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
+<span class="resaltado"><span class="codeReserved">return</span> $resultado;</span></code></pre>
 </section>
-<section style="vertical-align: top;">
+<div class="section">
  <section style="display: block;">
   <h1>Memoria (Servidor)</h1>
   <dl>
@@ -103,8 +50,8 @@
    <dd>"Hola"</dd>
    <dt>$nombre</dt>
    <dd>"pp"</dd>
-   <dt class="resaltado">$resultado</dt>
-   <dd class="resaltado">"Hola pp."</dd>
+   <dt class="resaltado2">$resultado</dt>
+   <dd class="resaltado2">"Hola pp."</dd>
   </dl>
  </section>
  <section style="display: block;">
@@ -112,8 +59,8 @@
   <dl class="resaltado">
    <dt>code</dt>
    <dd>200</dd>
-   <dt>contenido</dt>
+   <dt>body</dt>
    <dd>"Hola pp."</dd>
   </dl>
  </section>
-</section>
+</div>

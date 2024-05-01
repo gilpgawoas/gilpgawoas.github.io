@@ -567,6 +567,10 @@
  }
 
  @media print {
+  h1 {
+   text-shadow: var(--shadowTitulo);
+  }
+
   .codeShow button {
    display: none;
   }
@@ -586,19 +590,37 @@
   scroll-padding-top: var(--padTop);
  }
 
- body:not(.sinTransicion) {
+ body {
   animation-timing-function: var(--introFuncion);
   animation-duration: var(--introDuracion);
   animation-fill-mode: forwards;
-  animation-name: aparece;
+  animation-name: appear;
  }
 
- @keyframes aparece {
+ body.noTransition {
+  animation-name: noTransition;
+ }
+
+ @keyframes appear {
   from {
    opacity: 0;
   }
 
   to {
+   opacity: 1;
+  }
+ }
+
+ @keyframes noTransition {
+  0% {
+   opacity: 0;
+  }
+
+  0.7% {
+   opacity: 1;
+  }
+
+  100% {
    opacity: 1;
   }
  }
@@ -797,9 +819,22 @@
   #principal>.siguiente {
    display: none;
   }
+
+  #principal>h1:not(.default) {
+   margin-top: 0.5rem;
+   padding: 1rem;
+   color: var(--colTituloFondo);
+   background-color: transparent;
+  }
+
  }
 </style>
  <style>
+ .pruebaDeEscritorio {
+  font-family: var(--fontSans);
+ }
+
+ .pruebaDeEscritorio .section,
  .pruebaDeEscritorio section {
   display: inline-block;
   vertical-align: top;
@@ -904,7 +939,7 @@
 </style>
 </head>
 
-<body  class="xmenu pruebaDeEscritorio">
+<body  class="xmenu noTransition pruebaDeEscritorio">
  <div id="principal">
    <h1 >2. Se invoca el servicio en el servidor</h1><section style="vertical-align: top;">
  <h1>index.html</h1>

@@ -567,6 +567,10 @@
  }
 
  @media print {
+  h1 {
+   text-shadow: var(--shadowTitulo);
+  }
+
   .codeShow button {
    display: none;
   }
@@ -586,19 +590,37 @@
   scroll-padding-top: var(--padTop);
  }
 
- body:not(.sinTransicion) {
+ body {
   animation-timing-function: var(--introFuncion);
   animation-duration: var(--introDuracion);
   animation-fill-mode: forwards;
-  animation-name: aparece;
+  animation-name: appear;
  }
 
- @keyframes aparece {
+ body.noTransition {
+  animation-name: noTransition;
+ }
+
+ @keyframes appear {
   from {
    opacity: 0;
   }
 
   to {
+   opacity: 1;
+  }
+ }
+
+ @keyframes noTransition {
+  0% {
+   opacity: 0;
+  }
+
+  0.7% {
+   opacity: 1;
+  }
+
+  100% {
    opacity: 1;
   }
  }
@@ -797,6 +819,14 @@
   #principal>.siguiente {
    display: none;
   }
+
+  #principal>h1:not(.default) {
+   margin-top: 0.5rem;
+   padding: 1rem;
+   color: var(--colTituloFondo);
+   background-color: transparent;
+  }
+
  }
 </style>
  
@@ -867,7 +897,7 @@
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m08srvdevuelve/index.html">9. Servicio que devuelve un resultado JSON</a></h1>
+   <h1><a href="/m08srvdevuelve/index.html">9. Servicio que devuelve JSON</a></h1>
    
    <ol type="A">
     
@@ -908,7 +938,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mCfunRecibe/">Funcionamiento del servicio que devuelve JSON</a>
+     <a href="/m08srvdevuelve/mCfunRecibe/">Funcionamiento</a>
     </p>
    </li>
    <li>
