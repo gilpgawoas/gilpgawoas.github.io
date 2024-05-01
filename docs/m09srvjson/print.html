@@ -926,40 +926,20 @@
      <section class="pruebaDeEscritorio">
          <h1 >2. Se crea la literal de objeto</h1><section>
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><mark class="resaltado"><span
-       style="color: #0000ff;">const</span> <span
-       style="color: #0070c1;">datos</span> =&nbsp;{</mark></div>
-   <div><mark class="resaltado">&nbsp;<span
-       style="color: #001080;">saludo</span><span
-       style="color: #001080;">:</span> <span
-       style="color: #a31515;">"Hola"</span>,</mark></div>
-   <div><mark class="resaltado">&nbsp;<span
-       style="color: #001080;">nombre</span><span
-       style="color: #001080;">:</span> <span
-       style="color: #a31515;">"pp"</span></mark></div>
-   <div><mark class="resaltado">}</mark></div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> =</div>
-   <div>&nbsp;<span
-      style="color: #af00db;">await</span> <span
-      style="color: #795e26;">enviaJson</span>(</div>
-   <div>&nbsp;&nbsp;<span
-      style="color: #a31515;">"srv/srvJson.php"</span>, <span
-      style="color: #0070c1;">datos</span>)</div>
-   <div><span
-      style="color: #795e26;">alert</span>(<span
-      style="color: #0070c1;">resultado</span>)</div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> datos = {</span>
+<span class="resaltado"> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
+<span class="resaltado"> nombre: <span class="codeString">&quot;pp&quot;</span></span>
+<span class="resaltado">}</span>
+<span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> enviaJson(</span>
+<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
+<span>alert(respuesta.body)</span></code></pre>
 </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>
- <dl class="resaltado">
-  <dt>datos</dt>
-  <dd>
+ <dl>
+  <dt class="resaltado">datos</dt>
+  <dd class="resaltado">
     <dl>
      <dt>saludo</dt>
      <dd>"Hola"</dd>
@@ -973,34 +953,14 @@
      <section class="pruebaDeEscritorio">
          <h1 >3. Se invoca el servicio en el servidor</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <muestra-codigo>
-  <div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">datos</span> =&nbsp;{</div>
-   <div>&nbsp;<span
-      style="color: #001080;">saludo</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"Hola"</span>,</div>
-   <div>&nbsp;<span
-      style="color: #001080;">nombre</span><span
-      style="color: #001080;">:</span> <span
-      style="color: #a31515;">"pp"</span></div>
-   <div>}</div>
-   <div><span
-      style="color: #0000ff;">const</span> <span
-      style="color: #0070c1;">resultado</span> =</div>
-   <div>&nbsp;<mark class="resaltado"><span
-       style="color: #af00db;">await</span> <span
-       style="color: #795e26;">enviaJson</span>(</mark></div>
-   <div>&nbsp;&nbsp;<mark class="resaltado"><span
-       style="color: #a31515;">"srv/srvJson.php"</span>, <span
-       style="color: #0070c1;">datos</span>)</mark></div>
-   <div><span
-      style="color: #795e26;">alert</span>(<span
-      style="color: #0070c1;">resultado</span>)</div>
-  </div>
- </muestra-codigo>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
+<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
+<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
+<span>}</span>
+<span><span class="codeReserved">const</span> respuesta =</span>
+<span class="resaltado"> <span class="codeReserved">await</span> enviaJson(</span>
+<span class="resaltado">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
+<span>alert(respuesta.body)</span></code></pre>
  <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <section style="vertical-align: top;">
@@ -1022,11 +982,7 @@
   <h1>Request</h1>
   <dl class="resaltado" style="overflow-wrap: anywhere;">
    <dt>URL</dt>
-   <dd>
-    <a rel="noopener"
-      href="https://srvjson.gilbertopachec5.repl.co/srv/srvJson.php"
-      target="_blank">srvJson.php</a>
-   </dd>
+   <dd>srv/json.php</dd>
    <dt>Method</dt>
    <dd>POST</dd>
    <dt>body</dt>
@@ -1037,46 +993,13 @@
  </section>
 </section>
 <section style="vertical-align: top;">
- <h1>srvJson.php</h1>
- <muestra-codigo class="resaltado">
-  <div>
-   <div><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #795e26;">leeJson</span><span
-      style="color: #000000;">();</span></div>
-   <div><span
-      style="color: #001080;">$saludo</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;">-&gt;</span><span
-      style="color: #001080;">saludo</span><span
-      style="color: #000000;">;</span></div>
-   <div><span
-      style="color: #001080;">$nombre</span><span
-      style="color: #000000;"> = </span><span
-      style="color: #001080;">$json</span><span
-      style="color: #000000;">-&gt;</span><span
-      style="color: #001080;">nombre</span><span
-      style="color: #000000;">;</span></div>
-   <div><span
-      style="color: #001080;">$resultado</span><span
-      style="color: #000000;"> =</span></div>
-   <div><span
-      style="color: #000000;">&nbsp;</span><span
-      style="color: #a31515;">"{</span><span
-      style="color: #001080;">$saludo</span><span
-      style="color: #a31515;">}&nbsp;{</span><span
-      style="color: #001080;">$nombre</span><span
-      style="color: #a31515;">}."</span><span
-      style="color: #000000;">;</span></div>
-   <div><span
-      style="color: #af00db;">return</span><span
-      style="color: #000000;"> </span><span
-      style="color: #001080;">$resultado</span><span
-      style="color: #000000;">;</span></div>
-  </div>
- </muestra-codigo>
+ <h1>srv/json.php</h1>
+ <pre class="resaltado"><code class="language-javascript"><span>$json = leeJson();</span>
+<span>$saludo = $json-&gt;saludo;</span>
+<span>$nombre = $json-&gt;nombre;</span>
+<span>$resultado =</span>
+<span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
+<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
