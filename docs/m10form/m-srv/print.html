@@ -593,7 +593,14 @@
  .pruebaDeEscritorio section {
   display: inline-block;
   vertical-align: top;
+ }
+
+ .pruebaDeEscritorio section {
   margin: 1em;
+ }
+
+ .section section {
+  display: block;
  }
 
  .pruebaDeEscritorio section pre {
@@ -695,7 +702,7 @@
 </head>
 
 <body class="print">
-   <h1 >K. Carpeta « srv »</h1>
+   <h1 >I. Carpeta « srv »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -711,74 +718,38 @@
     
    <li>
     <p>
-     <a href="/m10form/m-srv/m-srvProcesa-php.html">srv / srvProcesa.php</a>
+     <a href="/m10form/m-srv/m-procesa-php.html">srv / procesa.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >A. srv / srvProcesa.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$saludo</span> = <span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #a31515;">"saludo"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #a31515;">"nombre"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$saludo</span> === <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"Falta el saludo"</span></div>
-  <div>&nbsp;&nbsp;);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$nombre</span> === <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"Falta el nombre"</span></div>
-  <div>&nbsp;&nbsp;);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$resultado</span> =</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"{</span><span
-     style="color: #001080;">$saludo</span><span
-     style="color: #a31515;">}&nbsp;{</span><span
-     style="color: #001080;">$nombre</span><span
-     style="color: #a31515;">}."</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$resultado</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+         <h1 >A. srv / procesa.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> $saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</td></tr>
+  <tr><td>8</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
+  <tr><td>9</td><td> $resultado =</td></tr>
+  <tr><td>10</td><td>  <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">return</span> $resultado;</td></tr>
+  <tr><td>12</td><td>});</td></tr>
+  <tr><td>13</td><td></td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 

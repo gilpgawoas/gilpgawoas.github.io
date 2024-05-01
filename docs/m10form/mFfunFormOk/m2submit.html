@@ -838,7 +838,14 @@
  .pruebaDeEscritorio section {
   display: inline-block;
   vertical-align: top;
+ }
+
+ .pruebaDeEscritorio section {
   margin: 1em;
+ }
+
+ .section section {
+  display: block;
  }
 
  .pruebaDeEscritorio section pre {
@@ -941,8 +948,8 @@
 
 <body  class="xmenu noTransition pruebaDeEscritorio">
  <div id="principal">
-   <h1 >2. Se activa el código del evento submit.</h1><section style="vertical-align: top;">
- <section style="display: block;">
+   <h1 >2. Se activa el código del evento submit.</h1><div class="section">
+ <section >
   <h1>Forma</h1>
   <form action="javascript:;"
     style="overflow: auto; padding: 0 1rem;">
@@ -963,38 +970,14 @@
    </p>
   </form>
  </section>
- <section style="display: block;">
+ <section >
   <h1>index.html</h1>
-  <muestra-codigo class="resaltado">
-   <div>
-    <div><span
-       style="color: #af00db;">try</span>&nbsp;{</div>
-    <div> <span
-       style="color: #0000ff;">const</span> <span
-       style="color: #0070c1;">resultado</span> =</div>
-    <div>&nbsp;&nbsp;<span
-       style="color: #af00db;">await</span> <span
-       style="color: #795e26;">submitForma</span>(</div>
-    <div>&nbsp;&nbsp;&nbsp;<span
-       style="color: #a31515;">"srv/srvProcesa.php"</span>,</div>
-    <div>&nbsp;&nbsp;&nbsp;<span
-       style="color: #001080;">event</span>, <span
-       style="color: #001080;">forma</span>)</div>
-    <div> <span
-       style="color: #795e26;">alert</span>(<span
-       style="color: #0070c1;">resultado</span>)</div>
-    <div>}&nbsp;<span
-       style="color: #af00db;">catch</span> (<span
-       style="color: #001080;">error</span>)&nbsp;{</div>
-    <div> <span
-       style="color: #795e26;">muestraError</span>(<span
-       style="color: #001080;">error</span>)</div>
-    <div>}</div>
-    <div></div>
-   </div>
-  </muestra-codigo>
+  <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> submitForm(</span>
+<span>  <span class="codeString">&quot;srv&#47;procesa.php&quot;</span>, event)</span>
+<span>alert(respuesta.body)</span></code></pre>
  </section>
-</section>
+</div>
  <footer>
  <p>
   <a rel="license"
@@ -1045,13 +1028,13 @@
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m10form/mEfunFormError/m10termina.html"
-        title="10. Al cerrar el alert, termina el evento"><span
+      <a class="paginaAnterior" href="/m10form/mDdeploy.html"
+        title="D. Diagrama de despliegue"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m10form/mFfunFormOk/index.html">F. Ejemplo que procesa forma con éxito</a></h1>
+   <h1><a href="/m10form/mFfunFormOk/index.html">E. Funcionamiento</a></h1>
    
    <ol type="1">
     
@@ -1077,17 +1060,7 @@
    </li>
    <li>
     <p>
-     <a href="/m10form/mFfunFormOk/m5validaSaludo.html">El servicio valida que el saludo no sea un texto vacío</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m10form/mFfunFormOk/m6validaNombre.html">Como el saludo no está vacío, el servicio valida que el nombre no sea un texto vacío</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m10form/mFfunFormOk/m7procesaDatos.html">Como el nombre no está vacío, el servicio procesa los datos</a>
+     <a href="/m10form/mFfunFormOk/m7procesaDatos.html">El servicio procesa los datos</a>
     </p>
    </li>
    <li>
@@ -1114,7 +1087,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m10form/mGinstrucciones.html"
-       title="G. Hazlo funcionar"><span
+       title="F. Hazlo funcionar"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
