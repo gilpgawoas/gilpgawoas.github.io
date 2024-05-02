@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>F. srv / srvUsuarioConsulta.php - GilPG AWOAS</title>
+ <title>E. srv / srvUsuarioConsulta.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvUsuarioConsulta.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,78 +834,39 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >F. srv / srvUsuarioConsulta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/usuarioConsulta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$lista</span> = <span
-     style="color: #795e26;">usuarioConsulta</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$modelo</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$usuId</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">usuId</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$usuCue</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">usuCue</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$roles</span> = <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">roles</span> === <span
-     style="color: #0000ff;">null</span> || <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">roles</span> === <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #a31515;">"&lt;em&gt;-- Sin roles --&lt;/em&gt;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">roles</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;dt&gt;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$usuId</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$usuCue</span><span
-     style="color: #a31515;">}&lt;/a&gt;&lt;/dt&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$usuId</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$roles</span><span
-     style="color: #a31515;">}&lt;/a&gt;&lt;/dd&gt;"</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$render</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+   <h1 >E. srv / srvUsuarioConsulta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/usuarioConsulta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> $lista = usuarioConsulta();</td></tr>
+  <tr><td>8</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>10</td><td>  $usuId = htmlentities($modelo-&gt;usuId);</td></tr>
+  <tr><td>11</td><td>  $usuCue = htmlentities($modelo-&gt;usuCue);</td></tr>
+  <tr><td>12</td><td>  $roles = $modelo-&gt;roles === <span class="codeReserved">null</span> || $modelo-&gt;roles === <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>13</td><td>   ? <span class="codeString">&quot;&lt;<span class="codeReserved">em</span>&gt;-- Sin roles --&lt;/<span class="codeReserved">em</span>&gt;&quot;</span></td></tr>
+  <tr><td>14</td><td>   : htmlentities($modelo-&gt;roles);</td></tr>
+  <tr><td>15</td><td>  $render .=</td></tr>
+  <tr><td>16</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$usuId&#039;&gt;$usuCue&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$usuId&#039;&gt;$roles&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>18</td><td> }</td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>20</td><td>});</td></tr>
+  <tr><td>21</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -931,10 +892,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m18amuchos/m-srv/m-srvUsuarioBusca-php.html" title="E. srv / srvUsuarioBusca.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m18amuchos/m-srv/m-srvUsuarioBusca-php.html" title="D. srv / srvUsuarioBusca.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m18amuchos/m-srv/m-srvUsuarioElimina-php.html" title="G. srv / srvUsuarioElimina.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m18amuchos/m-srv/m-srvUsuarioElimina-php.html" title="F. srv / srvUsuarioElimina.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -973,12 +934,7 @@
    </li>
    <li>
     <p>
-     <a href="/m18amuchos/m-srv/m-dao/">Carpeta « srv / dao »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m18amuchos/m-srv/m-srvRolOpciones-php.html">srv / srvRolOpciones.php</a>
+     <a href="/m18amuchos/m-srv/m-srvRolCheckBoxes-php.html">srv / srvRolCheckBoxes.php</a>
     </p>
    </li>
    <li>
@@ -1006,11 +962,16 @@
      <a href="/m18amuchos/m-srv/m-srvUsuarioModifica-php.html">srv / srvUsuarioModifica.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m18amuchos/m-jsconfig-json.html"
-       title="L. jsconfig.json"><span
+     <a class="paginaSiguiente" href="/m18amuchos/m-lib/index.html"
+       title="L. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

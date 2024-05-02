@@ -1,87 +1,33 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Codifica un texto para que cambie los
-    caracteres</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;especiales y no se pueda interpretar
-    como</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;etiiqueta HTML. Esta técnica evita la
-    inyección</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;de código.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">texto</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@returns</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> un texto que no puede</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;&nbsp;interpretarse como HTML.
-    */</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">texto</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">texto</span>.<span
-     style="color: #795e26;">replace</span>(<span
-     style="color: #811f3f;">/</span><span
-     style="color: #d16969;">[</span><span
-     style="color: #811f3f;">&lt;&gt;"'</span><span
-     style="color: #d16969;">]</span><span
-     style="color: #811f3f;">/</span><span
-     style="color: #0000ff;">g</span>, <span
-     style="color: #001080;">textoDetectado</span> <span
-     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">switch</span> (<span
-     style="color: #001080;">textoDetectado</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"&lt;"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;lt;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"&gt;"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;gt;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">'"'</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;quot;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"'"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;#039;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">default</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">textoDetectado</span></div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;})</div>
-  <div>}</div>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"htmlentities"</span>] = <span
-     style="color: #795e26;">htmlentities</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * Codifica un texto para que cambie los caracteres</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> * especiales y no se pueda interpretar como</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * etiiqueta HTML. Esta técnica evita la inyección</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * de código.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { string } texto</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * @returns { string } un texto que no puede</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> *  interpretarse como HTML. */</span></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> htmlentities(texto) {</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">return</span> texto.replace(<span class="codeString">/[&lt;&gt;&quot;&#039;]/</span>g, textoDetectado =&gt; {</td></tr>
+  <tr><td>11</td><td>  <span class="codeReserved">switch</span> (textoDetectado) {</td></tr>
+  <tr><td>12</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&lt;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&lt;&quot;</span></td></tr>
+  <tr><td>13</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&gt;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&gt;&quot;</span></td></tr>
+  <tr><td>14</td><td>   <span class="codeReserved">case</span> <span class="codeString">&#039;&quot;&#039;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&amp;quot;&quot;</span></td></tr>
+  <tr><td>15</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&#039;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&amp;#039;&quot;</span></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">default</span>: <span class="codeReserved">return</span> textoDetectado</td></tr>
+  <tr><td>17</td><td>  }</td></tr>
+  <tr><td>18</td><td> })</td></tr>
+  <tr><td>19</td><td>}</td></tr>
+  <tr><td>20</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>21</td><td>window[<span class="codeString">&quot;htmlentities&quot;</span>] = htmlentities</td></tr>
+ </tbody>
+</table>

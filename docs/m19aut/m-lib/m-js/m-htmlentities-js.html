@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>2. lib / js / htmlentities.js - GilPG AWOAS</title>
+ <title>1. lib / js / htmlentities.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/htmlentities.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,93 +834,39 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >2. lib / js / htmlentities.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Codifica un texto para que cambie los
-    caracteres</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;especiales y no se pueda interpretar
-    como</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;etiiqueta HTML. Esta técnica evita la
-    inyección</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;de código.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">texto</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@returns</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> un texto que no puede</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;&nbsp;interpretarse como HTML.
-    */</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">texto</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">texto</span>.<span
-     style="color: #795e26;">replace</span>(<span
-     style="color: #811f3f;">/</span><span
-     style="color: #d16969;">[</span><span
-     style="color: #811f3f;">&lt;&gt;"'</span><span
-     style="color: #d16969;">]</span><span
-     style="color: #811f3f;">/</span><span
-     style="color: #0000ff;">g</span>, <span
-     style="color: #001080;">textoDetectado</span> <span
-     style="color: #0000ff;">=&gt;</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">switch</span> (<span
-     style="color: #001080;">textoDetectado</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"&lt;"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;lt;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"&gt;"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;gt;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">'"'</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;quot;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">case</span> <span
-     style="color: #a31515;">"'"</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"&amp;#039;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">default</span>: <span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">textoDetectado</span></div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;})</div>
-  <div>}</div>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"htmlentities"</span>] = <span
-     style="color: #795e26;">htmlentities</span></div>
- </div>
-</muestra-codigo>
+   <h1 >1. lib / js / htmlentities.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * Codifica un texto para que cambie los caracteres</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> * especiales y no se pueda interpretar como</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * etiiqueta HTML. Esta técnica evita la inyección</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * de código.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { string } texto</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * @returns { string } un texto que no puede</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> *  interpretarse como HTML. */</span></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> htmlentities(texto) {</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">return</span> texto.replace(<span class="codeString">/[&lt;&gt;&quot;&#039;]/</span>g, textoDetectado =&gt; {</td></tr>
+  <tr><td>11</td><td>  <span class="codeReserved">switch</span> (textoDetectado) {</td></tr>
+  <tr><td>12</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&lt;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&lt;&quot;</span></td></tr>
+  <tr><td>13</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&gt;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&gt;&quot;</span></td></tr>
+  <tr><td>14</td><td>   <span class="codeReserved">case</span> <span class="codeString">&#039;&quot;&#039;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&amp;quot;&quot;</span></td></tr>
+  <tr><td>15</td><td>   <span class="codeReserved">case</span> <span class="codeString">&quot;&#039;&quot;</span>: <span class="codeReserved">return</span> <span class="codeString">&quot;&amp;#039;&quot;</span></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">default</span>: <span class="codeReserved">return</span> textoDetectado</td></tr>
+  <tr><td>17</td><td>  }</td></tr>
+  <tr><td>18</td><td> })</td></tr>
+  <tr><td>19</td><td>}</td></tr>
+  <tr><td>20</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>21</td><td>window[<span class="codeString">&quot;htmlentities&quot;</span>] = htmlentities</td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -946,10 +892,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m19aut/m-lib/m-js/m-ejecuta-js.html" title="1. lib / js / ejecuta.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m19aut/m-lib/m-js/index.html" title="A. Carpeta « lib / js »"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m19aut/m-lib/m-js/m-muestraError-js.html" title="3. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m19aut/m-lib/m-js/m-invocaServicio-js.html" title="2. lib / js / invocaServicio.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -970,12 +916,12 @@
     <a href="/m19aut/">21. Autenticación</a>
    </p>
    <p>
-    <a href="/m19aut/m-lib/">P. Carpeta « lib »</a>
+    <a href="/m19aut/m-lib/">O. Carpeta « lib »</a>
    </p>
    
      <p>
       <a class="paginaAnterior" href="/m19aut/m-lib/index.html"
-        title="P. Carpeta « lib »"><span
+        title="O. Carpeta « lib »"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -986,12 +932,17 @@
     
    <li>
     <p>
-     <a href="/m19aut/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+     <a href="/m19aut/m-lib/m-js/m-htmlentities-js.html" class="actual">lib / js / htmlentities.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-lib/m-js/m-htmlentities-js.html" class="actual">lib / js / htmlentities.js</a>
+     <a href="/m19aut/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-lib/m-js/m-JsonResponse-js.html">lib / js / JsonResponse.js</a>
     </p>
    </li>
    <li>
@@ -1001,7 +952,12 @@
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-lib/m-js/m-submitForma-js.html">lib / js / submitForma.js</a>
+     <a href="/m19aut/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-lib/m-js/m-submitForm-js.html">lib / js / submitForm.js</a>
     </p>
    </li>
    </ol>
@@ -1025,9 +981,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/m-lib/m-js/m-ejecuta-js.html"
+ let urlAnterior = "/m19aut/m-lib/m-js/index.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/m-lib/m-js/m-muestraError-js.html"
+ let urlSiguiente = "/m19aut/m-lib/m-js/m-invocaServicio-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

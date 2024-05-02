@@ -1,185 +1,68 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #e50000;">html</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;html</span> <span
-     style="color: #e50000;">lang</span>=<span
-     style="color: #0000ff;">"es"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;head&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">charset</span>=<span
-     style="color: #0000ff;">"UTF-8"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span> <span
-     style="color: #e50000;">content</span>=<span
-     style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/title&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/ejecuta.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/submitForma.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraError.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraInnerHtml.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;body</span> <span
-     style="color: #e50000;">onload</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #795e26;">ejecuta</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #a31515;">'srv/srvRolOpciones.php'</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">then</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">opciones</span><span
-     style="color: #0000ff;"> =&gt; </span><span
-     style="color: #795e26;">muestraInnerHtml</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">roles</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">opciones</span><span
-     style="color: #0000ff;">))</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;form</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"forma"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">onsubmit</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #795e26;">submitForma</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #a31515;">'srv/srvUsuarioAgrega.php'</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">event</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">forma</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">then</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">modelo</span><span
-     style="color: #0000ff;"> =&gt; </span><span
-     style="color: #001080;">location</span><span
-     style="color: #0000ff;">.</span><span
-     style="color: #001080;">href</span><span
-     style="color: #0000ff;"> </span>=<span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">'index.html'</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/h1&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"index.html"</span><span
-     style="color: #800000;">&gt;</span>Cancelar<span
-     style="color: #800000;">&lt;/a&gt;&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">&lt;!-- Usamos cue para que los navegadores no
-    bloqueen la página. --&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Cue *</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"cue"</span> <span
-     style="color: #e50000;">required</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;fieldset&gt;</span></div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;legend&gt;</span>Roles<span
-     style="color: #800000;">&lt;/legend&gt;</span></div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;div</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"roles"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;progress</span> <span
-     style="color: #e50000;">max</span>=<span
-     style="color: #0000ff;">"100"</span><span
-     style="color: #800000;">&gt;</span>Cargando<span
-     style="color: #0000ff;">&amp;hellip;</span><span
-     style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/div&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/fieldset&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span>*&nbsp;Obligatorio<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;&lt;button</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"submit"</span><span
-     style="color: #800000;">&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/button&gt;&lt;/p&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/form&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/html&gt;</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Agregar&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/invocaServicio.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/submitForm.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/muestraObjeto.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>14</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/muestraError.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">&quot;invocaServicio(&#039;srv/srvRolCheckBoxes.php&#039;)</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">   .then(chackBoxes =&gt; muestraObjeto(document, chackBoxes.body))</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)&quot;</span>&gt;</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> &lt;<span class="codeReserved">form</span> onsubmit=<span class="codeString">&quot;submitForm(&#039;srv/srvUsuarioAgrega.php&#039;, event)</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">    .then(modelo =&gt; location.href = &#039;index.html&#039;)</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)&quot;</span>&gt;</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Agregar&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">&quot;index.html&quot;</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>31</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>32</td><td>    <span class="codeComment">&lt;!-- Usamos cue para que los navegadores no bloqueen la página. --&gt;</span></td></tr>
+  <tr><td>33</td><td>    Cue *</td></tr>
+  <tr><td>34</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">&quot;cue&quot;</span>&gt;</td></tr>
+  <tr><td>35</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>36</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>  &lt;<span class="codeReserved">fieldset</span>&gt;</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td>   &lt;<span class="codeReserved">legend</span>&gt;Roles&lt;/<span class="codeReserved">legend</span>&gt;</td></tr>
+  <tr><td>41</td><td></td></tr>
+  <tr><td>42</td><td>   &lt;<span class="codeReserved">div</span> id=<span class="codeString">&quot;roles&quot;</span>&gt;</td></tr>
+  <tr><td>43</td><td>    &lt;<span class="codeReserved">progress</span> max=<span class="codeString">&quot;100&quot;</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
+  <tr><td>44</td><td>   &lt;/<span class="codeReserved">div</span>&gt;</td></tr>
+  <tr><td>45</td><td></td></tr>
+  <tr><td>46</td><td>  &lt;/<span class="codeReserved">fieldset</span>&gt;</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td>  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">&quot;submit&quot;</span>&gt;Agregar&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>51</td><td></td></tr>
+  <tr><td>52</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+ </tbody>
+</table>

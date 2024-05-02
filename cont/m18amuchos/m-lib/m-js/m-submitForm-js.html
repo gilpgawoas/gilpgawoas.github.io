@@ -1,0 +1,36 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { invocaServicio } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;invocaServicio.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Envía los datos de la forma a la url usando la codificación</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * multipart/form-data.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param {string} url</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * @param {Event} event</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * @param { <span class="codeString">&quot;GET&quot;</span> | <span class="codeString">&quot;POST&quot;</span>| <span class="codeString">&quot;PUT&quot;</span> | <span class="codeString">&quot;PATCH&quot;</span> | <span class="codeString">&quot;DELETE&quot;</span> | <span class="codeString">&quot;TRACE&quot;</span> | <span class="codeString">&quot;OPTIONS&quot;</span></span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> *  | <span class="codeString">&quot;CONNECT&quot;</span> | <span class="codeString">&quot;HEAD&quot;</span> } metodoHttp</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> submitForm(url, event, metodoHttp = <span class="codeString">&quot;POST&quot;</span>) {</td></tr>
+  <tr><td>12</td><td> event.preventDefault()</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">const</span> form = event.target</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">if</span> (!(form <span class="codeReserved">instanceof</span> HTMLFormElement))</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;event.target no es una form.&quot;</span>)</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> invocaServicio(fetch(url, {</td></tr>
+  <tr><td>17</td><td>  method: metodoHttp,</td></tr>
+  <tr><td>18</td><td>  headers: { <span class="codeString">&quot;Accept&quot;</span>: <span class="codeString">&quot;application&#47;json, application&#47;problem+json&quot;</span> },</td></tr>
+  <tr><td>19</td><td>  body: <span class="codeReserved">new</span> FormData(form)</td></tr>
+  <tr><td>20</td><td> }))</td></tr>
+  <tr><td>21</td><td>}</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>24</td><td>window[<span class="codeString">&quot;submitForm&quot;</span>] = submitForm</td></tr>
+ </tbody>
+</table>

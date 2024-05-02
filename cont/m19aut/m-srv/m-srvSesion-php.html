@@ -1,46 +1,21 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/CUE.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/ROL_IDS.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">session_start</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$cue</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[CUE])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_SESSION</span>[CUE]</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$rolIds</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS]</div>
-  <div>&nbsp;&nbsp;: [];</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [</div>
-  <div>&nbsp;&nbsp;CUE =&gt; <span
-     style="color: #001080;">$cue</span>,</div>
-  <div>&nbsp;&nbsp;ROL_IDS =&gt; <span
-     style="color: #001080;">$rolIds</span></div>
-  <div>&nbsp;];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/protege.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">return</span> protege();</td></tr>
+  <tr><td>8</td><td>});</td></tr>
+  <tr><td>9</td><td></td></tr>
+ </tbody>
+</table>

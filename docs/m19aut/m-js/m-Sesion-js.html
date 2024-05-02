@@ -834,96 +834,46 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >B. js / Sesion.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">CUE</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./const/CUE.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">ROL_IDS</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./const/ROL_IDS.js"</span></div><br>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Sesion</span>&nbsp;{</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ any }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">objeto</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">constructor</span>(<span
-     style="color: #001080;">objeto</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@readonly</span><span
-     style="color: #008000;"> */</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">cue</span> = <span
-     style="color: #001080;">objeto</span>[<span
-     style="color: #0070c1;">CUE</span>]</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">cue</span> !== <span
-     style="color: #a31515;">"string"</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #a31515;">"cue debe ser string."</span>)</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@readonly</span><span
-     style="color: #008000;"> */</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">rolIds</span> = <span
-     style="color: #001080;">objeto</span>[<span
-     style="color: #0070c1;">ROL_IDS</span>]</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #267f99;">Array</span>.<span
-     style="color: #795e26;">isArray</span>(<span
-     style="color: #0070c1;">rolIds</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #a31515;">"rolIds debe ser arreglo."</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@readonly</span><span
-     style="color: #008000;"> */</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">rolIds</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Set</span>(<span
-     style="color: #0070c1;">rolIds</span>)</div><br>
-  <div>&nbsp;}</div><br>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    clase.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"Sesion"</span>] = <span
-     style="color: #267f99;">Sesion</span></div>
- </div>
-</muestra-codigo>
+   <h1 >B. js / Sesion.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { CUE } <span class="codeReserved">from</span> <span class="codeString">&quot;./<span class="codeReserved">const</span>/CUE.js&quot;</span></td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { ROL_IDS } <span class="codeReserved">from</span> <span class="codeString">&quot;./<span class="codeReserved">const</span>/ROL_IDS.js&quot;</span></td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> Sesion {</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment">  * @param { any } objeto</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">constructor</span>(objeto) {</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>12</td><td>  <span class="codeReserved">this</span>.cue = objeto[CUE]</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> <span class="codeReserved">this</span>.cue !== <span class="codeString">&quot;string&quot;</span>)</td></tr>
+  <tr><td>14</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;cue debe ser string.&quot;</span>)</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>17</td><td>  <span class="codeReserved">const</span> rolIds = objeto[ROL_IDS]</td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">if</span> (!Array.isArray(rolIds))</td></tr>
+  <tr><td>19</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;rolIds debe ser arreglo.&quot;</span>)</td></tr>
+  <tr><td>20</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>21</td><td>  <span class="codeReserved">this</span>.rolIds = <span class="codeReserved">new</span> Set(rolIds)</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td>}</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td><span class="codeComment">// Permite que los eventos de html usen la clase.</span></td></tr>
+  <tr><td>28</td><td>window[<span class="codeString">&quot;Sesion&quot;</span>] = Sesion</td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -952,7 +902,7 @@
  <a class="anterior" href="/m19aut/m-js/m-const/m-ROL_IDS-js.html" title="4. js / const / ROL_IDS.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m19aut/m-js/m-custom/index.html" title="C. Carpeta « js / custom »"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m19aut/m-js/m-protege-js.html" title="C. js / protege.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -974,13 +924,13 @@
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m19aut/m-jsconfig-json.html"
-        title="M. jsconfig.json"><span
+      <a class="paginaAnterior" href="/m19aut/m-cliente-html.html"
+        title="L. cliente.html"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m19aut/m-js/index.html">N. Carpeta « js »</a></h1>
+   <h1><a href="/m19aut/m-js/index.html">M. Carpeta « js »</a></h1>
    
    <ol type="A">
     
@@ -996,6 +946,11 @@
    </li>
    <li>
     <p>
+     <a href="/m19aut/m-js/m-protege-js.html">js / protege.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m19aut/m-js/m-custom/">Carpeta « js / custom »</a>
     </p>
    </li>
@@ -1003,7 +958,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m19aut/m-srv/index.html"
-       title="O. Carpeta « srv »"><span
+       title="N. Carpeta « srv »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1022,7 +977,7 @@
  /**@type {string} */
  let urlAnterior = "/m19aut/m-js/m-const/m-ROL_IDS-js.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/m-js/m-custom/index.html"
+ let urlSiguiente = "/m19aut/m-js/m-protege-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

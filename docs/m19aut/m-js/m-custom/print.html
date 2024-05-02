@@ -702,7 +702,7 @@
 </head>
 
 <body class="print">
-   <h1 >C. Carpeta « js / custom »</h1>
+   <h1 >D. Carpeta « js / custom »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -725,226 +725,82 @@
    </nav>
   </div>
      <section >
-         <h1 >1. js / custom / mi-nav.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">htmlentities</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../../lib/js/htmlentities.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">Sesion</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../Sesion.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">ROL_ADMINISTRADOR</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../const/ROL_ADMINISTRADOR.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">ROL_CLIENTE</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../const/ROL_CLIENTE.js"</span></div><br>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">MiNav</span> <span
-     style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">HTMLElement</span>&nbsp;{</div><br>
-  <div>&nbsp;<span
-     style="color: #795e26;">connectedCallback</span>()&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">style</span>.<span
-     style="color: #001080;">display</span> = <span
-     style="color: #a31515;">"block"</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #008000;">/*&nbsp;html */</span></div>
-  <div>&nbsp;&nbsp;&nbsp;`<span
-     style="color: #800000;">&lt;nav&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;ul</span> <span
-     style="color: #e50000;">style</span>=<span
-     style="color: #0000ff;">"display: flex;</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap:
-    wrap;</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:0;</span>
-  </div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap:
-    0.5em;</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list-style-type:
-    none"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;li&gt;&lt;progress</span> <span
-     style="color: #e50000;">max</span>=<span
-     style="color: #0000ff;">"100"</span><span
-     style="color: #800000;">&gt;</span>Cargando<span
-     style="color: #0000ff;">&amp;hellip;</span><span
-     style="color: #800000;">&lt;/progress&gt;&lt;/li&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/ul&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/nav&gt;</span>`</div><br>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Sesion}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">sesion</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">set</span> <span
-     style="color: #795e26;">sesion</span>(<span
-     style="color: #001080;">sesion</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">cue</span> = <span
-     style="color: #001080;">sesion</span>.<span
-     style="color: #001080;">cue</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">rolIds</span> = <span
-     style="color: #001080;">sesion</span>.<span
-     style="color: #001080;">rolIds</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">let</span> <span
-     style="color: #001080;">innerHTML</span> =<span
-     style="color: #008000;"> /*&nbsp;html */ </span>`<span
-     style="color: #800000;">&lt;li&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"index.html"</span><span
-     style="color: #800000;">&gt;</span>Inicio<span
-     style="color: #800000;">&lt;/a&gt;&lt;/li&gt;</span>`</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">innerHTML</span> += <span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #795e26;">hipervinculosAdmin</span>(<span
-     style="color: #0070c1;">rolIds</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">innerHTML</span> += <span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #795e26;">hipervinculosCliente</span>(<span
-     style="color: #0070c1;">rolIds</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">cueHtml</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #0070c1;">cue</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">cue</span> !== <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">innerHTML</span> += <span
-     style="color: #008000;">&nbsp;/*&nbsp;html */ </span>`<span
-     style="color: #800000;">&lt;li&gt;${</span><span
-     style="color: #0070c1;">cueHtml</span><span
-     style="color: #800000;">}&lt;/li&gt;</span>`</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">innerHTML</span> +=<span
-     style="color: #008000;"> /*&nbsp;html */ </span>`<span
-     style="color: #800000;">&lt;li&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"perfil.html"</span><span
-     style="color: #800000;">&gt;</span>Perfil<span
-     style="color: #800000;">&lt;/a&gt;&lt;/li&gt;</span>`</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">ul</span> = <span
-     style="color: #0000ff;">this</span>.<span
-     style="color: #795e26;">querySelector</span>(<span
-     style="color: #a31515;">"ul"</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">ul</span> !== <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">ul</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">innerHTML</span></div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Set&lt;string&gt;}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">rolIds</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">hipervinculosAdmin</span>(<span
-     style="color: #001080;">rolIds</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">rolIds</span>.<span
-     style="color: #795e26;">has</span>(<span
-     style="color: #0070c1;">ROL_ADMINISTRADOR</span>) ?</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">&nbsp;/*&nbsp;html */ </span>`<span
-     style="color: #800000;">&lt;li&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"admin.html"</span><span
-     style="color: #800000;">&gt;</span>Para administradores<span
-     style="color: #800000;">&lt;/a&gt;&lt;/li&gt;</span>`</div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Set&lt;string&gt;}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">rolIds</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*/</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">hipervinculosCliente</span>(<span
-     style="color: #001080;">rolIds</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">rolIds</span>.<span
-     style="color: #795e26;">has</span>(<span
-     style="color: #0070c1;">ROL_CLIENTE</span>) ?</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">&nbsp;/*&nbsp;html */ </span>`<span
-     style="color: #800000;">&lt;li&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"cliente.html"</span><span
-     style="color: #800000;">&gt;</span>Para clientes<span
-     style="color: #800000;">&lt;/a&gt;&lt;/li&gt;</span>`</div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #001080;">customElements</span>.<span
-     style="color: #795e26;">define</span>(<span
-     style="color: #a31515;">"mi-nav"</span>, <span
-     style="color: #267f99;">MiNav</span>)</div>
- </div>
-</muestra-codigo>
+         <h1 >1. js / custom / mi-nav.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">&quot;../../lib/js/htmlentities.js&quot;</span></td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">&quot;../Sesion.js&quot;</span></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">import</span> { ROL_ADMINISTRADOR } <span class="codeReserved">from</span> <span class="codeString">&quot;../<span class="codeReserved">const</span>/ROL_ADMINISTRADOR.js&quot;</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">import</span> { ROL_CLIENTE } <span class="codeReserved">from</span> <span class="codeString">&quot;../<span class="codeReserved">const</span>/ROL_CLIENTE.js&quot;</span></td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> MiNav extends HTMLElement {</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td> connectedCallback() {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">this</span>.style.display = <span class="codeString">&quot;block&quot;</span></td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>  <span class="codeReserved">this</span>.innerHTML = <span class="codeComment">/* html */</span></td></tr>
+  <tr><td>13</td><td>   <span class="codeString">`&lt;<span class="codeReserved">nav</span>&gt;</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">     &lt;<span class="codeReserved">ul</span> style=&quot;display: flex;</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">            flex-wrap: wrap;</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">            padding:0;</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">            gap: 0.5em;</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">            list-style-type: none&quot;&gt;</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">      &lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">progress</span> max=&quot;100&quot;&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">     &lt;/<span class="codeReserved">ul</span>&gt;</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">    &lt;/<span class="codeReserved">nav</span>&gt;`</span></td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>26</td><td><span class="codeComment">  * @param {Sesion} sesion</span></td></tr>
+  <tr><td>27</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>28</td><td> set sesion(sesion) {</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">const</span> cue = sesion.cue</td></tr>
+  <tr><td>30</td><td>  <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">let</span> innerHTML = <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;index.html&quot;&gt;Inicio&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
+  <tr><td>32</td><td>  innerHTML += <span class="codeReserved">this</span>.hipervinculosAdmin(rolIds)</td></tr>
+  <tr><td>33</td><td>  innerHTML += <span class="codeReserved">this</span>.hipervinculosCliente(rolIds)</td></tr>
+  <tr><td>34</td><td>  <span class="codeReserved">const</span> cueHtml = htmlentities(cue)</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">if</span> (cue !== <span class="codeString">&quot;&quot;</span>) {</td></tr>
+  <tr><td>36</td><td>   innerHTML +=  <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;${cueHtml}&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
+  <tr><td>37</td><td>  }</td></tr>
+  <tr><td>38</td><td>  innerHTML += <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;perfil.html&quot;&gt;Perfil&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
+  <tr><td>39</td><td>  <span class="codeReserved">const</span> ul = <span class="codeReserved">this</span>.querySelector(<span class="codeString">&quot;ul&quot;</span>)</td></tr>
+  <tr><td>40</td><td>  <span class="codeReserved">if</span> (ul !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>41</td><td>   ul.innerHTML = innerHTML</td></tr>
+  <tr><td>42</td><td>  }</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td></td></tr>
+  <tr><td>45</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>46</td><td><span class="codeComment">  * @param {Set&lt;<span class="codeReserved">string</span>&gt;} rolIds</span></td></tr>
+  <tr><td>47</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>48</td><td> hipervinculosAdmin(rolIds) {</td></tr>
+  <tr><td>49</td><td>  <span class="codeReserved">return</span> rolIds.has(ROL_ADMINISTRADOR) ?</td></tr>
+  <tr><td>50</td><td>   <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;admin.html&quot;&gt;Para administradores&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
+  <tr><td>51</td><td>   : <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>52</td><td> }</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>55</td><td><span class="codeComment">  * @param {Set&lt;<span class="codeReserved">string</span>&gt;} rolIds</span></td></tr>
+  <tr><td>56</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>57</td><td> hipervinculosCliente(rolIds) {</td></tr>
+  <tr><td>58</td><td>  <span class="codeReserved">return</span> rolIds.has(ROL_CLIENTE) ?</td></tr>
+  <tr><td>59</td><td>   <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;cliente.html&quot;&gt;Para clientes&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
+  <tr><td>60</td><td>   : <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>61</td><td> }</td></tr>
+  <tr><td>62</td><td>}</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td>customElements.define(<span class="codeString">&quot;mi-nav&quot;</span>, MiNav)</td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 

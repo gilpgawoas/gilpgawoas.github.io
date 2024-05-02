@@ -1,44 +1,30 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/CUE.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/ROL_IDS.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">session_start</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[CUE]))&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$_SESSION</span>[CUE]);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS]))&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS]);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">session_destroy</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> [];</div>
-  <div>&nbsp;});</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/<span class="codeReserved">const</span>/CUE.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/<span class="codeReserved">const</span>/ROL_IDS.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>8</td><td> session_start();</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> (isset($_SESSION[CUE])) {</td></tr>
+  <tr><td>10</td><td>  unset($_SESSION[CUE]);</td></tr>
+  <tr><td>11</td><td> }</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">if</span> (isset($_SESSION[ROL_IDS])) {</td></tr>
+  <tr><td>13</td><td>  unset($_SESSION[ROL_IDS]);</td></tr>
+  <tr><td>14</td><td> }</td></tr>
+  <tr><td>15</td><td> session_destroy();</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> [];</td></tr>
+  <tr><td>17</td><td>});</td></tr>
+  <tr><td>18</td><td></td></tr>
+ </tbody>
+</table>

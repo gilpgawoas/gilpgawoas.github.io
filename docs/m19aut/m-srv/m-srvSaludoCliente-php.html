@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>F. srv / srvSaludoCliente.php - GilPG AWOAS</title>
+ <title>G. srv / srvSaludoCliente.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvSaludoCliente.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,64 +834,29 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >F. srv / srvSaludoCliente.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/CUE.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/ROL_IDS.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/const/ROL_CLIENTE.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">session_start</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$cue</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[CUE])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_SESSION</span>[CUE]</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$rolIds</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_SESSION</span>[ROL_IDS]</div>
-  <div>&nbsp;&nbsp;: [];</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">array_search</span>(ROL_CLIENTE, <span
-     style="color: #001080;">$rolIds</span>) === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No permitido."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #a31515;">"Hola "</span> . <span
-     style="color: #001080;">$cue</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+   <h1 >G. srv / srvSaludoCliente.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/<span class="codeReserved">const</span>/ROL_CLIENTE.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/protege.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>8</td><td> $sesion = protege([ROL_CLIENTE]);</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">return</span> <span class="codeString">&quot;Hola &quot;</span> . $sesion-&gt;cue;</td></tr>
+  <tr><td>10</td><td>});</td></tr>
+  <tr><td>11</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -917,10 +882,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m19aut/m-srv/m-srvLogout-php.html" title="E. srv / srvLogout.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m19aut/m-srv/m-srvLogout-php.html" title="F. srv / srvLogout.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m19aut/m-srv/m-srvSesion-php.html" title="G. srv / srvSesion.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m19aut/m-srv/m-srvSesion-php.html" title="H. srv / srvSesion.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -948,7 +913,7 @@
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m19aut/m-srv/index.html">O. Carpeta « srv »</a></h1>
+   <h1><a href="/m19aut/m-srv/index.html">N. Carpeta « srv »</a></h1>
    
    <ol type="A">
     
@@ -964,7 +929,12 @@
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-srv/m-dao/">Carpeta « srv / dao »</a>
+     <a href="/m19aut/m-srv/m-protege-php.html">srv / protege.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-srv/m-Sesion-php.html">srv / Sesion.php</a>
     </p>
    </li>
    <li>
@@ -987,11 +957,16 @@
      <a href="/m19aut/m-srv/m-srvSesion-php.html">srv / srvSesion.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
    </ol>
    
     <p>
      <a class="paginaSiguiente" href="/m19aut/m-lib/index.html"
-       title="P. Carpeta « lib »"><span
+       title="O. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
