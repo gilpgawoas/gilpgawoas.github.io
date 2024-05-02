@@ -1,87 +1,53 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #e50000;">html</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;html</span> <span
-     style="color: #e50000;">lang</span>=<span
-     style="color: #0000ff;">"es"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;head&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">charset</span>=<span
-     style="color: #0000ff;">"UTF-8"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span> <span
-     style="color: #e50000;">content</span>=<span
-     style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Render en el cliente<span
-     style="color: #800000;">&lt;/title&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;body&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Render en el cliente<span
-     style="color: #800000;">&lt;/h1&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;dl</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"lista"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;dt&gt;</span>Cargando<span
-     style="color: #0000ff;">&amp;hellip;</span><span
-     style="color: #800000;">&lt;/dt&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;dd&gt;&lt;progress</span> <span
-     style="color: #e50000;">max</span>=<span
-     style="color: #0000ff;">"100"</span><span
-     style="color: #800000;">&gt;</span>Cargando<span
-     style="color: #0000ff;">&amp;hellip;</span><span
-     style="color: #800000;">&lt;/progress&gt;&lt;/dd&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/dl&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Crea y pone en funcionamiento el worker del
-    archivo "render.js".</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">worker</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Worker</span>(<span
-     style="color: #a31515;">"render.js"</span>,&nbsp;{ <span
-     style="color: #001080;">type</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"module"</span> })</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se invoca cuando el worker envía un mensaje a la
-    página.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0070c1;">worker</span>.<span
-     style="color: #795e26;">onmessage</span> = <span
-     style="color: #001080;">event</span> <span
-     style="color: #0000ff;">=&gt;</span> <span
-     style="color: #001080;">lista</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">event</span>.<span
-     style="color: #001080;">data</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/script&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/html&gt;</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Render en el cliente&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;Render en el cliente&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> &lt;<span class="codeReserved">dl</span> id=<span class="codeString">&quot;lista&quot;</span>&gt;</td></tr>
+  <tr><td>18</td><td>  &lt;<span class="codeReserved">dt</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">dt</span>&gt;</td></tr>
+  <tr><td>19</td><td>  &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">progress</span> max=<span class="codeString">&quot;100&quot;</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;</td></tr>
+  <tr><td>20</td><td> &lt;/<span class="codeReserved">dl</span>&gt;</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>  <span class="codeComment">// Crea y pone en funcionamiento el worker del archivo <span class="codeString">&quot;render.js&quot;</span>.</span></td></tr>
+  <tr><td>25</td><td>  <span class="codeReserved">const</span> worker = <span class="codeReserved">new</span> Worker(<span class="codeString">&quot;render.js&quot;</span>, { type: <span class="codeString">&quot;module&quot;</span> })</td></tr>
+  <tr><td>26</td><td>  <span class="codeComment">// Se invoca cuando el worker envía un mensaje a la página.</span></td></tr>
+  <tr><td>27</td><td>  worker.onmessage = event =&gt; {</td></tr>
+  <tr><td>28</td><td>   <span class="codeReserved">const</span> respuesta = event.data</td></tr>
+  <tr><td>29</td><td>   <span class="codeReserved">if</span> (respuesta.resultado !== undefined) {</td></tr>
+  <tr><td>30</td><td>    lista.innerHTML = respuesta.resultado</td></tr>
+  <tr><td>31</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (respuesta.error !== undefined) {</td></tr>
+  <tr><td>32</td><td>    lista.innerHTML = <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>33</td><td>    alert(respuesta.error)</td></tr>
+  <tr><td>34</td><td>   }</td></tr>
+  <tr><td>35</td><td>  }</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+ </tbody>
+</table>
