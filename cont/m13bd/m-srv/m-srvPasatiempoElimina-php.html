@@ -1,40 +1,27 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/pasatiempoElimina.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">pasatiempoElimina</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/pasatiempoElimina.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> pasatiempoElimina($id);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">return</span> JsonResponse::noContent();</td></tr>
+  <tr><td>14</td><td>});</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>

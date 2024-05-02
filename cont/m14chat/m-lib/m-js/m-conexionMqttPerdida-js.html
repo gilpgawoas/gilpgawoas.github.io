@@ -1,0 +1,28 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * @param { {</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> *  errorCode: number,</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> *  errorMessage: string</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * } } responseObject</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> conexionMqttPerdida(responseObject) {</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">if</span> (responseObject.errorCode !== 0) {</td></tr>
+  <tr><td>9</td><td>  <span class="codeReserved">const</span> mensaje = <span class="codeString">&quot;Conexión terminada &quot;</span> + responseObject.errorMessage</td></tr>
+  <tr><td>10</td><td>  console.error(mensaje)</td></tr>
+  <tr><td>11</td><td>  alert(mensaje)</td></tr>
+  <tr><td>12</td><td> }</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>16</td><td>window[<span class="codeString">&quot;conexionMqttPerdida&quot;</span>] = conexionMqttPerdida</td></tr>
+ </tbody>
+</table>

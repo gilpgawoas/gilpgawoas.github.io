@@ -1,57 +1,43 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Muestra un error en la consola y en un
-    cuadro de</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;alerta el mensaje de una
-    excepción.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Error | null }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">error</span><span
-     style="color: #008000;"> descripción del error.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">error</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">error</span> === <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">error</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">error</span>.<span
-     style="color: #001080;">message</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraError"</span>] = <span
-     style="color: #795e26;">muestraError</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;ProblemDetails.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Muestra un error en la consola y en un cuadro de</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * alerta el mensaje de una excepción.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { ProblemDetails | Error | <span class="codeReserved">null</span> } error descripción del error.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>10</td><td>  console.log(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>11</td><td>  alert(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>12</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">let</span> mensaje = error.title</td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">if</span> (error.detail) {</td></tr>
+  <tr><td>15</td><td>   mensaje += <span class="codeString">`\n\n${error.detail}`</span></td></tr>
+  <tr><td>16</td><td>  }</td></tr>
+  <tr><td>17</td><td>  mensaje += <span class="codeString">`\n\nCódigo: ${error.status}`</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">if</span> (error.type) {</td></tr>
+  <tr><td>19</td><td>   mensaje += <span class="codeString">` ${error.type}`</span></td></tr>
+  <tr><td>20</td><td>  }</td></tr>
+  <tr><td>21</td><td>  console.error(mensaje)</td></tr>
+  <tr><td>22</td><td>  console.error(error)</td></tr>
+  <tr><td>23</td><td>  alert(mensaje)</td></tr>
+  <tr><td>24</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>25</td><td>  console.error(error)</td></tr>
+  <tr><td>26</td><td>  alert(error.message)</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>31</td><td>window[<span class="codeString">&quot;muestraError&quot;</span>] = muestraError</td></tr>
+ </tbody>
+</table>

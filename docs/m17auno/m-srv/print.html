@@ -718,16 +718,6 @@
     
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-modelo/">Carpeta « srv / modelo »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/">Carpeta « srv / dao »</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m17auno/m-srv/m-srvAmigoAgrega-php.html">srv / srvAmigoAgrega.php</a>
     </p>
    </li>
@@ -753,14 +743,251 @@
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvPasatiempoOpciones-php.html">srv / srvPasatiempoOpciones.php</a>
+     <a href="/m17auno/m-srv/m-srvPasatiempoOptions-php.html">srv / srvPasatiempoOptions.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-modelo/">Carpeta « srv / modelo »</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
+     <section >
+         <h1 >A. srv / srvAmigoAgrega.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Amigo.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoAgrega.php&quot;</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>12</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
+  <tr><td>13</td><td> $pasId = leeEntero(<span class="codeString">&quot;pasId&quot;</span>);</td></tr>
+  <tr><td>14</td><td> $pasatiempo = $pasId === <span class="codeReserved">null</span></td></tr>
+  <tr><td>15</td><td>  ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>16</td><td>  : <span class="codeReserved">new</span> Pasatiempo(id: $pasId);</td></tr>
+  <tr><td>17</td><td> $modelo = <span class="codeReserved">new</span> Amigo(</td></tr>
+  <tr><td>18</td><td>  nombre: $nombre === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : trim($nombre),</td></tr>
+  <tr><td>19</td><td>  pasatiempo: $pasatiempo</td></tr>
+  <tr><td>20</td><td> );</td></tr>
+  <tr><td>21</td><td> amigoAgrega($modelo);</td></tr>
+  <tr><td>22</td><td> $id = htmlentities($modelo-&gt;id);</td></tr>
+  <tr><td>23</td><td> $pasatiempo = $modelo-&gt;pasatiempo;</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">return</span> JsonResponse::created(<span class="codeString">&quot;/srv/srvAmigoBusca.php?id=$id&quot;</span>, [</td></tr>
+  <tr><td>25</td><td>  <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
+  <tr><td>26</td><td>  <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
+  <tr><td>27</td><td>  <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
+  <tr><td>28</td><td> ]);</td></tr>
+  <tr><td>29</td><td>});</td></tr>
+  <tr><td>30</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >B. srv / srvAmigoBusca.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoBusca.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> $modelo = amigoBusca($id);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>14</td><td>  $htmlId = htmlentities($id);</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>16</td><td>   status: ProblemDetails::NotFound,</td></tr>
+  <tr><td>17</td><td>   type: <span class="codeString">&quot;/error/amigonoencontrado.html&quot;</span>,</td></tr>
+  <tr><td>18</td><td>   title: <span class="codeString">&quot;Amigo no encontrado.&quot;</span>,</td></tr>
+  <tr><td>19</td><td>   detail: <span class="codeString">&quot;No se encontró ningún amigo con el id $htmlId.&quot;</span>,</td></tr>
+  <tr><td>20</td><td>  );</td></tr>
+  <tr><td>21</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>22</td><td>  $pasatiempo = $modelo-&gt;pasatiempo;</td></tr>
+  <tr><td>23</td><td>  <span class="codeReserved">return</span> [</td></tr>
+  <tr><td>24</td><td>   <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
+  <tr><td>25</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
+  <tr><td>26</td><td>   <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
+  <tr><td>27</td><td>  ];</td></tr>
+  <tr><td>28</td><td> }</td></tr>
+  <tr><td>29</td><td>});</td></tr>
+  <tr><td>30</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >C. srv / srvAmigoConsulta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoConsulta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> $lista = amigoConsulta();</td></tr>
+  <tr><td>8</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>10</td><td>  $amiId = htmlentities($modelo-&gt;amiId);</td></tr>
+  <tr><td>11</td><td>  $amiNombre = htmlentities($modelo-&gt;amiNombre);</td></tr>
+  <tr><td>12</td><td>  $pasNombre = $modelo-&gt;pasNombre === <span class="codeReserved">null</span></td></tr>
+  <tr><td>13</td><td>   ? <span class="codeString">&quot;&lt;<span class="codeReserved">em</span>&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">em</span>&gt;&quot;</span></td></tr>
+  <tr><td>14</td><td>   : htmlentities($modelo-&gt;pasNombre);</td></tr>
+  <tr><td>15</td><td>  $render .=</td></tr>
+  <tr><td>16</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$amiNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$pasNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>18</td><td> }</td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>20</td><td>});</td></tr>
+  <tr><td>21</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >D. srv / srvAmigoElimina.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoElimina.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> amigoElimina($id);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">return</span> JsonResponse::noContent();</td></tr>
+  <tr><td>14</td><td>});</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >E. srv / srvAmigoModifica.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Amigo.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoModifica.php&quot;</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>12</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>14</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
+  <tr><td>15</td><td> $pasId = leeEntero(<span class="codeString">&quot;pasId&quot;</span>);</td></tr>
+  <tr><td>16</td><td> $pasatiempo = $pasId === <span class="codeReserved">null</span></td></tr>
+  <tr><td>17</td><td>  ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>18</td><td>  : <span class="codeReserved">new</span> Pasatiempo(id: $pasId);</td></tr>
+  <tr><td>19</td><td> $modelo = <span class="codeReserved">new</span> Amigo(</td></tr>
+  <tr><td>20</td><td>  nombre: $nombre === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : trim($nombre),</td></tr>
+  <tr><td>21</td><td>  pasatiempo: $pasatiempo,</td></tr>
+  <tr><td>22</td><td>  id: $id</td></tr>
+  <tr><td>23</td><td> );</td></tr>
+  <tr><td>24</td><td> amigoModifica($modelo);</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">return</span> [</td></tr>
+  <tr><td>26</td><td>  <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
+  <tr><td>27</td><td>  <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
+  <tr><td>28</td><td>  <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
+  <tr><td>29</td><td> ];</td></tr>
+  <tr><td>30</td><td>});</td></tr>
+  <tr><td>31</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >F. srv / srvPasatiempoOptions.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/pasatiempoConsulta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> $lista = pasatiempoConsulta();</td></tr>
+  <tr><td>8</td><td> $render = <span class="codeString">&quot;&lt;<span class="codeReserved">option</span> value=&#039;&#039;&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">option</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>10</td><td>  $id = htmlentities($modelo-&gt;id);</td></tr>
+  <tr><td>11</td><td>  $nombre = htmlentities($modelo-&gt;nombre);</td></tr>
+  <tr><td>12</td><td>  $render .= <span class="codeString">&quot;&lt;<span class="codeReserved">option</span> value=&#039;$id&#039;&gt;{$nombre}&lt;/<span class="codeReserved">option</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>13</td><td> }</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>15</td><td>});</td></tr>
+  <tr><td>16</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
      <section>
-         <h1 >A. Carpeta « srv / modelo »</h1>
+         <h1 >G. Carpeta « srv / bd »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -776,1390 +1003,531 @@
     
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-modelo/m-Pasatiempo-php.html">srv / modelo / Pasatiempo.php</a>
+     <a href="/m17auno/m-srv/m-bd/m-amigoAgrega-php.html">srv / bd / amigoAgrega.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-amigoBusca-php.html">srv / bd / amigoBusca.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-amigoConsulta-php.html">srv / bd / amigoConsulta.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-amigoElimina-php.html">srv / bd / amigoElimina.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-amigoModifica-php.html">srv / bd / amigoModifica.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-Bd-php.html">srv / bd / Bd.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-bdCrea-php.html">srv / bd / bdCrea.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-pasatiempoAgrega-php.html">srv / bd / pasatiempoAgrega.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-bd/m-pasatiempoConsulta-php.html">srv / bd / pasatiempoConsulta.php</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. srv / bd / amigoAgrega.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> amigoAgrega(Amigo $modelo)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
+  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> AMIGO</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">    (AMI_NOMBRE, PAS_ID)</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    (:nombre, :pasId)&quot;</span></td></tr>
+  <tr><td>15</td><td> );</td></tr>
+  <tr><td>16</td><td> $stmt-&gt;execute([</td></tr>
+  <tr><td>17</td><td>  <span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre,</td></tr>
+  <tr><td>18</td><td>  <span class="codeString">&quot;:pasId&quot;</span> =&gt; $modelo-&gt;pasatiempo === <span class="codeReserved">null</span></td></tr>
+  <tr><td>19</td><td>   ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>20</td><td>   : $modelo-&gt;pasatiempo-&gt;id</td></tr>
+  <tr><td>21</td><td> ]);</td></tr>
+  <tr><td>22</td><td> <span class="codeComment">/* Si usas una secuencia para generar el id,</span></td></tr>
+  <tr><td>23</td><td><span class="codeComment">  * pasa como parámetro de lastInsertId el</span></td></tr>
+  <tr><td>24</td><td><span class="codeComment">  * nombre de dicha secuencia, debes</span></td></tr>
+  <tr><td>25</td><td><span class="codeComment">  * ejecutarlo antes del <span class="codeReserved">INSERT</span> y pasarle el</span></td></tr>
+  <tr><td>26</td><td><span class="codeComment">  * id generado al SQL. */</span></td></tr>
+  <tr><td>27</td><td>  $modelo-&gt;id = $con-&gt;lastInsertId();</td></tr>
+  <tr><td>28</td><td> }</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >2. srv / bd / amigoBusca.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> amigoBusca(int $amiId)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>12</td><td><span class="codeString">    A.AMI_ID <span class="codeReserved">AS</span> amiId,</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">    A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    A.PAS_ID <span class="codeReserved">AS</span> pasId,</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> A.AMI_ID = :amiId&quot;</span></td></tr>
+  <tr><td>20</td><td> );</td></tr>
+  <tr><td>21</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:amiId&quot;</span> =&gt; $amiId]);</td></tr>
+  <tr><td>22</td><td> $stmt-&gt;setFetchMode(PDO::FETCH_OBJ);</td></tr>
+  <tr><td>23</td><td> $obj = $stmt-&gt;fetch();</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">if</span> ($obj === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>25</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>26</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>27</td><td>  $pasatiempo = $obj-&gt;pasId === <span class="codeReserved">null</span></td></tr>
+  <tr><td>28</td><td>   ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>29</td><td>   : <span class="codeReserved">new</span> Pasatiempo(nombre: $obj-&gt;pasNombre, id: $obj-&gt;pasId);</td></tr>
+  <tr><td>30</td><td>  $amigo = <span class="codeReserved">new</span> Amigo(</td></tr>
+  <tr><td>31</td><td>   nombre: $obj-&gt;amiNombre,</td></tr>
+  <tr><td>32</td><td>   pasatiempo: $pasatiempo,</td></tr>
+  <tr><td>33</td><td>   id: $obj-&gt;amiId</td></tr>
+  <tr><td>34</td><td>  );</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">return</span> $amigo;</td></tr>
+  <tr><td>36</td><td> }</td></tr>
+  <tr><td>37</td><td>}</td></tr>
+  <tr><td>38</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >3. srv / bd / amigoConsulta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/recibeFetchAll.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> amigoConsulta()</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>9</td><td> $stmt = $con-&gt;query(</td></tr>
+  <tr><td>10</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>11</td><td><span class="codeString">    A.AMI_ID <span class="codeReserved">AS</span> amiId,</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">    A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">    P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> A.AMI_NOMBRE&quot;</span></td></tr>
+  <tr><td>18</td><td> );</td></tr>
+  <tr><td>19</td><td> $resultado = $stmt-&gt;fetchAll(PDO::FETCH_OBJ);</td></tr>
+  <tr><td>20</td><td> <span class="codeReserved">return</span> recibeFetchAll($resultado);</td></tr>
+  <tr><td>21</td><td>}</td></tr>
+  <tr><td>22</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. srv / bd / amigoElimina.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">function</span> amigoElimina(int $id)</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>8</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>9</td><td>  <span class="codeString">&quot;<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> AMIGO</span></td></tr>
+  <tr><td>10</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> AMI_ID = :id&quot;</span></td></tr>
+  <tr><td>11</td><td> );</td></tr>
+  <tr><td>12</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:id&quot;</span> =&gt; $id]);</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. srv / bd / amigoModifica.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> amigoModifica(Amigo $modelo)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
+  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">UPDATE</span> AMIGO</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">   <span class="codeReserved">SET</span></span></td></tr>
+  <tr><td>13</td><td><span class="codeString">    AMI_NOMBRE = :nombre,</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    PAS_ID = :pasId</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> AMI_ID = :id&quot;</span></td></tr>
+  <tr><td>16</td><td> );</td></tr>
+  <tr><td>17</td><td> $stmt-&gt;execute([</td></tr>
+  <tr><td>18</td><td>  <span class="codeString">&quot;:id&quot;</span> =&gt; $modelo-&gt;id,</td></tr>
+  <tr><td>19</td><td>  <span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre,</td></tr>
+  <tr><td>20</td><td>  <span class="codeString">&quot;:pasId&quot;</span> =&gt; $modelo-&gt;pasatiempo === <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td>   ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>22</td><td>   : $modelo-&gt;pasatiempo-&gt;id</td></tr>
+  <tr><td>23</td><td> ]);</td></tr>
+  <tr><td>24</td><td>}</td></tr>
+  <tr><td>25</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. srv / bd / Bd.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bdCrea.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/pasatiempoConsulta.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/pasatiempoAgrega.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">class</span> Bd</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(): PDO</td></tr>
+  <tr><td>14</td><td> {</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
+  <tr><td>18</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
+  <tr><td>19</td><td>    <span class="codeString">&quot;sqlite:srvauno.db&quot;</span>,</td></tr>
+  <tr><td>20</td><td>    <span class="codeComment">// usuario</span></td></tr>
+  <tr><td>21</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>22</td><td>    <span class="codeComment">// contraseña</span></td></tr>
+  <tr><td>23</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>24</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
+  <tr><td>25</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
+  <tr><td>26</td><td>   );</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td>   bdCrea(<span class="codeReserved">self</span>::$conexion);</td></tr>
+  <tr><td>29</td><td>   $pasatiempo = pasatiempoConsulta();</td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">if</span> (count($pasatiempo) === 0) {</td></tr>
+  <tr><td>31</td><td>    $pasatiempo = <span class="codeReserved">new</span> Pasatiempo(nombre: <span class="codeString">&quot;Futbol&quot;</span>);</td></tr>
+  <tr><td>32</td><td>    pasatiempoAgrega($pasatiempo);</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td>    $pasatiempo = <span class="codeReserved">new</span> Pasatiempo(nombre: <span class="codeString">&quot;Videojuegos&quot;</span>);</td></tr>
+  <tr><td>35</td><td>    pasatiempoAgrega($pasatiempo);</td></tr>
+  <tr><td>36</td><td>   }</td></tr>
+  <tr><td>37</td><td>  }</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
+  <tr><td>40</td><td> }</td></tr>
+  <tr><td>41</td><td>}</td></tr>
+  <tr><td>42</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >7. srv / bd / bdCrea.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> bdCrea(PDO $con)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $con-&gt;exec(</td></tr>
+  <tr><td>6</td><td>  <span class="codeString">&#039;<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
+  <tr><td>7</td><td><span class="codeString">    PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>8</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>9</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
+  <tr><td>10</td><td><span class="codeString">     <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
+  <tr><td>11</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">     <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE)</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">   )&#039;</span></td></tr>
+  <tr><td>14</td><td> );</td></tr>
+  <tr><td>15</td><td> $con-&gt;exec(</td></tr>
+  <tr><td>16</td><td>  <span class="codeString">&#039;<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> AMIGO (</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    AMI_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">    AMI_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">    PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_PK</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">     <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(AMI_ID),</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_NOM_UNQ</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">     <span class="codeReserved">UNIQUE</span>(AMI_NOMBRE)</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_PAS_FK</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">     <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (PAS_ID) REFERENCES PASATIEMPO(PAS_ID)</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">   )&#039;</span></td></tr>
+  <tr><td>27</td><td> );</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >8. srv / bd / pasatiempoAgrega.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> pasatiempoAgrega(Pasatiempo $modelo)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
+  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> PASATIEMPO</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">    (PAS_NOMBRE)</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    (:nombre)&quot;</span></td></tr>
+  <tr><td>15</td><td> );</td></tr>
+  <tr><td>16</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre]);</td></tr>
+  <tr><td>17</td><td> <span class="codeComment">/* Si usas una secuencia para generar el id,</span></td></tr>
+  <tr><td>18</td><td><span class="codeComment">  * pasa como parámetro de lastInsertId el</span></td></tr>
+  <tr><td>19</td><td><span class="codeComment">  * nombre de dicha secuencia, debes</span></td></tr>
+  <tr><td>20</td><td><span class="codeComment">  * ejecutarlo antes del <span class="codeReserved">INSERT</span> y pasarle el</span></td></tr>
+  <tr><td>21</td><td><span class="codeComment">  * id generado al SQL. */</span></td></tr>
+  <tr><td>22</td><td>  $modelo-&gt;id = $con-&gt;lastInsertId();</td></tr>
+  <tr><td>23</td><td>}</td></tr>
+  <tr><td>24</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >9. srv / bd / pasatiempoConsulta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/recibeFetchAll.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeComment">/** @<span class="codeReserved">return</span> Pasatiempo[] */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">function</span> pasatiempoConsulta()</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>11</td><td> $stmt = $con-&gt;query(</td></tr>
+  <tr><td>12</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>13</td><td><span class="codeString">    PAS_ID <span class="codeReserved">AS</span> id,</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">AS</span> nombre</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE&quot;</span></td></tr>
+  <tr><td>17</td><td> );</td></tr>
+  <tr><td>18</td><td> $resultado = $stmt-&gt;fetchAll(</td></tr>
+  <tr><td>19</td><td>  PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,</td></tr>
+  <tr><td>20</td><td>  Pasatiempo::<span class="codeReserved">class</span></td></tr>
+  <tr><td>21</td><td> );</td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">return</span> recibeFetchAll($resultado);</td></tr>
+  <tr><td>23</td><td>}</td></tr>
+  <tr><td>24</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+      </section>
+     <section>
+         <h1 >H. Carpeta « srv / modelo »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
    <li>
     <p>
      <a href="/m17auno/m-srv/m-modelo/m-Amigo-php.html">srv / modelo / Amigo.php</a>
     </p>
    </li>
-   </ol>
-   </nav>
-  </div>
-     <section >
-         <h1 >1. srv / modelo / Pasatiempo.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Pasatiempo</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #a31515;">""</span>, <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span> = <span
-     style="color: #098658;">0</span>)</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> = <span
-     style="color: #001080;">$nombre</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> === <span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Faltala el nombre."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >2. srv / modelo / Amigo.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Amigo</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> ?<span
-     style="color: #267f99;">Pasatiempo</span> <span
-     style="color: #001080;">$pasatiempo</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #a31515;">""</span>,</div>
-  <div>&nbsp;&nbsp;?<span
-     style="color: #267f99;">Pasatiempo</span> <span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span> = <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> = <span
-     style="color: #001080;">$nombre</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span> = <span
-     style="color: #001080;">$pasatiempo</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> === <span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Faltala el nombre."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-      </section>
-     <section>
-         <h1 >B. Carpeta « srv / dao »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="1">
-    
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-dao/m-bdCrea-php.html">srv / dao / bdCrea.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-AccesoBd-php.html">srv / dao / AccesoBd.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-amigoAgrega-php.html">srv / dao / amigoAgrega.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-amigoBusca-php.html">srv / dao / amigoBusca.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-amigoConsulta-php.html">srv / dao / amigoConsulta.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-amigoElimina-php.html">srv / dao / amigoElimina.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-amigoModifica-php.html">srv / dao / amigoModifica.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-pasatiempoAgrega-php.html">srv / dao / pasatiempoAgrega.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-dao/m-pasatiempoConsulta-php.html">srv / dao / pasatiempoConsulta.php</a>
+     <a href="/m17auno/m-srv/m-modelo/m-Pasatiempo-php.html">srv / modelo / Pasatiempo.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. srv / dao / bdCrea.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">bdCrea</span>(<span
-     style="color: #267f99;">PDO</span> <span
-     style="color: #001080;">$con</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">exec</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">'</span><span
-     style="color: #0000ff;">CREATE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">TABLE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">IF</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">EXISTS</span><span
-     style="color: #a31515;"> PASATIEMPO (</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">INTEGER</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
-     style="color: #0000ff;">TEXT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT NULL</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_PK</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(PAS_ID),</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> PAS_NOM_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(PAS_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
-     style="color: #a31515;">'</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">exec</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">'</span><span
-     style="color: #0000ff;">CREATE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">TABLE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">IF</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">EXISTS</span><span
-     style="color: #a31515;"> AMIGO (</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_ID </span><span
-     style="color: #0000ff;">INTEGER</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_NOMBRE </span><span
-     style="color: #0000ff;">TEXT</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">NOT NULL</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">INTEGER</span><span
-     style="color: #a31515;">,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PK</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">PRIMARY KEY</span><span
-     style="color: #a31515;">(AMI_ID),</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_NOM_UNQ</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">UNIQUE</span><span
-     style="color: #a31515;">(AMI_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">CONSTRAINT</span><span
-     style="color: #a31515;"> AMI_PAS_FK</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FOREIGN KEY</span><span
-     style="color: #a31515;"> (PAS_ID) </span><span
-     style="color: #0000ff;">REFERENCES</span><span
-     style="color: #a31515;"> PASATIEMPO(PAS_ID)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;)</span><span
-     style="color: #a31515;">'</span></div>
-  <div>&nbsp;);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >1. srv / modelo / Amigo.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/validaNombre.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">class</span> Amigo</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">public</span> string $nombre;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> ?Pasatiempo $pasatiempo;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>13</td><td>  string $nombre = <span class="codeString">&quot;&quot;</span>,</td></tr>
+  <tr><td>14</td><td>  ?Pasatiempo $pasatiempo = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>15</td><td>  int $id = 0</td></tr>
+  <tr><td>16</td><td> ) {</td></tr>
+  <tr><td>17</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
+  <tr><td>18</td><td>  $<span class="codeReserved">this</span>-&gt;nombre = $nombre;</td></tr>
+  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;pasatiempo = $pasatiempo;</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
+  <tr><td>23</td><td> {</td></tr>
+  <tr><td>24</td><td>  validaNombre($<span class="codeReserved">this</span>-&gt;nombre);</td></tr>
+  <tr><td>25</td><td> }</td></tr>
+  <tr><td>26</td><td>}</td></tr>
+  <tr><td>27</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. srv / dao / AccesoBd.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/bdCrea.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/pasatiempoConsulta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/pasatiempoAgrega.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">AccesoBd</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">private</span> <span
-     style="color: #0000ff;">static</span> ?<span
-     style="color: #267f99;">PDO</span> <span
-     style="color: #001080;">$con</span> = <span
-     style="color: #0000ff;">null</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">static</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">getCon</span>(): <span
-     style="color: #267f99;">PDO</span></div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span> === <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #795e26;">conecta</span>();</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #795e26;">prepara</span>(<span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span>);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">self</span>::<span
-     style="color: #001080;">$con</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">private</span> <span
-     style="color: #0000ff;">static</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">conecta</span>(): <span
-     style="color: #267f99;">PDO</span></div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">PDO</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// cadena de conexión</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"sqlite:srvauno.db"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// usuario</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// contraseña</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;[<span
-     style="color: #267f99;">PDO</span>::ATTR_ERRMODE =&gt; <span
-     style="color: #267f99;">PDO</span>::ERRMODE_EXCEPTION]</div>
-  <div>&nbsp;&nbsp;);</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">private</span> <span
-     style="color: #0000ff;">static</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">prepara</span>(<span
-     style="color: #267f99;">PDO</span> <span
-     style="color: #001080;">$con</span>)</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">bdCrea</span>(<span
-     style="color: #001080;">$con</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #795e26;">pasatiempoConsulta</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">sizeof</span>(<span
-     style="color: #001080;">$pasatiempo</span>) === <span
-     style="color: #098658;">0</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>(nombre: <span
-     style="color: #a31515;">"Futbol"</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">pasatiempoAgrega</span>(<span
-     style="color: #001080;">$pasatiempo</span>);</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>(nombre: <span
-     style="color: #a31515;">"Videojuegos"</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">pasatiempoAgrega</span>(<span
-     style="color: #001080;">$pasatiempo</span>);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >2. srv / modelo / Pasatiempo.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/validaNombre.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">class</span> Pasatiempo</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">public</span> string $nombre;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(string $nombre = <span class="codeString">&quot;&quot;</span>, int $id = 0)</td></tr>
+  <tr><td>12</td><td> {</td></tr>
+  <tr><td>13</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
+  <tr><td>14</td><td>  $<span class="codeReserved">this</span>-&gt;nombre = $nombre;</td></tr>
+  <tr><td>15</td><td> }</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
+  <tr><td>18</td><td> {</td></tr>
+  <tr><td>19</td><td>  validaNombre($<span class="codeReserved">this</span>-&gt;nombre);</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td>}</td></tr>
+  <tr><td>22</td><td></td></tr>
+ </tbody>
+</table>
       </section>
-     <section >
-         <h1 >3. srv / dao / amigoAgrega.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Amigo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">amigoAgrega</span>(<span
-     style="color: #267f99;">Amigo</span> <span
-     style="color: #001080;">$modelo</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #795e26;">valida</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">INSERT INTO</span><span
-     style="color: #a31515;"> AMIGO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(AMI_NOMBRE, PAS_ID)</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">VALUES</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:nombre,
-    :pasId)</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">":nombre"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">":pasId"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span>-&gt;<span
-     style="color: #001080;">id</span></div>
-  <div>&nbsp;]);</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si usas una secuencia para generar el
-    id,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;pasa como parámetro de
-    lastInsertId el</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
-    */</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">lastInsertId</span>();</div>
-  <div>&nbsp;}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >4. srv / dao / amigoBusca.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Amigo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">amigoBusca</span>(<span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$amiId</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">SELECT</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiId,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiNombre,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.PAS_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> pasId,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PAS_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> pasNombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> AMIGO A</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">LEFT JOIN</span><span
-     style="color: #a31515;"> PASATIEMPO P</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">ON</span><span
-     style="color: #a31515;"> A.PAS_ID </span>=<span
-     style="color: #a31515;"> P.PAS_ID</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> A.AMI_ID </span>=<span
-     style="color: #a31515;"> :amiId</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([<span
-     style="color: #a31515;">":amiId"</span> =&gt; <span
-     style="color: #001080;">$amiId</span>]);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">setFetchMode</span>(<span
-     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$obj</span> = <span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">fetch</span>();</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$obj</span> === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #0000ff;">false</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #001080;">$obj</span>-&gt;<span
-     style="color: #001080;">pasId</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>(nombre: <span
-     style="color: #001080;">$obj</span>-&gt;<span
-     style="color: #001080;">pasNombre</span>, id: <span
-     style="color: #001080;">$obj</span>-&gt;<span
-     style="color: #001080;">pasId</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$amigo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Amigo</span>(</div>
-  <div>&nbsp;&nbsp;&nbsp;nombre: <span
-     style="color: #001080;">$obj</span>-&gt;<span
-     style="color: #001080;">amiNombre</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;pasatiempo: <span
-     style="color: #001080;">$pasatiempo</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;id: <span
-     style="color: #001080;">$obj</span>-&gt;<span
-     style="color: #001080;">amiId</span></div>
-  <div>&nbsp;&nbsp;);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$amigo</span>;</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >5. srv / dao / amigoConsulta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../../lib/php/recibeFetchAll.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">amigoConsulta</span>()</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">query</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">SELECT</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiId,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;A.AMI_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> amiNombre,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;P.PAS_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> pasNombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> AMIGO A</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">LEFT JOIN</span><span
-     style="color: #a31515;"> PASATIEMPO P</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">ON</span><span
-     style="color: #a31515;"> A.PAS_ID </span>=<span
-     style="color: #a31515;"> P.PAS_ID</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">ORDER BY</span><span
-     style="color: #a31515;"> A.AMI_NOMBRE</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">fetchAll</span>(<span
-     style="color: #267f99;">PDO</span>::FETCH_OBJ);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #795e26;">recibeFetchAll</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >6. srv / dao / amigoElimina.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">amigoElimina</span>(<span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">DELETE</span><span
-     style="color: #a31515;"> </span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> AMIGO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> AMI_ID </span>=<span
-     style="color: #a31515;"> :id</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([<span
-     style="color: #a31515;">":id"</span> =&gt; <span
-     style="color: #001080;">$id</span>]);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >7. srv / dao / amigoModifica.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Amigo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">amigoModifica</span>(<span
-     style="color: #267f99;">Amigo</span> <span
-     style="color: #001080;">$modelo</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #795e26;">valida</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">UPDATE</span><span
-     style="color: #a31515;"> AMIGO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">SET</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;AMI_NOMBRE </span>=<span
-     style="color: #a31515;"> :nombre,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span>=<span
-     style="color: #a31515;"> :pasId</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> AMI_ID </span>=<span
-     style="color: #a31515;"> :id</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">":id"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">":nombre"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">":pasId"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span>-&gt;<span
-     style="color: #001080;">id</span></div>
-  <div>&nbsp;]);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >8. srv / dao / pasatiempoAgrega.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">pasatiempoAgrega</span>(<span
-     style="color: #267f99;">Pasatiempo</span> <span
-     style="color: #001080;">$modelo</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #795e26;">valida</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">prepare</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">INSERT INTO</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(PAS_NOMBRE)</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">VALUES</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;(:nombre)</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([<span
-     style="color: #a31515;">":nombre"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>]);</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si usas una secuencia para generar el
-    id,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;pasa como parámetro de
-    lastInsertId el</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;nombre de dicha secuencia.
-    */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">lastInsertId</span>();</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >9. srv / dao / pasatiempoConsulta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../../lib/php/recibeFetchAll.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
-  <div><span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@return</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">Pasatiempo</span><span
-     style="color: #0000ff;">[]</span><span
-     style="color: #008000;"> */</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">pasatiempoConsulta</span>()</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$stmt</span> = <span
-     style="color: #001080;">$con</span>-&gt;<span
-     style="color: #795e26;">query</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"</span><span
-     style="color: #0000ff;">SELECT</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_ID </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> id,</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;PAS_NOMBRE </span><span
-     style="color: #0000ff;">AS</span><span
-     style="color: #a31515;"> nombre</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #0000ff;">ORDER BY</span><span
-     style="color: #a31515;"> PAS_NOMBRE</span><span
-     style="color: #a31515;">"</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">fetchAll</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #267f99;">PDO</span>::FETCH_CLASS | <span
-     style="color: #267f99;">PDO</span>::FETCH_PROPS_LATE,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #267f99;">Pasatiempo</span>::<span
-     style="color: #0000ff;">class</span></div>
-  <div>&nbsp;);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #795e26;">recibeFetchAll</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-      </section>
-     <section >
-         <h1 >C. srv / srvAmigoAgrega.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/modelo/Amigo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/amigoAgrega.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #795e26;">trim</span>(<span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #a31515;">"nombre"</span>));</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$pasId</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"pasId"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #001080;">$pasId</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>(id: <span
-     style="color: #001080;">$pasId</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Amigo</span>(nombre: <span
-     style="color: #001080;">$nombre</span>, pasatiempo: <span
-     style="color: #001080;">$pasatiempo</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">amigoAgrega</span>(<span
-     style="color: #001080;">$modelo</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$modelo</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >D. srv / srvAmigoBusca.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/amigoBusca.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #795e26;">amigoBusca</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$modelo</span> === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Amigo no encontrado."</span>);</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasatiempo</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> [</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"id"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"pasId"</span> =&gt; <span
-     style="color: #001080;">$pasatiempo</span> === <span
-     style="color: #0000ff;">null</span> ? <span
-     style="color: #0000ff;">null</span> : <span
-     style="color: #001080;">$pasatiempo</span>-&gt;<span
-     style="color: #001080;">id</span></div>
-  <div>&nbsp;&nbsp;];</div>
-  <div>&nbsp;}</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >E. srv / srvAmigoConsulta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/amigoConsulta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$lista</span> = <span
-     style="color: #795e26;">amigoConsulta</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$modelo</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$amiId</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">amiId</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$amiNombre</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">amiNombre</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$pasNombre</span> = <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasNombre</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #a31515;">"&lt;em&gt;-- Sin pasatiempo --&lt;/em&gt;"</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">pasNombre</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;dt&gt;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$amiId</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$amiNombre</span><span
-     style="color: #a31515;">}&lt;/a&gt;&lt;/dt&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$amiId</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$pasNombre</span><span
-     style="color: #a31515;">}&lt;/a&gt;&lt;/dd&gt;"</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$render</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >F. srv / srvAmigoElimina.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/amigoElimina.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">amigoElimina</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >G. srv / srvAmigoModifica.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeTexto.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/modelo/Amigo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/amigoModifica.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #795e26;">trim</span>(<span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #a31515;">"nombre"</span>));</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$pasId</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"pasId"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$pasatiempo</span> = <span
-     style="color: #001080;">$pasId</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>(id: <span
-     style="color: #001080;">$pasId</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Amigo</span>(nombre: <span
-     style="color: #001080;">$nombre</span>, pasatiempo: <span
-     style="color: #001080;">$pasatiempo</span>, id: <span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">amigoModifica</span>(<span
-     style="color: #001080;">$modelo</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$modelo</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >H. srv / srvPasatiempoOpciones.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/pasatiempoConsulta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$lista</span> = <span
-     style="color: #795e26;">pasatiempoConsulta</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">"&lt;option value=''&gt;-- Sin pasatiempo
-    --&lt;/option&gt;"</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$modelo</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .= <span
-     style="color: #a31515;">"&lt;option value='</span><span
-     style="color: #001080;">$id</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$nombre</span><span
-     style="color: #a31515;">}&lt;/option&gt;"</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$render</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
       </section>
 </body>
 
