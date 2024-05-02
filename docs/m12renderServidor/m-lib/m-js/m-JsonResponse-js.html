@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>6. lib / js / muestraArray.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/js/muestraArray.js».">
+ <title>2. lib / js / JsonResponse.js - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/js/JsonResponse.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -834,93 +834,39 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >6. lib / js / muestraArray.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Document | HTMLElement }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">raizHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">propiedad</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{any[]}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valores</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraArray</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #001080;">propiedad</span>, <span
-     style="color: #001080;">valores</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">conjunto</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Set</span>(<span
-     style="color: #001080;">valores</span>)</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">elementos</span> = <span
-     style="color: #001080;">raizHtml</span>.<span
-     style="color: #795e26;">querySelectorAll</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">`[name="</span><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">propiedad</span><span
-     style="color: #0000ff;">}</span><span
-     style="color: #a31515;">"],[data-name="</span><span
-     style="color: #0000ff;">${</span><span
-     style="color: #001080;">propiedad</span><span
-     style="color: #0000ff;">}</span><span
-     style="color: #a31515;">"]`</span>)</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">for</span> (<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">elemento</span> <span
-     style="color: #0000ff;">of</span> <span
-     style="color: #267f99;">Array</span>.<span
-     style="color: #795e26;">from</span>(<span
-     style="color: #0070c1;">elementos</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">elemento</span> <span
-     style="color: #0000ff;">instanceof</span> <span
-     style="color: #267f99;">HTMLInputElement</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0070c1;">elemento</span>.<span
-     style="color: #001080;">checked</span> = <span
-     style="color: #0070c1;">conjunto</span>.<span
-     style="color: #795e26;">has</span>(<span
-     style="color: #0070c1;">elemento</span>.<span
-     style="color: #001080;">value</span>)</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraArray"</span>] = <span
-     style="color: #795e26;">muestraArray</span></div><br>
- </div>
-</muestra-codigo>
+   <h1 >2. lib / js / JsonResponse.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_OK = 200</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_Created = 201</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_NoContent = 204</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> JsonResponse {</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * @param {any} [body]</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * @param {string} [location]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">constructor</span>(status, body, location) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.body = body</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.location = location</td></tr>
+  <tr><td>19</td><td> }</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>}</td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -946,10 +892,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12renderServidor/m-lib/m-js/m-getInputParaElementoHtml-js.html" title="5. lib / js / getInputParaElementoHtml.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12renderServidor/m-lib/m-js/m-invocaServicio-js.html" title="1. lib / js / invocaServicio.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html" title="7. lib / js / muestraBoolean.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-muestraError-js.html" title="3. lib / js / muestraError.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -986,37 +932,12 @@
     
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-buscaElementoHtml-js.html">lib / js / buscaElementoHtml.js</a>
+     <a href="/m12renderServidor/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getArchivoSeleccionado-js.html">lib / js / getArchivoSeleccionado.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getDataUrlDeSeleccion-js.html">lib / js / getDataUrlDeSeleccion.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getInputParaElementoHtml-js.html">lib / js / getInputParaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraArray-js.html" class="actual">lib / js / muestraArray.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
+     <a href="/m12renderServidor/m-lib/m-js/m-JsonResponse-js.html" class="actual">lib / js / JsonResponse.js</a>
     </p>
    </li>
    <li>
@@ -1026,37 +947,12 @@
    </li>
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraImagen-js.html">lib / js / muestraImagen.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m12renderServidor/m-lib/m-js/m-muestraObjeto-js.html">lib / js / muestraObjeto.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraValor-js.html">lib / js / muestraValor.js</a>
+     <a href="/m12renderServidor/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
     </p>
    </li>
    </ol>
@@ -1080,9 +976,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12renderServidor/m-lib/m-js/m-getInputParaElementoHtml-js.html"
+ let urlAnterior = "/m12renderServidor/m-lib/m-js/m-invocaServicio-js.html"
  /**@type {string} */
- let urlSiguiente = "/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html"
+ let urlSiguiente = "/m12renderServidor/m-lib/m-js/m-muestraError-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

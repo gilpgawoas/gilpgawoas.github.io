@@ -702,7 +702,7 @@
 </head>
 
 <body class="print">
-   <h1 >H. Carpeta « srv »</h1>
+   <h1 >F. Carpeta « srv »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -718,107 +718,65 @@
     
    <li>
     <p>
-     <a href="/m12renderServidor/m-srv/m-srvRender-php.html">srv / srvRender.php</a>
+     <a href="/m12renderServidor/m-srv/m-render-php.html">srv / render.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >A. srv / srvRender.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$lista</span> = [</div>
-  <div>&nbsp;&nbsp;[</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
-     style="color: #a31515;">"pp"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"color"</span> =&gt; <span
-     style="color: #a31515;">"azul"</span></div>
-  <div>&nbsp;&nbsp;],</div>
-  <div>&nbsp;&nbsp;[</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
-     style="color: #a31515;">"qk"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"color"</span> =&gt; <span
-     style="color: #a31515;">"rojo"</span></div>
-  <div>&nbsp;&nbsp;],</div>
-  <div>&nbsp;&nbsp;[</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
-     style="color: #a31515;">"tt"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"color"</span> =&gt; <span
-     style="color: #a31515;">"rosa"</span></div>
-  <div>&nbsp;&nbsp;],</div>
-  <div>&nbsp;&nbsp;[</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"nombre"</span> =&gt; <span
-     style="color: #a31515;">"bb"</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"color"</span> =&gt; <span
-     style="color: #a31515;">"azul"</span></div>
-  <div>&nbsp;&nbsp;]</div>
-  <div>&nbsp;];</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Genera el código HTML de la lista.</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$modelo</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">/*&nbsp;Codifica nombre y color para que cambie
-    los</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;caracteres especiales y el
-    texto no se pueda</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;interpretar como HTML.
-    Esta técnica evita la</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;*&nbsp;inyección de código.
-    */</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>[<span
-     style="color: #a31515;">"nombre"</span>]);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$color</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$modelo</span>[<span
-     style="color: #a31515;">"color"</span>]);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;dt&gt;{</span><span
-     style="color: #001080;">$nombre</span><span
-     style="color: #a31515;">}&lt;/dt&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;{</span><span
-     style="color: #001080;">$color</span><span
-     style="color: #a31515;">}&lt;/dd&gt;"</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$render</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+         <h1 >A. srv / render.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>6</td><td> $lista = [</td></tr>
+  <tr><td>7</td><td>  [</td></tr>
+  <tr><td>8</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</td></tr>
+  <tr><td>9</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;azul&quot;</span></td></tr>
+  <tr><td>10</td><td>  ],</td></tr>
+  <tr><td>11</td><td>  [</td></tr>
+  <tr><td>12</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;qk&quot;</span>,</td></tr>
+  <tr><td>13</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;rojo&quot;</span></td></tr>
+  <tr><td>14</td><td>  ],</td></tr>
+  <tr><td>15</td><td>  [</td></tr>
+  <tr><td>16</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;tt&quot;</span>,</td></tr>
+  <tr><td>17</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;rosa&quot;</span></td></tr>
+  <tr><td>18</td><td>  ],</td></tr>
+  <tr><td>19</td><td>  [</td></tr>
+  <tr><td>20</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;bb&quot;</span>,</td></tr>
+  <tr><td>21</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;azul&quot;</span></td></tr>
+  <tr><td>22</td><td>  ]</td></tr>
+  <tr><td>23</td><td> ];</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> <span class="codeComment">// Genera el código HTML de la lista.</span></td></tr>
+  <tr><td>26</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>28</td><td>  <span class="codeComment">/* Codifica nombre y color para que cambie los caracteres</span></td></tr>
+  <tr><td>29</td><td><span class="codeComment">   * especiales y el texto no se pueda interpretar como HTML.</span></td></tr>
+  <tr><td>30</td><td><span class="codeComment">   * Esta técnica evita la inyección de código. */</span></td></tr>
+  <tr><td>31</td><td>  $nombre = htmlentities($modelo[<span class="codeString">&quot;nombre&quot;</span>]);</td></tr>
+  <tr><td>32</td><td>  $color = htmlentities($modelo[<span class="codeString">&quot;color&quot;</span>]);</td></tr>
+  <tr><td>33</td><td>  $render .=</td></tr>
+  <tr><td>34</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;{$nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;{$color}&lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>36</td><td> }</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>39</td><td>});</td></tr>
+  <tr><td>40</td><td></td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 

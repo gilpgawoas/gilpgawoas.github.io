@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>1. lib / php / ejecuta.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/php/ejecuta.php».">
+ <title>2. lib / php / JsonResponse.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/JsonResponse.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -834,74 +834,57 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >1. lib / php / ejecuta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Ejecuta una funcion que implementa un
-    servicio.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">$servicio</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Usa utf8.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">mb_internal_encoding</span>(<span
-     style="color: #a31515;">"UTF-8"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$servicio</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve JSON.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: application/json"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$json</span> = <span
-     style="color: #795e26;">json_encode</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$json</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El valor de regreso no puede representarse como
-    JSON"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$json</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #267f99;">Throwable</span> <span
-     style="color: #001080;">$t</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve error.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: text/plain"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">http_response_code</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$t</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>();</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+   <h1 >2. lib / php / JsonResponse.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">const</span> JsonResponse_OK = 200;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">const</span> JsonResponse_Created = 201;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> JsonResponse_NoContent = 204;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">class</span> JsonResponse</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> $body;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $location;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>15</td><td>  int $status = JsonResponse_OK,</td></tr>
+  <tr><td>16</td><td>  $body = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>17</td><td>  ?string $location = <span class="codeReserved">null</span></td></tr>
+  <tr><td>18</td><td> ) {</td></tr>
+  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>20</td><td>  $<span class="codeReserved">this</span>-&gt;body = $body;</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;location = $location;</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> ok($body)</td></tr>
+  <tr><td>25</td><td> {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(body: $body);</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> created(string $location, $body)</td></tr>
+  <tr><td>30</td><td> {</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_Created, $body, $location);</td></tr>
+  <tr><td>32</td><td> }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> noContent()</td></tr>
+  <tr><td>35</td><td> {</td></tr>
+  <tr><td>36</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_NoContent, <span class="codeReserved">null</span>);</td></tr>
+  <tr><td>37</td><td> }</td></tr>
+  <tr><td>38</td><td>}</td></tr>
+  <tr><td>39</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -927,10 +910,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12renderServidor/m-lib/m-php/index.html" title="B. Carpeta « lib / php »"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12renderServidor/m-lib/m-php/m-ejecutaServicio-php.html" title="1. lib / php / ejecutaServicio.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12renderServidor/m-srv/index.html" title="H. Carpeta « srv »"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12renderServidor/m-lib/m-php/m-ProblemDetails-php.html" title="3. lib / php / ProblemDetails.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -955,8 +938,8 @@
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m12renderServidor/m-lib/m-js/m-muestraValor-js.html"
-        title="15. lib / js / muestraValor.js"><span
+      <a class="paginaAnterior" href="/m12renderServidor/m-lib/m-js/m-ProblemDetails-js.html"
+        title="5. lib / js / ProblemDetails.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -967,14 +950,24 @@
     
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-php/m-ejecuta-php.html" class="actual">lib / php / ejecuta.php</a>
+     <a href="/m12renderServidor/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12renderServidor/m-lib/m-php/m-JsonResponse-php.html" class="actual">lib / php / JsonResponse.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12renderServidor/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m12renderServidor/m-srv/index.html"
-       title="H. Carpeta « srv »"><span
+     <a class="paginaSiguiente" href="/m12renderServidor/m-error/index.html"
+       title="H. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -991,9 +984,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12renderServidor/m-lib/m-php/index.html"
+ let urlAnterior = "/m12renderServidor/m-lib/m-php/m-ejecutaServicio-php.html"
  /**@type {string} */
- let urlSiguiente = "/m12renderServidor/m-srv/index.html"
+ let urlSiguiente = "/m12renderServidor/m-lib/m-php/m-ProblemDetails-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

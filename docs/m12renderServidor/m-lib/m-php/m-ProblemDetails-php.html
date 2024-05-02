@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>10. lib / js / muestraInnerHtml.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/js/muestraInnerHtml.js».">
+ <title>3. lib / php / ProblemDetails.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «lib/php/ProblemDetails.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -834,52 +834,47 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >10. lib / js / muestraInnerHtml.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Element}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">elementoHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{any}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valor</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraInnerHtml</span>(<span
-     style="color: #001080;">elementoHtml</span>, <span
-     style="color: #001080;">valor</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">valor</span> === <span
-     style="color: #a31515;">"string"</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">elementoHtml</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #001080;">valor</span></div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraInnerHtml"</span>] = <span
-     style="color: #795e26;">muestraInnerHtml</span></div>
- </div>
-</muestra-codigo>
+   <h1 >3. lib / php / ProblemDetails.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">class</span> ProblemDetails extends Exception</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> BadRequest = 400;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> NotFound = 404;</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> InternalServerError = 500;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> string $title;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $type;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">public</span> ?string $detail;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>16</td><td>  int $status,</td></tr>
+  <tr><td>17</td><td>  string $title,</td></tr>
+  <tr><td>18</td><td>  ?string $type = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>19</td><td>  ?string $detail = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>20</td><td>  Throwable $previous = <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td> ) {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>($title, $status, $previous);</td></tr>
+  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>24</td><td>  $<span class="codeReserved">this</span>-&gt;type = $type;</td></tr>
+  <tr><td>25</td><td>  $<span class="codeReserved">this</span>-&gt;title = $title;</td></tr>
+  <tr><td>26</td><td>  $<span class="codeReserved">this</span>-&gt;detail = $detail;</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -905,10 +900,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12renderServidor/m-lib/m-js/m-muestraImagen-js.html" title="9. lib / js / muestraImagen.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12renderServidor/m-lib/m-php/m-JsonResponse-php.html" title="2. lib / php / JsonResponse.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html" title="11. lib / js / muestraNumber.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12renderServidor/m-error/index.html" title="H. Carpeta « error »"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -933,96 +928,36 @@
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m12renderServidor/m-lib/index.html"
-        title="G. Carpeta « lib »"><span
+      <a class="paginaAnterior" href="/m12renderServidor/m-lib/m-js/m-ProblemDetails-js.html"
+        title="5. lib / js / ProblemDetails.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m12renderServidor/m-lib/m-js/index.html">A. Carpeta « lib / js »</a></h1>
+   <h1><a href="/m12renderServidor/m-lib/m-php/index.html">B. Carpeta « lib / php »</a></h1>
    
    <ol type="1">
     
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-buscaElementoHtml-js.html">lib / js / buscaElementoHtml.js</a>
+     <a href="/m12renderServidor/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+     <a href="/m12renderServidor/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getArchivoSeleccionado-js.html">lib / js / getArchivoSeleccionado.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getDataUrlDeSeleccion-js.html">lib / js / getDataUrlDeSeleccion.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getInputParaElementoHtml-js.html">lib / js / getInputParaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraArray-js.html">lib / js / muestraArray.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraImagen-js.html">lib / js / muestraImagen.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html" class="actual">lib / js / muestraInnerHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraObjeto-js.html">lib / js / muestraObjeto.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraValor-js.html">lib / js / muestraValor.js</a>
+     <a href="/m12renderServidor/m-lib/m-php/m-ProblemDetails-php.html" class="actual">lib / php / ProblemDetails.php</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m12renderServidor/m-lib/m-php/index.html"
-       title="B. Carpeta « lib / php »"><span
+     <a class="paginaSiguiente" href="/m12renderServidor/m-error/index.html"
+       title="H. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1039,9 +974,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12renderServidor/m-lib/m-js/m-muestraImagen-js.html"
+ let urlAnterior = "/m12renderServidor/m-lib/m-php/m-JsonResponse-php.html"
  /**@type {string} */
- let urlSiguiente = "/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html"
+ let urlSiguiente = "/m12renderServidor/m-error/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

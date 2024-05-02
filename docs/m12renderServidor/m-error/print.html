@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" prefix="og: https://ogp.me/ns#">
+<html lang="es">
 
 <head>
  <meta charset="UTF-8">
@@ -8,9 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>D. Diagrama de paquetes - GilPG AWOAS</title>
- <meta name="description" content="Diagrama de paquetes del ejemplo.">
- <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
+ <title>Carpeta « error » - GilPG AWOAS</title>
+ <meta name="description" content="">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
  :root {
@@ -586,609 +585,223 @@
  }
 </style>
  <style>
- body {
-  scroll-padding-top: var(--padTop);
+ .pruebaDeEscritorio {
+  font-family: var(--fontSans);
  }
 
- body {
-  animation-timing-function: var(--introFuncion);
-  animation-duration: var(--introDuracion);
-  animation-fill-mode: forwards;
-  animation-name: appear;
+ .pruebaDeEscritorio .section,
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
  }
 
- body.noTransition {
-  animation-name: noTransition;
+ .pruebaDeEscritorio section {
+  margin: 1em;
  }
 
- @keyframes appear {
-  from {
-   opacity: 0;
-  }
-
-  to {
-   opacity: 1;
-  }
+ .section section {
+  display: block;
  }
 
- @keyframes noTransition {
-  0% {
-   opacity: 0;
-  }
-
-  0.7% {
-   opacity: 1;
-  }
-
-  100% {
-   opacity: 1;
-  }
- }
-
- #principal {
-  padding-top: var(--padTop);
-  box-sizing: border-box;
-  transition: margin-left 0.7s ease-in-out;
- }
-
- #principal a {
-  word-wrap: break-word;
- }
-
- #principal>#abre {
-  position: fixed;
-  top: var(--gap);
-  left: var(--gap);
-  transition-property: top, left;
-  transition-duration: 0.7s, 0.7s;
-  transition-timing-function: ease-in-out;
- }
-
- #principal>.anterior {
-  position: fixed;
-  top: var(--gap);
-  transition-property: top, left;
-  transition-duration: 0.7s, 0.7s;
-  transition-timing-function: ease-in-out;
- }
-
- #principal>.siguiente {
-  position: fixed;
-  top: var(--gap);
-  right: var(--gap);
-  transition: top 0.7s ease-in-out;
- }
-
- .scroll #principal>#abre,
- .scroll #principal>.anterior,
- .scroll #principal>.siguiente {
-  top: -10rem;
- }
-
- #principal>h1:not(.default) {
-  margin-top: var(--marginTop);
-  padding: var(--h1PadTop) 1rem 1rem 1rem;
-  text-shadow: var(--shadowTitulo);
-  color: var(--colTitulo);
-  background-color: var(--colTituloFondo);
- }
-
- #principal>h1:not(.default) strong,
- #principal>h1:not(.default) code {
-  color: var(--colPrincipalTituloStrong);
- }
-
- #nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  box-sizing: border-box;
-  overflow: auto;
-  color: var(--colLetra);
-  background-color: var(--colFondoNav);
-  padding: var(--padCont);
-  transition: transform 0.7s ease-in-out;
-  scrollbar-width: thin;
-  scrollbar-color: var(--colThumb) var(--colScrollbar);
-  overflow-wrap: anywhere;
- }
-
- #nav::-webkit-scrollbar {
-  width: var(--anchoThumb);
-  height: var(--anchoThumb);
- }
-
- #nav::-webkit-scrollbar-track {
-  background: var(--colScrollbar);
- }
-
- #nav::-webkit-scrollbar-thumb {
-  background-color: var(--colThumb);
-  border-radius: var(--borderRadiusThumb);
- }
-
- #nav::-webkit-scrollbar-thumb:active {
-  background-color: var(--colThumbActivo);
- }
-
- #nav p {
+ .pruebaDeEscritorio section pre {
   margin: 0;
  }
 
- #nav a:not([data-logo]) {
-  display: block;
-  padding: var(--padNav);
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
  }
 
- #nav a.actual code,
- #nav a.actual strong {
-  color: var(--colAStrong);
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
  }
 
- #nav h1 a {
-  color: var(--colTitulo);
-  background-color: var(--colTituloFondo);
-  text-shadow: var(--shadowTitulo);
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
  }
 
- #nav a.actual {
-  background-color: var(--colFondoNavSel);
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
  }
 
- #nav h1 a.actual {
-  background-color: var(--colNavH1Sel);
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
  }
 
- #nav h1 a.actual code,
- #nav h1 a.actual strong {
-  color: var(--colPrincipalTituloStrong);
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
  }
 
- @media screen and (max-width: 999px) {
-  #principal {
-   max-width: 100vw;
-  }
-
-  #cierra {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   background-color: var(--colSombra);
-   transform: translateX(-120%);
-   transition: transform 0.7s ease-out;
-  }
-
-  #nav {
-   width: min(var(--anchoNav), 70%);
-   box-shadow: var(--navSombra);
-  }
-
-  .xmenu>#nav {
-   transform: translateX(-120%);
-  }
-
-  .menu>#cierra,
-  .menu>#nav {
-   transform: translateX(0);
-  }
-
-  #principal>.anterior {
-   left: calc(2 * var(--gap) + 2rem);
-  }
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
  }
 
- @media screen and (min-width: 1000px) {
-  #cierra {
-   display: none;
-  }
-
-  #nav {
-   width: var(--anchoNav);
-  }
-
-  .menu>#nav {
-   transform: translateX(-120%);
-  }
-
-  .xmenu>#principal {
-   margin-left: var(--anchoNav)
-  }
-
-  .menu>#principal>.anterior {
-   left: calc(2 * var(--gap) + 2rem);
-  }
-
-  .xmenu>#principal>.anterior {
-   top: var(--gap);
-   left: calc(var(--anchoNav) + var(--gap));
-  }
-
-  .xmenu.scroll #principal>.anterior {
-   top: -10rem;
-  }
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
  }
 
- @media print {
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
 
-  #nav,
-  #principal>#abre,
-  #principal>.anterior,
-  #principal>.siguiente {
-   display: none;
-  }
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
 
-  #principal>h1:not(.default) {
-   margin-top: 0.5rem;
-   padding: 1rem;
-   color: var(--colTituloFondo);
-   background-color: transparent;
-  }
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
 
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
  }
 </style>
- 
 </head>
 
-<body  class="xmenu">
- <div id="principal">
-   <h1 >D. Diagrama de paquetes</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    Para este ejemplo se utilizan algunos principios de diseño conocidos como
-    SOLID.
-   </p>
-  </li>
-  <li>
-   <p>
-    Cada uno de los paquetes apunta con una flecha <q>use</q> a los que utiliza
-    para realizar sus funciones.
-   </p>
-  </li>
-  <li>
-   <p>
-    Cada paquete oculta los detalles de su implementación y tecnología.
-   </p>
-  </li>
-  <li>
-   <p>
-    Los detalles de la base de datos, así como de su configuración, se mantienen
-    dentro del paquete <q>dao</q> y no se exponen fuera de dicho paquete.
-   </p>
-  </li>
-  <li>
-   <p>
-    Los detalles de la interfaz gráfica, por ejemplo las api del navegador web,
-    o de las interfaces en Android, se mantienen dentro del paquete
-    <q>access</q> y no se exponen fuera de dicho paquete.
-   </p>
-  </li>
-  <li>
-   <p>
-    El intercambio de datos entre los paquetes <q>access</q> y <q>service</q>
-    de acuerdo al contenido de las lecciones anteriores.
-   </p>
-  </li>
-  <li>
-   <p>
-    El intercambio de datos entre los paquetes <q>service</q> y <q>dao</q>
-    se realiza con el contenido del paquete <q>modelo</q>.
-   </p>
-  </li>
- </ul>
-</div>
-<figure>
- <img style="max-height: none;"
-   src="/img/m13bd/bdpaquetes.drawio.svg"
-   alt="Diagrama de paquetes">
-</figure>
- <footer>
- <p>
-  <a rel="license"
-    href="http://creativecommons.org/licenses/by/4.0/"><img
-     alt="Licencia Creative Commons" style="border-width:0"
-     src="/img/icono/160x30.webp" width="80" height="15" /></a>
-  <br />Esta
-  <span xmlns:dct="http://purl.org/dc/terms/"
-    href="http://purl.org/dc/dcmitype/InteractiveResource"
-    rel="dct:type">obra</span>
-  de
-  <a xmlns:cc="http://creativecommons.org/ns#"
-    href="https://gilpgijs.github.io" property="cc:attributionName"
-    rel="cc:attributionURL">Gilberto Pacheco Gallegos</a>
-  está bajo una
-  <a rel="license"
-    href="http://creativecommons.org/licenses/by/4.0/">Licencia
-   Creative Commons Atribución 4.0 Internacional</a>.
- </p>
-</footer>
- <button id="abre" type="button" title="Menú" class="cambiaMenu">
-  <span class="material-symbols-outlined">
-   menu
-  </span>
- </button>
- <a class="anterior" href="/m13bd/mBrel.html" title="C. Diagrama relacional"><span class="material-symbols-outlined">
-     skip_previous
-    </span></a>
- <a class="siguiente" href="/m13bd/mCdeploy.html" title="E. Diagrama de despliegue"><span class="material-symbols-outlined">
-     skip_next
-     </span></a>
-</div>
-<div id="cierra" class="cambiaMenu"></div>
-<nav id="nav">
- <button type="button" title="Cierra" class="cambiaMenu">
-  <span class="material-symbols-outlined">
-   close
-  </span>
- </button>
- 
-   <p>
-    <a href="/"
-      data-logo="true">GilPG AWOAS</a>
-   </p>
-   
-   
-     <p>
-      <a class="paginaAnterior" href="/m12renderServidor/mTresumen.html"
-        title="J. Resumen"><span
-        class="material-symbols-outlined">
-         arrow_upward
-        </span></a>
-     </p>
-   <h1><a href="/m13bd/index.html">16. Bases de datos</a></h1>
-   
+<body class="print">
+   <h1 >H. Carpeta « error »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m13bd/mAintro.html">Introducción</a>
+     <a href="/m12renderServidor/m-error/m-errorinterno-html.html">error / errorinterno.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/mBder.html">Diagrama entidad relación</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mBrel.html">Diagrama relacional</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mBpaquetes.html" class="actual">Diagrama de paquetes</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mCdeploy.html">Diagrama de despliegue</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mDinstrucciones.html">Hazlo funcionar</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mArchivos.html">Archivos</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-index-html.html">index.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-agrega-html.html">agrega.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-modifica-html.html">modifica.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-srv/">Carpeta « srv »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-jsconfig-json.html">jsconfig.json</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/">Carpeta « lib »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/mTresumen.html">Resumen</a>
+     <a href="/m12renderServidor/m-error/m-nojson-html.html">error / nojson.html</a>
     </p>
    </li>
    </ol>
-   
-    <p>
-     <a class="paginaSiguiente" href="/m14chat/index.html"
-       title="17. Chat sencillo - Protocolos de comunicación"><span
-       class="material-symbols-outlined">
-        arrow_downward
-       </span></a>
-    </p>
- 
-</nav>
- <script>
- registraServiceWorker("/sw.js")
- const LOCAL_STORAGE_MENU = "menu"
- const MENU = "menu"
- const XMENU = "xmenu"
- const SCROLL = "scroll"
- const nav = document.querySelector("#nav")
- const abre = document.querySelector("#abre")
-
- /**@type {string} */
- let urlAnterior = "/m13bd/mBrel.html"
- /**@type {string} */
- let urlSiguiente = "/m13bd/mCdeploy.html"
- /**@type {number|null} */
- let iniciaX = null
- /**@type {number|null} */
- let iniciaY = null
- /** @type {number} */
- let posY = 0
- /** @type {number} */
- let dy = 0
- /** @type {boolean} */
- let scrolling = false
-
- document.addEventListener("keydown", teclas)
- document.addEventListener("touchstart", iniciaTouch)
- document.addEventListener("touchmove", desplazaTouch)
- addEventListener("scroll", onScroll)
- if (abre) {
-  abre.addEventListener("click", cambiaMenu)
- }
- const cambian = Array.from(document.querySelectorAll(".cambiaMenu"))
- for (const c of cambian) {
-  c.addEventListener("click", cambiaMenu)
- }
- const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
- if (menu) {
-  if (menu === MENU) {
-   document.body.classList.remove(XMENU)
-   document.body.classList.add(MENU)
-  } else {
-   document.body.classList.remove(MENU)
-   document.body.classList.add(XMENU)
-  }
- }
-
- function registraServiceWorker(url) {
-  if (navigator.serviceWorker) {
-   navigator.serviceWorker.register(url).
-    then(registro => {
-     console.log("Service Worker registrado.")
-     console.log(registro)
-    }).
-    catch(muestraError)
-  }
- }
-
- function muestraError(e) {
-  console.error(e)
-  alert(e.message)
- }
-
- async function copyToClipboard(button) {
-  try {
-   const table = button.closest("table")
-   if (table !== null) {
-    const lineas = Array.from(table.querySelectorAll("td:nth-child(2)"))
-    const codigo = lineas
-     .map(linea => linea.textContent || "")
-     .join("\n")
-    if (codigo) {
-     await navigator.clipboard.writeText(codigo)
-     alert("Texto copiado al portapapeles.")
-    }
-   }
-  } catch (e) {
-   alert(e.message)
-  }
- }
-
- function cambiaMenu() {
-  document.body.classList.toggle(XMENU)
-  document.body.classList.toggle(MENU)
-  if (document.body.classList.contains(MENU)) {
-   localStorage.setItem(LOCAL_STORAGE_MENU, MENU)
-  } else {
-   localStorage.setItem(LOCAL_STORAGE_MENU, XMENU)
-  }
- }
-
- /** @param {KeyboardEvent} ev*/
- function teclas(ev) {
-  switch (ev.key) {
-   case "ArrowLeft":
-    retrocede()
-    break
-   case "ArrowRight":
-    avanza()
-    break
-  }
- }
-
- function retrocede() {
-  if (urlAnterior) {
-   location.href = urlAnterior
-  }
- }
-
- function avanza() {
-  if (urlSiguiente) {
-   location.href = urlSiguiente
-  }
- }
-
- /** @param {TouchEvent} ev*/
- function iniciaTouch(ev) {
-  const toqueInicial = ev.touches[0]
-  iniciaX = toqueInicial.clientX
-  iniciaY = toqueInicial.clientY
- }
-
- /** @param {TouchEvent} ev*/
- function desplazaTouch(ev) {
-  if (iniciaX && iniciaY) {
-   const desplazamiento = ev.touches[0]
-   var desplazamientoX = desplazamiento.clientX
-   var desplazamientoY = desplazamiento.clientY
-   var difX = desplazamientoX - iniciaX
-   var difY = desplazamientoY - iniciaY
-   // Checa que el movimiento no sea muy corto.
-   if (Math.abs(difX) + Math.abs(difY) > 90) {
-    if (Math.abs(difX) > Math.abs(difY)) {
-     if (difX > 70) {
-      retrocede()
-     } else {
-      avanza()
-     }
-     // Reinicia valores.
-     iniciaX = null
-     iniciaY = null
-    }
-   }
-  }
- }
-
- function onScroll() {
-  dy = scrollY - posY
-  posY = scrollY
-  if (!scrolling) {
-   requestAnimationFrame(avanzaScroll)
-  }
-  scrolling = true
- }
-
- function avanzaScroll() {
-  if (posY === 0) {
-   document.body.classList.remove(SCROLL)
-  } else if (dy < 0) {
-   document.body.classList.remove(SCROLL)
-  } else if (dy > 0) {
-   document.body.classList.add(SCROLL)
-  }
-  scrolling = false
- }
-
-</script>
+   </nav>
+  </div>
+     <section >
+         <h1 >A. error / errorinterno.html</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> &lt;<span class="codeReserved">p</span>&gt;Se presentó de forma inesperada un error interno del servidor.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >B. error / nojson.html</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;El valor devuelto no puede representarse como JSON&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;El valor devuelto no puede representarse como JSON&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>18</td><td>  Debido a un error interno del servidor, la respuesta generada, no se puede</td></tr>
+  <tr><td>19</td><td>  recuperar.</td></tr>
+  <tr><td>20</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+ </tbody>
+</table>
+      </section>
 </body>
 
 </html>

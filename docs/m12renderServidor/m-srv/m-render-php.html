@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>9. lib / js / muestraImagen.js - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/js/muestraImagen.js».">
+ <title>A. srv / render.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/render.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -834,149 +834,58 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >9. lib / js / muestraImagen.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">getDataUrlDeSeleccion</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./getDataUrlDeSeleccion.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">getInputParaElementoHtml</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./getInputParaElementoHtml.js"</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Document | HTMLElement }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">raizHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ HTMLImageElement }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">img</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">valor</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraImagen</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #001080;">img</span>, <span
-     style="color: #001080;">valor</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #0070c1;">dataset</span>.<span
-     style="color: #001080;">inicial</span> = <span
-     style="color: #001080;">valor</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">input</span> = <span
-     style="color: #795e26;">getInputParaElementoHtml</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #001080;">img</span>)</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">input</span> === <span
-     style="color: #0000ff;">null</span> &amp;&amp; <span
-     style="color: #001080;">valor</span> === <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">true</span></div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">input</span> === <span
-     style="color: #0000ff;">null</span> &amp;&amp; <span
-     style="color: #001080;">valor</span> !== <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">src</span> = <span
-     style="color: #001080;">valor</span></div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">input</span> !== <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">dataUrl</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">getDataUrlDeSeleccion</span>(<span
-     style="color: #0070c1;">input</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">dataUrl</span> === <span
-     style="color: #a31515;">""</span> &amp;&amp; <span
-     style="color: #001080;">valor</span> === <span
-     style="color: #a31515;">""</span>)&nbsp;{ <span
-     style="color: #008000;">// input !== null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">true</span></div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">dataUrl</span> === <span
-     style="color: #a31515;">""</span> &amp;&amp; <span
-     style="color: #001080;">valor</span> !== <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">src</span> = <span
-     style="color: #001080;">valor</span></div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">dataUrl</span> !== <span
-     style="color: #a31515;">""</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">hidden</span> = <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">img</span>.<span
-     style="color: #001080;">src</span> = <span
-     style="color: #0070c1;">dataUrl</span></div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraImagen"</span>] = <span
-     style="color: #795e26;">muestraImagen</span></div><br>
- </div>
-</muestra-codigo>
+   <h1 >A. srv / render.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>6</td><td> $lista = [</td></tr>
+  <tr><td>7</td><td>  [</td></tr>
+  <tr><td>8</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</td></tr>
+  <tr><td>9</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;azul&quot;</span></td></tr>
+  <tr><td>10</td><td>  ],</td></tr>
+  <tr><td>11</td><td>  [</td></tr>
+  <tr><td>12</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;qk&quot;</span>,</td></tr>
+  <tr><td>13</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;rojo&quot;</span></td></tr>
+  <tr><td>14</td><td>  ],</td></tr>
+  <tr><td>15</td><td>  [</td></tr>
+  <tr><td>16</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;tt&quot;</span>,</td></tr>
+  <tr><td>17</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;rosa&quot;</span></td></tr>
+  <tr><td>18</td><td>  ],</td></tr>
+  <tr><td>19</td><td>  [</td></tr>
+  <tr><td>20</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;bb&quot;</span>,</td></tr>
+  <tr><td>21</td><td>   <span class="codeString">&quot;color&quot;</span> =&gt; <span class="codeString">&quot;azul&quot;</span></td></tr>
+  <tr><td>22</td><td>  ]</td></tr>
+  <tr><td>23</td><td> ];</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> <span class="codeComment">// Genera el código HTML de la lista.</span></td></tr>
+  <tr><td>26</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>28</td><td>  <span class="codeComment">/* Codifica nombre y color para que cambie los caracteres</span></td></tr>
+  <tr><td>29</td><td><span class="codeComment">   * especiales y el texto no se pueda interpretar como HTML.</span></td></tr>
+  <tr><td>30</td><td><span class="codeComment">   * Esta técnica evita la inyección de código. */</span></td></tr>
+  <tr><td>31</td><td>  $nombre = htmlentities($modelo[<span class="codeString">&quot;nombre&quot;</span>]);</td></tr>
+  <tr><td>32</td><td>  $color = htmlentities($modelo[<span class="codeString">&quot;color&quot;</span>]);</td></tr>
+  <tr><td>33</td><td>  $render .=</td></tr>
+  <tr><td>34</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;{$nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;{$color}&lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>36</td><td> }</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>39</td><td>});</td></tr>
+  <tr><td>40</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -1002,10 +911,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12renderServidor/m-lib/m-js/m-muestraError-js.html" title="8. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12renderServidor/m-srv/index.html" title="F. Carpeta « srv »"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html" title="10. lib / js / muestraInnerHtml.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12renderServidor/m-lib/index.html" title="G. Carpeta « lib »"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1025,101 +934,28 @@
    <p>
     <a href="/m12renderServidor/">15. Renderizado del lado del servidor</a>
    </p>
-   <p>
-    <a href="/m12renderServidor/m-lib/">G. Carpeta « lib »</a>
-   </p>
    
      <p>
-      <a class="paginaAnterior" href="/m12renderServidor/m-lib/index.html"
-        title="G. Carpeta « lib »"><span
+      <a class="paginaAnterior" href="/m12renderServidor/m-index-html.html"
+        title="E. index.html"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m12renderServidor/m-lib/m-js/index.html">A. Carpeta « lib / js »</a></h1>
+   <h1><a href="/m12renderServidor/m-srv/index.html">F. Carpeta « srv »</a></h1>
    
-   <ol type="1">
+   <ol type="A">
     
    <li>
     <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-buscaElementoHtml-js.html">lib / js / buscaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getArchivoSeleccionado-js.html">lib / js / getArchivoSeleccionado.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getDataUrlDeSeleccion-js.html">lib / js / getDataUrlDeSeleccion.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-getInputParaElementoHtml-js.html">lib / js / getInputParaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraArray-js.html">lib / js / muestraArray.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraImagen-js.html" class="actual">lib / js / muestraImagen.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraObjeto-js.html">lib / js / muestraObjeto.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12renderServidor/m-lib/m-js/m-muestraValor-js.html">lib / js / muestraValor.js</a>
+     <a href="/m12renderServidor/m-srv/m-render-php.html" class="actual">srv / render.php</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m12renderServidor/m-lib/m-php/index.html"
-       title="B. Carpeta « lib / php »"><span
+     <a class="paginaSiguiente" href="/m12renderServidor/m-lib/index.html"
+       title="G. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1136,9 +972,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12renderServidor/m-lib/m-js/m-muestraError-js.html"
+ let urlAnterior = "/m12renderServidor/m-srv/index.html"
  /**@type {string} */
- let urlSiguiente = "/m12renderServidor/m-lib/m-js/m-muestraInnerHtml-js.html"
+ let urlSiguiente = "/m12renderServidor/m-lib/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
