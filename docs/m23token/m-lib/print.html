@@ -702,7 +702,7 @@
 </head>
 
 <body class="print">
-   <h1 >I. Carpeta « lib »</h1>
+   <h1 >H. Carpeta « lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -746,7 +746,12 @@
     
    <li>
     <p>
-     <a href="/m23token/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+     <a href="/m23token/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-JsonResponse-js.html">lib / js / JsonResponse.js</a>
     </p>
    </li>
    <li>
@@ -756,279 +761,251 @@
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-js/m-submitForma-js.html">lib / js / submitForma.js</a>
+     <a href="/m23token/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-submitForm-js.html">lib / js / submitForm.js</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. lib / js / ejecuta.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Espera a que la promesa de un fetch
-    termine. Si</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;hay error, lanza una excepción. Si no
-    hay error,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;interpreta la respuesta del servidor
-    como JSON y</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;la convierte en una literal de objeto.
-   </span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ string | Promise&lt;Response&gt; }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">servicio</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">servicio</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">let</span> <span
-     style="color: #001080;">f</span> = <span
-     style="color: #001080;">servicio</span></div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">typeof</span> <span
-     style="color: #001080;">servicio</span> === <span
-     style="color: #a31515;">"string"</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">f</span> = <span
-     style="color: #795e26;">fetch</span>(<span
-     style="color: #001080;">servicio</span>)</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (!(<span
-     style="color: #001080;">f</span> <span
-     style="color: #0000ff;">instanceof</span> <span
-     style="color: #267f99;">Promise</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #a31515;">"Servicio de tipo incorrecto."</span>)</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">respuesta</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #001080;">f</span></div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">ok</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">texto</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #795e26;">text</span>()</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">JSON</span>.<span
-     style="color: #795e26;">parse</span>(<span
-     style="color: #0070c1;">texto</span>)</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">error</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #0070c1;">texto</span>)</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">status</span> === <span
-     style="color: #098658;">500</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #795e26;">text</span>())</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(<span
-     style="color: #0070c1;">respuesta</span>.<span
-     style="color: #0070c1;">statusText</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"ejecuta"</span>] = <span
-     style="color: #795e26;">ejecuta</span></div>
- </div>
-</muestra-codigo>
+         <h1 >1. lib / js / invocaServicio.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> {</td></tr>
+  <tr><td>2</td><td> JsonResponse, JsonResponse_Created, JsonResponse_NoContent, JsonResponse_OK</td></tr>
+  <tr><td>3</td><td>} <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;JsonResponse.js&quot;</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">import</span> {</td></tr>
+  <tr><td>5</td><td> ProblemDetails, ProblemDetails_InternalServerError</td></tr>
+  <tr><td>6</td><td>} <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;ProblemDetails.js&quot;</span></td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * hay error, lanza una excepción. Si no hay error,</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * interpreta la respuesta del servidor como JSON y</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * la convierte en una literal de objeto. </span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> * @param { string | Promise&lt;<span class="codeReserved">Response</span>&gt; } servicio</span></td></tr>
+  <tr><td>14</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>15</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> invocaServicio(servicio) {</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">let</span> f = servicio</td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> servicio === <span class="codeString">&quot;string&quot;</span>) {</td></tr>
+  <tr><td>18</td><td>  f = fetch(servicio, {</td></tr>
+  <tr><td>19</td><td>   headers: { <span class="codeString">&quot;Accept&quot;</span>: <span class="codeString">&quot;application&#47;json, application&#47;problem+json&quot;</span> }</td></tr>
+  <tr><td>20</td><td>  })</td></tr>
+  <tr><td>21</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (!(f <span class="codeReserved">instanceof</span> Promise)) {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;Servicio de tipo incorrecto.&quot;</span>)</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> f</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">if</span> (respuesta.ok) {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">if</span> (respuesta.status === JsonResponse_NoContent) {</td></tr>
+  <tr><td>27</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_NoContent)</td></tr>
+  <tr><td>28</td><td>  }</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>30</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>31</td><td>   <span class="codeReserved">const</span> body = JSON.parse(texto)</td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">if</span> (respuesta.status === JsonResponse_Created) {</td></tr>
+  <tr><td>33</td><td>    <span class="codeReserved">const</span> location = respuesta.headers.get(<span class="codeString">&quot;location&quot;</span>)</td></tr>
+  <tr><td>34</td><td>    <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_Created, body,</td></tr>
+  <tr><td>35</td><td>     location === <span class="codeReserved">null</span> ? undefined : location)</td></tr>
+  <tr><td>36</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>37</td><td>    <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_OK, body)</td></tr>
+  <tr><td>38</td><td>   }</td></tr>
+  <tr><td>39</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>40</td><td>   <span class="codeComment">// El contenido no es JSON. Probablemente sea texto.</span></td></tr>
+  <tr><td>41</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(ProblemDetails_InternalServerError,</td></tr>
+  <tr><td>42</td><td>    <span class="codeString">&quot;Problema interno en el servidor.&quot;</span>, texto)</td></tr>
+  <tr><td>43</td><td>  }</td></tr>
+  <tr><td>44</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>45</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>46</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>47</td><td>   <span class="codeReserved">const</span> { type, title, detail } = JSON.parse(texto)</td></tr>
+  <tr><td>48</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status,</td></tr>
+  <tr><td>49</td><td>    <span class="codeReserved">typeof</span> title === <span class="codeString">&quot;string&quot;</span> ? title : <span class="codeString">&quot;&quot;</span>,</td></tr>
+  <tr><td>50</td><td>    <span class="codeReserved">typeof</span> detail === <span class="codeString">&quot;string&quot;</span> ? detail : undefined,</td></tr>
+  <tr><td>51</td><td>    <span class="codeReserved">typeof</span> type === <span class="codeString">&quot;string&quot;</span> ? type : undefined)</td></tr>
+  <tr><td>52</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>53</td><td>   <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>54</td><td>    <span class="codeReserved">throw</span> error</td></tr>
+  <tr><td>55</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>56</td><td>    <span class="codeComment">// El contenido no es JSON. Probablemente sea texto.</span></td></tr>
+  <tr><td>57</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, respuesta.statusText, texto)</td></tr>
+  <tr><td>58</td><td>   }</td></tr>
+  <tr><td>59</td><td>  }</td></tr>
+  <tr><td>60</td><td> }</td></tr>
+  <tr><td>61</td><td>}</td></tr>
+  <tr><td>62</td><td></td></tr>
+  <tr><td>63</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>64</td><td>window[<span class="codeString">&quot;invocaServicio&quot;</span>] = invocaServicio</td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. lib / js / muestraError.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Muestra un error en la consola y en un
-    cuadro de</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;alerta el mensaje de una
-    excepción.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Error | null }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">error</span><span
-     style="color: #008000;"> descripción del error.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">error</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">error</span> === <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">log</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #a31515;">"Error"</span>)</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">console</span>.<span
-     style="color: #795e26;">error</span>(<span
-     style="color: #001080;">error</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">alert</span>(<span
-     style="color: #001080;">error</span>.<span
-     style="color: #001080;">message</span>)</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraError"</span>] = <span
-     style="color: #795e26;">muestraError</span></div>
- </div>
-</muestra-codigo>
+         <h1 >2. lib / js / JsonResponse.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_OK = 200</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_Created = 201</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> JsonResponse_NoContent = 204</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> JsonResponse {</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * @param {any} [body]</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * @param {string} [location]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">constructor</span>(status, body, location) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.body = body</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.location = location</td></tr>
+  <tr><td>19</td><td> }</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>}</td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >3. lib / js / submitForma.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">ejecuta</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./ejecuta.js"</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Envía los datos de la forma a la url
-    usando la codificación</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;multipart/form-data.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{string}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">url</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Event}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">event</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{HTMLFormElement}</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">forma</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ "GET" | "POST"| "PUT" | "PATCH" | "DELETE" |
-    "TRACE" | "OPTIONS"</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;">&nbsp;&nbsp;| "CONNECT" | "HEAD" }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">metodoHttp</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">submitForma</span>(<span
-     style="color: #001080;">url</span>, <span
-     style="color: #001080;">event</span>, <span
-     style="color: #001080;">forma</span>, <span
-     style="color: #001080;">metodoHttp</span> = <span
-     style="color: #a31515;">"POST"</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">event</span>.<span
-     style="color: #795e26;">preventDefault</span>()</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #795e26;">fetch</span>(<span
-     style="color: #001080;">url</span>,&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">method</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #001080;">metodoHttp</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">body</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">FormData</span>(<span
-     style="color: #001080;">forma</span>)</div>
-  <div>&nbsp;}))</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"submitForma"</span>] = <span
-     style="color: #795e26;">submitForma</span></div>
- </div>
-</muestra-codigo>
+         <h1 >3. lib / js / muestraError.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;ProblemDetails.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Muestra un error en la consola y en un cuadro de</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * alerta el mensaje de una excepción.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param { ProblemDetails | Error | <span class="codeReserved">null</span> } error descripción del error.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>10</td><td>  console.log(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>11</td><td>  alert(<span class="codeString">&quot;Error&quot;</span>)</td></tr>
+  <tr><td>12</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">let</span> mensaje = error.title</td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">if</span> (error.detail) {</td></tr>
+  <tr><td>15</td><td>   mensaje += <span class="codeString">`\n\n${error.detail}`</span></td></tr>
+  <tr><td>16</td><td>  }</td></tr>
+  <tr><td>17</td><td>  mensaje += <span class="codeString">`\n\nCódigo: ${error.status}`</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">if</span> (error.type) {</td></tr>
+  <tr><td>19</td><td>   mensaje += <span class="codeString">` ${error.type}`</span></td></tr>
+  <tr><td>20</td><td>  }</td></tr>
+  <tr><td>21</td><td>  console.error(mensaje)</td></tr>
+  <tr><td>22</td><td>  console.error(error)</td></tr>
+  <tr><td>23</td><td>  alert(mensaje)</td></tr>
+  <tr><td>24</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>25</td><td>  console.error(error)</td></tr>
+  <tr><td>26</td><td>  alert(error.message)</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>31</td><td>window[<span class="codeString">&quot;muestraError&quot;</span>] = muestraError</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. lib / js / ProblemDetails.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_BadRequest = 400</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_NotFound = 404</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_InternalServerError = 500</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails extends Error {</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * @param {string} title</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * @param {string} [detail]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * @param {string} [type]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, title, detail, type) {</td></tr>
+  <tr><td>14</td><td>  super(title)</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
+  <tr><td>21</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td>}</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. lib / js / submitForm.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { invocaServicio } <span class="codeReserved">from</span> <span class="codeString">&quot;.&#47;invocaServicio.js&quot;</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Envía los datos de la forma a la url usando la codificación</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * multipart/form-data.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * @param {string} url</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * @param {Event} event</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * @param { <span class="codeString">&quot;GET&quot;</span> | <span class="codeString">&quot;POST&quot;</span>| <span class="codeString">&quot;PUT&quot;</span> | <span class="codeString">&quot;PATCH&quot;</span> | <span class="codeString">&quot;DELETE&quot;</span> | <span class="codeString">&quot;TRACE&quot;</span> | <span class="codeString">&quot;OPTIONS&quot;</span></span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> *  | <span class="codeString">&quot;CONNECT&quot;</span> | <span class="codeString">&quot;HEAD&quot;</span> } metodoHttp</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> submitForm(url, event, metodoHttp = <span class="codeString">&quot;POST&quot;</span>) {</td></tr>
+  <tr><td>12</td><td> event.preventDefault()</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">const</span> form = event.target</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">if</span> (!(form <span class="codeReserved">instanceof</span> HTMLFormElement))</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;event.target no es una form.&quot;</span>)</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> invocaServicio(fetch(url, {</td></tr>
+  <tr><td>17</td><td>  method: metodoHttp,</td></tr>
+  <tr><td>18</td><td>  headers: { <span class="codeString">&quot;Accept&quot;</span>: <span class="codeString">&quot;application&#47;json, application&#47;problem+json&quot;</span> },</td></tr>
+  <tr><td>19</td><td>  body: <span class="codeReserved">new</span> FormData(form)</td></tr>
+  <tr><td>20</td><td> }))</td></tr>
+  <tr><td>21</td><td>}</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>24</td><td>window[<span class="codeString">&quot;submitForm&quot;</span>] = submitForm</td></tr>
+ </tbody>
+</table>
       </section>
       </section>
      <section>
@@ -1053,12 +1030,12 @@
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+     <a href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+     <a href="/m23token/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
@@ -1066,327 +1043,361 @@
      <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+    </p>
+   </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. lib / php / creaToken.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">creaToken</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$pagina</span>, <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$duracionEnMinutos</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$criptografiaFuerte</span> = <span
-     style="color: #0000ff;">true</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Crea el token</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$token</span> = [</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"expiracion"</span> =&gt; <span
-     style="color: #795e26;">time</span>() + <span
-     style="color: #098658;">60</span> *&nbsp;<span
-     style="color: #001080;">$duracionEnMinutos</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// El token es de 80 caracteres, criptográficamente
-    fuerte.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"texto"</span> =&gt; <span
-     style="color: #795e26;">bin2hex</span>(<span
-     style="color: #795e26;">openssl_random_pseudo_bytes</span>(<span
-     style="color: #098658;">80</span>, <span
-     style="color: #001080;">$criptografiaFuerte</span>))</div>
-  <div>&nbsp;];</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Verifica que ya haya tokens $pagina.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>]))&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>];</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Como ya exite el arreglo, elimina los tokens
-    expirados para esta pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaPagina</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por
-    pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span>[] = <span
-     style="color: #001080;">$token</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por pagina
-   </span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = [<span
-     style="color: #001080;">$token</span>];</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$token</span>[<span
-     style="color: #a31515;">"texto"</span>];</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >1. lib / php / creaToken.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> creaToken(string $pagina, int $duracionEnMinutos)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $criptografiaFuerte = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">// Crea el token</span></td></tr>
+  <tr><td>8</td><td> $token = [</td></tr>
+  <tr><td>9</td><td>  <span class="codeString">&quot;expiracion&quot;</span> =&gt; time() + 60 * $duracionEnMinutos,</td></tr>
+  <tr><td>10</td><td>  <span class="codeComment">// El token es de 80 caracteres, criptográficamente fuerte.</span></td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;texto&quot;</span> =&gt; bin2hex(openssl_random_pseudo_bytes(80, $criptografiaFuerte))</td></tr>
+  <tr><td>12</td><td> ];</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeComment">// Verifica que ya haya tokens $pagina.</span></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">if</span> (isset($_SESSION[$pagina])) {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>  $tokensParaPagina = $_SESSION[$pagina];</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">// Como ya existe el arreglo, elimina los tokens expirados para esta pagina.</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
+  <tr><td>21</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>22</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>23</td><td>   }</td></tr>
+  <tr><td>24</td><td>  }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina.</span></td></tr>
+  <tr><td>27</td><td>  $tokensParaPagina[] = $token;</td></tr>
+  <tr><td>28</td><td>  $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>29</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina </span></td></tr>
+  <tr><td>32</td><td>  $_SESSION[$pagina] = [$token];</td></tr>
+  <tr><td>33</td><td> }</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">return</span> $token[<span class="codeString">&quot;texto&quot;</span>];</td></tr>
+  <tr><td>36</td><td>}</td></tr>
+  <tr><td>37</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. lib / php / validaToken.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">validaToken</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$pagina</span>, <span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$token</span>)</div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>]))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Página </span><span
-     style="color: #001080;">$pagina</span><span
-     style="color: #a31515;"> no registrada."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>];</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">is_array</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">false</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Valida que el token se haya registrado.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaPagina</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">strcmp</span>(<span
-     style="color: #001080;">$token</span>, <span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"texto"</span>]) === <span
-     style="color: #098658;">0</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &lt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Tiempo de expiración excedido."</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">true</span>;</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">elseif</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// Elimina tokens expirados</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$hallado</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No autorizado"</span>);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >2. lib / php / ejecutaServicio.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * Ejecuta una funcion que implementa un servicio.</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">function</span> ejecutaServicio($servicio)</td></tr>
+  <tr><td>10</td><td>{</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>12</td><td>  $resultado = $servicio();</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">if</span> (!($resultado <span class="codeReserved">instanceof</span> JsonResponse)) {</td></tr>
+  <tr><td>14</td><td>   $resultado = JsonResponse::ok($resultado);</td></tr>
+  <tr><td>15</td><td>  }</td></tr>
+  <tr><td>16</td><td>  procesa_json_response($resultado);</td></tr>
+  <tr><td>17</td><td> } <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>18</td><td>  procesa_problem_details($details);</td></tr>
+  <tr><td>19</td><td> } <span class="codeReserved">catch</span> (Throwable $throwable) {</td></tr>
+  <tr><td>20</td><td>  procesa_problem_details(<span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: ProblemDetails::InternalServerError,</td></tr>
+  <tr><td>22</td><td>   type: <span class="codeString">&quot;&#47;error&#47;errorinterno.html&quot;</span>,</td></tr>
+  <tr><td>23</td><td>   title: <span class="codeString">&quot;Error interno del servidor.&quot;</span>,</td></tr>
+  <tr><td>24</td><td>   detail: $throwable-&gt;getMessage()</td></tr>
+  <tr><td>25</td><td>  ));</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td>}</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td><span class="codeReserved">function</span> procesa_json_response(JsonResponse $response)</td></tr>
+  <tr><td>30</td><td>{</td></tr>
+  <tr><td>31</td><td> $json = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>32</td><td> $body = $response-&gt;body;</td></tr>
+  <tr><td>33</td><td> <span class="codeReserved">if</span> ($response-&gt;status !== JsonResponse_NoContent) {</td></tr>
+  <tr><td>34</td><td>  $json = json_encode($body);</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>36</td><td>   no_puede_generar_json();</td></tr>
+  <tr><td>37</td><td>   <span class="codeReserved">return</span>;</td></tr>
+  <tr><td>38</td><td>  }</td></tr>
+  <tr><td>39</td><td> }</td></tr>
+  <tr><td>40</td><td> http_response_code($response-&gt;status);</td></tr>
+  <tr><td>41</td><td> <span class="codeReserved">if</span> ($response-&gt;location !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>42</td><td>  header(&quot;Location: {$response-&gt;location}&quot;);</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td> <span class="codeReserved">if</span> ($response-&gt;status !== JsonResponse_NoContent) {</td></tr>
+  <tr><td>45</td><td>  header(<span class="codeString">&quot;Content-Type: application&#47;json&quot;</span>);</td></tr>
+  <tr><td>46</td><td>  echo $json;</td></tr>
+  <tr><td>47</td><td> }</td></tr>
+  <tr><td>48</td><td>}</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td><span class="codeReserved">function</span> procesa_problem_details(ProblemDetails $details)</td></tr>
+  <tr><td>51</td><td>{</td></tr>
+  <tr><td>52</td><td> $body = [<span class="codeString">&quot;title&quot;</span> =&gt; $details-&gt;title];</td></tr>
+  <tr><td>53</td><td> <span class="codeReserved">if</span> ($details-&gt;type !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>54</td><td>  $body[<span class="codeString">&quot;type&quot;</span>] = $details-&gt;type;</td></tr>
+  <tr><td>55</td><td> }</td></tr>
+  <tr><td>56</td><td> <span class="codeReserved">if</span> ($details-&gt;detail !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>57</td><td>  $body[<span class="codeString">&quot;detail&quot;</span>] = $details-&gt;detail;</td></tr>
+  <tr><td>58</td><td> }</td></tr>
+  <tr><td>59</td><td> $json = json_encode($body);</td></tr>
+  <tr><td>60</td><td> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>61</td><td>  no_puede_generar_json();</td></tr>
+  <tr><td>62</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>63</td><td>  http_response_code($details-&gt;status);</td></tr>
+  <tr><td>64</td><td>  header(<span class="codeString">&quot;Content-Type: application&#47;problem+json&quot;</span>);</td></tr>
+  <tr><td>65</td><td>  echo $json;</td></tr>
+  <tr><td>66</td><td> }</td></tr>
+  <tr><td>67</td><td>}</td></tr>
+  <tr><td>68</td><td></td></tr>
+  <tr><td>69</td><td><span class="codeReserved">function</span> no_puede_generar_json()</td></tr>
+  <tr><td>70</td><td>{</td></tr>
+  <tr><td>71</td><td> http_response_code(ProblemDetails::InternalServerError);</td></tr>
+  <tr><td>72</td><td> header(<span class="codeString">&quot;Content-Type: application&#47;problem+json&quot;</span>);</td></tr>
+  <tr><td>73</td><td> echo <span class="codeString">&#039;{&quot;type&quot;:&quot;&#47;error&#47;nojson.html&quot;&#039;</span></td></tr>
+  <tr><td>74</td><td>  . <span class="codeString">&#039;,&quot;title&quot;:&quot;El valor devuelto no puede representarse como JSON.&quot;}&#039;</span>;</td></tr>
+  <tr><td>75</td><td>}</td></tr>
+  <tr><td>76</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >3. lib / php / ejecuta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Ejecuta una funcion que implementa un
-    servicio.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">$servicio</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Usa utf8.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">mb_internal_encoding</span>(<span
-     style="color: #a31515;">"UTF-8"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$servicio</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve JSON.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: application/json"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$json</span> = <span
-     style="color: #795e26;">json_encode</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$json</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El valor de regreso no puede representarse como
-    JSON"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$json</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #267f99;">Throwable</span> <span
-     style="color: #001080;">$t</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve error.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: text/plain"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">http_response_code</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$t</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>();</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >3. lib / php / JsonResponse.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">const</span> JsonResponse_OK = 200;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">const</span> JsonResponse_Created = 201;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> JsonResponse_NoContent = 204;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">class</span> JsonResponse</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> $body;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $location;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>15</td><td>  int $status = JsonResponse_OK,</td></tr>
+  <tr><td>16</td><td>  $body = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>17</td><td>  ?string $location = <span class="codeReserved">null</span></td></tr>
+  <tr><td>18</td><td> ) {</td></tr>
+  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>20</td><td>  $<span class="codeReserved">this</span>-&gt;body = $body;</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;location = $location;</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> ok($body)</td></tr>
+  <tr><td>25</td><td> {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(body: $body);</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> created(string $location, $body)</td></tr>
+  <tr><td>30</td><td> {</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_Created, $body, $location);</td></tr>
+  <tr><td>32</td><td> }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> noContent()</td></tr>
+  <tr><td>35</td><td> {</td></tr>
+  <tr><td>36</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_NoContent, <span class="codeReserved">null</span>);</td></tr>
+  <tr><td>37</td><td> }</td></tr>
+  <tr><td>38</td><td>}</td></tr>
+  <tr><td>39</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >4. lib / php / leeTexto.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera el texto de un parámetro
-    enviado al</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;servidor por medio de GET, POST o
-    cookie.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): <span
-     style="color: #0000ff;">string</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si el parámetro está asignado en
-    $_REQUEST,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve su valor; de lo
-    contrario,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve "". */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$valor</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>]</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >4. lib / php / leeTexto.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Recupera el texto de un parámetro enviado al</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * servidor por medio de GET, POST o cookie.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">function</span> leeTexto(string $parametro): ?string</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> <span class="codeComment">/* Si el parámetro está asignado en $_REQUEST,</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * devuelve su valor; de lo contrario,</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  * devuelve <span class="codeReserved">null</span>. */</span></td></tr>
+  <tr><td>13</td><td> $valor = isset($_REQUEST[$parametro])</td></tr>
+  <tr><td>14</td><td>  ? $_REQUEST[$parametro]</td></tr>
+  <tr><td>15</td><td>  : <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> $valor;</td></tr>
+  <tr><td>17</td><td>}</td></tr>
+  <tr><td>18</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. lib / php / ProblemDetails.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">class</span> ProblemDetails extends Exception</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> BadRequest = 400;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> NotFound = 404;</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> InternalServerError = 500;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> string $title;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $type;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">public</span> ?string $detail;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>16</td><td>  int $status,</td></tr>
+  <tr><td>17</td><td>  string $title,</td></tr>
+  <tr><td>18</td><td>  ?string $type = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>19</td><td>  ?string $detail = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>20</td><td>  Throwable $previous = <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td> ) {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>($title, $status, $previous);</td></tr>
+  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>24</td><td>  $<span class="codeReserved">this</span>-&gt;type = $type;</td></tr>
+  <tr><td>25</td><td>  $<span class="codeReserved">this</span>-&gt;title = $title;</td></tr>
+  <tr><td>26</td><td>  $<span class="codeReserved">this</span>-&gt;detail = $detail;</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. lib / php / validaToken.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> FORBIDDEN = 403;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> validaToken(string $pagina, string $token)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">if</span> (!isset($_SESSION[$pagina]))</td></tr>
+  <tr><td>11</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>12</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">&quot;/error/paginanoregistrada.html&quot;</span>,</td></tr>
+  <tr><td>14</td><td>   title: <span class="codeString">&quot;Página no registrada.&quot;</span>,</td></tr>
+  <tr><td>15</td><td>  );</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $tokensParaPagina = $_SESSION[$pagina];</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">if</span> (!is_array($tokensParaPagina))</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>22</td><td>   type: <span class="codeString">&quot;/error/sintokens.html&quot;</span>,</td></tr>
+  <tr><td>23</td><td>   title: <span class="codeString">&quot;No hay arereglo de tokens.&quot;</span>,</td></tr>
+  <tr><td>24</td><td>  );</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> $hallado = <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> <span class="codeComment">// Valida que el token se haya registrado.</span></td></tr>
+  <tr><td>29</td><td> <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">if</span> (strcmp($token, $tokenParaPagina[<span class="codeString">&quot;texto&quot;</span>]) === 0) {</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &lt; time()) {</td></tr>
+  <tr><td>34</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>35</td><td>    $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>36</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>37</td><td>     status: FORBIDDEN,</td></tr>
+  <tr><td>38</td><td>     type: <span class="codeString">&quot;/error/paginaexpirada.html&quot;</span>,</td></tr>
+  <tr><td>39</td><td>     title: <span class="codeString">&quot;Tiempo de expiración excedido.&quot;</span>,</td></tr>
+  <tr><td>40</td><td>    );</td></tr>
+  <tr><td>41</td><td>   }</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td>   $hallado = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>44</td><td>  } <span class="codeReserved">elseif</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>45</td><td></td></tr>
+  <tr><td>46</td><td>   <span class="codeComment">// Elimina tokens expirados</span></td></tr>
+  <tr><td>47</td><td>   unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>48</td><td>  }</td></tr>
+  <tr><td>49</td><td> }</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td> <span class="codeReserved">if</span> ($hallado === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>54</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>55</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>56</td><td>   type: <span class="codeString">&quot;/error/paginanoregistrada.html&quot;</span>,</td></tr>
+  <tr><td>57</td><td>   title: <span class="codeString">&quot;Página no registrada.&quot;</span>,</td></tr>
+  <tr><td>58</td><td>  );</td></tr>
+  <tr><td>59</td><td>}</td></tr>
+  <tr><td>60</td><td></td></tr>
+ </tbody>
+</table>
       </section>
       </section>
 </body>

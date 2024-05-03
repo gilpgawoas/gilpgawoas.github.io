@@ -1,106 +1,72 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">validaToken</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$pagina</span>, <span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$token</span>)</div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>]))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Página </span><span
-     style="color: #001080;">$pagina</span><span
-     style="color: #a31515;"> no registrada."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>];</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (!<span
-     style="color: #795e26;">is_array</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>))</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No hay arereglo de tokens."</span>);</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">false</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Valida que el token se haya registrado.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaPagina</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">strcmp</span>(<span
-     style="color: #001080;">$token</span>, <span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"texto"</span>]) === <span
-     style="color: #098658;">0</span>)&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &lt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Tiempo de expiración excedido."</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$hallado</span> = <span
-     style="color: #0000ff;">true</span>;</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">elseif</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #008000;">// Elimina tokens expirados</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$hallado</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"No autorizado"</span>);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> FORBIDDEN = 403;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> validaToken(string $pagina, string $token)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">if</span> (!isset($_SESSION[$pagina]))</td></tr>
+  <tr><td>11</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>12</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">&quot;/error/paginanoregistrada.html&quot;</span>,</td></tr>
+  <tr><td>14</td><td>   title: <span class="codeString">&quot;Página no registrada.&quot;</span>,</td></tr>
+  <tr><td>15</td><td>  );</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $tokensParaPagina = $_SESSION[$pagina];</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">if</span> (!is_array($tokensParaPagina))</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>22</td><td>   type: <span class="codeString">&quot;/error/sintokens.html&quot;</span>,</td></tr>
+  <tr><td>23</td><td>   title: <span class="codeString">&quot;No hay arereglo de tokens.&quot;</span>,</td></tr>
+  <tr><td>24</td><td>  );</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> $hallado = <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> <span class="codeComment">// Valida que el token se haya registrado.</span></td></tr>
+  <tr><td>29</td><td> <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">if</span> (strcmp($token, $tokenParaPagina[<span class="codeString">&quot;texto&quot;</span>]) === 0) {</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &lt; time()) {</td></tr>
+  <tr><td>34</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>35</td><td>    $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>36</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>37</td><td>     status: FORBIDDEN,</td></tr>
+  <tr><td>38</td><td>     type: <span class="codeString">&quot;/error/paginaexpirada.html&quot;</span>,</td></tr>
+  <tr><td>39</td><td>     title: <span class="codeString">&quot;Tiempo de expiración excedido.&quot;</span>,</td></tr>
+  <tr><td>40</td><td>    );</td></tr>
+  <tr><td>41</td><td>   }</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td>   $hallado = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>44</td><td>  } <span class="codeReserved">elseif</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>45</td><td></td></tr>
+  <tr><td>46</td><td>   <span class="codeComment">// Elimina tokens expirados</span></td></tr>
+  <tr><td>47</td><td>   unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>48</td><td>  }</td></tr>
+  <tr><td>49</td><td> }</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td> <span class="codeReserved">if</span> ($hallado === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>54</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>55</td><td>   status: FORBIDDEN,</td></tr>
+  <tr><td>56</td><td>   type: <span class="codeString">&quot;/error/paginanoregistrada.html&quot;</span>,</td></tr>
+  <tr><td>57</td><td>   title: <span class="codeString">&quot;Página no registrada.&quot;</span>,</td></tr>
+  <tr><td>58</td><td>  );</td></tr>
+  <tr><td>59</td><td>}</td></tr>
+  <tr><td>60</td><td></td></tr>
+ </tbody>
+</table>

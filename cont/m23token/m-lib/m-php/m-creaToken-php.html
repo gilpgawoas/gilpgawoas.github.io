@@ -1,92 +1,49 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">creaToken</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$pagina</span>, <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$duracionEnMinutos</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$criptografiaFuerte</span> = <span
-     style="color: #0000ff;">true</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Crea el token</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$token</span> = [</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"expiracion"</span> =&gt; <span
-     style="color: #795e26;">time</span>() + <span
-     style="color: #098658;">60</span> *&nbsp;<span
-     style="color: #001080;">$duracionEnMinutos</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// El token es de 80 caracteres, criptográficamente
-    fuerte.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"texto"</span> =&gt; <span
-     style="color: #795e26;">bin2hex</span>(<span
-     style="color: #795e26;">openssl_random_pseudo_bytes</span>(<span
-     style="color: #098658;">80</span>, <span
-     style="color: #001080;">$criptografiaFuerte</span>))</div>
-  <div>&nbsp;];</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Verifica que ya haya tokens $pagina.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>]))&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>];</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Como ya exite el arreglo, elimina los tokens
-    expirados para esta pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaPagina</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por
-    pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span>[] = <span
-     style="color: #001080;">$token</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por pagina
-   </span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = [<span
-     style="color: #001080;">$token</span>];</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$token</span>[<span
-     style="color: #a31515;">"texto"</span>];</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> creaToken(string $pagina, int $duracionEnMinutos)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $criptografiaFuerte = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">// Crea el token</span></td></tr>
+  <tr><td>8</td><td> $token = [</td></tr>
+  <tr><td>9</td><td>  <span class="codeString">&quot;expiracion&quot;</span> =&gt; time() + 60 * $duracionEnMinutos,</td></tr>
+  <tr><td>10</td><td>  <span class="codeComment">// El token es de 80 caracteres, criptográficamente fuerte.</span></td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;texto&quot;</span> =&gt; bin2hex(openssl_random_pseudo_bytes(80, $criptografiaFuerte))</td></tr>
+  <tr><td>12</td><td> ];</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeComment">// Verifica que ya haya tokens $pagina.</span></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">if</span> (isset($_SESSION[$pagina])) {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>  $tokensParaPagina = $_SESSION[$pagina];</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">// Como ya existe el arreglo, elimina los tokens expirados para esta pagina.</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
+  <tr><td>21</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>22</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>23</td><td>   }</td></tr>
+  <tr><td>24</td><td>  }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina.</span></td></tr>
+  <tr><td>27</td><td>  $tokensParaPagina[] = $token;</td></tr>
+  <tr><td>28</td><td>  $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>29</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina </span></td></tr>
+  <tr><td>32</td><td>  $_SESSION[$pagina] = [$token];</td></tr>
+  <tr><td>33</td><td> }</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">return</span> $token[<span class="codeString">&quot;texto&quot;</span>];</td></tr>
+  <tr><td>36</td><td>}</td></tr>
+  <tr><td>37</td><td></td></tr>
+ </tbody>
+</table>

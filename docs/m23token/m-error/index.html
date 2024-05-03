@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>3. lib / php / ejecuta.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/php/ejecuta.php».">
+ <title>I. Carpeta « error » - GilPG AWOAS</title>
+ <meta name="description" content="Archivos de la carpeta «error».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -834,74 +834,73 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >3. lib / php / ejecuta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Ejecuta una funcion que implementa un
-    servicio.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">$servicio</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Usa utf8.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">mb_internal_encoding</span>(<span
-     style="color: #a31515;">"UTF-8"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$servicio</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve JSON.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: application/json"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$json</span> = <span
-     style="color: #795e26;">json_encode</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$json</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El valor de regreso no puede representarse como
-    JSON"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$json</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #267f99;">Throwable</span> <span
-     style="color: #001080;">$t</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve error.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: text/plain"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">http_response_code</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$t</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>();</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+   <h1 >I. Carpeta « error »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a href="print.html" target="_blank" rel="noopener">Versión para
+      imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-errorinterno-html.html">error / errorinterno.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-faltanombre-html.html">error / faltanombre.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-faltasaludo-html.html">error / faltasaludo.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-faltatoken-html.html">error / faltatoken.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-nojson-html.html">error / nojson.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-nombreenblanco-html.html">error / nombreenblanco.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-paginaexpirada-html.html">error / paginaexpirada.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-paginanoregistrada-html.html">error / paginanoregistrada.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-saludoenblanco-html.html">error / saludoenblanco.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-sintokens-html.html">error / sintokens.html</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
  <footer>
  <p>
   <a rel="license"
@@ -927,10 +926,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m23token/m-lib/m-php/m-validaToken-php.html" title="2. lib / php / validaToken.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m23token/m-lib/m-php/m-validaToken-php.html" title="6. lib / php / validaToken.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m23token/m-lib/m-php/m-leeTexto-php.html" title="4. lib / php / leeTexto.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m23token/m-error/m-errorinterno-html.html" title="A. error / errorinterno.html"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -950,46 +949,73 @@
    <p>
     <a href="/m23token/">25. Servicio con token</a>
    </p>
-   <p>
-    <a href="/m23token/m-lib/">I. Carpeta « lib »</a>
-   </p>
    
      <p>
-      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForma-js.html"
-        title="3. lib / js / submitForma.js"><span
+      <a class="paginaAnterior" href="/m23token/m-lib/m-php/m-validaToken-php.html"
+        title="6. lib / php / validaToken.php"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m23token/m-lib/m-php/index.html">B. Carpeta « lib / php »</a></h1>
+   <h1><a href="/m23token/m-error/index.html" class="actual">I. Carpeta « error »</a></h1>
    
-   <ol type="1">
+   <ol type="A">
     
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-creaToken-php.html">lib / php / creaToken.php</a>
+     <a href="/m23token/m-error/m-errorinterno-html.html">error / errorinterno.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+     <a href="/m23token/m-error/m-faltanombre-html.html">error / faltanombre.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html" class="actual">lib / php / ejecuta.php</a>
+     <a href="/m23token/m-error/m-faltasaludo-html.html">error / faltasaludo.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
+     <a href="/m23token/m-error/m-faltatoken-html.html">error / faltatoken.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-nojson-html.html">error / nojson.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-nombreenblanco-html.html">error / nombreenblanco.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-paginaexpirada-html.html">error / paginaexpirada.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-paginanoregistrada-html.html">error / paginanoregistrada.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-saludoenblanco-html.html">error / saludoenblanco.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-error/m-sintokens-html.html">error / sintokens.html</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m23token/mTresumen.html"
-       title="J. Resumen"><span
+     <a class="paginaSiguiente" href="/m23token/m-jsconfig-json.html"
+       title="J. jsconfig.json"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1008,7 +1034,7 @@
  /**@type {string} */
  let urlAnterior = "/m23token/m-lib/m-php/m-validaToken-php.html"
  /**@type {string} */
- let urlSiguiente = "/m23token/m-lib/m-php/m-leeTexto-php.html"
+ let urlSiguiente = "/m23token/m-error/m-errorinterno-html.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

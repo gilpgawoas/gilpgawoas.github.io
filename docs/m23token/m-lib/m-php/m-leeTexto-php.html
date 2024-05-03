@@ -834,51 +834,36 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >4. lib / php / leeTexto.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera el texto de un parámetro
-    enviado al</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;servidor por medio de GET, POST o
-    cookie.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): <span
-     style="color: #0000ff;">string</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si el parámetro está asignado en
-    $_REQUEST,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve su valor; de lo
-    contrario,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve "". */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$valor</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>]</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+   <h1 >4. lib / php / leeTexto.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Recupera el texto de un parámetro enviado al</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * servidor por medio de GET, POST o cookie.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">function</span> leeTexto(string $parametro): ?string</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> <span class="codeComment">/* Si el parámetro está asignado en $_REQUEST,</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * devuelve su valor; de lo contrario,</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  * devuelve <span class="codeReserved">null</span>. */</span></td></tr>
+  <tr><td>13</td><td> $valor = isset($_REQUEST[$parametro])</td></tr>
+  <tr><td>14</td><td>  ? $_REQUEST[$parametro]</td></tr>
+  <tr><td>15</td><td>  : <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> $valor;</td></tr>
+  <tr><td>17</td><td>}</td></tr>
+  <tr><td>18</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -904,10 +889,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m23token/m-lib/m-php/m-ejecuta-php.html" title="3. lib / php / ejecuta.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m23token/m-lib/m-php/m-JsonResponse-php.html" title="3. lib / php / JsonResponse.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m23token/mTresumen.html" title="J. Resumen"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m23token/m-lib/m-php/m-ProblemDetails-php.html" title="5. lib / php / ProblemDetails.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -928,12 +913,12 @@
     <a href="/m23token/">25. Servicio con token</a>
    </p>
    <p>
-    <a href="/m23token/m-lib/">I. Carpeta « lib »</a>
+    <a href="/m23token/m-lib/">H. Carpeta « lib »</a>
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForma-js.html"
-        title="3. lib / js / submitForma.js"><span
+      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForm-js.html"
+        title="5. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -949,12 +934,12 @@
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+     <a href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+     <a href="/m23token/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
@@ -962,11 +947,21 @@
      <a href="/m23token/m-lib/m-php/m-leeTexto-php.html" class="actual">lib / php / leeTexto.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m23token/mTresumen.html"
-       title="J. Resumen"><span
+     <a class="paginaSiguiente" href="/m23token/m-error/index.html"
+       title="I. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -983,9 +978,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m23token/m-lib/m-php/m-ejecuta-php.html"
+ let urlAnterior = "/m23token/m-lib/m-php/m-JsonResponse-php.html"
  /**@type {string} */
- let urlSiguiente = "/m23token/mTresumen.html"
+ let urlSiguiente = "/m23token/m-lib/m-php/m-ProblemDetails-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

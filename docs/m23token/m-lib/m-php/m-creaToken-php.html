@@ -834,98 +834,55 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >1. lib / php / creaToken.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">creaToken</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$pagina</span>, <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$duracionEnMinutos</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$criptografiaFuerte</span> = <span
-     style="color: #0000ff;">true</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Crea el token</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$token</span> = [</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"expiracion"</span> =&gt; <span
-     style="color: #795e26;">time</span>() + <span
-     style="color: #098658;">60</span> *&nbsp;<span
-     style="color: #001080;">$duracionEnMinutos</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// El token es de 80 caracteres, criptográficamente
-    fuerte.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"texto"</span> =&gt; <span
-     style="color: #795e26;">bin2hex</span>(<span
-     style="color: #795e26;">openssl_random_pseudo_bytes</span>(<span
-     style="color: #098658;">80</span>, <span
-     style="color: #001080;">$criptografiaFuerte</span>))</div>
-  <div>&nbsp;];</div><br>
-  <div>&nbsp;<span
-     style="color: #008000;">// Verifica que ya haya tokens $pagina.</span>
-  </div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>]))&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span> = <span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>];</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Como ya exite el arreglo, elimina los tokens
-    expirados para esta pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$tokensParaPagina</span> as <span
-     style="color: #001080;">$llave</span> =&gt; <span
-     style="color: #001080;">$tokenParaPagina</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$tokenParaPagina</span>[<span
-     style="color: #a31515;">"expiracion"</span>] &gt; <span
-     style="color: #795e26;">time</span>())&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">unset</span>(<span
-     style="color: #001080;">$tokensParaPagina</span>[<span
-     style="color: #001080;">$llave</span>]);</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por
-    pagina.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$tokensParaPagina</span>[] = <span
-     style="color: #001080;">$token</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = <span
-     style="color: #001080;">$tokensParaPagina</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Se puede usar uno o varios tokens por pagina
-   </span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$_SESSION</span>[<span
-     style="color: #001080;">$pagina</span>] = [<span
-     style="color: #001080;">$token</span>];</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$token</span>[<span
-     style="color: #a31515;">"texto"</span>];</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+   <h1 >1. lib / php / creaToken.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> creaToken(string $pagina, int $duracionEnMinutos)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $criptografiaFuerte = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeComment">// Crea el token</span></td></tr>
+  <tr><td>8</td><td> $token = [</td></tr>
+  <tr><td>9</td><td>  <span class="codeString">&quot;expiracion&quot;</span> =&gt; time() + 60 * $duracionEnMinutos,</td></tr>
+  <tr><td>10</td><td>  <span class="codeComment">// El token es de 80 caracteres, criptográficamente fuerte.</span></td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;texto&quot;</span> =&gt; bin2hex(openssl_random_pseudo_bytes(80, $criptografiaFuerte))</td></tr>
+  <tr><td>12</td><td> ];</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeComment">// Verifica que ya haya tokens $pagina.</span></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">if</span> (isset($_SESSION[$pagina])) {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>  $tokensParaPagina = $_SESSION[$pagina];</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">// Como ya existe el arreglo, elimina los tokens expirados para esta pagina.</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
+  <tr><td>21</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>22</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
+  <tr><td>23</td><td>   }</td></tr>
+  <tr><td>24</td><td>  }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina.</span></td></tr>
+  <tr><td>27</td><td>  $tokensParaPagina[] = $token;</td></tr>
+  <tr><td>28</td><td>  $_SESSION[$pagina] = $tokensParaPagina;</td></tr>
+  <tr><td>29</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td>  <span class="codeComment">// Se puede usar uno o varios tokens por pagina </span></td></tr>
+  <tr><td>32</td><td>  $_SESSION[$pagina] = [$token];</td></tr>
+  <tr><td>33</td><td> }</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">return</span> $token[<span class="codeString">&quot;texto&quot;</span>];</td></tr>
+  <tr><td>36</td><td>}</td></tr>
+  <tr><td>37</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -954,7 +911,7 @@
  <a class="anterior" href="/m23token/m-lib/m-php/index.html" title="B. Carpeta « lib / php »"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m23token/m-lib/m-php/m-validaToken-php.html" title="2. lib / php / validaToken.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html" title="2. lib / php / ejecutaServicio.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -975,12 +932,12 @@
     <a href="/m23token/">25. Servicio con token</a>
    </p>
    <p>
-    <a href="/m23token/m-lib/">I. Carpeta « lib »</a>
+    <a href="/m23token/m-lib/">H. Carpeta « lib »</a>
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForma-js.html"
-        title="3. lib / js / submitForma.js"><span
+      <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForm-js.html"
+        title="5. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -996,12 +953,12 @@
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+     <a href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+     <a href="/m23token/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
@@ -1009,11 +966,21 @@
      <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-validaToken-php.html">lib / php / validaToken.php</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m23token/mTresumen.html"
-       title="J. Resumen"><span
+     <a class="paginaSiguiente" href="/m23token/m-error/index.html"
+       title="I. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1032,7 +999,7 @@
  /**@type {string} */
  let urlAnterior = "/m23token/m-lib/m-php/index.html"
  /**@type {string} */
- let urlSiguiente = "/m23token/m-lib/m-php/m-validaToken-php.html"
+ let urlSiguiente = "/m23token/m-lib/m-php/m-ejecutaServicio-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
