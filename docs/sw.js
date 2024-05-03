@@ -1,7 +1,7 @@
 /* Espera 11 minutos después de hacer los cambios en tu sitio, para depués
  * actualizar este archivo. */
 
-const VERSION = "5.6"
+const VERSION = "5.7"
 
 const CACHE = "cache"
 
@@ -14,9 +14,6 @@ const ARCHIVOS = [
  "/fonts/purple-purse-v23-latin_latin-ext-regular.woff2",
  "/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2",
  "/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2",
- "/img/arquitectura_saludo.svg",
- "/img/arquitectura_soa.svg",
- "/img/clases_saludo.svg",
  "/img/icono/160x30.png",
  "/img/icono/160x30.webp",
  "/img/icono/80x15.png",
@@ -67,7 +64,6 @@ const ARCHIVOS = [
  "/img/m21compras/compraspaquetes.drawio.svg",
  "/img/m21compras/comprasrel.drawio.svg",
  "/img/m23token/srvtokendistribucion.drawio.svg",
- "/img/mensajes_soap.svg",
  "/",
  "/index.html",
  "/lib/js/muestra-codigo.js",
