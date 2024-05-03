@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>D. srv / srvDetalleDeVentaBusca.php - GilPG AWOAS</title>
+ <title>C. srv / srvDetalleDeVentaBusca.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvDetalleDeVentaBusca.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,71 +834,49 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >D. srv / srvDetalleDeVentaBusca.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/detalleDeVentaBusca.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$prodId</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"prodId"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #795e26;">detalleDeVentaBusca</span>(<span
-     style="color: #001080;">$prodId</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$modelo</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Detalle de venta no encontrado."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$producto</span> = <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">producto</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"prodId"</span> =&gt; <span
-     style="color: #001080;">$producto</span>-&gt;<span
-     style="color: #001080;">id</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"prodNombre"</span> =&gt; <span
-     style="color: #001080;">$producto</span>-&gt;<span
-     style="color: #001080;">nombre</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"precio"</span> =&gt; <span
-     style="color: #a31515;">"$"</span> . <span
-     style="color: #795e26;">number_format</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">precio</span>, <span
-     style="color: #098658;">2</span>),</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"cantidad"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">cantidad</span>,</div>
-  <div>&nbsp;];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+   <h1 >C. srv / srvDetalleDeVentaBusca.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/detalleDeVentaBusca.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $prodId = leeEntero(<span class="codeString">&quot;prodId&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($prodId === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> $modelo = detalleDeVentaBusca($prodId);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>14</td><td>  $htmlId = htmlentities($prodId);</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>16</td><td>   status: ProblemDetails::NotFound,</td></tr>
+  <tr><td>17</td><td>   type: <span class="codeString">&quot;/error/detalledeventanoencontrado.html&quot;</span>,</td></tr>
+  <tr><td>18</td><td>   title: <span class="codeString">&quot;Detalle de venta no encontrado.&quot;</span>,</td></tr>
+  <tr><td>19</td><td>   detail: <span class="codeString">&quot;No se encontró ningún detalle de venta con el id de producto &quot;</span></td></tr>
+  <tr><td>20</td><td>    . $htmlId . <span class="codeString">&quot;.&quot;</span>,</td></tr>
+  <tr><td>21</td><td>  );</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td> $producto = $modelo-&gt;producto;</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">return</span> [</td></tr>
+  <tr><td>25</td><td>  <span class="codeString">&quot;prodId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $producto-&gt;id],</td></tr>
+  <tr><td>26</td><td>  <span class="codeString">&quot;prodNombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $producto-&gt;nombre],</td></tr>
+  <tr><td>27</td><td>  <span class="codeString">&quot;precio&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; <span class="codeString">&quot;$&quot;</span> . number_format($modelo-&gt;precio, 2)],</td></tr>
+  <tr><td>28</td><td>  <span class="codeString">&quot;cantidad&quot;</span> =&gt; [<span class="codeString">&quot;valueAsNumber&quot;</span> =&gt; $modelo-&gt;cantidad],</td></tr>
+  <tr><td>29</td><td> ];</td></tr>
+  <tr><td>30</td><td>});</td></tr>
+  <tr><td>31</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -924,10 +902,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m21compras/m-srv/m-srvDetalleDeVentaAgrega-php.html" title="C. srv / srvDetalleDeVentaAgrega.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m21compras/m-srv/m-srvDetalleDeVentaAgrega-php.html" title="B. srv / srvDetalleDeVentaAgrega.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m21compras/m-srv/m-srvDetalleDeVentaElimina-php.html" title="E. srv / srvDetalleDeVentaElimina.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m21compras/m-srv/m-srvDetalleDeVentaElimina-php.html" title="D. srv / srvDetalleDeVentaElimina.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -962,11 +940,6 @@
    <li>
     <p>
      <a href="/m21compras/m-srv/m-modelo/">Carpeta « srv / modelo »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m21compras/m-srv/m-dao/">Carpeta « srv / dao »</a>
     </p>
    </li>
    <li>
@@ -1009,11 +982,16 @@
      <a href="/m21compras/m-srv/m-srvVentaEnCapturaProcesa-php.html">srv / srvVentaEnCapturaProcesa.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m21compras/m-jsconfig-json.html"
-       title="M. jsconfig.json"><span
+     <a class="paginaSiguiente" href="/m21compras/m-lib/index.html"
+       title="M. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

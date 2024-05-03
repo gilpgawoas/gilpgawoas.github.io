@@ -1,92 +1,41 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/productoConsulta.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$lista</span> = <span
-     style="color: #795e26;">productoConsulta</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$render</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$lista</span> as <span
-     style="color: #001080;">$it</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$prodId</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">prodId</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$prodNombre</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">prodNombre</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$archId</span> = <span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">archId</span> === <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;&nbsp;? <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;&nbsp;: <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$it</span>-&gt;<span
-     style="color: #001080;">archId</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$render</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;div style='display: flex; flex-direction:
-    row-reverse;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align-items:
-    center; gap: 0.5rem'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt style='flex: 1
-    1 0'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$prodId</span><span
-     style="color: #a31515;">'&gt;{</span><span
-     style="color: #001080;">$prodNombre</span><span
-     style="color: #a31515;">}&lt;/a&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dt&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd style='flex: 1
-    1 0; margin: 0'&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
-    href='modifica.html?id=</span><span
-     style="color: #001080;">$prodId</span><span
-     style="color: #a31515;">'&gt;&lt;img style='width: 100%'</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt='Imagen
-    del producto' src='srv/srvArchivo.php?id=</span><span
-     style="color: #001080;">$archId</span><span
-     style="color: #a31515;">'&gt;&lt;/a&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;"</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$render</span>;</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/productoConsulta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td> $lista = productoConsulta();</td></tr>
+  <tr><td>8</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>10</td><td>  $prodId = htmlentities($modelo-&gt;prodId);</td></tr>
+  <tr><td>11</td><td>  $prodNombre = htmlentities($modelo-&gt;prodNombre);</td></tr>
+  <tr><td>12</td><td>  $archId = $modelo-&gt;archId === <span class="codeReserved">null</span></td></tr>
+  <tr><td>13</td><td>   ? <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>14</td><td>   : htmlentities($modelo-&gt;archId);</td></tr>
+  <tr><td>15</td><td>  $render .=</td></tr>
+  <tr><td>16</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">div</span> style=&#039;display: flex; flex-direction: row-reverse;</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">      align-items: center; gap: 0.5rem&#039;&gt;</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">     &lt;<span class="codeReserved">dt</span> style=&#039;flex: 1 1 0&#039;&gt;</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$prodId&#039;&gt;$prodNombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">     &lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">     &lt;<span class="codeReserved">dd</span> style=&#039;flex: 1 1 0; margin: 0&#039;&gt;</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$prodId&#039;&gt;&lt;<span class="codeReserved">img</span> style=&#039;width: 100%&#039;</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">        alt=&#039;Imagen del producto&#039; src=&#039;srv/srvArchivo.php?id=$archId&#039;&gt;&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">     &lt;/<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">    &lt;/<span class="codeReserved">div</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
+  <tr><td>28</td><td>});</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>

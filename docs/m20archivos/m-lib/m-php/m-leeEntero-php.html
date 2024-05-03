@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>3. lib / php / leeEntero.php - GilPG AWOAS</title>
+ <title>4. lib / php / leeEntero.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/php/leeEntero.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,58 +834,41 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >3. lib / php / leeEntero.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/leeTexto.php"</span>;</div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Devuelve el valor entero de un
-    parámetro</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibido en el servidor por medio de
-    GET,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;POST o cookie. Si parámetro no se
-    puede</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;convertir a entero, se genera un
-    error.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Si el parámetro no se recibe,
-    devuelve</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;null.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): ?<span
-     style="color: #0000ff;">int</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$valor</span> = <span
-     style="color: #795e26;">trim</span>(<span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #001080;">$parametro</span>));</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span> === <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+   <h1 >4. lib / php / leeEntero.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Devuelve el valor entero de un parámetro</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * recibido en el servidor por medio de GET,</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * POST o cookie. Si parámetro no se puede</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * convertir a entero, se genera un error.</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * Para que las llaves foráneas fucionen bien,</span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> * si se recibe una cadena vacía, se devuelve</span></td></tr>
+  <tr><td>14</td><td><span class="codeComment"> * <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>15</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>16</td><td><span class="codeReserved">function</span> leeEntero(string $parametro): ?int</td></tr>
+  <tr><td>17</td><td>{</td></tr>
+  <tr><td>18</td><td> $valor = leeTexto($parametro);</td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">return</span> $valor === <span class="codeReserved">null</span> || $valor === <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>20</td><td>  ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td>  : trim($valor);</td></tr>
+  <tr><td>22</td><td>}</td></tr>
+  <tr><td>23</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -911,10 +894,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m20archivos/m-lib/m-php/m-leeBytes-php.html" title="2. lib / php / leeBytes.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m20archivos/m-lib/m-php/m-leeBytes-php.html" title="3. lib / php / leeBytes.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m20archivos/m-lib/m-php/m-leeTexto-php.html" title="4. lib / php / leeTexto.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m20archivos/m-lib/m-php/m-leeTexto-php.html" title="5. lib / php / leeTexto.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -935,12 +918,12 @@
     <a href="/m20archivos/">22. Archivos en la base de datos</a>
    </p>
    <p>
-    <a href="/m20archivos/m-lib/">M. Carpeta « lib »</a>
+    <a href="/m20archivos/m-lib/">L. Carpeta « lib »</a>
    </p>
    
      <p>
-      <a class="paginaAnterior" href="/m20archivos/m-lib/m-js/m-submitForma-js.html"
-        title="19. lib / js / submitForma.js"><span
+      <a class="paginaAnterior" href="/m20archivos/m-lib/m-js/m-submitForm-js.html"
+        title="9. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -951,7 +934,12 @@
     
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+     <a href="/m20archivos/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
@@ -971,14 +959,29 @@
    </li>
    <li>
     <p>
+     <a href="/m20archivos/m-lib/m-php/m-pdFaltaId-php.html">lib / php / pdFaltaId.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m20archivos/m-lib/m-php/m-recibeFetchAll-php.html">lib / php / recibeFetchAll.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-validaNombre-php.html">lib / php / validaNombre.php</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m20archivos/mTresumen.html"
-       title="N. Resumen"><span
+     <a class="paginaSiguiente" href="/m20archivos/m-error/index.html"
+       title="M. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

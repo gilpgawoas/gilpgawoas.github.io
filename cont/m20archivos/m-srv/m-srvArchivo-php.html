@@ -1,85 +1,49 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/AccesoBd.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/archivoBusca.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">mb_internal_encoding</span>(<span
-     style="color: #a31515;">"UTF-8"</span>);</div>
-  <div><span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">// Evita que la imagen se cargue en el caché de la
-    computadora.</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Cache-Control: no-store, no-cache,
-    must-revalidate, max-age=0"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Cache-Control: post-check=0, pre-check=0"</span>,
-   <span
-     style="color: #0000ff;">false</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Pragma: no-cache"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$con</span> = <span
-     style="color: #267f99;">AccesoBd</span>::<span
-     style="color: #795e26;">getCon</span>();</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$archivo</span> = <span
-     style="color: #795e26;">archivoBusca</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$archivo</span> === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Archivo no encontrado."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$archivo</span>-&gt;<span
-     style="color: #001080;">bytes</span>;</div>
-  <div>}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #267f99;">Throwable</span> <span
-     style="color: #001080;">$t</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">http_response_code</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$t</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>();</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/archivoBusca.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>mb_internal_encoding(<span class="codeString">&quot;UTF-8&quot;</span>);</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td> <span class="codeComment">// Evita que la imagen se cargue en el caché de la computadora.</span></td></tr>
+  <tr><td>12</td><td> header(<span class="codeString">&quot;Cache-Control: no-store, no-cache, must-revalidate, max-age=0&quot;</span>);</td></tr>
+  <tr><td>13</td><td> header(<span class="codeString">&quot;Cache-Control: post-check=0, pre-check=0&quot;</span>, <span class="codeReserved">false</span>);</td></tr>
+  <tr><td>14</td><td> header(<span class="codeString">&quot;Pragma: no-cache&quot;</span>);</td></tr>
+  <tr><td>15</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>17</td><td> $archivo = archivoBusca($id);</td></tr>
+  <tr><td>18</td><td> <span class="codeReserved">if</span> ($archivo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>20</td><td>   status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>21</td><td>   type: <span class="codeString">&quot;/error/archivonoencontrado.html&quot;</span>,</td></tr>
+  <tr><td>22</td><td>   title: <span class="codeString">&quot;Archivo no encontrado.&quot;</span>,</td></tr>
+  <tr><td>23</td><td>   detail: <span class="codeString">&quot;No se encontró ningún archivo con el id solicitado.&quot;</span></td></tr>
+  <tr><td>24</td><td>  );</td></tr>
+  <tr><td>25</td><td> }</td></tr>
+  <tr><td>26</td><td> echo $archivo-&gt;bytes;</td></tr>
+  <tr><td>27</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>28</td><td> procesa_problem_details($details);</td></tr>
+  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (Throwable $throwable) {</td></tr>
+  <tr><td>30</td><td> procesa_problem_details(<span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>31</td><td>  status: ProblemDetails::InternalServerError,</td></tr>
+  <tr><td>32</td><td>  type: <span class="codeString">&quot;/error/errorinterno.html&quot;</span>,</td></tr>
+  <tr><td>33</td><td>  title: <span class="codeString">&quot;Error interno del servidor.&quot;</span>,</td></tr>
+  <tr><td>34</td><td>  detail: $throwable-&gt;getMessage()</td></tr>
+  <tr><td>35</td><td> ));</td></tr>
+  <tr><td>36</td><td>}</td></tr>
+  <tr><td>37</td><td></td></tr>
+ </tbody>
+</table>

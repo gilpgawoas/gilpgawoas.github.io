@@ -718,12 +718,12 @@
     
    <li>
     <p>
-     <a href="/m21compras/m-srv/m-modelo/m-Producto-php.html">srv / modelo / Producto.php</a>
+     <a href="/m21compras/m-srv/m-modelo/m-DetalleDeVenta-php.html">srv / modelo / DetalleDeVenta.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m21compras/m-srv/m-modelo/m-DetalleDeVenta-php.html">srv / modelo / DetalleDeVenta.php</a>
+     <a href="/m21compras/m-srv/m-modelo/m-Producto-php.html">srv / modelo / Producto.php</a>
     </p>
    </li>
    <li>
@@ -735,304 +735,171 @@
    </nav>
   </div>
      <section >
-         <h1 >1. srv / modelo / Producto.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Producto</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$existencias</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$precio</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span> = <span
-     style="color: #a31515;">""</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$existencias</span> = NAN,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$precio</span> = NAN,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span> = <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> = <span
-     style="color: #001080;">$nombre</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">existencias</span> = <span
-     style="color: #001080;">$existencias</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">precio</span> = <span
-     style="color: #001080;">$precio</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> === <span
-     style="color: #a31515;">""</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el nombre."</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">is_nan</span>(<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">existencias</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Las existencias no pueden ser NAN."</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">is_nan</span>(<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">precio</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El precio no puede ser NAN."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >1. srv / modelo / DetalleDeVenta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Venta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Producto.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">class</span> DetalleDeVenta</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> ?Venta $venta;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> ?Producto $producto;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> float $cantidad;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">public</span> float $precio;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>16</td><td>  float $cantidad = NAN,</td></tr>
+  <tr><td>17</td><td>  float $precio = NAN,</td></tr>
+  <tr><td>18</td><td>  ?Producto $producto = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>19</td><td>  ?Venta $venta = <span class="codeReserved">null</span></td></tr>
+  <tr><td>20</td><td> ) {</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;cantidad = $cantidad;</td></tr>
+  <tr><td>22</td><td>  $<span class="codeReserved">this</span>-&gt;precio = $precio;</td></tr>
+  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;producto = $producto;</td></tr>
+  <tr><td>24</td><td>  $<span class="codeReserved">this</span>-&gt;venta = $venta;</td></tr>
+  <tr><td>25</td><td> }</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
+  <tr><td>28</td><td> {</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">if</span> ($<span class="codeReserved">this</span>-&gt;producto === <span class="codeReserved">null</span>)</td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Exception(<span class="codeString">&quot;Detalle de venta sin producto.&quot;</span>);</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">if</span> (is_nan($<span class="codeReserved">this</span>-&gt;cantidad))</td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>33</td><td>    status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>34</td><td>    type: <span class="codeString">&quot;/error/cantidadincorrecta.html&quot;</span>,</td></tr>
+  <tr><td>35</td><td>    title: <span class="codeString">&quot;La cantidad no puede ser NAN.&quot;</span>,</td></tr>
+  <tr><td>36</td><td>   );</td></tr>
+  <tr><td>37</td><td>  <span class="codeReserved">if</span> (is_nan($<span class="codeReserved">this</span>-&gt;precio))</td></tr>
+  <tr><td>38</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>39</td><td>    status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>40</td><td>    type: <span class="codeString">&quot;/error/precioincorrecto.html&quot;</span>,</td></tr>
+  <tr><td>41</td><td>    title: <span class="codeString">&quot;El precio no puede ser NAN.&quot;</span>,</td></tr>
+  <tr><td>42</td><td>   );</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td>}</td></tr>
+  <tr><td>45</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. srv / modelo / DetalleDeVenta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/Venta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/Producto.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">DetalleDeVenta</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> ?<span
-     style="color: #267f99;">Venta</span> <span
-     style="color: #001080;">$venta</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> ?<span
-     style="color: #267f99;">Producto</span> <span
-     style="color: #001080;">$producto</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$cantidad</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$precio</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$cantidad</span> = NAN,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">float</span> <span
-     style="color: #001080;">$precio</span> = NAN,</div>
-  <div>&nbsp;&nbsp;?<span
-     style="color: #267f99;">Producto</span> <span
-     style="color: #001080;">$producto</span> = <span
-     style="color: #0000ff;">null</span>,</div>
-  <div>&nbsp;&nbsp;?<span
-     style="color: #267f99;">Venta</span> <span
-     style="color: #001080;">$venta</span> = <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">cantidad</span> = <span
-     style="color: #001080;">$cantidad</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">precio</span> = <span
-     style="color: #001080;">$precio</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">producto</span> = <span
-     style="color: #001080;">$producto</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">venta</span> = <span
-     style="color: #001080;">$venta</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">producto</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Detalle de venta sin producto."</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">is_nan</span>(<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">cantidad</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"La cantidad no puede ser NAN."</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #795e26;">is_nan</span>(<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">precio</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El precio no puede ser NAN."</span>);</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >2. srv / modelo / Producto.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/validaNombre.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">class</span> Producto</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> string $nombre;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> float $existencias;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> float $precio;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>15</td><td>  string $nombre = <span class="codeString">&quot;&quot;</span>,</td></tr>
+  <tr><td>16</td><td>  float $existencias = NAN,</td></tr>
+  <tr><td>17</td><td>  float $precio = NAN,</td></tr>
+  <tr><td>18</td><td>  int $id = 0</td></tr>
+  <tr><td>19</td><td> ) {</td></tr>
+  <tr><td>20</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;nombre = $nombre;</td></tr>
+  <tr><td>22</td><td>  $<span class="codeReserved">this</span>-&gt;existencias = $existencias;</td></tr>
+  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;precio = $precio;</td></tr>
+  <tr><td>24</td><td> }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
+  <tr><td>27</td><td> {</td></tr>
+  <tr><td>28</td><td>  validaNombre($<span class="codeReserved">this</span>-&gt;nombre);</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">if</span> (is_nan($<span class="codeReserved">this</span>-&gt;existencias))</td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>31</td><td>    status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>32</td><td>    type: <span class="codeString">&quot;/error/existenciasincorrectas.html&quot;</span>,</td></tr>
+  <tr><td>33</td><td>    title: <span class="codeString">&quot;Las existencias no pueden ser NAN.&quot;</span>,</td></tr>
+  <tr><td>34</td><td>   );</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">if</span> (is_nan($<span class="codeReserved">this</span>-&gt;precio))</td></tr>
+  <tr><td>36</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>37</td><td>    status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>38</td><td>    type: <span class="codeString">&quot;/error/precioincorrecto.html&quot;</span>,</td></tr>
+  <tr><td>39</td><td>    title: <span class="codeString">&quot;El precio no puede ser NAN.&quot;</span>,</td></tr>
+  <tr><td>40</td><td>   );</td></tr>
+  <tr><td>41</td><td> }</td></tr>
+  <tr><td>42</td><td>}</td></tr>
+  <tr><td>43</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >3. srv / modelo / Venta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/DetalleDeVenta.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Venta</span></div>
-  <div>{</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">bool</span> <span
-     style="color: #001080;">$enCaptura</span>;</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/**&nbsp;</span><span
-     style="color: #0000ff;">@var</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">DetalleDeVenta</span><span
-     style="color: #0000ff;">[]</span><span
-     style="color: #008000;"> */</span></div>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">array</span> <span
-     style="color: #001080;">$detalles</span>;</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">__construct</span>(</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">bool</span> <span
-     style="color: #001080;">$enCaptura</span> = <span
-     style="color: #0000ff;">false</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">array</span> <span
-     style="color: #001080;">$detalles</span> = [],</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">$id</span> = <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #001080;">$id</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">enCaptura</span> = <span
-     style="color: #001080;">$enCaptura</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">detalles</span> = <span
-     style="color: #001080;">$detalles</span>;</div>
-  <div>&nbsp;}</div><br>
-  <div>&nbsp;<span
-     style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">detalles</span> as <span
-     style="color: #001080;">$detalle</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (!(<span
-     style="color: #001080;">$detalle</span> instanceof <span
-     style="color: #267f99;">DetalleDeVenta</span>))</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Tipo incorrecto para un detalle de
-    venta."</span>);</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #001080;">$detalle</span>-&gt;<span
-     style="color: #795e26;">valida</span>();</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >3. srv / modelo / Venta.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/DetalleDeVenta.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">class</span> Venta</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> bool $enCaptura;</td></tr>
+  <tr><td>11</td><td> <span class="codeComment">/** @var DetalleDeVenta[] */</span></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> array $detalles;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>15</td><td>  bool $enCaptura = <span class="codeReserved">false</span>,</td></tr>
+  <tr><td>16</td><td>  array $detalles = [],</td></tr>
+  <tr><td>17</td><td>  int $id = 0</td></tr>
+  <tr><td>18</td><td> ) {</td></tr>
+  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
+  <tr><td>20</td><td>  $<span class="codeReserved">this</span>-&gt;enCaptura = $enCaptura;</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;detalles = $detalles;</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
+  <tr><td>25</td><td> {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">foreach</span> ($<span class="codeReserved">this</span>-&gt;detalles <span class="codeReserved">as</span> $detalle) {</td></tr>
+  <tr><td>27</td><td>   <span class="codeReserved">if</span> (!($detalle <span class="codeReserved">instanceof</span> DetalleDeVenta))</td></tr>
+  <tr><td>28</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>29</td><td>     status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>30</td><td>     type: <span class="codeString">&quot;/error/detalledeventaincorrecto.html&quot;</span>,</td></tr>
+  <tr><td>31</td><td>     title: <span class="codeString">&quot;Tipo incorrecto para un etalle de venta.&quot;</span>,</td></tr>
+  <tr><td>32</td><td>    );</td></tr>
+  <tr><td>33</td><td>   $detalle-&gt;valida();</td></tr>
+  <tr><td>34</td><td>  }</td></tr>
+  <tr><td>35</td><td> }</td></tr>
+  <tr><td>36</td><td>}</td></tr>
+  <tr><td>37</td><td></td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 

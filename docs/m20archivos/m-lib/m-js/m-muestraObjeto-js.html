@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>15. lib / js / muestraObjeto.js - GilPG AWOAS</title>
+ <title>7. lib / js / muestraObjeto.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/muestraObjeto.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,98 +834,181 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >15. lib / js / muestraObjeto.js</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">buscaElementoHtml</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./buscaElementoHtml.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">muestraArray</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./muestraArray.js"</span></div>
-  <div><span
-     style="color: #af00db;">import</span>&nbsp;{ <span
-     style="color: #001080;">muestraValor</span> }&nbsp;<span
-     style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./muestraValor.js"</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ Document | HTMLElement }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">raizHtml</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;</span><span
-     style="color: #0000ff;">@param</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{ any }</span><span
-     style="color: #008000;"> </span><span
-     style="color: #001080;">objeto</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">muestraObjeto</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #001080;">objeto</span>)&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">for</span> (<span
-     style="color: #0000ff;">const</span> [<span
-     style="color: #0070c1;">propiedad</span>, <span
-     style="color: #0070c1;">valor</span>] <span
-     style="color: #0000ff;">of</span> <span
-     style="color: #267f99;">Object</span>.<span
-     style="color: #795e26;">entries</span>(<span
-     style="color: #001080;">objeto</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #267f99;">Array</span>.<span
-     style="color: #795e26;">isArray</span>(<span
-     style="color: #0070c1;">valor</span>))&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">muestraArray</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #0070c1;">propiedad</span>, <span
-     style="color: #0070c1;">valor</span>)</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">elementoHtml</span> = <span
-     style="color: #795e26;">buscaElementoHtml</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #0070c1;">propiedad</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">elementoHtml</span> !== <span
-     style="color: #0000ff;">null</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">muestraValor</span>(<span
-     style="color: #001080;">raizHtml</span>, <span
-     style="color: #0070c1;">elementoHtml</span>, <span
-     style="color: #0070c1;">valor</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;}</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">// Permite que los eventos de html usen la
-    función.</span></div>
-  <div><span
-     style="color: #001080;">window</span>[<span
-     style="color: #a31515;">"muestraObjeto"</span>] = <span
-     style="color: #795e26;">muestraObjeto</span></div>
- </div>
-</muestra-codigo>
+   <h1 >7. lib / js / muestraObjeto.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * @param { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> * @param { any } objeto</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>7</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>8</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>9</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>10</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>11</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>12</td><td>    <span class="codeReserved">await</span> muestraImagen(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>13</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>14</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>15</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>16</td><td>      elementoHtml[atributo] = valor</td></tr>
+  <tr><td>17</td><td>     }</td></tr>
+  <tr><td>18</td><td>    }</td></tr>
+  <tr><td>19</td><td>   }</td></tr>
+  <tr><td>20</td><td>  }</td></tr>
+  <tr><td>21</td><td> }</td></tr>
+  <tr><td>22</td><td>}</td></tr>
+  <tr><td>23</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>24</td><td>window[<span class="codeString">&quot;muestraObjeto&quot;</span>] = muestraObjeto</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>27</td><td><span class="codeComment"> * @param { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>28</td><td><span class="codeComment"> * @param { string } nombre</span></td></tr>
+  <tr><td>29</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>30</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>31</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>32</td><td>  <span class="codeString">`#${nombre},[name=<span class="codeString">&quot;${nombre}&quot;</span>],[data-name=<span class="codeString">&quot;${nombre}&quot;</span>]`</span>)</td></tr>
+  <tr><td>33</td><td>}</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>36</td><td><span class="codeComment"> * @param { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>37</td><td><span class="codeComment"> * @param { string } propiedad</span></td></tr>
+  <tr><td>38</td><td><span class="codeComment"> * @param {any[]} valores</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>40</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>41</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>42</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>43</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=<span class="codeString">&quot;${propiedad}&quot;</span>],[data-name=<span class="codeString">&quot;${propiedad}&quot;</span>]`</span>)</td></tr>
+  <tr><td>44</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
+  <tr><td>45</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>46</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>47</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
+  <tr><td>48</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
+  <tr><td>49</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>50</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>51</td><td>   }</td></tr>
+  <tr><td>52</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>53</td><td>  }</td></tr>
+  <tr><td>54</td><td> }</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>56</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>57</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>58</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>59</td><td>  }</td></tr>
+  <tr><td>60</td><td> }</td></tr>
+  <tr><td>61</td><td>}</td></tr>
+  <tr><td>62</td><td></td></tr>
+  <tr><td>63</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>64</td><td><span class="codeComment"> * @param { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>65</td><td><span class="codeComment"> * @param { HTMLImageElement } img</span></td></tr>
+  <tr><td>66</td><td><span class="codeComment"> * @param { any } definiciones</span></td></tr>
+  <tr><td>67</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>68</td><td><span class="codeReserved">async</span> <span class="codeReserved">function</span> muestraImagen(raizHtml, img, definiciones) {</td></tr>
+  <tr><td>69</td><td> <span class="codeReserved">const</span> input = getInputParaElementoHtml(raizHtml, img)</td></tr>
+  <tr><td>70</td><td> <span class="codeReserved">const</span> src = definiciones.src</td></tr>
+  <tr><td>71</td><td> <span class="codeReserved">if</span> (src !== undefined) {</td></tr>
+  <tr><td>72</td><td>  img.dataset.inicial = src</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">if</span> (input === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>74</td><td>   img.src = src</td></tr>
+  <tr><td>75</td><td>   <span class="codeReserved">if</span> (src === <span class="codeString">&quot;&quot;</span>) {</td></tr>
+  <tr><td>76</td><td>    img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>77</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>78</td><td>    img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>79</td><td>   }</td></tr>
+  <tr><td>80</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>81</td><td>   <span class="codeReserved">const</span> dataUrl = <span class="codeReserved">await</span> getDataUrlDeSeleccion(input)</td></tr>
+  <tr><td>82</td><td>   <span class="codeReserved">if</span> (dataUrl !== <span class="codeString">&quot;&quot;</span>) {</td></tr>
+  <tr><td>83</td><td>    img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>84</td><td>    img.src = dataUrl</td></tr>
+  <tr><td>85</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (src === <span class="codeString">&quot;&quot;</span>) {</td></tr>
+  <tr><td>86</td><td>    img.src = <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>87</td><td>    img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>88</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>89</td><td>    img.src = src</td></tr>
+  <tr><td>90</td><td>    img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>91</td><td>   }</td></tr>
+  <tr><td>92</td><td>  }</td></tr>
+  <tr><td>93</td><td> }</td></tr>
+  <tr><td>94</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>95</td><td>  <span class="codeReserved">if</span> (atributo !== <span class="codeString">&quot;src&quot;</span> && atributo <span class="codeReserved">in</span> img) {</td></tr>
+  <tr><td>96</td><td>   img[atributo] = valor</td></tr>
+  <tr><td>97</td><td>  }</td></tr>
+  <tr><td>98</td><td> }</td></tr>
+  <tr><td>99</td><td>}</td></tr>
+  <tr><td>100</td><td></td></tr>
+  <tr><td>101</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>102</td><td><span class="codeComment"> * @param { HTMLInputElement } input</span></td></tr>
+  <tr><td>103</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>104</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getArchivoSeleccionado(input) {</td></tr>
+  <tr><td>105</td><td> <span class="codeReserved">const</span> seleccion = input.files</td></tr>
+  <tr><td>106</td><td> <span class="codeReserved">if</span> (seleccion === <span class="codeReserved">null</span> || seleccion.length === 0) {</td></tr>
+  <tr><td>107</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>108</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>109</td><td>  <span class="codeReserved">return</span> seleccion.item(0)</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td>}</td></tr>
+  <tr><td>112</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>113</td><td>window[<span class="codeString">&quot;getArchivoSeleccionado&quot;</span>] = getArchivoSeleccionado</td></tr>
+  <tr><td>114</td><td></td></tr>
+  <tr><td>115</td><td></td></tr>
+  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> * @param {HTMLInputElement} input</span></td></tr>
+  <tr><td>118</td><td><span class="codeComment"> * @returns {Promise&lt;<span class="codeReserved">string</span>&gt;}</span></td></tr>
+  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getDataUrlDeSeleccion(input) {</td></tr>
+  <tr><td>121</td><td> <span class="codeReserved">return</span> <span class="codeReserved">new</span> Promise((resolve, reject) =&gt; {</td></tr>
+  <tr><td>122</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>123</td><td>   <span class="codeReserved">const</span> seleccion = getArchivoSeleccionado(input)</td></tr>
+  <tr><td>124</td><td>   <span class="codeReserved">if</span> (seleccion === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>125</td><td>    resolve(<span class="codeString">&quot;&quot;</span>)</td></tr>
+  <tr><td>126</td><td>   } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>    <span class="codeReserved">const</span> reader = <span class="codeReserved">new</span> FileReader()</td></tr>
+  <tr><td>128</td><td>    reader.onload = () =&gt; {</td></tr>
+  <tr><td>129</td><td>     <span class="codeReserved">const</span> dataUrl = reader.result</td></tr>
+  <tr><td>130</td><td>     <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> dataUrl === <span class="codeString">&quot;string&quot;</span>) {</td></tr>
+  <tr><td>131</td><td>      resolve(dataUrl)</td></tr>
+  <tr><td>132</td><td>     } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>133</td><td>      resolve(<span class="codeString">&quot;&quot;</span>)</td></tr>
+  <tr><td>134</td><td>     }</td></tr>
+  <tr><td>135</td><td>    }</td></tr>
+  <tr><td>136</td><td>    reader.onerror = () =&gt; reject(reader.error)</td></tr>
+  <tr><td>137</td><td>    reader.readAsDataURL(seleccion)</td></tr>
+  <tr><td>138</td><td>   }</td></tr>
+  <tr><td>139</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>140</td><td>   resolve(error)</td></tr>
+  <tr><td>141</td><td>  }</td></tr>
+  <tr><td>142</td><td> })</td></tr>
+  <tr><td>143</td><td>}</td></tr>
+  <tr><td>144</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>145</td><td>window[<span class="codeString">&quot;getDataUrlDeSeleccion&quot;</span>] = getDataUrlDeSeleccion</td></tr>
+  <tr><td>146</td><td></td></tr>
+  <tr><td>147</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>148</td><td><span class="codeComment"> * @param { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>149</td><td><span class="codeComment"> * @param { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>150</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>151</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getInputParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>152</td><td> <span class="codeReserved">const</span> inputId = elementoHtml.getAttribute(<span class="codeString">&quot;data-input&quot;</span>)</td></tr>
+  <tr><td>153</td><td> <span class="codeReserved">if</span> (inputId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>154</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>155</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>156</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, inputId)</td></tr>
+  <tr><td>157</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>158</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>159</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>160</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>161</td><td>  }</td></tr>
+  <tr><td>162</td><td> }</td></tr>
+  <tr><td>163</td><td>}</td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -951,10 +1034,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m20archivos/m-lib/m-js/m-muestraNumber-js.html" title="14. lib / js / muestraNumber.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m20archivos/m-lib/m-js/m-muestraError-js.html" title="6. lib / js / muestraError.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m20archivos/m-lib/m-js/m-muestraString-js.html" title="16. lib / js / muestraString.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m20archivos/m-lib/m-js/m-ProblemDetails-js.html" title="8. lib / js / ProblemDetails.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -975,12 +1058,12 @@
     <a href="/m20archivos/">22. Archivos en la base de datos</a>
    </p>
    <p>
-    <a href="/m20archivos/m-lib/">M. Carpeta « lib »</a>
+    <a href="/m20archivos/m-lib/">L. Carpeta « lib »</a>
    </p>
    
      <p>
       <a class="paginaAnterior" href="/m20archivos/m-lib/index.html"
-        title="M. Carpeta « lib »"><span
+        title="L. Carpeta « lib »"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -991,42 +1074,27 @@
     
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-buscaElementoHtml-js.html">lib / js / buscaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m20archivos/m-lib/m-js/m-confirmaEliminar-js.html">lib / js / confirmaEliminar.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-ejecuta-js.html">lib / js / ejecuta.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-imagenNuevaSeleccionada-js.html">lib / js / imagenNuevaSeleccionada.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-getArchivoSeleccionado-js.html">lib / js / getArchivoSeleccionado.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-imagenSeleccionada-js.html">lib / js / imagenSeleccionada.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-getDataUrlDeSeleccion-js.html">lib / js / getDataUrlDeSeleccion.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-getInputParaElementoHtml-js.html">lib / js / getInputParaElementoHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraArray-js.html">lib / js / muestraArray.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraBoolean-js.html">lib / js / muestraBoolean.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-JsonResponse-js.html">lib / js / JsonResponse.js</a>
     </p>
    </li>
    <li>
@@ -1036,52 +1104,17 @@
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraImagen-js.html">lib / js / muestraImagen.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraImagenNueva-js.html">lib / js / muestraImagenNueva.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraImagenReemplazada-js.html">lib / js / muestraImagenReemplazada.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraInnerHtml-js.html">lib / js / muestraInnerHtml.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraNumber-js.html">lib / js / muestraNumber.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m20archivos/m-lib/m-js/m-muestraObjeto-js.html" class="actual">lib / js / muestraObjeto.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraString-js.html">lib / js / muestraString.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraTextContent-js.html">lib / js / muestraTextContent.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-muestraValor-js.html">lib / js / muestraValor.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m20archivos/m-lib/m-js/m-submitForma-js.html">lib / js / submitForma.js</a>
+     <a href="/m20archivos/m-lib/m-js/m-submitForm-js.html">lib / js / submitForm.js</a>
     </p>
    </li>
    </ol>
@@ -1105,9 +1138,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m20archivos/m-lib/m-js/m-muestraNumber-js.html"
+ let urlAnterior = "/m20archivos/m-lib/m-js/m-muestraError-js.html"
  /**@type {string} */
- let urlSiguiente = "/m20archivos/m-lib/m-js/m-muestraString-js.html"
+ let urlSiguiente = "/m20archivos/m-lib/m-js/m-ProblemDetails-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

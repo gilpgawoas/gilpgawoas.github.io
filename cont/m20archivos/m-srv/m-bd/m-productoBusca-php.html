@@ -1,0 +1,52 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Archivo.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Producto.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> productoBusca(int $prodId)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>12</td><td><span class="codeString">    P.PROD_ID <span class="codeReserved">AS</span> prodId,</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">    P.PROD_NOMBRE <span class="codeReserved">AS</span> prodNombre,</span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    A.ARCH_ID <span class="codeReserved">AS</span> archId</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PRODUCTO P</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> ARCHIVO A</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">ON</span> P.ARCH_ID = A.ARCH_ID</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> P.PROD_ID = :prodId&quot;</span></td></tr>
+  <tr><td>19</td><td> );</td></tr>
+  <tr><td>20</td><td> $stmt-&gt;execute([</td></tr>
+  <tr><td>21</td><td>  <span class="codeString">&quot;:prodId&quot;</span> =&gt; $prodId</td></tr>
+  <tr><td>22</td><td> ]);</td></tr>
+  <tr><td>23</td><td> $stmt-&gt;setFetchMode(PDO::FETCH_OBJ);</td></tr>
+  <tr><td>24</td><td> $obj = $stmt-&gt;fetch();</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">if</span> ($obj === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>27</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>28</td><td>  $id = $obj-&gt;prodId;</td></tr>
+  <tr><td>29</td><td>  $nombre = $obj-&gt;prodNombre;</td></tr>
+  <tr><td>30</td><td>  $archId = $obj-&gt;archId;</td></tr>
+  <tr><td>31</td><td>  $archivo = $archId === <span class="codeReserved">null</span> ? <span class="codeReserved">null</span> : <span class="codeReserved">new</span> Archivo(id: $archId);</td></tr>
+  <tr><td>32</td><td>  $producto = <span class="codeReserved">new</span> Producto(</td></tr>
+  <tr><td>33</td><td>   id: $id,</td></tr>
+  <tr><td>34</td><td>   nombre: $nombre,</td></tr>
+  <tr><td>35</td><td>   archivo: $archivo</td></tr>
+  <tr><td>36</td><td>  );</td></tr>
+  <tr><td>37</td><td>  <span class="codeReserved">return</span> $producto;</td></tr>
+  <tr><td>38</td><td> }</td></tr>
+  <tr><td>39</td><td>}</td></tr>
+  <tr><td>40</td><td></td></tr>
+ </tbody>
+</table>

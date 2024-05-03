@@ -718,7 +718,12 @@
     
    <li>
     <p>
-     <a href="/m20archivos/m-lib/m-php/m-ejecuta-php.html">lib / php / ejecuta.php</a>
+     <a href="/m20archivos/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
     </p>
    </li>
    <li>
@@ -738,257 +743,389 @@
    </li>
    <li>
     <p>
+     <a href="/m20archivos/m-lib/m-php/m-pdFaltaId-php.html">lib / php / pdFaltaId.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m20archivos/m-lib/m-php/m-recibeFetchAll-php.html">lib / php / recibeFetchAll.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-lib/m-php/m-validaNombre-php.html">lib / php / validaNombre.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. lib / php / ejecuta.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Ejecuta una funcion que implementa un
-    servicio.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">$servicio</span>)</div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">try</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Usa utf8.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">mb_internal_encoding</span>(<span
-     style="color: #a31515;">"UTF-8"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$resultado</span> = <span
-     style="color: #001080;">$servicio</span>();</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve JSON.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: application/json"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$json</span> = <span
-     style="color: #795e26;">json_encode</span>(<span
-     style="color: #001080;">$resultado</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$json</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"El valor de regreso no puede representarse como
-    JSON"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$json</span>;</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">catch</span> (<span
-     style="color: #267f99;">Throwable</span> <span
-     style="color: #001080;">$t</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Devuelve error.</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">header</span>(<span
-     style="color: #a31515;">"Content-Type: text/plain"</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">http_response_code</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #795e26;">echo</span> <span
-     style="color: #001080;">$t</span>-&gt;<span
-     style="color: #795e26;">getMessage</span>();</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >1. lib / php / ejecutaServicio.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * Ejecuta una funcion que implementa un servicio.</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">function</span> ejecutaServicio($servicio)</td></tr>
+  <tr><td>10</td><td>{</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>12</td><td>  $resultado = $servicio();</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">if</span> (!($resultado <span class="codeReserved">instanceof</span> JsonResponse)) {</td></tr>
+  <tr><td>14</td><td>   $resultado = JsonResponse::ok($resultado);</td></tr>
+  <tr><td>15</td><td>  }</td></tr>
+  <tr><td>16</td><td>  procesa_json_response($resultado);</td></tr>
+  <tr><td>17</td><td> } <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>18</td><td>  procesa_problem_details($details);</td></tr>
+  <tr><td>19</td><td> } <span class="codeReserved">catch</span> (Throwable $throwable) {</td></tr>
+  <tr><td>20</td><td>  procesa_problem_details(<span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: ProblemDetails::InternalServerError,</td></tr>
+  <tr><td>22</td><td>   type: <span class="codeString">&quot;&#47;error&#47;errorinterno.html&quot;</span>,</td></tr>
+  <tr><td>23</td><td>   title: <span class="codeString">&quot;Error interno del servidor.&quot;</span>,</td></tr>
+  <tr><td>24</td><td>   detail: $throwable-&gt;getMessage()</td></tr>
+  <tr><td>25</td><td>  ));</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td>}</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td><span class="codeReserved">function</span> procesa_json_response(JsonResponse $response)</td></tr>
+  <tr><td>30</td><td>{</td></tr>
+  <tr><td>31</td><td> $json = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>32</td><td> $body = $response-&gt;body;</td></tr>
+  <tr><td>33</td><td> <span class="codeReserved">if</span> ($response-&gt;status !== JsonResponse_NoContent) {</td></tr>
+  <tr><td>34</td><td>  $json = json_encode($body);</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>36</td><td>   no_puede_generar_json();</td></tr>
+  <tr><td>37</td><td>   <span class="codeReserved">return</span>;</td></tr>
+  <tr><td>38</td><td>  }</td></tr>
+  <tr><td>39</td><td> }</td></tr>
+  <tr><td>40</td><td> http_response_code($response-&gt;status);</td></tr>
+  <tr><td>41</td><td> <span class="codeReserved">if</span> ($response-&gt;location !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>42</td><td>  header(&quot;Location: {$response-&gt;location}&quot;);</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td> <span class="codeReserved">if</span> ($response-&gt;status !== JsonResponse_NoContent) {</td></tr>
+  <tr><td>45</td><td>  header(<span class="codeString">&quot;Content-Type: application&#47;json&quot;</span>);</td></tr>
+  <tr><td>46</td><td>  echo $json;</td></tr>
+  <tr><td>47</td><td> }</td></tr>
+  <tr><td>48</td><td>}</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td><span class="codeReserved">function</span> procesa_problem_details(ProblemDetails $details)</td></tr>
+  <tr><td>51</td><td>{</td></tr>
+  <tr><td>52</td><td> $body = [<span class="codeString">&quot;title&quot;</span> =&gt; $details-&gt;title];</td></tr>
+  <tr><td>53</td><td> <span class="codeReserved">if</span> ($details-&gt;type !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>54</td><td>  $body[<span class="codeString">&quot;type&quot;</span>] = $details-&gt;type;</td></tr>
+  <tr><td>55</td><td> }</td></tr>
+  <tr><td>56</td><td> <span class="codeReserved">if</span> ($details-&gt;detail !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>57</td><td>  $body[<span class="codeString">&quot;detail&quot;</span>] = $details-&gt;detail;</td></tr>
+  <tr><td>58</td><td> }</td></tr>
+  <tr><td>59</td><td> $json = json_encode($body);</td></tr>
+  <tr><td>60</td><td> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>61</td><td>  no_puede_generar_json();</td></tr>
+  <tr><td>62</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>63</td><td>  http_response_code($details-&gt;status);</td></tr>
+  <tr><td>64</td><td>  header(<span class="codeString">&quot;Content-Type: application&#47;problem+json&quot;</span>);</td></tr>
+  <tr><td>65</td><td>  echo $json;</td></tr>
+  <tr><td>66</td><td> }</td></tr>
+  <tr><td>67</td><td>}</td></tr>
+  <tr><td>68</td><td></td></tr>
+  <tr><td>69</td><td><span class="codeReserved">function</span> no_puede_generar_json()</td></tr>
+  <tr><td>70</td><td>{</td></tr>
+  <tr><td>71</td><td> http_response_code(ProblemDetails::InternalServerError);</td></tr>
+  <tr><td>72</td><td> header(<span class="codeString">&quot;Content-Type: application&#47;problem+json&quot;</span>);</td></tr>
+  <tr><td>73</td><td> echo <span class="codeString">&#039;{&quot;type&quot;:&quot;&#47;error&#47;nojson.html&quot;&#039;</span></td></tr>
+  <tr><td>74</td><td>  . <span class="codeString">&#039;,&quot;title&quot;:&quot;El valor devuelto no puede representarse como JSON.&quot;}&#039;</span>;</td></tr>
+  <tr><td>75</td><td>}</td></tr>
+  <tr><td>76</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >2. lib / php / leeBytes.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeBytes</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): <span
-     style="color: #0000ff;">string</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si el archivo se recibió y contiene bytes,
-    los recupera;</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;en caso contrario, devuelve
-    false. */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$contents</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>]) &amp;&amp; <span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>][<span
-     style="color: #a31515;">"size"</span>] &gt; <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;&nbsp;?&nbsp;&nbsp;<span
-     style="color: #795e26;">file_get_contents</span>(<span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>][<span
-     style="color: #a31515;">"tmp_name"</span>])</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #0000ff;">false</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$contents</span> === <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #001080;">$contents</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >2. lib / php / JsonResponse.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">const</span> JsonResponse_OK = 200;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">const</span> JsonResponse_Created = 201;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> JsonResponse_NoContent = 204;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">class</span> JsonResponse</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> $body;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $location;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>15</td><td>  int $status = JsonResponse_OK,</td></tr>
+  <tr><td>16</td><td>  $body = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>17</td><td>  ?string $location = <span class="codeReserved">null</span></td></tr>
+  <tr><td>18</td><td> ) {</td></tr>
+  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>20</td><td>  $<span class="codeReserved">this</span>-&gt;body = $body;</td></tr>
+  <tr><td>21</td><td>  $<span class="codeReserved">this</span>-&gt;location = $location;</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> ok($body)</td></tr>
+  <tr><td>25</td><td> {</td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(body: $body);</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> created(string $location, $body)</td></tr>
+  <tr><td>30</td><td> {</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_Created, $body, $location);</td></tr>
+  <tr><td>32</td><td> }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> <span class="codeReserved">public</span> <span class="codeReserved">static</span> <span class="codeReserved">function</span> noContent()</td></tr>
+  <tr><td>35</td><td> {</td></tr>
+  <tr><td>36</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">new</span> JsonResponse(JsonResponse_NoContent, <span class="codeReserved">null</span>);</td></tr>
+  <tr><td>37</td><td> }</td></tr>
+  <tr><td>38</td><td>}</td></tr>
+  <tr><td>39</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >3. lib / php / leeEntero.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/leeTexto.php"</span>;</div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Devuelve el valor entero de un
-    parámetro</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;recibido en el servidor por medio de
-    GET,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;POST o cookie. Si parámetro no se
-    puede</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;convertir a entero, se genera un
-    error.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Si el parámetro no se recibe,
-    devuelve</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;null.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): ?<span
-     style="color: #0000ff;">int</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$valor</span> = <span
-     style="color: #795e26;">trim</span>(<span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #001080;">$parametro</span>));</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span> === <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #0000ff;">null</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >3. lib / php / leeBytes.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> leeBytes(string $parametro): string</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> <span class="codeComment">/* Si el archivo se recibió y contiene bytes, los recupera;</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment">  * en caso contrario, devuelve <span class="codeReserved">false</span>. */</span></td></tr>
+  <tr><td>7</td><td> $contents = isset($_FILES[$parametro]) && $_FILES[$parametro][<span class="codeString">&quot;size&quot;</span>] &gt; 0</td></tr>
+  <tr><td>8</td><td>  ?  file_get_contents($_FILES[$parametro][<span class="codeString">&quot;tmp_name&quot;</span>])</td></tr>
+  <tr><td>9</td><td>  : <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">return</span> $contents === <span class="codeReserved">false</span></td></tr>
+  <tr><td>11</td><td>  ? <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>12</td><td>  : $contents;</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >4. lib / php / leeTexto.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;Recupera el texto de un parámetro
-    enviado al</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*&nbsp;servidor por medio de GET, POST o
-    cookie.</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;*/</span></div>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeTexto</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): <span
-     style="color: #0000ff;">string</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si el parámetro está asignado en
-    $_REQUEST,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve su valor; de lo
-    contrario,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;devuelve "". */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$valor</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>])</div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$parametro</span>]</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >4. lib / php / leeEntero.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Devuelve el valor entero de un parámetro</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * recibido en el servidor por medio de GET,</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * POST o cookie. Si parámetro no se puede</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * convertir a entero, se genera un error.</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * Para que las llaves foráneas fucionen bien,</span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> * si se recibe una cadena vacía, se devuelve</span></td></tr>
+  <tr><td>14</td><td><span class="codeComment"> * <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>15</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>16</td><td><span class="codeReserved">function</span> leeEntero(string $parametro): ?int</td></tr>
+  <tr><td>17</td><td>{</td></tr>
+  <tr><td>18</td><td> $valor = leeTexto($parametro);</td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">return</span> $valor === <span class="codeReserved">null</span> || $valor === <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>20</td><td>  ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td>  : trim($valor);</td></tr>
+  <tr><td>22</td><td>}</td></tr>
+  <tr><td>23</td><td></td></tr>
+ </tbody>
+</table>
       </section>
      <section >
-         <h1 >5. lib / php / recibeFetchAll.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">recibeFetchAll</span>(<span
-     style="color: #0000ff;">false</span>|<span
-     style="color: #0000ff;">array</span> <span
-     style="color: #001080;">$resultado</span>): <span
-     style="color: #0000ff;">array</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$resultado</span> === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> [];</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$resultado</span>;</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+         <h1 >5. lib / php / leeTexto.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> * Recupera el texto de un parámetro enviado al</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * servidor por medio de GET, POST o cookie.</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">function</span> leeTexto(string $parametro): ?string</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> <span class="codeComment">/* Si el parámetro está asignado en $_REQUEST,</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * devuelve su valor; de lo contrario,</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  * devuelve <span class="codeReserved">null</span>. */</span></td></tr>
+  <tr><td>13</td><td> $valor = isset($_REQUEST[$parametro])</td></tr>
+  <tr><td>14</td><td>  ? $_REQUEST[$parametro]</td></tr>
+  <tr><td>15</td><td>  : <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">return</span> $valor;</td></tr>
+  <tr><td>17</td><td>}</td></tr>
+  <tr><td>18</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. lib / php / pdFaltaId.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">function</span> pdFaltaId()</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">return</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>8</td><td>  status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>9</td><td>  type: <span class="codeString">&quot;/error/faltaid.html&quot;</span>,</td></tr>
+  <tr><td>10</td><td>  title: <span class="codeString">&quot;No se ha proporcionado el valor de id.&quot;</span>,</td></tr>
+  <tr><td>11</td><td> );</td></tr>
+  <tr><td>12</td><td>}</td></tr>
+  <tr><td>13</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >7. lib / php / ProblemDetails.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">class</span> ProblemDetails extends Exception</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> BadRequest = 400;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> NotFound = 404;</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> InternalServerError = 500;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">public</span> string $title;</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $type;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">public</span> ?string $detail;</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>16</td><td>  int $status,</td></tr>
+  <tr><td>17</td><td>  string $title,</td></tr>
+  <tr><td>18</td><td>  ?string $type = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>19</td><td>  ?string $detail = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>20</td><td>  Throwable $previous = <span class="codeReserved">null</span></td></tr>
+  <tr><td>21</td><td> ) {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>($title, $status, $previous);</td></tr>
+  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
+  <tr><td>24</td><td>  $<span class="codeReserved">this</span>-&gt;type = $type;</td></tr>
+  <tr><td>25</td><td>  $<span class="codeReserved">this</span>-&gt;title = $title;</td></tr>
+  <tr><td>26</td><td>  $<span class="codeReserved">this</span>-&gt;detail = $detail;</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >8. lib / php / recibeFetchAll.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> recibeFetchAll(<span class="codeReserved">false</span>|array $resultado): array</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> <span class="codeReserved">if</span> ($resultado === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>6</td><td>  <span class="codeReserved">return</span> [];</td></tr>
+  <tr><td>7</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>8</td><td>  <span class="codeReserved">return</span> $resultado;</td></tr>
+  <tr><td>9</td><td> }</td></tr>
+  <tr><td>10</td><td>}</td></tr>
+  <tr><td>11</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >9. lib / php / validaNombre.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">function</span> validaNombre(string $nombre)</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeString">&quot;&quot;</span>)</td></tr>
+  <tr><td>8</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>9</td><td>   status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>10</td><td>   type: <span class="codeString">&quot;/error/faltanombre.html&quot;</span>,</td></tr>
+  <tr><td>11</td><td>   title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</td></tr>
+  <tr><td>12</td><td>  );</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+ </tbody>
+</table>
       </section>
 </body>
 

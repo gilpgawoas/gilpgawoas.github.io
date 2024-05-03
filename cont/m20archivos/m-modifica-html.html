@@ -1,296 +1,93 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #e50000;">html</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span
-     style="color: #800000;">&lt;html</span> <span
-     style="color: #e50000;">lang</span>=<span
-     style="color: #0000ff;">"es"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;head&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">charset</span>=<span
-     style="color: #0000ff;">"UTF-8"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;meta</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span> <span
-     style="color: #e50000;">content</span>=<span
-     style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;title&gt;</span>Modificar<span
-     style="color: #800000;">&lt;/title&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/ejecuta.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/submitForma.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraError.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraObjeto.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/confirmaEliminar.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"module"</span> <span
-     style="color: #e50000;">src</span>=<span
-     style="color: #0000ff;">"lib/js/muestraImagenReemplazada.js"</span><span
-     style="color: #800000;">&gt;&lt;/script&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;script&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #008000;">// Obtiene los parámetros de la página.</span>
-  </div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">parametros</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">URL</span>(<span
-     style="color: #001080;">location</span>.<span
-     style="color: #001080;">href</span>).<span
-     style="color: #001080;">searchParams</span></div>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/script&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;body</span> <span
-     style="color: #e50000;">onload</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #795e26;">ejecuta</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #a31515;">'srv/srvProductoBusca.php?'</span><span
-     style="color: #0000ff;"> </span>+<span
-     style="color: #0000ff;"> </span><span
-     style="color: #0070c1;">parametros</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">then</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">json</span><span
-     style="color: #0000ff;"> =&gt; </span><span
-     style="color: #795e26;">muestraObjeto</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">forma</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">json</span><span
-     style="color: #0000ff;">))</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;form</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"forma"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">onsubmit</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #795e26;">submitForma</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #a31515;">'srv/srvProductoModifica.php'</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">event</span><span
-     style="color: #0000ff;">, </span><span
-     style="color: #001080;">forma</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">then</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">json</span><span
-     style="color: #0000ff;"> =&gt; </span><span
-     style="color: #001080;">location</span><span
-     style="color: #0000ff;">.</span><span
-     style="color: #001080;">href</span><span
-     style="color: #0000ff;"> </span>=<span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">'index.html'</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Modificar<span
-     style="color: #800000;">&lt;/h1&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;&lt;a</span> <span
-     style="color: #e50000;">href</span>=<span
-     style="color: #0000ff;">"index.html"</span><span
-     style="color: #800000;">&gt;</span>Cancelar<span
-     style="color: #800000;">&lt;/a&gt;&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"hidden"</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"id"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Nombre *</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"nombre"</span> <span
-     style="color: #e50000;">required</span> <span
-     style="color: #e50000;">value</span>=<span
-     style="color: #0000ff;">"Cargando&amp;hellip;"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Imagen</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;input</span> <span
-     style="color: #e50000;">name</span>=<span
-     style="color: #0000ff;">"bytes"</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"file"</span> <span
-     style="color: #e50000;">accept</span>=<span
-     style="color: #0000ff;">"image/*"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">oninput</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #795e26;">muestraImagenReemplazada</span><span
-     style="color: #0000ff;">(this, </span><span
-     style="color: #001080;">imagen</span><span
-     style="color: #0000ff;">).</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span>*&nbsp;Obligatorio<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;button</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"submit"</span><span
-     style="color: #800000;">&gt;</span>Guardar<span
-     style="color: #800000;">&lt;/button&gt;</span></div><br>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;button</span> <span
-     style="color: #e50000;">type</span>=<span
-     style="color: #0000ff;">"button"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">onclick</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #af00db;">if</span><span
-     style="color: #0000ff;"> (</span><span
-     style="color: #795e26;">confirmaEliminar</span><span
-     style="color: #0000ff;">())&nbsp;{</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-     style="color: #795e26;">ejecuta</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #a31515;">'srv/srvProductoElimina.php?'</span><span
-     style="color: #0000ff;"> </span>+<span
-     style="color: #0000ff;"> </span><span
-     style="color: #0070c1;">parametros</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">then</span><span
-     style="color: #0000ff;">(() =&gt; </span><span
-     style="color: #001080;">location</span><span
-     style="color: #0000ff;">.</span><span
-     style="color: #001080;">href</span><span
-     style="color: #0000ff;"> </span>=<span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">'index.html'</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
-     style="color: #795e26;">catch</span><span
-     style="color: #0000ff;">(</span><span
-     style="color: #001080;">muestraError</span><span
-     style="color: #0000ff;">)</span></div>
-  <div><span
-     style="color: #0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;Eliminar</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/button&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/p&gt;</span></div><br>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;figure&gt;</span></div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;img</span> <span
-     style="color: #e50000;">id</span>=<span
-     style="color: #0000ff;">"imagen"</span> <span
-     style="color: #e50000;">hidden</span> <span
-     style="color: #e50000;">alt</span>=<span
-     style="color: #0000ff;">"Imagen del producto"</span> <span
-     style="color: #e50000;">style</span>=<span
-     style="color: #0000ff;">"</span><span
-     style="color: #0000ff;">max-width: 100%;"</span></div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #e50000;">data-input</span>=<span
-     style="color: #0000ff;">"bytes"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #800000;">&lt;/figure&gt;</span></div><br>
-  <div>&nbsp;<span
-     style="color: #800000;">&lt;/form&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span
-     style="color: #800000;">&lt;/html&gt;</span></div>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Modificar&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/invocaServicio.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/submitForm.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/muestraError.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>14</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/muestraObjeto.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>15</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/confirmaEliminar.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>16</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/imagenSeleccionada.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">// Obtiene los parámetros de la página.</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">const</span> params = <span class="codeReserved">new</span> URL(location.href).searchParams</td></tr>
+  <tr><td>21</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">&quot;<span class="codeReserved">if</span> (params.size &gt; 0) {</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">   invocaServicio(&#039;srv/srvProductoBusca.php?&#039; + params)</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    .then(modelo =&gt; muestraObjeto(document, modelo.body))</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">  }&quot;</span>&gt;</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td> &lt;<span class="codeReserved">form</span> onsubmit=<span class="codeString">&quot;submitForm(&#039;srv/srvProductoModifica.php&#039;, event)</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">    .then(modelo =&gt; location.href = &#039;index.html&#039;)</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)&quot;</span>&gt;</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Modificar&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">&quot;index.html&quot;</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">&quot;hidden&quot;</span> name=<span class="codeString">&quot;id&quot;</span>&gt;</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>42</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>43</td><td>    Nombre *</td></tr>
+  <tr><td>44</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">&quot;nombre&quot;</span> value=&quot;Cargando&hellip;<span class="codeString">&quot;&gt;</span></td></tr>
+  <tr><td>45</td><td><span class="codeString">   &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
+  <tr><td>46</td><td><span class="codeString">  &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>47</td><td><span class="codeString"></span></td></tr>
+  <tr><td>48</td><td><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>49</td><td><span class="codeString">   &lt;<span class="codeReserved">label</span>&gt;</span></td></tr>
+  <tr><td>50</td><td><span class="codeString">    Imagen</span></td></tr>
+  <tr><td>51</td><td><span class="codeString">    &lt;<span class="codeReserved">input</span> name=&quot;</span>bytes<span class="codeString">&quot; type=&quot;</span>file<span class="codeString">&quot; accept=&quot;</span>image/*<span class="codeString">&quot;</span></td></tr>
+  <tr><td>52</td><td><span class="codeString">      oninput=&quot;</span>imagenSeleccionada(<span class="codeReserved">this</span>, imagen).<span class="codeReserved">catch</span>(muestraError)<span class="codeString">&quot;&gt;</span></td></tr>
+  <tr><td>53</td><td><span class="codeString">   &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
+  <tr><td>54</td><td><span class="codeString">  &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>55</td><td><span class="codeString"></span></td></tr>
+  <tr><td>56</td><td><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>57</td><td><span class="codeString"></span></td></tr>
+  <tr><td>58</td><td><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>59</td><td><span class="codeString"></span></td></tr>
+  <tr><td>60</td><td><span class="codeString">   &lt;<span class="codeReserved">button</span> type=&quot;</span>submit<span class="codeString">&quot;&gt;Guardar&lt;/<span class="codeReserved">button</span>&gt;</span></td></tr>
+  <tr><td>61</td><td><span class="codeString"></span></td></tr>
+  <tr><td>62</td><td><span class="codeString">   &lt;<span class="codeReserved">button</span> type=&quot;</span>button<span class="codeString">&quot; onclick=&quot;</span><span class="codeReserved">if</span> (params.size &gt; 0 && confirmaEliminar()) {</td></tr>
+  <tr><td>63</td><td>      invocaServicio(<span class="codeString">&#039;srv/srvProductoElimina.php?&#039;</span> + params)</td></tr>
+  <tr><td>64</td><td>       .then(() =&gt; location.href = <span class="codeString">&#039;index.html&#039;</span>)</td></tr>
+  <tr><td>65</td><td>       .<span class="codeReserved">catch</span>(muestraError)</td></tr>
+  <tr><td>66</td><td>     }<span class="codeString">&quot;&gt;</span></td></tr>
+  <tr><td>67</td><td><span class="codeString">    Eliminar</span></td></tr>
+  <tr><td>68</td><td><span class="codeString">   &lt;/<span class="codeReserved">button</span>&gt;</span></td></tr>
+  <tr><td>69</td><td><span class="codeString"></span></td></tr>
+  <tr><td>70</td><td><span class="codeString">  &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>71</td><td><span class="codeString"></span></td></tr>
+  <tr><td>72</td><td><span class="codeString">  &lt;<span class="codeReserved">figure</span>&gt;</span></td></tr>
+  <tr><td>73</td><td><span class="codeString">   &lt;<span class="codeReserved">img</span> id=&quot;</span>imagen<span class="codeString">&quot; hidden alt=&quot;</span>Imagen del producto<span class="codeString">&quot; style=&quot;</span>max-width: 100%;<span class="codeString">&quot;</span></td></tr>
+  <tr><td>74</td><td><span class="codeString">     data-input=&quot;</span>bytes&quot;&gt;</td></tr>
+  <tr><td>75</td><td>  &lt;/<span class="codeReserved">figure</span>&gt;</td></tr>
+  <tr><td>76</td><td></td></tr>
+  <tr><td>77</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>80</td><td></td></tr>
+  <tr><td>81</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+ </tbody>
+</table>

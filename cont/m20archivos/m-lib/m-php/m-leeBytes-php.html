@@ -1,44 +1,26 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeBytes</span>(<span
-     style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$parametro</span>): <span
-     style="color: #0000ff;">string</span></div>
-  <div>{</div>
-  <div>&nbsp;<span
-     style="color: #008000;">/*&nbsp;Si el archivo se recibió y contiene bytes,
-    los recupera;</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;*&nbsp;en caso contrario, devuelve
-    false. */</span></div>
-  <div>&nbsp;<span
-     style="color: #001080;">$contents</span> = <span
-     style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>]) &amp;&amp; <span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>][<span
-     style="color: #a31515;">"size"</span>] &gt; <span
-     style="color: #098658;">0</span></div>
-  <div>&nbsp;&nbsp;?&nbsp;&nbsp;<span
-     style="color: #795e26;">file_get_contents</span>(<span
-     style="color: #001080;">$_FILES</span>[<span
-     style="color: #001080;">$parametro</span>][<span
-     style="color: #a31515;">"tmp_name"</span>])</div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #0000ff;">false</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> <span
-     style="color: #001080;">$contents</span> === <span
-     style="color: #0000ff;">false</span></div>
-  <div>&nbsp;&nbsp;? <span
-     style="color: #a31515;">""</span></div>
-  <div>&nbsp;&nbsp;: <span
-     style="color: #001080;">$contents</span>;</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> leeBytes(string $parametro): string</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> <span class="codeComment">/* Si el archivo se recibió y contiene bytes, los recupera;</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment">  * en caso contrario, devuelve <span class="codeReserved">false</span>. */</span></td></tr>
+  <tr><td>7</td><td> $contents = isset($_FILES[$parametro]) && $_FILES[$parametro][<span class="codeString">&quot;size&quot;</span>] &gt; 0</td></tr>
+  <tr><td>8</td><td>  ?  file_get_contents($_FILES[$parametro][<span class="codeString">&quot;tmp_name&quot;</span>])</td></tr>
+  <tr><td>9</td><td>  : <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">return</span> $contents === <span class="codeReserved">false</span></td></tr>
+  <tr><td>11</td><td>  ? <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>12</td><td>  : $contents;</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+ </tbody>
+</table>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>G. srv / srvProductoElimina.php - GilPG AWOAS</title>
+ <title>F. srv / srvProductoElimina.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvProductoElimina.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,46 +834,33 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >G. srv / srvProductoElimina.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/productoElimina.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$id</span> === <span
-     style="color: #0000ff;">null</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Falta el parámetro id."</span>);</div>
-  <div>&nbsp;<span
-     style="color: #795e26;">productoElimina</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+   <h1 >F. srv / srvProductoElimina.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/productoElimina.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> productoElimina($id);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">return</span> JsonResponse::noContent();</td></tr>
+  <tr><td>14</td><td>});</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -899,10 +886,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m20archivos/m-srv/m-srvProductoConsulta-php.html" title="F. srv / srvProductoConsulta.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m20archivos/m-srv/m-srvProductoConsulta-php.html" title="E. srv / srvProductoConsulta.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m20archivos/m-srv/m-srvProductoModifica-php.html" title="H. srv / srvProductoModifica.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m20archivos/m-srv/m-srvProductoModifica-php.html" title="G. srv / srvProductoModifica.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -941,11 +928,6 @@
    </li>
    <li>
     <p>
-     <a href="/m20archivos/m-srv/m-dao/">Carpeta « srv / dao »</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m20archivos/m-srv/m-srvArchivo-php.html">srv / srvArchivo.php</a>
     </p>
    </li>
@@ -974,11 +956,16 @@
      <a href="/m20archivos/m-srv/m-srvProductoModifica-php.html">srv / srvProductoModifica.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m20archivos/m-jsconfig-json.html"
-       title="L. jsconfig.json"><span
+     <a class="paginaSiguiente" href="/m20archivos/m-lib/index.html"
+       title="L. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

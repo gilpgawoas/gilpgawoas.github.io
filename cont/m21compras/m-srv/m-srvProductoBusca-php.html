@@ -1,60 +1,41 @@
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/leeEntero.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/productoBusca.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeEntero</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #795e26;">productoBusca</span>(<span
-     style="color: #001080;">$id</span>);</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$modelo</span> === <span
-     style="color: #0000ff;">false</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Producto no encontrado."</span>);</div>
-  <div>&nbsp;}&nbsp;<span
-     style="color: #af00db;">else</span>&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">return</span> [</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"id"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"producto"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"precio"</span> =&gt; <span
-     style="color: #a31515;">"$"</span> . <span
-     style="color: #795e26;">number_format</span>(<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">precio</span>, <span
-     style="color: #098658;">2</span>),</div>
-  <div>&nbsp;&nbsp;];</div>
-  <div>&nbsp;}</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/productoBusca.php&quot;</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
+  <tr><td>12</td><td> $modelo = productoBusca($id);</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>14</td><td>  $htmlId = htmlentities($id);</td></tr>
+  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>16</td><td>   status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>17</td><td>   type: <span class="codeString">&quot;/error/productonoencontrado.html&quot;</span>,</td></tr>
+  <tr><td>18</td><td>   title: <span class="codeString">&quot;Producto no encontrado.&quot;</span>,</td></tr>
+  <tr><td>19</td><td>   detail: <span class="codeString">&quot;No se encontró ningún producto con el id $htmlId.&quot;</span>,</td></tr>
+  <tr><td>20</td><td>  );</td></tr>
+  <tr><td>21</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">return</span> [</td></tr>
+  <tr><td>23</td><td>   <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
+  <tr><td>24</td><td>   <span class="codeString">&quot;producto&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
+  <tr><td>25</td><td>   <span class="codeString">&quot;precio&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; <span class="codeString">&quot;$&quot;</span> . number_format($modelo-&gt;precio, 2)],</td></tr>
+  <tr><td>26</td><td>  ];</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td>});</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>I. srv / srvVentaEnCapturaBusca.php - GilPG AWOAS</title>
+ <title>H. srv / srvVentaEnCapturaBusca.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/srvVentaEnCapturaBusca.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,149 +834,68 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >I. srv / srvVentaEnCapturaBusca.php</h1><muestra-codigo>
- <div>
-  <div><span
-     style="color: #800000;">&lt;?php</span></div><br>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/../lib/php/ejecuta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/modelo/DetalleDeVenta.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> . <span
-     style="color: #a31515;">"/dao/ventaEnCapturaBusca.php"</span>;</div><br>
-  <div><span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #0000ff;">function</span> ()&nbsp;{</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span> = <span
-     style="color: #795e26;">ventaEnCapturaBusca</span>();</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">$modelo</span> === <span
-     style="color: #0000ff;">false</span>)</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(<span
-     style="color: #a31515;">"Venta no encontrada"</span>);</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$detalles</span> = <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">detalles</span>;</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$productoIds</span> = [];</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$detalles</span> as <span
-     style="color: #001080;">$detalle</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$id</span> = <span
-     style="color: #001080;">$detalle</span>-&gt;<span
-     style="color: #001080;">producto</span>-&gt;<span
-     style="color: #001080;">id</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$productoIds</span>[<span
-     style="color: #001080;">$id</span>] = <span
-     style="color: #0000ff;">true</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$renderDetalles</span> = <span
-     style="color: #a31515;">""</span>;</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">foreach</span> (<span
-     style="color: #001080;">$detalles</span> as <span
-     style="color: #001080;">$detalle</span>)&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$producto</span> = <span
-     style="color: #001080;">$detalle</span>-&gt;<span
-     style="color: #001080;">producto</span>;</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$prodId</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$producto</span>-&gt;<span
-     style="color: #001080;">id</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$prodNombre</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #001080;">$producto</span>-&gt;<span
-     style="color: #001080;">nombre</span>);</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$precio</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #a31515;">"$"</span> . <span
-     style="color: #795e26;">number_format</span>(<span
-     style="color: #001080;">$detalle</span>-&gt;<span
-     style="color: #001080;">precio</span>, <span
-     style="color: #098658;">2</span>));</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$cantidad</span> = <span
-     style="color: #795e26;">htmlentities</span>(<span
-     style="color: #795e26;">number_format</span>(<span
-     style="color: #001080;">$detalle</span>-&gt;<span
-     style="color: #001080;">cantidad</span>, <span
-     style="color: #098658;">2</span>));</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">$renderDetalles</span> .=</div>
-  <div>&nbsp;&nbsp;&nbsp;<span
-     style="color: #a31515;">"&lt;dt&gt;</span><span
-     style="color: #001080;">$prodNombre</span><span
-     style="color: #a31515;">&lt;/dt&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=
-    'modifica.html?prodId=</span><span
-     style="color: #001080;">$prodId</span><span
-     style="color: #a31515;">'&gt;Modificar o eliminar&lt;/a&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dl&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Cantidad&lt;/dt&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
-     style="color: #001080;">$cantidad</span><span
-     style="color: #a31515;">&lt;/dd&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;Precio&lt;/dt&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;</span><span
-     style="color: #001080;">$precio</span><span
-     style="color: #a31515;">&lt;/dd&gt;</span></div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dl&gt;</span>
-  </div>
-  <div><span
-     style="color: #a31515;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dd&gt;"</span>;</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">detalles</span> = [];</div>
-  <div>&nbsp;<span
-     style="color: #af00db;">return</span> [</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"folio"</span> =&gt; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span>,</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #a31515;">"detalles"</span> =&gt; <span
-     style="color: #001080;">$renderDetalles</span></div>
-  <div>&nbsp;];</div>
-  <div>});</div><br>
- </div>
-</muestra-codigo>
+   <h1 >H. srv / srvVentaEnCapturaBusca.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/DetalleDeVenta.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/ventaEnCapturaBusca.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>9</td><td> $modelo = ventaEnCapturaBusca();</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>11</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>12</td><td>   status: ProblemDetails::BadRequest,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">&quot;/error/ventaencapturanoencontrada.html&quot;</span>,</td></tr>
+  <tr><td>14</td><td>   title: <span class="codeString">&quot;Venta en captura no encontrada.&quot;</span>,</td></tr>
+  <tr><td>15</td><td>   detail: <span class="codeString">&quot;No se encontró ninguna venta en captura.&quot;</span>,</td></tr>
+  <tr><td>16</td><td>  );</td></tr>
+  <tr><td>17</td><td> $detalles = $modelo-&gt;detalles;</td></tr>
+  <tr><td>18</td><td> $productoIds = [];</td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">foreach</span> ($detalles <span class="codeReserved">as</span> $detalle) {</td></tr>
+  <tr><td>20</td><td>  $id = $detalle-&gt;producto-&gt;id;</td></tr>
+  <tr><td>21</td><td>  $productoIds[$id] = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>22</td><td> }</td></tr>
+  <tr><td>23</td><td> $renderDetalles = <span class="codeString">&quot;&quot;</span>;</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">foreach</span> ($detalles <span class="codeReserved">as</span> $detalle) {</td></tr>
+  <tr><td>25</td><td>  $producto = $detalle-&gt;producto;</td></tr>
+  <tr><td>26</td><td>  $prodId = htmlentities($producto-&gt;id);</td></tr>
+  <tr><td>27</td><td>  $prodNombre = htmlentities($producto-&gt;nombre);</td></tr>
+  <tr><td>28</td><td>  $precio = htmlentities(<span class="codeString">&quot;$&quot;</span> . number_format($detalle-&gt;precio, 2));</td></tr>
+  <tr><td>29</td><td>  $cantidad = htmlentities(number_format($detalle-&gt;cantidad, 2));</td></tr>
+  <tr><td>30</td><td>  $renderDetalles .=</td></tr>
+  <tr><td>31</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;$prodNombre&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">     &lt;<span class="codeReserved">a</span> href= &#039;modifica.html?prodId=$prodId&#039;&gt;Modificar o eliminar&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">    &lt;/<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>36</td><td><span class="codeString">     &lt;<span class="codeReserved">dl</span>&gt;</span></td></tr>
+  <tr><td>37</td><td><span class="codeString">      &lt;<span class="codeReserved">dt</span>&gt;Cantidad&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>38</td><td><span class="codeString">      &lt;<span class="codeReserved">dd</span>&gt;$cantidad&lt;/<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>39</td><td><span class="codeString">      &lt;<span class="codeReserved">dt</span>&gt;Precio&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>40</td><td><span class="codeString">      &lt;<span class="codeReserved">dd</span>&gt;$precio&lt;/<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>41</td><td><span class="codeString">     &lt;/<span class="codeReserved">dl</span>&gt;</span></td></tr>
+  <tr><td>42</td><td><span class="codeString">    &lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td> $modelo-&gt;detalles = [];</td></tr>
+  <tr><td>45</td><td> <span class="codeReserved">return</span> [</td></tr>
+  <tr><td>46</td><td>  <span class="codeString">&quot;folio&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
+  <tr><td>47</td><td>  <span class="codeString">&quot;detalles&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $renderDetalles]</td></tr>
+  <tr><td>48</td><td> ];</td></tr>
+  <tr><td>49</td><td>});</td></tr>
+  <tr><td>50</td><td></td></tr>
+ </tbody>
+</table>
  <footer>
  <p>
   <a rel="license"
@@ -1002,10 +921,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m21compras/m-srv/m-srvProductoConsulta-php.html" title="H. srv / srvProductoConsulta.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m21compras/m-srv/m-srvProductoConsulta-php.html" title="G. srv / srvProductoConsulta.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m21compras/m-srv/m-srvVentaEnCapturaProcesa-php.html" title="J. srv / srvVentaEnCapturaProcesa.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m21compras/m-srv/m-srvVentaEnCapturaProcesa-php.html" title="I. srv / srvVentaEnCapturaProcesa.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1040,11 +959,6 @@
    <li>
     <p>
      <a href="/m21compras/m-srv/m-modelo/">Carpeta « srv / modelo »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m21compras/m-srv/m-dao/">Carpeta « srv / dao »</a>
     </p>
    </li>
    <li>
@@ -1087,11 +1001,16 @@
      <a href="/m21compras/m-srv/m-srvVentaEnCapturaProcesa-php.html">srv / srvVentaEnCapturaProcesa.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-bd/">Carpeta « srv / bd »</a>
+    </p>
+   </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m21compras/m-jsconfig-json.html"
-       title="M. jsconfig.json"><span
+     <a class="paginaSiguiente" href="/m21compras/m-lib/index.html"
+       title="M. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

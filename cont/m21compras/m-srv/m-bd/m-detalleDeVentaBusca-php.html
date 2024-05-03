@@ -1,0 +1,60 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/DetalleDeVenta.php&quot;</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ventaEnCapturaBusca.php&quot;</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/productoBusca.php&quot;</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">function</span> detalleDeVentaBusca(int $prodId)</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> $venta = ventaEnCapturaBusca();</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">if</span> ($venta === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>12</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>13</td><td> }</td></tr>
+  <tr><td>14</td><td> $producto = productoBusca($prodId);</td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">if</span> ($producto === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>17</td><td> }</td></tr>
+  <tr><td>18</td><td> $con = Bd::getConexion();</td></tr>
+  <tr><td>19</td><td> $stmt = $con-&gt;prepare(</td></tr>
+  <tr><td>20</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>21</td><td><span class="codeString">    DV.PROD_ID <span class="codeReserved">AS</span> prodId,</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">    P.PROD_NOMBRE <span class="codeReserved">AS</span> prodNombre,</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">    DV.DTV_CANTIDAD <span class="codeReserved">AS</span> cantidad,</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    DV.DTV_PRECIO <span class="codeReserved">AS</span> precio</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">   <span class="codeReserved">FROM</span> DET_VENTA DV, PRODUCTO P</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">   <span class="codeReserved">WHERE</span></span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    DV.PROD_ID = P.PROD_ID</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">    AND DV.VENT_ID = :ventId</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">    AND DV.PROD_ID = :prodId&quot;</span></td></tr>
+  <tr><td>30</td><td> );</td></tr>
+  <tr><td>31</td><td> $stmt-&gt;execute([</td></tr>
+  <tr><td>32</td><td>  <span class="codeString">&quot;:ventId&quot;</span> =&gt; $venta-&gt;id,</td></tr>
+  <tr><td>33</td><td>  <span class="codeString">&quot;:prodId&quot;</span> =&gt; $prodId</td></tr>
+  <tr><td>34</td><td> ]);</td></tr>
+  <tr><td>35</td><td> $stmt-&gt;setFetchMode(PDO::FETCH_OBJ);</td></tr>
+  <tr><td>36</td><td> $obj = $stmt-&gt;fetch();</td></tr>
+  <tr><td>37</td><td> <span class="codeReserved">if</span> ($obj === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>38</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>39</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>40</td><td>  $dtv = <span class="codeReserved">new</span> DetalleDeVenta();</td></tr>
+  <tr><td>41</td><td>  $dtv-&gt;venta = $venta;</td></tr>
+  <tr><td>42</td><td>  $dtv-&gt;producto = $producto;</td></tr>
+  <tr><td>43</td><td>  $dtv-&gt;cantidad = $obj-&gt;cantidad;</td></tr>
+  <tr><td>44</td><td>  $dtv-&gt;precio = $obj-&gt;precio;</td></tr>
+  <tr><td>45</td><td>  <span class="codeReserved">return</span> $dtv;</td></tr>
+  <tr><td>46</td><td> }</td></tr>
+  <tr><td>47</td><td>}</td></tr>
+  <tr><td>48</td><td></td></tr>
+ </tbody>
+</table>
