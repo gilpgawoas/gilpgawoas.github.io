@@ -833,6 +833,11 @@
    </li>
    <li>
     <p>
+     <a href="/m22pruebas/mCphpunit/mBsalida.html">Salida de las pruebas realizadas</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m22pruebas/mCphpunit/mArchivos.html">Archivos</a>
     </p>
    </li>
@@ -954,6 +959,12 @@
   </li>
   <li>
    <p>
+    Para correrlo desde Windows, ejecuta el comando
+    <br><samp>./vendor/bin/phpunit tests</samp>
+   </p>
+  </li>
+  <li>
+   <p>
     <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
       target="_blank" rel="noopener">Crea la <b>cover page</b> o página de
      spotlight del proyecto.</a>
@@ -963,7 +974,37 @@
 </div>
       </section>
      <section >
-         <h1 >2. Archivos</h1>
+         <h1 >2. Salida de las pruebas realizadas</h1><div class="lectura">
+ <p>
+  Esta salida muestra algunos fallos para que te des cuenta como se ven. En la
+  práctica, todas la pruebas deben aprobarse.
+ </p>
+ <pre style="white-space: pre-wrap;overflow-wrap: anywhere"><samp>
+  PHPUnit 10.5.5 by Sebastian Bergmann and contributors.
+
+  Runtime:       PHP 8.2.7
+  
+  ..F                                                                 3 / 3 (100%)
+  
+  Time: 00:00.091, Memory: 8.00 MB
+  
+  There was 1 failure:
+  
+  1) RecomiendaTest::testReg2
+  Probando reg 2
+  Failed asserting that two strings are equal.
+  --- Expected
+  +++ Actual
+  @@ @@
+  -'Daddy Yankee.'
+  +'Bad Bunny.'
+  
+  /home/runner/phpunit/tests/RecomiendaTest.php:19
+</samp></pre>
+</div>
+      </section>
+     <section >
+         <h1 >3. Archivos</h1>
   <div class="lectura">
    <p>Haz clic en los triángulos para expandir las carpetas</p>
    <ul class="tree">
@@ -1013,7 +1054,7 @@
   </div>
       </section>
      <section>
-         <h1 >3. Carpeta « src »</h1>
+         <h1 >4. Carpeta « src »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1064,7 +1105,7 @@
       </section>
       </section>
      <section>
-         <h1 >4. Carpeta « tests »</h1>
+         <h1 >5. Carpeta « tests »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1124,7 +1165,7 @@
       </section>
       </section>
      <section >
-         <h1 >5. composer.json</h1><table class="codeShow">
+         <h1 >6. composer.json</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1143,7 +1184,7 @@
 </table>
       </section>
      <section >
-         <h1 >6. composer.lock</h1><table class="codeShow">
+         <h1 >7. composer.lock</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1158,7 +1199,7 @@
 </table>
       </section>
      <section>
-         <h1 >7. Carpeta « vendor »</h1>
+         <h1 >8. Carpeta « vendor »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1197,7 +1238,7 @@
       </section>
       </section>
      <section >
-         <h1 >8. .replit</h1><table class="codeShow">
+         <h1 >9. .replit</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1217,7 +1258,7 @@
 </table>
       </section>
      <section >
-         <h1 >9. replit.nix</h1><table class="codeShow">
+         <h1 >10. replit.nix</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1287,6 +1328,11 @@
    </li>
    <li>
     <p>
+     <a href="/m22pruebas/mDjasmine/mBsalida.html">Salida de las pruebas realizadas</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m22pruebas/mDjasmine/mArchivos.html">Archivos</a>
     </p>
    </li>
@@ -1335,7 +1381,7 @@
 </div>
      <section >
          <h1 >1. Hazlo funcionar</h1><div class="lectura">
- <ul>
+ <ol>
   <li>
    <p>
     Este ejercicio usa la librería Jasmine para JavaScript. Puedes profundizar
@@ -1377,23 +1423,43 @@
   </li>
   <li>
    <p>
-    Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar ni
-    sobreescribir nada, la siguiente línea
+    Si trabajas desde Windows, instala Node.js desde
+    <a href="https://nodejs.org/en" target="_blank"
+      rel="noopener">https://nodejs.org/en</a>. Crea una carpeta y pásate a ella
+    desde el símbolo del sistema. o con Visual Studio Code abre la carpeta
+    y muestra una terminal. Inicializa un proyecto de node con la instrucción
+    <br><kbd>npm init -y</kbd>
    </p>
-   <p><code>"type": "module",</code></p>
-  </li>
-  <li>
-   <p>Instala Jasmine en el proyecto con la orden:</p>
-   <p><kbd>npm install --save-dev jasmine</kbd></p>
-  </li>
-  <li>
-   <p>Inicializa Jasmine con la orden:</p>
-   <p><kbd>npx jasmine init</kbd></p>
   </li>
   <li>
    <p>
-    Añade los archivos que vienen en el protecto; esto incluye modificar el
-    archivo <q>.replit</q>.
+    Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar ni
+    sobreescribir nada, la siguiente línea
+    <br><code>"type": "module",</code>
+   </p>
+  </li>
+  <li>
+   <p>
+    En el mismo archivo <q>packege.json</q> cambia la línea que dice
+    <code>"test"</code> a que diga:
+    <br><code>"test": "jasmine"</code>
+   </p>
+  </li>
+  <li>
+   <p>Instala Jasmine en el proyecto con la orden:
+    <br><kbd>npm install --save-dev jasmine</kbd>
+   </p>
+  </li>
+  <li>
+   <p>Inicializa Jasmine con la orden:
+    <br><kbd>npx jasmine init</kbd>
+   </p>
+  </li>
+  <li>
+   <p>
+    Añade los archivos que vienen en el proyecto; esto incluye modificar el
+    archivo <q>.replit</q>. El código a probar se coloca en la carpeta
+    <q>src</q> y las pruebas en la carpeta <q>spec</q>.
    </p>
   </li>
   <li>
@@ -1402,13 +1468,43 @@
     Console aparece la salida de las pruebas.
    </p>
   </li>
- </ul>
+ </ol>
 </div>
       </section>
      <section >
-         <h1 >2. Archivos</h1><div class="lectura">
- <p>Haz clic en los triángulos para expandir las carpetas</p>
- <ul class="tree">
+         <h1 >2. Salida de las pruebas realizadas</h1><div class="lectura">
+ <p>
+  Esta salida muestra algunos fallos para que te des cuenta como se ven. En la
+  práctica, todas la pruebas deben aprobarse.
+ </p>
+ <pre style="white-space: pre-wrap;overflow-wrap: anywhere"><samp>
+> nodejs@1.0.0 test
+> jasmine
+
+Randomized with seed 87173
+Started
+.<span class="codeString">F</span>.
+
+Failures:
+1) recomienda reg2
+  Message:
+  <span class="codeString">Expected 'Bad Bunny.' to be 'Daddy Yankee.'.</span>
+  Stack:
+        at &lt;Jasmine>
+        at UserContext.&lt;anonymous> (file:///D:/gilpg/Documents/Sitios/awoas/jasminewin/spec/recomiendaSpec.js:6:45)
+        at &lt;Jasmine>
+
+3 specs, 1 failure
+Finished in 0.012 seconds
+Randomized with seed 87173 (jasmine --random=true --seed=87173)
+</samp></pre>
+</div>
+      </section>
+     <section >
+         <h1 >3. Archivos</h1>
+  <div class="lectura">
+   <p>Haz clic en los triángulos para expandir las carpetas</p>
+   <ul class="tree">
   <li>
    <p><a href="m--replit.html">.replit</a></p>
   </li>
@@ -1424,53 +1520,51 @@
   <li>
    <p><a href="m-replit-nix.html">replit.nix</a></p>
   </li>
+    <li>
+     <details>
+      <summary>node_modules</summary>
+      <ul>
   <li>
-   <details>
-    <summary>node_modules</summary>
-    <ul>
-     <li>
-      <p><a
-         href="m-node_modules/m--- No se muestra el contenido de esta carpeta --.html">--
-        No se muestra el contenido de esta carpeta --</a></p>
-     </li>
-    </ul>
-   </details>
+   <p><a href="m-node_modules/m--- No se muestra el contenido de esta carpeta --.html">-- No se muestra el contenido de esta carpeta --</a></p>
   </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary>spec</summary>
+      <ul>
   <li>
-   <details>
-    <summary>spec</summary>
-    <ul>
-     <li>
-      <p><a href="m-spec/m-recomiendaSpec-js.html">recomiendaSpec.js</a></p>
-     </li>
-     <li>
-      <details>
-       <summary>support</summary>
-       <ul>
-        <li>
-         <p><a href="m-spec/m-support/m-jasmine-json.html">jasmine.json</a></p>
-        </li>
-       </ul>
-      </details>
-     </li>
-    </ul>
-   </details>
+   <p><a href="m-spec/m-recomiendaSpec-js.html">recomiendaSpec.js</a></p>
   </li>
+    <li>
+     <details>
+      <summary>support</summary>
+      <ul>
   <li>
-   <details>
-    <summary>src</summary>
-    <ul>
-     <li>
-      <p><a href="m-src/m-recomienda-js.html">recomienda.js</a></p>
-     </li>
-    </ul>
-   </details>
+   <p><a href="m-spec/m-support/m-jasmine-json.html">jasmine.json</a></p>
   </li>
- </ul>
-</div>
+      </ul>
+     </details>
+    </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary>src</summary>
+      <ul>
+  <li>
+   <p><a href="m-src/m-recomienda-js.html">recomienda.js</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
+   </ul>
+  </div>
       </section>
      <section>
-         <h1 >3. Carpeta « src »</h1>
+         <h1 >4. Carpeta « src »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1504,15 +1598,15 @@
  </caption>
  <tbody>
   <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>2</td><td><span class="codeComment"> * @param {string} genero</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} genero</span></td></tr>
   <tr><td>3</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> recomienda(genero) {</td></tr>
-  <tr><td>5</td><td> <span class="codeReserved">if</span> (genero === <span class="codeString">&quot;pop&quot;</span>) {</td></tr>
-  <tr><td>6</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;Dua Lipa.&quot;</span></td></tr>
-  <tr><td>7</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (genero === <span class="codeString">&quot;reg&quot;</span>) {</td></tr>
-  <tr><td>8</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;Bad Bunny.&quot;</span></td></tr>
+  <tr><td>5</td><td> <span class="codeReserved">if</span> (genero === <span class="codeString">"pop"</span>) {</td></tr>
+  <tr><td>6</td><td>  <span class="codeReserved">return</span> <span class="codeString">"Dua Lipa."</span></td></tr>
+  <tr><td>7</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (genero === <span class="codeString">"reg"</span>) {</td></tr>
+  <tr><td>8</td><td>  <span class="codeReserved">return</span> <span class="codeString">"Bad Bunny."</span></td></tr>
   <tr><td>9</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>10</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;De eso no conozco.&quot;</span></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">return</span> <span class="codeString">"De eso no conozco."</span></td></tr>
   <tr><td>11</td><td> }</td></tr>
   <tr><td>12</td><td>}</td></tr>
  </tbody>
@@ -1520,7 +1614,7 @@
       </section>
       </section>
      <section>
-         <h1 >4. Carpeta « spec »</h1>
+         <h1 >5. Carpeta « spec »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1558,12 +1652,12 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { recomienda } <span class="codeReserved">from</span> <span class="codeString">&#039;../src/recomienda.js&#039;</span></td></tr>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { recomienda } <span class="codeReserved">from</span> <span class="codeString">'../src/recomienda.js'</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td>describe(<span class="codeString">&quot;recomienda&quot;</span>, () =&gt; {</td></tr>
-  <tr><td>4</td><td> it(<span class="codeString">&quot;pop&quot;</span>, () =&gt; expect(recomienda(<span class="codeString">&quot;pop&quot;</span>)).toBe(<span class="codeString">&quot;Dua Lipa.&quot;</span>))</td></tr>
-  <tr><td>5</td><td> it(<span class="codeString">&quot;reg&quot;</span>, () =&gt; expect(recomienda(<span class="codeString">&quot;reg&quot;</span>)).toBe(<span class="codeString">&quot;Bad Bunny.&quot;</span>))</td></tr>
-  <tr><td>6</td><td> it(<span class="codeString">&quot;reg2&quot;</span>, () =&gt; expect(recomienda(<span class="codeString">&quot;reg&quot;</span>)).toBe(<span class="codeString">&quot;Daddy Yankee.&quot;</span>))</td></tr>
+  <tr><td>3</td><td>describe(<span class="codeString">"recomienda"</span>, () =&gt; {</td></tr>
+  <tr><td>4</td><td> it(<span class="codeString">"pop"</span>, () =&gt; expect(recomienda(<span class="codeString">"pop"</span>)).toBe(<span class="codeString">"Dua Lipa."</span>))</td></tr>
+  <tr><td>5</td><td> it(<span class="codeString">"reg"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Bad Bunny."</span>))</td></tr>
+  <tr><td>6</td><td> it(<span class="codeString">"reg2"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Daddy Yankee."</span>))</td></tr>
   <tr><td>7</td><td>})</td></tr>
  </tbody>
 </table>
@@ -1603,16 +1697,16 @@
  </caption>
  <tbody>
   <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td>  <span class="codeString">&quot;spec_dir&quot;</span>: <span class="codeString">&quot;spec&quot;</span>,</td></tr>
-  <tr><td>3</td><td>  <span class="codeString">&quot;spec_files&quot;</span>: [</td></tr>
-  <tr><td>4</td><td>    <span class="codeString">&quot;**/*[sS]pec.?(m)js&quot;</span></td></tr>
+  <tr><td>2</td><td>  <span class="codeString">"spec_dir"</span>: <span class="codeString">"spec"</span>,</td></tr>
+  <tr><td>3</td><td>  <span class="codeString">"spec_files"</span>: [</td></tr>
+  <tr><td>4</td><td>    <span class="codeString">"**/*[sS]pec.?(m)js"</span></td></tr>
   <tr><td>5</td><td>  ],</td></tr>
-  <tr><td>6</td><td>  <span class="codeString">&quot;helpers&quot;</span>: [</td></tr>
-  <tr><td>7</td><td>    <span class="codeString">&quot;helpers<span class="codeComment">/**/</span>*.?(m)js&quot;</span></td></tr>
+  <tr><td>6</td><td>  <span class="codeString">"helpers"</span>: [</td></tr>
+  <tr><td>7</td><td>    <span class="codeString">"helpers/**/*.?(m)js"</span></td></tr>
   <tr><td>8</td><td>  ],</td></tr>
-  <tr><td>9</td><td>  <span class="codeString">&quot;env&quot;</span>: {</td></tr>
-  <tr><td>10</td><td>    <span class="codeString">&quot;stopSpecOnExpectationFailure&quot;</span>: <span class="codeReserved">false</span>,</td></tr>
-  <tr><td>11</td><td>    <span class="codeString">&quot;random&quot;</span>: <span class="codeReserved">true</span></td></tr>
+  <tr><td>9</td><td>  <span class="codeString">"env"</span>: {</td></tr>
+  <tr><td>10</td><td>    <span class="codeString">"stopSpecOnExpectationFailure"</span>: <span class="codeReserved">false</span>,</td></tr>
+  <tr><td>11</td><td>    <span class="codeString">"random"</span>: <span class="codeReserved">true</span></td></tr>
   <tr><td>12</td><td>  }</td></tr>
   <tr><td>13</td><td>}</td></tr>
   <tr><td>14</td><td></td></tr>
@@ -1622,7 +1716,7 @@
       </section>
       </section>
      <section >
-         <h1 >5. package.json</h1><table class="codeShow">
+         <h1 >6. package.json</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1633,23 +1727,23 @@
  </caption>
  <tbody>
   <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td> <span class="codeString">&quot;name&quot;</span>: <span class="codeString">&quot;nodejs&quot;</span>,</td></tr>
-  <tr><td>3</td><td> <span class="codeString">&quot;version&quot;</span>: <span class="codeString">&quot;1.0.0&quot;</span>,</td></tr>
-  <tr><td>4</td><td> <span class="codeString">&quot;description&quot;</span>: <span class="codeString">&quot;&quot;</span>,</td></tr>
-  <tr><td>5</td><td> <span class="codeString">&quot;main&quot;</span>: <span class="codeString">&quot;index.js&quot;</span>,</td></tr>
-  <tr><td>6</td><td> <span class="codeString">&quot;type&quot;</span>: <span class="codeString">&quot;module&quot;</span>,</td></tr>
-  <tr><td>7</td><td> <span class="codeString">&quot;scripts&quot;</span>: {</td></tr>
-  <tr><td>8</td><td>   <span class="codeString">&quot;test&quot;</span>: <span class="codeString">&quot;echo \&quot;Error: no test specified\&quot; && exit 1&quot;</span></td></tr>
+  <tr><td>2</td><td> <span class="codeString">"name"</span>: <span class="codeString">"nodejs"</span>,</td></tr>
+  <tr><td>3</td><td> <span class="codeString">"version"</span>: <span class="codeString">"1.0.0"</span>,</td></tr>
+  <tr><td>4</td><td> <span class="codeString">"description"</span>: ,</td></tr>
+  <tr><td>5</td><td> <span class="codeString">"main"</span>: <span class="codeString">"index.js"</span>,</td></tr>
+  <tr class="resaltado"><td>6</td><td> <span class="codeString">"type"</span>: <span class="codeString">"module"</span>,</td></tr>
+  <tr><td>7</td><td> <span class="codeString">"scripts"</span>: {</td></tr>
+  <tr class="resaltado"><td>8</td><td>   <span class="codeString">"test"</span>: <span class="codeString">"jasmine"</span></td></tr>
   <tr><td>9</td><td> },</td></tr>
-  <tr><td>10</td><td> <span class="codeString">&quot;keywords&quot;</span>: [],</td></tr>
-  <tr><td>11</td><td> <span class="codeString">&quot;author&quot;</span>: <span class="codeString">&quot;&quot;</span>,</td></tr>
-  <tr><td>12</td><td> <span class="codeString">&quot;license&quot;</span>: <span class="codeString">&quot;ISC&quot;</span>,</td></tr>
-  <tr><td>13</td><td> <span class="codeString">&quot;dependencies&quot;</span>: {</td></tr>
-  <tr><td>14</td><td>   <span class="codeString">&quot;@types/node&quot;</span>: <span class="codeString">&quot;^18.0.6&quot;</span>,</td></tr>
-  <tr><td>15</td><td>   <span class="codeString">&quot;node-fetch&quot;</span>: <span class="codeString">&quot;^3.2.6&quot;</span></td></tr>
+  <tr><td>10</td><td> <span class="codeString">"keywords"</span>: [],</td></tr>
+  <tr><td>11</td><td> <span class="codeString">"author"</span>: ,</td></tr>
+  <tr><td>12</td><td> <span class="codeString">"license"</span>: <span class="codeString">"ISC"</span>,</td></tr>
+  <tr><td>13</td><td> <span class="codeString">"dependencies"</span>: {</td></tr>
+  <tr><td>14</td><td>   <span class="codeString">"@types/node"</span>: <span class="codeString">"^18.0.6"</span>,</td></tr>
+  <tr><td>15</td><td>   <span class="codeString">"node-fetch"</span>: <span class="codeString">"^3.2.6"</span></td></tr>
   <tr><td>16</td><td> },</td></tr>
-  <tr><td>17</td><td> <span class="codeString">&quot;devDependencies&quot;</span>: {</td></tr>
-  <tr><td>18</td><td>   <span class="codeString">&quot;jasmine&quot;</span>: <span class="codeString">&quot;^5.1.0&quot;</span></td></tr>
+  <tr><td>17</td><td> <span class="codeString">"devDependencies"</span>: {</td></tr>
+  <tr><td>18</td><td>   <span class="codeString">"jasmine"</span>: <span class="codeString">"^5.1.0"</span></td></tr>
   <tr><td>19</td><td> }</td></tr>
   <tr><td>20</td><td>}</td></tr>
   <tr><td>21</td><td></td></tr>
@@ -1657,7 +1751,7 @@
 </table>
       </section>
      <section >
-         <h1 >6. package-lock.json</h1><table class="codeShow">
+         <h1 >7. package-lock.json</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1672,7 +1766,7 @@
 </table>
       </section>
      <section>
-         <h1 >7. Carpeta « node_modules »</h1>
+         <h1 >8. Carpeta « node_modules »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1711,7 +1805,7 @@
       </section>
       </section>
      <section >
-         <h1 >8. .replit</h1><table class="codeShow">
+         <h1 >9. .replit</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1721,27 +1815,27 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>run = [&quot;npx&quot;, &quot;jasmine&quot;]</td></tr>
-  <tr><td>2</td><td>entrypoint = &quot;src/recomienda.js&quot;</td></tr>
-  <tr><td>3</td><td>modules = [&quot;nodejs-20:v8-20230920-bd784b9&quot;]</td></tr>
-  <tr><td>4</td><td>hidden = [&quot;.config&quot;, &quot;package-lock.json&quot;]</td></tr>
+  <tr><td>1</td><td>run = [<span class="codeString">"npx"</span>, <span class="codeString">"jasmine"</span>]</td></tr>
+  <tr><td>2</td><td>entrypoint = <span class="codeString">"src/recomienda.js"</span></td></tr>
+  <tr><td>3</td><td>modules = [<span class="codeString">"nodejs-20:v8-20230920-bd784b9"</span>]</td></tr>
+  <tr><td>4</td><td>hidden = [<span class="codeString">".config"</span>, <span class="codeString">"package-lock.json"</span>]</td></tr>
   <tr><td>5</td><td></td></tr>
   <tr><td>6</td><td>[nix]</td></tr>
-  <tr><td>7</td><td>channel = &quot;stable-23_05&quot;</td></tr>
+  <tr><td>7</td><td>channel = <span class="codeString">"stable-23_05"</span></td></tr>
   <tr><td>8</td><td></td></tr>
   <tr><td>9</td><td>[unitTest]</td></tr>
-  <tr><td>10</td><td>language = &quot;nodejs&quot;</td></tr>
+  <tr><td>10</td><td>language = <span class="codeString">"nodejs"</span></td></tr>
   <tr><td>11</td><td></td></tr>
   <tr><td>12</td><td>[deployment]</td></tr>
-  <tr><td>13</td><td>run = [&quot;node&quot;, &quot;index.js&quot;]</td></tr>
-  <tr><td>14</td><td>deploymentTarget = &quot;cloudrun&quot;</td></tr>
-  <tr><td>15</td><td>ignorePorts = false</td></tr>
+  <tr><td>13</td><td>run = [<span class="codeString">"node"</span>, <span class="codeString">"index.js"</span>]</td></tr>
+  <tr><td>14</td><td>deploymentTarget = <span class="codeString">"cloudrun"</span></td></tr>
+  <tr><td>15</td><td>ignorePorts = <span class="codeReserved">false</span></td></tr>
   <tr><td>16</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >9. replit.nix</h1><table class="codeShow">
+         <h1 >10. replit.nix</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1759,7 +1853,7 @@
 </table>
       </section>
      <section >
-         <h1 >10. jsconfig.json</h1><div class="lectura">
+         <h1 >11. jsconfig.json</h1><div class="lectura">
  <ul>
   <li>
    <p>

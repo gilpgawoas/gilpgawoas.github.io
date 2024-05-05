@@ -835,7 +835,7 @@
 <body  class="xmenu">
  <div id="principal">
    <h1 >1. Hazlo funcionar</h1><div class="lectura">
- <ul>
+ <ol>
   <li>
    <p>
     Este ejercicio usa la librería Jasmine para JavaScript. Puedes profundizar
@@ -877,23 +877,43 @@
   </li>
   <li>
    <p>
-    Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar ni
-    sobreescribir nada, la siguiente línea
+    Si trabajas desde Windows, instala Node.js desde
+    <a href="https://nodejs.org/en" target="_blank"
+      rel="noopener">https://nodejs.org/en</a>. Crea una carpeta y pásate a ella
+    desde el símbolo del sistema. o con Visual Studio Code abre la carpeta
+    y muestra una terminal. Inicializa un proyecto de node con la instrucción
+    <br><kbd>npm init -y</kbd>
    </p>
-   <p><code>"type": "module",</code></p>
-  </li>
-  <li>
-   <p>Instala Jasmine en el proyecto con la orden:</p>
-   <p><kbd>npm install --save-dev jasmine</kbd></p>
-  </li>
-  <li>
-   <p>Inicializa Jasmine con la orden:</p>
-   <p><kbd>npx jasmine init</kbd></p>
   </li>
   <li>
    <p>
-    Añade los archivos que vienen en el protecto; esto incluye modificar el
-    archivo <q>.replit</q>.
+    Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar ni
+    sobreescribir nada, la siguiente línea
+    <br><code>"type": "module",</code>
+   </p>
+  </li>
+  <li>
+   <p>
+    En el mismo archivo <q>packege.json</q> cambia la línea que dice
+    <code>"test"</code> a que diga:
+    <br><code>"test": "jasmine"</code>
+   </p>
+  </li>
+  <li>
+   <p>Instala Jasmine en el proyecto con la orden:
+    <br><kbd>npm install --save-dev jasmine</kbd>
+   </p>
+  </li>
+  <li>
+   <p>Inicializa Jasmine con la orden:
+    <br><kbd>npx jasmine init</kbd>
+   </p>
+  </li>
+  <li>
+   <p>
+    Añade los archivos que vienen en el proyecto; esto incluye modificar el
+    archivo <q>.replit</q>. El código a probar se coloca en la carpeta
+    <q>src</q> y las pruebas en la carpeta <q>spec</q>.
    </p>
   </li>
   <li>
@@ -902,7 +922,7 @@
     Console aparece la salida de las pruebas.
    </p>
   </li>
- </ul>
+ </ol>
 </div>
  <footer>
  <p>
@@ -932,7 +952,7 @@
  <a class="anterior" href="/m22pruebas/mDjasmine/index.html" title="D. Jasmine"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m22pruebas/mDjasmine/mArchivos.html" title="2. Archivos"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m22pruebas/mDjasmine/mBsalida.html" title="2. Salida de las pruebas realizadas"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -955,7 +975,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m22pruebas/mCphpunit/m-replit-nix.html"
-        title="9. replit.nix"><span
+        title="10. replit.nix"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -967,6 +987,11 @@
    <li>
     <p>
      <a href="/m22pruebas/mDjasmine/mAinstrucciones.html" class="actual">Hazlo funcionar</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m22pruebas/mDjasmine/mBsalida.html">Salida de las pruebas realizadas</a>
     </p>
    </li>
    <li>
@@ -1037,7 +1062,7 @@
  /**@type {string} */
  let urlAnterior = "/m22pruebas/mDjasmine/index.html"
  /**@type {string} */
- let urlSiguiente = "/m22pruebas/mDjasmine/mArchivos.html"
+ let urlSiguiente = "/m22pruebas/mDjasmine/mBsalida.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

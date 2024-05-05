@@ -751,6 +751,11 @@
    </li>
    <li>
     <p>
+     <a href="/m22pruebas/mCphpunit/mBsalida.html">Salida de las pruebas realizadas</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m22pruebas/mCphpunit/mArchivos.html">Archivos</a>
     </p>
    </li>
@@ -872,6 +877,12 @@
   </li>
   <li>
    <p>
+    Para correrlo desde Windows, ejecuta el comando
+    <br><samp>./vendor/bin/phpunit tests</samp>
+   </p>
+  </li>
+  <li>
+   <p>
     <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
       target="_blank" rel="noopener">Crea la <b>cover page</b> o página de
      spotlight del proyecto.</a>
@@ -881,7 +892,37 @@
 </div>
       </section>
      <section >
-         <h1 >2. Archivos</h1>
+         <h1 >2. Salida de las pruebas realizadas</h1><div class="lectura">
+ <p>
+  Esta salida muestra algunos fallos para que te des cuenta como se ven. En la
+  práctica, todas la pruebas deben aprobarse.
+ </p>
+ <pre style="white-space: pre-wrap;overflow-wrap: anywhere"><samp>
+  PHPUnit 10.5.5 by Sebastian Bergmann and contributors.
+
+  Runtime:       PHP 8.2.7
+  
+  ..F                                                                 3 / 3 (100%)
+  
+  Time: 00:00.091, Memory: 8.00 MB
+  
+  There was 1 failure:
+  
+  1) RecomiendaTest::testReg2
+  Probando reg 2
+  Failed asserting that two strings are equal.
+  --- Expected
+  +++ Actual
+  @@ @@
+  -'Daddy Yankee.'
+  +'Bad Bunny.'
+  
+  /home/runner/phpunit/tests/RecomiendaTest.php:19
+</samp></pre>
+</div>
+      </section>
+     <section >
+         <h1 >3. Archivos</h1>
   <div class="lectura">
    <p>Haz clic en los triángulos para expandir las carpetas</p>
    <ul class="tree">
@@ -931,7 +972,7 @@
   </div>
       </section>
      <section>
-         <h1 >3. Carpeta « src »</h1>
+         <h1 >4. Carpeta « src »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -982,7 +1023,7 @@
       </section>
       </section>
      <section>
-         <h1 >4. Carpeta « tests »</h1>
+         <h1 >5. Carpeta « tests »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1042,7 +1083,7 @@
       </section>
       </section>
      <section >
-         <h1 >5. composer.json</h1><table class="codeShow">
+         <h1 >6. composer.json</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1061,7 +1102,7 @@
 </table>
       </section>
      <section >
-         <h1 >6. composer.lock</h1><table class="codeShow">
+         <h1 >7. composer.lock</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1076,7 +1117,7 @@
 </table>
       </section>
      <section>
-         <h1 >7. Carpeta « vendor »</h1>
+         <h1 >8. Carpeta « vendor »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -1115,7 +1156,7 @@
       </section>
       </section>
      <section >
-         <h1 >8. .replit</h1><table class="codeShow">
+         <h1 >9. .replit</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1135,7 +1176,7 @@
 </table>
       </section>
      <section >
-         <h1 >9. replit.nix</h1><table class="codeShow">
+         <h1 >10. replit.nix</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
