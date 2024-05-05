@@ -1,7 +1,7 @@
 /* Espera 11 minutos después de hacer los cambios en tu sitio, para depués
  * actualizar este archivo. */
 
-const VERSION = "5.7"
+const VERSION = "5.8"
 
 const CACHE = "cache"
 
