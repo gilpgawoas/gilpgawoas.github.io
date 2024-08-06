@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>8. lib / php / validaNombre.php - GilPG AWOAS</title>
+ <title>16. lib / php / validaNombre.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/php/validaNombre.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,7 +834,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >8. lib / php / validaNombre.php</h1><table class="codeShow">
+   <h1 >16. lib / php / validaNombre.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -846,18 +846,33 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/ProblemDetails.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">function</span> validaNombre(string $nombre)</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeString">&quot;&quot;</span>)</td></tr>
-  <tr><td>8</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>9</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>10</td><td>   type: <span class="codeString">&quot;/error/faltanombre.html&quot;</span>,</td></tr>
-  <tr><td>11</td><td>   title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</td></tr>
-  <tr><td>12</td><td>  );</td></tr>
-  <tr><td>13</td><td>}</td></tr>
-  <tr><td>14</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/BAD_REQUEST.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> validaNombre(<span class="codeReserved">false</span>|string $nombre)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>11</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>12</td><td>   title: <span class="codeString">"Falta el nombre."</span>,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">"/error/faltanombre.html"</span>,</td></tr>
+  <tr><td>14</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de nombre."</span></td></tr>
+  <tr><td>15</td><td>  );</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $trimNombre = trim($nombre);</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">if</span> ($trimNombre === <span class="codeString">""</span>)</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>22</td><td>   title: <span class="codeString">"Nombre en blanco."</span>,</td></tr>
+  <tr><td>23</td><td>   type: <span class="codeString">"/error/nombreenblanco.html"</span>,</td></tr>
+  <tr><td>24</td><td>   detail: <span class="codeString">"Pon texto en el campo nombre."</span>,</td></tr>
+  <tr><td>25</td><td>  );</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">return</span> $trimNombre;</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -885,10 +900,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m17auno/m-lib/m-php/m-recibeFetchAll-php.html" title="7. lib / php / recibeFetchAll.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m17auno/m-lib/m-php/m-recuperaTexto-php.html" title="15. lib / php / recuperaTexto.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m17auno/m-error/index.html" title="M. Carpeta « error »"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m17auno/m-error/index.html" title="L. Carpeta « error »"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -906,15 +921,15 @@
    </p>
    
    <p>
-    <a href="/m17auno/">19. Relaciones a uno en la base de datos</a>
+    <a href="/m17auno/">20. Relaciones a uno en la base de datos</a>
    </p>
    <p>
-    <a href="/m17auno/m-lib/">L. Carpeta « lib »</a>
+    <a href="/m17auno/m-lib/">K. Carpeta « lib »</a>
    </p>
    
      <p>
       <a class="paginaAnterior" href="/m17auno/m-lib/m-js/m-submitForm-js.html"
-        title="7. lib / js / submitForm.js"><span
+        title="5. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -925,27 +940,57 @@
     
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+     <a href="/m17auno/m-lib/m-php/m-BAD_REQUEST-php.html">lib / php / BAD_REQUEST.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
+     <a href="/m17auno/m-lib/m-php/m-devuelveCreated-php.html">lib / php / devuelveCreated.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-leeEntero-php.html">lib / php / leeEntero.php</a>
+     <a href="/m17auno/m-lib/m-php/m-devuelveErrorInterno-php.html">lib / php / devuelveErrorInterno.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
+     <a href="/m17auno/m-lib/m-php/m-devuelveJson-php.html">lib / php / devuelveJson.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-pdFaltaId-php.html">lib / php / pdFaltaId.php</a>
+     <a href="/m17auno/m-lib/m-php/m-devuelveNoContent-php.html">lib / php / devuelveNoContent.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-devuelveProblemDetails-php.html">lib / php / devuelveProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-fetch-php.html">lib / php / fetch.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-fetchAll-php.html">lib / php / fetchAll.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-NOT_FOUND-php.html">lib / php / NOT_FOUND.php</a>
     </p>
    </li>
    <li>
@@ -955,7 +1000,17 @@
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-recibeFetchAll-php.html">lib / php / recibeFetchAll.php</a>
+     <a href="/m17auno/m-lib/m-php/m-recuperaEntero-php.html">lib / php / recuperaEntero.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-recuperaIdEntero-php.html">lib / php / recuperaIdEntero.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-lib/m-php/m-recuperaTexto-php.html">lib / php / recuperaTexto.php</a>
     </p>
    </li>
    <li>
@@ -967,7 +1022,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m17auno/m-error/index.html"
-       title="M. Carpeta « error »"><span
+       title="L. Carpeta « error »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -984,7 +1039,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m17auno/m-lib/m-php/m-recibeFetchAll-php.html"
+ let urlAnterior = "/m17auno/m-lib/m-php/m-recuperaTexto-php.html"
  /**@type {string} */
  let urlSiguiente = "/m17auno/m-error/index.html"
  /**@type {number|null} */

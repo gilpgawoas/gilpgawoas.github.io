@@ -845,22 +845,22 @@
  </caption>
  <tbody>
   <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
+  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
   <tr><td>3</td><td></td></tr>
   <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
+  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
+  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
   <tr><td>8</td><td></td></tr>
   <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Servicio que procesa un formulario con token&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
   <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/invocaServicio.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/submitForm.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">&quot;module&quot;</span> src=<span class="codeString">&quot;lib/js/muestraError.js&quot;</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/consumeJson.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/submitForm.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraError.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>14</td><td></td></tr>
   <tr><td>15</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>  <span class="codeReserved">let</span> token = <span class="codeString">&quot;&quot;</span></td></tr>
+  <tr><td>17</td><td>  <span class="codeReserved">let</span> token = <span class="codeString">""</span></td></tr>
   <tr><td>18</td><td></td></tr>
   <tr><td>19</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>20</td><td></td></tr>
@@ -868,45 +868,48 @@
   <tr><td>22</td><td></td></tr>
   <tr><td>23</td><td><span class="codeComment">&lt;!-- Al cargar, registra este formulario en la sesión y recibe un token. --&gt;</span></td></tr>
   <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">&quot;invocaServicio(&#039;srv/srvRegistra.php&#039;)</span></td></tr>
+  <tr><td>25</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"consumeJson(&#039;srv/registra.php&#039;)</span></td></tr>
   <tr><td>26</td><td><span class="codeString">  .then(token =&gt; forma.token.value = token.body)</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)&quot;</span>&gt;</td></tr>
+  <tr><td>27</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
   <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> &lt;<span class="codeReserved">h1</span>&gt;Servicio que procesa un formulario con token&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td> &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">&quot;index.html&quot;</span>&gt;Cancela&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">&quot;forma&quot;</span> onsubmit=<span class="codeString">&quot;submitForm(&#039;srv/srvProcesa.php&#039;, event)</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">    .then(resultado =&gt; {</span></td></tr>
-  <tr><td>35</td><td><span class="codeString">     alert(resultado.body)</span></td></tr>
-  <tr><td>36</td><td><span class="codeString">     location.href = &#039;index.html&#039;</span></td></tr>
-  <tr><td>37</td><td><span class="codeString">    })</span></td></tr>
-  <tr><td>38</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)&quot;</span>&gt;</td></tr>
+  <tr><td>29</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"forma"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/procesa.php&#039;, event)</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">    .then(resultado =&gt; {</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">     alert(resultado.body)</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">     location.href = &#039;index.html&#039;</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">    })</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Servicio que procesa un formulario con token&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancela&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>39</td><td></td></tr>
   <tr><td>40</td><td>  <span class="codeComment">&lt;!-- Al enviar la forma, se envía el token recibido. --&gt;</span></td></tr>
-  <tr><td>41</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">&quot;hidden&quot;</span> name=<span class="codeString">&quot;token&quot;</span>&gt;</td></tr>
+  <tr><td>41</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">"hidden"</span> name=<span class="codeString">"token"</span>&gt;</td></tr>
   <tr><td>42</td><td></td></tr>
   <tr><td>43</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>44</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
   <tr><td>45</td><td>    Saludo:</td></tr>
-  <tr><td>46</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">&quot;saludo&quot;</span>&gt;</td></tr>
+  <tr><td>46</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"saludo"</span>&gt;</td></tr>
   <tr><td>47</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
   <tr><td>48</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>49</td><td></td></tr>
   <tr><td>50</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>51</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
   <tr><td>52</td><td>    Nombre:</td></tr>
-  <tr><td>53</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">&quot;nombre&quot;</span>&gt;</td></tr>
+  <tr><td>53</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"nombre"</span>&gt;</td></tr>
   <tr><td>54</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
   <tr><td>55</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">&quot;submit&quot;</span>&gt;Procesa&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>58</td><td></td></tr>
-  <tr><td>59</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
-  <tr><td>60</td><td></td></tr>
-  <tr><td>61</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>57</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>58</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"reset"</span>&gt;Restaurar&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>59</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Procesa&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>60</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>61</td><td></td></tr>
+  <tr><td>62</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>65</td><td></td></tr>
+  <tr><td>66</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
  <footer>
@@ -962,7 +965,7 @@
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m23token/index.html">25. Servicio con token</a></h1>
+   <h1><a href="/m23token/index.html">26. Servicio con token</a></h1>
    
    <ol type="A">
     

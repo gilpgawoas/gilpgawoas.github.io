@@ -1,0 +1,34 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> usuRolAgrega(PDO $conexion, <span class="codeReserved">int</span> $usuId, array $rolIds)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> <span class="codeReserved">if</span> (sizeof($rolIds) &gt; 0) {</td></tr>
+  <tr><td>6</td><td>  $insert = $conexion-&gt;prepare(</td></tr>
+  <tr><td>7</td><td>   <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> USU_ROL</span></td></tr>
+  <tr><td>8</td><td><span class="codeString">     (USU_ID, ROL_ID)</span></td></tr>
+  <tr><td>9</td><td><span class="codeString">    <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>10</td><td><span class="codeString">     (:usuId, :rolId)"</span></td></tr>
+  <tr><td>11</td><td>  );</td></tr>
+  <tr><td>12</td><td>  <span class="codeReserved">foreach</span> ($rolIds <span class="codeReserved">as</span> $rolId) {</td></tr>
+  <tr><td>13</td><td>   $insert-&gt;execute(</td></tr>
+  <tr><td>14</td><td>    [</td></tr>
+  <tr><td>15</td><td>     <span class="codeString">":usuId"</span> =&gt; $usuId,</td></tr>
+  <tr><td>16</td><td>     <span class="codeString">":rolId"</span> =&gt; $rolId</td></tr>
+  <tr><td>17</td><td>    ]</td></tr>
+  <tr><td>18</td><td>   );</td></tr>
+  <tr><td>19</td><td>  }</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td>}</td></tr>
+  <tr><td>22</td><td></td></tr>
+ </tbody>
+</table>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>1. lib / php / creaToken.php - GilPG AWOAS</title>
+ <title>2. lib / php / creaToken.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/php/creaToken.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,7 +834,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >1. lib / php / creaToken.php</h1><table class="codeShow">
+   <h1 >2. lib / php / creaToken.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -846,15 +846,15 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">function</span> creaToken(string $pagina, int $duracionEnMinutos)</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> creaToken(string $pagina, <span class="codeReserved">int</span> $duracionEnMinutos)</td></tr>
   <tr><td>4</td><td>{</td></tr>
   <tr><td>5</td><td> $criptografiaFuerte = <span class="codeReserved">true</span>;</td></tr>
   <tr><td>6</td><td></td></tr>
   <tr><td>7</td><td> <span class="codeComment">// Crea el token</span></td></tr>
   <tr><td>8</td><td> $token = [</td></tr>
-  <tr><td>9</td><td>  <span class="codeString">&quot;expiracion&quot;</span> =&gt; time() + 60 * $duracionEnMinutos,</td></tr>
+  <tr><td>9</td><td>  <span class="codeString">"expiracion"</span> =&gt; time() + 60 * $duracionEnMinutos,</td></tr>
   <tr><td>10</td><td>  <span class="codeComment">// El token es de 80 caracteres, criptográficamente fuerte.</span></td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;texto&quot;</span> =&gt; bin2hex(openssl_random_pseudo_bytes(80, $criptografiaFuerte))</td></tr>
+  <tr><td>11</td><td>  <span class="codeString">"texto"</span> =&gt; bin2hex(openssl_random_pseudo_bytes(80, $criptografiaFuerte))</td></tr>
   <tr><td>12</td><td> ];</td></tr>
   <tr><td>13</td><td></td></tr>
   <tr><td>14</td><td> <span class="codeComment">// Verifica que ya haya tokens $pagina.</span></td></tr>
@@ -864,7 +864,7 @@
   <tr><td>18</td><td></td></tr>
   <tr><td>19</td><td>  <span class="codeComment">// Como ya existe el arreglo, elimina los tokens expirados para esta pagina.</span></td></tr>
   <tr><td>20</td><td>  <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</td></tr>
-  <tr><td>21</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">&quot;expiracion&quot;</span>] &gt; time()) {</td></tr>
+  <tr><td>21</td><td>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">"expiracion"</span>] &gt; time()) {</td></tr>
   <tr><td>22</td><td>    unset($tokensParaPagina[$llave]);</td></tr>
   <tr><td>23</td><td>   }</td></tr>
   <tr><td>24</td><td>  }</td></tr>
@@ -878,7 +878,7 @@
   <tr><td>32</td><td>  $_SESSION[$pagina] = [$token];</td></tr>
   <tr><td>33</td><td> }</td></tr>
   <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> <span class="codeReserved">return</span> $token[<span class="codeString">&quot;texto&quot;</span>];</td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">return</span> $token[<span class="codeString">"texto"</span>];</td></tr>
   <tr><td>36</td><td>}</td></tr>
   <tr><td>37</td><td></td></tr>
  </tbody>
@@ -908,10 +908,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m23token/m-lib/m-php/index.html" title="B. Carpeta « lib / php »"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m23token/m-lib/m-php/m-BAD_REQUEST-php.html" title="1. lib / php / BAD_REQUEST.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html" title="2. lib / php / ejecutaServicio.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m23token/m-lib/m-php/m-devuelveErrorInterno-php.html" title="3. lib / php / devuelveErrorInterno.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -929,7 +929,7 @@
    </p>
    
    <p>
-    <a href="/m23token/">25. Servicio con token</a>
+    <a href="/m23token/">26. Servicio con token</a>
    </p>
    <p>
     <a href="/m23token/m-lib/">H. Carpeta « lib »</a>
@@ -937,7 +937,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m23token/m-lib/m-js/m-submitForm-js.html"
-        title="5. lib / js / submitForm.js"><span
+        title="4. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -948,27 +948,47 @@
     
    <li>
     <p>
+     <a href="/m23token/m-lib/m-php/m-BAD_REQUEST-php.html">lib / php / BAD_REQUEST.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m23token/m-lib/m-php/m-creaToken-php.html" class="actual">lib / php / creaToken.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+     <a href="/m23token/m-lib/m-php/m-devuelveErrorInterno-php.html">lib / php / devuelveErrorInterno.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
+     <a href="/m23token/m-lib/m-php/m-devuelveJson-php.html">lib / php / devuelveJson.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
+     <a href="/m23token/m-lib/m-php/m-devuelveProblemDetails-php.html">lib / php / devuelveProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
     </p>
    </li>
    <li>
     <p>
      <a href="/m23token/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-php/m-recuperaTexto-php.html">lib / php / recuperaTexto.php</a>
     </p>
    </li>
    <li>
@@ -997,9 +1017,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m23token/m-lib/m-php/index.html"
+ let urlAnterior = "/m23token/m-lib/m-php/m-BAD_REQUEST-php.html"
  /**@type {string} */
- let urlSiguiente = "/m23token/m-lib/m-php/m-ejecutaServicio-php.html"
+ let urlSiguiente = "/m23token/m-lib/m-php/m-devuelveErrorInterno-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

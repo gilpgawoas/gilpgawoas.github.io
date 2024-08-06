@@ -1,0 +1,65 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>13</td><td> $lista = fetchAll($conexion-&gt;query(</td></tr>
+  <tr><td>14</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    P.PROD_ID <span class="codeReserved">AS</span> prodId,</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    P.PROD_NOMBRE <span class="codeReserved">AS</span> prodNombre,</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    A.ARCH_ID <span class="codeReserved">AS</span> archId</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PRODUCTO P</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> ARCHIVO A</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">    <span class="codeReserved">ON</span> P.ARCH_ID = A.ARCH_ID</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> P.PROD_NOMBRE"</span></td></tr>
+  <tr><td>22</td><td> ));</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>26</td><td>  $prodId = htmlentities($modelo-&gt;prodId);</td></tr>
+  <tr><td>27</td><td>  $prodNombre = htmlentities($modelo-&gt;prodNombre);</td></tr>
+  <tr><td>28</td><td>  $encodeArchId = $modelo-&gt;archId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : urlencode($modelo-&gt;archId);</td></tr>
+  <tr><td>29</td><td>  $archId = $encodeArchId === <span class="codeString">""</span> ? <span class="codeString">""</span> : htmlentities($encodeArchId);</td></tr>
+  <tr><td>30</td><td>  $src = $archId === <span class="codeString">""</span> ? <span class="codeString">""</span> : <span class="codeString">"srv/archivo.php?id=$archId"</span>;</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  $render .=</td></tr>
+  <tr><td>33</td><td>   <span class="codeString">"&lt;<span class="codeReserved">div</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>; <span class="codeReserved">flex-direction</span>: row-reverse;</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">      <span class="codeReserved">align-items</span>: center; <span class="codeReserved">gap</span>: 0.5rem&#039;&gt;</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">     &lt;<span class="codeReserved">dt</span> style=&#039;<span class="codeReserved">flex</span>: 1 1 0&#039;&gt;</span></td></tr>
+  <tr><td>36</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$prodId&#039;&gt;$prodNombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>37</td><td><span class="codeString">     &lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>38</td><td><span class="codeString">     &lt;<span class="codeReserved">dd</span> style=&#039;<span class="codeReserved">flex</span>: 1 1 0; <span class="codeReserved">margin</span>: 0&#039;&gt;</span></td></tr>
+  <tr><td>39</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$prodId&#039;&gt;&lt;<span class="codeReserved">img</span> style=&#039;<span class="codeReserved">width</span>: 100%&#039;</span></td></tr>
+  <tr><td>40</td><td><span class="codeString">        alt=&#039;Imagen del producto&#039; <span class="codeReserved">src</span>=&#039;$src&#039;&gt;&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>41</td><td><span class="codeString">     &lt;/<span class="codeReserved">dd</span>&gt;</span></td></tr>
+  <tr><td>42</td><td><span class="codeString">    &lt;/<span class="codeReserved">div</span>&gt;"</span>;</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td></td></tr>
+  <tr><td>45</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>46</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>49</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>52</td><td>}</td></tr>
+  <tr><td>53</td><td></td></tr>
+ </tbody>
+</table>

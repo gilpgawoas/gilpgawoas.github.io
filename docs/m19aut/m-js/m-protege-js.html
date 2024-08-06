@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>C. js / protege.js - GilPG AWOAS</title>
+ <title>B. js / protege.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «js/protege.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,7 +834,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >C. js / protege.js</h1><table class="codeShow">
+   <h1 >B. js / protege.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -844,16 +844,16 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { invocaServicio } <span class="codeReserved">from</span> <span class="codeString">&quot;../lib/js/invocaServicio.js&quot;</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">&quot;./Sesion.js&quot;</span></td></tr>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/consumeJson.js"</span></td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
   <tr><td>3</td><td></td></tr>
   <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * @param {string} servicio</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * @param {string[]} [rolIdsPermitidos]</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * @param {string} [urlDeProtección]</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} servicio</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} [urlDeProtección]</span></td></tr>
   <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(servicio, rolIdsPermitidos, urlDeProtección) {</td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> invocaServicio(<span class="codeString">&#039;srv/srvSesion.php&#039;</span>)</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(servicio)</td></tr>
   <tr><td>11</td><td> <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
   <tr><td>12</td><td> <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
   <tr><td>13</td><td>  <span class="codeReserved">return</span> sesion</td></tr>
@@ -867,12 +867,12 @@
   <tr><td>21</td><td>  <span class="codeReserved">if</span> (urlDeProtección !== undefined) {</td></tr>
   <tr><td>22</td><td>   location.href = urlDeProtección</td></tr>
   <tr><td>23</td><td>  }</td></tr>
-  <tr><td>24</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">&quot;No autorizado.&quot;</span>)</td></tr>
+  <tr><td>24</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
   <tr><td>25</td><td> }</td></tr>
   <tr><td>26</td><td>}</td></tr>
   <tr><td>27</td><td></td></tr>
   <tr><td>28</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>29</td><td>window[<span class="codeString">&quot;protege&quot;</span>] = protege</td></tr>
+  <tr><td>29</td><td>window[<span class="codeString">"protege"</span>] = protege</td></tr>
  </tbody>
 </table>
  <footer>
@@ -900,10 +900,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m19aut/m-js/m-Sesion-js.html" title="B. js / Sesion.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m19aut/m-js/m-CUE-js.html" title="A. js / CUE.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m19aut/m-js/m-custom/index.html" title="D. Carpeta « js / custom »"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m19aut/m-js/m-ROL_IDS-js.html" title="C. js / ROL_IDS.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -921,33 +921,48 @@
    </p>
    
    <p>
-    <a href="/m19aut/">21. Autenticación</a>
+    <a href="/m19aut/">22. Autenticación</a>
    </p>
    
      <p>
       <a class="paginaAnterior" href="/m19aut/m-cliente-html.html"
-        title="L. cliente.html"><span
+        title="K. cliente.html"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m19aut/m-js/index.html">M. Carpeta « js »</a></h1>
+   <h1><a href="/m19aut/m-js/index.html">L. Carpeta « js »</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m19aut/m-js/m-const/">Carpeta « js / const »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-Sesion-js.html">js / Sesion.js</a>
+     <a href="/m19aut/m-js/m-CUE-js.html">js / CUE.js</a>
     </p>
    </li>
    <li>
     <p>
      <a href="/m19aut/m-js/m-protege-js.html" class="actual">js / protege.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-ROL_IDS-js.html">js / ROL_IDS.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-ROL_ID_ADMINISTRADOR-js.html">js / ROL_ID_ADMINISTRADOR.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-ROL_ID_CLIENTE-js.html">js / ROL_ID_CLIENTE.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-Sesion-js.html">js / Sesion.js</a>
     </p>
    </li>
    <li>
@@ -959,7 +974,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m19aut/m-srv/index.html"
-       title="N. Carpeta « srv »"><span
+       title="M. Carpeta « srv »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -976,9 +991,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m19aut/m-js/m-Sesion-js.html"
+ let urlAnterior = "/m19aut/m-js/m-CUE-js.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/m-js/m-custom/index.html"
+ let urlSiguiente = "/m19aut/m-js/m-ROL_IDS-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -718,19 +718,19 @@
     
    <li>
     <p>
-     <a href="/m23token/m-srv/m-srvProcesa-php.html">srv / srvProcesa.php</a>
+     <a href="/m23token/m-srv/m-procesa-php.html">srv / procesa.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m23token/m-srv/m-srvRegistra-php.html">srv / srvRegistra.php</a>
+     <a href="/m23token/m-srv/m-registra-php.html">srv / registra.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >A. srv / srvProcesa.php</h1><table class="codeShow">
+         <h1 >A. srv / procesa.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -742,69 +742,83 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/validaToken.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> session_start();</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/BAD_REQUEST.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaToken.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> $token = leeTexto(<span class="codeString">&quot;token&quot;</span>);</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> ($token === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>15</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>16</td><td>   type: <span class="codeString">&quot;/error/faltatoken.html&quot;</span>,</td></tr>
-  <tr><td>17</td><td>   title: <span class="codeString">&quot;Falta el token.&quot;</span>,</td></tr>
-  <tr><td>18</td><td>  );</td></tr>
-  <tr><td>19</td><td> }</td></tr>
-  <tr><td>20</td><td> validaToken(<span class="codeString">&quot;formulario&quot;</span>, $token);</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td> <span class="codeComment">// Si el token se halló, precesa normalmente la forma.</span></td></tr>
-  <tr><td>23</td><td> $saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</td></tr>
-  <tr><td>24</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
-  <tr><td>25</td><td> <span class="codeReserved">if</span> ($saludo === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>26</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>27</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>28</td><td>   type: <span class="codeString">&quot;/error/faltasaludo.html&quot;</span>,</td></tr>
-  <tr><td>29</td><td>   title: <span class="codeString">&quot;Falta el saludo.&quot;</span>,</td></tr>
-  <tr><td>30</td><td>   detail: <span class="codeString">&quot;La solicitud no tiene el valor de saludo.&quot;</span>,</td></tr>
-  <tr><td>31</td><td>  );</td></tr>
-  <tr><td>32</td><td> }</td></tr>
-  <tr><td>33</td><td> <span class="codeReserved">if</span> ($saludo === <span class="codeString">&quot;&quot;</span>) {</td></tr>
-  <tr><td>34</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>35</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>36</td><td>   type: <span class="codeString">&quot;/error/saludoenblanco.html&quot;</span>,</td></tr>
-  <tr><td>37</td><td>   title: <span class="codeString">&quot;El saludo está en blanco.&quot;</span>,</td></tr>
-  <tr><td>38</td><td>   detail: <span class="codeString">&quot;Pon texto en el saludo.&quot;</span>,</td></tr>
-  <tr><td>39</td><td>  );</td></tr>
-  <tr><td>40</td><td> }</td></tr>
-  <tr><td>41</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>42</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>43</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>44</td><td>   type: <span class="codeString">&quot;/error/faltanombre.html&quot;</span>,</td></tr>
-  <tr><td>45</td><td>   title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</td></tr>
-  <tr><td>46</td><td>   detail: <span class="codeString">&quot;La solicitud no tiene el valor de nombre.&quot;</span>,</td></tr>
-  <tr><td>47</td><td>  );</td></tr>
-  <tr><td>48</td><td> }</td></tr>
-  <tr><td>49</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeString">&quot;&quot;</span>) {</td></tr>
-  <tr><td>50</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>51</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>52</td><td>   type: <span class="codeString">&quot;/error/nombreenblanco.html&quot;</span>,</td></tr>
-  <tr><td>53</td><td>   title: <span class="codeString">&quot;El nombre está en blanco.&quot;</span>,</td></tr>
-  <tr><td>54</td><td>   detail: <span class="codeString">&quot;Pon texto en el nombre.&quot;</span>,</td></tr>
-  <tr><td>55</td><td>  );</td></tr>
-  <tr><td>56</td><td> }</td></tr>
-  <tr><td>57</td><td> $resultado = <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</td></tr>
-  <tr><td>58</td><td> <span class="codeReserved">return</span> $resultado;</td></tr>
-  <tr><td>59</td><td>});</td></tr>
-  <tr><td>60</td><td></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> session_start();</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $token = recuperaTexto(<span class="codeString">"token"</span>);</td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">if</span> ($token === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>19</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>20</td><td>   title: <span class="codeString">"Falta el token."</span>,</td></tr>
+  <tr><td>21</td><td>   type: <span class="codeString">"/error/faltatoken.html"</span>,</td></tr>
+  <tr><td>22</td><td>  );</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> validaToken(<span class="codeString">"formulario"</span>, $token);</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td> <span class="codeComment">// Si el token se halló, precesa normalmente la forma.</span></td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td> $saludo = recuperaTexto(<span class="codeString">"saludo"</span>);</td></tr>
+  <tr><td>30</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td> <span class="codeReserved">if</span> ($saludo === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>33</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>34</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>35</td><td>   title: <span class="codeString">"Falta el saludo."</span>,</td></tr>
+  <tr><td>36</td><td>   type: <span class="codeString">"/error/faltasaludo.html"</span>,</td></tr>
+  <tr><td>37</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de saludo."</span>,</td></tr>
+  <tr><td>38</td><td>  );</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td> <span class="codeReserved">if</span> ($saludo === <span class="codeString">""</span>)</td></tr>
+  <tr><td>41</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>42</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>43</td><td>   title: <span class="codeString">"El saludo está en blanco."</span>,</td></tr>
+  <tr><td>44</td><td>   type: <span class="codeString">"/error/saludoenblanco.html"</span>,</td></tr>
+  <tr><td>45</td><td>   detail: <span class="codeString">"Pon texto en el campo saludo."</span>,</td></tr>
+  <tr><td>46</td><td>  );</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>49</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>50</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>51</td><td>   title: <span class="codeString">"Falta el nombre."</span>,</td></tr>
+  <tr><td>52</td><td>   type: <span class="codeString">"/error/faltanombre.html"</span>,</td></tr>
+  <tr><td>53</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de nombre."</span>,</td></tr>
+  <tr><td>54</td><td>  );</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td> <span class="codeReserved">if</span> ($nombre === <span class="codeString">""</span>)</td></tr>
+  <tr><td>57</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>58</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>59</td><td>   title: <span class="codeString">"El nombre está en blanco."</span>,</td></tr>
+  <tr><td>60</td><td>   type: <span class="codeString">"/error/nombreenblanco.html"</span>,</td></tr>
+  <tr><td>61</td><td>   detail: <span class="codeString">"Pon texto en el campo nombre."</span>,</td></tr>
+  <tr><td>62</td><td>  );</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td> $resultado = <span class="codeString">"{$saludo} {$nombre}."</span>;</td></tr>
+  <tr><td>65</td><td></td></tr>
+  <tr><td>66</td><td> devuelveJson($resultado);</td></tr>
+  <tr><td>67</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>68</td><td></td></tr>
+  <tr><td>69</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>70</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>71</td><td></td></tr>
+  <tr><td>72</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>73</td><td>}</td></tr>
+  <tr><td>74</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >B. srv / srvRegistra.php</h1><table class="codeShow">
+         <h1 >B. srv / registra.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -816,16 +830,20 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/creaToken.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/creaToken.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>8</td><td> session_start();</td></tr>
-  <tr><td>9</td><td> <span class="codeComment">// Crea un token para la página <span class="codeString">&quot;formulario&quot;</span> que expira en 5 minutos.</span></td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">return</span> creaToken(<span class="codeString">&quot;formulario&quot;</span>, 5);</td></tr>
-  <tr><td>11</td><td>});</td></tr>
-  <tr><td>12</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> session_start();</td></tr>
+  <tr><td>10</td><td> <span class="codeComment">// Crea un token para la página &quot;formulario&quot; que expira en 5 minutos.</span></td></tr>
+  <tr><td>11</td><td> devuelveJson(creaToken(<span class="codeString">"formulario"</span>, 5));</td></tr>
+  <tr><td>12</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>15</td><td>}</td></tr>
+  <tr><td>16</td><td></td></tr>
  </tbody>
 </table>
       </section>

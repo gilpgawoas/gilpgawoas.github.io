@@ -10,17 +10,15 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span>  <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;leeJson.php&quot;</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaJson.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
   <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>7</td><td> $json = leeJson();</td></tr>
-  <tr><td>8</td><td> $saludo = $json-&gt;saludo;</td></tr>
-  <tr><td>9</td><td> $nombre = $json-&gt;nombre;</td></tr>
-  <tr><td>10</td><td> $resultado =</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</td></tr>
-  <tr><td>12</td><td> <span class="codeReserved">return</span> $resultado;</td></tr>
-  <tr><td>13</td><td>});</td></tr>
-  <tr><td>14</td><td></td></tr>
+  <tr><td>6</td><td>$json = recuperaJson();</td></tr>
+  <tr><td>7</td><td>$saludo = $json-&gt;saludo;</td></tr>
+  <tr><td>8</td><td>$nombre = $json-&gt;nombre;</td></tr>
+  <tr><td>9</td><td>$resultado =</td></tr>
+  <tr><td>10</td><td> <span class="codeString">"{$saludo} {$nombre}."</span>;</td></tr>
+  <tr><td>11</td><td>devuelveJson($resultado);</td></tr>
+  <tr><td>12</td><td></td></tr>
  </tbody>
 </table>

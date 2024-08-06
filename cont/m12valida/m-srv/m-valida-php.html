@@ -10,37 +10,49 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;ProblemDetails.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;&#47;..&#47;lib&#47;php&#47;leeTexto.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>8</td><td> $saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</td></tr>
-  <tr><td>9</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">if</span> (</td></tr>
-  <tr><td>11</td><td>  $saludo === <span class="codeReserved">null</span></td></tr>
-  <tr><td>12</td><td>  || $saludo === <span class="codeString">&quot;&quot;</span></td></tr>
-  <tr><td>13</td><td> ) {</td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>15</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>16</td><td>   type: <span class="codeString">&quot;&#47;error&#47;faltasaludo.html&quot;</span>,</td></tr>
-  <tr><td>17</td><td>   title: <span class="codeString">&quot;Falta el saludo.&quot;</span>,</td></tr>
-  <tr><td>18</td><td>  );</td></tr>
-  <tr><td>19</td><td> }</td></tr>
-  <tr><td>20</td><td> <span class="codeReserved">if</span> (</td></tr>
-  <tr><td>21</td><td>  $nombre === <span class="codeReserved">null</span></td></tr>
-  <tr><td>22</td><td>  || $nombre === <span class="codeString">&quot;&quot;</span></td></tr>
-  <tr><td>23</td><td> ) {</td></tr>
-  <tr><td>24</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>25</td><td>   status: ProblemDetails::BadRequest,</td></tr>
-  <tr><td>26</td><td>   type: <span class="codeString">&quot;&#47;error&#47;faltanombre.html&quot;</span>,</td></tr>
-  <tr><td>27</td><td>   title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</td></tr>
-  <tr><td>28</td><td>  );</td></tr>
-  <tr><td>29</td><td> }</td></tr>
-  <tr><td>30</td><td> $resultado =</td></tr>
-  <tr><td>31</td><td>  <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</td></tr>
-  <tr><td>32</td><td> <span class="codeReserved">return</span> $resultado;</td></tr>
-  <tr><td>33</td><td>});</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/BAD_REQUEST.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $saludo = recuperaTexto(<span class="codeString">"saludo"</span>);</td></tr>
+  <tr><td>13</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">if</span> (</td></tr>
+  <tr><td>16</td><td>  $saludo === <span class="codeReserved">false</span></td></tr>
+  <tr><td>17</td><td>  || $saludo === <span class="codeString">""</span></td></tr>
+  <tr><td>18</td><td> )</td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>20</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>21</td><td>   title: <span class="codeString">"Falta el saludo."</span>,</td></tr>
+  <tr><td>22</td><td>   type: <span class="codeString">"/error/faltasaludo.html"</span></td></tr>
+  <tr><td>23</td><td>  );</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">if</span> (</td></tr>
+  <tr><td>26</td><td>  $nombre === <span class="codeReserved">false</span></td></tr>
+  <tr><td>27</td><td>  || $nombre === <span class="codeString">""</span></td></tr>
+  <tr><td>28</td><td> )</td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>30</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>31</td><td>   title: <span class="codeString">"Falta el nombre."</span>,</td></tr>
+  <tr><td>32</td><td>   type: <span class="codeString">"/error/faltanombre.html"</span></td></tr>
+  <tr><td>33</td><td>  );</td></tr>
   <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> $resultado =</td></tr>
+  <tr><td>36</td><td>  <span class="codeString">"{$saludo} {$nombre}."</span>;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> devuelveJson($resultado);</td></tr>
+  <tr><td>39</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>42</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
  </tbody>
 </table>

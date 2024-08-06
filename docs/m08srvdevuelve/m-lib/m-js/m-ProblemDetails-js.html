@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>4. lib / js / ProblemDetails.js - GilPG AWOAS</title>
+ <title>3. lib / js / ProblemDetails.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/ProblemDetails.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,7 +834,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >4. lib / js / ProblemDetails.js</h1><table class="codeShow">
+   <h1 >3. lib / js / ProblemDetails.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -844,28 +844,28 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_BadRequest = 400</td></tr>
-  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_NotFound = 404</td></tr>
-  <tr><td>3</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ProblemDetails_InternalServerError = 500</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails extends Error {</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment">  * @param {number} status</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  * @param {string} title</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment">  * @param {string} [detail]</span></td></tr>
-  <tr><td>11</td><td><span class="codeComment">  * @param {string} [type]</span></td></tr>
-  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, title, detail, type) {</td></tr>
-  <tr><td>14</td><td>  super(title)</td></tr>
-  <tr><td>15</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
-  <tr><td>17</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
+  <tr><td>1</td><td><span class="codeComment">/** Detalle de los errores devueltos por un servicio. */</span></td></tr>
+  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
+  <tr><td>12</td><td>  super(title)</td></tr>
+  <tr><td>13</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
+  <tr><td>16</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
+  <tr><td>17</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
   <tr><td>18</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
-  <tr><td>19</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
-  <tr><td>20</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
-  <tr><td>21</td><td>  <span class="codeComment">/** @readonly */</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>21</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
   <tr><td>23</td><td> }</td></tr>
   <tr><td>24</td><td></td></tr>
   <tr><td>25</td><td>}</td></tr>
@@ -896,7 +896,7 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m08srvdevuelve/m-lib/m-js/m-muestraError-js.html" title="3. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/m-lib/m-js/m-muestraError-js.html" title="2. lib / js / muestraError.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
  <a class="siguiente" href="/m08srvdevuelve/m-lib/m-php/index.html" title="B. Carpeta « lib / php »"><span class="material-symbols-outlined">
@@ -917,15 +917,15 @@
    </p>
    
    <p>
-    <a href="/m08srvdevuelve/">9. Servicio que devuelve JSON</a>
+    <a href="/m08srvdevuelve/">10. Servicio que devuelve JSON</a>
    </p>
    <p>
-    <a href="/m08srvdevuelve/m-lib/">N. Carpeta « lib »</a>
+    <a href="/m08srvdevuelve/m-lib/">M. Carpeta « lib »</a>
    </p>
    
      <p>
       <a class="paginaAnterior" href="/m08srvdevuelve/m-lib/index.html"
-        title="N. Carpeta « lib »"><span
+        title="M. Carpeta « lib »"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -936,12 +936,7 @@
     
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-invocaServicio-js.html">lib / js / invocaServicio.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-JsonResponse-js.html">lib / js / JsonResponse.js</a>
+     <a href="/m08srvdevuelve/m-lib/m-js/m-consumeJson-js.html">lib / js / consumeJson.js</a>
     </p>
    </li>
    <li>

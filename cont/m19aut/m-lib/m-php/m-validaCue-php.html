@@ -1,0 +1,41 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/BAD_REQUEST.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> validaCue($cue)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> ($cue === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>11</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>12</td><td>   title: <span class="codeString">"Falta el cue."</span>,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">"/error/faltacue.html"</span>,</td></tr>
+  <tr><td>14</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de cue."</span>,</td></tr>
+  <tr><td>15</td><td>  );</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $trimCue = trim($cue);</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">if</span> ($trimCue === <span class="codeString">""</span>)</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>22</td><td>   title: <span class="codeString">"Cue en blanco."</span>,</td></tr>
+  <tr><td>23</td><td>   type: <span class="codeString">"/error/cuenblanco.html"</span>,</td></tr>
+  <tr><td>24</td><td>   detail: <span class="codeString">"Pon texto en el campo cue."</span>,</td></tr>
+  <tr><td>25</td><td>  );</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">return</span> $trimCue;</td></tr>
+  <tr><td>28</td><td>}</td></tr>
+  <tr><td>29</td><td></td></tr>
+ </tbody>
+</table>

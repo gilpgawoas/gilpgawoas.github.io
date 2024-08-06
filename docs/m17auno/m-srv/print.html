@@ -702,7 +702,7 @@
 </head>
 
 <body class="print">
-   <h1 >K. Carpeta « srv »</h1>
+   <h1 >J. Carpeta « srv »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -718,77 +718,49 @@
     
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-modelo/">Carpeta « srv / modelo »</a>
+     <a href="/m17auno/m-srv/m-amigo-agrega-php.html">srv / amigo-agrega.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvAmigoAgrega-php.html">srv / srvAmigoAgrega.php</a>
+     <a href="/m17auno/m-srv/m-amigo-elimina-php.html">srv / amigo-elimina.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvAmigoBusca-php.html">srv / srvAmigoBusca.php</a>
+     <a href="/m17auno/m-srv/m-amigo-modifica-php.html">srv / amigo-modifica.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvAmigoConsulta-php.html">srv / srvAmigoConsulta.php</a>
+     <a href="/m17auno/m-srv/m-amigo-php.html">srv / amigo.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvAmigoElimina-php.html">srv / srvAmigoElimina.php</a>
+     <a href="/m17auno/m-srv/m-amigos-php.html">srv / amigos.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvAmigoModifica-php.html">srv / srvAmigoModifica.php</a>
+     <a href="/m17auno/m-srv/m-Bd-php.html">srv / Bd.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-srvPasatiempoOptions-php.html">srv / srvPasatiempoOptions.php</a>
+     <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-bd/">Carpeta « srv / bd »</a>
-    </p>
-   </li>
-   </ol>
-   </nav>
-  </div>
-     <section>
-         <h1 >A. Carpeta « srv / modelo »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="1">
-    
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-modelo/m-Amigo-php.html">srv / modelo / Amigo.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-modelo/m-Pasatiempo-php.html">srv / modelo / Pasatiempo.php</a>
+     <a href="/m17auno/m-srv/m-validaPasId-php.html">srv / validaPasId.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. srv / modelo / Amigo.php</h1><table class="codeShow">
+         <h1 >A. srv / amigo-agrega.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -800,406 +772,104 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/validaNombre.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">class</span> Amigo</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">public</span> string $nombre;</td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">public</span> ?Pasatiempo $pasatiempo;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaPasId.php"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>16</td><td> $pasId = recuperaEntero(<span class="codeString">"pasId"</span>);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>19</td><td> $pasId = validaPasId($pasId);</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>22</td><td> $conexion-&gt;prepare(</td></tr>
+  <tr><td>23</td><td>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> AMIGO</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    (AMI_NOMBRE, PAS_ID)</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    (:nombre, :pasId)"</span></td></tr>
+  <tr><td>27</td><td> )</td></tr>
+  <tr><td>28</td><td>  -&gt;execute([</td></tr>
+  <tr><td>29</td><td>   <span class="codeString">":nombre"</span> =&gt; $nombre,</td></tr>
+  <tr><td>30</td><td>   <span class="codeString">":pasId"</span> =&gt; $pasId</td></tr>
+  <tr><td>31</td><td>  ]);</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> <span class="codeComment">/* Recupera el id generado. Si usas una secuencia, pasa como</span></td></tr>
+  <tr><td>34</td><td><span class="codeComment">  * parámetro de lastInsertId el nombre de dicha secuencia y</span></td></tr>
+  <tr><td>35</td><td><span class="codeComment">  * poner esta instrucción antes del <span class="codeReserved">INSERT</span>, al cual se le</span></td></tr>
+  <tr><td>36</td><td><span class="codeComment">  * pasarle el id generado. */</span></td></tr>
+  <tr><td>37</td><td> $id = $conexion-&gt;lastInsertId();</td></tr>
+  <tr><td>38</td><td> $encodeId = urlencode($id);</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td> devuelveCreated(<span class="codeString">"/srv/amigo.php?id=$encodeId"</span>, [</td></tr>
+  <tr><td>41</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>42</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>43</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
+  <tr><td>44</td><td> ]);</td></tr>
+  <tr><td>45</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>48</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>51</td><td>}</td></tr>
+  <tr><td>52</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >B. srv / amigo-elimina.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
-  <tr><td>13</td><td>  string $nombre = <span class="codeString">&quot;&quot;</span>,</td></tr>
-  <tr><td>14</td><td>  ?Pasatiempo $pasatiempo = <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>15</td><td>  int $id = 0</td></tr>
-  <tr><td>16</td><td> ) {</td></tr>
-  <tr><td>17</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
-  <tr><td>18</td><td>  $<span class="codeReserved">this</span>-&gt;nombre = $nombre;</td></tr>
-  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;pasatiempo = $pasatiempo;</td></tr>
-  <tr><td>20</td><td> }</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
-  <tr><td>23</td><td> {</td></tr>
-  <tr><td>24</td><td>  validaNombre($<span class="codeReserved">this</span>-&gt;nombre);</td></tr>
-  <tr><td>25</td><td> }</td></tr>
-  <tr><td>26</td><td>}</td></tr>
-  <tr><td>27</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >2. srv / modelo / Pasatiempo.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/validaNombre.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">class</span> Pasatiempo</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> <span class="codeReserved">public</span> int $id;</td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">public</span> string $nombre;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(string $nombre = <span class="codeString">&quot;&quot;</span>, int $id = 0)</td></tr>
-  <tr><td>12</td><td> {</td></tr>
-  <tr><td>13</td><td>  $<span class="codeReserved">this</span>-&gt;id = $id;</td></tr>
-  <tr><td>14</td><td>  $<span class="codeReserved">this</span>-&gt;nombre = $nombre;</td></tr>
-  <tr><td>15</td><td> }</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> valida()</td></tr>
-  <tr><td>18</td><td> {</td></tr>
-  <tr><td>19</td><td>  validaNombre($<span class="codeReserved">this</span>-&gt;nombre);</td></tr>
-  <tr><td>20</td><td> }</td></tr>
-  <tr><td>21</td><td>}</td></tr>
-  <tr><td>22</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-      </section>
-     <section >
-         <h1 >B. srv / srvAmigoAgrega.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Amigo.php&quot;</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoAgrega.php&quot;</span>;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>12</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
-  <tr><td>13</td><td> $pasId = leeEntero(<span class="codeString">&quot;pasId&quot;</span>);</td></tr>
-  <tr><td>14</td><td> $pasatiempo = $pasId === <span class="codeReserved">null</span></td></tr>
-  <tr><td>15</td><td>  ? <span class="codeReserved">null</span></td></tr>
-  <tr><td>16</td><td>  : <span class="codeReserved">new</span> Pasatiempo(id: $pasId);</td></tr>
-  <tr><td>17</td><td> $modelo = <span class="codeReserved">new</span> Amigo(</td></tr>
-  <tr><td>18</td><td>  nombre: $nombre === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : trim($nombre),</td></tr>
-  <tr><td>19</td><td>  pasatiempo: $pasatiempo</td></tr>
-  <tr><td>20</td><td> );</td></tr>
-  <tr><td>21</td><td> amigoAgrega($modelo);</td></tr>
-  <tr><td>22</td><td> $id = htmlentities($modelo-&gt;id);</td></tr>
-  <tr><td>23</td><td> $pasatiempo = $modelo-&gt;pasatiempo;</td></tr>
-  <tr><td>24</td><td> <span class="codeReserved">return</span> JsonResponse::created(<span class="codeString">&quot;/srv/srvAmigoBusca.php?id=$id&quot;</span>, [</td></tr>
-  <tr><td>25</td><td>  <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
-  <tr><td>26</td><td>  <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
-  <tr><td>27</td><td>  <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
-  <tr><td>28</td><td> ]);</td></tr>
-  <tr><td>29</td><td>});</td></tr>
-  <tr><td>30</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >C. srv / srvAmigoBusca.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ProblemDetails.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoBusca.php&quot;</span>;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
-  <tr><td>12</td><td> $modelo = amigoBusca($id);</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>14</td><td>  $htmlId = htmlentities($id);</td></tr>
-  <tr><td>15</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>16</td><td>   status: ProblemDetails::NotFound,</td></tr>
-  <tr><td>17</td><td>   type: <span class="codeString">&quot;/error/amigonoencontrado.html&quot;</span>,</td></tr>
-  <tr><td>18</td><td>   title: <span class="codeString">&quot;Amigo no encontrado.&quot;</span>,</td></tr>
-  <tr><td>19</td><td>   detail: <span class="codeString">&quot;No se encontró ningún amigo con el id $htmlId.&quot;</span>,</td></tr>
-  <tr><td>20</td><td>  );</td></tr>
-  <tr><td>21</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>22</td><td>  $pasatiempo = $modelo-&gt;pasatiempo;</td></tr>
-  <tr><td>23</td><td>  <span class="codeReserved">return</span> [</td></tr>
-  <tr><td>24</td><td>   <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
-  <tr><td>25</td><td>   <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
-  <tr><td>26</td><td>   <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
-  <tr><td>27</td><td>  ];</td></tr>
-  <tr><td>28</td><td> }</td></tr>
-  <tr><td>29</td><td>});</td></tr>
-  <tr><td>30</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >D. srv / srvAmigoConsulta.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoConsulta.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>7</td><td> $lista = amigoConsulta();</td></tr>
-  <tr><td>8</td><td> $render = <span class="codeString">&quot;&quot;</span>;</td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>10</td><td>  $amiId = htmlentities($modelo-&gt;amiId);</td></tr>
-  <tr><td>11</td><td>  $amiNombre = htmlentities($modelo-&gt;amiNombre);</td></tr>
-  <tr><td>12</td><td>  $pasNombre = $modelo-&gt;pasNombre === <span class="codeReserved">null</span></td></tr>
-  <tr><td>13</td><td>   ? <span class="codeString">&quot;&lt;<span class="codeReserved">em</span>&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">em</span>&gt;&quot;</span></td></tr>
-  <tr><td>14</td><td>   : htmlentities($modelo-&gt;pasNombre);</td></tr>
-  <tr><td>15</td><td>  $render .=</td></tr>
-  <tr><td>16</td><td>   <span class="codeString">&quot;&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$amiNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$pasNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;&quot;</span>;</td></tr>
-  <tr><td>18</td><td> }</td></tr>
-  <tr><td>19</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;lista&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
-  <tr><td>20</td><td>});</td></tr>
-  <tr><td>21</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >E. srv / srvAmigoElimina.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/JsonResponse.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoElimina.php&quot;</span>;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>10</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
-  <tr><td>12</td><td> amigoElimina($id);</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">return</span> JsonResponse::noContent();</td></tr>
-  <tr><td>14</td><td>});</td></tr>
-  <tr><td>15</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >F. srv / srvAmigoModifica.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/pdFaltaId.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeEntero.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/leeTexto.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Amigo.php&quot;</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/amigoModifica.php&quot;</span>;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>12</td><td> $id = leeEntero(<span class="codeString">&quot;id&quot;</span>);</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> ($id === <span class="codeReserved">null</span>) <span class="codeReserved">throw</span> pdFaltaId();</td></tr>
-  <tr><td>14</td><td> $nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</td></tr>
-  <tr><td>15</td><td> $pasId = leeEntero(<span class="codeString">&quot;pasId&quot;</span>);</td></tr>
-  <tr><td>16</td><td> $pasatiempo = $pasId === <span class="codeReserved">null</span></td></tr>
-  <tr><td>17</td><td>  ? <span class="codeReserved">null</span></td></tr>
-  <tr><td>18</td><td>  : <span class="codeReserved">new</span> Pasatiempo(id: $pasId);</td></tr>
-  <tr><td>19</td><td> $modelo = <span class="codeReserved">new</span> Amigo(</td></tr>
-  <tr><td>20</td><td>  nombre: $nombre === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : trim($nombre),</td></tr>
-  <tr><td>21</td><td>  pasatiempo: $pasatiempo,</td></tr>
-  <tr><td>22</td><td>  id: $id</td></tr>
-  <tr><td>23</td><td> );</td></tr>
-  <tr><td>24</td><td> amigoModifica($modelo);</td></tr>
-  <tr><td>25</td><td> <span class="codeReserved">return</span> [</td></tr>
-  <tr><td>26</td><td>  <span class="codeString">&quot;id&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;id],</td></tr>
-  <tr><td>27</td><td>  <span class="codeString">&quot;nombre&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $modelo-&gt;nombre],</td></tr>
-  <tr><td>28</td><td>  <span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;value&quot;</span> =&gt; $pasatiempo === <span class="codeReserved">null</span> ? <span class="codeString">&quot;&quot;</span> : $pasatiempo-&gt;id]</td></tr>
-  <tr><td>29</td><td> ];</td></tr>
-  <tr><td>30</td><td>});</td></tr>
-  <tr><td>31</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >G. srv / srvPasatiempoOptions.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../lib/php/ejecutaServicio.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bd/pasatiempoConsulta.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>7</td><td> $lista = pasatiempoConsulta();</td></tr>
-  <tr><td>8</td><td> $render = <span class="codeString">&quot;&lt;<span class="codeReserved">option</span> value=&#039;&#039;&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">option</span>&gt;&quot;</span>;</td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>10</td><td>  $id = htmlentities($modelo-&gt;id);</td></tr>
-  <tr><td>11</td><td>  $nombre = htmlentities($modelo-&gt;nombre);</td></tr>
-  <tr><td>12</td><td>  $render .= <span class="codeString">&quot;&lt;<span class="codeReserved">option</span> value=&#039;$id&#039;&gt;{$nombre}&lt;/<span class="codeReserved">option</span>&gt;&quot;</span>;</td></tr>
-  <tr><td>13</td><td> }</td></tr>
-  <tr><td>14</td><td> <span class="codeReserved">return</span> [<span class="codeString">&quot;pasId&quot;</span> =&gt; [<span class="codeString">&quot;innerHTML&quot;</span> =&gt; $render]];</td></tr>
-  <tr><td>15</td><td>});</td></tr>
-  <tr><td>16</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section>
-         <h1 >H. Carpeta « srv / bd »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="1">
-    
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-bdCrea-php.html">srv / bd / bdCrea.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-Bd-php.html">srv / bd / Bd.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-amigoAgrega-php.html">srv / bd / amigoAgrega.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-amigoBusca-php.html">srv / bd / amigoBusca.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-amigoConsulta-php.html">srv / bd / amigoConsulta.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-amigoElimina-php.html">srv / bd / amigoElimina.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-amigoModifica-php.html">srv / bd / amigoModifica.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-pasatiempoAgrega-php.html">srv / bd / pasatiempoAgrega.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-bd/m-pasatiempoConsulta-php.html">srv / bd / pasatiempoConsulta.php</a>
-    </p>
-   </li>
-   </ol>
-   </nav>
-  </div>
-     <section >
-         <h1 >1. srv / bd / bdCrea.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">function</span> bdCrea(PDO $con)</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td> $con-&gt;exec(</td></tr>
-  <tr><td>6</td><td>  <span class="codeString">&#039;<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
-  <tr><td>7</td><td><span class="codeString">    PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>8</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
-  <tr><td>9</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
-  <tr><td>10</td><td><span class="codeString">     <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
-  <tr><td>11</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
-  <tr><td>12</td><td><span class="codeString">     <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE)</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">   )&#039;</span></td></tr>
-  <tr><td>14</td><td> );</td></tr>
-  <tr><td>15</td><td> $con-&gt;exec(</td></tr>
-  <tr><td>16</td><td>  <span class="codeString">&#039;<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> AMIGO (</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">    AMI_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">    AMI_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">    PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_PK</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">     <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(AMI_ID),</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_NOM_UNQ</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">     <span class="codeReserved">UNIQUE</span>(AMI_NOMBRE)</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">    <span class="codeReserved">CONSTRAINT</span> AMI_PAS_FK</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">     <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (PAS_ID) <span class="codeReserved">REFERENCES</span> PASATIEMPO(PAS_ID)</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">   )&#039;</span></td></tr>
-  <tr><td>27</td><td> );</td></tr>
+  <tr><td>12</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>15</td><td> $conexion-&gt;prepare(</td></tr>
+  <tr><td>16</td><td>  <span class="codeString">"<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> AMIGO</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> AMI_ID = :id"</span></td></tr>
+  <tr><td>18</td><td> )</td></tr>
+  <tr><td>19</td><td>  -&gt;execute([<span class="codeString">":id"</span> =&gt; $id]);</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> devuelveNoContent();</td></tr>
+  <tr><td>22</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>25</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td> devuelveErrorInterno($error);</td></tr>
   <tr><td>28</td><td>}</td></tr>
   <tr><td>29</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >2. srv / bd / Bd.php</h1><table class="codeShow">
+         <h1 >C. srv / amigo-modifica.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1211,182 +881,58 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/bdCrea.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/pasatiempoConsulta.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/pasatiempoAgrega.php&quot;</span>;</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td><span class="codeReserved">class</span> Bd</td></tr>
-  <tr><td>9</td><td>{</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(): PDO</td></tr>
-  <tr><td>14</td><td> {</td></tr>
-  <tr><td>15</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
-  <tr><td>18</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
-  <tr><td>19</td><td>    <span class="codeString">&quot;sqlite:srvauno.db&quot;</span>,</td></tr>
-  <tr><td>20</td><td>    <span class="codeComment">// usuario</span></td></tr>
-  <tr><td>21</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>22</td><td>    <span class="codeComment">// contraseña</span></td></tr>
-  <tr><td>23</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>24</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
-  <tr><td>25</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
-  <tr><td>26</td><td>   );</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td>   bdCrea(<span class="codeReserved">self</span>::$conexion);</td></tr>
-  <tr><td>29</td><td>   $pasatiempo = pasatiempoConsulta();</td></tr>
-  <tr><td>30</td><td>   <span class="codeReserved">if</span> (count($pasatiempo) === 0) {</td></tr>
-  <tr><td>31</td><td>    $pasatiempo = <span class="codeReserved">new</span> Pasatiempo(nombre: <span class="codeString">&quot;Futbol&quot;</span>);</td></tr>
-  <tr><td>32</td><td>    pasatiempoAgrega($pasatiempo);</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td>    $pasatiempo = <span class="codeReserved">new</span> Pasatiempo(nombre: <span class="codeString">&quot;Videojuegos&quot;</span>);</td></tr>
-  <tr><td>35</td><td>    pasatiempoAgrega($pasatiempo);</td></tr>
-  <tr><td>36</td><td>   }</td></tr>
-  <tr><td>37</td><td>  }</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
-  <tr><td>40</td><td> }</td></tr>
-  <tr><td>41</td><td>}</td></tr>
-  <tr><td>42</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >3. srv / bd / amigoAgrega.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> amigoAgrega(Amigo $modelo)</td></tr>
-  <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
-  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> AMIGO</span></td></tr>
-  <tr><td>12</td><td><span class="codeString">    (AMI_NOMBRE, PAS_ID)</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    (:nombre, :pasId)&quot;</span></td></tr>
-  <tr><td>15</td><td> );</td></tr>
-  <tr><td>16</td><td> $stmt-&gt;execute([</td></tr>
-  <tr><td>17</td><td>  <span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre,</td></tr>
-  <tr><td>18</td><td>  <span class="codeString">&quot;:pasId&quot;</span> =&gt; $modelo-&gt;pasatiempo === <span class="codeReserved">null</span></td></tr>
-  <tr><td>19</td><td>   ? <span class="codeReserved">null</span></td></tr>
-  <tr><td>20</td><td>   : $modelo-&gt;pasatiempo-&gt;id</td></tr>
-  <tr><td>21</td><td> ]);</td></tr>
-  <tr><td>22</td><td> <span class="codeComment">/* Si usas una secuencia para generar el id,</span></td></tr>
-  <tr><td>23</td><td><span class="codeComment">  * pasa como parámetro de lastInsertId el</span></td></tr>
-  <tr><td>24</td><td><span class="codeComment">  * nombre de dicha secuencia, debes</span></td></tr>
-  <tr><td>25</td><td><span class="codeComment">  * ejecutarlo antes del <span class="codeReserved">INSERT</span> y pasarle el</span></td></tr>
-  <tr><td>26</td><td><span class="codeComment">  * id generado al SQL. */</span></td></tr>
-  <tr><td>27</td><td>  $modelo-&gt;id = $con-&gt;lastInsertId();</td></tr>
-  <tr><td>28</td><td> }</td></tr>
-  <tr><td>29</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >4. srv / bd / amigoBusca.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td><span class="codeReserved">function</span> amigoBusca(int $amiId)</td></tr>
-  <tr><td>8</td><td>{</td></tr>
-  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>12</td><td><span class="codeString">    A.AMI_ID <span class="codeReserved">AS</span> amiId,</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    A.PAS_ID <span class="codeReserved">AS</span> pasId,</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">    P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> A.AMI_ID = :amiId&quot;</span></td></tr>
-  <tr><td>20</td><td> );</td></tr>
-  <tr><td>21</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:amiId&quot;</span> =&gt; $amiId]);</td></tr>
-  <tr><td>22</td><td> $stmt-&gt;setFetchMode(PDO::FETCH_OBJ);</td></tr>
-  <tr><td>23</td><td> $obj = $stmt-&gt;fetch();</td></tr>
-  <tr><td>24</td><td> <span class="codeReserved">if</span> ($obj === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
-  <tr><td>26</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>27</td><td>  $pasatiempo = $obj-&gt;pasId === <span class="codeReserved">null</span></td></tr>
-  <tr><td>28</td><td>   ? <span class="codeReserved">null</span></td></tr>
-  <tr><td>29</td><td>   : <span class="codeReserved">new</span> Pasatiempo(nombre: $obj-&gt;pasNombre, id: $obj-&gt;pasId);</td></tr>
-  <tr><td>30</td><td>  $amigo = <span class="codeReserved">new</span> Amigo(</td></tr>
-  <tr><td>31</td><td>   nombre: $obj-&gt;amiNombre,</td></tr>
-  <tr><td>32</td><td>   pasatiempo: $pasatiempo,</td></tr>
-  <tr><td>33</td><td>   id: $obj-&gt;amiId</td></tr>
-  <tr><td>34</td><td>  );</td></tr>
-  <tr><td>35</td><td>  <span class="codeReserved">return</span> $amigo;</td></tr>
-  <tr><td>36</td><td> }</td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >5. srv / bd / amigoConsulta.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/recibeFetchAll.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> amigoConsulta()</td></tr>
-  <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>9</td><td> $stmt = $con-&gt;query(</td></tr>
-  <tr><td>10</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>11</td><td><span class="codeString">    A.AMI_ID <span class="codeReserved">AS</span> amiId,</span></td></tr>
-  <tr><td>12</td><td><span class="codeString">    A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> A.AMI_NOMBRE&quot;</span></td></tr>
-  <tr><td>18</td><td> );</td></tr>
-  <tr><td>19</td><td> $resultado = $stmt-&gt;fetchAll(PDO::FETCH_OBJ);</td></tr>
-  <tr><td>20</td><td> <span class="codeReserved">return</span> recibeFetchAll($resultado);</td></tr>
-  <tr><td>21</td><td>}</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaEntero.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaPasId.php"</span>;</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>17</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>18</td><td> $pasId = recuperaEntero(<span class="codeString">"pasId"</span>);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>21</td><td> $pasId = validaPasId($pasId);</td></tr>
   <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>24</td><td> $conexion-&gt;prepare(</td></tr>
+  <tr><td>25</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> AMIGO</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    <span class="codeReserved">SET</span></span></td></tr>
+  <tr><td>27</td><td><span class="codeString">     AMI_NOMBRE = :nombre,</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">     PAS_ID = :pasId</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> AMI_ID = :id"</span></td></tr>
+  <tr><td>30</td><td> )</td></tr>
+  <tr><td>31</td><td>  -&gt;execute([</td></tr>
+  <tr><td>32</td><td>   <span class="codeString">":id"</span> =&gt; $id,</td></tr>
+  <tr><td>33</td><td>   <span class="codeString">":nombre"</span> =&gt; $nombre,</td></tr>
+  <tr><td>34</td><td>   <span class="codeString">":pasId"</span> =&gt; $pasId</td></tr>
+  <tr><td>35</td><td>  ]);</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td> devuelveJson([</td></tr>
+  <tr><td>38</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>39</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>40</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
+  <tr><td>41</td><td> ]);</td></tr>
+  <tr><td>42</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>45</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>48</td><td>}</td></tr>
+  <tr><td>49</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >6. srv / bd / amigoElimina.php</h1><table class="codeShow">
+         <h1 >D. srv / amigo.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1398,23 +944,65 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">function</span> amigoElimina(int $id)</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>8</td><td> $stmt = $con-&gt;prepare(</td></tr>
-  <tr><td>9</td><td>  <span class="codeString">&quot;<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> AMIGO</span></td></tr>
-  <tr><td>10</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> AMI_ID = :id&quot;</span></td></tr>
-  <tr><td>11</td><td> );</td></tr>
-  <tr><td>12</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:id&quot;</span> =&gt; $id]);</td></tr>
-  <tr><td>13</td><td>}</td></tr>
-  <tr><td>14</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> $amiId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $modelo = fetch(</td></tr>
+  <tr><td>19</td><td>  $conexion-&gt;prepare(</td></tr>
+  <tr><td>20</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>21</td><td><span class="codeString">     A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">     A.PAS_ID <span class="codeReserved">AS</span> pasId,</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">     P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">     <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">     <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> A.AMI_ID = :amiId"</span></td></tr>
+  <tr><td>28</td><td>  ),</td></tr>
+  <tr><td>29</td><td>  [<span class="codeString">":amiId"</span> =&gt; $amiId]</td></tr>
+  <tr><td>30</td><td> );</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td>  $amiIdHtml = htmlentities($amiId);</td></tr>
+  <tr><td>35</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>36</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>37</td><td>   title: <span class="codeString">"Amigo no encontrado."</span>,</td></tr>
+  <tr><td>38</td><td>   type: <span class="codeString">"/error/amigonoencontrado.html"</span>,</td></tr>
+  <tr><td>39</td><td>   detail: <span class="codeString">"No se encontró ningún amigo con el id $amiIdHtml."</span>,</td></tr>
+  <tr><td>40</td><td>  );</td></tr>
+  <tr><td>41</td><td> }</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td> $pasId = $modelo-&gt;pasId;</td></tr>
+  <tr><td>44</td><td> devuelveJson([</td></tr>
+  <tr><td>45</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $amiId],</td></tr>
+  <tr><td>46</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo-&gt;amiNombre],</td></tr>
+  <tr><td>47</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
+  <tr><td>48</td><td> ]);</td></tr>
+  <tr><td>49</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>52</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>55</td><td>}</td></tr>
+  <tr><td>56</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >7. srv / bd / amigoModifica.php</h1><table class="codeShow">
+         <h1 >E. srv / amigos.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1426,34 +1014,137 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Amigo.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $conexionexion = Bd::getConexion();</td></tr>
+  <tr><td>13</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
+  <tr><td>14</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    A.AMI_ID <span class="codeReserved">AS</span> amiId,</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">    P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> A.AMI_NOMBRE"</span></td></tr>
+  <tr><td>22</td><td> ));</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>26</td><td>  $encodeAmiId = urlencode($modelo-&gt;amiId);</td></tr>
+  <tr><td>27</td><td>  $amiId = htmlentities($encodeAmiId);</td></tr>
+  <tr><td>28</td><td>  $amiNombre = htmlentities($modelo-&gt;amiNombre);</td></tr>
+  <tr><td>29</td><td>  $pasNombre = $modelo-&gt;pasNombre === <span class="codeReserved">null</span></td></tr>
+  <tr><td>30</td><td>   ? <span class="codeString">"&lt;<span class="codeReserved">em</span>&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">em</span>&gt;"</span></td></tr>
+  <tr><td>31</td><td>   : htmlentities($modelo-&gt;pasNombre);</td></tr>
+  <tr><td>32</td><td>  $render .=</td></tr>
+  <tr><td>33</td><td>   <span class="codeString">"&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$amiNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$pasNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;"</span>;</td></tr>
+  <tr><td>35</td><td> }</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>38</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>41</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>44</td><td>}</td></tr>
+  <tr><td>45</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >F. srv / Bd.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">class</span> Bd</td></tr>
+  <tr><td>4</td><td>{</td></tr>
   <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> amigoModifica(Amigo $modelo)</td></tr>
-  <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
-  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">UPDATE</span> AMIGO</span></td></tr>
-  <tr><td>12</td><td><span class="codeString">   <span class="codeReserved">SET</span></span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    AMI_NOMBRE = :nombre,</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    PAS_ID = :pasId</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> AMI_ID = :id&quot;</span></td></tr>
-  <tr><td>16</td><td> );</td></tr>
-  <tr><td>17</td><td> $stmt-&gt;execute([</td></tr>
-  <tr><td>18</td><td>  <span class="codeString">&quot;:id&quot;</span> =&gt; $modelo-&gt;id,</td></tr>
-  <tr><td>19</td><td>  <span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre,</td></tr>
-  <tr><td>20</td><td>  <span class="codeString">&quot;:pasId&quot;</span> =&gt; $modelo-&gt;pasatiempo === <span class="codeReserved">null</span></td></tr>
-  <tr><td>21</td><td>   ? <span class="codeReserved">null</span></td></tr>
-  <tr><td>22</td><td>   : $modelo-&gt;pasatiempo-&gt;id</td></tr>
-  <tr><td>23</td><td> ]);</td></tr>
-  <tr><td>24</td><td>}</td></tr>
-  <tr><td>25</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(): PDO</td></tr>
+  <tr><td>9</td><td> {</td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
+  <tr><td>13</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
+  <tr><td>14</td><td>    <span class="codeString">"sqlite:srvauno.db"</span>,</td></tr>
+  <tr><td>15</td><td>    <span class="codeComment">// usuario</span></td></tr>
+  <tr><td>16</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>17</td><td>    <span class="codeComment">// contraseña</span></td></tr>
+  <tr><td>18</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>19</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
+  <tr><td>20</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
+  <tr><td>21</td><td>   );</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
+  <tr><td>24</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">     )'</span></td></tr>
+  <tr><td>34</td><td>   );</td></tr>
+  <tr><td>35</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
+  <tr><td>36</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> AMIGO (</span></td></tr>
+  <tr><td>37</td><td><span class="codeString">      AMI_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>38</td><td><span class="codeString">      AMI_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>39</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>40</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PK</span></td></tr>
+  <tr><td>41</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(AMI_ID),</span></td></tr>
+  <tr><td>42</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_UNQ</span></td></tr>
+  <tr><td>43</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(AMI_NOMBRE),</span></td></tr>
+  <tr><td>44</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_NV</span></td></tr>
+  <tr><td>45</td><td><span class="codeString">       CHECK(LENGTH(AMI_NOMBRE) &gt; 0),</span></td></tr>
+  <tr><td>46</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PAS_FK</span></td></tr>
+  <tr><td>47</td><td><span class="codeString">       <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (PAS_ID) <span class="codeReserved">REFERENCES</span> PASATIEMPO(PAS_ID)</span></td></tr>
+  <tr><td>48</td><td><span class="codeString">     )'</span></td></tr>
+  <tr><td>49</td><td>   );</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td>   $cantidadDePasatiempos =</td></tr>
+  <tr><td>52</td><td>    <span class="codeReserved">self</span>::$conexion-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> COUNT(PAS_ID) <span class="codeReserved">FROM</span> PASATIEMPO"</span>)</td></tr>
+  <tr><td>53</td><td>    -&gt;fetchColumn();</td></tr>
+  <tr><td>54</td><td></td></tr>
+  <tr><td>55</td><td>   <span class="codeReserved">if</span> ($cantidadDePasatiempos === 0) {</td></tr>
+  <tr><td>56</td><td>    <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
+  <tr><td>57</td><td>     <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> PASATIEMPO</span></td></tr>
+  <tr><td>58</td><td><span class="codeString">       (PAS_NOMBRE)</span></td></tr>
+  <tr><td>59</td><td><span class="codeString">      <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>60</td><td><span class="codeString">       (&#039;Futbol&#039;),</span></td></tr>
+  <tr><td>61</td><td><span class="codeString">       (&#039;Videojuegos&#039;)"</span></td></tr>
+  <tr><td>62</td><td>    );</td></tr>
+  <tr><td>63</td><td>   }</td></tr>
+  <tr><td>64</td><td>  }</td></tr>
+  <tr><td>65</td><td></td></tr>
+  <tr><td>66</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
+  <tr><td>67</td><td> }</td></tr>
+  <tr><td>68</td><td>}</td></tr>
+  <tr><td>69</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >8. srv / bd / pasatiempoAgrega.php</h1><table class="codeShow">
+         <h1 >G. srv / pasatiempo-options.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1465,69 +1156,75 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $conexionexion = Bd::getConexion();</td></tr>
+  <tr><td>13</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
+  <tr><td>14</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    PAS_ID <span class="codeReserved">AS</span> id,</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">AS</span> nombre</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE"</span></td></tr>
+  <tr><td>19</td><td> ));</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> $render = <span class="codeString">"&lt;<span class="codeReserved">option</span> value=&#039;&#039;&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">option</span>&gt;"</span>;</td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>23</td><td>  $id = htmlentities($modelo-&gt;id);</td></tr>
+  <tr><td>24</td><td>  $nombre = htmlentities($modelo-&gt;nombre);</td></tr>
+  <tr><td>25</td><td>  $render .= <span class="codeString">"&lt;<span class="codeReserved">option</span> value=&#039;$id&#039;&gt;{$nombre}&lt;/<span class="codeReserved">option</span>&gt;"</span>;</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> devuelveJson([<span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>32</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >H. srv / validaPasId.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/BAD_REQUEST.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
   <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> pasatiempoAgrega(Pasatiempo $modelo)</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> validaPasId(<span class="codeReserved">false</span>|<span class="codeReserved">null</span>|<span class="codeReserved">int</span> $pasId)</td></tr>
   <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td> $modelo-&gt;valida();</td></tr>
-  <tr><td>9</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>10</td><td> $stmt = $con-&gt;prepare(</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">&quot;<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> PASATIEMPO</span></td></tr>
-  <tr><td>12</td><td><span class="codeString">    (PAS_NOMBRE)</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    (:nombre)&quot;</span></td></tr>
-  <tr><td>15</td><td> );</td></tr>
-  <tr><td>16</td><td> $stmt-&gt;execute([<span class="codeString">&quot;:nombre&quot;</span> =&gt; $modelo-&gt;nombre]);</td></tr>
-  <tr><td>17</td><td> <span class="codeComment">/* Si usas una secuencia para generar el id,</span></td></tr>
-  <tr><td>18</td><td><span class="codeComment">  * pasa como parámetro de lastInsertId el</span></td></tr>
-  <tr><td>19</td><td><span class="codeComment">  * nombre de dicha secuencia, debes</span></td></tr>
-  <tr><td>20</td><td><span class="codeComment">  * ejecutarlo antes del <span class="codeReserved">INSERT</span> y pasarle el</span></td></tr>
-  <tr><td>21</td><td><span class="codeComment">  * id generado al SQL. */</span></td></tr>
-  <tr><td>22</td><td>  $modelo-&gt;id = $con-&gt;lastInsertId();</td></tr>
-  <tr><td>23</td><td>}</td></tr>
-  <tr><td>24</td><td></td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">if</span> ($pasId === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>11</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>12</td><td>   title: <span class="codeString">"Falta pasId."</span>,</td></tr>
+  <tr><td>13</td><td>   type: <span class="codeString">"/error/faltapasid.html"</span>,</td></tr>
+  <tr><td>14</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de pasId."</span></td></tr>
+  <tr><td>15</td><td>  );</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">return</span> $pasId;</td></tr>
+  <tr><td>18</td><td>}</td></tr>
+  <tr><td>19</td><td></td></tr>
  </tbody>
 </table>
-      </section>
-     <section >
-         <h1 >9. srv / bd / pasatiempoConsulta.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../../lib/php/recibeFetchAll.php&quot;</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../modelo/Pasatiempo.php&quot;</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/Bd.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td><span class="codeComment">/** @<span class="codeReserved">return</span> Pasatiempo[] */</span></td></tr>
-  <tr><td>8</td><td><span class="codeReserved">function</span> pasatiempoConsulta()</td></tr>
-  <tr><td>9</td><td>{</td></tr>
-  <tr><td>10</td><td> $con = Bd::getConexion();</td></tr>
-  <tr><td>11</td><td> $stmt = $con-&gt;query(</td></tr>
-  <tr><td>12</td><td>  <span class="codeString">&quot;<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    PAS_ID <span class="codeReserved">AS</span> id,</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">AS</span> nombre</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE&quot;</span></td></tr>
-  <tr><td>17</td><td> );</td></tr>
-  <tr><td>18</td><td> $resultado = $stmt-&gt;fetchAll(</td></tr>
-  <tr><td>19</td><td>  PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,</td></tr>
-  <tr><td>20</td><td>  Pasatiempo::<span class="codeReserved">class</span></td></tr>
-  <tr><td>21</td><td> );</td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">return</span> recibeFetchAll($resultado);</td></tr>
-  <tr><td>23</td><td>}</td></tr>
-  <tr><td>24</td><td></td></tr>
- </tbody>
-</table>
-      </section>
       </section>
 </body>
 

@@ -1,0 +1,43 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * Recupera el valor decimal de un parámetro (que</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * puede tener fracciones) enviado al servidor por</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * medio de GET, POST o cookie.</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * </span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuekve <span class="codeReserved">false</span></span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * </span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * Si se recibe una cadena vacía, se devuelve <span class="codeReserved">null</span>.</span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> * </span></td></tr>
+  <tr><td>14</td><td><span class="codeComment"> * Si parámetro no se puede convertir a entero,</span></td></tr>
+  <tr><td>15</td><td><span class="codeComment"> * devuelve 0.</span></td></tr>
+  <tr><td>16</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>17</td><td><span class="codeReserved">function</span> recuperaDecimal(string $parametro): <span class="codeReserved">false</span>|<span class="codeReserved">null</span>|float</td></tr>
+  <tr><td>18</td><td>{</td></tr>
+  <tr><td>19</td><td> $valor = recuperaTexto($parametro);</td></tr>
+  <tr><td>20</td><td> <span class="codeReserved">if</span> ($valor === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>21</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>22</td><td> } <span class="codeReserved">elseif</span> ($valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>23</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>24</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>25</td><td>  <span class="codeReserved">return</span> (float) trim($valor);</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td> <span class="codeReserved">return</span> $valor === <span class="codeReserved">null</span>|| $valor === <span class="codeString">""</span></td></tr>
+  <tr><td>28</td><td>  ? <span class="codeReserved">null</span></td></tr>
+  <tr><td>29</td><td>  : trim($valor);</td></tr>
+  <tr><td>30</td><td>}</td></tr>
+  <tr><td>31</td><td></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,130 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaBytes.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>13</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>14</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaImagen.php"</span>;</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $prodId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>19</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>20</td><td> $bytes = recuperaBytes(<span class="codeString">"imagen"</span>);</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>23</td><td> $bytes = validaImagen($bytes);</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>26</td><td> $conexion-&gt;beginTransaction();</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> $archId = fetch(</td></tr>
+  <tr><td>29</td><td>  $conexion-&gt;prepare(</td></tr>
+  <tr><td>30</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>31</td><td><span class="codeString">     A.ARCH_ID <span class="codeReserved">AS</span> archId</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">    <span class="codeReserved">FROM</span> PRODUCTO P</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">     <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> ARCHIVO A</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">     <span class="codeReserved">ON</span> P.ARCH_ID = A.ARCH_ID</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> P.PROD_ID = :prodId"</span></td></tr>
+  <tr><td>36</td><td>  ),</td></tr>
+  <tr><td>37</td><td>  [<span class="codeString">":prodId"</span> =&gt; $prodId],</td></tr>
+  <tr><td>38</td><td>  PDO::FETCH_COLUMN</td></tr>
+  <tr><td>39</td><td> );</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td> <span class="codeReserved">if</span> ($archId === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td>  $prodIdHtml = htmlentities($prodId);</td></tr>
+  <tr><td>44</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>45</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>46</td><td>   title: <span class="codeString">"Producto no encontrado."</span>,</td></tr>
+  <tr><td>47</td><td>   type: <span class="codeString">"/error/productonoencontrado.html"</span>,</td></tr>
+  <tr><td>48</td><td>   detail: <span class="codeString">"No se encontró ningún producto con el id $prodIdHtml."</span>,</td></tr>
+  <tr><td>49</td><td>  );</td></tr>
+  <tr><td>50</td><td> }</td></tr>
+  <tr><td>51</td><td></td></tr>
+  <tr><td>52</td><td> <span class="codeReserved">if</span> ($bytes !== <span class="codeString">""</span>) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td>  <span class="codeReserved">if</span> ($archId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td>   $conexion-&gt;prepare(</td></tr>
+  <tr><td>57</td><td>    <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> ARCHIVO</span></td></tr>
+  <tr><td>58</td><td><span class="codeString">       (ARCH_BYTES)</span></td></tr>
+  <tr><td>59</td><td><span class="codeString">      <span class="codeReserved">VALUES</span></span></td></tr>
+  <tr><td>60</td><td><span class="codeString">       (:bytes)"</span></td></tr>
+  <tr><td>61</td><td>   )</td></tr>
+  <tr><td>62</td><td>    -&gt;execute([<span class="codeString">":bytes"</span> =&gt; $bytes]);</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td>   <span class="codeComment">/* Recupera el id generado. Si usas una secuencia, pasa como</span></td></tr>
+  <tr><td>65</td><td><span class="codeComment">    * parámetro de lastInsertId el nombre de dicha secuencia y</span></td></tr>
+  <tr><td>66</td><td><span class="codeComment">    * poner esta instrucción antes del <span class="codeReserved">INSERT</span>, al cual se le</span></td></tr>
+  <tr><td>67</td><td><span class="codeComment">    * pasarle el id generado. */</span></td></tr>
+  <tr><td>68</td><td>   $archId = $conexion-&gt;lastInsertId();</td></tr>
+  <tr><td>69</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>70</td><td></td></tr>
+  <tr><td>71</td><td>   $conexion-&gt;prepare(</td></tr>
+  <tr><td>72</td><td>    <span class="codeString">"<span class="codeReserved">UPDATE</span> ARCHIVO</span></td></tr>
+  <tr><td>73</td><td><span class="codeString">     <span class="codeReserved">SET</span> ARCH_BYTES = :bytes</span></td></tr>
+  <tr><td>74</td><td><span class="codeString">     <span class="codeReserved">WHERE</span> ARCH_ID = :archId"</span></td></tr>
+  <tr><td>75</td><td>   )</td></tr>
+  <tr><td>76</td><td>    -&gt;execute([</td></tr>
+  <tr><td>77</td><td>     <span class="codeString">":bytes"</span> =&gt; $bytes,</td></tr>
+  <tr><td>78</td><td>     <span class="codeString">":archId"</span> =&gt; $archId</td></tr>
+  <tr><td>79</td><td>    ]);</td></tr>
+  <tr><td>80</td><td>  }</td></tr>
+  <tr><td>81</td><td> }</td></tr>
+  <tr><td>82</td><td></td></tr>
+  <tr><td>83</td><td> $conexion-&gt;prepare(</td></tr>
+  <tr><td>84</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> PRODUCTO</span></td></tr>
+  <tr><td>85</td><td><span class="codeString">   <span class="codeReserved">SET</span></span></td></tr>
+  <tr><td>86</td><td><span class="codeString">    PROD_NOMBRE = :nombre,</span></td></tr>
+  <tr><td>87</td><td><span class="codeString">    ARCH_ID = :archId</span></td></tr>
+  <tr><td>88</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> PROD_ID = :prodId"</span></td></tr>
+  <tr><td>89</td><td> )</td></tr>
+  <tr><td>90</td><td>  -&gt;execute([</td></tr>
+  <tr><td>91</td><td>   <span class="codeString">":prodId"</span> =&gt; $prodId,</td></tr>
+  <tr><td>92</td><td>   <span class="codeString">":nombre"</span> =&gt; $nombre,</td></tr>
+  <tr><td>93</td><td>   <span class="codeString">":archId"</span> =&gt; $archId</td></tr>
+  <tr><td>94</td><td>  ]);</td></tr>
+  <tr><td>95</td><td></td></tr>
+  <tr><td>96</td><td> $conexion-&gt;commit();</td></tr>
+  <tr><td>97</td><td></td></tr>
+  <tr><td>98</td><td> $encodeArchId = $archId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : urlencode($archId);</td></tr>
+  <tr><td>99</td><td> $htmlEncodeArchId = htmlentities($encodeArchId);</td></tr>
+  <tr><td>100</td><td></td></tr>
+  <tr><td>101</td><td> <span class="codeComment">// Los bytes se descargan con &quot;archivo.php&quot;; no desde aquí.</span></td></tr>
+  <tr><td>102</td><td> devuelveJson([</td></tr>
+  <tr><td>103</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $prodId],</td></tr>
+  <tr><td>104</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>105</td><td>  <span class="codeString">"imagen"</span> =&gt; [</td></tr>
+  <tr><td>106</td><td>   <span class="codeString">"data-file"</span> =&gt; $htmlEncodeArchId === <span class="codeString">""</span></td></tr>
+  <tr><td>107</td><td>    ? <span class="codeString">""</span></td></tr>
+  <tr><td>108</td><td>    : <span class="codeString">"srv/archivo.php?id=$htmlEncodeArchId"</span></td></tr>
+  <tr><td>109</td><td>  ]</td></tr>
+  <tr><td>110</td><td> ]);</td></tr>
+  <tr><td>111</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>112</td><td></td></tr>
+  <tr><td>113</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>114</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>115</td><td></td></tr>
+  <tr><td>116</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>117</td><td>}</td></tr>
+  <tr><td>118</td><td></td></tr>
+ </tbody>
+</table>

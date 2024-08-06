@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>4. lib / php / ProblemDetails.php - GilPG AWOAS</title>
+ <title>7. lib / php / ProblemDetails.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/php/ProblemDetails.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -834,7 +834,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >4. lib / php / ProblemDetails.php</h1><table class="codeShow">
+   <h1 >7. lib / php / ProblemDetails.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -846,33 +846,30 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">class</span> ProblemDetails extends Exception</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> BadRequest = 400;</td></tr>
-  <tr><td>7</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> NotFound = 404;</td></tr>
-  <tr><td>8</td><td> <span class="codeReserved">public</span> <span class="codeReserved">const</span> InternalServerError = 500;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">public</span> int $status;</td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">public</span> string $title;</td></tr>
-  <tr><td>12</td><td> <span class="codeReserved">public</span> ?string $type;</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">public</span> ?string $detail;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
-  <tr><td>16</td><td>  int $status,</td></tr>
-  <tr><td>17</td><td>  string $title,</td></tr>
-  <tr><td>18</td><td>  ?string $type = <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>19</td><td>  ?string $detail = <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>20</td><td>  Throwable $previous = <span class="codeReserved">null</span></td></tr>
-  <tr><td>21</td><td> ) {</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>($title, $status, $previous);</td></tr>
-  <tr><td>23</td><td>  $<span class="codeReserved">this</span>-&gt;status = $status;</td></tr>
-  <tr><td>24</td><td>  $<span class="codeReserved">this</span>-&gt;type = $type;</td></tr>
-  <tr><td>25</td><td>  $<span class="codeReserved">this</span>-&gt;title = $title;</td></tr>
-  <tr><td>26</td><td>  $<span class="codeReserved">this</span>-&gt;detail = $detail;</td></tr>
-  <tr><td>27</td><td> }</td></tr>
-  <tr><td>28</td><td>}</td></tr>
-  <tr><td>29</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeComment">/** Detalle de los errores devueltos por un servicio. */</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Exception</td></tr>
+  <tr><td>5</td><td>{</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">public</span> <span class="codeReserved">int</span> $status;</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">public</span> string $title;</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">public</span> ?string $type;</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">public</span> ?string $detail;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
+  <tr><td>13</td><td>  <span class="codeReserved">int</span> $status,</td></tr>
+  <tr><td>14</td><td>  string $title,</td></tr>
+  <tr><td>15</td><td>  ?string $type = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>16</td><td>  ?string $detail = <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>17</td><td>  Throwable $previous = <span class="codeReserved">null</span></td></tr>
+  <tr><td>18</td><td> ) {</td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>($title, $status, $previous);</td></tr>
+  <tr><td>20</td><td>  $this-&gt;status = $status;</td></tr>
+  <tr><td>21</td><td>  $this-&gt;type = $type;</td></tr>
+  <tr><td>22</td><td>  $this-&gt;title = $title;</td></tr>
+  <tr><td>23</td><td>  $this-&gt;detail = $detail;</td></tr>
+  <tr><td>24</td><td> }</td></tr>
+  <tr><td>25</td><td>}</td></tr>
+  <tr><td>26</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -900,10 +897,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12valida/m-lib/m-php/m-leeTexto-php.html" title="3. lib / php / leeTexto.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12valida/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html" title="6. lib / php / INTERNAL_SERVER_ERROR.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12valida/m-jsconfig-json.html" title="K. jsconfig.json"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12valida/m-lib/m-php/m-recuperaTexto-php.html" title="8. lib / php / recuperaTexto.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -921,7 +918,7 @@
    </p>
    
    <p>
-    <a href="/m12valida/">12. Servicio que valida datos</a>
+    <a href="/m12valida/">13. Servicio que valida datos</a>
    </p>
    <p>
     <a href="/m12valida/m-lib/">J. Carpeta « lib »</a>
@@ -929,7 +926,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m12valida/m-lib/m-js/m-submitForm-js.html"
-        title="5. lib / js / submitForm.js"><span
+        title="4. lib / js / submitForm.js"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -940,22 +937,42 @@
     
    <li>
     <p>
-     <a href="/m12valida/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+     <a href="/m12valida/m-lib/m-php/m-BAD_REQUEST-php.html">lib / php / BAD_REQUEST.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12valida/m-lib/m-php/m-JsonResponse-php.html">lib / php / JsonResponse.php</a>
+     <a href="/m12valida/m-lib/m-php/m-devuelveErrorInterno-php.html">lib / php / devuelveErrorInterno.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m12valida/m-lib/m-php/m-leeTexto-php.html">lib / php / leeTexto.php</a>
+     <a href="/m12valida/m-lib/m-php/m-devuelveJson-php.html">lib / php / devuelveJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12valida/m-lib/m-php/m-devuelveProblemDetails-php.html">lib / php / devuelveProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12valida/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12valida/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
     </p>
    </li>
    <li>
     <p>
      <a href="/m12valida/m-lib/m-php/m-ProblemDetails-php.html" class="actual">lib / php / ProblemDetails.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m12valida/m-lib/m-php/m-recuperaTexto-php.html">lib / php / recuperaTexto.php</a>
     </p>
    </li>
    </ol>
@@ -979,9 +996,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12valida/m-lib/m-php/m-leeTexto-php.html"
+ let urlAnterior = "/m12valida/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html"
  /**@type {string} */
- let urlSiguiente = "/m12valida/m-jsconfig-json.html"
+ let urlSiguiente = "/m12valida/m-lib/m-php/m-recuperaTexto-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
