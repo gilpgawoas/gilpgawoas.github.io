@@ -1060,12 +1060,157 @@
   </dd>
   <dt>PHP</dt>
   <dd>
+   <dl>
+    <dt>Para Linux y apple</dt>
+    <dd>
+     <p>Se puede instalar desde las tiendas de software.</p>
+    </dd>
+    <dt>Para Windows</dt>
+    <dd>
+     <ol>
+      <li>
+       <p>
+        Descarga la versión Thread Safe que corresponda a la arquitectura de tu
+        computadora (x64 o x86, la maypría son x64) desde
+        <a target="_blank" rel="noopener"
+          href="https://windows.php.net/download#php-8.3">https://windows.php.net/download#php-8.3</a>.
+       </p>
+      </li>
+      <li>
+       <p>Crea una carpeta con nombre <em>php</em> en el disco <em>C:</em> y
+        descompacta ahí el php
+       </p>
+      </li>
+      <li>
+       <p>Edita el archivo C:\php\php.ini con el siguiente contenido</p>
+       <pre><code>xtension = php_mbstring.dll
+extension=php_pdo_sqlite.dll
+extension=php_openssl.dll
+extension=php_sockets.dll
+extension=php_fileinfo.dll
+zend_extension = xdebug
+xdebug.mode = debug
+xdebug.start_with_request = yes
+</code></pre>
+      </li>
+      <li>
+       <p>
+        Añade la ruta <em>C:\php</em> a la variable de ambiente PATH.
+       </p>
+       <ol>
+        <li>
+         <p>
+          Haz clic en el logo de Windows.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Configuración.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Sistema.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Acerca de.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Configuración avanzada del sistema. Te pide que autorices.
+          Autoriza.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Variables de entorno.
+         </p>
+        </li>
+        <li>
+         <p>
+          En Variables del sistema selecciona Path y haz clic en Editar...
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Nuevo. Se abre una entrada y en ella teclea
+          <kbd>C:\php</kbd>. Haz clic en Aceptar.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Aceptar para cerrar las variables de entorno.
+         </p>
+        </li>
+        <li>
+         <p>
+          Haz clic en Aceptar para cerrar las propiedades del sistema.
+         </p>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </dd>
+   </dl>
   </dd>
   <dt>Visual Studio Code</dt>
   <dd>
+   <p>Usa la URL <a target="_blank" rel="noopener"
+      href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>.
+   </p>
+   <p>Instala las extensiones:</p>
+   <ul>
+    <li>es6-string-html de Tobermory</li>
+    <li>anuragsingk-PHP Server de Anuragsingk</li>
+    <li>PHP Debug de Xdebug</li>
+    <li>PHP Estension Pack de Xdebug</li>
+    <li>PHP Intellephsense de Ben Mewburn</li>
+    <li>PHP IntelliSense de Damjan Cvetko</li>
+   </ul>
+   <p>
+    Haz clic en el engrane de abajo a la izquierda, seleciona configuration, En
+    <em>Extensions > PHP Server configuration</em> configura lo siguiente
+   <dl>
+    <dt>Phpserver Ip</dt>
+    <dd>localhost</dd>
+    <dt>Phpserver port</dt>
+    <dd>80</dd>
+   </dl>
+   </p>
   </dd>
-  <dt>XDebug</dt>
+  <dt>Xdebug</dt>
   <dd>
+   <ul>
+    <li>
+     <p>
+      Crea una carpeta vacía y ábrela con Visual Studio Code.
+     </p>
+    </li>
+    <li>
+     <p>
+      Crea el archivo <em>index.php</em> con el siguiente contenido
+     </p>
+     <pre><code>&lt;?php
+
+phpinfo();
+</code></pre>
+    </li>
+    <li>
+     <p>
+      Haz clic derecho en <em>index.php</em> y selecciona
+      <em>PHP Server: serve project</em>
+     </p>
+    </li>
+    <li>
+     <p>
+      Sigue las instrucciones de <a target="_blank" rel="noopener"
+        href="https://xdebug.org/wizard">https://xdebug.org/wizard</a>
+     </p>
+    </li>
+   </ul>
   </dd>
  </dl>
 </div>
@@ -6444,7 +6589,7 @@
 <span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -6463,7 +6608,7 @@
 <span class="resaltado">$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section>
@@ -6510,7 +6655,7 @@
 <span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span class="resaltado">$resultado =</span>
 <span class="resaltado"> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -6539,7 +6684,7 @@
 <span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span class="resaltado"><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span class="resaltado">devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -6604,7 +6749,7 @@
 <span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
@@ -7849,7 +7994,7 @@
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -7892,7 +8037,7 @@
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -7963,7 +8108,7 @@
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -8015,7 +8160,7 @@
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Response</h1>
@@ -8085,7 +8230,7 @@
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
@@ -8421,7 +8566,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -8464,7 +8609,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -8535,7 +8680,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -8587,7 +8732,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -8639,7 +8784,7 @@ Error: Falta el saludo
 <span>}</span>
 <span class="resaltado">$resultado =</span>
 <span class="resaltado"> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -8692,7 +8837,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span class="resaltado"><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span class="resaltado">devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -8781,7 +8926,7 @@ Error: Falta el saludo
 <span>}</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
