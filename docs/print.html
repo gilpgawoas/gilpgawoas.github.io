@@ -3638,7 +3638,7 @@
          <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
  <h1>index.html</h1>
  <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span> <span class="codeReserved">await</span> consumeJson(</span>
 <span>  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3649,7 +3649,7 @@
          <h1 >2. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> invocaServicio(</span>
+<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(</span>
 <span class="resaltado">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3667,10 +3667,10 @@
 </section>
 <section>
  <h1>srv&#47;devuelve.php</h1>
- <pre class="resaltado"><code class="language-php"><span><span class="codeReserved">return</span> [</span>
+ <pre class="resaltado"><code class="language-php"><span>devuelveJson([</span>
 <span> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
 <span> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
-<span>];</span></code></pre>
+<span>]);</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -3678,7 +3678,7 @@
          <h1 >3. El servicio procesa la request y genera la response</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> invocaServicio(</span>
+<span class="resaltado3"> <span class="codeReserved">await</span> consumeJson(</span>
 <span class="resaltado3">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3687,10 +3687,10 @@
 </section>
 <section>
  <h1>srv&#47;devuelve.php</h1>
- <pre><code class="language-php"><span class="resaltado"><span class="codeReserved">return</span> [</span>
+ <pre><code class="language-php"><span class="resaltado">devuelveJson([</span>
 <span class="resaltado"> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
 <span class="resaltado"> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
-<span class="resaltado">];</span></code></pre>
+<span class="resaltado">]);</span></code></pre>
  <p class="resaltado2">Procesa la request y<br>genera response<br>(respuesta).</p>
 </section>
 <section style="vertical-align: top; overflow-wrap: anywhere;">
@@ -3707,7 +3707,7 @@
          <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> invocaServicio(</span>
+<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(</span>
 <span class="resaltado">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3748,10 +3748,10 @@
 </div>
 <section>
  <h1>srv&#47;devuelve.php</h1>
- <pre class="resaltado3"><code class="language-php"><span><span class="codeReserved">return</span> [</span>
+ <pre class="resaltado3"><code class="language-php"><span>devuelveJson([</span>
 <span> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
 <span> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
-<span>];</span></code></pre>
+<span>]);</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
@@ -3759,7 +3759,7 @@
          <h1 >5. Se crea la constante body, que apunta al cuerpo de la respuesta</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span> <span class="codeReserved">await</span> consumeJson(</span>
 <span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span class="resaltado"><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3793,7 +3793,7 @@
          <h1 >6. Muestra el objeto recibido en un alert</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span> <span class="codeReserved">await</span> consumeJson(</span>
 <span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span class="resaltado">alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -3836,7 +3836,7 @@
          <h1 >7. Al cerrar el alert, termina el evento</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> invocaServicio(</span>
+<span> <span class="codeReserved">await</span> consumeJson(</span>
 <span>  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -4930,7 +4930,7 @@
 <span>$nombre = $json-&gt;nombre;</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -4968,7 +4968,7 @@
 <span class="resaltado">$nombre = $json-&gt;nombre;</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -5038,7 +5038,7 @@
 <span>$nombre = $json-&gt;nombre;</span>
 <span class="resaltado">$resultado =</span>
 <span class="resaltado"> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
 </section>
 <section>
  <h1>Memoria (Servidor)</h1>
@@ -5095,7 +5095,7 @@
 <span>$nombre = $json-&gt;nombre;</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span class="resaltado"><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span class="resaltado">devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
  <section >
@@ -5183,7 +5183,7 @@
 <span>$nombre = $json-&gt;nombre;</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span><span class="codeReserved">return</span> $resultado;</span></code></pre>
+<span>devuelveJson($resultado);</span></code></pre>
  <p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
       </section>
@@ -28042,7 +28042,7 @@ Error: Falta el saludo
      <section >
          <h1 >D. Diagrama de despliegue</h1><figure>
  <img style="max-height: none;"
-   src="/img/m20archivos/archivosrel.drawio.svg"
+   src="/img/m20archivos/archivosdeploy.drawio.svg"
    alt="Diagrama de despliegue">
 </figure>
       </section>

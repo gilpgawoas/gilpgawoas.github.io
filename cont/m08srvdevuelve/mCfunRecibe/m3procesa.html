@@ -1,7 +1,7 @@
 <section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> invocaServicio(</span>
+<span class="resaltado3"> <span class="codeReserved">await</span> consumeJson(</span>
 <span class="resaltado3">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
 <span><span class="codeReserved">const</span> body = respuesta.body</span>
 <span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
@@ -10,10 +10,10 @@
 </section>
 <section>
  <h1>srv&#47;devuelve.php</h1>
- <pre><code class="language-php"><span class="resaltado"><span class="codeReserved">return</span> [</span>
+ <pre><code class="language-php"><span class="resaltado">devuelveJson([</span>
 <span class="resaltado"> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
 <span class="resaltado"> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
-<span class="resaltado">];</span></code></pre>
+<span class="resaltado">]);</span></code></pre>
  <p class="resaltado2">Procesa la request y<br>genera response<br>(respuesta).</p>
 </section>
 <section style="vertical-align: top; overflow-wrap: anywhere;">
