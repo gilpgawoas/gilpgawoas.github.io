@@ -26,11 +26,14 @@
   <tr><td>16</td><td>   $statement-&gt;execute($parametros);</td></tr>
   <tr><td>17</td><td>  }</td></tr>
   <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>  <span class="codeReserved">return</span> $opcional === <span class="codeReserved">null</span></td></tr>
-  <tr><td>20</td><td>   ? $statement-&gt;fetch($mode)</td></tr>
-  <tr><td>21</td><td>   : $statement-&gt;fetch($mode, $opcional);</td></tr>
-  <tr><td>22</td><td> }</td></tr>
-  <tr><td>23</td><td>}</td></tr>
-  <tr><td>24</td><td></td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">if</span> ($opcional === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>20</td><td>   <span class="codeReserved">return</span> $statement-&gt;fetch($mode);</td></tr>
+  <tr><td>21</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>22</td><td>   $statement-&gt;setFetchMode($mode, $opcional);</td></tr>
+  <tr><td>23</td><td>   <span class="codeReserved">return</span> $statement-&gt;fetch();</td></tr>
+  <tr><td>24</td><td>  }</td></tr>
+  <tr><td>25</td><td> }</td></tr>
+  <tr><td>26</td><td>}</td></tr>
+  <tr><td>27</td><td></td></tr>
  </tbody>
 </table>
