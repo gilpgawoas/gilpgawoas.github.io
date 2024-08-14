@@ -1457,20 +1457,21 @@
   <tr><td>25</td><td></td></tr>
   <tr><td>26</td><td>  console.error(mensaje)</td></tr>
   <tr><td>27</td><td>  console.error(error)</td></tr>
-  <tr><td>28</td><td>  console.error(error.headers)</td></tr>
-  <tr><td>29</td><td>  alert(mensaje)</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  console.error(error)</td></tr>
-  <tr><td>34</td><td>  alert(error.message)</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td> }</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>}</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>41</td><td>window[<span class="codeString">"muestraError"</span>] = muestraError</td></tr>
+  <tr><td>28</td><td>  console.error(<span class="codeString">"Headers:"</span>)</td></tr>
+  <tr><td>29</td><td>  error.headers.forEach((valor, llave) =&gt; console.error(llave, <span class="codeString">"="</span>, valor))</td></tr>
+  <tr><td>30</td><td>  alert(mensaje)</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td>  console.error(error)</td></tr>
+  <tr><td>35</td><td>  alert(error.message)</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td> }</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td>}</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>42</td><td>window[<span class="codeString">"muestraError"</span>] = muestraError</td></tr>
  </tbody>
 </table>
       </section>
