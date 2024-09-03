@@ -944,12 +944,30 @@ const ARCHIVOS = [
  "/m23token/mGinstrucciones.html",
  "/m23token/mTresumen.html",
  "/site.webmanifest",
+ "/src/chatm.zip",
+ "/src/jasmine.zip",
  "/src/m04geolocalizacion/maps.html",
  "/src/m04pruebas/composer.zip",
  "/src/m05sociales/face.html",
  "/src/m15chatserio/chatseriohtm.zip",
  "/src/m15chatserio/chatseriowss.zip",
- "/src/m15streaming/youtube.html"
+ "/src/m15streaming/youtube.html",
+ "/src/phpunit.zip",
+ "/src/rendercli.zip",
+ "/src/renderserv.zip",
+ "/src/srvamuchos.zip",
+ "/src/srvarchivos.zip",
+ "/src/srvauno.zip",
+ "/src/srvaut.zip",
+ "/src/srvbd.zip",
+ "/src/srvcompras.zip",
+ "/src/srvdevuelve.zip",
+ "/src/srvejemplo.zip",
+ "/src/srvform.zip",
+ "/src/srvjson.zip",
+ "/src/srvmuestra.zip",
+ "/src/srvtoken.zip",
+ "/src/srvvalida.zip"
 ]
 
 // Verifica si el código corre dentro de un service worker.
