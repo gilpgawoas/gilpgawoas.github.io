@@ -10,85 +10,63 @@
   </li>
   <li>
    <p>
-    <a href="/src/jasmine.zip" download>Descarga el.</a>
+    Descarga el archivo
+    <a href="/src/jasmine.zip" download>/src/jasmine.zip</a> y
+    descompáctalo.
    </p>
   </li>
   <li>
    <p>
-    Revisa el proyecto en Replit con la URL
-    <a href="https://replit.com/@GilbertoPachec5/jasmine?v=1" rel="noreferrer"
-      target="_blank">https://replit.com/@GilbertoPachec5/jasmine?v=1</a>.
-    Hazle fork al proyecto y córrelo. En el ambiente de desarrollo tienes la
-    opción de descargar el proyecto en un zip.
+    Edita los archivos que sean necesarios. El código a probar se coloca en la
+    carpeta <q>src</q> y las pruebas en la carpeta <q>spec</q>.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
-      target="_blank" rel="noreferrer">Usa o crea una cuenta de Google.</a>
+    El proyecto ya contiene la carpeta <q>node_modules</q> y el
+    archivo <q>package-lock.json</q>, pero si quieres crearlos, debes seguir
+    estos pasos:
    </p>
-  </li>
+   <ol>
+    <li>
+     <p>
+      Si trabajas desde Windows, instala Node.js desde
+      <a href="https://nodejs.org/en" target="_blank"
+        rel="noreferrer">https://nodejs.org/en</a>. Crea una carpeta y pásate a
+      ella desde el símbolo del sistema. también puedes abrir la carpeta con
+      Visual Studio Code y mostrar una terminal. Inicializa un proyecto de node
+      con la instrucción
+      <br><kbd>npm init -y</kbd>
+     </p>
+    </li>
+    <li>
+     <p>
+      Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar
+      ni sobreescribir nada, la siguiente línea
+      <br><code>"type": "module",</code>
+     </p>
+    </li>
+    <li>
+     <p>
+      En el mismo archivo <q>packege.json</q> cambia la línea que dice
+      <code>"test"</code> a que diga:
+      <br><code>"test": "jasmine"</code>
+     </p>
+    </li>
+    <li>
+     <p>Instala Jasmine en el proyecto con la orden:
+      <br><kbd>npm install --save-dev jasmine</kbd>
+     </p>
+    </li>
+    <li>
+     <p>Inicializa Jasmine con la orden:
+      <br><kbd>npx jasmine init</kbd>
+     </p>
+    </li>
+   </ol>
   <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
-      target="_blank" rel="noreferrer">Crea una cuenta de Replit usando la cuenta
-     de Google.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    Crear un proyecto de tipo <q>Node.js</q> en
-    <a href="https://replit.com" target="_blank"
-      rel="noreferrer">https://replit.com</a>. Algunos archivos se generan con
-    las instrucciones que siguen, por lo que no se incluyen en el zip, pero si
-    se muestra su contenido en las páginas siguientes.
-   </p>
-  </li>
-  <li>
-   <p>
-    Si trabajas desde Windows, instala Node.js desde
-    <a href="https://nodejs.org/en" target="_blank"
-      rel="noreferrer">https://nodejs.org/en</a>. Crea una carpeta y pásate a ella
-    desde el símbolo del sistema. o con Visual Studio Code abre la carpeta
-    y muestra una terminal. Inicializa un proyecto de node con la instrucción
-    <br><kbd>npm init -y</kbd>
-   </p>
-  </li>
-  <li>
-   <p>
-    Edita el archivo <q>packege.json</q> e inserta en la linea 6, sin borrar ni
-    sobreescribir nada, la siguiente línea
-    <br><code>"type": "module",</code>
-   </p>
-  </li>
-  <li>
-   <p>
-    En el mismo archivo <q>packege.json</q> cambia la línea que dice
-    <code>"test"</code> a que diga:
-    <br><code>"test": "jasmine"</code>
-   </p>
-  </li>
-  <li>
-   <p>Instala Jasmine en el proyecto con la orden:
-    <br><kbd>npm install --save-dev jasmine</kbd>
-   </p>
-  </li>
-  <li>
-   <p>Inicializa Jasmine con la orden:
-    <br><kbd>npx jasmine init</kbd>
-   </p>
-  </li>
-  <li>
-   <p>
-    Añade los archivos que vienen en el proyecto; esto incluye modificar el
-    archivo <q>.replit</q>. El código a probar se coloca en la carpeta
-    <q>src</q> y las pruebas en la carpeta <q>spec</q>.
-   </p>
-  </li>
-  <li>
-   <p>
-    Haz clic en el botón <q>Run</q>. En la página de desarrollo, en la pestaña
-    Console aparece la salida de las pruebas.
+   <p>Ejecuta las pruebas con la orden:
+    <br><kbd>npm run test</kbd>
    </p>
   </li>
  </ol>
