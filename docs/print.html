@@ -85,7 +85,8 @@
   --gap: 0.5rem;
   --fontMono: 'Xanh Mono', monospace;
   --fontSans: 'Patrick Hand', sans-serif;
-  --fontSerif: 'Purple Purse', serif;
+  /* --fontSerif: 'Purple Purse', serif; */
+  --fontSerif: Georgia, 'Times New Roman', Times, serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -1171,7 +1172,8 @@ xdebug.start_with_request = yes
     <li>PHP IntelliSense de Damjan Cvetko</li>
    </ul>
    <p>
-    Haz clic en el engrane de abajo a la izquierda, seleciona configuration, En
+    Haz clic en el engrane de abajo a la izquierda <img alt=""
+      src="/img/engrane.png"> y seleciona <em>Settings</em>. En
     <em>Extensions > PHP Server configuration</em> configura lo siguiente
    <dl>
     <dt>Phpserver Ip</dt>
@@ -1970,12 +1972,12 @@ phpinfo();
   </li>
   <li>
    <p>
-    Crea una carpeta vacía y ábrela con Visual Studio Code.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Edita los archivos que desees.
    </p>
   </li>
   <li>
@@ -1986,7 +1988,7 @@ phpinfo();
    </p>
   </li>
   <li>
-   <p>Para depurar paso a paso haz lo siguiente.</p>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
    <ol>
     <li>
      <p>
@@ -2029,8 +2031,8 @@ phpinfo();
     </li>
     <li>
      <p>
-      Haz clic en la flechita <em>Start Debugging</em>, al lado de la cual debe
-      decir <em>Listen for xdebug</em> <img alt=""
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
         src="/img/controleslanzadebug.png">.
      </p>
     </li>
@@ -4066,21 +4068,109 @@ phpinfo();
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Descarga el archivo
+    <a href="/src/srvdevuelve.zip" download>/src/srvdevuelve.zip</a> y
+    descompáctalo.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
+  </li>
+  <li>
+   <p>
+    Edita los archivos que desees.
+   </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -5462,21 +5552,102 @@ phpinfo();
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -6860,21 +7031,102 @@ phpinfo();
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -9040,21 +9292,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -10295,21 +10628,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -11535,21 +11949,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -12470,21 +12965,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -13674,21 +14250,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -16003,6 +16660,15 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
+    Este ejercicio usa la librería Eclipse Paho JavaScript Client para conectar
+    el JavaScript del navegador web para conectarse al servidor de mqtt. Puedes
+    profundizar en este tema en la URL
+    <a href="https://eclipse.dev/paho/clients/js/" rel="noreferrer"
+      target="_blank">https://eclipse.dev/paho/clients/js/</a>
+   </p>
+  </li>
+  <li>
+   <p>
     Descarga el archivo
     <a href="/src/chatm.zip" download>/src/chatm.zip</a> y
     descompáctalo.
@@ -16010,21 +16676,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -19547,21 +20294,102 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
@@ -22125,50 +22953,122 @@ Error: Falta el saludo
  <ol>
   <li>
    <p>
-    <a href="/src/srvamuchos.zip" download>Descarga el.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    Puedes probar el ejemplo en
+    Prueba el ejemplo en
     <a href="http://srvamuchos.rf.gd/" rel="noreferrer"
       target="_blank">http://srvamuchos.rf.gd/</a>.
    </p>
   </li>
+  <li>
+   <p>
+    Descarga el archivo
+    <a href="/src/srvamuchos.zip" download>/src/srvamuchos.zip</a> y
+    descompáctalo.
+   </p>
+  </li>
  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
-      target="_blank" rel="noreferrer">Usa o crea una cuenta de Google.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
-      target="_blank" rel="noreferrer">Crea una cuenta de Replit usando la cuenta
-     de Google.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1uH3T58ZJrmihJb3wRdnEFhtbgil9ED6w/view?usp=sharing"
-      target="_blank" rel="noreferrer">Crea un proyecto <em>PHP Web Server</em> en
-     Replit y edita o sube los archivos de este proyecto.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1F3sHMnear4JOu1NVKIkkjVBKFg-eoMX4/view?usp=sharing"
-      target="_blank" rel="noreferrer">Depura el proyecto.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
-      target="_blank" rel="noreferrer">Crea la <b>cover page</b> o página de
-     spotlight del proyecto.</a>
-   </p>
-  </li>
- </ol>
+  <p>
+   Abre la carpeta descompactada con Visual Studio Code.
+  </p>
+ </li>
+ <li>
+  <p>
+   Edita los archivos que desees.
+  </p>
+ </li>
+ <li>
+  <p>
+   Haz clic derecho en <em>index.html</em>, selecciona
+   <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+   probar localmente el ejemplo.
+  </p>
+ </li>
+ <li>
+  <p>Para depurar paso a paso haz lo siguiente:</p>
+  <ol>
+   <li>
+    <p>
+     En el navegador, haz clic derecho en la página que deseas depurar y
+     selecciona <em>inspeccionar</em>.
+    </p>
+   </li>
+   <li>
+    <p>
+     Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+     está en Inglés).
+    </p>
+   </li>
+   <li>
+    <p>
+     Selecciona el archivo donde vas a empezar a depurar.
+    </p>
+   </li>
+   <li>
+    <p>
+     Haz clic en el número de la línea donde vas a empezar a depurar.
+    </p>
+   </li>
+   <li>
+    <p>
+     En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+     depurar.
+   </li>
+   <li>
+    <p>
+     Haz clic en <em>Run and Debug</em> <img alt=""
+       src="/img/runanddebug.png">.
+    </p>
+   </li>
+   <li>
+    <p>
+     Si no está configurada la depuración, haz clic en <em>create a launch json
+      file</em>.
+    </p>
+   </li>
+   <li>
+    <p>
+     Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+     decir <em>Listen for Xdebug</em> <img alt=""
+       src="/img/controleslanzadebug.png">.
+    </p>
+   </li>
+   <li>
+    <p>
+     Aparece un cuadro con los controles de depuración
+    </p>
+   </li>
+   <li>
+    <p>
+     Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+     donde vas a empezar a depurar.
+    </p>
+   </li>
+   <li>
+    <p>
+     Regresa al navegador, recarga la página y empieza a usarla.
+    </p>
+   </li>
+   <li>
+    <p>
+     Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+     resaltada en la pestaña de fuentes. Usa los controles de depuración para
+     avanzar, como se muestra en
+     <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+       target="_blank" rel="noreferrer">este video</a>.
+    </p>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
+   (<a href="https://filezilla-project.org/" target="_blank"
+     rel="noreferrer">https://filezilla-project.org/</a>)
+  </p>
+ </li>
+ <li>
+  <p>Abre un navegador y prueba el proyecto en tu hosting.</p>
+ </li>
+</ol>
 </div>
       </section>
      <section >
@@ -24861,8 +25761,8 @@ Error: Falta el saludo
   <li>
    <p>
     Puedes probar el ejemplo en
-    <a href="http://srvaut.rf.gd/" rel="noreferrer"
-      target="_blank">http://srvaut.rf.gd/</a>.
+    <a href="https://srvaut.rf.gd/" rel="noreferrer"
+      target="_blank">https://srvaut.rf.gd/</a>.
    </p>
   </li>
   <li>
@@ -24939,8 +25839,8 @@ Error: Falta el saludo
   <li>
    <p>
     Prueba el ejemplo en
-    <a href="http://srvaut.rf.gd/" rel="noreferrer"
-      target="_blank">http://srvaut.rf.gd/</a>.
+    <a href="https://srvaut.rf.gd/" rel="noreferrer"
+      target="_blank">https://srvaut.rf.gd/</a>.
    </p>
   </li>
   <li>
@@ -24952,25 +25852,106 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>
-   <p>en algunos host tienes que configurar el certificado SSL.</p>
+   <p>En algunos host tienes que configurar el certificado SSL.</p>
   </li>
   <li>
    <p>Abre un navegador y prueba el proyecto en tu hosting.</p>
@@ -28220,15 +29201,96 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
@@ -31475,15 +32537,96 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
@@ -35003,7 +36146,12 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
+   </p>
+  </li>
+  <li>
+   <p>
+    Edita los archivos que que desees.
    </p>
   </li>
   <li>
@@ -35022,15 +36170,7 @@ Error: Falta el saludo
     </li>
     <li>
      <p>
-      Si estas en Windows, debes abrir el símbolo del sistema y usar el comando
-      <samp>cd</samp> para llegar a la carpeta del proyecto. Si quieres haer
-      este proceso desde Visual Studio Code, con tu proyecto abierto, puedes
-      abrir una terminal.
-     </p>
-    </li>
-    <li>
-     <p>
-      Ejecuta el comando
+      Abre una terminal y ejecuta el comando
       <br><samp>composer update</samp>
      </p>
     </li>
@@ -35038,7 +36178,7 @@ Error: Falta el saludo
   </li>
   <li>
    <p>
-    Desde la carpeta del proyecto, ejecuta el comando
+    Abre una terminal y ejecuta el comando
     <br><samp>./vendor/bin/phpunit tests</samp>
    </p>
   </li>
@@ -35415,7 +36555,12 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios. El código a probar se coloca en la
+    Abre la carpeta descompactada con Visual Studio Code.
+   </p>
+  </li>
+  <li>
+   <p>
+    Edita los archivos que desees. El código a probar se coloca en la
     carpeta <q>src</q> y las pruebas en la carpeta <q>spec</q>.
    </p>
   </li>
@@ -35428,12 +36573,15 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
    <ol>
     <li>
      <p>
-      Si trabajas desde Windows, instala Node.js desde
+      Instala Node.js desde
       <a href="https://nodejs.org/en" target="_blank"
-        rel="noreferrer">https://nodejs.org/en</a>. Crea una carpeta y pásate a
-      ella desde el símbolo del sistema. también puedes abrir la carpeta con
-      Visual Studio Code y mostrar una terminal. Inicializa un proyecto de node
-      con la instrucción
+        rel="noreferrer">https://nodejs.org/en</a>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Desde Visual Studio Code abre una terminal y usa el siguiente comando para
+      inicializar el proyecto de node:
       <br><kbd>npm init -y</kbd>
      </p>
     </li>
@@ -35822,7 +36970,7 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
  <ul>
   <li>
    <p>
-    Este ejercicio usa el comando curl para bash, que nos permite realizar una
+    Este ejercicio usa el comando curl, que nos permite realizar una
     conexión a un sitio. Puedes profundizar en este tema en la URL
     <a href="https://curl.se/" rel="noreferrer"
       target="_blank">https://curl.se/</a>
@@ -35830,48 +36978,32 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </li>
   <li>
    <p>
-    Revisa el proyecto en Replit con la URL
-    <a href="https://replit.com/@GilbertoPachec5/curl?v=1" rel="noreferrer"
-      target="_blank">https://replit.com/@GilbertoPachec5/curl?v=1</a>
+    Si usas un sistema similar a Unix, como Linux o macOS, curl ya está
+    instalado. Si usas Windows, descarga curl desde
+    <a href="https://curl.se/windows/" rel="noreferrer"
+      target="_blank">https://curl.se/windows/</a>.
+    Descompáctalo y copia la carpeta a C:, Añáde la ruta hasta la subcarpeta
+    <em>bin</em> a la variable de ambiente <em>Path</em>.
    </p>
   </li>
   <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
-      target="_blank" rel="noreferrer">Usa o crea una cuenta de Google.</a>
-   </p>
+   <p>Corre localmente el proyecto srvdevuelve.</p>
   </li>
   <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
-      target="_blank" rel="noreferrer">Crea una cuenta de Replit usando la cuenta de
-     Google.</a>
-   </p>
+   <p>Crea una carpeta para el proyecto y ábrela con Visual Studio Code.</p>
   </li>
   <li>
-   <p>
-    Crear un proyecto <q>curl</q> de tipo <q>Bash</q> en
-    <a href="https://replit.com" target="_blank"
-      rel="noreferrer">https://replit.com</a>.
-   </p>
-  </li>
-  <li>
-   <p>
-    En el archivo principal añade la linea
-   </p>
+   <p>Crea el archivo <q>curl.bat</q> y ponle el siguiente contenido.</p>
    <muestra-codigo>
     <div>
-     <div>curl https://srvresultado.gilbertopachec5.repl.co/srv/srvResultado.php</div>
+     <div>curl http://localhost/srv/devuelve.php
+     </div>
      <div></div>
     </div>
    </muestra-codigo>
   </li>
-  <li>
-   <p>
-    Haz clic en el botón <q>Run</q>. En la página de desarrollo, en la pestaña
-    Console aparece el resultado devuelto por el servicio.
-   </p>
-  </li>
+  <p>Ejecuta el proyecto con la orden:
+   <br><kbd>curl.bat</kbd>
  </ul>
 </div>
       </section>
@@ -36011,8 +37143,8 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   <li>
    <p>
     Puedes probar el ejemplo en
-    <a href="http://http://srvtoken.rf.gd/" rel="noreferrer"
-      target="_blank">http://http://srvtoken.rf.gd/</a>.
+    <a href="http://srvtoken.rf.gd/" rel="noreferrer"
+      target="_blank">http://srvtoken.rf.gd/</a>.
    </p>
   </li>
  </ul>
@@ -36044,21 +37176,102 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </li>
   <li>
    <p>
-    Edita los archivos que sean necesarios.
+    Abre la carpeta descompactada con Visual Studio Code.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-      target="_blank" rel="noreferrer">Observa paso a paso la comunicación entre
-     ciente y servidor.</a>
+    Edita los archivos que desees.
    </p>
+  </li>
+  <li>
+   <p>
+    Haz clic derecho en <em>index.html</em>, selecciona
+    <em>PHP Server: serve project</em> y se abre el navegador para que puedas
+    probar localmente el ejemplo.
+   </p>
+  </li>
+  <li>
+   <p>Para depurar paso a paso haz lo siguiente:</p>
+   <ol>
+    <li>
+     <p>
+      En el navegador, haz clic derecho en la página que deseas depurar y
+      selecciona <em>inspeccionar</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona la pestaña <em>Fuentes</em> (o <em>Sources</em> si tu navegador
+      está en Inglés).
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona el archivo donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en el número de la línea donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      En Visual Studio Code, abre el archivo de PHP donde vas a empezar a
+      depurar.
+    </li>
+    <li>
+     <p>
+      Haz clic en <em>Run and Debug</em> <img alt=""
+        src="/img/runanddebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si no está configurada la depuración, haz clic en <em>create a launch json
+       file</em>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Haz clic en la flechita <em>RUN AND DEBUG</em>, al lado de la cual debe
+      decir <em>Listen for Xdebug</em> <img alt=""
+        src="/img/controleslanzadebug.png">.
+     </p>
+    </li>
+    <li>
+     <p>
+      Aparece un cuadro con los controles de depuración
+     </p>
+    </li>
+    <li>
+     <p>
+      Selecciona otra vez el archivo de PHP y haz clic en el número de la línea
+      donde vas a empezar a depurar.
+     </p>
+    </li>
+    <li>
+     <p>
+      Regresa al navegador, recarga la página y empieza a usarla.
+     </p>
+    </li>
+    <li>
+     <p>
+      Si se ejecuta alguna de las líneas de código seleccionadas, aparece
+      resaltada en la pestaña de fuentes. Usa los controles de depuración para
+      avanzar, como se muestra en
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+        target="_blank" rel="noreferrer">este video</a>.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>
     Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
-     rel="noreferrer">https://filezilla-project.org/</a>)
+      rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
   </li>
   <li>

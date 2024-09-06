@@ -15,6 +15,7 @@ const ARCHIVOS = [
  "/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2",
  "/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2",
  "/img/controleslanzadebug.png",
+ "/img/engrane.png",
  "/img/icono/160x30.png",
  "/img/icono/160x30.webp",
  "/img/icono/80x15.png",
