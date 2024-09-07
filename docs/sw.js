@@ -455,7 +455,7 @@ const ARCHIVOS = [
  "/m13bd/m-lib/m-php/m-fetchAll-php.html",
  "/m13bd/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html",
  "/m13bd/m-lib/m-php/m-NOT_FOUND-php.html",
- "/m13bd/m-lib/m-php/m-PdoOrm-php.html",
+ "/m13bd/m-lib/m-php/m-OrmPdo-php.html",
  "/m13bd/m-lib/m-php/m-ProblemDetails-php.html",
  "/m13bd/m-lib/m-php/m-recuperaEntero-php.html",
  "/m13bd/m-lib/m-php/m-recuperaIdEntero-php.html",
