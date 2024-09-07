@@ -471,7 +471,6 @@ const ARCHIVOS = [
  "/m13bd/m-srv/m-pasatiempo-php.html",
  "/m13bd/m-srv/m-pasatiempos-php.html",
  "/m13bd/m-srv/m-pasatimpoOrm-php.html",
- "/m13bd/m-srv/m-srvbd-db.html",
  "/m13bd/mAintro.html",
  "/m13bd/mArchivos.html",
  "/m13bd/mBder.html",
