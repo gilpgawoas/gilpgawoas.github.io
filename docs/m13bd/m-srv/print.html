@@ -746,6 +746,16 @@
      <a href="/m13bd/m-srv/m-pasatiempos-php.html">srv / pasatiempos.php</a>
     </p>
    </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-srv/m-pasatimpoOrm-php.html">srv / pasatimpoOrm.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-srv/m-srvbd-db.html">srv / srvbd.db</a>
+    </p>
+   </li>
    </ol>
    </nav>
   </div>
@@ -784,7 +794,7 @@
   <tr><td>22</td><td>   );</td></tr>
   <tr><td>23</td><td></td></tr>
   <tr><td>24</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
-  <tr><td>25</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
+  <tr><td>25</td><td>    <span class="codeString">"<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
   <tr><td>26</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
   <tr><td>27</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
   <tr><td>28</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
@@ -793,7 +803,7 @@
   <tr><td>31</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
   <tr><td>32</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
   <tr><td>33</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">     )'</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">     )"</span></td></tr>
   <tr><td>35</td><td>   );</td></tr>
   <tr><td>36</td><td>  }</td></tr>
   <tr><td>37</td><td></td></tr>
@@ -824,41 +834,30 @@
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>18</td><td> $conexion-&gt;prepare(</td></tr>
-  <tr><td>19</td><td>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> PASATIEMPO</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">    (PAS_NOMBRE)</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    (:nombre)"</span></td></tr>
-  <tr><td>23</td><td> )</td></tr>
-  <tr><td>24</td><td>  -&gt;execute([<span class="codeString">":nombre"</span> =&gt; $nombre]);</td></tr>
-  <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td> <span class="codeComment">/* Recupera el id generado. Si usas una secuencia, pasa como</span></td></tr>
-  <tr><td>27</td><td><span class="codeComment">  * parámetro de lastInsertId el nombre de dicha secuencia y</span></td></tr>
-  <tr><td>28</td><td><span class="codeComment">  * poner esta instrucción antes del <span class="codeReserved">INSERT</span>, al cual se le</span></td></tr>
-  <tr><td>29</td><td><span class="codeComment">  * pasarle el id generado. */</span></td></tr>
-  <tr><td>30</td><td> $id = $conexion-&gt;lastInsertId();</td></tr>
-  <tr><td>31</td><td> $encodeId = urlencode($id);</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td> devuelveCreated(<span class="codeString">"/srv/pasatiempo.php?id=$encodeId"</span>, [</td></tr>
-  <tr><td>34</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>35</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
-  <tr><td>36</td><td> ]);</td></tr>
-  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>40</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>43</td><td>}</td></tr>
-  <tr><td>44</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> list($id) =</td></tr>
+  <tr><td>19</td><td>  $pasatimpoOrm-&gt;insert(Bd::getConexion(), [[PAS_NOMBRE =&gt; $nombre]]);</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> $encodeId = urlencode($id);</td></tr>
+  <tr><td>22</td><td> devuelveCreated(<span class="codeString">"/srv/pasatiempo.php?id=$encodeId"</span>, [</td></tr>
+  <tr><td>23</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>24</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>25</td><td> ]);</td></tr>
+  <tr><td>26</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>32</td><td>}</td></tr>
+  <tr><td>33</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -881,27 +880,18 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>11</td><td></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>12</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>15</td><td> $conexion-&gt;prepare(</td></tr>
-  <tr><td>16</td><td>  <span class="codeString">"<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> PAS_ID = :id"</span></td></tr>
-  <tr><td>18</td><td> )</td></tr>
-  <tr><td>19</td><td>  -&gt;execute([<span class="codeString">":id"</span> =&gt; $id]);</td></tr>
+  <tr><td>13</td><td> $pasatimpoOrm-&gt;delete(Bd::getConexion(), [[PAS_ID =&gt; $id]]);</td></tr>
+  <tr><td>14</td><td> devuelveNoContent();</td></tr>
+  <tr><td>15</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>16</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>17</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>18</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>19</td><td>}</td></tr>
   <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> devuelveNoContent();</td></tr>
-  <tr><td>22</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>25</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>28</td><td>}</td></tr>
-  <tr><td>29</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -926,37 +916,32 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>15</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>20</td><td> $conexion-&gt;prepare(</td></tr>
-  <tr><td>21</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> PASATIEMPO</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    <span class="codeReserved">SET</span> PAS_NOMBRE = :nombre</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> PAS_ID = :id"</span></td></tr>
-  <tr><td>24</td><td> )</td></tr>
-  <tr><td>25</td><td>  -&gt;execute([</td></tr>
-  <tr><td>26</td><td>   <span class="codeString">":id"</span> =&gt; $id,</td></tr>
-  <tr><td>27</td><td>   <span class="codeString">":nombre"</span> =&gt; $nombre</td></tr>
-  <tr><td>28</td><td>  ]);</td></tr>
-  <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> devuelveJson([</td></tr>
-  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
-  <tr><td>33</td><td> ]);</td></tr>
-  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>16</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $pasatimpoOrm-&gt;update(</td></tr>
+  <tr><td>21</td><td>  Bd::getConexion(),</td></tr>
+  <tr><td>22</td><td>  [[PAS_ID =&gt; $id, PAS_NOMBRE =&gt; $nombre]]</td></tr>
+  <tr><td>23</td><td> );</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> devuelveJson([</td></tr>
+  <tr><td>26</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>27</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>28</td><td> ]);</td></tr>
+  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>32</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -981,46 +966,37 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td> $modelo = fetch(</td></tr>
-  <tr><td>19</td><td>  $conexion-&gt;prepare(</td></tr>
-  <tr><td>20</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeString">     PAS_NOMBRE <span class="codeReserved">AS</span> nombre</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> PAS_ID = :id"</span></td></tr>
-  <tr><td>24</td><td>  ),</td></tr>
-  <tr><td>25</td><td>  [<span class="codeString">":id"</span> =&gt; $id]</td></tr>
-  <tr><td>26</td><td> );</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $modelo = $pasatimpoOrm-&gt;select(Bd::getConexion(), [PAS_ID =&gt; $id]);</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>  $idHtml = htmlentities($id);</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>23</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>24</td><td>   title: <span class="codeString">"Pasatiempo no encontrado."</span>,</td></tr>
+  <tr><td>25</td><td>   type: <span class="codeString">"/error/pasatiemponoencontrado.html"</span>,</td></tr>
+  <tr><td>26</td><td>   detail: <span class="codeString">"No se encontró ningún pasatiempo con el id $idHtml."</span>,</td></tr>
+  <tr><td>27</td><td>  );</td></tr>
+  <tr><td>28</td><td> }</td></tr>
   <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td>  $idHtml = htmlentities($id);</td></tr>
-  <tr><td>31</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>32</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>33</td><td>   title: <span class="codeString">"Pasatiempo no encontrado."</span>,</td></tr>
-  <tr><td>34</td><td>   type: <span class="codeString">"/error/pasatiemponoencontrado.html"</span>,</td></tr>
-  <tr><td>35</td><td>   detail: <span class="codeString">"No se encontró ningún pasatiempo con el id $idHtml."</span>,</td></tr>
-  <tr><td>36</td><td>  );</td></tr>
-  <tr><td>37</td><td> }</td></tr>
+  <tr><td>30</td><td> devuelveJson([</td></tr>
+  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[PAS_NOMBRE]],</td></tr>
+  <tr><td>33</td><td> ]);</td></tr>
+  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
   <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveJson([</td></tr>
-  <tr><td>40</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>41</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo-&gt;nombre],</td></tr>
-  <tr><td>42</td><td> ]);</td></tr>
-  <tr><td>43</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>46</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>47</td><td></td></tr>
-  <tr><td>48</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>49</td><td>}</td></tr>
-  <tr><td>50</td><td></td></tr>
+  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>40</td><td>}</td></tr>
+  <tr><td>41</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -1043,40 +1019,93 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> $conexionexion = Bd::getConexion();</td></tr>
+  <tr><td>14</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
+  <tr><td>15</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span> *</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE"</span></td></tr>
+  <tr><td>18</td><td> ));</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>21</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>22</td><td>  $encodeId = urlencode($modelo[PAS_ID]);</td></tr>
+  <tr><td>23</td><td>  $id = htmlentities($encodeId);</td></tr>
+  <tr><td>24</td><td>  $nombre = htmlentities($modelo[PAS_NOMBRE]);</td></tr>
+  <tr><td>25</td><td>  $render .=</td></tr>
+  <tr><td>26</td><td>   <span class="codeString">"&lt;<span class="codeReserved">li</span>&gt;</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">     &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$id&#039;&gt;$nombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">     &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">    &lt;/<span class="codeReserved">li</span>&gt;"</span>;</td></tr>
+  <tr><td>31</td><td> }</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>40</td><td>}</td></tr>
+  <tr><td>41</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >G. srv / pasatimpoOrm.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"../../lib/php/PdoOrm.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
   <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> $conexionexion = Bd::getConexion();</td></tr>
-  <tr><td>13</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
-  <tr><td>14</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>15</td><td><span class="codeString">    PAS_ID <span class="codeReserved">AS</span> id,</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">    PAS_NOMBRE <span class="codeReserved">AS</span> nombre</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE"</span></td></tr>
-  <tr><td>19</td><td> ));</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> $render = <span class="codeString">""</span>;</td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>23</td><td>  $encodeId = urlencode($modelo-&gt;id);</td></tr>
-  <tr><td>24</td><td>  $id = htmlentities($encodeId);</td></tr>
-  <tr><td>25</td><td>  $nombre = htmlentities($modelo-&gt;nombre);</td></tr>
-  <tr><td>26</td><td>  $render .=</td></tr>
-  <tr><td>27</td><td>   <span class="codeString">"&lt;<span class="codeReserved">li</span>&gt;</span></td></tr>
-  <tr><td>28</td><td><span class="codeString">     &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$id&#039;&gt;$nombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">     &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">    &lt;/<span class="codeReserved">li</span>&gt;"</span>;</td></tr>
-  <tr><td>32</td><td> }</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
-  <tr><td>35</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>38</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>41</td><td>}</td></tr>
-  <tr><td>42</td><td></td></tr>
+  <tr><td>10</td><td>$pasatimpoOrm = <span class="codeReserved">new</span> PdoOrm(</td></tr>
+  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
+  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
+  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
+  <tr><td>14</td><td>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >H. srv / srvbd.db</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>SQLite format 3   @                                                                     .c � � ��                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            �$!!�tablePASATIEMPOPASATIEMPOCREATE TABLE PASATIEMPO (</td></tr>
+  <tr><td>2</td><td>      PAS_ID INTEGER,</td></tr>
+  <tr><td>3</td><td>      PAS_NOMBRE TEXT NOT NULL,</td></tr>
+  <tr><td>4</td><td>      CONSTRAINT PAS_PK</td></tr>
+  <tr><td>5</td><td>       PRIMARY KEY(PAS_ID),</td></tr>
+  <tr><td>6</td><td>      CONSTRAINT PAS_NOM_UNQ</td></tr>
+  <tr><td>7</td><td>       UNIQUE(PAS_NOMBRE),</td></tr>
+  <tr><td>8</td><td>      CONSTRAINT PAS_NOM_NV</td></tr>
+  <tr><td>9</td><td>       CHECK(LENGTH(PAS_NOMBRE) > 0)</td></tr>
+  <tr><td>10</td><td>     )3G! indexsqlite_autoindex_PASATIEMPO_1PASATIEMPO             ��                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Futbol   Ajedrez</td></tr>
+  <tr><td>11</td><td>      ��                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Futbol   Ajedrez</td></tr>
  </tbody>
 </table>
       </section>

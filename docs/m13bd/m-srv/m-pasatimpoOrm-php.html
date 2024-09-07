@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>16. lib / php / recuperaTexto.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/php/recuperaTexto.php».">
+ <title>G. srv / pasatimpoOrm.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/pasatimpoOrm.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >16. lib / php / recuperaTexto.php</h1><table class="codeShow">
+   <h1 >G. srv / pasatimpoOrm.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -830,23 +830,19 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>4</td><td><span class="codeComment"> * Recupera el texto de un parámetro enviado al</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * servidor por medio de GET, POST o cookie.</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * </span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * Si el parámetro no se recibe, devuelve <span class="codeReserved">false</span>.</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>9</td><td><span class="codeReserved">function</span> recuperaTexto(string $parametro): <span class="codeReserved">false</span>|string</td></tr>
-  <tr><td>10</td><td>{</td></tr>
-  <tr><td>11</td><td> <span class="codeComment">/* Si el parámetro está asignado en $_REQUEST,</span></td></tr>
-  <tr><td>12</td><td><span class="codeComment">  * devuelve su valor; de lo contrario, devuelve <span class="codeReserved">false</span>.</span></td></tr>
-  <tr><td>13</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>14</td><td> $valor = isset($_REQUEST[$parametro])</td></tr>
-  <tr><td>15</td><td>  ? $_REQUEST[$parametro]</td></tr>
-  <tr><td>16</td><td>  : <span class="codeReserved">false</span>;</td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">return</span> $valor;</td></tr>
-  <tr><td>18</td><td>}</td></tr>
-  <tr><td>19</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"../../lib/php/PdoOrm.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>$pasatimpoOrm = <span class="codeReserved">new</span> PdoOrm(</td></tr>
+  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
+  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
+  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
+  <tr><td>14</td><td>);</td></tr>
+  <tr><td>15</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -874,10 +870,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m13bd/m-lib/m-php/m-recuperaIdEntero-php.html" title="15. lib / php / recuperaIdEntero.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m13bd/m-srv/m-pasatiempos-php.html" title="F. srv / pasatiempos.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m13bd/m-lib/m-php/m-validaNombre-php.html" title="17. lib / php / validaNombre.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m13bd/m-srv/m-srvbd-db.html" title="H. srv / srvbd.db"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -897,111 +893,63 @@
    <p>
     <a href="/m13bd/">17. Bases de datos</a>
    </p>
-   <p>
-    <a href="/m13bd/m-lib/">K. Carpeta « lib »</a>
-   </p>
    
      <p>
-      <a class="paginaAnterior" href="/m13bd/m-lib/m-js/m-submitForm-js.html"
-        title="5. lib / js / submitForm.js"><span
+      <a class="paginaAnterior" href="/m13bd/m-modifica-html.html"
+        title="I. modifica.html"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m13bd/m-lib/m-php/index.html">B. Carpeta « lib / php »</a></h1>
+   <h1><a href="/m13bd/m-srv/index.html">J. Carpeta « srv »</a></h1>
    
-   <ol type="1">
+   <ol type="A">
     
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-BAD_REQUEST-php.html">lib / php / BAD_REQUEST.php</a>
+     <a href="/m13bd/m-srv/m-Bd-php.html">srv / Bd.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveCreated-php.html">lib / php / devuelveCreated.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempo-agrega-php.html">srv / pasatiempo-agrega.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveErrorInterno-php.html">lib / php / devuelveErrorInterno.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempo-elimina-php.html">srv / pasatiempo-elimina.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveJson-php.html">lib / php / devuelveJson.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempo-modifica-php.html">srv / pasatiempo-modifica.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveNoContent-php.html">lib / php / devuelveNoContent.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempo-php.html">srv / pasatiempo.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveProblemDetails-php.html">lib / php / devuelveProblemDetails.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempos-php.html">srv / pasatiempos.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+     <a href="/m13bd/m-srv/m-pasatimpoOrm-php.html" class="actual">srv / pasatimpoOrm.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-lib/m-php/m-fetch-php.html">lib / php / fetch.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-fetchAll-php.html">lib / php / fetchAll.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-NOT_FOUND-php.html">lib / php / NOT_FOUND.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-PdoOrm-php.html">lib / php / PdoOrm.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-recuperaEntero-php.html">lib / php / recuperaEntero.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-recuperaIdEntero-php.html">lib / php / recuperaIdEntero.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-recuperaTexto-php.html" class="actual">lib / php / recuperaTexto.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-validaNombre-php.html">lib / php / validaNombre.php</a>
+     <a href="/m13bd/m-srv/m-srvbd-db.html">srv / srvbd.db</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m13bd/m-error/index.html"
-       title="L. Carpeta « error »"><span
+     <a class="paginaSiguiente" href="/m13bd/m-lib/index.html"
+       title="K. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1018,9 +966,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m13bd/m-lib/m-php/m-recuperaIdEntero-php.html"
+ let urlAnterior = "/m13bd/m-srv/m-pasatiempos-php.html"
  /**@type {string} */
- let urlSiguiente = "/m13bd/m-lib/m-php/m-validaNombre-php.html"
+ let urlSiguiente = "/m13bd/m-srv/m-srvbd-db.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

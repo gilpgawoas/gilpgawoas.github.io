@@ -18,36 +18,31 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>15</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>20</td><td> $conexion-&gt;prepare(</td></tr>
-  <tr><td>21</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> PASATIEMPO</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    <span class="codeReserved">SET</span> PAS_NOMBRE = :nombre</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> PAS_ID = :id"</span></td></tr>
-  <tr><td>24</td><td> )</td></tr>
-  <tr><td>25</td><td>  -&gt;execute([</td></tr>
-  <tr><td>26</td><td>   <span class="codeString">":id"</span> =&gt; $id,</td></tr>
-  <tr><td>27</td><td>   <span class="codeString">":nombre"</span> =&gt; $nombre</td></tr>
-  <tr><td>28</td><td>  ]);</td></tr>
-  <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> devuelveJson([</td></tr>
-  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
-  <tr><td>33</td><td> ]);</td></tr>
-  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>16</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $pasatimpoOrm-&gt;update(</td></tr>
+  <tr><td>21</td><td>  Bd::getConexion(),</td></tr>
+  <tr><td>22</td><td>  [[PAS_ID =&gt; $id, PAS_NOMBRE =&gt; $nombre]]</td></tr>
+  <tr><td>23</td><td> );</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> devuelveJson([</td></tr>
+  <tr><td>26</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>27</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>28</td><td> ]);</td></tr>
+  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>30</td><td></td></tr>
+  <tr><td>31</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>32</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td></td></tr>
  </tbody>
 </table>
