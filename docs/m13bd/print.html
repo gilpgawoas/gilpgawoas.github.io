@@ -856,7 +856,7 @@
   </li>
   <li>
    <p>
-    Haz clic derecho en <em>index.html</em>, selecciona
+    Haz clic derecho en <q>index.html</q>, selecciona
     <em>PHP Server: serve project</em> y se abre el navegador para que puedas
     probar localmente el ejemplo.
    </p>
@@ -939,7 +939,8 @@
   </li>
   <li>
    <p>
-    Súbelo al hosting que elijas. En algunos casos puedes usar filezilla
+    Sube el proyecto al hosting que elijas. En algunos casos puedes usar
+    filezilla
     (<a href="https://filezilla-project.org/" target="_blank"
       rel="noreferrer">https://filezilla-project.org/</a>)
    </p>
@@ -1102,10 +1103,10 @@
    <p><a href="m-srv/m-pasatiempo-php.html">pasatiempo.php</a></p>
   </li>
   <li>
-   <p><a href="m-srv/m-pasatiempos-php.html">pasatiempos.php</a></p>
+   <p><a href="m-srv/m-pasatiempoOrm-php.html">pasatiempoOrm.php</a></p>
   </li>
   <li>
-   <p><a href="m-srv/m-pasatimpoOrm-php.html">pasatimpoOrm.php</a></p>
+   <p><a href="m-srv/m-pasatiempos-php.html">pasatiempos.php</a></p>
   </li>
       </ul>
      </details>
@@ -1337,12 +1338,12 @@
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-srv/m-pasatiempos-php.html">srv / pasatiempos.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempoOrm-php.html">srv / pasatiempoOrm.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-srv/m-pasatimpoOrm-php.html">srv / pasatimpoOrm.php</a>
+     <a href="/m13bd/m-srv/m-pasatiempos-php.html">srv / pasatiempos.php</a>
     </p>
    </li>
    </ol>
@@ -1423,7 +1424,7 @@
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>11</td><td></td></tr>
   <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>13</td><td></td></tr>
@@ -1432,7 +1433,7 @@
   <tr><td>16</td><td> $nombre = validaNombre($nombre);</td></tr>
   <tr><td>17</td><td></td></tr>
   <tr><td>18</td><td> list($id) =</td></tr>
-  <tr><td>19</td><td>  $pasatimpoOrm-&gt;insert(Bd::getConexion(), [[PAS_NOMBRE =&gt; $nombre]]);</td></tr>
+  <tr><td>19</td><td>  $pasatiempoOrm-&gt;insert(Bd::getConexion(), [[PAS_NOMBRE =&gt; $nombre]]);</td></tr>
   <tr><td>20</td><td></td></tr>
   <tr><td>21</td><td> $encodeId = urlencode($id);</td></tr>
   <tr><td>22</td><td> devuelveCreated(<span class="codeString">"/srv/pasatiempo.php?id=$encodeId"</span>, [</td></tr>
@@ -1469,11 +1470,11 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>10</td><td></td></tr>
   <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>12</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>13</td><td> $pasatimpoOrm-&gt;delete(Bd::getConexion(), [[PAS_ID =&gt; $id]]);</td></tr>
+  <tr><td>13</td><td> $pasatiempoOrm-&gt;delete(Bd::getConexion(), [[PAS_ID =&gt; $id]]);</td></tr>
   <tr><td>14</td><td> devuelveNoContent();</td></tr>
   <tr><td>15</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
   <tr><td>16</td><td> devuelveProblemDetails($details);</td></tr>
@@ -1505,7 +1506,7 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>12</td><td></td></tr>
   <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>14</td><td></td></tr>
@@ -1514,7 +1515,7 @@
   <tr><td>17</td><td></td></tr>
   <tr><td>18</td><td> $nombre = validaNombre($nombre);</td></tr>
   <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $pasatimpoOrm-&gt;update(</td></tr>
+  <tr><td>20</td><td> $pasatiempoOrm-&gt;update(</td></tr>
   <tr><td>21</td><td>  Bd::getConexion(),</td></tr>
   <tr><td>22</td><td>  [[PAS_ID =&gt; $id, PAS_NOMBRE =&gt; $nombre]]</td></tr>
   <tr><td>23</td><td> );</td></tr>
@@ -1555,13 +1556,13 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>12</td><td></td></tr>
   <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>14</td><td></td></tr>
   <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $modelo = $pasatimpoOrm-&gt;select(Bd::getConexion(), [PAS_ID =&gt; $id]);</td></tr>
+  <tr><td>17</td><td> $modelo = $pasatiempoOrm-&gt;select(Bd::getConexion(), [PAS_ID =&gt; $id]);</td></tr>
   <tr><td>18</td><td></td></tr>
   <tr><td>19</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
   <tr><td>20</td><td></td></tr>
@@ -1590,7 +1591,36 @@
 </table>
       </section>
      <section >
-         <h1 >F. srv / pasatiempos.php</h1><table class="codeShow">
+         <h1 >F. srv / pasatiempoOrm.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/OrmPdo.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>$pasatiempoOrm = <span class="codeReserved">new</span> OrmPdo(</td></tr>
+  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
+  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
+  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
+  <tr><td>14</td><td>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >G. srv / pasatiempos.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1608,7 +1638,7 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatimpoOrm.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>10</td><td></td></tr>
   <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>12</td><td></td></tr>
@@ -1641,35 +1671,6 @@
   <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
   <tr><td>40</td><td>}</td></tr>
   <tr><td>41</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >G. srv / pasatimpoOrm.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"../../lib/php/OrmPdo.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td>$pasatimpoOrm = <span class="codeReserved">new</span> OrmPdo(</td></tr>
-  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
-  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
-  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
-  <tr><td>14</td><td>);</td></tr>
-  <tr><td>15</td><td></td></tr>
  </tbody>
 </table>
       </section>

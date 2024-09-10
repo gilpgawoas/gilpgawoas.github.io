@@ -838,52 +838,54 @@
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
   <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/amigoOrm.php"</span>;</td></tr>
+  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
   <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $amiId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>14</td><td><span class="codeReserved">try</span> {</td></tr>
   <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>16</td><td> $amiId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
   <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td> $modelo = fetch(</td></tr>
-  <tr><td>19</td><td>  $conexion-&gt;prepare(</td></tr>
-  <tr><td>20</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeString">     A.AMI_NOMBRE <span class="codeReserved">AS</span> amiNombre,</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">     A.PAS_ID <span class="codeReserved">AS</span> pasId,</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">     P.PAS_NOMBRE <span class="codeReserved">AS</span> pasNombre</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">    <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">     <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">     <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> A.AMI_ID = :amiId"</span></td></tr>
-  <tr><td>28</td><td>  ),</td></tr>
-  <tr><td>29</td><td>  [<span class="codeString">":amiId"</span> =&gt; $amiId]</td></tr>
-  <tr><td>30</td><td> );</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>18</td><td> $conexion = Bd::getConexion($pasatiempoOrm);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $modelo = fetch(</td></tr>
+  <tr><td>21</td><td>  $conexion-&gt;prepare(</td></tr>
+  <tr><td>22</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>23</td><td><span class="codeString">     A.AMI_NOMBRE,</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">     A.PAS_ID,</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">     P.PAS_NOMBRE</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">     <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">     <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> A.AMI_ID = :AMI_ID"</span></td></tr>
+  <tr><td>30</td><td>  ),</td></tr>
+  <tr><td>31</td><td>  [<span class="codeString">":AMI_ID"</span> =&gt; $amiId]</td></tr>
+  <tr><td>32</td><td> );</td></tr>
   <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td>  $amiIdHtml = htmlentities($amiId);</td></tr>
-  <tr><td>35</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>36</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>37</td><td>   title: <span class="codeString">"Amigo no encontrado."</span>,</td></tr>
-  <tr><td>38</td><td>   type: <span class="codeString">"/error/amigonoencontrado.html"</span>,</td></tr>
-  <tr><td>39</td><td>   detail: <span class="codeString">"No se encontró ningún amigo con el id $amiIdHtml."</span>,</td></tr>
-  <tr><td>40</td><td>  );</td></tr>
-  <tr><td>41</td><td> }</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td> $pasId = $modelo-&gt;pasId;</td></tr>
-  <tr><td>44</td><td> devuelveJson([</td></tr>
-  <tr><td>45</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $amiId],</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo-&gt;amiNombre],</td></tr>
-  <tr><td>47</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
-  <tr><td>48</td><td> ]);</td></tr>
-  <tr><td>49</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>52</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>53</td><td></td></tr>
-  <tr><td>54</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>55</td><td>}</td></tr>
-  <tr><td>56</td><td></td></tr>
+  <tr><td>34</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td>  $amiIdHtml = htmlentities($amiId);</td></tr>
+  <tr><td>37</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>38</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>39</td><td>   title: <span class="codeString">"Amigo no encontrado."</span>,</td></tr>
+  <tr><td>40</td><td>   type: <span class="codeString">"/error/amigonoencontrado.html"</span>,</td></tr>
+  <tr><td>41</td><td>   detail: <span class="codeString">"No se encontró ningún amigo con el id $amiIdHtml."</span>,</td></tr>
+  <tr><td>42</td><td>  );</td></tr>
+  <tr><td>43</td><td> }</td></tr>
+  <tr><td>44</td><td></td></tr>
+  <tr><td>45</td><td> $pasId = $modelo[PAS_ID];</td></tr>
+  <tr><td>46</td><td> devuelveJson([</td></tr>
+  <tr><td>47</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $amiId],</td></tr>
+  <tr><td>48</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[AMI_NOMBRE]],</td></tr>
+  <tr><td>49</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
+  <tr><td>50</td><td> ]);</td></tr>
+  <tr><td>51</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td> devuelveProblemDetails($details);</td></tr>
+  <tr><td>54</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td> devuelveErrorInterno($error);</td></tr>
+  <tr><td>57</td><td>}</td></tr>
+  <tr><td>58</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -914,7 +916,7 @@
  <a class="anterior" href="/m17auno/m-srv/m-amigo-modifica-php.html" title="C. srv / amigo-modifica.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m17auno/m-srv/m-amigos-php.html" title="E. srv / amigos.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m17auno/m-srv/m-amigoOrm-php.html" title="E. srv / amigoOrm.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -968,6 +970,11 @@
    </li>
    <li>
     <p>
+     <a href="/m17auno/m-srv/m-amigoOrm-php.html">srv / amigoOrm.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m17auno/m-srv/m-amigos-php.html">srv / amigos.php</a>
     </p>
    </li>
@@ -979,6 +986,11 @@
    <li>
     <p>
      <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-pasatiempoOrm-php.html">srv / pasatiempoOrm.php</a>
     </p>
    </li>
    <li>
@@ -1009,7 +1021,7 @@
  /**@type {string} */
  let urlAnterior = "/m17auno/m-srv/m-amigo-modifica-php.html"
  /**@type {string} */
- let urlSiguiente = "/m17auno/m-srv/m-amigos-php.html"
+ let urlSiguiente = "/m17auno/m-srv/m-amigoOrm-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

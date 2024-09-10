@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>4. lib / php / devuelveJson.php - GilPG AWOAS</title>
- <meta name="description" content="Código de «lib/php/devuelveJson.php».">
+ <title>I. srv / pasatiempoOrm.php - GilPG AWOAS</title>
+ <meta name="description" content="Código de «srv/pasatiempoOrm.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >4. lib / php / devuelveJson.php</h1><table class="codeShow">
+   <h1 >I. srv / pasatiempoOrm.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -830,24 +830,19 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveResultadoNoJson.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/OrmPdo.php"</span>;</td></tr>
   <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">function</span> devuelveJson($resultado)</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> $json = json_encode($resultado);</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
   <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>  devuelveResultadoNoJson();</td></tr>
-  <tr><td>13</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  http_response_code(200);</td></tr>
-  <tr><td>16</td><td>  header(<span class="codeString">"Content-Type: application/json"</span>);</td></tr>
-  <tr><td>17</td><td>  echo $json;</td></tr>
-  <tr><td>18</td><td> }</td></tr>
-  <tr><td>19</td><td>}</td></tr>
-  <tr><td>20</td><td></td></tr>
+  <tr><td>10</td><td>$pasatiempoOrm = <span class="codeReserved">new</span> OrmPdo(</td></tr>
+  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
+  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
+  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
+  <tr><td>14</td><td>);</td></tr>
+  <tr><td>15</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -875,10 +870,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m17auno/m-lib/m-php/m-devuelveErrorInterno-php.html" title="3. lib / php / devuelveErrorInterno.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m17auno/m-srv/m-pasatiempo-options-php.html" title="H. srv / pasatiempo-options.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m17auno/m-lib/m-php/m-devuelveNoContent-php.html" title="5. lib / php / devuelveNoContent.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m17auno/m-srv/m-validaPasId-php.html" title="J. srv / validaPasId.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -898,111 +893,73 @@
    <p>
     <a href="/m17auno/">20. Relaciones a uno en la base de datos</a>
    </p>
-   <p>
-    <a href="/m17auno/m-lib/">K. Carpeta « lib »</a>
-   </p>
    
      <p>
-      <a class="paginaAnterior" href="/m17auno/m-lib/m-js/m-submitForm-js.html"
-        title="5. lib / js / submitForm.js"><span
+      <a class="paginaAnterior" href="/m17auno/m-modifica-html.html"
+        title="I. modifica.html"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m17auno/m-lib/m-php/index.html">B. Carpeta « lib / php »</a></h1>
+   <h1><a href="/m17auno/m-srv/index.html">J. Carpeta « srv »</a></h1>
    
-   <ol type="1">
+   <ol type="A">
     
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-BAD_REQUEST-php.html">lib / php / BAD_REQUEST.php</a>
+     <a href="/m17auno/m-srv/m-amigo-agrega-php.html">srv / amigo-agrega.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveCreated-php.html">lib / php / devuelveCreated.php</a>
+     <a href="/m17auno/m-srv/m-amigo-elimina-php.html">srv / amigo-elimina.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveErrorInterno-php.html">lib / php / devuelveErrorInterno.php</a>
+     <a href="/m17auno/m-srv/m-amigo-modifica-php.html">srv / amigo-modifica.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveJson-php.html" class="actual">lib / php / devuelveJson.php</a>
+     <a href="/m17auno/m-srv/m-amigo-php.html">srv / amigo.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveNoContent-php.html">lib / php / devuelveNoContent.php</a>
+     <a href="/m17auno/m-srv/m-amigoOrm-php.html">srv / amigoOrm.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveProblemDetails-php.html">lib / php / devuelveProblemDetails.php</a>
+     <a href="/m17auno/m-srv/m-amigos-php.html">srv / amigos.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+     <a href="/m17auno/m-srv/m-Bd-php.html">srv / Bd.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-fetch-php.html">lib / php / fetch.php</a>
+     <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-fetchAll-php.html">lib / php / fetchAll.php</a>
+     <a href="/m17auno/m-srv/m-pasatiempoOrm-php.html" class="actual">srv / pasatiempoOrm.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-NOT_FOUND-php.html">lib / php / NOT_FOUND.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-OrmPdo-php.html">lib / php / OrmPdo.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-ProblemDetails-php.html">lib / php / ProblemDetails.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-recuperaEntero-php.html">lib / php / recuperaEntero.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-recuperaIdEntero-php.html">lib / php / recuperaIdEntero.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-recuperaTexto-php.html">lib / php / recuperaTexto.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-lib/m-php/m-validaNombre-php.html">lib / php / validaNombre.php</a>
+     <a href="/m17auno/m-srv/m-validaPasId-php.html">srv / validaPasId.php</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m17auno/m-error/index.html"
-       title="L. Carpeta « error »"><span
+     <a class="paginaSiguiente" href="/m17auno/m-lib/index.html"
+       title="K. Carpeta « lib »"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1019,9 +976,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m17auno/m-lib/m-php/m-devuelveErrorInterno-php.html"
+ let urlAnterior = "/m17auno/m-srv/m-pasatiempo-options-php.html"
  /**@type {string} */
- let urlSiguiente = "/m17auno/m-lib/m-php/m-devuelveNoContent-php.html"
+ let urlSiguiente = "/m17auno/m-srv/m-validaPasId-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

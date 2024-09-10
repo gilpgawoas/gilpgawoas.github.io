@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>F. srv / Bd.php - GilPG AWOAS</title>
+ <title>G. srv / Bd.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/Bd.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >F. srv / Bd.php</h1><table class="codeShow">
+   <h1 >G. srv / Bd.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -830,73 +830,72 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">class</span> Bd</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">class</span> Bd</td></tr>
+  <tr><td>6</td><td>{</td></tr>
   <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(): PDO</td></tr>
-  <tr><td>9</td><td> {</td></tr>
-  <tr><td>10</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
-  <tr><td>13</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
-  <tr><td>14</td><td>    <span class="codeString">"sqlite:srvauno.db"</span>,</td></tr>
-  <tr><td>15</td><td>    <span class="codeComment">// usuario</span></td></tr>
-  <tr><td>16</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>17</td><td>    <span class="codeComment">// contraseña</span></td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(OrmPdo $pasatiempoOrm): PDO</td></tr>
+  <tr><td>11</td><td> {</td></tr>
+  <tr><td>12</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
+  <tr><td>15</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
+  <tr><td>16</td><td>    <span class="codeString">"sqlite:srvauno.db"</span>,</td></tr>
+  <tr><td>17</td><td>    <span class="codeComment">// usuario</span></td></tr>
   <tr><td>18</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>19</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
-  <tr><td>20</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
-  <tr><td>21</td><td>   );</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
-  <tr><td>24</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
-  <tr><td>28</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">     )'</span></td></tr>
-  <tr><td>34</td><td>   );</td></tr>
-  <tr><td>35</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
-  <tr><td>36</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> AMIGO (</span></td></tr>
-  <tr><td>37</td><td><span class="codeString">      AMI_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>38</td><td><span class="codeString">      AMI_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
-  <tr><td>39</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>40</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PK</span></td></tr>
-  <tr><td>41</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(AMI_ID),</span></td></tr>
-  <tr><td>42</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_UNQ</span></td></tr>
-  <tr><td>43</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(AMI_NOMBRE),</span></td></tr>
-  <tr><td>44</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_NV</span></td></tr>
-  <tr><td>45</td><td><span class="codeString">       CHECK(LENGTH(AMI_NOMBRE) &gt; 0),</span></td></tr>
-  <tr><td>46</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PAS_FK</span></td></tr>
-  <tr><td>47</td><td><span class="codeString">       <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (PAS_ID) <span class="codeReserved">REFERENCES</span> PASATIEMPO(PAS_ID)</span></td></tr>
-  <tr><td>48</td><td><span class="codeString">     )'</span></td></tr>
-  <tr><td>49</td><td>   );</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td>   $cantidadDePasatiempos =</td></tr>
-  <tr><td>52</td><td>    <span class="codeReserved">self</span>::$conexion-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> COUNT(PAS_ID) <span class="codeReserved">FROM</span> PASATIEMPO"</span>)</td></tr>
-  <tr><td>53</td><td>    -&gt;fetchColumn();</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td>   <span class="codeReserved">if</span> ($cantidadDePasatiempos === 0) {</td></tr>
-  <tr><td>56</td><td>    <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
-  <tr><td>57</td><td>     <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> PASATIEMPO</span></td></tr>
-  <tr><td>58</td><td><span class="codeString">       (PAS_NOMBRE)</span></td></tr>
-  <tr><td>59</td><td><span class="codeString">      <span class="codeReserved">VALUES</span></span></td></tr>
-  <tr><td>60</td><td><span class="codeString">       (&#039;Futbol&#039;),</span></td></tr>
-  <tr><td>61</td><td><span class="codeString">       (&#039;Videojuegos&#039;)"</span></td></tr>
-  <tr><td>62</td><td>    );</td></tr>
-  <tr><td>63</td><td>   }</td></tr>
-  <tr><td>64</td><td>  }</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
-  <tr><td>67</td><td> }</td></tr>
-  <tr><td>68</td><td>}</td></tr>
-  <tr><td>69</td><td></td></tr>
+  <tr><td>19</td><td>    <span class="codeComment">// contraseña</span></td></tr>
+  <tr><td>20</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>21</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
+  <tr><td>22</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
+  <tr><td>23</td><td>   );</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
+  <tr><td>26</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">     )'</span></td></tr>
+  <tr><td>36</td><td>   );</td></tr>
+  <tr><td>37</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
+  <tr><td>38</td><td>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> AMIGO (</span></td></tr>
+  <tr><td>39</td><td><span class="codeString">      AMI_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>40</td><td><span class="codeString">      AMI_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>41</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>42</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PK</span></td></tr>
+  <tr><td>43</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(AMI_ID),</span></td></tr>
+  <tr><td>44</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_UNQ</span></td></tr>
+  <tr><td>45</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(AMI_NOMBRE),</span></td></tr>
+  <tr><td>46</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_NOM_NV</span></td></tr>
+  <tr><td>47</td><td><span class="codeString">       CHECK(LENGTH(AMI_NOMBRE) &gt; 0),</span></td></tr>
+  <tr><td>48</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> AMI_PAS_FK</span></td></tr>
+  <tr><td>49</td><td><span class="codeString">       <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (PAS_ID) <span class="codeReserved">REFERENCES</span> PASATIEMPO(PAS_ID)</span></td></tr>
+  <tr><td>50</td><td><span class="codeString">     )'</span></td></tr>
+  <tr><td>51</td><td>   );</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td>   $cantidadDePasatiempos =</td></tr>
+  <tr><td>54</td><td>    <span class="codeReserved">self</span>::$conexion-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> COUNT(PAS_ID) <span class="codeReserved">FROM</span> PASATIEMPO"</span>)</td></tr>
+  <tr><td>55</td><td>    -&gt;fetchColumn();</td></tr>
+  <tr><td>56</td><td></td></tr>
+  <tr><td>57</td><td>   <span class="codeReserved">if</span> ($cantidadDePasatiempos === 0) {</td></tr>
+  <tr><td>58</td><td>    $pasatiempoOrm-&gt;insert(</td></tr>
+  <tr><td>59</td><td>     <span class="codeReserved">self</span>::$conexion,</td></tr>
+  <tr><td>60</td><td>     [[PAS_NOMBRE =&gt; <span class="codeString">'Futbol'</span>], [PAS_NOMBRE =&gt; <span class="codeString">'Videojuegos'</span>]]</td></tr>
+  <tr><td>61</td><td>    );</td></tr>
+  <tr><td>62</td><td>   }</td></tr>
+  <tr><td>63</td><td>  }</td></tr>
+  <tr><td>64</td><td></td></tr>
+  <tr><td>65</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
+  <tr><td>66</td><td> }</td></tr>
+  <tr><td>67</td><td>}</td></tr>
+  <tr><td>68</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -924,10 +923,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m17auno/m-srv/m-amigos-php.html" title="E. srv / amigos.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m17auno/m-srv/m-amigos-php.html" title="F. srv / amigos.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m17auno/m-srv/m-pasatiempo-options-php.html" title="G. srv / pasatiempo-options.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m17auno/m-srv/m-pasatiempo-options-php.html" title="H. srv / pasatiempo-options.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -981,6 +980,11 @@
    </li>
    <li>
     <p>
+     <a href="/m17auno/m-srv/m-amigoOrm-php.html">srv / amigoOrm.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m17auno/m-srv/m-amigos-php.html">srv / amigos.php</a>
     </p>
    </li>
@@ -992,6 +996,11 @@
    <li>
     <p>
      <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-pasatiempoOrm-php.html">srv / pasatiempoOrm.php</a>
     </p>
    </li>
    <li>
