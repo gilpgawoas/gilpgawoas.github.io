@@ -830,20 +830,16 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/creaToken.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/creaToken.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
   <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> session_start();</td></tr>
-  <tr><td>10</td><td> <span class="codeComment">// Crea un token para la página &quot;formulario&quot; que expira en 5 minutos.</span></td></tr>
-  <tr><td>11</td><td> devuelveJson(creaToken(<span class="codeString">"formulario"</span>, 5));</td></tr>
-  <tr><td>12</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>15</td><td>}</td></tr>
-  <tr><td>16</td><td></td></tr>
+  <tr><td>7</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>8</td><td> session_start();</td></tr>
+  <tr><td>9</td><td> <span class="codeComment">// Crea un token para la página &quot;formulario&quot; que expira en 5 minutos.</span></td></tr>
+  <tr><td>10</td><td> devuelveJson(creaToken(<span class="codeString">"formulario"</span>, 5));</td></tr>
+  <tr><td>11</td><td>});</td></tr>
+  <tr><td>12</td><td></td></tr>
  </tbody>
 </table>
  <footer>

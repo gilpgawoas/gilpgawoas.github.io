@@ -1,0 +1,47 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/fetch.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaArregloDeParametros.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeAsignaciones.php"</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> selectFirst(</td></tr>
+  <tr><td>8</td><td> PDO $pdo,</td></tr>
+  <tr><td>9</td><td> string $from,</td></tr>
+  <tr><td>10</td><td> array $where = [],</td></tr>
+  <tr><td>11</td><td> string $orderBy = <span class="codeString">""</span>,</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">int</span> $mode = PDO::FETCH_ASSOC,</td></tr>
+  <tr><td>13</td><td> $opcional = <span class="codeReserved">null</span></td></tr>
+  <tr><td>14</td><td>) {</td></tr>
+  <tr><td>15</td><td> $sql = <span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> $from"</span>;</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">if</span> (sizeof($where) &gt; 0) {</td></tr>
+  <tr><td>18</td><td>  $sqlDeWhere = calculaSqlDeAsignaciones(<span class="codeString">" AND "</span>, $where);</td></tr>
+  <tr><td>19</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">WHERE</span> $sqlDeWhere"</span>;</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">if</span> ($orderBy !== <span class="codeString">""</span>) {</td></tr>
+  <tr><td>23</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> $orderBy"</span>;</td></tr>
+  <tr><td>24</td><td> }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> <span class="codeReserved">if</span> (sizeof($where) === 0) {</td></tr>
+  <tr><td>27</td><td>  $statement = $pdo-&gt;query($sql);</td></tr>
+  <tr><td>28</td><td>  <span class="codeReserved">return</span> fetch($statement, [], $mode, $opcional);</td></tr>
+  <tr><td>29</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>30</td><td>  $statement = $pdo-&gt;prepare($sql);</td></tr>
+  <tr><td>31</td><td>  $parametros = calculaArregloDeParametros($where);</td></tr>
+  <tr><td>32</td><td>  <span class="codeReserved">return</span> fetch($statement, $parametros, $mode, $opcional);</td></tr>
+  <tr><td>33</td><td> }</td></tr>
+  <tr><td>34</td><td>}</td></tr>
+  <tr><td>35</td><td></td></tr>
+ </tbody>
+</table>

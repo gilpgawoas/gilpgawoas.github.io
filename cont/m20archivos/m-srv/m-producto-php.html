@@ -11,62 +11,42 @@
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
   <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/selectFirst.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $prodId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> $prodId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $modelo =</td></tr>
+  <tr><td>16</td><td>  selectFirst(pdo: Bd::pdo(), <span class="codeReserved">from</span>: PRODUCTO, where: [PROD_ID =&gt; $prodId]);</td></tr>
   <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td> $modelo = fetch(</td></tr>
-  <tr><td>19</td><td>  $conexion-&gt;prepare(</td></tr>
-  <tr><td>20</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeString">     P.PROD_NOMBRE <span class="codeReserved">AS</span> prodNombre,</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">     A.ARCH_ID <span class="codeReserved">AS</span> archId</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    <span class="codeReserved">FROM</span> PRODUCTO P</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">     <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> ARCHIVO A</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">     <span class="codeReserved">ON</span> P.ARCH_ID = A.ARCH_ID</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> P.PROD_ID = :prodId"</span></td></tr>
-  <tr><td>27</td><td>  ),</td></tr>
-  <tr><td>28</td><td>  [<span class="codeString">":prodId"</span> =&gt; $prodId]</td></tr>
-  <tr><td>29</td><td> );</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  $prodIdHtml = htmlentities($prodId);</td></tr>
-  <tr><td>34</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>35</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>36</td><td>   title: <span class="codeString">"Producto no encontrado."</span>,</td></tr>
-  <tr><td>37</td><td>   type: <span class="codeString">"/error/productonoencontrado.html"</span>,</td></tr>
-  <tr><td>38</td><td>   detail: <span class="codeString">"No se encontró ningún producto con el id $prodIdHtml."</span>,</td></tr>
-  <tr><td>39</td><td>  );</td></tr>
-  <tr><td>40</td><td> }</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> $encodeArchId = $modelo-&gt;archId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : urlencode($modelo-&gt;archId);</td></tr>
-  <tr><td>43</td><td> $htmlEncodeArchId = htmlentities($encodeArchId);</td></tr>
-  <tr><td>44</td><td> devuelveJson([</td></tr>
-  <tr><td>45</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $prodId],</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo-&gt;prodNombre],</td></tr>
-  <tr><td>47</td><td>  <span class="codeString">"imagen"</span> =&gt; [</td></tr>
-  <tr><td>48</td><td>   <span class="codeString">"data-file"</span> =&gt; $htmlEncodeArchId === <span class="codeString">""</span></td></tr>
-  <tr><td>49</td><td>    ? <span class="codeString">""</span></td></tr>
-  <tr><td>50</td><td>    : <span class="codeString">"srv/archivo.php?id=$htmlEncodeArchId"</span></td></tr>
-  <tr><td>51</td><td>  ]</td></tr>
-  <tr><td>52</td><td> ]);</td></tr>
-  <tr><td>53</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>56</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>57</td><td></td></tr>
-  <tr><td>58</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>59</td><td>}</td></tr>
-  <tr><td>60</td><td></td></tr>
+  <tr><td>18</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>19</td><td>  $prodIdHtml = htmlentities($prodId);</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>22</td><td>   title: <span class="codeString">"Producto no encontrado."</span>,</td></tr>
+  <tr><td>23</td><td>   type: <span class="codeString">"/error/productonoencontrado.html"</span>,</td></tr>
+  <tr><td>24</td><td>   detail: <span class="codeString">"No se encontró ningún producto con el id $prodIdHtml."</span>,</td></tr>
+  <tr><td>25</td><td>  );</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> $encodeArchId = $modelo[ARCH_ID] === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : urlencode($modelo[ARCH_ID]);</td></tr>
+  <tr><td>29</td><td> $htmlEncodeArchId = htmlentities($encodeArchId);</td></tr>
+  <tr><td>30</td><td> devuelveJson([</td></tr>
+  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $prodId],</td></tr>
+  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[PROD_NOMBRE]],</td></tr>
+  <tr><td>33</td><td>  <span class="codeString">"imagen"</span> =&gt; [</td></tr>
+  <tr><td>34</td><td>   <span class="codeString">"data-file"</span> =&gt; $htmlEncodeArchId === <span class="codeString">""</span></td></tr>
+  <tr><td>35</td><td>    ? <span class="codeString">""</span></td></tr>
+  <tr><td>36</td><td>    : <span class="codeString">"srv/archivo.php?id=$htmlEncodeArchId"</span></td></tr>
+  <tr><td>37</td><td>  ]</td></tr>
+  <tr><td>38</td><td> ]);</td></tr>
+  <tr><td>39</td><td>});</td></tr>
+  <tr><td>40</td><td></td></tr>
  </tbody>
 </table>

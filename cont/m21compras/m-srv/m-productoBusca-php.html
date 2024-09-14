@@ -10,26 +10,13 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/selectFirst.php"</span>;</td></tr>
   <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
   <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> productoBusca(<span class="codeReserved">int</span> $id)</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> productoBusca(PDO $pdo, <span class="codeReserved">int</span> $id)</td></tr>
   <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> $conexion = Bd::getConexion();</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">return</span> selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: PRODUCTO, where: [PROD_ID =&gt; $id]);</td></tr>
+  <tr><td>9</td><td>}</td></tr>
   <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">return</span> fetch(</td></tr>
-  <tr><td>12</td><td>  $conexion-&gt;prepare(</td></tr>
-  <tr><td>13</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    PROD_NOMBRE <span class="codeReserved">AS</span> nombre,</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">    PROD_PRECIO <span class="codeReserved">AS</span> precio,</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">    PROD_EXISTENCIAS <span class="codeReserved">AS</span> existencias</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PRODUCTO</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> PROD_ID = :id"</span></td></tr>
-  <tr><td>19</td><td>  ),</td></tr>
-  <tr><td>20</td><td>  [<span class="codeString">":id"</span> =&gt; $id]</td></tr>
-  <tr><td>21</td><td> );</td></tr>
-  <tr><td>22</td><td>}</td></tr>
-  <tr><td>23</td><td></td></tr>
  </tbody>
 </table>

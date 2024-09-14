@@ -747,6 +747,11 @@
    </li>
    <li>
     <p>
+     <a href="/m14chat/m--htaccess.html">.htaccess</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m14chat/m-jsconfig-json.html">jsconfig.json</a>
     </p>
    </li>
@@ -774,8 +779,8 @@
   <li>
    <p>
     Puedes probar el ejemplo en
-    <a href="http://chatm.rf.gd/" rel="noreferrer"
-      target="_blank">http://chatm.rf.gd/</a>.
+    <a href="https://chatm.rf.gd/" rel="noreferrer"
+      target="_blank">https://chatm.rf.gd/</a>.
    </p>
   </li>
   <li>
@@ -814,8 +819,8 @@
   <li>
    <p>
     Prueba el ejemplo en
-    <a href="http://chatm.rf.gd/" rel="noreferrer"
-      target="_blank">http://chatm.rf.gd/</a>.
+    <a href="https://chatm.rf.gd/" rel="noreferrer"
+      target="_blank">https://chatm.rf.gd/</a>.
    </p>
   </li>
   <li>
@@ -950,6 +955,12 @@
    </p>
   </li>
   <li>
+   <p>
+    En algunos host tienes que configurar el certificado SSL. El archivo
+    <q>.htaccess</q> sirve para que algunos servidores forcen el uso de https.
+   </p>
+  </li>
+  <li>
    <p>Abre un navegador y prueba el proyecto en tu hosting.</p>
   </li>
  </ol>
@@ -960,6 +971,9 @@
   <div class="lectura">
    <p>Haz clic en los triángulos para expandir las carpetas</p>
    <ul class="tree">
+  <li>
+   <p><a href="m--htaccess.html">.htaccess</a></p>
+  </li>
   <li>
    <p><a href="m-index-html.html">index.html</a></p>
   </li>
@@ -1404,7 +1418,26 @@
       </section>
       </section>
      <section >
-         <h1 >G. jsconfig.json</h1><div class="lectura">
+         <h1 >G. .htaccess</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>RewriteEngine On</td></tr>
+  <tr><td>2</td><td>RewriteCond %{HTTP:X-Forwarded-Proto} !https</td></tr>
+  <tr><td>3</td><td>RewriteCond %{HTTPS} off</td></tr>
+  <tr><td>4</td><td>RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}</td></tr>
+  <tr><td>5</td><td>RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >H. jsconfig.json</h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1452,7 +1485,7 @@
 </table>
       </section>
      <section>
-         <h1 >H. Carpeta « paho.javascript-1.0.3 »</h1>
+         <h1 >I. Carpeta « paho.javascript-1.0.3 »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a href="print.html" target="_blank" rel="noopener">Versión para
@@ -4262,7 +4295,7 @@
       </section>
       </section>
      <section >
-         <h1 >I. Resumen</h1><div class="lectura">
+         <h1 >J. Resumen</h1><div class="lectura">
  <ul>
   <li>
    <p>

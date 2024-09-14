@@ -1030,6 +1030,21 @@
    <p><a href="m-lib/m-php/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-php/m-calculaArregloDeParametros-php.html">calculaArregloDeParametros.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-calculaSqlDeAsignaciones-php.html">calculaSqlDeAsignaciones.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-calculaSqlDeCamposDeInsert-php.html">calculaSqlDeCamposDeInsert.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-calculaSqlDeValues-php.html">calculaSqlDeValues.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-delete-php.html">delete.php</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-php/m-devuelveCreated-php.html">devuelveCreated.php</a></p>
   </li>
   <li>
@@ -1048,19 +1063,22 @@
    <p><a href="m-lib/m-php/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-php/m-ejecutaServicio-php.html">ejecutaServicio.php</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-php/m-fetch-php.html">fetch.php</a></p>
   </li>
   <li>
    <p><a href="m-lib/m-php/m-fetchAll-php.html">fetchAll.php</a></p>
   </li>
   <li>
+   <p><a href="m-lib/m-php/m-insert-php.html">insert.php</a></p>
+  </li>
+  <li>
    <p><a href="m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
   </li>
   <li>
    <p><a href="m-lib/m-php/m-NOT_FOUND-php.html">NOT_FOUND.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-OrmPdo-php.html">OrmPdo.php</a></p>
   </li>
   <li>
    <p><a href="m-lib/m-php/m-ProblemDetails-php.html">ProblemDetails.php</a></p>
@@ -1073,6 +1091,15 @@
   </li>
   <li>
    <p><a href="m-lib/m-php/m-recuperaTexto-php.html">recuperaTexto.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-select-php.html">select.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-selectFirst-php.html">selectFirst.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-lib/m-php/m-update-php.html">update.php</a></p>
   </li>
   <li>
    <p><a href="m-lib/m-php/m-validaNombre-php.html">validaNombre.php</a></p>
@@ -1101,9 +1128,6 @@
   </li>
   <li>
    <p><a href="m-srv/m-pasatiempo-php.html">pasatiempo.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-srv/m-pasatiempoOrm-php.html">pasatiempoOrm.php</a></p>
   </li>
   <li>
    <p><a href="m-srv/m-pasatiempos-php.html">pasatiempos.php</a></p>
@@ -1338,11 +1362,6 @@
    </li>
    <li>
     <p>
-     <a href="/m13bd/m-srv/m-pasatiempoOrm-php.html">srv / pasatiempoOrm.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m13bd/m-srv/m-pasatiempos-php.html">srv / pasatiempos.php</a>
     </p>
    </li>
@@ -1362,45 +1381,48 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">class</span> Bd</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $conexion = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
   <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> getConexion(): PDO</td></tr>
-  <tr><td>9</td><td> {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$conexion === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   <span class="codeReserved">self</span>::$conexion = <span class="codeReserved">new</span> PDO(</td></tr>
-  <tr><td>14</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
-  <tr><td>15</td><td>    <span class="codeString">"sqlite:srvbd.db"</span>,</td></tr>
-  <tr><td>16</td><td>    <span class="codeComment">// usuario</span></td></tr>
-  <tr><td>17</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>18</td><td>    <span class="codeComment">// contraseña</span></td></tr>
-  <tr><td>19</td><td>    <span class="codeReserved">null</span>,</td></tr>
-  <tr><td>20</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
-  <tr><td>21</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
-  <tr><td>22</td><td>   );</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td>   <span class="codeReserved">self</span>::$conexion-&gt;exec(</td></tr>
-  <tr><td>25</td><td>    <span class="codeString">"<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
-  <tr><td>28</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">     )"</span></td></tr>
-  <tr><td>35</td><td>   );</td></tr>
-  <tr><td>36</td><td>  }</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$conexion;</td></tr>
-  <tr><td>39</td><td> }</td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">class</span> Bd</td></tr>
+  <tr><td>9</td><td>{</td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $pdo = <span class="codeReserved">null</span>;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">static</span> <span class="codeReserved">function</span> pdo(): PDO</td></tr>
+  <tr><td>13</td><td> {</td></tr>
+  <tr><td>14</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$pdo === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">self</span>::$pdo = <span class="codeReserved">new</span> PDO(</td></tr>
+  <tr><td>17</td><td>    <span class="codeComment">// cadena de conexión</span></td></tr>
+  <tr><td>18</td><td>    <span class="codeString">"sqlite:srvbd.db"</span>,</td></tr>
+  <tr><td>19</td><td>    <span class="codeComment">// usuario</span></td></tr>
+  <tr><td>20</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>21</td><td>    <span class="codeComment">// contraseña</span></td></tr>
+  <tr><td>22</td><td>    <span class="codeReserved">null</span>,</td></tr>
+  <tr><td>23</td><td>    <span class="codeComment">// Opciones: conexiones persistentes y lanza excepciones.</span></td></tr>
+  <tr><td>24</td><td>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">true</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</td></tr>
+  <tr><td>25</td><td>   );</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td>   <span class="codeReserved">self</span>::$pdo-&gt;exec(</td></tr>
+  <tr><td>28</td><td>    <span class="codeString">"<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> PASATIEMPO (</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">      PAS_ID <span class="codeReserved">INTEGER</span>,</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">      PAS_NOMBRE <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_PK</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(PAS_ID),</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_UNQ</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">       <span class="codeReserved">UNIQUE</span>(PAS_NOMBRE),</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> PAS_NOM_NV</span></td></tr>
+  <tr><td>36</td><td><span class="codeString">       CHECK(LENGTH(PAS_NOMBRE) &gt; 0)</span></td></tr>
+  <tr><td>37</td><td><span class="codeString">     )"</span></td></tr>
+  <tr><td>38</td><td>   );</td></tr>
+  <tr><td>39</td><td>  }</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$pdo;</td></tr>
+  <tr><td>42</td><td> }</td></tr>
+  <tr><td>43</td><td>}</td></tr>
+  <tr><td>44</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -1417,37 +1439,30 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/insert.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>12</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
   <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>14</td><td> $nombre = validaNombre($nombre);</td></tr>
   <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td> list($id) =</td></tr>
-  <tr><td>19</td><td>  $pasatiempoOrm-&gt;insert(Bd::getConexion(), [[PAS_NOMBRE =&gt; $nombre]]);</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> $encodeId = urlencode($id);</td></tr>
-  <tr><td>22</td><td> devuelveCreated(<span class="codeString">"/srv/pasatiempo.php?id=$encodeId"</span>, [</td></tr>
-  <tr><td>23</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>24</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
-  <tr><td>25</td><td> ]);</td></tr>
-  <tr><td>26</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>32</td><td>}</td></tr>
-  <tr><td>33</td><td></td></tr>
+  <tr><td>16</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>17</td><td> insert(pdo: $pdo, into: PASATIEMPO, values: [PAS_NOMBRE =&gt; $nombre]);</td></tr>
+  <tr><td>18</td><td> $id = $pdo-&gt;lastInsertId();</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $encodeId = urlencode($id);</td></tr>
+  <tr><td>21</td><td> devuelveCreated(<span class="codeString">"/srv/pasatiempo.php?id=$encodeId"</span>, [</td></tr>
+  <tr><td>22</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>23</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>24</td><td> ]);</td></tr>
+  <tr><td>25</td><td>});</td></tr>
+  <tr><td>26</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -1464,24 +1479,18 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>12</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>13</td><td> $pasatiempoOrm-&gt;delete(Bd::getConexion(), [[PAS_ID =&gt; $id]]);</td></tr>
-  <tr><td>14</td><td> devuelveNoContent();</td></tr>
-  <tr><td>15</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>16</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>17</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>18</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>19</td><td>}</td></tr>
-  <tr><td>20</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/delete.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>11</td><td> delete(pdo: Bd::pdo(), <span class="codeReserved">from</span>: PASATIEMPO, where: [PAS_ID =&gt; $id]);</td></tr>
+  <tr><td>12</td><td> devuelveNoContent();</td></tr>
+  <tr><td>13</td><td>});</td></tr>
+  <tr><td>14</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -1498,40 +1507,34 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaTexto.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/validaNombre.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/update.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>16</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>13</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>14</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $nombre = validaNombre($nombre);</td></tr>
   <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $pasatiempoOrm-&gt;update(</td></tr>
-  <tr><td>21</td><td>  Bd::getConexion(),</td></tr>
-  <tr><td>22</td><td>  [[PAS_ID =&gt; $id, PAS_NOMBRE =&gt; $nombre]]</td></tr>
+  <tr><td>18</td><td> update(</td></tr>
+  <tr><td>19</td><td>  pdo: Bd::pdo(),</td></tr>
+  <tr><td>20</td><td>  table: PASATIEMPO,</td></tr>
+  <tr><td>21</td><td>  set: [PAS_NOMBRE =&gt; $nombre],</td></tr>
+  <tr><td>22</td><td>  where: [PAS_ID =&gt; $id]</td></tr>
   <tr><td>23</td><td> );</td></tr>
   <tr><td>24</td><td></td></tr>
   <tr><td>25</td><td> devuelveJson([</td></tr>
   <tr><td>26</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
   <tr><td>27</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
   <tr><td>28</td><td> ]);</td></tr>
-  <tr><td>29</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>29</td><td>});</td></tr>
   <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>32</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>35</td><td>}</td></tr>
-  <tr><td>36</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -1549,128 +1552,77 @@
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
   <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $modelo = $pasatiempoOrm-&gt;select(Bd::getConexion(), [PAS_ID =&gt; $id]);</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>  $idHtml = htmlentities($id);</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>23</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>24</td><td>   title: <span class="codeString">"Pasatiempo no encontrado."</span>,</td></tr>
-  <tr><td>25</td><td>   type: <span class="codeString">"/error/pasatiemponoencontrado.html"</span>,</td></tr>
-  <tr><td>26</td><td>   detail: <span class="codeString">"No se encontró ningún pasatiempo con el id $idHtml."</span>,</td></tr>
-  <tr><td>27</td><td>  );</td></tr>
-  <tr><td>28</td><td> }</td></tr>
-  <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> devuelveJson([</td></tr>
-  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[PAS_NOMBRE]],</td></tr>
-  <tr><td>33</td><td> ]);</td></tr>
-  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >F. srv / pasatiempoOrm.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/OrmPdo.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">const</span> PASATIEMPO = <span class="codeString">"PASATIEMPO"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">const</span> PAS_ID = <span class="codeString">"PAS_ID"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">const</span> PAS_NOMBRE = <span class="codeString">"PAS_NOMBRE"</span>;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td>$pasatiempoOrm = <span class="codeReserved">new</span> OrmPdo(</td></tr>
-  <tr><td>11</td><td> nombreDeTabla: PASATIEMPO,</td></tr>
-  <tr><td>12</td><td> nombresDeLlaves: [PAS_ID],</td></tr>
-  <tr><td>13</td><td> nombresDeCampos: [PAS_NOMBRE]</td></tr>
-  <tr><td>14</td><td>);</td></tr>
-  <tr><td>15</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >G. srv / pasatiempos.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/selectFirst.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
   <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> $conexionexion = Bd::getConexion();</td></tr>
-  <tr><td>14</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
-  <tr><td>15</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span> *</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">FROM</span> PASATIEMPO</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> PAS_NOMBRE"</span></td></tr>
-  <tr><td>18</td><td> ));</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $render = <span class="codeString">""</span>;</td></tr>
-  <tr><td>21</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>22</td><td>  $encodeId = urlencode($modelo[PAS_ID]);</td></tr>
-  <tr><td>23</td><td>  $id = htmlentities($encodeId);</td></tr>
-  <tr><td>24</td><td>  $nombre = htmlentities($modelo[PAS_NOMBRE]);</td></tr>
-  <tr><td>25</td><td>  $render .=</td></tr>
-  <tr><td>26</td><td>   <span class="codeString">"&lt;<span class="codeReserved">li</span>&gt;</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">     &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>28</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$id&#039;&gt;$nombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">     &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">    &lt;/<span class="codeReserved">li</span>&gt;"</span>;</td></tr>
-  <tr><td>31</td><td> }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
-  <tr><td>34</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>37</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
+  <tr><td>13</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $modelo =</td></tr>
+  <tr><td>16</td><td>  selectFirst(pdo: Bd::pdo(),  <span class="codeReserved">from</span>: PASATIEMPO,  where: [PAS_ID =&gt; $id]);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>19</td><td>  $idHtml = htmlentities($id);</td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>21</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>22</td><td>   title: <span class="codeString">"Pasatiempo no encontrado."</span>,</td></tr>
+  <tr><td>23</td><td>   type: <span class="codeString">"/error/pasatiemponoencontrado.html"</span>,</td></tr>
+  <tr><td>24</td><td>   detail: <span class="codeString">"No se encontró ningún pasatiempo con el id $idHtml."</span>,</td></tr>
+  <tr><td>25</td><td>  );</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> devuelveJson([</td></tr>
+  <tr><td>29</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>30</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[PAS_NOMBRE]],</td></tr>
+  <tr><td>31</td><td> ]);</td></tr>
+  <tr><td>32</td><td>});</td></tr>
+  <tr><td>33</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >F. srv / pasatiempos.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/select.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> $lista = select(pdo: Bd::pdo(),  <span class="codeReserved">from</span>: PASATIEMPO,  orderBy: PAS_NOMBRE);</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>14</td><td>  $encodeId = urlencode($modelo[PAS_ID]);</td></tr>
+  <tr><td>15</td><td>  $id = htmlentities($encodeId);</td></tr>
+  <tr><td>16</td><td>  $nombre = htmlentities($modelo[PAS_NOMBRE]);</td></tr>
+  <tr><td>17</td><td>  $render .=</td></tr>
+  <tr><td>18</td><td>   <span class="codeString">"&lt;<span class="codeReserved">li</span>&gt;</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">     &lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">      &lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$id&#039;&gt;$nombre&lt;/<span class="codeReserved">a</span>&gt;</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">     &lt;/<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">    &lt;/<span class="codeReserved">li</span>&gt;"</span>;</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>26</td><td>});</td></tr>
+  <tr><td>27</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -2162,6 +2114,31 @@
    </li>
    <li>
     <p>
+     <a href="/m13bd/m-lib/m-php/m-calculaArregloDeParametros-php.html">lib / php / calculaArregloDeParametros.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-calculaSqlDeAsignaciones-php.html">lib / php / calculaSqlDeAsignaciones.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-calculaSqlDeCamposDeInsert-php.html">lib / php / calculaSqlDeCamposDeInsert.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-calculaSqlDeValues-php.html">lib / php / calculaSqlDeValues.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-delete-php.html">lib / php / delete.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m13bd/m-lib/m-php/m-devuelveCreated-php.html">lib / php / devuelveCreated.php</a>
     </p>
    </li>
@@ -2192,6 +2169,11 @@
    </li>
    <li>
     <p>
+     <a href="/m13bd/m-lib/m-php/m-ejecutaServicio-php.html">lib / php / ejecutaServicio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m13bd/m-lib/m-php/m-fetch-php.html">lib / php / fetch.php</a>
     </p>
    </li>
@@ -2202,17 +2184,17 @@
    </li>
    <li>
     <p>
+     <a href="/m13bd/m-lib/m-php/m-insert-php.html">lib / php / insert.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m13bd/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
     </p>
    </li>
    <li>
     <p>
      <a href="/m13bd/m-lib/m-php/m-NOT_FOUND-php.html">lib / php / NOT_FOUND.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m13bd/m-lib/m-php/m-OrmPdo-php.html">lib / php / OrmPdo.php</a>
     </p>
    </li>
    <li>
@@ -2233,6 +2215,21 @@
    <li>
     <p>
      <a href="/m13bd/m-lib/m-php/m-recuperaTexto-php.html">lib / php / recuperaTexto.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-select-php.html">lib / php / select.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-selectFirst-php.html">lib / php / selectFirst.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m13bd/m-lib/m-php/m-update-php.html">lib / php / update.php</a>
     </p>
    </li>
    <li>
@@ -2262,7 +2259,149 @@
 </table>
       </section>
      <section >
-         <h1 >2. lib / php / devuelveCreated.php</h1><table class="codeShow">
+         <h1 >2. lib / php / calculaArregloDeParametros.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> calculaArregloDeParametros(array $arreglo)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $parametros = [];</td></tr>
+  <tr><td>6</td><td> <span class="codeReserved">foreach</span> ($arreglo <span class="codeReserved">as</span> $llave =&gt; $valor) {</td></tr>
+  <tr><td>7</td><td>  $parametros[<span class="codeString">":$llave"</span>] = $valor;</td></tr>
+  <tr><td>8</td><td> }</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">return</span> $parametros;</td></tr>
+  <tr><td>10</td><td>}</td></tr>
+  <tr><td>11</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >3. lib / php / calculaSqlDeAsignaciones.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> calculaSqlDeAsignaciones(string $separador, array $arreglo)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $primerElemento = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td> $sqlDeAsignacion = <span class="codeString">""</span>;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">foreach</span> ($arreglo <span class="codeReserved">as</span> $llave =&gt; $valor) {</td></tr>
+  <tr><td>8</td><td>  $sqlDeAsignacion .=</td></tr>
+  <tr><td>9</td><td>   ($primerElemento === <span class="codeReserved">true</span> ? <span class="codeString">""</span> : $separador) . <span class="codeString">"$llave=:$llave"</span>;</td></tr>
+  <tr><td>10</td><td>  $primerElemento = <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>11</td><td> }</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">return</span> $sqlDeAsignacion;</td></tr>
+  <tr><td>13</td><td>}</td></tr>
+  <tr><td>14</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. lib / php / calculaSqlDeCamposDeInsert.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> calculaSqlDeCamposDeInsert(array $values)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $primerCampo = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td> $sqlDeCampos = <span class="codeString">""</span>;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">foreach</span> ($values <span class="codeReserved">as</span> $nombreDeValue =&gt; $valorDeValue) {</td></tr>
+  <tr><td>8</td><td>  $sqlDeCampos .= ($primerCampo === <span class="codeReserved">true</span> ? <span class="codeString">""</span> : <span class="codeString">","</span>) . <span class="codeString">"$nombreDeValue"</span>;</td></tr>
+  <tr><td>9</td><td>  $primerCampo = <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>10</td><td> }</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">return</span> $sqlDeCampos;</td></tr>
+  <tr><td>12</td><td>}</td></tr>
+  <tr><td>13</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. lib / php / calculaSqlDeValues.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">function</span> calculaSqlDeValues(array $values)</td></tr>
+  <tr><td>4</td><td>{</td></tr>
+  <tr><td>5</td><td> $primerValue = <span class="codeReserved">true</span>;</td></tr>
+  <tr><td>6</td><td> $sqlDeValues = <span class="codeString">""</span>;</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">foreach</span> ($values <span class="codeReserved">as</span> $nombreDeValue =&gt; $valorDeValue) {</td></tr>
+  <tr><td>8</td><td>  $sqlDeValues .= ($primerValue === <span class="codeReserved">true</span> ? <span class="codeString">""</span> : <span class="codeString">","</span>) . <span class="codeString">":$nombreDeValue"</span>;</td></tr>
+  <tr><td>9</td><td>  $primerValue = <span class="codeReserved">false</span>;</td></tr>
+  <tr><td>10</td><td> }</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">return</span> $sqlDeValues;</td></tr>
+  <tr><td>12</td><td>}</td></tr>
+  <tr><td>13</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. lib / php / delete.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaArregloDeParametros.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeAsignaciones.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> delete(PDO $pdo,  string $from,  array $where)</td></tr>
+  <tr><td>7</td><td>{</td></tr>
+  <tr><td>8</td><td> $sql = <span class="codeString">"<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> $from"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td> <span class="codeReserved">if</span> (sizeof($where) === 0) {</td></tr>
+  <tr><td>11</td><td>  $pdo-&gt;exec($sql);</td></tr>
+  <tr><td>12</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>13</td><td>  $sqlDeWhere = calculaSqlDeAsignaciones(<span class="codeString">" AND "</span>, $where);</td></tr>
+  <tr><td>14</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">WHERE</span> $sqlDeWhere"</span>;</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>  $statement = $pdo-&gt;prepare($sql);</td></tr>
+  <tr><td>17</td><td>  $parametros = calculaArregloDeParametros($where);</td></tr>
+  <tr><td>18</td><td>  $statement-&gt;execute($parametros);</td></tr>
+  <tr><td>19</td><td> }</td></tr>
+  <tr><td>20</td><td>}</td></tr>
+  <tr><td>21</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >7. lib / php / devuelveCreated.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2297,7 +2436,7 @@
 </table>
       </section>
      <section >
-         <h1 >3. lib / php / devuelveErrorInterno.php</h1><table class="codeShow">
+         <h1 >8. lib / php / devuelveErrorInterno.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2326,7 +2465,7 @@
 </table>
       </section>
      <section >
-         <h1 >4. lib / php / devuelveJson.php</h1><table class="codeShow">
+         <h1 >9. lib / php / devuelveJson.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2360,7 +2499,7 @@
 </table>
       </section>
      <section >
-         <h1 >5. lib / php / devuelveNoContent.php</h1><table class="codeShow">
+         <h1 >10. lib / php / devuelveNoContent.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2381,7 +2520,7 @@
 </table>
       </section>
      <section >
-         <h1 >6. lib / php / devuelveProblemDetails.php</h1><table class="codeShow">
+         <h1 >11. lib / php / devuelveProblemDetails.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2424,7 +2563,7 @@
 </table>
       </section>
      <section >
-         <h1 >7. lib / php / devuelveResultadoNoJson.php</h1><table class="codeShow">
+         <h1 >12. lib / php / devuelveResultadoNoJson.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2453,7 +2592,38 @@
 </table>
       </section>
      <section >
-         <h1 >8. lib / php / fetch.php</h1><table class="codeShow">
+         <h1 >13. lib / php / ejecutaServicio.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveProblemDetails.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveErrorInterno.php"</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> ejecutaServicio(callable $codigo)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td> <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>10</td><td>  $codigo();</td></tr>
+  <tr><td>11</td><td> } <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>12</td><td>  devuelveProblemDetails($details);</td></tr>
+  <tr><td>13</td><td> } <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
+  <tr><td>14</td><td>  devuelveErrorInterno($error);</td></tr>
+  <tr><td>15</td><td> }</td></tr>
+  <tr><td>16</td><td>}</td></tr>
+  <tr><td>17</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >14. lib / php / fetch.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2494,7 +2664,7 @@
 </table>
       </section>
      <section >
-         <h1 >9. lib / php / fetchAll.php</h1><table class="codeShow">
+         <h1 >15. lib / php / fetchAll.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2538,7 +2708,36 @@
 </table>
       </section>
      <section >
-         <h1 >10. lib / php / INTERNAL_SERVER_ERROR.php</h1><table class="codeShow">
+         <h1 >16. lib / php / insert.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeCamposDeInsert.php"</span>; </td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeValues.php"</span>; </td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaArregloDeParametros.php"</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> insert(PDO $pdo, string $into, array $values)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td> $sqlDeCampos = calculaSqlDeCamposDeInsert($values);</td></tr>
+  <tr><td>10</td><td> $sqlDeValues = calculaSqlDeValues($values);</td></tr>
+  <tr><td>11</td><td> $sql = <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> $into ($sqlDeCampos) <span class="codeReserved">VALUES</span> ($sqlDeValues)"</span>;</td></tr>
+  <tr><td>12</td><td> $parametros = calculaArregloDeParametros($values);</td></tr>
+  <tr><td>13</td><td> $pdo-&gt;prepare($sql)-&gt;execute($parametros);</td></tr>
+  <tr><td>14</td><td>}</td></tr>
+  <tr><td>15</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >17. lib / php / INTERNAL_SERVER_ERROR.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2555,7 +2754,7 @@
 </table>
       </section>
      <section >
-         <h1 >11. lib / php / NOT_FOUND.php</h1><table class="codeShow">
+         <h1 >18. lib / php / NOT_FOUND.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2573,206 +2772,7 @@
 </table>
       </section>
      <section >
-         <h1 >12. lib / php / OrmPdo.php</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/fetch.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">class</span> OrmPdo</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td> <span class="codeReserved">private</span> string $nombreDeTabla;</td></tr>
-  <tr><td>8</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@var</span> string[]</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">private</span> array $nombresDeLlaves;</td></tr>
-  <tr><td>12</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>13</td><td><span class="codeComment">  * <span class="codeReserved">@var</span> string[]</span></td></tr>
-  <tr><td>14</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>15</td><td> <span class="codeReserved">private</span> array $nombresDeCampos;</td></tr>
-  <tr><td>16</td><td> <span class="codeReserved">private</span> <span class="codeReserved">bool</span> $autoincrement;</td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">private</span> string $sequence;</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>20</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> string[] $nombresDeLlaves</span></td></tr>
-  <tr><td>21</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> string[] $nombresDeCampos</span></td></tr>
-  <tr><td>22</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>23</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</td></tr>
-  <tr><td>24</td><td>  string $nombreDeTabla,</td></tr>
-  <tr><td>25</td><td>  array $nombresDeLlaves,</td></tr>
-  <tr><td>26</td><td>  array $nombresDeCampos,</td></tr>
-  <tr><td>27</td><td>  <span class="codeReserved">bool</span> $autoincrement = <span class="codeReserved">true</span>,</td></tr>
-  <tr><td>28</td><td>  string $sequence = <span class="codeString">""</span>,</td></tr>
-  <tr><td>29</td><td> ) {</td></tr>
-  <tr><td>30</td><td>  $this-&gt;nombreDeTabla = $nombreDeTabla;</td></tr>
-  <tr><td>31</td><td>  $this-&gt;nombresDeLlaves = $nombresDeLlaves;</td></tr>
-  <tr><td>32</td><td>  $this-&gt;autoincrement = $autoincrement;</td></tr>
-  <tr><td>33</td><td>  $this-&gt;sequence = $sequence;</td></tr>
-  <tr><td>34</td><td>  $this-&gt;nombresDeCampos = $nombresDeCampos;</td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>38</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> array[] $objetos</span></td></tr>
-  <tr><td>39</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>40</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> insert(PDO $conexion, array $objetos)</td></tr>
-  <tr><td>41</td><td> {</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td>  $sqlCampos = implode(<span class="codeString">","</span>, $this-&gt;nombresDeCampos);</td></tr>
-  <tr><td>44</td><td>  $sqlValoresCampos =</td></tr>
-  <tr><td>45</td><td>   implode(<span class="codeString">","</span>, $this-&gt;convierteCamposEnParametros($this-&gt;nombresDeCampos));</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td>  <span class="codeReserved">if</span> ($this-&gt;autoincrement) {</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td>   $sql =</td></tr>
-  <tr><td>50</td><td>    <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> $this-&gt;nombreDeTabla ($sqlCampos) <span class="codeReserved">VALUES</span> ($sqlValoresCampos)"</span>;</td></tr>
-  <tr><td>51</td><td></td></tr>
-  <tr><td>52</td><td>   <span class="codeComment">/**</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment">    * <span class="codeReserved">@var</span> string[]</span></td></tr>
-  <tr><td>54</td><td><span class="codeComment">    */</span></td></tr>
-  <tr><td>55</td><td>   $llaves = [];</td></tr>
-  <tr><td>56</td><td>   $statement = $conexion-&gt;prepare($sql);</td></tr>
-  <tr><td>57</td><td>   <span class="codeReserved">foreach</span> ($objetos <span class="codeReserved">as</span> $objeto) {</td></tr>
-  <tr><td>58</td><td>    $this-&gt;ejecutaStatement($statement, $objeto);</td></tr>
-  <tr><td>59</td><td>    <span class="codeReserved">if</span> ($this-&gt;sequence === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>60</td><td>     $id = $conexion-&gt;lastInsertId();</td></tr>
-  <tr><td>61</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>62</td><td>     $id = $conexion-&gt;lastInsertId($this-&gt;sequence);</td></tr>
-  <tr><td>63</td><td>    }</td></tr>
-  <tr><td>64</td><td>    <span class="codeReserved">if</span> ($id === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>65</td><td>     $llaves[] = <span class="codeString">""</span>;</td></tr>
-  <tr><td>66</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>67</td><td>     $llaves[] = $id;</td></tr>
-  <tr><td>68</td><td>    }</td></tr>
-  <tr><td>69</td><td>   }</td></tr>
-  <tr><td>70</td><td>   <span class="codeReserved">return</span> $llaves;</td></tr>
-  <tr><td>71</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>72</td><td></td></tr>
-  <tr><td>73</td><td>   $sqlLlaves = implode(<span class="codeString">","</span>, $this-&gt;nombresDeLlaves);</td></tr>
-  <tr><td>74</td><td>   $sqlValoresLlaves =</td></tr>
-  <tr><td>75</td><td>    implode(<span class="codeString">","</span>, $this-&gt;convierteCamposEnParametros($this-&gt;nombresDeLlaves));</td></tr>
-  <tr><td>76</td><td>   $sql =</td></tr>
-  <tr><td>77</td><td>    <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> $this-&gt;nombreDeTabla ($sqlLlaves,$sqlCampos)</span></td></tr>
-  <tr><td>78</td><td><span class="codeString">      <span class="codeReserved">VALUES</span> ($sqlValoresLlaves,$sqlValoresCampos)"</span>;</td></tr>
-  <tr><td>79</td><td></td></tr>
-  <tr><td>80</td><td>   $statement = $conexion-&gt;prepare($sql);</td></tr>
-  <tr><td>81</td><td>   <span class="codeReserved">foreach</span> ($objetos <span class="codeReserved">as</span> $objeto) {</td></tr>
-  <tr><td>82</td><td>    $this-&gt;ejecutaStatement($statement, $objeto);</td></tr>
-  <tr><td>83</td><td>   }</td></tr>
-  <tr><td>84</td><td>   <span class="codeReserved">return</span> [];</td></tr>
-  <tr><td>85</td><td>  }</td></tr>
-  <tr><td>86</td><td> }</td></tr>
-  <tr><td>87</td><td></td></tr>
-  <tr><td>88</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>89</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> array[] $objetos</span></td></tr>
-  <tr><td>90</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>91</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> update(PDO $conexion, array $objetos)</td></tr>
-  <tr><td>92</td><td> {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>  $sqlCampos =</td></tr>
-  <tr><td>95</td><td>   implode(<span class="codeString">","</span>, $this-&gt;convierteCamposEnAsignaciones($this-&gt;nombresDeCampos));</td></tr>
-  <tr><td>96</td><td>  $sqlLlaves = implode(</td></tr>
-  <tr><td>97</td><td>   <span class="codeString">" AND "</span>,</td></tr>
-  <tr><td>98</td><td>   $this-&gt;convierteCamposEnAsignaciones($this-&gt;nombresDeLlaves)</td></tr>
-  <tr><td>99</td><td>  );</td></tr>
-  <tr><td>100</td><td>  $sql = <span class="codeString">"<span class="codeReserved">UPDATE</span> $this-&gt;nombreDeTabla <span class="codeReserved">SET</span> $sqlCampos <span class="codeReserved">WHERE</span> $sqlLlaves"</span>;</td></tr>
-  <tr><td>101</td><td></td></tr>
-  <tr><td>102</td><td>  $statement = $conexion-&gt;prepare($sql);</td></tr>
-  <tr><td>103</td><td>  <span class="codeReserved">foreach</span> ($objetos <span class="codeReserved">as</span> $objeto) {</td></tr>
-  <tr><td>104</td><td>   $this-&gt;ejecutaStatement($statement, $objeto);</td></tr>
-  <tr><td>105</td><td>  }</td></tr>
-  <tr><td>106</td><td> }</td></tr>
-  <tr><td>107</td><td></td></tr>
-  <tr><td>108</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>109</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> array[] $laves</span></td></tr>
-  <tr><td>110</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>111</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> delete(PDO $conexion, array $llaves)</td></tr>
-  <tr><td>112</td><td> {</td></tr>
-  <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>  $sqlLlaves = implode(</td></tr>
-  <tr><td>115</td><td>   <span class="codeString">" AND "</span>,</td></tr>
-  <tr><td>116</td><td>   $this-&gt;convierteCamposEnAsignaciones($this-&gt;nombresDeLlaves)</td></tr>
-  <tr><td>117</td><td>  );</td></tr>
-  <tr><td>118</td><td>  $sql = <span class="codeString">"<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> $this-&gt;nombreDeTabla <span class="codeReserved">WHERE</span> $sqlLlaves"</span>;</td></tr>
-  <tr><td>119</td><td></td></tr>
-  <tr><td>120</td><td>  $statement = $conexion-&gt;prepare($sql);</td></tr>
-  <tr><td>121</td><td>  <span class="codeReserved">foreach</span> ($llaves <span class="codeReserved">as</span> $llave) {</td></tr>
-  <tr><td>122</td><td>   $this-&gt;ejecutaStatement($statement, $llave);</td></tr>
-  <tr><td>123</td><td>  }</td></tr>
-  <tr><td>124</td><td> }</td></tr>
-  <tr><td>125</td><td></td></tr>
-  <tr><td>126</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>127</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> array $valor</span></td></tr>
-  <tr><td>128</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>129</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> select(</td></tr>
-  <tr><td>130</td><td>  PDO $conexion,</td></tr>
-  <tr><td>131</td><td>  array $lave,</td></tr>
-  <tr><td>132</td><td>  <span class="codeReserved">int</span> $mode = PDO::FETCH_ASSOC,</td></tr>
-  <tr><td>133</td><td>  $opcional = <span class="codeReserved">null</span></td></tr>
-  <tr><td>134</td><td> ) {</td></tr>
-  <tr><td>135</td><td></td></tr>
-  <tr><td>136</td><td>  $sqlLlaves = implode(</td></tr>
-  <tr><td>137</td><td>   <span class="codeString">" AND "</span>,</td></tr>
-  <tr><td>138</td><td>   $this-&gt;convierteCamposEnAsignaciones($this-&gt;nombresDeLlaves)</td></tr>
-  <tr><td>139</td><td>  );</td></tr>
-  <tr><td>140</td><td>  $sql = <span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> $this-&gt;nombreDeTabla <span class="codeReserved">WHERE</span> $sqlLlaves"</span>;</td></tr>
-  <tr><td>141</td><td></td></tr>
-  <tr><td>142</td><td>  $statement = $conexion-&gt;prepare($sql);</td></tr>
-  <tr><td>143</td><td>  $parametros = $this-&gt;convierteAsignacionEnParametros($lave);</td></tr>
-  <tr><td>144</td><td>  <span class="codeReserved">return</span> fetch($statement, $parametros, $mode, $opcional);</td></tr>
-  <tr><td>145</td><td> }</td></tr>
-  <tr><td>146</td><td></td></tr>
-  <tr><td>147</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>148</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> string[] $campos</span></td></tr>
-  <tr><td>149</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>150</td><td> <span class="codeReserved">private</span> <span class="codeReserved">function</span> convierteCamposEnParametros(array $campos)</td></tr>
-  <tr><td>151</td><td> {</td></tr>
-  <tr><td>152</td><td>  $parametros = [];</td></tr>
-  <tr><td>153</td><td>  <span class="codeReserved">foreach</span> ($campos <span class="codeReserved">as</span> $campo) {</td></tr>
-  <tr><td>154</td><td>   $parametros[] = <span class="codeString">":$campo"</span>;</td></tr>
-  <tr><td>155</td><td>  }</td></tr>
-  <tr><td>156</td><td>  <span class="codeReserved">return</span> $parametros;</td></tr>
-  <tr><td>157</td><td> }</td></tr>
-  <tr><td>158</td><td></td></tr>
-  <tr><td>159</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>160</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> string[] $campos</span></td></tr>
-  <tr><td>161</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>162</td><td> <span class="codeReserved">private</span> <span class="codeReserved">function</span> convierteCamposEnAsignaciones(array $campos)</td></tr>
-  <tr><td>163</td><td> {</td></tr>
-  <tr><td>164</td><td>  $parametros = [];</td></tr>
-  <tr><td>165</td><td>  <span class="codeReserved">foreach</span> ($campos <span class="codeReserved">as</span> $campo) {</td></tr>
-  <tr><td>166</td><td>   $parametros[] = <span class="codeString">"$campo=:$campo"</span>;</td></tr>
-  <tr><td>167</td><td>  }</td></tr>
-  <tr><td>168</td><td>  <span class="codeReserved">return</span> $parametros;</td></tr>
-  <tr><td>169</td><td> }</td></tr>
-  <tr><td>170</td><td></td></tr>
-  <tr><td>171</td><td> <span class="codeReserved">private</span> <span class="codeReserved">function</span> convierteAsignacionEnParametros(array $asignacion)</td></tr>
-  <tr><td>172</td><td> {</td></tr>
-  <tr><td>173</td><td>  $parametros = [];</td></tr>
-  <tr><td>174</td><td>  <span class="codeReserved">foreach</span> ($asignacion <span class="codeReserved">as</span> $llave =&gt; $valor) {</td></tr>
-  <tr><td>175</td><td>   $parametros[<span class="codeString">":$llave"</span>] = $valor;</td></tr>
-  <tr><td>176</td><td>  }</td></tr>
-  <tr><td>177</td><td>  <span class="codeReserved">return</span> $parametros;</td></tr>
-  <tr><td>178</td><td> }</td></tr>
-  <tr><td>179</td><td></td></tr>
-  <tr><td>180</td><td> <span class="codeReserved">private</span> <span class="codeReserved">function</span> ejecutaStatement(PDOStatement $statement, array $asignacion)</td></tr>
-  <tr><td>181</td><td> {</td></tr>
-  <tr><td>182</td><td>  $statement-&gt;execute($this-&gt;convierteAsignacionEnParametros($asignacion));</td></tr>
-  <tr><td>183</td><td> }</td></tr>
-  <tr><td>184</td><td>}</td></tr>
-  <tr><td>185</td><td></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >13. lib / php / ProblemDetails.php</h1><table class="codeShow">
+         <h1 >19. lib / php / ProblemDetails.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2812,7 +2812,7 @@
 </table>
       </section>
      <section >
-         <h1 >14. lib / php / recuperaEntero.php</h1><table class="codeShow">
+         <h1 >20. lib / php / recuperaEntero.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2853,7 +2853,7 @@
 </table>
       </section>
      <section >
-         <h1 >15. lib / php / recuperaIdEntero.php</h1><table class="codeShow">
+         <h1 >21. lib / php / recuperaIdEntero.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2896,7 +2896,7 @@
 </table>
       </section>
      <section >
-         <h1 >16. lib / php / recuperaTexto.php</h1><table class="codeShow">
+         <h1 >22. lib / php / recuperaTexto.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2929,7 +2929,138 @@
 </table>
       </section>
      <section >
-         <h1 >17. lib / php / validaNombre.php</h1><table class="codeShow">
+         <h1 >23. lib / php / select.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/fetchAll.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeAsignaciones.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> select(</td></tr>
+  <tr><td>7</td><td> PDO $pdo,</td></tr>
+  <tr><td>8</td><td> string $from,</td></tr>
+  <tr><td>9</td><td> array $where = [],</td></tr>
+  <tr><td>10</td><td> string $orderBy = <span class="codeString">""</span>,</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">int</span> $mode = PDO::FETCH_ASSOC,</td></tr>
+  <tr><td>12</td><td> $opcional = <span class="codeReserved">null</span></td></tr>
+  <tr><td>13</td><td>) {</td></tr>
+  <tr><td>14</td><td> $sql = <span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> $from"</span>;</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">if</span> (sizeof($where) &gt; 0) {</td></tr>
+  <tr><td>17</td><td>  $sqlDeWhere = calculaSqlDeAsignaciones(<span class="codeString">" AND "</span>, $where);</td></tr>
+  <tr><td>18</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">WHERE</span> $sqlDeWhere"</span>;</td></tr>
+  <tr><td>19</td><td> }</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> <span class="codeReserved">if</span> ($orderBy !== <span class="codeString">""</span>) {</td></tr>
+  <tr><td>22</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> $orderBy"</span>;</td></tr>
+  <tr><td>23</td><td> }</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> <span class="codeReserved">if</span> (sizeof($where) === 0) {</td></tr>
+  <tr><td>26</td><td>  $statement = $pdo-&gt;query($sql);</td></tr>
+  <tr><td>27</td><td>  <span class="codeReserved">return</span> fetchAll($statement, [], $mode, $opcional);</td></tr>
+  <tr><td>28</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>29</td><td>  $statement = $pdo-&gt;prepare($sql);</td></tr>
+  <tr><td>30</td><td>  $parametros = calculaArregloDeParametros($where);</td></tr>
+  <tr><td>31</td><td>  <span class="codeReserved">return</span> fetchAll($statement, $parametros, $mode, $opcional);</td></tr>
+  <tr><td>32</td><td> }</td></tr>
+  <tr><td>33</td><td>}</td></tr>
+  <tr><td>34</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >24. lib / php / selectFirst.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/fetch.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaArregloDeParametros.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeAsignaciones.php"</span>;</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> selectFirst(</td></tr>
+  <tr><td>8</td><td> PDO $pdo,</td></tr>
+  <tr><td>9</td><td> string $from,</td></tr>
+  <tr><td>10</td><td> array $where = [],</td></tr>
+  <tr><td>11</td><td> string $orderBy = <span class="codeString">""</span>,</td></tr>
+  <tr><td>12</td><td> <span class="codeReserved">int</span> $mode = PDO::FETCH_ASSOC,</td></tr>
+  <tr><td>13</td><td> $opcional = <span class="codeReserved">null</span></td></tr>
+  <tr><td>14</td><td>) {</td></tr>
+  <tr><td>15</td><td> $sql = <span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> $from"</span>;</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> <span class="codeReserved">if</span> (sizeof($where) &gt; 0) {</td></tr>
+  <tr><td>18</td><td>  $sqlDeWhere = calculaSqlDeAsignaciones(<span class="codeString">" AND "</span>, $where);</td></tr>
+  <tr><td>19</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">WHERE</span> $sqlDeWhere"</span>;</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">if</span> ($orderBy !== <span class="codeString">""</span>) {</td></tr>
+  <tr><td>23</td><td>  $sql .= <span class="codeString">" <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> $orderBy"</span>;</td></tr>
+  <tr><td>24</td><td> }</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> <span class="codeReserved">if</span> (sizeof($where) === 0) {</td></tr>
+  <tr><td>27</td><td>  $statement = $pdo-&gt;query($sql);</td></tr>
+  <tr><td>28</td><td>  <span class="codeReserved">return</span> fetch($statement, [], $mode, $opcional);</td></tr>
+  <tr><td>29</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>30</td><td>  $statement = $pdo-&gt;prepare($sql);</td></tr>
+  <tr><td>31</td><td>  $parametros = calculaArregloDeParametros($where);</td></tr>
+  <tr><td>32</td><td>  <span class="codeReserved">return</span> fetch($statement, $parametros, $mode, $opcional);</td></tr>
+  <tr><td>33</td><td> }</td></tr>
+  <tr><td>34</td><td>}</td></tr>
+  <tr><td>35</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >25. lib / php / update.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaArregloDeParametros.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/calculaSqlDeAsignaciones.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">function</span> update(PDO $pdo, string $table, array $set, array $where)</td></tr>
+  <tr><td>8</td><td>{</td></tr>
+  <tr><td>9</td><td> $sqlDeSet = calculaSqlDeAsignaciones(<span class="codeString">","</span>, $set);</td></tr>
+  <tr><td>10</td><td> $sqlDeWhere = calculaSqlDeAsignaciones(<span class="codeString">" AND "</span>, $where);</td></tr>
+  <tr><td>11</td><td> $sql = <span class="codeString">"<span class="codeReserved">UPDATE</span> $table <span class="codeReserved">SET</span> $sqlDeSet <span class="codeReserved">WHERE</span> $sqlDeWhere"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> $parametros = calculaArregloDeParametros($set);</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">foreach</span> ($where <span class="codeReserved">as</span> $nombreDeWhere =&gt; $valorDeWhere) {</td></tr>
+  <tr><td>15</td><td>  $parametros[<span class="codeString">":$nombreDeWhere"</span>] = $valorDeWhere;</td></tr>
+  <tr><td>16</td><td> }</td></tr>
+  <tr><td>17</td><td> $statement = $pdo-&gt;prepare($sql);</td></tr>
+  <tr><td>18</td><td> $statement-&gt;execute($parametros);</td></tr>
+  <tr><td>19</td><td>}</td></tr>
+  <tr><td>20</td><td></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >26. lib / php / validaNombre.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">

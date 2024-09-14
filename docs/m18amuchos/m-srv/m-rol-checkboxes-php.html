@@ -830,49 +830,34 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/select.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>7</td><td></td></tr>
+  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>10</td><td> $lista = select(pdo: Bd::pdo(), <span class="codeReserved">from</span>: ROL, orderBy: ROL_ID);</td></tr>
   <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> $conexionexion = Bd::getConexion();</td></tr>
-  <tr><td>13</td><td> $lista = fetchAll($conexionexion-&gt;query(</td></tr>
-  <tr><td>14</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>15</td><td><span class="codeString">    ROL_ID <span class="codeReserved">as</span> id,</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">    ROL_DESCRIPCION <span class="codeReserved">as</span> descripcion</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">FROM</span> ROL</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> ROL_ID"</span></td></tr>
-  <tr><td>19</td><td> ));</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> $render = <span class="codeString">""</span>;</td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>23</td><td>  $id = htmlentities($modelo-&gt;id);</td></tr>
-  <tr><td>24</td><td>  $descripcion = htmlentities($modelo-&gt;descripcion);</td></tr>
-  <tr><td>25</td><td>  $render .=</td></tr>
-  <tr><td>26</td><td>   <span class="codeString">"&lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">     &lt;<span class="codeReserved">label</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>&#039;&gt;</span></td></tr>
-  <tr><td>28</td><td><span class="codeString">      &lt;<span class="codeReserved">input</span> type=&#039;checkbox&#039; name=&#039;rolIds[]&#039; value=&#039;$id&#039;&gt;</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">      &lt;<span class="codeReserved">span</span>&gt;</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">       &lt;<span class="codeReserved">strong</span>&gt;$id&lt;/<span class="codeReserved">strong</span>&gt;</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">       &lt;<span class="codeReserved">br</span>&gt;$descripcion</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">      &lt;/<span class="codeReserved">span</span>&gt;</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">     &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">    &lt;/<span class="codeReserved">p</span>&gt;"</span>;</td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> devuelveJson([<span class="codeString">"roles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
-  <tr><td>38</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>41</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>44</td><td>}</td></tr>
-  <tr><td>45</td><td></td></tr>
+  <tr><td>12</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>14</td><td>  $id = htmlentities($modelo[ROL_ID]);</td></tr>
+  <tr><td>15</td><td>  $descripcion = htmlentities($modelo[ROL_DESCRIPCION]);</td></tr>
+  <tr><td>16</td><td>  $render .=</td></tr>
+  <tr><td>17</td><td>   <span class="codeString">"&lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">     &lt;<span class="codeReserved">label</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>&#039;&gt;</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">      &lt;<span class="codeReserved">input</span> type=&#039;checkbox&#039; name=&#039;rolIds[]&#039; value=&#039;$id&#039;&gt;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">      &lt;<span class="codeReserved">span</span>&gt;</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">       &lt;<span class="codeReserved">strong</span>&gt;$id&lt;/<span class="codeReserved">strong</span>&gt;</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">       &lt;<span class="codeReserved">br</span>&gt;$descripcion</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">      &lt;/<span class="codeReserved">span</span>&gt;</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">     &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">    &lt;/<span class="codeReserved">p</span>&gt;"</span>;</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td> devuelveJson([<span class="codeString">"roles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>29</td><td>});</td></tr>
+  <tr><td>30</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -968,11 +953,6 @@
    <li>
     <p>
      <a href="/m18amuchos/m-srv/m-usuarios-php.html">srv / usuarios.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m18amuchos/m-srv/m-usuRolElimina-php.html">srv / usuRolElimina.php</a>
     </p>
    </li>
    </ol>

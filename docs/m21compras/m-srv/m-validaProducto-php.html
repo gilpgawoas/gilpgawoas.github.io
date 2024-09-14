@@ -830,19 +830,21 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">function</span> validaProducto($producto, $prodId)</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td> <span class="codeReserved">if</span> ($producto === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>6</td><td>  $htmlId = htmlentities($prodId);</td></tr>
-  <tr><td>7</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>8</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>9</td><td>   title: <span class="codeString">"Producto no encontrado."</span>,</td></tr>
-  <tr><td>10</td><td>   type: <span class="codeString">"/error/productonoencontrado.html"</span>,</td></tr>
-  <tr><td>11</td><td>   detail: <span class="codeString">"No se encontró ningún producto con el id $htmlId."</span>,</td></tr>
-  <tr><td>12</td><td>  );</td></tr>
-  <tr><td>13</td><td> }</td></tr>
-  <tr><td>14</td><td>}</td></tr>
-  <tr><td>15</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">function</span> validaProducto($producto, $prodId)</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">if</span> ($producto === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>8</td><td>  $htmlId = htmlentities($prodId);</td></tr>
+  <tr><td>9</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>10</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>11</td><td>   title: <span class="codeString">"Producto no encontrado."</span>,</td></tr>
+  <tr><td>12</td><td>   type: <span class="codeString">"/error/productonoencontrado.html"</span>,</td></tr>
+  <tr><td>13</td><td>   detail: <span class="codeString">"No se encontró ningún producto con el id $htmlId."</span>,</td></tr>
+  <tr><td>14</td><td>  );</td></tr>
+  <tr><td>15</td><td> }</td></tr>
+  <tr><td>16</td><td>}</td></tr>
+  <tr><td>17</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -973,6 +975,11 @@
    <li>
     <p>
      <a href="/m21compras/m-srv/m-venta-en-captura-php.html">srv / venta-en-captura.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-ventaEnCapturaAgrega-php.html">srv / ventaEnCapturaAgrega.php</a>
     </p>
    </li>
    <li>

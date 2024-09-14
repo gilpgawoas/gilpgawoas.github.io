@@ -830,25 +830,18 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/amigoOrm.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/pasatiempoOrm.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>13</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>14</td><td> $amigoOrm-&gt;delete(Bd::getConexion($pasatiempoOrm), [[AMI_ID =&gt; $id]]);</td></tr>
-  <tr><td>15</td><td> devuelveNoContent();</td></tr>
-  <tr><td>16</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>17</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>18</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>19</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>20</td><td>}</td></tr>
-  <tr><td>21</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/delete.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span>() {</td></tr>
+  <tr><td>10</td><td> $id = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>11</td><td> delete(pdo: Bd::pdo(), <span class="codeReserved">from</span>: AMIGO, where: [AMI_ID =&gt; $id]);</td></tr>
+  <tr><td>12</td><td> devuelveNoContent();</td></tr>
+  <tr><td>13</td><td>});</td></tr>
+  <tr><td>14</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -933,11 +926,6 @@
    </li>
    <li>
     <p>
-     <a href="/m17auno/m-srv/m-amigoOrm-php.html">srv / amigoOrm.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m17auno/m-srv/m-amigos-php.html">srv / amigos.php</a>
     </p>
    </li>
@@ -949,11 +937,6 @@
    <li>
     <p>
      <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m17auno/m-srv/m-pasatiempoOrm-php.html">srv / pasatiempoOrm.php</a>
     </p>
    </li>
    <li>

@@ -830,72 +830,56 @@
  <tbody>
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaVenta.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/detVentaConsulta.php"</span>;</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/update.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaVenta.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/detVentaConsulta.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaAgrega.php"</span>;</td></tr>
   <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">try</span> {</td></tr>
+  <tr><td>12</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>15</td><td> $conexion-&gt;beginTransaction();</td></tr>
+  <tr><td>14</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>15</td><td> $pdo-&gt;beginTransaction();</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $venta = ventaEnCapturaBusca();</td></tr>
+  <tr><td>17</td><td> $venta = ventaEnCapturaBusca($pdo);</td></tr>
   <tr><td>18</td><td> validaVenta($venta);</td></tr>
   <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $detalles = detVentaConsulta($venta-&gt;id);</td></tr>
+  <tr><td>20</td><td> $detalles = detVentaConsulta($pdo, $venta[VENT_ID]);</td></tr>
   <tr><td>21</td><td></td></tr>
   <tr><td>22</td><td> <span class="codeComment">// Actualiza las existencias de los productos vendidos.</span></td></tr>
-  <tr><td>23</td><td> $update = $conexion-&gt;prepare(</td></tr>
+  <tr><td>23</td><td> $update = $pdo-&gt;prepare(</td></tr>
   <tr><td>24</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> PRODUCTO</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">   <span class="codeReserved">SET</span> PROD_EXISTENCIAS = :existencias</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> PROD_ID = :prodId"</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">   <span class="codeReserved">SET</span> PROD_EXISTENCIAS = :PROD_EXISTENCIAS</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> PROD_ID = :PROD_ID"</span></td></tr>
   <tr><td>27</td><td> );</td></tr>
   <tr><td>28</td><td> <span class="codeReserved">foreach</span> ($detalles <span class="codeReserved">as</span> $detVenta) {</td></tr>
   <tr><td>29</td><td>  $update-&gt;execute([</td></tr>
-  <tr><td>30</td><td>   <span class="codeString">":prodId"</span> =&gt; $detVenta-&gt;prodId,</td></tr>
-  <tr><td>31</td><td>   <span class="codeString">":existencias"</span> =&gt; $detVenta-&gt;prodExistencias - $detVenta-&gt;cantidad</td></tr>
+  <tr><td>30</td><td>   <span class="codeString">":PROD_ID"</span> =&gt; $detVenta[PROD_ID],</td></tr>
+  <tr><td>31</td><td>   <span class="codeString">":PROD_EXISTENCIAS"</span> =&gt; $detVenta[PROD_EXISTENCIAS] - $detVenta[DTV_CANTIDAD]</td></tr>
   <tr><td>32</td><td>  ]);</td></tr>
   <tr><td>33</td><td> }</td></tr>
   <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> $conexion-&gt;prepare(</td></tr>
-  <tr><td>36</td><td>  <span class="codeString">"<span class="codeReserved">UPDATE</span> VENTA</span></td></tr>
-  <tr><td>37</td><td><span class="codeString">    <span class="codeReserved">SET</span> VENT_EN_CAPTURA = 0</span></td></tr>
-  <tr><td>38</td><td><span class="codeString">    <span class="codeReserved">WHERE</span> VENT_ID = :id"</span></td></tr>
-  <tr><td>39</td><td> )</td></tr>
-  <tr><td>40</td><td>  -&gt;execute([<span class="codeString">":id"</span> =&gt; $venta-&gt;id]);</td></tr>
+  <tr><td>35</td><td> update(</td></tr>
+  <tr><td>36</td><td>  pdo: $pdo,</td></tr>
+  <tr><td>37</td><td>  table: VENTA,</td></tr>
+  <tr><td>38</td><td>  set: [VENT_EN_CAPTURA =&gt; 0],</td></tr>
+  <tr><td>39</td><td>  where: [VENT_ID =&gt; $venta[VENT_ID]]</td></tr>
+  <tr><td>40</td><td> );</td></tr>
   <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> $conexion-&gt;exec(</td></tr>
-  <tr><td>43</td><td>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> VENTA</span></td></tr>
-  <tr><td>44</td><td><span class="codeString">    (VENT_EN_CAPTURA)</span></td></tr>
-  <tr><td>45</td><td><span class="codeString">   <span class="codeReserved">VALUES</span></span></td></tr>
-  <tr><td>46</td><td><span class="codeString">    (1)"</span></td></tr>
-  <tr><td>47</td><td> );</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td> <span class="codeComment">/* Recupera el id generado. Si usas una secuencia, pasa como</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment">  * parámetro de lastInsertId el nombre de dicha secuencia y</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment">  * poner esta instrucción antes del <span class="codeReserved">INSERT</span>, al cual se le</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment">  * pasarle el id generado. */</span></td></tr>
-  <tr><td>53</td><td> $folio = $conexion-&gt;lastInsertId();</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td> $conexion-&gt;commit();</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td> devuelveCreated(<span class="codeString">"/srv/venta-en-captura.php"</span>, [</td></tr>
-  <tr><td>58</td><td>  <span class="codeString">"folio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $folio],</td></tr>
-  <tr><td>59</td><td>  <span class="codeString">"detalles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; <span class="codeString">""</span>]</td></tr>
-  <tr><td>60</td><td> ]);</td></tr>
-  <tr><td>61</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>64</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>67</td><td>}</td></tr>
-  <tr><td>68</td><td></td></tr>
+  <tr><td>42</td><td> ventaEnCapturaAgrega($pdo);</td></tr>
+  <tr><td>43</td><td> $folio = $pdo-&gt;lastInsertId();</td></tr>
+  <tr><td>44</td><td></td></tr>
+  <tr><td>45</td><td> $pdo-&gt;commit();</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td> devuelveCreated(<span class="codeString">"/srv/venta-en-captura.php"</span>, [</td></tr>
+  <tr><td>48</td><td>  <span class="codeString">"folio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $folio],</td></tr>
+  <tr><td>49</td><td>  <span class="codeString">"detalles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; <span class="codeString">""</span>]</td></tr>
+  <tr><td>50</td><td> ]);</td></tr>
+  <tr><td>51</td><td>});</td></tr>
+  <tr><td>52</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -1026,6 +1010,11 @@
    <li>
     <p>
      <a href="/m21compras/m-srv/m-venta-en-captura-php.html">srv / venta-en-captura.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-ventaEnCapturaAgrega-php.html">srv / ventaEnCapturaAgrega.php</a>
     </p>
    </li>
    <li>

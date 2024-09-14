@@ -831,57 +831,51 @@
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
   <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/NOT_FOUND.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
-  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/usuRolIds.php"</span>;</td></tr>
-  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveProblemDetails.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveErrorInterno.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td><span class="codeReserved">try</span> {</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> $usuId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>18</td><td> $modelo = fetch(</td></tr>
-  <tr><td>19</td><td>  $conexion-&gt;prepare(</td></tr>
-  <tr><td>20</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeString">    USU_ID <span class="codeReserved">as</span> id,</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    USU_CUE <span class="codeReserved">as</span> cue</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">   <span class="codeReserved">FROM</span> USUARIO</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> USU_ID = :usuId"</span></td></tr>
-  <tr><td>25</td><td>  ),</td></tr>
-  <tr><td>26</td><td>  [<span class="codeString">":usuId"</span> =&gt; $usuId]</td></tr>
-  <tr><td>27</td><td> );</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>30</td><td>  $htmlId = htmlentities($id);</td></tr>
-  <tr><td>31</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>32</td><td>   title: <span class="codeString">"Usuario no encontrado."</span>,</td></tr>
-  <tr><td>33</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>34</td><td>   type: <span class="codeString">"/error/usuarionoencontrado.html"</span>,</td></tr>
-  <tr><td>35</td><td>   detail: <span class="codeString">"No se encontró ningún usuario con el id $htmlId."</span>,</td></tr>
-  <tr><td>36</td><td>  );</td></tr>
-  <tr><td>37</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td>  $rolIds = usuRolIds($conexion, $usuId);</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ejecutaServicio.php"</span>;</td></tr>
+  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/recuperaIdEntero.php"</span>;</td></tr>
+  <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/selectFirst.php"</span>;</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> $usuId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $modelo = selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_ID =&gt; $usuId]);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> <span class="codeReserved">if</span> ($modelo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>21</td><td>  $htmlId = htmlentities($usuId);</td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>23</td><td>   title: <span class="codeString">"Usuario no encontrado."</span>,</td></tr>
+  <tr><td>24</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>25</td><td>   type: <span class="codeString">"/error/usuarionoencontrado.html"</span>,</td></tr>
+  <tr><td>26</td><td>   detail: <span class="codeString">"No se encontró ningún usuario con el id $htmlId."</span>,</td></tr>
+  <tr><td>27</td><td>  );</td></tr>
+  <tr><td>28</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>  $rolIds = fetchAll(</td></tr>
+  <tr><td>31</td><td>   $pdo-&gt;query(</td></tr>
+  <tr><td>32</td><td>    <span class="codeString">"<span class="codeReserved">SELECT</span> ROL_ID</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">      <span class="codeReserved">FROM</span> USU_ROL</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">      <span class="codeReserved">WHERE</span> USU_ID = :USU_ID</span></td></tr>
+  <tr><td>35</td><td><span class="codeString">      <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> USU_ID"</span></td></tr>
+  <tr><td>36</td><td>   ),</td></tr>
+  <tr><td>37</td><td>   [<span class="codeString">":USU_ID"</span> =&gt; $usuId],</td></tr>
+  <tr><td>38</td><td>   PDO::FETCH_COLUMN</td></tr>
+  <tr><td>39</td><td>  );</td></tr>
   <tr><td>40</td><td></td></tr>
   <tr><td>41</td><td>  devuelveJson([</td></tr>
   <tr><td>42</td><td>   <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $usuId],</td></tr>
-  <tr><td>43</td><td>   <span class="codeString">"cue"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo-&gt;cue],</td></tr>
+  <tr><td>43</td><td>   <span class="codeString">"cue"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $modelo[USU_CUE]],</td></tr>
   <tr><td>44</td><td>   <span class="codeString">"rolIds[]"</span> =&gt; $rolIds</td></tr>
   <tr><td>45</td><td>  ]);</td></tr>
   <tr><td>46</td><td> }</td></tr>
-  <tr><td>47</td><td>} <span class="codeReserved">catch</span> (ProblemDetails $details) {</td></tr>
+  <tr><td>47</td><td>});</td></tr>
   <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td> devuelveProblemDetails($details);</td></tr>
-  <tr><td>50</td><td>} <span class="codeReserved">catch</span> (Throwable $error) {</td></tr>
-  <tr><td>51</td><td></td></tr>
-  <tr><td>52</td><td> devuelveErrorInterno($error);</td></tr>
-  <tr><td>53</td><td>}</td></tr>
-  <tr><td>54</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -977,11 +971,6 @@
    <li>
     <p>
      <a href="/m18amuchos/m-srv/m-usuarios-php.html">srv / usuarios.php</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m18amuchos/m-srv/m-usuRolElimina-php.html">srv / usuRolElimina.php</a>
     </p>
    </li>
    </ol>

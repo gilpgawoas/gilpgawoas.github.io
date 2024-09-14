@@ -11,21 +11,11 @@
   <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
   <tr><td>2</td><td></td></tr>
   <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetch.php"</span>;</td></tr>
-  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">function</span> ventaEnCapturaBusca()</td></tr>
-  <tr><td>7</td><td>{</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> $conexion = Bd::getConexion();</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">return</span> fetch($conexion-&gt;query(</td></tr>
-  <tr><td>12</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    VENT_ID <span class="codeReserved">as</span> id,</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    VENT_EN_CAPTURA <span class="codeReserved">as</span> enCaptura</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">FROM</span> VENTA</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">   <span class="codeReserved">WHERE</span> VENT_EN_CAPTURA = 1"</span></td></tr>
-  <tr><td>17</td><td> ));</td></tr>
-  <tr><td>18</td><td>}</td></tr>
-  <tr><td>19</td><td></td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">function</span> ventaEnCapturaBusca(PDO $pdo)</td></tr>
+  <tr><td>6</td><td>{</td></tr>
+  <tr><td>7</td><td> <span class="codeReserved">return</span> fetch($pdo-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> VENTA <span class="codeReserved">WHERE</span> VENT_EN_CAPTURA = 1"</span>));</td></tr>
+  <tr><td>8</td><td>}</td></tr>
+  <tr><td>9</td><td></td></tr>
  </tbody>
 </table>
