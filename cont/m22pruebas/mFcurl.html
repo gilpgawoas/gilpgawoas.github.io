@@ -4,8 +4,17 @@
    <p>
     Este ejercicio usa el comando curl, que nos permite realizar una
     conexión a un sitio. Puedes profundizar en este tema en la URL
-    <a href="https://curl.se/" rel="noreferrer"
-      target="_blank">https://curl.se/</a>
+    <a rel="noreferrer" target="_blank"
+      href="https://curl.se/">https://curl.se/</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Aunque hay herramientas gráficar como Postman (<a tabindex="_blank"
+      rel="noreferrer"
+      href="https://www.postman.com/">https://www.postman.com/</a>), la ventaja
+    de curl es que se puede integrar a lenguajes como shell o bat para
+    automatizar las pruebas.
    </p>
   </li>
   <li>
@@ -25,7 +34,9 @@
    <p>Crea una carpeta para el proyecto y ábrela con Visual Studio Code.</p>
   </li>
   <li>
-   <p>Crea el archivo <q>curl.bat</q> y ponle el siguiente contenido.</p>
+   <p>Crea el archivo <q>test.bat</q> (en Linux y macOS debe llamarse
+    <q>test.sh</q>) y ponle el siguiente contenido.
+   </p>
    <muestra-codigo>
     <div>
      <div>curl http://localhost/srv/devuelve.php
@@ -34,7 +45,38 @@
     </div>
    </muestra-codigo>
   </li>
-  <p>Ejecuta el proyecto con la orden:
-   <br><kbd>curl.bat</kbd>
+  <li>
+   <p>Abre una terminal.</p>
+  </li>
+  <li>
+   <p>
+    Este paso solo se ejecuta en Windows. Teclea el comando:
+    <br><kbd>cmd</kbd>
+   </p>
+  </li>
+  <li>
+   <p>
+    En Windows teclea:
+    <br><kbd>test</kbd>
+   </p>
+  </li>
+  <li>
+   <p>
+    En Linux y macOS teclea:
+    <br><kbd>./test.sh</kbd>
+   </p>
+  </li>
+  <li>
+   <p>La salida se ve algo como esto:</p>
+   <pre>PS C:\xxx\Documents\xx\curl> cmd
+    Microsoft Windows [Versión 10.0.19045.4894]
+    (c) Microsoft Corporation. Todos los derechos reservados.
+    
+    C:\xxx\Documents\xx\curl>test
+    
+    C:\xxx\Documents\xx\curl>curl http://localhost/srv/devuelve.php 
+    {"nombre":"pp","mensaje":"Hola."}
+    C:\xxx\Documents\xx\curl></pre>
+  </li>
  </ul>
 </div>
