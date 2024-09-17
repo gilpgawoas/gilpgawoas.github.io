@@ -829,26 +829,26 @@
  </caption>
  <tbody>
   <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./consumeJson.js"</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>4</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } url</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Object } body</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> enviaJson(url, body, metodoHttp = <span class="codeString">"POST"</span>) {</td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">return</span> <span class="codeReserved">await</span> consumeJson(fetch(url, {</td></tr>
-  <tr><td>11</td><td>  method: metodoHttp,</td></tr>
-  <tr><td>12</td><td>  headers: {</td></tr>
-  <tr><td>13</td><td>   <span class="codeString">"Content-Type"</span>: <span class="codeString">"application/json"</span>,</td></tr>
-  <tr><td>14</td><td>   <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span></td></tr>
-  <tr><td>15</td><td>  },</td></tr>
-  <tr><td>16</td><td>  body: JSON.stringify(body)</td></tr>
-  <tr><td>17</td><td> }))</td></tr>
-  <tr><td>18</td><td>}</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>21</td><td>window[<span class="codeString">"enviaJson"</span>] = enviaJson</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./exportaAHtml.js"</span></td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } url</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Object } body</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> enviaJson(url, body, metodoHttp = <span class="codeString">"POST"</span>) {</td></tr>
+  <tr><td>11</td><td> <span class="codeReserved">return</span> <span class="codeReserved">await</span> consumeJson(fetch(url, {</td></tr>
+  <tr><td>12</td><td>  method: metodoHttp,</td></tr>
+  <tr><td>13</td><td>  headers: {</td></tr>
+  <tr><td>14</td><td>   <span class="codeString">"Content-Type"</span>: <span class="codeString">"application/json"</span>,</td></tr>
+  <tr><td>15</td><td>   <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span></td></tr>
+  <tr><td>16</td><td>  },</td></tr>
+  <tr><td>17</td><td>  body: JSON.stringify(body)</td></tr>
+  <tr><td>18</td><td> }))</td></tr>
+  <tr><td>19</td><td>}</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td>exportaAHtml(enviaJson)</td></tr>
  </tbody>
 </table>
  <footer>
@@ -879,7 +879,7 @@
  <a class="anterior" href="/m09srvjson/m-lib/m-js/m-consumeJson-js.html" title="1. lib / js / consumeJson.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m09srvjson/m-lib/m-js/m-muestraError-js.html" title="3. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m09srvjson/m-lib/m-js/m-exportaAHtml-js.html" title="3. lib / js / exportaAHtml.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -926,6 +926,11 @@
    </li>
    <li>
     <p>
+     <a href="/m09srvjson/m-lib/m-js/m-exportaAHtml-js.html">lib / js / exportaAHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m09srvjson/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
     </p>
    </li>
@@ -957,7 +962,7 @@
  /**@type {string} */
  let urlAnterior = "/m09srvjson/m-lib/m-js/m-consumeJson-js.html"
  /**@type {string} */
- let urlSiguiente = "/m09srvjson/m-lib/m-js/m-muestraError-js.html"
+ let urlSiguiente = "/m09srvjson/m-lib/m-js/m-exportaAHtml-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

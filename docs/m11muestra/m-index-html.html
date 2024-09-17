@@ -1053,20 +1053,20 @@
   <tr><td>223</td><td></td></tr>
   <tr><td>224</td><td>&lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</td></tr>
   <tr><td>225</td><td></td></tr>
-  <tr><td>226</td><td> <span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/consumeJson.js"</span></td></tr>
-  <tr><td>227</td><td> <span class="codeReserved">import</span> { muestraObjeto } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraObjeto.js"</span></td></tr>
-  <tr><td>228</td><td> <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraError.js"</span></td></tr>
-  <tr><td>229</td><td></td></tr>
-  <tr><td>230</td><td> <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</td></tr>
-  <tr><td>231</td><td>  <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>232</td><td>   <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(<span class="codeString">"srv/datos.php"</span>)</td></tr>
-  <tr><td>233</td><td>   muestraObjeto(document, respuesta.body)</td></tr>
-  <tr><td>234</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>235</td><td>   muestraError(error)</td></tr>
-  <tr><td>236</td><td>  }</td></tr>
-  <tr><td>237</td><td> }</td></tr>
-  <tr><td>238</td><td> <span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>239</td><td> window[<span class="codeString">"descargaDatos"</span>] = descargaDatos</td></tr>
+  <tr><td>226</td><td> <span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/exportaAHtml.js"</span></td></tr>
+  <tr><td>227</td><td> <span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/consumeJson.js"</span></td></tr>
+  <tr><td>228</td><td> <span class="codeReserved">import</span> { muestraObjeto } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraObjeto.js"</span></td></tr>
+  <tr><td>229</td><td> <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraError.js"</span></td></tr>
+  <tr><td>230</td><td></td></tr>
+  <tr><td>231</td><td> <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</td></tr>
+  <tr><td>232</td><td>  <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>233</td><td>   <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(<span class="codeString">"srv/datos.php"</span>)</td></tr>
+  <tr><td>234</td><td>   muestraObjeto(document, respuesta.body)</td></tr>
+  <tr><td>235</td><td>  } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>236</td><td>   muestraError(error)</td></tr>
+  <tr><td>237</td><td>  }</td></tr>
+  <tr><td>238</td><td> }</td></tr>
+  <tr><td>239</td><td> exportaAHtml(descargaDatos)</td></tr>
   <tr><td>240</td><td></td></tr>
   <tr><td>241</td><td>&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>242</td><td></td></tr>

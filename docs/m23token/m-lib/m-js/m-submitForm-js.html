@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>4. lib / js / submitForm.js - GilPG AWOAS</title>
+ <title>5. lib / js / submitForm.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/submitForm.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >4. lib / js / submitForm.js</h1><table class="codeShow">
+   <h1 >5. lib / js / submitForm.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -829,34 +829,34 @@
  </caption>
  <tbody>
   <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./consumeJson.js"</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>4</td><td><span class="codeComment"> * Envía los datos de la forma a la url usando la codificación</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * multipart/form-data.</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {Event} event</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> submitForm(url, event, metodoHttp = <span class="codeString">"POST"</span>) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> event.preventDefault()</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> <span class="codeReserved">const</span> form = event.target</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">if</span> (!(form <span class="codeReserved">instanceof</span> HTMLFormElement))</td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"event.target no es un elemento de tipo form."</span>)</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> <span class="codeReserved">return</span> consumeJson(fetch(url, {</td></tr>
-  <tr><td>21</td><td>  method: metodoHttp,</td></tr>
-  <tr><td>22</td><td>  headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> },</td></tr>
-  <tr><td>23</td><td>  body: <span class="codeReserved">new</span> FormData(form)</td></tr>
-  <tr><td>24</td><td> }))</td></tr>
-  <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td>}</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>29</td><td>window[<span class="codeString">"submitForm"</span>] = submitForm</td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./exportaAHtml.js"</span></td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * Envía los datos de la forma a la url usando la codificación</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * multipart/form-data.</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {Event} event</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> submitForm(url, event, metodoHttp = <span class="codeString">"POST"</span>) {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> event.preventDefault()</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> <span class="codeReserved">const</span> form = event.target</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> <span class="codeReserved">if</span> (!(form <span class="codeReserved">instanceof</span> HTMLFormElement))</td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"event.target no es un elemento de tipo form."</span>)</td></tr>
+  <tr><td>20</td><td></td></tr>
+  <tr><td>21</td><td> <span class="codeReserved">return</span> consumeJson(fetch(url, {</td></tr>
+  <tr><td>22</td><td>  method: metodoHttp,</td></tr>
+  <tr><td>23</td><td>  headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> },</td></tr>
+  <tr><td>24</td><td>  body: <span class="codeReserved">new</span> FormData(form)</td></tr>
+  <tr><td>25</td><td> }))</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td>}</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td>exportaAHtml(submitForm)</td></tr>
  </tbody>
 </table>
  <footer>
@@ -884,7 +884,7 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m23token/m-lib/m-js/m-ProblemDetails-js.html" title="3. lib / js / ProblemDetails.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m23token/m-lib/m-js/m-ProblemDetails-js.html" title="4. lib / js / ProblemDetails.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
  <a class="siguiente" href="/m23token/m-lib/m-php/index.html" title="B. Carpeta « lib / php »"><span class="material-symbols-outlined">
@@ -925,6 +925,11 @@
    <li>
     <p>
      <a href="/m23token/m-lib/m-js/m-consumeJson-js.html">lib / js / consumeJson.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m23token/m-lib/m-js/m-exportaAHtml-js.html">lib / js / exportaAHtml.js</a>
     </p>
    </li>
    <li>

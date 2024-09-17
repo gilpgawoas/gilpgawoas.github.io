@@ -828,102 +828,102 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetails.js"</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>4</td><td><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * hay error, lanza una excepción. Si no hay error,</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * interpreta la respuesta del servidor como JSON y</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * la convierte en una literal de objeto.</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> * </span></td></tr>
-  <tr><td>9</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string | Promise&lt;Response&gt; } servicio</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> consumeJson(servicio) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> servicio === <span class="codeString">"string"</span>) {</td></tr>
-  <tr><td>14</td><td>  servicio = fetch(servicio, {</td></tr>
-  <tr><td>15</td><td>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</td></tr>
-  <tr><td>16</td><td>  })</td></tr>
-  <tr><td>17</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (!(servicio <span class="codeReserved">instanceof</span> Promise)) {</td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"Servicio de tipo incorrecto."</span>)</td></tr>
-  <tr><td>19</td><td> }</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> servicio</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td> <span class="codeReserved">const</span> headers = respuesta.headers</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td> <span class="codeReserved">if</span> (respuesta.ok) {</td></tr>
-  <tr><td>26</td><td>  <span class="codeComment">// Aparentemente el servidor tuvo éxito.</span></td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td>  <span class="codeReserved">if</span> (respuesta.status === 204) {</td></tr>
-  <tr><td>29</td><td>   <span class="codeComment">// No contiene texto de respuesta.</span></td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   <span class="codeReserved">return</span> { headers, body: {} }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td>   <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td>    <span class="codeReserved">return</span> { headers, body: JSON.parse(texto) }</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td>    <span class="codeComment">// El contenido no es JSON. Probablemente sea texto de un error.</span></td></tr>
-  <tr><td>44</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, texto,</td></tr>
-  <tr><td>45</td><td>     <span class="codeString">"/error/errorinterno.html"</span>)</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td>   }</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td>  }</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>52</td><td>  <span class="codeComment">// Hay un error.</span></td></tr>
-  <tr><td>53</td><td></td></tr>
-  <tr><td>54</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td>  <span class="codeReserved">if</span> (texto === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>57</td><td></td></tr>
-  <tr><td>58</td><td>   <span class="codeComment">// No hay texto. Se usa el texto predeterminado.</span></td></tr>
-  <tr><td>59</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText)</td></tr>
-  <tr><td>60</td><td></td></tr>
-  <tr><td>61</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>62</td><td>   <span class="codeComment">// Debiera se un ProblemDetails en JSON.</span></td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> { title, type, detail } = JSON.parse(texto)</td></tr>
-  <tr><td>67</td><td></td></tr>
-  <tr><td>68</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers,</td></tr>
-  <tr><td>69</td><td>     <span class="codeReserved">typeof</span> title === <span class="codeString">"string"</span> ? title : respuesta.statusText,</td></tr>
-  <tr><td>70</td><td>     <span class="codeReserved">typeof</span> type === <span class="codeString">"string"</span> ? type : undefined,</td></tr>
-  <tr><td>71</td><td>     <span class="codeReserved">typeof</span> detail === <span class="codeString">"string"</span> ? detail : undefined)</td></tr>
-  <tr><td>72</td><td></td></tr>
-  <tr><td>73</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>74</td><td></td></tr>
-  <tr><td>75</td><td>    <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
-  <tr><td>76</td><td>     <span class="codeComment">// El error si era un ProblemDetails</span></td></tr>
-  <tr><td>77</td><td></td></tr>
-  <tr><td>78</td><td>     <span class="codeReserved">throw</span> error</td></tr>
-  <tr><td>79</td><td></td></tr>
-  <tr><td>80</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>81</td><td></td></tr>
-  <tr><td>82</td><td>     <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText,</td></tr>
-  <tr><td>83</td><td>      undefined, texto)</td></tr>
-  <tr><td>84</td><td></td></tr>
-  <tr><td>85</td><td>    }</td></tr>
-  <tr><td>86</td><td></td></tr>
-  <tr><td>87</td><td>   }</td></tr>
-  <tr><td>88</td><td></td></tr>
-  <tr><td>89</td><td>  }</td></tr>
-  <tr><td>90</td><td></td></tr>
-  <tr><td>91</td><td> }</td></tr>
-  <tr><td>92</td><td></td></tr>
-  <tr><td>93</td><td>}</td></tr>
-  <tr><td>94</td><td></td></tr>
-  <tr><td>95</td><td><span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>96</td><td>window[<span class="codeString">"consumeJson"</span>] = consumeJson</td></tr>
+  <tr><td>1</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./exportaAHtml.js"</span></td></tr>
+  <tr><td>2</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetails.js"</span></td></tr>
+  <tr><td>3</td><td></td></tr>
+  <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>5</td><td><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></td></tr>
+  <tr><td>6</td><td><span class="codeComment"> * hay error, lanza una excepción. Si no hay error,</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment"> * interpreta la respuesta del servidor como JSON y</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment"> * la convierte en una literal de objeto.</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment"> * </span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string | Promise&lt;Response&gt; } servicio</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> consumeJson(servicio) {</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> servicio === <span class="codeString">"string"</span>) {</td></tr>
+  <tr><td>15</td><td>  servicio = fetch(servicio, {</td></tr>
+  <tr><td>16</td><td>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</td></tr>
+  <tr><td>17</td><td>  })</td></tr>
+  <tr><td>18</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (!(servicio <span class="codeReserved">instanceof</span> Promise)) {</td></tr>
+  <tr><td>19</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"Servicio de tipo incorrecto."</span>)</td></tr>
+  <tr><td>20</td><td> }</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> servicio</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">const</span> headers = respuesta.headers</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td> <span class="codeReserved">if</span> (respuesta.ok) {</td></tr>
+  <tr><td>27</td><td>  <span class="codeComment">// Aparentemente el servidor tuvo éxito.</span></td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">if</span> (respuesta.status === 204) {</td></tr>
+  <tr><td>30</td><td>   <span class="codeComment">// No contiene texto de respuesta.</span></td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">return</span> { headers, body: {} }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td>   <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>   <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td>    <span class="codeReserved">return</span> { headers, body: JSON.parse(texto) }</td></tr>
+  <tr><td>41</td><td></td></tr>
+  <tr><td>42</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td>    <span class="codeComment">// El contenido no es JSON. Probablemente sea texto de un error.</span></td></tr>
+  <tr><td>45</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, texto,</td></tr>
+  <tr><td>46</td><td>     <span class="codeString">"/error/errorinterno.html"</span>)</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td>   }</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td>  }</td></tr>
+  <tr><td>51</td><td></td></tr>
+  <tr><td>52</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>53</td><td>  <span class="codeComment">// Hay un error.</span></td></tr>
+  <tr><td>54</td><td></td></tr>
+  <tr><td>55</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
+  <tr><td>56</td><td></td></tr>
+  <tr><td>57</td><td>  <span class="codeReserved">if</span> (texto === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>58</td><td></td></tr>
+  <tr><td>59</td><td>   <span class="codeComment">// No hay texto. Se usa el texto predeterminado.</span></td></tr>
+  <tr><td>60</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText)</td></tr>
+  <tr><td>61</td><td></td></tr>
+  <tr><td>62</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>63</td><td>   <span class="codeComment">// Debiera se un ProblemDetails en JSON.</span></td></tr>
+  <tr><td>64</td><td></td></tr>
+  <tr><td>65</td><td>   <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>66</td><td></td></tr>
+  <tr><td>67</td><td>    <span class="codeReserved">const</span> { title, type, detail } = JSON.parse(texto)</td></tr>
+  <tr><td>68</td><td></td></tr>
+  <tr><td>69</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers,</td></tr>
+  <tr><td>70</td><td>     <span class="codeReserved">typeof</span> title === <span class="codeString">"string"</span> ? title : respuesta.statusText,</td></tr>
+  <tr><td>71</td><td>     <span class="codeReserved">typeof</span> type === <span class="codeString">"string"</span> ? type : undefined,</td></tr>
+  <tr><td>72</td><td>     <span class="codeReserved">typeof</span> detail === <span class="codeString">"string"</span> ? detail : undefined)</td></tr>
+  <tr><td>73</td><td></td></tr>
+  <tr><td>74</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>75</td><td></td></tr>
+  <tr><td>76</td><td>    <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
+  <tr><td>77</td><td>     <span class="codeComment">// El error si era un ProblemDetails</span></td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>     <span class="codeReserved">throw</span> error</td></tr>
+  <tr><td>80</td><td></td></tr>
+  <tr><td>81</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>82</td><td></td></tr>
+  <tr><td>83</td><td>     <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText,</td></tr>
+  <tr><td>84</td><td>      undefined, texto)</td></tr>
+  <tr><td>85</td><td></td></tr>
+  <tr><td>86</td><td>    }</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td>   }</td></tr>
+  <tr><td>89</td><td></td></tr>
+  <tr><td>90</td><td>  }</td></tr>
+  <tr><td>91</td><td></td></tr>
+  <tr><td>92</td><td> }</td></tr>
+  <tr><td>93</td><td></td></tr>
+  <tr><td>94</td><td>}</td></tr>
+  <tr><td>95</td><td></td></tr>
+  <tr><td>96</td><td>exportaAHtml(consumeJson)</td></tr>
  </tbody>
 </table>
  <footer>
@@ -954,7 +954,7 @@
  <a class="anterior" href="/m12valida/m-lib/m-js/index.html" title="A. Carpeta « lib / js »"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12valida/m-lib/m-js/m-muestraError-js.html" title="2. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12valida/m-lib/m-js/m-exportaAHtml-js.html" title="2. lib / js / exportaAHtml.js"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -996,6 +996,11 @@
    </li>
    <li>
     <p>
+     <a href="/m12valida/m-lib/m-js/m-exportaAHtml-js.html">lib / js / exportaAHtml.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m12valida/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
     </p>
    </li>
@@ -1032,7 +1037,7 @@
  /**@type {string} */
  let urlAnterior = "/m12valida/m-lib/m-js/index.html"
  /**@type {string} */
- let urlSiguiente = "/m12valida/m-lib/m-js/m-muestraError-js.html"
+ let urlSiguiente = "/m12valida/m-lib/m-js/m-exportaAHtml-js.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
