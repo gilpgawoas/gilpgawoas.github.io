@@ -31,34 +31,34 @@
   <tr><td>21</td><td></td></tr>
   <tr><td>22</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</td></tr>
   <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td>  <span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/consumeJson.js"</span></td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/htmlentities.js"</span></td></tr>
-  <tr><td>26</td><td>  <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraError.js"</span></td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</td></tr>
-  <tr><td>29</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>30</td><td>    <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(<span class="codeString">"srv/lista.php"</span>)</td></tr>
-  <tr><td>31</td><td>    <span class="codeComment">// Genera el código HTML de la lista.</span></td></tr>
-  <tr><td>32</td><td>    <span class="codeReserved">let</span> render = <span class="codeString">""</span></td></tr>
-  <tr><td>33</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> modelo of respuesta.body) {</td></tr>
-  <tr><td>34</td><td>     <span class="codeComment">/* Codifica nombre y <span class="codeReserved">color</span> para que cambie los caracteres especiales y</span></td></tr>
-  <tr><td>35</td><td><span class="codeComment">      * el texto no se pueda interpretar como HTML. Esta técnica evita la</span></td></tr>
-  <tr><td>36</td><td><span class="codeComment">      * inyección de código. */</span></td></tr>
-  <tr><td>37</td><td>     <span class="codeReserved">const</span> nombre =</td></tr>
-  <tr><td>38</td><td>      <span class="codeReserved">typeof</span> modelo.nombre === <span class="codeString">"string"</span> ? htmlentities(modelo.nombre) : <span class="codeString">""</span></td></tr>
-  <tr><td>39</td><td>     <span class="codeReserved">const</span> <span class="codeReserved">color</span> =</td></tr>
-  <tr><td>40</td><td>      <span class="codeReserved">typeof</span> modelo.<span class="codeReserved">color</span> === <span class="codeString">"string"</span> ? htmlentities(modelo.<span class="codeReserved">color</span>) : <span class="codeString">""</span></td></tr>
-  <tr><td>41</td><td>     render += <span class="codeComment">/* html */</span></td></tr>
-  <tr><td>42</td><td>      <span class="codeString">`&lt;<span class="codeReserved">dt</span>&gt;${nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
-  <tr><td>43</td><td><span class="codeString">       &lt;<span class="codeReserved">dd</span>&gt;${<span class="codeReserved">color</span>}&lt;/<span class="codeReserved">dd</span>&gt;`</span></td></tr>
-  <tr><td>44</td><td>    }</td></tr>
-  <tr><td>45</td><td>    lista.innerHTML = render</td></tr>
-  <tr><td>46</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>47</td><td>    muestraError(error)</td></tr>
-  <tr><td>48</td><td>   }</td></tr>
-  <tr><td>49</td><td>  }</td></tr>
-  <tr><td>50</td><td>  <span class="codeComment">// Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>51</td><td>  window[<span class="codeString">"descargaDatos"</span>] = descargaDatos</td></tr>
+  <tr><td>24</td><td>  <span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/exportaAHtml.js"</span></td></tr>
+  <tr><td>25</td><td>  <span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/consumeJson.js"</span></td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/htmlentities.js"</span></td></tr>
+  <tr><td>27</td><td>  <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraError.js"</span></td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>31</td><td>    <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(<span class="codeString">"srv/lista.php"</span>)</td></tr>
+  <tr><td>32</td><td>    <span class="codeComment">// Genera el código HTML de la lista.</span></td></tr>
+  <tr><td>33</td><td>    <span class="codeReserved">let</span> render = <span class="codeString">""</span></td></tr>
+  <tr><td>34</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> modelo of respuesta.body) {</td></tr>
+  <tr><td>35</td><td>     <span class="codeComment">/* Codifica nombre y <span class="codeReserved">color</span> para que cambie los caracteres especiales y</span></td></tr>
+  <tr><td>36</td><td><span class="codeComment">      * el texto no se pueda interpretar como HTML. Esta técnica evita la</span></td></tr>
+  <tr><td>37</td><td><span class="codeComment">      * inyección de código. */</span></td></tr>
+  <tr><td>38</td><td>     <span class="codeReserved">const</span> nombre =</td></tr>
+  <tr><td>39</td><td>      <span class="codeReserved">typeof</span> modelo.nombre === <span class="codeString">"string"</span> ? htmlentities(modelo.nombre) : <span class="codeString">""</span></td></tr>
+  <tr><td>40</td><td>     <span class="codeReserved">const</span> <span class="codeReserved">color</span> =</td></tr>
+  <tr><td>41</td><td>      <span class="codeReserved">typeof</span> modelo.<span class="codeReserved">color</span> === <span class="codeString">"string"</span> ? htmlentities(modelo.<span class="codeReserved">color</span>) : <span class="codeString">""</span></td></tr>
+  <tr><td>42</td><td>     render += <span class="codeComment">/* html */</span></td></tr>
+  <tr><td>43</td><td>      <span class="codeString">`&lt;<span class="codeReserved">dt</span>&gt;${nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>44</td><td><span class="codeString">       &lt;<span class="codeReserved">dd</span>&gt;${<span class="codeReserved">color</span>}&lt;/<span class="codeReserved">dd</span>&gt;`</span></td></tr>
+  <tr><td>45</td><td>    }</td></tr>
+  <tr><td>46</td><td>    lista.innerHTML = render</td></tr>
+  <tr><td>47</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>48</td><td>    muestraError(error)</td></tr>
+  <tr><td>49</td><td>   }</td></tr>
+  <tr><td>50</td><td>  }</td></tr>
+  <tr><td>51</td><td>  exportaAHtml(descargaDatos)</td></tr>
   <tr><td>52</td><td></td></tr>
   <tr><td>53</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>54</td><td></td></tr>

@@ -16,46 +16,49 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/insert.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaCantidad.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/productoBusca.php"</span>;</td></tr>
-  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaProducto.php"</span>;</td></tr>
-  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
-  <tr><td>13</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaVenta.php"</span>;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $prodId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>18</td><td> $cantidad = recuperaDecimal(<span class="codeString">"cantidad"</span>);</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_VENTA.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_PRODUCTO.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_DET_VENTA.php"</span>;</td></tr>
+  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaCantidad.php"</span>;</td></tr>
+  <tr><td>13</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/productoBusca.php"</span>;</td></tr>
+  <tr><td>14</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaProducto.php"</span>;</td></tr>
+  <tr><td>15</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
+  <tr><td>16</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaVenta.php"</span>;</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $cantidad = validaCantidad($cantidad);</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td> $producto = productoBusca($pdo, $prodId);</td></tr>
-  <tr><td>25</td><td> validaProducto($producto, $prodId);</td></tr>
+  <tr><td>20</td><td> $prodId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>21</td><td> $cantidad = recuperaDecimal(<span class="codeString">"cantidad"</span>);</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> $cantidad = validaCantidad($cantidad);</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> $pdo = Bd::pdo();</td></tr>
   <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td> $venta = ventaEnCapturaBusca($pdo);</td></tr>
-  <tr><td>28</td><td> validaVenta($venta);</td></tr>
+  <tr><td>27</td><td> $producto = productoBusca($pdo, $prodId);</td></tr>
+  <tr><td>28</td><td> validaProducto($producto, $prodId);</td></tr>
   <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> insert(</td></tr>
-  <tr><td>31</td><td>  pdo: Bd::pdo(),</td></tr>
-  <tr><td>32</td><td>  into: DET_VENTA,</td></tr>
-  <tr><td>33</td><td>  values: [</td></tr>
-  <tr><td>34</td><td>   VENT_ID =&gt; $venta[VENT_ID],</td></tr>
-  <tr><td>35</td><td>   PROD_ID =&gt; $prodId,</td></tr>
-  <tr><td>36</td><td>   DTV_CANTIDAD =&gt; $cantidad,</td></tr>
-  <tr><td>37</td><td>   DTV_PRECIO =&gt; $producto[PROD_PRECIO],</td></tr>
-  <tr><td>38</td><td>  ]</td></tr>
-  <tr><td>39</td><td> );</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td> $encodeProdId = urlencode($prodId);</td></tr>
-  <tr><td>42</td><td> devuelveCreated(<span class="codeString">"/srv/det-venta.php?id=$encodeProdId"</span>, [</td></tr>
-  <tr><td>43</td><td>  <span class="codeString">"prodId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $prodId],</td></tr>
-  <tr><td>44</td><td>  <span class="codeString">"prodNombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $producto[PROD_NOMBRE]],</td></tr>
-  <tr><td>45</td><td>  <span class="codeString">"precio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; <span class="codeString">"$"</span> . number_format($producto[PROD_PRECIO], 2)],</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">"cantidad"</span> =&gt; [<span class="codeString">"valueAsNumber"</span> =&gt; $cantidad],</td></tr>
-  <tr><td>47</td><td> ]);</td></tr>
-  <tr><td>48</td><td>});</td></tr>
-  <tr><td>49</td><td></td></tr>
+  <tr><td>30</td><td> $venta = ventaEnCapturaBusca($pdo);</td></tr>
+  <tr><td>31</td><td> validaVenta($venta);</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> insert(</td></tr>
+  <tr><td>34</td><td>  pdo: Bd::pdo(),</td></tr>
+  <tr><td>35</td><td>  into: DET_VENTA,</td></tr>
+  <tr><td>36</td><td>  values: [</td></tr>
+  <tr><td>37</td><td>   VENT_ID =&gt; $venta[VENT_ID],</td></tr>
+  <tr><td>38</td><td>   PROD_ID =&gt; $prodId,</td></tr>
+  <tr><td>39</td><td>   DTV_CANTIDAD =&gt; $cantidad,</td></tr>
+  <tr><td>40</td><td>   DTV_PRECIO =&gt; $producto[PROD_PRECIO],</td></tr>
+  <tr><td>41</td><td>  ]</td></tr>
+  <tr><td>42</td><td> );</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td> $encodeProdId = urlencode($prodId);</td></tr>
+  <tr><td>45</td><td> devuelveCreated(<span class="codeString">"/srv/det-venta.php?id=$encodeProdId"</span>, [</td></tr>
+  <tr><td>46</td><td>  <span class="codeString">"prodId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $prodId],</td></tr>
+  <tr><td>47</td><td>  <span class="codeString">"prodNombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $producto[PROD_NOMBRE]],</td></tr>
+  <tr><td>48</td><td>  <span class="codeString">"precio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; <span class="codeString">"$"</span> . number_format($producto[PROD_PRECIO], 2)],</td></tr>
+  <tr><td>49</td><td>  <span class="codeString">"cantidad"</span> =&gt; [<span class="codeString">"valueAsNumber"</span> =&gt; $cantidad],</td></tr>
+  <tr><td>50</td><td> ]);</td></tr>
+  <tr><td>51</td><td>});</td></tr>
+  <tr><td>52</td><td></td></tr>
  </tbody>
 </table>

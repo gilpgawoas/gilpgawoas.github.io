@@ -1,0 +1,27 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * Permite que los eventos de html usen la función.</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {<span class="codeReserved">function</span>} functionInstance</span></td></tr>
+  <tr><td>4</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> exportaAHtml(functionInstance) {</td></tr>
+  <tr><td>6</td><td> window[nombreDeFuncionParaHtml(functionInstance)] = functionInstance</td></tr>
+  <tr><td>7</td><td>}</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {<span class="codeReserved">function</span>} valor</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> nombreDeFuncionParaHtml(valor) {</td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">const</span> names = valor.name.split(<span class="codeString">/\s+/</span>g)</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">return</span> names[names.length - 1]</td></tr>
+  <tr><td>15</td><td>}</td></tr>
+ </tbody>
+</table>
