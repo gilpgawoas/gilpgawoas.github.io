@@ -834,30 +834,31 @@
   <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/select.php"</span>;</td></tr>
   <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> $lista = select(pdo: Bd::pdo(), <span class="codeReserved">from</span>: ROL, orderBy: ROL_ID);</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> $render = <span class="codeString">""</span>;</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>14</td><td>  $id = htmlentities($modelo[ROL_ID]);</td></tr>
-  <tr><td>15</td><td>  $descripcion = htmlentities($modelo[ROL_DESCRIPCION]);</td></tr>
-  <tr><td>16</td><td>  $render .=</td></tr>
-  <tr><td>17</td><td>   <span class="codeString">"&lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">     &lt;<span class="codeReserved">label</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>&#039;&gt;</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">      &lt;<span class="codeReserved">input</span> type=&#039;checkbox&#039; name=&#039;rolIds[]&#039; value=&#039;$id&#039;&gt;</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">      &lt;<span class="codeReserved">span</span>&gt;</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">       &lt;<span class="codeReserved">strong</span>&gt;$id&lt;/<span class="codeReserved">strong</span>&gt;</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">       &lt;<span class="codeReserved">br</span>&gt;$descripcion</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">      &lt;/<span class="codeReserved">span</span>&gt;</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">     &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">    &lt;/<span class="codeReserved">p</span>&gt;"</span>;</td></tr>
-  <tr><td>26</td><td> }</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td> devuelveJson([<span class="codeString">"roles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
-  <tr><td>29</td><td>});</td></tr>
-  <tr><td>30</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_ROL.php"</span>;</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td> $lista = select(pdo: Bd::pdo(), <span class="codeReserved">from</span>: ROL, orderBy: ROL_ID);</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>14</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>15</td><td>  $id = htmlentities($modelo[ROL_ID]);</td></tr>
+  <tr><td>16</td><td>  $descripcion = htmlentities($modelo[ROL_DESCRIPCION]);</td></tr>
+  <tr><td>17</td><td>  $render .=</td></tr>
+  <tr><td>18</td><td>   <span class="codeString">"&lt;<span class="codeReserved">p</span>&gt;</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">     &lt;<span class="codeReserved">label</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>&#039;&gt;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">      &lt;<span class="codeReserved">input</span> type=&#039;checkbox&#039; name=&#039;rolIds[]&#039; value=&#039;$id&#039;&gt;</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">      &lt;<span class="codeReserved">span</span>&gt;</span></td></tr>
+  <tr><td>22</td><td><span class="codeString">       &lt;<span class="codeReserved">strong</span>&gt;$id&lt;/<span class="codeReserved">strong</span>&gt;</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">       &lt;<span class="codeReserved">br</span>&gt;$descripcion</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">      &lt;/<span class="codeReserved">span</span>&gt;</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">     &lt;/<span class="codeReserved">label</span>&gt;</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    &lt;/<span class="codeReserved">p</span>&gt;"</span>;</td></tr>
+  <tr><td>27</td><td> }</td></tr>
+  <tr><td>28</td><td></td></tr>
+  <tr><td>29</td><td> devuelveJson([<span class="codeString">"roles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>30</td><td>});</td></tr>
+  <tr><td>31</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -888,7 +889,7 @@
  <a class="anterior" href="/m18amuchos/m-srv/m-Bd-php.html" title="A. srv / Bd.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m18amuchos/m-srv/m-usuario-agrega-php.html" title="C. srv / usuario-agrega.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m18amuchos/m-srv/m-TABLA_ROL-php.html" title="C. srv / TABLA_ROL.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -928,6 +929,21 @@
    <li>
     <p>
      <a href="/m18amuchos/m-srv/m-rol-checkboxes-php.html" class="actual">srv / rol-checkboxes.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_ROL-php.html">srv / TABLA_ROL.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_USUARIO-php.html">srv / TABLA_USUARIO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_USU_ROL-php.html">srv / TABLA_USU_ROL.php</a>
     </p>
    </li>
    <li>
@@ -978,7 +994,7 @@
  /**@type {string} */
  let urlAnterior = "/m18amuchos/m-srv/m-Bd-php.html"
  /**@type {string} */
- let urlSiguiente = "/m18amuchos/m-srv/m-usuario-agrega-php.html"
+ let urlSiguiente = "/m18amuchos/m-srv/m-TABLA_ROL-php.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

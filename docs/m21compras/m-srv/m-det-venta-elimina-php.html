@@ -835,25 +835,28 @@
   <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/delete.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> $prodId = recuperaIdEntero(<span class="codeString">"prodId"</span>);</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $venta = ventaEnCapturaBusca($pdo);</td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">if</span> ($venta !== <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>18</td><td>  delete(</td></tr>
-  <tr><td>19</td><td>   pdo: $pdo,</td></tr>
-  <tr><td>20</td><td>   <span class="codeReserved">from</span>: DET_VENTA,</td></tr>
-  <tr><td>21</td><td>   where: [VENT_ID =&gt; $venta[VENT_ID], PROD_ID =&gt; $prodId]</td></tr>
-  <tr><td>22</td><td>  );</td></tr>
-  <tr><td>23</td><td> }</td></tr>
-  <tr><td>24</td><td> devuelveNoContent();</td></tr>
-  <tr><td>25</td><td>});</td></tr>
-  <tr><td>26</td><td></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_VENTA.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_PRODUCTO.php"</span>;</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_DET_VENTA.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $prodId = recuperaIdEntero(<span class="codeString">"prodId"</span>);</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> $venta = ventaEnCapturaBusca($pdo);</td></tr>
+  <tr><td>20</td><td> <span class="codeReserved">if</span> ($venta !== <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>21</td><td>  delete(</td></tr>
+  <tr><td>22</td><td>   pdo: $pdo,</td></tr>
+  <tr><td>23</td><td>   <span class="codeReserved">from</span>: DET_VENTA,</td></tr>
+  <tr><td>24</td><td>   where: [VENT_ID =&gt; $venta[VENT_ID], PROD_ID =&gt; $prodId]</td></tr>
+  <tr><td>25</td><td>  );</td></tr>
+  <tr><td>26</td><td> }</td></tr>
+  <tr><td>27</td><td> devuelveNoContent();</td></tr>
+  <tr><td>28</td><td>});</td></tr>
+  <tr><td>29</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -959,6 +962,21 @@
    <li>
     <p>
      <a href="/m21compras/m-srv/m-productos-php.html">srv / productos.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-TABLA_DET_VENTA-php.html">srv / TABLA_DET_VENTA.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-TABLA_PRODUCTO-php.html">srv / TABLA_PRODUCTO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m21compras/m-srv/m-TABLA_VENTA-php.html">srv / TABLA_VENTA.php</a>
     </p>
    </li>
    <li>

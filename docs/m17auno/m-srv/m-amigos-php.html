@@ -834,36 +834,38 @@
   <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
   <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_AMIGO.php"</span>;</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_PASATIEMPO.php"</span>;</td></tr>
   <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> $lista = fetchAll(Bd::pdo()-&gt;query(</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
-  <tr><td>12</td><td><span class="codeString">    A.AMI_ID,</span></td></tr>
-  <tr><td>13</td><td><span class="codeString">    A.AMI_NOMBRE,</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">    P.PAS_NOMBRE</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> A.AMI_NOMBRE"</span></td></tr>
-  <tr><td>19</td><td> ));</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> $render = <span class="codeString">""</span>;</td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
-  <tr><td>23</td><td>  $encodeAmiId = urlencode($modelo[AMI_ID]);</td></tr>
-  <tr><td>24</td><td>  $amiId = htmlentities($encodeAmiId);</td></tr>
-  <tr><td>25</td><td>  $amiNombre = htmlentities($modelo[AMI_NOMBRE]);</td></tr>
-  <tr><td>26</td><td>  $pasNombre = $modelo[PAS_NOMBRE] === <span class="codeReserved">null</span></td></tr>
-  <tr><td>27</td><td>   ? <span class="codeString">"&lt;<span class="codeReserved">em</span>&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">em</span>&gt;"</span></td></tr>
-  <tr><td>28</td><td>   : htmlentities($modelo[PAS_NOMBRE]);</td></tr>
-  <tr><td>29</td><td>  $render .=</td></tr>
-  <tr><td>30</td><td>   <span class="codeString">"&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$amiNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$pasNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;"</span>;</td></tr>
-  <tr><td>32</td><td> }</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
-  <tr><td>35</td><td>});</td></tr>
-  <tr><td>36</td><td></td></tr>
+  <tr><td>10</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td> $lista = fetchAll(Bd::pdo()-&gt;query(</td></tr>
+  <tr><td>13</td><td>  <span class="codeString">"<span class="codeReserved">SELECT</span></span></td></tr>
+  <tr><td>14</td><td><span class="codeString">    A.AMI_ID,</span></td></tr>
+  <tr><td>15</td><td><span class="codeString">    A.AMI_NOMBRE,</span></td></tr>
+  <tr><td>16</td><td><span class="codeString">    P.PAS_NOMBRE</span></td></tr>
+  <tr><td>17</td><td><span class="codeString">   <span class="codeReserved">FROM</span> AMIGO A</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">    <span class="codeReserved">LEFT</span> <span class="codeReserved">JOIN</span> PASATIEMPO P</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">    <span class="codeReserved">ON</span> A.PAS_ID = P.PAS_ID</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> A.AMI_NOMBRE"</span></td></tr>
+  <tr><td>21</td><td> ));</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> $render = <span class="codeString">""</span>;</td></tr>
+  <tr><td>24</td><td> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</td></tr>
+  <tr><td>25</td><td>  $encodeAmiId = urlencode($modelo[AMI_ID]);</td></tr>
+  <tr><td>26</td><td>  $amiId = htmlentities($encodeAmiId);</td></tr>
+  <tr><td>27</td><td>  $amiNombre = htmlentities($modelo[AMI_NOMBRE]);</td></tr>
+  <tr><td>28</td><td>  $pasNombre = $modelo[PAS_NOMBRE] === <span class="codeReserved">null</span></td></tr>
+  <tr><td>29</td><td>   ? <span class="codeString">"&lt;<span class="codeReserved">em</span>&gt;-- Sin pasatiempo --&lt;/<span class="codeReserved">em</span>&gt;"</span></td></tr>
+  <tr><td>30</td><td>   : htmlentities($modelo[PAS_NOMBRE]);</td></tr>
+  <tr><td>31</td><td>  $render .=</td></tr>
+  <tr><td>32</td><td>   <span class="codeString">"&lt;<span class="codeReserved">dt</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$amiNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dt</span>&gt;</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">a</span> href=&#039;modifica.html?id=$amiId&#039;&gt;$pasNombre&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;"</span>;</td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td> devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</td></tr>
+  <tr><td>37</td><td>});</td></tr>
+  <tr><td>38</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -959,6 +961,16 @@
    <li>
     <p>
      <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-TABLA_AMIGO-php.html">srv / TABLA_AMIGO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-TABLA_PASATIEMPO-php.html">srv / TABLA_PASATIEMPO.php</a>
     </p>
    </li>
    <li>

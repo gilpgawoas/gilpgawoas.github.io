@@ -836,35 +836,36 @@
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/ProblemDetails.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/selectFirst.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td> <span class="codeComment">// Evita que la imagen se cargue en el caché del navegador.</span></td></tr>
-  <tr><td>13</td><td> header(<span class="codeString">"Cache-Control: no-store, no-cache, must-revalidate, max-age=0"</span>);</td></tr>
-  <tr><td>14</td><td> header(<span class="codeString">"Cache-Control: post-check=0, pre-check=0"</span>, <span class="codeReserved">false</span>);</td></tr>
-  <tr><td>15</td><td> header(<span class="codeString">"Pragma: no-cache"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $archId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $archivo =</td></tr>
-  <tr><td>20</td><td>  selectFirst(pdo: Bd::pdo(), <span class="codeReserved">from</span>: ARCHIVO, where: [ARCH_ID =&gt; $archId]);</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">if</span> ($archivo === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>23</td><td>  $idHtml = htmlentities($archId);</td></tr>
-  <tr><td>24</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>25</td><td>   status: NOT_FOUND,</td></tr>
-  <tr><td>26</td><td>   title: <span class="codeString">"Archivo no encontrado."</span>,</td></tr>
-  <tr><td>27</td><td>   type: <span class="codeString">"/error/archivonoencontrado.html"</span>,</td></tr>
-  <tr><td>28</td><td>   detail: <span class="codeString">"No se encontró ningún archivo con el id $idHtml."</span>,</td></tr>
-  <tr><td>29</td><td>  );</td></tr>
-  <tr><td>30</td><td> }</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td> $bytes = $archivo[ARCH_BYTES];</td></tr>
-  <tr><td>33</td><td> $contentType = (<span class="codeReserved">new</span> finfo(FILEINFO_MIME_TYPE))-&gt;buffer($bytes);</td></tr>
-  <tr><td>34</td><td> header(<span class="codeString">"Content-Type: $contentType"</span>);</td></tr>
-  <tr><td>35</td><td> echo $bytes;</td></tr>
-  <tr><td>36</td><td>});</td></tr>
-  <tr><td>37</td><td></td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_ARCHIVO.php"</span>;</td></tr>
+  <tr><td>10</td><td></td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>12</td><td></td></tr>
+  <tr><td>13</td><td> <span class="codeComment">// Evita que la imagen se cargue en el caché del navegador.</span></td></tr>
+  <tr><td>14</td><td> header(<span class="codeString">"Cache-Control: no-store, no-cache, must-revalidate, max-age=0"</span>);</td></tr>
+  <tr><td>15</td><td> header(<span class="codeString">"Cache-Control: post-check=0, pre-check=0"</span>, <span class="codeReserved">false</span>);</td></tr>
+  <tr><td>16</td><td> header(<span class="codeString">"Pragma: no-cache"</span>);</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> $archId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $archivo =</td></tr>
+  <tr><td>21</td><td>  selectFirst(pdo: Bd::pdo(), <span class="codeReserved">from</span>: ARCHIVO, where: [ARCH_ID =&gt; $archId]);</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> <span class="codeReserved">if</span> ($archivo === <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>24</td><td>  $idHtml = htmlentities($archId);</td></tr>
+  <tr><td>25</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>26</td><td>   status: NOT_FOUND,</td></tr>
+  <tr><td>27</td><td>   title: <span class="codeString">"Archivo no encontrado."</span>,</td></tr>
+  <tr><td>28</td><td>   type: <span class="codeString">"/error/archivonoencontrado.html"</span>,</td></tr>
+  <tr><td>29</td><td>   detail: <span class="codeString">"No se encontró ningún archivo con el id $idHtml."</span>,</td></tr>
+  <tr><td>30</td><td>  );</td></tr>
+  <tr><td>31</td><td> }</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> $bytes = $archivo[ARCH_BYTES];</td></tr>
+  <tr><td>34</td><td> $contentType = (<span class="codeReserved">new</span> finfo(FILEINFO_MIME_TYPE))-&gt;buffer($bytes);</td></tr>
+  <tr><td>35</td><td> header(<span class="codeString">"Content-Type: $contentType"</span>);</td></tr>
+  <tr><td>36</td><td> echo $bytes;</td></tr>
+  <tr><td>37</td><td>});</td></tr>
+  <tr><td>38</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -960,6 +961,16 @@
    <li>
     <p>
      <a href="/m20archivos/m-srv/m-productos-php.html">srv / productos.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-TABLA_ARCHIVO-php.html">srv / TABLA_ARCHIVO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-srv/m-TABLA_PRODUCTO-php.html">srv / TABLA_PRODUCTO.php</a>
     </p>
    </li>
    <li>

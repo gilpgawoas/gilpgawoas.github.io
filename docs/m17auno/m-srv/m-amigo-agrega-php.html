@@ -837,33 +837,35 @@
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/insert.php"</span>;</td></tr>
   <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveCreated.php"</span>;</td></tr>
   <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaPasId.php"</span>;</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>10</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_AMIGO.php"</span>;</td></tr>
+  <tr><td>11</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_PASATIEMPO.php"</span>;</td></tr>
+  <tr><td>12</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/validaPasId.php"</span>;</td></tr>
   <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
-  <tr><td>15</td><td> $pasId = recuperaEntero(<span class="codeString">"pasId"</span>);</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> $nombre = validaNombre($nombre);</td></tr>
-  <tr><td>18</td><td> $pasId = validaPasId($pasId);</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>21</td><td> insert(</td></tr>
-  <tr><td>22</td><td>  pdo: $pdo,</td></tr>
-  <tr><td>23</td><td>  into: AMIGO,</td></tr>
-  <tr><td>24</td><td>  values: [AMI_NOMBRE =&gt; $nombre, PAS_ID =&gt; $pasId]</td></tr>
-  <tr><td>25</td><td> );</td></tr>
-  <tr><td>26</td><td> $id = $pdo-&gt;lastInsertId();</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td> $encodeId = urlencode($id);</td></tr>
+  <tr><td>14</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td> $nombre = recuperaTexto(<span class="codeString">"nombre"</span>);</td></tr>
+  <tr><td>17</td><td> $pasId = recuperaEntero(<span class="codeString">"pasId"</span>);</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> $nombre = validaNombre($nombre);</td></tr>
+  <tr><td>20</td><td> $pasId = validaPasId($pasId);</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>23</td><td> insert(</td></tr>
+  <tr><td>24</td><td>  pdo: $pdo,</td></tr>
+  <tr><td>25</td><td>  into: AMIGO,</td></tr>
+  <tr><td>26</td><td>  values: [AMI_NOMBRE =&gt; $nombre, PAS_ID =&gt; $pasId]</td></tr>
+  <tr><td>27</td><td> );</td></tr>
+  <tr><td>28</td><td> $id = $pdo-&gt;lastInsertId();</td></tr>
   <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> devuelveCreated(<span class="codeString">"/srv/amigo.php?id=$encodeId"</span>, [</td></tr>
-  <tr><td>31</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
-  <tr><td>32</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
-  <tr><td>33</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
-  <tr><td>34</td><td> ]);</td></tr>
-  <tr><td>35</td><td>});</td></tr>
-  <tr><td>36</td><td></td></tr>
+  <tr><td>30</td><td> $encodeId = urlencode($id);</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td> devuelveCreated(<span class="codeString">"/srv/amigo.php?id=$encodeId"</span>, [</td></tr>
+  <tr><td>33</td><td>  <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</td></tr>
+  <tr><td>34</td><td>  <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</td></tr>
+  <tr><td>35</td><td>  <span class="codeString">"pasId"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $pasId === <span class="codeReserved">null</span> ? <span class="codeString">""</span> : $pasId]</td></tr>
+  <tr><td>36</td><td> ]);</td></tr>
+  <tr><td>37</td><td>});</td></tr>
+  <tr><td>38</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -959,6 +961,16 @@
    <li>
     <p>
      <a href="/m17auno/m-srv/m-pasatiempo-options-php.html">srv / pasatiempo-options.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-TABLA_AMIGO-php.html">srv / TABLA_AMIGO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m17auno/m-srv/m-TABLA_PASATIEMPO-php.html">srv / TABLA_PASATIEMPO.php</a>
     </p>
    </li>
    <li>

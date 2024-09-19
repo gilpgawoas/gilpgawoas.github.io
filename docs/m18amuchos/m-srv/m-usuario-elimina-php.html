@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>D. srv / usuario-elimina.php - GilPG AWOAS</title>
+ <title>G. srv / usuario-elimina.php - GilPG AWOAS</title>
  <meta name="description" content="Código de «srv/usuario-elimina.php».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >D. srv / usuario-elimina.php</h1><table class="codeShow">
+   <h1 >G. srv / usuario-elimina.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -835,22 +835,24 @@
   <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/delete.php"</span>;</td></tr>
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveNoContent.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_USUARIO.php"</span>;</td></tr>
+  <tr><td>9</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_USU_ROL.php"</span>;</td></tr>
   <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> $usuId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>11</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
   <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>14</td><td> $pdo-&gt;beginTransaction();</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> delete(pdo: $pdo, <span class="codeReserved">from</span>: USU_ROL, where: [USU_ID =&gt; $usuId]);</td></tr>
-  <tr><td>17</td><td> delete(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_ID =&gt; $usuId]);</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $pdo-&gt;commit();</td></tr>
+  <tr><td>13</td><td> $usuId = recuperaIdEntero(<span class="codeString">"id"</span>);</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>16</td><td> $pdo-&gt;beginTransaction();</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td> delete(pdo: $pdo, <span class="codeReserved">from</span>: USU_ROL, where: [USU_ID =&gt; $usuId]);</td></tr>
+  <tr><td>19</td><td> delete(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_ID =&gt; $usuId]);</td></tr>
   <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> devuelveNoContent();</td></tr>
-  <tr><td>22</td><td>});</td></tr>
-  <tr><td>23</td><td></td></tr>
+  <tr><td>21</td><td> $pdo-&gt;commit();</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> devuelveNoContent();</td></tr>
+  <tr><td>24</td><td>});</td></tr>
+  <tr><td>25</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -878,10 +880,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m18amuchos/m-srv/m-usuario-agrega-php.html" title="C. srv / usuario-agrega.php"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m18amuchos/m-srv/m-usuario-agrega-php.html" title="F. srv / usuario-agrega.php"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m18amuchos/m-srv/m-usuario-modifica-php.html" title="E. srv / usuario-modifica.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m18amuchos/m-srv/m-usuario-modifica-php.html" title="H. srv / usuario-modifica.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -921,6 +923,21 @@
    <li>
     <p>
      <a href="/m18amuchos/m-srv/m-rol-checkboxes-php.html">srv / rol-checkboxes.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_ROL-php.html">srv / TABLA_ROL.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_USUARIO-php.html">srv / TABLA_USUARIO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-srv/m-TABLA_USU_ROL-php.html">srv / TABLA_USU_ROL.php</a>
     </p>
    </li>
    <li>

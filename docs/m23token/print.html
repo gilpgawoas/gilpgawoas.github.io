@@ -1139,58 +1139,52 @@
   <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/submitForm.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraError.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
   <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
+  <tr><td>15</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>  <span class="codeReserved">let</span> token = <span class="codeString">""</span></td></tr>
+  <tr><td>17</td><td><span class="codeComment">&lt;!-- Al cargar, registra este formulario en la sesión y recibe un token. --&gt;</span></td></tr>
   <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
+  <tr><td>19</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"consumeJson(&#039;srv/registra.php&#039;)</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">  .then(token =&gt; forma.token.value = token.body)</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
   <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td><span class="codeComment">&lt;!-- Al cargar, registra este formulario en la sesión y recibe un token. --&gt;</span></td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"consumeJson(&#039;srv/registra.php&#039;)</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">  .then(token =&gt; forma.token.value = token.body)</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"forma"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/procesa.php&#039;, event)</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">    .then(resultado =&gt; {</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">     alert(resultado.body)</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">     location.href = &#039;index.html&#039;</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">    })</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Servicio que procesa un formulario con token&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancela&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td>  <span class="codeComment">&lt;!-- Al enviar la forma, se envía el token recibido. --&gt;</span></td></tr>
-  <tr><td>41</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">"hidden"</span> name=<span class="codeString">"token"</span>&gt;</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>44</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>45</td><td>    Saludo:</td></tr>
-  <tr><td>46</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"saludo"</span>&gt;</td></tr>
-  <tr><td>47</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>48</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>49</td><td></td></tr>
-  <tr><td>50</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>51</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>52</td><td>    Nombre:</td></tr>
-  <tr><td>53</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"nombre"</span>&gt;</td></tr>
-  <tr><td>54</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>55</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>58</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"reset"</span>&gt;Restaurar&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>59</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Procesa&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>60</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>61</td><td></td></tr>
-  <tr><td>62</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>23</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"forma"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/procesa.php&#039;, event)</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">    .then(resultado =&gt; {</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">     alert(resultado.body)</span></td></tr>
+  <tr><td>26</td><td><span class="codeString">     location.href = &#039;index.html&#039;</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    })</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Servicio que procesa un formulario con token&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancela&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td>  <span class="codeComment">&lt;!-- Al enviar la forma, se envía el token recibido. --&gt;</span></td></tr>
+  <tr><td>35</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">"hidden"</span> name=<span class="codeString">"token"</span>&gt;</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>38</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>39</td><td>    Saludo:</td></tr>
+  <tr><td>40</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"saludo"</span>&gt;</td></tr>
+  <tr><td>41</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>42</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>45</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>46</td><td>    Nombre:</td></tr>
+  <tr><td>47</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"nombre"</span>&gt;</td></tr>
+  <tr><td>48</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>49</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>52</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"reset"</span>&gt;Restaurar&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>53</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Procesa&lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>54</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>59</td><td></td></tr>
+  <tr><td>60</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -1563,7 +1557,7 @@
   <tr><td>10</td><td></td></tr>
   <tr><td>11</td><td> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</td></tr>
   <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>  console.log(<span class="codeString">"Error"</span>)</td></tr>
+  <tr><td>13</td><td>  console.error(<span class="codeString">"Error"</span>)</td></tr>
   <tr><td>14</td><td>  alert(<span class="codeString">"Error"</span>)</td></tr>
   <tr><td>15</td><td></td></tr>
   <tr><td>16</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
@@ -1607,31 +1601,43 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeComment">/** Detalle de los errores devueltos por un servicio. */</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
-  <tr><td>12</td><td>  super(title)</td></tr>
-  <tr><td>13</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
-  <tr><td>15</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
-  <tr><td>17</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
-  <tr><td>19</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>20</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
-  <tr><td>21</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
-  <tr><td>23</td><td> }</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>}</td></tr>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * Detalle de los errores devueltos por un servicio.</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
+  <tr><td>14</td><td>  super(title)</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>16</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>17</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>20</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>21</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
+  <tr><td>23</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>24</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>25</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
+  <tr><td>27</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>28</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>29</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>30</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>31</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>32</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>33</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>34</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
+  <tr><td>35</td><td> }</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td>}</td></tr>
  </tbody>
 </table>
       </section>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>5. lib / js / ProblemDetails.js - GilPG AWOAS</title>
+ <title>6. lib / js / ProblemDetails.js - GilPG AWOAS</title>
  <meta name="description" content="Código de «lib/js/ProblemDetails.js».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -818,7 +818,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >5. lib / js / ProblemDetails.js</h1><table class="codeShow">
+   <h1 >6. lib / js / ProblemDetails.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -828,31 +828,43 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeComment">/** Detalle de los errores devueltos por un servicio. */</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
-  <tr><td>12</td><td>  super(title)</td></tr>
-  <tr><td>13</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
-  <tr><td>15</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
-  <tr><td>17</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
-  <tr><td>19</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>20</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
-  <tr><td>21</td><td>  <span class="codeComment">/** <span class="codeReserved">@readonly</span> */</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
-  <tr><td>23</td><td> }</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>}</td></tr>
+  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>2</td><td><span class="codeComment"> * Detalle de los errores devueltos por un servicio.</span></td></tr>
+  <tr><td>3</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td> <span class="codeComment">/**</span></td></tr>
+  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
+  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
+  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
+  <tr><td>10</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
+  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
+  <tr><td>14</td><td>  super(title)</td></tr>
+  <tr><td>15</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>16</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>17</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
+  <tr><td>19</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>20</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>21</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>22</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
+  <tr><td>23</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>24</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>25</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>26</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
+  <tr><td>27</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>28</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>29</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>30</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
+  <tr><td>31</td><td>  <span class="codeComment">/**</span></td></tr>
+  <tr><td>32</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
+  <tr><td>33</td><td><span class="codeComment">   */</span></td></tr>
+  <tr><td>34</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
+  <tr><td>35</td><td> }</td></tr>
+  <tr><td>36</td><td></td></tr>
+  <tr><td>37</td><td>}</td></tr>
  </tbody>
 </table>
  <footer>
@@ -880,7 +892,7 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m14chat/m-lib/m-js/m-muestraError-js.html" title="4. lib / js / muestraError.js"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m14chat/m-lib/m-js/m-muestraError-js.html" title="5. lib / js / muestraError.js"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
  <a class="siguiente" href="/m14chat/m--htaccess.html" title="G. .htaccess"><span class="material-symbols-outlined">
@@ -925,7 +937,12 @@
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-lib/m-js/m-creaClientIdMqtt-js.html">lib / js / creaClientIdMqtt.js</a>
+     <a href="/m14chat/m-lib/m-js/m-creaIdCliente-js.html">lib / js / creaIdCliente.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m14chat/m-lib/m-js/m-exportaAHtml-js.html">lib / js / exportaAHtml.js</a>
     </p>
    </li>
    <li>
