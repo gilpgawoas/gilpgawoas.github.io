@@ -61,6 +61,7 @@ const ARCHIVOS = [
  "/img/m21compras/comprasder.drawio.svg",
  "/img/m21compras/comprasrel.drawio.svg",
  "/img/m23token/srvtokendistribucion.drawio.svg",
+ "/img/new_repository.png",
  "/img/reload.png",
  "/img/runanddebug.png",
  "/img/source_control.png",
