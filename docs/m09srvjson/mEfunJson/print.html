@@ -817,7 +817,7 @@
  <p class="resaltado2">Ejecuta fetch y envía<br>request (solicitud).</p>
 </section>
 <div class="section">
- <section >
+ <section>
   <h1>Memoria</h1>
   <dl>
    <dt>datos</dt>
@@ -831,18 +831,30 @@
    </dd>
   </dl>
  </section>
- <section >
+ <section>
   <h1>Request</h1>
-  <dl class="resaltado" style="overflow-wrap: anywhere;">
-   <dt>URL</dt>
-   <dd>srv/json.php</dd>
-   <dt>Method</dt>
-   <dd>POST</dd>
-   <dt>body</dt>
-   <dd>
-    {"saludo":"Hola","nombre":"pp"}
-   </dd>
-  </dl>
+  <div class="resaltado">
+   <details>
+    <summary>
+     POST /srv/json.php HTTP/1.1
+    </summary>
+    Accept: application/json, application/problem+json<br>
+    Accept-Encoding: gzip, deflate<br>
+    Accept-Language: es-ES,es;q=0.9,en;q=0.8<br>
+    Connection: keep-alive<br>
+    Content-Length: 31<br>
+    Content-Type: application/json<br>
+    Cookie:<br>
+    __gsas=ID=329641bd2728ff51:T=1743534294:RT=1743534294:S=ALNI_MavjA3FPY-hDE5wNZO5LxFSOVeIIQ;<br>
+    __test=fe8a33dadb44b3adb2a0bc1ff8c44c98<br>
+    Host: srvjson.rf.gd<br>
+    Origin: http://srvjson.rf.gd<br>
+    Referer: http://srvjson.rf.gd/?i=1<br>
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36<br>
+    (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+   </details>
+   {"saludo":"Hola","nombre":"pp"}
+  </div>
  </section>
 </div>
 <section>
@@ -893,20 +905,34 @@
 <span>devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
- <section >
+ <section>
   <h1>Request</h1>
-  <dl style="padding: 0.5rem; overflow-wrap: anywhere;">
-   <dt>URL</dt>
-   <dd>srv/json.php</dd>
-   <dt>Method</dt>
-   <dd>POST</dd>
-   <dt class="resaltado">body</dt>
-   <dd class="resaltado">
+  <div>
+   <details>
+    <summary>
+     POST /srv/json.php HTTP/1.1
+    </summary>
+    Accept: application/json, application/problem+json<br>
+    Accept-Encoding: gzip, deflate<br>
+    Accept-Language: es-ES,es;q=0.9,en;q=0.8<br>
+    Connection: keep-alive<br>
+    Content-Length: 31<br>
+    Content-Type: application/json<br>
+    Cookie:<br>
+    __gsas=ID=329641bd2728ff51:T=1743534294:RT=1743534294:S=ALNI_MavjA3FPY-hDE5wNZO5LxFSOVeIIQ;<br>
+    __test=fe8a33dadb44b3adb2a0bc1ff8c44c98<br>
+    Host: srvjson.rf.gd<br>
+    Origin: http://srvjson.rf.gd<br>
+    Referer: http://srvjson.rf.gd/?i=1<br>
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36<br>
+    (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+   </details>
+   <div class="resaltado">
     {"saludo":"Hola","nombre":"pp"}
-   </dd>
-   </dl>
+   </div>
+  </div>
  </section>
- <section >
+ <section>
   <h1>Memoria (Servidor)</h1>
   <dl class="resaltado">
    <dt>$json</dt>
@@ -994,7 +1020,7 @@
 <span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
 <span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
 <span>alert(respuesta.body)</span></code></pre>
-   <p class="resaltado3">Hace wait esperando response.</p>
+ <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -1020,7 +1046,7 @@
 <span class="resaltado">devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
- <section >
+ <section>
   <h1>Memoria (Servidor)</h1>
   <dl>
    <dt>$json</dt>
@@ -1040,14 +1066,23 @@
    <dd class="resaltado2">"Hola pp."</dd>
   </dl>
  </section>
- <section >
+ <section>
   <h1>Response</h1>
-  <dl class="resaltado">
-   <dt>code</dt>
-   <dd>200</dd>
-   <dt>body</dt>
-   <dd>"Hola pp."</dd>
-  </dl>
+  <div class="resaltado">
+   <details>
+    <summary>
+     HTTP/1.1 200 OK
+    </summary>
+    Server: openresty<br>
+    Date: Fri, 02 May 2025 03:57:08 GMT<br>
+    Content-Type: application/json<br>
+    Transfer-Encoding: chunked<br>
+    Connection: keep-alive<br>
+    Cache-Control: max-age=0<br>
+    Expires: Fri, 02 May 2025 03:57:08 GMT
+   </details>
+   "Hola pp."
+  </div>
  </section>
 </div>
       </section>
@@ -1065,7 +1100,7 @@
  <p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
- <section >
+ <section>
   <h1>Memoria</h1>
   <dl>
    <dt>datos</dt>
@@ -1088,14 +1123,23 @@
    </dd>
   </dl>
  </section>
- <section >
+ <section>
   <h1>Response</h1>
-  <dl class="resaltado">
-   <dt>code</dt>
-   <dd>200</dd>
-   <dt>body</dt>
-   <dd>"Hola pp."</dd>
-  </dl>
+  <div class="resaltado">
+   <details>
+    <summary>
+     HTTP/1.1 200 OK
+    </summary>
+    Server: openresty<br>
+    Date: Fri, 02 May 2025 03:57:08 GMT<br>
+    Content-Type: application/json<br>
+    Transfer-Encoding: chunked<br>
+    Connection: keep-alive<br>
+    Cache-Control: max-age=0<br>
+    Expires: Fri, 02 May 2025 03:57:08 GMT
+   </details>
+   "Hola pp."
+  </div>
  </section>
 </div>
 <section>

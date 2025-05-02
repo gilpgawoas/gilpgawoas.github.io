@@ -942,7 +942,7 @@
 <span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
 <span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
 <span>alert(respuesta.body)</span></code></pre>
-   <p class="resaltado3">Hace wait esperando response.</p>
+ <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -968,7 +968,7 @@
 <span class="resaltado">devuelveJson($resultado);</span></code></pre>
 </section>
 <div class="section">
- <section >
+ <section>
   <h1>Memoria (Servidor)</h1>
   <dl>
    <dt>$json</dt>
@@ -988,14 +988,23 @@
    <dd class="resaltado2">"Hola pp."</dd>
   </dl>
  </section>
- <section >
+ <section>
   <h1>Response</h1>
-  <dl class="resaltado">
-   <dt>code</dt>
-   <dd>200</dd>
-   <dt>body</dt>
-   <dd>"Hola pp."</dd>
-  </dl>
+  <div class="resaltado">
+   <details>
+    <summary>
+     HTTP/1.1 200 OK
+    </summary>
+    Server: openresty<br>
+    Date: Fri, 02 May 2025 03:57:08 GMT<br>
+    Content-Type: application/json<br>
+    Transfer-Encoding: chunked<br>
+    Connection: keep-alive<br>
+    Cache-Control: max-age=0<br>
+    Expires: Fri, 02 May 2025 03:57:08 GMT
+   </details>
+   "Hola pp."
+  </div>
  </section>
 </div>
  <footer>
