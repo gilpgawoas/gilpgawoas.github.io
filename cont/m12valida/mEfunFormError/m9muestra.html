@@ -24,7 +24,7 @@
     <dd>"Falta el saludo."</dd>
    </dl>
   </dd>
-</dl>
+ </dl>
 </section>
 <section>
  <h1>Alert</h1>
@@ -38,11 +38,103 @@
 </section>
 <section>
  <h1>Consola</h1>
- <pre class="resaltado">Falta el saludo
-
-Código: 400 /error/faltasaludo.html
-Error: Falta el saludo
-  at invocaServicio (invocaServicio.js:48:10)
-  at async procesaForma ((índice):52:6)
-</pre>
+ <div class="resaltado">
+  <details>
+   <summary>
+    POST http://srvvalida.rf.gd/srv/valida.php 400 (Bad Request)
+    submitForm.js:21
+   </summary>
+   submitForm @ submitForm.js:21<br>
+   procesaForma @ ?i=1:53<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    Falta el saludo. muestraError.js:27<br>
+    Código: 400 /error/faltasaludo.html
+   </summary>
+   muestraError @ muestraError.js:27<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    ProblemDetails: Falta el saludo. muestraError.js:28<br>
+    at consumeJson (http://srvvalida.rf.gd/lib/js/consumeJson.js:69:11)<br>
+    at async procesaForma (http://srvvalida.rf.gd/?i=1:53:6)
+   </summary>
+   muestraError @ muestraError.js:28<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    Headers: muestraError.js:29
+   </summary>
+   muestraError @ muestraError.js:29<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    connection = keep-alive muestraError.js:30
+   </summary>
+   (anónimo) @ muestraError.js:30<br>
+   muestraError @ muestraError.js:30<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    content-type = application/problem+json muestraError.js:30
+   </summary>
+   (anónimo) @ muestraError.js:30<br>
+   muestraError @ muestraError.js:30<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    date = Fri, 02 May 2025 14:22:55 GMT muestraError.js:30
+   </summary>
+   (anónimo) @ muestraError.js:30<br>
+   muestraError @ muestraError.js:30<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    server = openresty muestraError.js:30
+   </summary>
+   (anónimo) @ muestraError.js:30<br>
+   muestraError @ muestraError.js:30<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+  <br>
+  <details>
+   <summary>
+    transfer-encoding = chunked muestraError.js:30
+   </summary>
+   (anónimo) @ muestraError.js:30<br>
+   muestraError @ muestraError.js:30<br>
+   procesaForma @ ?i=1:57<br>
+   await in procesaForma<br>
+   onsubmit @ ?i=1:17
+  </details>
+ </div>
 </section>

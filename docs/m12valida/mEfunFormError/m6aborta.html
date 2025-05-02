@@ -949,7 +949,7 @@
  <pre><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
-<span> $saludo === <span class="codeReserved">null</span></span>
+<span> $saludo === <span class="codeReserved">false</span></span>
 <span> || $saludo === <span class="codeString">&quot;&quot;</span></span>
 <span>) {</span>
 <span class="resaltado"> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
@@ -959,7 +959,7 @@
 <span class="resaltado"> );</span>
 <span>}</span>
 <span><span class="codeReserved">if</span> (</span>
-<span> $nombre === <span class="codeReserved">null</span></span>
+<span> $nombre === <span class="codeReserved">false</span></span>
 <span> || $nombre === <span class="codeString">&quot;&quot;</span></span>
 <span>) {</span>
 <span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
@@ -974,17 +974,19 @@
 </section>
 <section>
  <h1>Response</h1>
- <dl class="resaltado">
-  <dt>code</dt>
-  <dd>400</dd>
-  <dt>body</dt>
-  <dd>
-   {<br>
-    "type": "/error/faltasaludo.html",<br>
-    "title": "Falta el saludo."<br>
-   }
-  </dd>
- </dl>
+ <div class="resaltado">
+  <details>
+   <summary>
+    HTTP/1.1 400 Bad Request
+   </summary>
+   Server: openresty<br>
+   Date: Fri, 02 May 2025 13:53:21 GMT<br>
+   Content-Type: application/problem+json<br>
+   Transfer-Encoding: chunked<br>
+   Connection: keep-alive
+  </details>
+  {"title":"Falta el saludo.","type":"\/error\/faltasaludo.html"}
+ </div>
 </section>
  <footer>
  <p>
