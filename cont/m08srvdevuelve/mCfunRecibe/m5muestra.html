@@ -1,16 +1,14 @@
 <section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> consumeJson(</span>
-<span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span><span class="codeReserved">const</span> body = respuesta.body</span>
-<span class="resaltado">alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
-<span class="resaltado"><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
+<span> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span class="resaltado">alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
+<span class="resaltado"><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
  <dl>
-  <dt>respuesta</dt>
+  <dt class="resaltado2">respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
@@ -26,8 +24,6 @@
     </dd>
    </dl>
   </dd>
-  <dt class="resaltado">body</dt>
-  <dd class="resaltado2">ref->respuesta.body</dd>
  </dl>
 </section>
 <section>

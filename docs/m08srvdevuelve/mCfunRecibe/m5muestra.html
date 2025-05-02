@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>6. Muestra el objeto recibido en un alert - GilPG AWOAS</title>
+ <title>5. Muestra el objeto recibido en un alert - GilPG AWOAS</title>
  <meta name="description" content="Muestra el objeto recibido en un alert.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -932,19 +932,17 @@
 
 <body  class="xmenu noTransition pruebaDeEscritorio">
  <div id="principal">
-   <h1 >6. Muestra el objeto recibido en un alert</h1><section>
+   <h1 >5. Muestra el objeto recibido en un alert</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> consumeJson(</span>
-<span">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span><span class="codeReserved">const</span> body = respuesta.body</span>
-<span class="resaltado">alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
-<span class="resaltado"><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
+<span> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span class="resaltado">alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
+<span class="resaltado"><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
  <dl>
-  <dt>respuesta</dt>
+  <dt class="resaltado2">respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
@@ -960,8 +958,6 @@
     </dd>
    </dl>
   </dd>
-  <dt class="resaltado">body</dt>
-  <dd class="resaltado2">ref->respuesta.body</dd>
  </dl>
 </section>
 <section>
@@ -998,10 +994,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m08srvdevuelve/mCfunRecibe/m5variable.html" title="5. Se crea la constante body, que apunta al cuerpo de la respuesta"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/mCfunRecibe/m4devuelve.html" title="4. El servicio devuelve la response, que es recibida en el cliente"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m08srvdevuelve/mCfunRecibe/m6termina.html" title="7. Al cerrar el alert, termina el evento"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m08srvdevuelve/mCfunRecibe/m6termina.html" title="6. Al cerrar el alert, termina el evento"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1055,11 +1051,6 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mCfunRecibe/m5variable.html">Se crea la constante body, que apunta al cuerpo de la respuesta</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m08srvdevuelve/mCfunRecibe/m5muestra.html" class="actual">Muestra el objeto recibido en un alert</a>
     </p>
    </li>
@@ -1089,7 +1080,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m08srvdevuelve/mCfunRecibe/m5variable.html"
+ let urlAnterior = "/m08srvdevuelve/mCfunRecibe/m4devuelve.html"
  /**@type {string} */
  let urlSiguiente = "/m08srvdevuelve/mCfunRecibe/m6termina.html"
  /**@type {number|null} */

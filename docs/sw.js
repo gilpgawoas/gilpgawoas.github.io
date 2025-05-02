@@ -182,7 +182,6 @@ const ARCHIVOS = [
  "/m08srvdevuelve/mCfunRecibe/m3procesa.html",
  "/m08srvdevuelve/mCfunRecibe/m4devuelve.html",
  "/m08srvdevuelve/mCfunRecibe/m5muestra.html",
- "/m08srvdevuelve/mCfunRecibe/m5variable.html",
  "/m08srvdevuelve/mCfunRecibe/m6termina.html",
  "/m08srvdevuelve/mD3muestraerror.html",
  "/m08srvdevuelve/mDinstrucciones.html",

@@ -1,12 +1,10 @@
 <section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span><span class="codeReserved">const</span> body = respuesta.body</span>
-<span>alert(<span class="codeString">`Nombre: ${body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${body.mensaje}`</span>)</span></code></pre>
- <p class="resaltado2">Ejecuta invocaServicio y<br>envía request (solicitud).
+<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
+<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
+<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <p class="resaltado2">Ejecuta invocaServicio y envía request (solicitud).
  </p>
 </section>
 <section>
