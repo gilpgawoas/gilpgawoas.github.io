@@ -15,130 +15,128 @@
   <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
   <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
-  <tr><td>27</td><td>      elementoHtml[atributo] = valor</td></tr>
-  <tr><td>28</td><td>     }</td></tr>
-  <tr><td>29</td><td>    }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  }</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td>exportaAHtml(muestraObjeto)</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>41</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>42</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
-  <tr><td>43</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>44</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
-  <tr><td>45</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">`#${nombre},[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
-  <tr><td>47</td><td>}</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>54</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
-  <tr><td>57</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
-  <tr><td>58</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>25</td><td>     <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>26</td><td>      elementoHtml[propiedad] = valor</td></tr>
+  <tr><td>27</td><td>     }</td></tr>
+  <tr><td>28</td><td>    }</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td>exportaAHtml(muestraObjeto)</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>40</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
+  <tr><td>41</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>42</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>44</td><td>  <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>48</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>49</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
+  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
+  <tr><td>51</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>52</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>56</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
   <tr><td>59</td><td></td></tr>
-  <tr><td>60</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
-  <tr><td>61</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
-  <tr><td>67</td><td>    option.selected = conjunto.has(option.value)</td></tr>
-  <tr><td>68</td><td>   }</td></tr>
-  <tr><td>69</td><td>   <span class="codeReserved">return</span></td></tr>
-  <tr><td>70</td><td>  }</td></tr>
+  <tr><td>60</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>61</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>62</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = elemento.options, len = options.length; i &lt; len</td></tr>
+  <tr><td>63</td><td>    ; i++) {</td></tr>
+  <tr><td>64</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>65</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>66</td><td>   }</td></tr>
+  <tr><td>67</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>68</td><td>  }</td></tr>
+  <tr><td>69</td><td></td></tr>
+  <tr><td>70</td><td> }</td></tr>
   <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td> }</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
-  <tr><td>75</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
-  <tr><td>76</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>77</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
-  <tr><td>78</td><td>  }</td></tr>
-  <tr><td>79</td><td> }</td></tr>
+  <tr><td>72</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>74</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>75</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>76</td><td>  }</td></tr>
+  <tr><td>77</td><td> }</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>}</td></tr>
   <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>}</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>85</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
-  <tr><td>86</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
-  <tr><td>87</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>88</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>81</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>82</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>83</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
+  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
+  <tr><td>85</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>86</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
   <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>90</td><td>  <span class="codeReserved">if</span> (propiedad == <span class="codeString">"data-file"</span>) {</td></tr>
   <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td>  <span class="codeReserved">if</span> (atributo == <span class="codeString">"data-file"</span>) {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
-  <tr><td>95</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>96</td><td>    input.dataset.file = valor</td></tr>
-  <tr><td>97</td><td>    input.value = <span class="codeString">""</span></td></tr>
-  <tr><td>98</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>99</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
-  <tr><td>100</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
-  <tr><td>101</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>102</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
-  <tr><td>103</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
-  <tr><td>104</td><td>    }</td></tr>
-  <tr><td>105</td><td>   }</td></tr>
+  <tr><td>92</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
+  <tr><td>93</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>94</td><td>    input.dataset.file = valor</td></tr>
+  <tr><td>95</td><td>    input.value = <span class="codeString">""</span></td></tr>
+  <tr><td>96</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>97</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
+  <tr><td>98</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>99</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>100</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
+  <tr><td>101</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>102</td><td>    }</td></tr>
+  <tr><td>103</td><td>   }</td></tr>
+  <tr><td>104</td><td></td></tr>
+  <tr><td>105</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> input) {</td></tr>
   <tr><td>106</td><td></td></tr>
-  <tr><td>107</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> input) {</td></tr>
+  <tr><td>107</td><td>   input[propiedad] = valor</td></tr>
   <tr><td>108</td><td></td></tr>
-  <tr><td>109</td><td>   input[atributo] = valor</td></tr>
-  <tr><td>110</td><td></td></tr>
-  <tr><td>111</td><td>  }</td></tr>
-  <tr><td>112</td><td> }</td></tr>
+  <tr><td>109</td><td>  }</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td></td></tr>
+  <tr><td>112</td><td>}</td></tr>
   <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>}</td></tr>
-  <tr><td>115</td><td></td></tr>
-  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>117</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>118</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
-  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
-  <tr><td>121</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
-  <tr><td>122</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>123</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>124</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>125</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
-  <tr><td>126</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
-  <tr><td>127</td><td>   <span class="codeReserved">return</span> input</td></tr>
-  <tr><td>128</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>129</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>130</td><td>  }</td></tr>
-  <tr><td>131</td><td> }</td></tr>
-  <tr><td>132</td><td>}</td></tr>
+  <tr><td>114</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>115</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>116</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>118</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>119</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
+  <tr><td>120</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>121</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>122</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>123</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
+  <tr><td>124</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>125</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>126</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>128</td><td>  }</td></tr>
+  <tr><td>129</td><td> }</td></tr>
+  <tr><td>130</td><td>}</td></tr>
  </tbody>
 </table>
