@@ -830,33 +830,55 @@
  <tbody>
   <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/consumeJson.js"</span></td></tr>
   <tr><td>2</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/exportaAHtml.js"</span></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} servicio</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} [urlDeProtección]</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>10</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(servicio, rolIdsPermitidos, urlDeProtección) {</td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(servicio)</td></tr>
-  <tr><td>12</td><td> <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>15</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
-  <tr><td>17</td><td>  <span class="codeReserved">for</span> (<span class="codeReserved">const</span> rolId of rolIdsPermitidos) {</td></tr>
-  <tr><td>18</td><td>   <span class="codeReserved">if</span> (rolIds.has(rolId)) {</td></tr>
-  <tr><td>19</td><td>    <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>20</td><td>   }</td></tr>
-  <tr><td>21</td><td>  }</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">if</span> (urlDeProtección !== undefined) {</td></tr>
-  <tr><td>23</td><td>   location.href = urlDeProtección</td></tr>
-  <tr><td>24</td><td>  }</td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
-  <tr><td>26</td><td> }</td></tr>
-  <tr><td>27</td><td>}</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>exportaAHtml(protege)</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/muestraError.js"</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">import</span> { MiNav } <span class="codeReserved">from</span> <span class="codeString">"./custom/mi-nav.js"</span></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> SERVICIO = <span class="codeString">'srv/sesion-actual.php'</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> URL_DE_PROTECCION = <span class="codeString">'index.html'</span></td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {MiNav} [nav]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>14</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(nav, rolIdsPermitidos) {</td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>  <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(SERVICIO)</td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">if</span> (nav) {</td></tr>
+  <tr><td>21</td><td>   nav.sesion = sesion</td></tr>
+  <tr><td>22</td><td>  }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>  <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>   <span class="codeReserved">return</span> sesion</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">const</span> rolId of rolIdsPermitidos) {</td></tr>
+  <tr><td>33</td><td>    <span class="codeReserved">if</span> (rolIds.has(rolId)) {</td></tr>
+  <tr><td>34</td><td>     <span class="codeReserved">return</span> sesion</td></tr>
+  <tr><td>35</td><td>    }</td></tr>
+  <tr><td>36</td><td>   }</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>   <span class="codeReserved">if</span> (location.href !== URL_DE_PROTECCION) {</td></tr>
+  <tr><td>39</td><td>    location.href = URL_DE_PROTECCION</td></tr>
+  <tr><td>40</td><td>   }</td></tr>
+  <tr><td>41</td><td></td></tr>
+  <tr><td>42</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td>  }</td></tr>
+  <tr><td>45</td><td></td></tr>
+  <tr><td>46</td><td> } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>47</td><td>  muestraError(error)</td></tr>
+  <tr><td>48</td><td> }</td></tr>
+  <tr><td>49</td><td>}</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td>exportaAHtml(protege)</td></tr>
  </tbody>
 </table>
  <footer>

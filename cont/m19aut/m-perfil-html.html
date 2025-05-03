@@ -25,56 +25,51 @@
   <tr><td>15</td><td></td></tr>
   <tr><td>16</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;)</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">  .then(sesion =&gt; {</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">   nav.sesion = sesion</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   <span class="codeReserved">const</span> cue = sesion.cue</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">   <span class="codeReserved">if</span> (cue === &#039;&#039;) {</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    login.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>24</td><td><span class="codeString">    outputCue.value = &#039;No ha iniciado sesión.&#039;</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">    outputRoles.value = &#039;&#039;</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">   } <span class="codeReserved">else</span> {</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">    logout.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>28</td><td><span class="codeString">    outputCue.value = cue</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">    <span class="codeReserved">const</span> rolIds = sesion.rolIds</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">    outputRoles.value = rolIds.size === 0</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">     ? &#039;Sin roles&#039;</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">     : Array.<span class="codeReserved">from</span>(rolIds).join(&#039;, &#039;)</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">   }</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">  })</span></td></tr>
-  <tr><td>35</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> &lt;<span class="codeReserved">h1</span>&gt;Perfil&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>42</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputCue"</span>&gt;</td></tr>
-  <tr><td>43</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>44</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>45</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>48</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputRoles"</span>&gt;</td></tr>
-  <tr><td>49</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>50</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>51</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>52</td><td></td></tr>
-  <tr><td>53</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td>  &lt;<span class="codeReserved">a</span> id=<span class="codeString">"login"</span> hidden href=<span class="codeString">"login.html"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">a</span>&gt;</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> id=<span class="codeString">"logout"</span> hidden</td></tr>
-  <tr><td>58</td><td>    onclick=<span class="codeString">"consumeJson(&#039;srv/logout.php&#039;)</span></td></tr>
-  <tr><td>59</td><td><span class="codeString">     .then(json =&gt; location.reload())</span></td></tr>
-  <tr><td>60</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>61</td><td>   Terminar sesión</td></tr>
-  <tr><td>62</td><td>  &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>67</td><td></td></tr>
-  <tr><td>68</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>18</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(nav).then(sesion =&gt; {</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">   <span class="codeReserved">const</span> cue = sesion.cue</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">   <span class="codeReserved">if</span> (cue === &#039;&#039;) {</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">    login.hidden = <span class="codeReserved">false</span></span></td></tr>
+  <tr><td>22</td><td><span class="codeString">    outputCue.value = &#039;No ha iniciado sesión.&#039;</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">    outputRoles.value = &#039;&#039;</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">   } <span class="codeReserved">else</span> {</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">    logout.hidden = <span class="codeReserved">false</span></span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    outputCue.value = cue</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    <span class="codeReserved">const</span> rolIds = sesion.rolIds</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">    outputRoles.value = rolIds.size === 0</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">     ? &#039;Sin roles&#039;</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">     : Array.<span class="codeReserved">from</span>(rolIds).join(&#039;, &#039;)</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">   }</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">  })"</span>&gt;</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td> &lt;<span class="codeReserved">h1</span>&gt;Perfil&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>39</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputCue"</span>&gt;</td></tr>
+  <tr><td>40</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
+  <tr><td>41</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>42</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>45</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputRoles"</span>&gt;&lt;/<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>46</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td>  &lt;<span class="codeReserved">a</span> id=<span class="codeString">"login"</span> hidden href=<span class="codeString">"login.html"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">a</span>&gt;</td></tr>
+  <tr><td>51</td><td></td></tr>
+  <tr><td>52</td><td>  &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> id=<span class="codeString">"logout"</span> hidden</td></tr>
+  <tr><td>53</td><td>    onclick=<span class="codeString">"consumeJson(&#039;srv/logout.php&#039;)</span></td></tr>
+  <tr><td>54</td><td><span class="codeString">     .then(json =&gt; location.reload())</span></td></tr>
+  <tr><td>55</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>56</td><td>   Terminar sesión</td></tr>
+  <tr><td>57</td><td>  &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>58</td><td></td></tr>
+  <tr><td>59</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>60</td><td></td></tr>
+  <tr><td>61</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>62</td><td></td></tr>
+  <tr><td>63</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>

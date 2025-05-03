@@ -843,72 +843,63 @@
   <tr><td>13</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
   <tr><td>14</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_USUARIO.php"</span>;</td></tr>
   <tr><td>15</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/protege.php"</span>;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $sesion = protege();</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> <span class="codeReserved">if</span> ($sesion-&gt;cue !== <span class="codeString">""</span>)</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>23</td><td>   status: NO_AUTORIZADO,</td></tr>
-  <tr><td>24</td><td>   type: <span class="codeString">"/error/sesioniniciada.html"</span>,</td></tr>
-  <tr><td>25</td><td>   title: <span class="codeString">"Sesión iniciada."</span>,</td></tr>
-  <tr><td>26</td><td>   detail: <span class="codeString">"La sesión ya está iniciada."</span>,</td></tr>
-  <tr><td>27</td><td>  );</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> $cue = recuperaTexto(<span class="codeString">"cue"</span>);</td></tr>
-  <tr><td>30</td><td> $match = recuperaTexto(<span class="codeString">"match"</span>);</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td> $cue = validaCue($cue);</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td> <span class="codeReserved">if</span> ($match === <span class="codeReserved">false</span>)</td></tr>
-  <tr><td>35</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>36</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>37</td><td>   title: <span class="codeString">"Falta el match."</span>,</td></tr>
-  <tr><td>38</td><td>   type: <span class="codeString">"/error/faltamatch.html"</span>,</td></tr>
-  <tr><td>39</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de match."</span>,</td></tr>
-  <tr><td>40</td><td>  );</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> <span class="codeReserved">if</span> ($match === <span class="codeString">""</span>)</td></tr>
-  <tr><td>43</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>44</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>45</td><td>   title: <span class="codeString">"Match en blanco."</span>,</td></tr>
-  <tr><td>46</td><td>   type: <span class="codeString">"/error/matchenblanco.html"</span>,</td></tr>
-  <tr><td>47</td><td>   detail: <span class="codeString">"Pon texto en el campo match."</span>,</td></tr>
-  <tr><td>48</td><td>  );</td></tr>
-  <tr><td>49</td><td></td></tr>
-  <tr><td>50</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>51</td><td></td></tr>
-  <tr><td>52</td><td> $usuario =</td></tr>
-  <tr><td>53</td><td>  selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_CUE =&gt; $cue]);</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td> <span class="codeReserved">if</span> ($usuario === <span class="codeReserved">false</span> || !password_verify($match, $usuario[USU_MATCH]))</td></tr>
-  <tr><td>56</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>57</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>58</td><td>   type: <span class="codeString">"/error/datosincorrectos.html"</span>,</td></tr>
-  <tr><td>59</td><td>   title: <span class="codeString">"Datos incorrectos."</span>,</td></tr>
-  <tr><td>60</td><td>   detail: <span class="codeString">"El cue y/o el match proporcionados son incorrectos."</span>,</td></tr>
-  <tr><td>61</td><td>  );</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td> $rolIds = fetchAll(</td></tr>
-  <tr><td>64</td><td>  $pdo-&gt;query(</td></tr>
-  <tr><td>65</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span> ROL_ID</span></td></tr>
-  <tr><td>66</td><td><span class="codeString">     <span class="codeReserved">FROM</span> USU_ROL</span></td></tr>
-  <tr><td>67</td><td><span class="codeString">     <span class="codeReserved">WHERE</span> USU_ID = :USU_ID</span></td></tr>
-  <tr><td>68</td><td><span class="codeString">     <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> USU_ID"</span></td></tr>
-  <tr><td>69</td><td>  ),</td></tr>
-  <tr><td>70</td><td>  [<span class="codeString">":USU_ID"</span> =&gt; $usuario[USU_ID]],</td></tr>
-  <tr><td>71</td><td>  PDO::FETCH_COLUMN</td></tr>
-  <tr><td>72</td><td> );</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> $_SESSION[CUE] = $cue;</td></tr>
-  <tr><td>75</td><td> $_SESSION[ROL_IDS] = $rolIds;</td></tr>
-  <tr><td>76</td><td> devuelveJson([</td></tr>
-  <tr><td>77</td><td>  CUE =&gt; $cue,</td></tr>
-  <tr><td>78</td><td>  ROL_IDS =&gt; $rolIds</td></tr>
-  <tr><td>79</td><td> ]);</td></tr>
-  <tr><td>80</td><td>});</td></tr>
-  <tr><td>81</td><td></td></tr>
+  <tr><td>16</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/rolIdsParaUsuId.php"</span>;</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $sesion = protege();</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">if</span> ($sesion-&gt;cue !== <span class="codeString">""</span>)</td></tr>
+  <tr><td>23</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>24</td><td>   status: NO_AUTORIZADO,</td></tr>
+  <tr><td>25</td><td>   type: <span class="codeString">"/error/sesioniniciada.html"</span>,</td></tr>
+  <tr><td>26</td><td>   title: <span class="codeString">"Sesión iniciada."</span>,</td></tr>
+  <tr><td>27</td><td>   detail: <span class="codeString">"La sesión ya está iniciada."</span>,</td></tr>
+  <tr><td>28</td><td>  );</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td> $cue = recuperaTexto(<span class="codeString">"cue"</span>);</td></tr>
+  <tr><td>31</td><td> $match = recuperaTexto(<span class="codeString">"match"</span>);</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> $cue = validaCue($cue);</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">if</span> ($match === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>36</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>37</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>38</td><td>   title: <span class="codeString">"Falta el match."</span>,</td></tr>
+  <tr><td>39</td><td>   type: <span class="codeString">"/error/faltamatch.html"</span>,</td></tr>
+  <tr><td>40</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de match."</span>,</td></tr>
+  <tr><td>41</td><td>  );</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">if</span> ($match === <span class="codeString">""</span>)</td></tr>
+  <tr><td>44</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>45</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>46</td><td>   title: <span class="codeString">"Match en blanco."</span>,</td></tr>
+  <tr><td>47</td><td>   type: <span class="codeString">"/error/matchenblanco.html"</span>,</td></tr>
+  <tr><td>48</td><td>   detail: <span class="codeString">"Pon texto en el campo match."</span>,</td></tr>
+  <tr><td>49</td><td>  );</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td> $usuario =</td></tr>
+  <tr><td>54</td><td>  selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_CUE =&gt; $cue]);</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td> <span class="codeReserved">if</span> ($usuario === <span class="codeReserved">false</span> || !password_verify($match, $usuario[USU_MATCH]))</td></tr>
+  <tr><td>57</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>58</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>59</td><td>   type: <span class="codeString">"/error/datosincorrectos.html"</span>,</td></tr>
+  <tr><td>60</td><td>   title: <span class="codeString">"Datos incorrectos."</span>,</td></tr>
+  <tr><td>61</td><td>   detail: <span class="codeString">"El cue y/o el match proporcionados son incorrectos."</span>,</td></tr>
+  <tr><td>62</td><td>  );</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td> $_SESSION[CUE] = $cue;</td></tr>
+  <tr><td>65</td><td> $_SESSION[USU_ID] = $usuario[USU_ID];</td></tr>
+  <tr><td>66</td><td></td></tr>
+  <tr><td>67</td><td> devuelveJson([</td></tr>
+  <tr><td>68</td><td>  CUE =&gt; $cue,</td></tr>
+  <tr><td>69</td><td>  ROL_IDS =&gt; rolIdsParaUsuId($usuario[USU_ID])</td></tr>
+  <tr><td>70</td><td> ]);</td></tr>
+  <tr><td>71</td><td>});</td></tr>
+  <tr><td>72</td><td></td></tr>
  </tbody>
 </table>
  <footer>
@@ -994,6 +985,11 @@
    <li>
     <p>
      <a href="/m19aut/m-srv/m-protege-php.html">srv / protege.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-srv/m-rolIdsParaUsuId-php.html">srv / rolIdsParaUsuId.php</a>
     </p>
    </li>
    <li>

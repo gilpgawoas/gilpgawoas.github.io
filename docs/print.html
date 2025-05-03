@@ -27593,131 +27593,129 @@ phpinfo();
   <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
   <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
-  <tr><td>27</td><td>      elementoHtml[atributo] = valor</td></tr>
-  <tr><td>28</td><td>     }</td></tr>
-  <tr><td>29</td><td>    }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  }</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td>exportaAHtml(muestraObjeto)</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>41</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>42</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
-  <tr><td>43</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>44</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
-  <tr><td>45</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">`#${nombre},[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
-  <tr><td>47</td><td>}</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>54</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
-  <tr><td>57</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
-  <tr><td>58</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>25</td><td>     <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>26</td><td>      elementoHtml[propiedad] = valor</td></tr>
+  <tr><td>27</td><td>     }</td></tr>
+  <tr><td>28</td><td>    }</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td>exportaAHtml(muestraObjeto)</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>40</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
+  <tr><td>41</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>42</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>44</td><td>  <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>48</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>49</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
+  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
+  <tr><td>51</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>52</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>56</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
   <tr><td>59</td><td></td></tr>
-  <tr><td>60</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
-  <tr><td>61</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
-  <tr><td>67</td><td>    option.selected = conjunto.has(option.value)</td></tr>
-  <tr><td>68</td><td>   }</td></tr>
-  <tr><td>69</td><td>   <span class="codeReserved">return</span></td></tr>
-  <tr><td>70</td><td>  }</td></tr>
+  <tr><td>60</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>61</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>62</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = elemento.options, len = options.length; i &lt; len</td></tr>
+  <tr><td>63</td><td>    ; i++) {</td></tr>
+  <tr><td>64</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>65</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>66</td><td>   }</td></tr>
+  <tr><td>67</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>68</td><td>  }</td></tr>
+  <tr><td>69</td><td></td></tr>
+  <tr><td>70</td><td> }</td></tr>
   <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td> }</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
-  <tr><td>75</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
-  <tr><td>76</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>77</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
-  <tr><td>78</td><td>  }</td></tr>
-  <tr><td>79</td><td> }</td></tr>
+  <tr><td>72</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>74</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>75</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>76</td><td>  }</td></tr>
+  <tr><td>77</td><td> }</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>}</td></tr>
   <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>}</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>85</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
-  <tr><td>86</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
-  <tr><td>87</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>88</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>81</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>82</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>83</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
+  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
+  <tr><td>85</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>86</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
   <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>90</td><td>  <span class="codeReserved">if</span> (propiedad == <span class="codeString">"data-file"</span>) {</td></tr>
   <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td>  <span class="codeReserved">if</span> (atributo == <span class="codeString">"data-file"</span>) {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
-  <tr><td>95</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>96</td><td>    input.dataset.file = valor</td></tr>
-  <tr><td>97</td><td>    input.value = <span class="codeString">""</span></td></tr>
-  <tr><td>98</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>99</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
-  <tr><td>100</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
-  <tr><td>101</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>102</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
-  <tr><td>103</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
-  <tr><td>104</td><td>    }</td></tr>
-  <tr><td>105</td><td>   }</td></tr>
+  <tr><td>92</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
+  <tr><td>93</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>94</td><td>    input.dataset.file = valor</td></tr>
+  <tr><td>95</td><td>    input.value = <span class="codeString">""</span></td></tr>
+  <tr><td>96</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>97</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
+  <tr><td>98</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>99</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>100</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
+  <tr><td>101</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>102</td><td>    }</td></tr>
+  <tr><td>103</td><td>   }</td></tr>
+  <tr><td>104</td><td></td></tr>
+  <tr><td>105</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> input) {</td></tr>
   <tr><td>106</td><td></td></tr>
-  <tr><td>107</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> input) {</td></tr>
+  <tr><td>107</td><td>   input[propiedad] = valor</td></tr>
   <tr><td>108</td><td></td></tr>
-  <tr><td>109</td><td>   input[atributo] = valor</td></tr>
-  <tr><td>110</td><td></td></tr>
-  <tr><td>111</td><td>  }</td></tr>
-  <tr><td>112</td><td> }</td></tr>
+  <tr><td>109</td><td>  }</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td></td></tr>
+  <tr><td>112</td><td>}</td></tr>
   <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>}</td></tr>
-  <tr><td>115</td><td></td></tr>
-  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>117</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>118</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
-  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
-  <tr><td>121</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
-  <tr><td>122</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>123</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>124</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>125</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
-  <tr><td>126</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
-  <tr><td>127</td><td>   <span class="codeReserved">return</span> input</td></tr>
-  <tr><td>128</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>129</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>130</td><td>  }</td></tr>
-  <tr><td>131</td><td> }</td></tr>
-  <tr><td>132</td><td>}</td></tr>
+  <tr><td>114</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>115</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>116</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>118</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>119</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
+  <tr><td>120</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>121</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>122</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>123</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
+  <tr><td>124</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>125</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>126</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>128</td><td>  }</td></tr>
+  <tr><td>129</td><td> }</td></tr>
+  <tr><td>130</td><td>}</td></tr>
  </tbody>
 </table>
       </section>
@@ -30017,6 +30015,9 @@ phpinfo();
    <p><a href="m-srv/m-protege-php.html">protege.php</a></p>
   </li>
   <li>
+   <p><a href="m-srv/m-rolIdsParaUsuId-php.html">rolIdsParaUsuId.php</a></p>
+  </li>
+  <li>
    <p><a href="m-srv/m-ROL_IDS-php.html">ROL_IDS.php</a></p>
   </li>
   <li>
@@ -30076,19 +30077,17 @@ phpinfo();
   <tr><td>14</td><td></td></tr>
   <tr><td>15</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;)</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">  .then(sesion =&gt; nav.sesion = sesion)</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(nav)"</span>&gt;</td></tr>
+  <tr><td>18</td><td></td></tr>
+  <tr><td>19</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
   <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>21</td><td> &lt;<span class="codeReserved">h1</span>&gt;Autenticación&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
   <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td> &lt;<span class="codeReserved">h1</span>&gt;Autenticación&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>23</td><td> &lt;<span class="codeReserved">p</span>&gt;Bienvenid@.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td> &lt;<span class="codeReserved">p</span>&gt;Bienvenid@.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>25</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
   <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>27</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -30120,57 +30119,52 @@ phpinfo();
   <tr><td>15</td><td></td></tr>
   <tr><td>16</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;)</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">  .then(sesion =&gt; {</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">   nav.sesion = sesion</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   <span class="codeReserved">const</span> cue = sesion.cue</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">   <span class="codeReserved">if</span> (cue === &#039;&#039;) {</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    login.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>24</td><td><span class="codeString">    outputCue.value = &#039;No ha iniciado sesión.&#039;</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">    outputRoles.value = &#039;&#039;</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">   } <span class="codeReserved">else</span> {</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">    logout.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>28</td><td><span class="codeString">    outputCue.value = cue</span></td></tr>
-  <tr><td>29</td><td><span class="codeString">    <span class="codeReserved">const</span> rolIds = sesion.rolIds</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">    outputRoles.value = rolIds.size === 0</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">     ? &#039;Sin roles&#039;</span></td></tr>
-  <tr><td>32</td><td><span class="codeString">     : Array.<span class="codeReserved">from</span>(rolIds).join(&#039;, &#039;)</span></td></tr>
-  <tr><td>33</td><td><span class="codeString">   }</span></td></tr>
-  <tr><td>34</td><td><span class="codeString">  })</span></td></tr>
-  <tr><td>35</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td> &lt;<span class="codeReserved">h1</span>&gt;Perfil&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>42</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputCue"</span>&gt;</td></tr>
-  <tr><td>43</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>44</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>45</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>48</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputRoles"</span>&gt;</td></tr>
-  <tr><td>49</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>50</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>51</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>52</td><td></td></tr>
-  <tr><td>53</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td>  &lt;<span class="codeReserved">a</span> id=<span class="codeString">"login"</span> hidden href=<span class="codeString">"login.html"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">a</span>&gt;</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> id=<span class="codeString">"logout"</span> hidden</td></tr>
-  <tr><td>58</td><td>    onclick=<span class="codeString">"consumeJson(&#039;srv/logout.php&#039;)</span></td></tr>
-  <tr><td>59</td><td><span class="codeString">     .then(json =&gt; location.reload())</span></td></tr>
-  <tr><td>60</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>61</td><td>   Terminar sesión</td></tr>
-  <tr><td>62</td><td>  &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>67</td><td></td></tr>
-  <tr><td>68</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>18</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(nav).then(sesion =&gt; {</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">   <span class="codeReserved">const</span> cue = sesion.cue</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">   <span class="codeReserved">if</span> (cue === &#039;&#039;) {</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">    login.hidden = <span class="codeReserved">false</span></span></td></tr>
+  <tr><td>22</td><td><span class="codeString">    outputCue.value = &#039;No ha iniciado sesión.&#039;</span></td></tr>
+  <tr><td>23</td><td><span class="codeString">    outputRoles.value = &#039;&#039;</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">   } <span class="codeReserved">else</span> {</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">    logout.hidden = <span class="codeReserved">false</span></span></td></tr>
+  <tr><td>26</td><td><span class="codeString">    outputCue.value = cue</span></td></tr>
+  <tr><td>27</td><td><span class="codeString">    <span class="codeReserved">const</span> rolIds = sesion.rolIds</span></td></tr>
+  <tr><td>28</td><td><span class="codeString">    outputRoles.value = rolIds.size === 0</span></td></tr>
+  <tr><td>29</td><td><span class="codeString">     ? &#039;Sin roles&#039;</span></td></tr>
+  <tr><td>30</td><td><span class="codeString">     : Array.<span class="codeReserved">from</span>(rolIds).join(&#039;, &#039;)</span></td></tr>
+  <tr><td>31</td><td><span class="codeString">   }</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">  })"</span>&gt;</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>35</td><td></td></tr>
+  <tr><td>36</td><td> &lt;<span class="codeReserved">h1</span>&gt;Perfil&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>39</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputCue"</span>&gt;</td></tr>
+  <tr><td>40</td><td>   &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
+  <tr><td>41</td><td>  &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>42</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>45</td><td>  &lt;<span class="codeReserved">output</span> id=<span class="codeString">"outputRoles"</span>&gt;&lt;/<span class="codeReserved">output</span>&gt;</td></tr>
+  <tr><td>46</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>47</td><td></td></tr>
+  <tr><td>48</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>49</td><td></td></tr>
+  <tr><td>50</td><td>  &lt;<span class="codeReserved">a</span> id=<span class="codeString">"login"</span> hidden href=<span class="codeString">"login.html"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">a</span>&gt;</td></tr>
+  <tr><td>51</td><td></td></tr>
+  <tr><td>52</td><td>  &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> id=<span class="codeString">"logout"</span> hidden</td></tr>
+  <tr><td>53</td><td>    onclick=<span class="codeString">"consumeJson(&#039;srv/logout.php&#039;)</span></td></tr>
+  <tr><td>54</td><td><span class="codeString">     .then(json =&gt; location.reload())</span></td></tr>
+  <tr><td>55</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>56</td><td>   Terminar sesión</td></tr>
+  <tr><td>57</td><td>  &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>58</td><td></td></tr>
+  <tr><td>59</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>60</td><td></td></tr>
+  <tr><td>61</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
+  <tr><td>62</td><td></td></tr>
+  <tr><td>63</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -30201,43 +30195,41 @@ phpinfo();
   <tr><td>14</td><td></td></tr>
   <tr><td>15</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;)</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">  .then(sesion =&gt; {</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">   <span class="codeReserved">if</span> (sesion.cue !== &#039;&#039;) {</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">    location.href = &#039;perfil.html&#039;</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   }</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">  })</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">  .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"login"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/login.php&#039;, event)</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">   .then(sesion =&gt; location.href = &#039;perfil.html&#039;)</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege().then(sesion =&gt; {</span></td></tr>
+  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">if</span> (sesion.cue !== &#039;&#039;) {</span></td></tr>
+  <tr><td>19</td><td><span class="codeString">    location.href = &#039;perfil.html&#039;</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">   }</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">  })"</span>&gt;</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"login"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/login.php&#039;, event)</span></td></tr>
+  <tr><td>24</td><td><span class="codeString">   .then(sesion =&gt; location.href = &#039;perfil.html&#039;)</span></td></tr>
+  <tr><td>25</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Iniciar Sesión&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
   <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Iniciar Sesión&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
+  <tr><td>29</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"perfil.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"perfil.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>34</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>35</td><td>    Cue</td></tr>
-  <tr><td>36</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"cue"</span>&gt;</td></tr>
-  <tr><td>37</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>38</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>41</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>42</td><td>    Match</td></tr>
-  <tr><td>43</td><td>    &lt;<span class="codeReserved">input</span> type=<span class="codeString">"password"</span> name=<span class="codeString">"match"</span>&gt;</td></tr>
-  <tr><td>44</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>45</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>31</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>32</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>33</td><td>    Cue</td></tr>
+  <tr><td>34</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"cue"</span>&gt;</td></tr>
+  <tr><td>35</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>36</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>39</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>40</td><td>    Match</td></tr>
+  <tr><td>41</td><td>    &lt;<span class="codeReserved">input</span> type=<span class="codeString">"password"</span> name=<span class="codeString">"match"</span>&gt;</td></tr>
+  <tr><td>42</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
+  <tr><td>43</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>44</td><td></td></tr>
+  <tr><td>45</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>47</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
   <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
+  <tr><td>49</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
   <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>52</td><td></td></tr>
-  <tr><td>53</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>51</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -30271,34 +30263,30 @@ phpinfo();
   <tr><td>17</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>18</td><td></td></tr>
   <tr><td>19</td><td>&lt;<span class="codeReserved">body</span></td></tr>
-  <tr><td>20</td><td>  onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;, [ROL_ID_ADMINISTRADOR], &#039;index.html&#039;)</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   .then(sesion =&gt; {</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">     nav.sesion = sesion</span></td></tr>
-  <tr><td>23</td><td><span class="codeString">     main.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>24</td><td><span class="codeString">    })</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>20</td><td>  onload=<span class="codeString">"protege(nav, [ROL_ID_ADMINISTRADOR])</span></td></tr>
+  <tr><td>21</td><td><span class="codeString">  .then(sesion =&gt; main.hidden = <span class="codeReserved">false</span>)"</span>&gt;</td></tr>
+  <tr><td>22</td><td></td></tr>
+  <tr><td>23</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>24</td><td></td></tr>
+  <tr><td>25</td><td> &lt;<span class="codeReserved">main</span> id=<span class="codeString">"main"</span> hidden&gt;</td></tr>
   <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>27</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Solo Administradores&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
   <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> &lt;<span class="codeReserved">main</span> id=<span class="codeString">"main"</span> hidden&gt;</td></tr>
+  <tr><td>29</td><td>  &lt;<span class="codeReserved">p</span>&gt;Hola.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Solo Administradores&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  &lt;<span class="codeReserved">p</span>&gt;Hola.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>36</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> onclick=<span class="codeString">"consumeJson(&#039;srv/saludo-cliente.php&#039;)</span></td></tr>
-  <tr><td>37</td><td><span class="codeString">      .then(saludo =&gt; alert(saludo.body))</span></td></tr>
-  <tr><td>38</td><td><span class="codeString">      .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>39</td><td>    Ejecuta servicio</td></tr>
-  <tr><td>40</td><td>   &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>41</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>31</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>32</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> onclick=<span class="codeString">"consumeJson(&#039;srv/saludo-cliente.php&#039;)</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">      .then(saludo =&gt; alert(saludo.body))</span></td></tr>
+  <tr><td>34</td><td><span class="codeString">      .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>35</td><td>    Ejecuta servicio</td></tr>
+  <tr><td>36</td><td>   &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>37</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>38</td><td></td></tr>
+  <tr><td>39</td><td> &lt;/<span class="codeReserved">main</span>&gt;</td></tr>
+  <tr><td>40</td><td></td></tr>
+  <tr><td>41</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
   <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td> &lt;/<span class="codeReserved">main</span>&gt;</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>43</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -30331,34 +30319,30 @@ phpinfo();
   <tr><td>16</td><td></td></tr>
   <tr><td>17</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
   <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(&#039;srv/sesion-actual.php&#039;, [ROL_ID_CLIENTE], &#039;index.html&#039;)</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">   .then(sesion =&gt; {</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">     nav.sesion = sesion</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">     main.hidden = <span class="codeReserved">false</span></span></td></tr>
-  <tr><td>23</td><td><span class="codeString">    })</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>19</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege(nav, [ROL_ID_CLIENTE])</span></td></tr>
+  <tr><td>20</td><td><span class="codeString">  .then(sesion =&gt; main.hidden = <span class="codeReserved">false</span>)"</span>&gt;</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td> &lt;<span class="codeReserved">main</span> id=<span class="codeString">"main"</span> hidden&gt;</td></tr>
   <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td> &lt;<span class="codeReserved">mi-nav</span> id=<span class="codeString">"nav"</span>&gt;&lt;/<span class="codeReserved">mi-nav</span>&gt;</td></tr>
+  <tr><td>26</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Solo Clientes&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
   <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td> &lt;<span class="codeReserved">main</span> id=<span class="codeString">"main"</span> hidden&gt;</td></tr>
+  <tr><td>28</td><td>  &lt;<span class="codeReserved">p</span>&gt;Hola.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
   <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Solo Clientes&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td>  &lt;<span class="codeReserved">p</span>&gt;Hola.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>35</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> onclick=<span class="codeString">"consumeJson(&#039;srv/saludo-cliente.php&#039;)</span></td></tr>
-  <tr><td>36</td><td><span class="codeString">     .then(saludo =&gt; alert(saludo.body))</span></td></tr>
-  <tr><td>37</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>38</td><td>    Ejecuta servicio</td></tr>
-  <tr><td>39</td><td>   &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>40</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>30</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>31</td><td>   &lt;<span class="codeReserved">button</span> type=<span class="codeString">"button"</span> onclick=<span class="codeString">"consumeJson(&#039;srv/saludo-cliente.php&#039;)</span></td></tr>
+  <tr><td>32</td><td><span class="codeString">     .then(saludo =&gt; alert(saludo.body))</span></td></tr>
+  <tr><td>33</td><td><span class="codeString">     .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
+  <tr><td>34</td><td>    Ejecuta servicio</td></tr>
+  <tr><td>35</td><td>   &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
+  <tr><td>36</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td> &lt;/<span class="codeReserved">main</span>&gt;</td></tr>
+  <tr><td>39</td><td></td></tr>
+  <tr><td>40</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
   <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> &lt;/<span class="codeReserved">main</span>&gt;</td></tr>
-  <tr><td>43</td><td></td></tr>
-  <tr><td>44</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>45</td><td></td></tr>
-  <tr><td>46</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td>42</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
  </tbody>
 </table>
       </section>
@@ -30443,33 +30427,55 @@ phpinfo();
  <tbody>
   <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/consumeJson.js"</span></td></tr>
   <tr><td>2</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/exportaAHtml.js"</span></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} servicio</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} [urlDeProtección]</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>10</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(servicio, rolIdsPermitidos, urlDeProtección) {</td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(servicio)</td></tr>
-  <tr><td>12</td><td> <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
-  <tr><td>14</td><td>  <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>15</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
-  <tr><td>17</td><td>  <span class="codeReserved">for</span> (<span class="codeReserved">const</span> rolId of rolIdsPermitidos) {</td></tr>
-  <tr><td>18</td><td>   <span class="codeReserved">if</span> (rolIds.has(rolId)) {</td></tr>
-  <tr><td>19</td><td>    <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>20</td><td>   }</td></tr>
-  <tr><td>21</td><td>  }</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">if</span> (urlDeProtección !== undefined) {</td></tr>
-  <tr><td>23</td><td>   location.href = urlDeProtección</td></tr>
-  <tr><td>24</td><td>  }</td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
-  <tr><td>26</td><td> }</td></tr>
-  <tr><td>27</td><td>}</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>exportaAHtml(protege)</td></tr>
+  <tr><td>3</td><td><span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/muestraError.js"</span></td></tr>
+  <tr><td>4</td><td><span class="codeReserved">import</span> { MiNav } <span class="codeReserved">from</span> <span class="codeString">"./custom/mi-nav.js"</span></td></tr>
+  <tr><td>5</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td><span class="codeReserved">const</span> SERVICIO = <span class="codeString">'srv/sesion-actual.php'</span></td></tr>
+  <tr><td>8</td><td><span class="codeReserved">const</span> URL_DE_PROTECCION = <span class="codeString">'index.html'</span></td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>11</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {MiNav} [nav]</span></td></tr>
+  <tr><td>12</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
+  <tr><td>13</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>14</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(nav, rolIdsPermitidos) {</td></tr>
+  <tr><td>15</td><td> <span class="codeReserved">try</span> {</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td>  <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(SERVICIO)</td></tr>
+  <tr><td>18</td><td>  <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>  <span class="codeReserved">if</span> (nav) {</td></tr>
+  <tr><td>21</td><td>   nav.sesion = sesion</td></tr>
+  <tr><td>22</td><td>  }</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>  <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
+  <tr><td>25</td><td></td></tr>
+  <tr><td>26</td><td>   <span class="codeReserved">return</span> sesion</td></tr>
+  <tr><td>27</td><td></td></tr>
+  <tr><td>28</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">const</span> rolId of rolIdsPermitidos) {</td></tr>
+  <tr><td>33</td><td>    <span class="codeReserved">if</span> (rolIds.has(rolId)) {</td></tr>
+  <tr><td>34</td><td>     <span class="codeReserved">return</span> sesion</td></tr>
+  <tr><td>35</td><td>    }</td></tr>
+  <tr><td>36</td><td>   }</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td>   <span class="codeReserved">if</span> (location.href !== URL_DE_PROTECCION) {</td></tr>
+  <tr><td>39</td><td>    location.href = URL_DE_PROTECCION</td></tr>
+  <tr><td>40</td><td>   }</td></tr>
+  <tr><td>41</td><td></td></tr>
+  <tr><td>42</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
+  <tr><td>43</td><td></td></tr>
+  <tr><td>44</td><td>  }</td></tr>
+  <tr><td>45</td><td></td></tr>
+  <tr><td>46</td><td> } <span class="codeReserved">catch</span> (error) {</td></tr>
+  <tr><td>47</td><td>  muestraError(error)</td></tr>
+  <tr><td>48</td><td> }</td></tr>
+  <tr><td>49</td><td>}</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td>exportaAHtml(protege)</td></tr>
  </tbody>
 </table>
       </section>
@@ -30713,6 +30719,11 @@ phpinfo();
    <li>
     <p>
      <a href="/m19aut/m-srv/m-protege-php.html">srv / protege.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-srv/m-rolIdsParaUsuId-php.html">srv / rolIdsParaUsuId.php</a>
     </p>
    </li>
    <li>
@@ -30977,72 +30988,63 @@ phpinfo();
   <tr><td>13</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
   <tr><td>14</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/TABLA_USUARIO.php"</span>;</td></tr>
   <tr><td>15</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/protege.php"</span>;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> $sesion = protege();</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td> <span class="codeReserved">if</span> ($sesion-&gt;cue !== <span class="codeString">""</span>)</td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>23</td><td>   status: NO_AUTORIZADO,</td></tr>
-  <tr><td>24</td><td>   type: <span class="codeString">"/error/sesioniniciada.html"</span>,</td></tr>
-  <tr><td>25</td><td>   title: <span class="codeString">"Sesión iniciada."</span>,</td></tr>
-  <tr><td>26</td><td>   detail: <span class="codeString">"La sesión ya está iniciada."</span>,</td></tr>
-  <tr><td>27</td><td>  );</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> $cue = recuperaTexto(<span class="codeString">"cue"</span>);</td></tr>
-  <tr><td>30</td><td> $match = recuperaTexto(<span class="codeString">"match"</span>);</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td> $cue = validaCue($cue);</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td> <span class="codeReserved">if</span> ($match === <span class="codeReserved">false</span>)</td></tr>
-  <tr><td>35</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>36</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>37</td><td>   title: <span class="codeString">"Falta el match."</span>,</td></tr>
-  <tr><td>38</td><td>   type: <span class="codeString">"/error/faltamatch.html"</span>,</td></tr>
-  <tr><td>39</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de match."</span>,</td></tr>
-  <tr><td>40</td><td>  );</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td> <span class="codeReserved">if</span> ($match === <span class="codeString">""</span>)</td></tr>
-  <tr><td>43</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>44</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>45</td><td>   title: <span class="codeString">"Match en blanco."</span>,</td></tr>
-  <tr><td>46</td><td>   type: <span class="codeString">"/error/matchenblanco.html"</span>,</td></tr>
-  <tr><td>47</td><td>   detail: <span class="codeString">"Pon texto en el campo match."</span>,</td></tr>
-  <tr><td>48</td><td>  );</td></tr>
-  <tr><td>49</td><td></td></tr>
-  <tr><td>50</td><td> $pdo = Bd::pdo();</td></tr>
-  <tr><td>51</td><td></td></tr>
-  <tr><td>52</td><td> $usuario =</td></tr>
-  <tr><td>53</td><td>  selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_CUE =&gt; $cue]);</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td> <span class="codeReserved">if</span> ($usuario === <span class="codeReserved">false</span> || !password_verify($match, $usuario[USU_MATCH]))</td></tr>
-  <tr><td>56</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>57</td><td>   status: BAD_REQUEST,</td></tr>
-  <tr><td>58</td><td>   type: <span class="codeString">"/error/datosincorrectos.html"</span>,</td></tr>
-  <tr><td>59</td><td>   title: <span class="codeString">"Datos incorrectos."</span>,</td></tr>
-  <tr><td>60</td><td>   detail: <span class="codeString">"El cue y/o el match proporcionados son incorrectos."</span>,</td></tr>
-  <tr><td>61</td><td>  );</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td> $rolIds = fetchAll(</td></tr>
-  <tr><td>64</td><td>  $pdo-&gt;query(</td></tr>
-  <tr><td>65</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span> ROL_ID</span></td></tr>
-  <tr><td>66</td><td><span class="codeString">     <span class="codeReserved">FROM</span> USU_ROL</span></td></tr>
-  <tr><td>67</td><td><span class="codeString">     <span class="codeReserved">WHERE</span> USU_ID = :USU_ID</span></td></tr>
-  <tr><td>68</td><td><span class="codeString">     <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> USU_ID"</span></td></tr>
-  <tr><td>69</td><td>  ),</td></tr>
-  <tr><td>70</td><td>  [<span class="codeString">":USU_ID"</span> =&gt; $usuario[USU_ID]],</td></tr>
-  <tr><td>71</td><td>  PDO::FETCH_COLUMN</td></tr>
-  <tr><td>72</td><td> );</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> $_SESSION[CUE] = $cue;</td></tr>
-  <tr><td>75</td><td> $_SESSION[ROL_IDS] = $rolIds;</td></tr>
-  <tr><td>76</td><td> devuelveJson([</td></tr>
-  <tr><td>77</td><td>  CUE =&gt; $cue,</td></tr>
-  <tr><td>78</td><td>  ROL_IDS =&gt; $rolIds</td></tr>
-  <tr><td>79</td><td> ]);</td></tr>
-  <tr><td>80</td><td>});</td></tr>
-  <tr><td>81</td><td></td></tr>
+  <tr><td>16</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/rolIdsParaUsuId.php"</span>;</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>ejecutaServicio(<span class="codeReserved">function</span> () {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td> $sesion = protege();</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">if</span> ($sesion-&gt;cue !== <span class="codeString">""</span>)</td></tr>
+  <tr><td>23</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>24</td><td>   status: NO_AUTORIZADO,</td></tr>
+  <tr><td>25</td><td>   type: <span class="codeString">"/error/sesioniniciada.html"</span>,</td></tr>
+  <tr><td>26</td><td>   title: <span class="codeString">"Sesión iniciada."</span>,</td></tr>
+  <tr><td>27</td><td>   detail: <span class="codeString">"La sesión ya está iniciada."</span>,</td></tr>
+  <tr><td>28</td><td>  );</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td> $cue = recuperaTexto(<span class="codeString">"cue"</span>);</td></tr>
+  <tr><td>31</td><td> $match = recuperaTexto(<span class="codeString">"match"</span>);</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td> $cue = validaCue($cue);</td></tr>
+  <tr><td>34</td><td></td></tr>
+  <tr><td>35</td><td> <span class="codeReserved">if</span> ($match === <span class="codeReserved">false</span>)</td></tr>
+  <tr><td>36</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>37</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>38</td><td>   title: <span class="codeString">"Falta el match."</span>,</td></tr>
+  <tr><td>39</td><td>   type: <span class="codeString">"/error/faltamatch.html"</span>,</td></tr>
+  <tr><td>40</td><td>   detail: <span class="codeString">"La solicitud no tiene el valor de match."</span>,</td></tr>
+  <tr><td>41</td><td>  );</td></tr>
+  <tr><td>42</td><td></td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">if</span> ($match === <span class="codeString">""</span>)</td></tr>
+  <tr><td>44</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>45</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>46</td><td>   title: <span class="codeString">"Match en blanco."</span>,</td></tr>
+  <tr><td>47</td><td>   type: <span class="codeString">"/error/matchenblanco.html"</span>,</td></tr>
+  <tr><td>48</td><td>   detail: <span class="codeString">"Pon texto en el campo match."</span>,</td></tr>
+  <tr><td>49</td><td>  );</td></tr>
+  <tr><td>50</td><td></td></tr>
+  <tr><td>51</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>52</td><td></td></tr>
+  <tr><td>53</td><td> $usuario =</td></tr>
+  <tr><td>54</td><td>  selectFirst(pdo: $pdo, <span class="codeReserved">from</span>: USUARIO, where: [USU_CUE =&gt; $cue]);</td></tr>
+  <tr><td>55</td><td></td></tr>
+  <tr><td>56</td><td> <span class="codeReserved">if</span> ($usuario === <span class="codeReserved">false</span> || !password_verify($match, $usuario[USU_MATCH]))</td></tr>
+  <tr><td>57</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>58</td><td>   status: BAD_REQUEST,</td></tr>
+  <tr><td>59</td><td>   type: <span class="codeString">"/error/datosincorrectos.html"</span>,</td></tr>
+  <tr><td>60</td><td>   title: <span class="codeString">"Datos incorrectos."</span>,</td></tr>
+  <tr><td>61</td><td>   detail: <span class="codeString">"El cue y/o el match proporcionados son incorrectos."</span>,</td></tr>
+  <tr><td>62</td><td>  );</td></tr>
+  <tr><td>63</td><td></td></tr>
+  <tr><td>64</td><td> $_SESSION[CUE] = $cue;</td></tr>
+  <tr><td>65</td><td> $_SESSION[USU_ID] = $usuario[USU_ID];</td></tr>
+  <tr><td>66</td><td></td></tr>
+  <tr><td>67</td><td> devuelveJson([</td></tr>
+  <tr><td>68</td><td>  CUE =&gt; $cue,</td></tr>
+  <tr><td>69</td><td>  ROL_IDS =&gt; rolIdsParaUsuId($usuario[USU_ID])</td></tr>
+  <tr><td>70</td><td> ]);</td></tr>
+  <tr><td>71</td><td>});</td></tr>
+  <tr><td>72</td><td></td></tr>
  </tbody>
 </table>
       </section>
@@ -31101,43 +31103,77 @@ phpinfo();
   <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ROL_IDS.php"</span>;</td></tr>
   <tr><td>6</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ROL_ID_CLIENTE.php"</span>;</td></tr>
   <tr><td>7</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Sesion.php"</span>;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td><span class="codeReserved">const</span> NO_AUTORIZADO = 401;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td><span class="codeReserved">function</span> protege(?array $rolIdsPermitidos = <span class="codeReserved">null</span>)</td></tr>
-  <tr><td>12</td><td>{</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> session_start();</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> $cue = isset($_SESSION[CUE]) ? $_SESSION[CUE] : <span class="codeString">""</span>;</td></tr>
-  <tr><td>17</td><td> $rolIds = isset($_SESSION[ROL_IDS]) ? $_SESSION[ROL_IDS] : [];</td></tr>
-  <tr><td>18</td><td> $sesion = <span class="codeReserved">new</span> Sesion($cue, $rolIds);</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> <span class="codeReserved">if</span> ($rolIdsPermitidos === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>8</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/rolIdsParaUsuId.php"</span>;</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td><span class="codeReserved">const</span> NO_AUTORIZADO = 401;</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td><span class="codeReserved">function</span> protege(?array $rolIdsPermitidos = <span class="codeReserved">null</span>)</td></tr>
+  <tr><td>13</td><td>{</td></tr>
+  <tr><td>14</td><td></td></tr>
+  <tr><td>15</td><td> session_start();</td></tr>
+  <tr><td>16</td><td></td></tr>
+  <tr><td>17</td><td> $cue = isset($_SESSION[CUE]) ? $_SESSION[CUE] : <span class="codeString">""</span>;</td></tr>
+  <tr><td>18</td><td> $usuId = isset($_SESSION[USU_ID]) ? $_SESSION[USU_ID] : -1;</td></tr>
+  <tr><td>19</td><td> $rolIds = rolIdsParaUsuId($usuId);</td></tr>
+  <tr><td>20</td><td> $sesion = <span class="codeReserved">new</span> Sesion($cue, $rolIds);</td></tr>
   <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">return</span> $sesion;</td></tr>
-  <tr><td>23</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">foreach</span> ($rolIdsPermitidos <span class="codeReserved">as</span> $rolId) {</td></tr>
-  <tr><td>26</td><td>   <span class="codeReserved">if</span> (array_search($rolId, $rolIds, <span class="codeReserved">true</span>) !== <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>27</td><td>    <span class="codeReserved">return</span> $sesion;</td></tr>
-  <tr><td>28</td><td>   }</td></tr>
-  <tr><td>29</td><td>  }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
-  <tr><td>32</td><td>   status: NO_AUTORIZADO,</td></tr>
-  <tr><td>33</td><td>   type: <span class="codeString">"/error/noautorizado.html"</span>,</td></tr>
-  <tr><td>34</td><td>   title: <span class="codeString">"No autorizado."</span>,</td></tr>
-  <tr><td>35</td><td>   detail: <span class="codeString">"No está autorizado para usar este recurso."</span>,</td></tr>
-  <tr><td>36</td><td>  );</td></tr>
-  <tr><td>37</td><td> }</td></tr>
-  <tr><td>38</td><td>}</td></tr>
-  <tr><td>39</td><td></td></tr>
+  <tr><td>22</td><td> <span class="codeReserved">if</span> ($rolIdsPermitidos === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>  <span class="codeReserved">return</span> $sesion;</td></tr>
+  <tr><td>25</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>26</td><td></td></tr>
+  <tr><td>27</td><td>  <span class="codeReserved">foreach</span> ($rolIdsPermitidos <span class="codeReserved">as</span> $rolId) {</td></tr>
+  <tr><td>28</td><td>   <span class="codeReserved">if</span> (array_search($rolId, $rolIds, <span class="codeReserved">true</span>) !== <span class="codeReserved">false</span>) {</td></tr>
+  <tr><td>29</td><td>    <span class="codeReserved">return</span> $sesion;</td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td>  }</td></tr>
+  <tr><td>32</td><td></td></tr>
+  <tr><td>33</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</td></tr>
+  <tr><td>34</td><td>   status: NO_AUTORIZADO,</td></tr>
+  <tr><td>35</td><td>   type: <span class="codeString">"/error/noautorizado.html"</span>,</td></tr>
+  <tr><td>36</td><td>   title: <span class="codeString">"No autorizado."</span>,</td></tr>
+  <tr><td>37</td><td>   detail: <span class="codeString">"No está autorizado para usar este recurso."</span>,</td></tr>
+  <tr><td>38</td><td>  );</td></tr>
+  <tr><td>39</td><td> }</td></tr>
+  <tr><td>40</td><td>}</td></tr>
+  <tr><td>41</td><td></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >F. srv / ROL_IDS.php</h1><table class="codeShow">
+         <h1 >F. srv / rolIdsParaUsuId.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/fetchAll.php"</span>;</td></tr>
+  <tr><td>4</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</td></tr>
+  <tr><td>5</td><td></td></tr>
+  <tr><td>6</td><td><span class="codeReserved">function</span> rolIdsParaUsuId(<span class="codeReserved">int</span> $id) {</td></tr>
+  <tr><td>7</td><td> $pdo = Bd::pdo();</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">return</span> fetchAll(</td></tr>
+  <tr><td>9</td><td>  $pdo-&gt;query(</td></tr>
+  <tr><td>10</td><td>   <span class="codeString">"<span class="codeReserved">SELECT</span> ROL_ID</span></td></tr>
+  <tr><td>11</td><td><span class="codeString">     <span class="codeReserved">FROM</span> USU_ROL</span></td></tr>
+  <tr><td>12</td><td><span class="codeString">     <span class="codeReserved">WHERE</span> USU_ID = :USU_ID</span></td></tr>
+  <tr><td>13</td><td><span class="codeString">     <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> ROL_ID"</span></td></tr>
+  <tr><td>14</td><td>  ),</td></tr>
+  <tr><td>15</td><td>  [<span class="codeString">":USU_ID"</span> =&gt; $id],</td></tr>
+  <tr><td>16</td><td>  PDO::FETCH_COLUMN</td></tr>
+  <tr><td>17</td><td> );</td></tr>
+  <tr><td>18</td><td>}</td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >G. srv / ROL_IDS.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31154,7 +31190,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >G. srv / ROL_ID_ADMINISTRADOR.php</h1><table class="codeShow">
+         <h1 >H. srv / ROL_ID_ADMINISTRADOR.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31172,7 +31208,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >H. srv / ROL_ID_CLIENTE.php</h1><table class="codeShow">
+         <h1 >I. srv / ROL_ID_CLIENTE.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31189,7 +31225,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >I. srv / saludo-cliente.php</h1><table class="codeShow">
+         <h1 >J. srv / saludo-cliente.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31215,7 +31251,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >J. srv / sesion-actual.php</h1><table class="codeShow">
+         <h1 >K. srv / sesion-actual.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31239,7 +31275,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >K. srv / Sesion.php</h1><table class="codeShow">
+         <h1 >L. srv / Sesion.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31268,7 +31304,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >L. srv / TABLA_ROL.php</h1><table class="codeShow">
+         <h1 >M. srv / TABLA_ROL.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31288,7 +31324,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >M. srv / TABLA_USUARIO.php</h1><table class="codeShow">
+         <h1 >N. srv / TABLA_USUARIO.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31309,7 +31345,7 @@ phpinfo();
 </table>
       </section>
      <section >
-         <h1 >N. srv / TABLA_USU_ROL.php</h1><table class="codeShow">
+         <h1 >O. srv / TABLA_USU_ROL.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -31654,131 +31690,129 @@ phpinfo();
   <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
   <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
-  <tr><td>27</td><td>      elementoHtml[atributo] = valor</td></tr>
-  <tr><td>28</td><td>     }</td></tr>
-  <tr><td>29</td><td>    }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  }</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td>exportaAHtml(muestraObjeto)</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>41</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>42</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
-  <tr><td>43</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>44</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
-  <tr><td>45</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">`#${nombre},[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
-  <tr><td>47</td><td>}</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>54</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
-  <tr><td>57</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
-  <tr><td>58</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>25</td><td>     <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>26</td><td>      elementoHtml[propiedad] = valor</td></tr>
+  <tr><td>27</td><td>     }</td></tr>
+  <tr><td>28</td><td>    }</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td>exportaAHtml(muestraObjeto)</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>40</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
+  <tr><td>41</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>42</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>44</td><td>  <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>48</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>49</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
+  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
+  <tr><td>51</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>52</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>56</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
   <tr><td>59</td><td></td></tr>
-  <tr><td>60</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
-  <tr><td>61</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
-  <tr><td>67</td><td>    option.selected = conjunto.has(option.value)</td></tr>
-  <tr><td>68</td><td>   }</td></tr>
-  <tr><td>69</td><td>   <span class="codeReserved">return</span></td></tr>
-  <tr><td>70</td><td>  }</td></tr>
+  <tr><td>60</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>61</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>62</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = elemento.options, len = options.length; i &lt; len</td></tr>
+  <tr><td>63</td><td>    ; i++) {</td></tr>
+  <tr><td>64</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>65</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>66</td><td>   }</td></tr>
+  <tr><td>67</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>68</td><td>  }</td></tr>
+  <tr><td>69</td><td></td></tr>
+  <tr><td>70</td><td> }</td></tr>
   <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td> }</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
-  <tr><td>75</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
-  <tr><td>76</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>77</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
-  <tr><td>78</td><td>  }</td></tr>
-  <tr><td>79</td><td> }</td></tr>
+  <tr><td>72</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>74</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>75</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>76</td><td>  }</td></tr>
+  <tr><td>77</td><td> }</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>}</td></tr>
   <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>}</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>85</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
-  <tr><td>86</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
-  <tr><td>87</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>88</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>81</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>82</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>83</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
+  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
+  <tr><td>85</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>86</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
   <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>90</td><td>  <span class="codeReserved">if</span> (propiedad == <span class="codeString">"data-file"</span>) {</td></tr>
   <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td>  <span class="codeReserved">if</span> (atributo == <span class="codeString">"data-file"</span>) {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
-  <tr><td>95</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>96</td><td>    input.dataset.file = valor</td></tr>
-  <tr><td>97</td><td>    input.value = <span class="codeString">""</span></td></tr>
-  <tr><td>98</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>99</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
-  <tr><td>100</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
-  <tr><td>101</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>102</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
-  <tr><td>103</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
-  <tr><td>104</td><td>    }</td></tr>
-  <tr><td>105</td><td>   }</td></tr>
+  <tr><td>92</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
+  <tr><td>93</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>94</td><td>    input.dataset.file = valor</td></tr>
+  <tr><td>95</td><td>    input.value = <span class="codeString">""</span></td></tr>
+  <tr><td>96</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>97</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
+  <tr><td>98</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>99</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>100</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
+  <tr><td>101</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>102</td><td>    }</td></tr>
+  <tr><td>103</td><td>   }</td></tr>
+  <tr><td>104</td><td></td></tr>
+  <tr><td>105</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> input) {</td></tr>
   <tr><td>106</td><td></td></tr>
-  <tr><td>107</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> input) {</td></tr>
+  <tr><td>107</td><td>   input[propiedad] = valor</td></tr>
   <tr><td>108</td><td></td></tr>
-  <tr><td>109</td><td>   input[atributo] = valor</td></tr>
-  <tr><td>110</td><td></td></tr>
-  <tr><td>111</td><td>  }</td></tr>
-  <tr><td>112</td><td> }</td></tr>
+  <tr><td>109</td><td>  }</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td></td></tr>
+  <tr><td>112</td><td>}</td></tr>
   <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>}</td></tr>
-  <tr><td>115</td><td></td></tr>
-  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>117</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>118</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
-  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
-  <tr><td>121</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
-  <tr><td>122</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>123</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>124</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>125</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
-  <tr><td>126</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
-  <tr><td>127</td><td>   <span class="codeReserved">return</span> input</td></tr>
-  <tr><td>128</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>129</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>130</td><td>  }</td></tr>
-  <tr><td>131</td><td> }</td></tr>
-  <tr><td>132</td><td>}</td></tr>
+  <tr><td>114</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>115</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>116</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>118</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>119</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
+  <tr><td>120</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>121</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>122</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>123</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
+  <tr><td>124</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>125</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>126</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>128</td><td>  }</td></tr>
+  <tr><td>129</td><td> }</td></tr>
+  <tr><td>130</td><td>}</td></tr>
  </tbody>
 </table>
       </section>
@@ -33333,11 +33367,15 @@ phpinfo();
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>RewriteEngine On</td></tr>
-  <tr><td>2</td><td>RewriteCond %{HTTP:X-Forwarded-Proto} !https</td></tr>
-  <tr><td>3</td><td>RewriteCond %{HTTPS} off</td></tr>
-  <tr><td>4</td><td>RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}</td></tr>
-  <tr><td>5</td><td>RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</td></tr>
+  <tr><td>1</td><td>RewriteEngine On</td></tr>
+  <tr><td>2</td><td></td></tr>
+  <tr><td>3</td><td>RewriteCond %{HTTP:X-Forwarded-Proto} !https</td></tr>
+  <tr><td>4</td><td></td></tr>
+  <tr><td>5</td><td>RewriteCond %{HTTPS} off</td></tr>
+  <tr><td>6</td><td></td></tr>
+  <tr><td>7</td><td>RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}</td></tr>
+  <tr><td>8</td><td></td></tr>
+  <tr><td>9</td><td>RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</td></tr>
  </tbody>
 </table>
       </section>
@@ -35193,131 +35231,129 @@ phpinfo();
   <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
   <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
-  <tr><td>27</td><td>      elementoHtml[atributo] = valor</td></tr>
-  <tr><td>28</td><td>     }</td></tr>
-  <tr><td>29</td><td>    }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  }</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td>exportaAHtml(muestraObjeto)</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>41</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>42</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
-  <tr><td>43</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>44</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
-  <tr><td>45</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">`#${nombre},[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
-  <tr><td>47</td><td>}</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>54</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
-  <tr><td>57</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
-  <tr><td>58</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>25</td><td>     <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>26</td><td>      elementoHtml[propiedad] = valor</td></tr>
+  <tr><td>27</td><td>     }</td></tr>
+  <tr><td>28</td><td>    }</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td>exportaAHtml(muestraObjeto)</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>40</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
+  <tr><td>41</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>42</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>44</td><td>  <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>48</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>49</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
+  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
+  <tr><td>51</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>52</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>56</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
   <tr><td>59</td><td></td></tr>
-  <tr><td>60</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
-  <tr><td>61</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
-  <tr><td>67</td><td>    option.selected = conjunto.has(option.value)</td></tr>
-  <tr><td>68</td><td>   }</td></tr>
-  <tr><td>69</td><td>   <span class="codeReserved">return</span></td></tr>
-  <tr><td>70</td><td>  }</td></tr>
+  <tr><td>60</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>61</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>62</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = elemento.options, len = options.length; i &lt; len</td></tr>
+  <tr><td>63</td><td>    ; i++) {</td></tr>
+  <tr><td>64</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>65</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>66</td><td>   }</td></tr>
+  <tr><td>67</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>68</td><td>  }</td></tr>
+  <tr><td>69</td><td></td></tr>
+  <tr><td>70</td><td> }</td></tr>
   <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td> }</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
-  <tr><td>75</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
-  <tr><td>76</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>77</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
-  <tr><td>78</td><td>  }</td></tr>
-  <tr><td>79</td><td> }</td></tr>
+  <tr><td>72</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>74</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>75</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>76</td><td>  }</td></tr>
+  <tr><td>77</td><td> }</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>}</td></tr>
   <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>}</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>85</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
-  <tr><td>86</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
-  <tr><td>87</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>88</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>81</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>82</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>83</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
+  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
+  <tr><td>85</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>86</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
   <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>90</td><td>  <span class="codeReserved">if</span> (propiedad == <span class="codeString">"data-file"</span>) {</td></tr>
   <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td>  <span class="codeReserved">if</span> (atributo == <span class="codeString">"data-file"</span>) {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
-  <tr><td>95</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>96</td><td>    input.dataset.file = valor</td></tr>
-  <tr><td>97</td><td>    input.value = <span class="codeString">""</span></td></tr>
-  <tr><td>98</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>99</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
-  <tr><td>100</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
-  <tr><td>101</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>102</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
-  <tr><td>103</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
-  <tr><td>104</td><td>    }</td></tr>
-  <tr><td>105</td><td>   }</td></tr>
+  <tr><td>92</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
+  <tr><td>93</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>94</td><td>    input.dataset.file = valor</td></tr>
+  <tr><td>95</td><td>    input.value = <span class="codeString">""</span></td></tr>
+  <tr><td>96</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>97</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
+  <tr><td>98</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>99</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>100</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
+  <tr><td>101</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>102</td><td>    }</td></tr>
+  <tr><td>103</td><td>   }</td></tr>
+  <tr><td>104</td><td></td></tr>
+  <tr><td>105</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> input) {</td></tr>
   <tr><td>106</td><td></td></tr>
-  <tr><td>107</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> input) {</td></tr>
+  <tr><td>107</td><td>   input[propiedad] = valor</td></tr>
   <tr><td>108</td><td></td></tr>
-  <tr><td>109</td><td>   input[atributo] = valor</td></tr>
-  <tr><td>110</td><td></td></tr>
-  <tr><td>111</td><td>  }</td></tr>
-  <tr><td>112</td><td> }</td></tr>
+  <tr><td>109</td><td>  }</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td></td></tr>
+  <tr><td>112</td><td>}</td></tr>
   <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>}</td></tr>
-  <tr><td>115</td><td></td></tr>
-  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>117</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>118</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
-  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
-  <tr><td>121</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
-  <tr><td>122</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>123</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>124</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>125</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
-  <tr><td>126</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
-  <tr><td>127</td><td>   <span class="codeReserved">return</span> input</td></tr>
-  <tr><td>128</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>129</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>130</td><td>  }</td></tr>
-  <tr><td>131</td><td> }</td></tr>
-  <tr><td>132</td><td>}</td></tr>
+  <tr><td>114</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>115</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>116</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>118</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>119</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
+  <tr><td>120</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>121</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>122</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>123</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
+  <tr><td>124</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>125</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>126</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>128</td><td>  }</td></tr>
+  <tr><td>129</td><td> }</td></tr>
+  <tr><td>130</td><td>}</td></tr>
  </tbody>
 </table>
       </section>
@@ -39430,131 +39466,129 @@ phpinfo();
   <tr><td>5</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
   <tr><td>6</td><td><span class="codeComment"> */</span></td></tr>
   <tr><td>7</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> elementoHtml) {</td></tr>
-  <tr><td>27</td><td>      elementoHtml[atributo] = valor</td></tr>
-  <tr><td>28</td><td>     }</td></tr>
-  <tr><td>29</td><td>    }</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>   }</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  }</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
-  <tr><td>38</td><td>exportaAHtml(muestraObjeto)</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>41</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>42</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
-  <tr><td>43</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>44</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
-  <tr><td>45</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
-  <tr><td>46</td><td>  <span class="codeString">`#${nombre},[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
-  <tr><td>47</td><td>}</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>51</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
-  <tr><td>52</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
-  <tr><td>53</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>54</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
-  <tr><td>55</td><td></td></tr>
-  <tr><td>56</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
-  <tr><td>57</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
-  <tr><td>58</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>8</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</td></tr>
+  <tr><td>9</td><td></td></tr>
+  <tr><td>10</td><td>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</td></tr>
+  <tr><td>11</td><td></td></tr>
+  <tr><td>12</td><td>   muestraArray(raizHtml, nombre, definiciones)</td></tr>
+  <tr><td>13</td><td></td></tr>
+  <tr><td>14</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>15</td><td></td></tr>
+  <tr><td>16</td><td>   <span class="codeReserved">const</span> elementoHtml = buscaElementoHtml(raizHtml, nombre)</td></tr>
+  <tr><td>17</td><td></td></tr>
+  <tr><td>18</td><td>   <span class="codeReserved">if</span> (elementoHtml <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>19</td><td></td></tr>
+  <tr><td>20</td><td>    muestraInput(raizHtml, elementoHtml, definiciones)</td></tr>
+  <tr><td>21</td><td></td></tr>
+  <tr><td>22</td><td>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (elementoHtml !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>23</td><td></td></tr>
+  <tr><td>24</td><td>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>25</td><td>     <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elementoHtml) {</td></tr>
+  <tr><td>26</td><td>      elementoHtml[propiedad] = valor</td></tr>
+  <tr><td>27</td><td>     }</td></tr>
+  <tr><td>28</td><td>    }</td></tr>
+  <tr><td>29</td><td></td></tr>
+  <tr><td>30</td><td>   }</td></tr>
+  <tr><td>31</td><td></td></tr>
+  <tr><td>32</td><td>  }</td></tr>
+  <tr><td>33</td><td></td></tr>
+  <tr><td>34</td><td> }</td></tr>
+  <tr><td>35</td><td>}</td></tr>
+  <tr><td>36</td><td>exportaAHtml(muestraObjeto)</td></tr>
+  <tr><td>37</td><td></td></tr>
+  <tr><td>38</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>39</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>40</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></td></tr>
+  <tr><td>41</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>42</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> buscaElementoHtml(raizHtml, nombre) {</td></tr>
+  <tr><td>43</td><td> <span class="codeReserved">return</span> raizHtml.querySelector(</td></tr>
+  <tr><td>44</td><td>  <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span>)</td></tr>
+  <tr><td>45</td><td>}</td></tr>
+  <tr><td>46</td><td></td></tr>
+  <tr><td>47</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>48</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>49</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></td></tr>
+  <tr><td>50</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></td></tr>
+  <tr><td>51</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>52</td><td><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</td></tr>
+  <tr><td>53</td><td></td></tr>
+  <tr><td>54</td><td> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</td></tr>
+  <tr><td>55</td><td> <span class="codeReserved">const</span> elementos =</td></tr>
+  <tr><td>56</td><td>  raizHtml.querySelectorAll(<span class="codeString">`[name=&quot;${propiedad}&quot;],[data-name=&quot;${propiedad}&quot;]`</span>)</td></tr>
+  <tr><td>57</td><td></td></tr>
+  <tr><td>58</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
   <tr><td>59</td><td></td></tr>
-  <tr><td>60</td><td> <span class="codeReserved">if</span> (elementos.length === 1) {</td></tr>
-  <tr><td>61</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
-  <tr><td>62</td><td></td></tr>
-  <tr><td>63</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
-  <tr><td>64</td><td>   <span class="codeReserved">const</span> options = elemento.options</td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = options.length; i &lt; len; i++) {</td></tr>
-  <tr><td>66</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
-  <tr><td>67</td><td>    option.selected = conjunto.has(option.value)</td></tr>
-  <tr><td>68</td><td>   }</td></tr>
-  <tr><td>69</td><td>   <span class="codeReserved">return</span></td></tr>
-  <tr><td>70</td><td>  }</td></tr>
+  <tr><td>60</td><td>  <span class="codeReserved">const</span> elemento = elementos[0]</td></tr>
+  <tr><td>61</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLSelectElement) {</td></tr>
+  <tr><td>62</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = elemento.options, len = options.length; i &lt; len</td></tr>
+  <tr><td>63</td><td>    ; i++) {</td></tr>
+  <tr><td>64</td><td>    <span class="codeReserved">const</span> option = options[i]</td></tr>
+  <tr><td>65</td><td>    option.selected = conjunto.has(option.value)</td></tr>
+  <tr><td>66</td><td>   }</td></tr>
+  <tr><td>67</td><td>   <span class="codeReserved">return</span></td></tr>
+  <tr><td>68</td><td>  }</td></tr>
+  <tr><td>69</td><td></td></tr>
+  <tr><td>70</td><td> }</td></tr>
   <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td> }</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
-  <tr><td>75</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
-  <tr><td>76</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
-  <tr><td>77</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
-  <tr><td>78</td><td>  }</td></tr>
-  <tr><td>79</td><td> }</td></tr>
+  <tr><td>72</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</td></tr>
+  <tr><td>73</td><td>  <span class="codeReserved">const</span> elemento = elementos[i]</td></tr>
+  <tr><td>74</td><td>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</td></tr>
+  <tr><td>75</td><td>   elemento.checked = conjunto.has(elemento.value)</td></tr>
+  <tr><td>76</td><td>  }</td></tr>
+  <tr><td>77</td><td> }</td></tr>
+  <tr><td>78</td><td></td></tr>
+  <tr><td>79</td><td>}</td></tr>
   <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>}</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>85</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
-  <tr><td>86</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
-  <tr><td>87</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>88</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>81</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>82</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>83</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLInputElement } input</span></td></tr>
+  <tr><td>84</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { any } definiciones</span></td></tr>
+  <tr><td>85</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>86</td><td><span class="codeReserved">function</span> muestraInput(raizHtml, input, definiciones) {</td></tr>
+  <tr><td>87</td><td></td></tr>
+  <tr><td>88</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</td></tr>
   <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [atributo, valor] of Object.entries(definiciones)) {</td></tr>
+  <tr><td>90</td><td>  <span class="codeReserved">if</span> (propiedad == <span class="codeString">"data-file"</span>) {</td></tr>
   <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td>  <span class="codeReserved">if</span> (atributo == <span class="codeString">"data-file"</span>) {</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
-  <tr><td>95</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>96</td><td>    input.dataset.file = valor</td></tr>
-  <tr><td>97</td><td>    input.value = <span class="codeString">""</span></td></tr>
-  <tr><td>98</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>99</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
-  <tr><td>100</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
-  <tr><td>101</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>102</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
-  <tr><td>103</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
-  <tr><td>104</td><td>    }</td></tr>
-  <tr><td>105</td><td>   }</td></tr>
+  <tr><td>92</td><td>   <span class="codeReserved">const</span> img = getImgParaElementoHtml(raizHtml, input)</td></tr>
+  <tr><td>93</td><td>   <span class="codeReserved">if</span> (img !== <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>94</td><td>    input.dataset.file = valor</td></tr>
+  <tr><td>95</td><td>    input.value = <span class="codeString">""</span></td></tr>
+  <tr><td>96</td><td>    <span class="codeReserved">if</span> (valor === <span class="codeString">""</span>) {</td></tr>
+  <tr><td>97</td><td>     img.<span class="codeReserved">src</span> = <span class="codeString">""</span></td></tr>
+  <tr><td>98</td><td>     img.hidden = <span class="codeReserved">true</span></td></tr>
+  <tr><td>99</td><td>    } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>100</td><td>     img.<span class="codeReserved">src</span> = valor</td></tr>
+  <tr><td>101</td><td>     img.hidden = <span class="codeReserved">false</span></td></tr>
+  <tr><td>102</td><td>    }</td></tr>
+  <tr><td>103</td><td>   }</td></tr>
+  <tr><td>104</td><td></td></tr>
+  <tr><td>105</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> input) {</td></tr>
   <tr><td>106</td><td></td></tr>
-  <tr><td>107</td><td>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (atributo <span class="codeReserved">in</span> input) {</td></tr>
+  <tr><td>107</td><td>   input[propiedad] = valor</td></tr>
   <tr><td>108</td><td></td></tr>
-  <tr><td>109</td><td>   input[atributo] = valor</td></tr>
-  <tr><td>110</td><td></td></tr>
-  <tr><td>111</td><td>  }</td></tr>
-  <tr><td>112</td><td> }</td></tr>
+  <tr><td>109</td><td>  }</td></tr>
+  <tr><td>110</td><td> }</td></tr>
+  <tr><td>111</td><td></td></tr>
+  <tr><td>112</td><td>}</td></tr>
   <tr><td>113</td><td></td></tr>
-  <tr><td>114</td><td>}</td></tr>
-  <tr><td>115</td><td></td></tr>
-  <tr><td>116</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>117</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
-  <tr><td>118</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
-  <tr><td>119</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>120</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
-  <tr><td>121</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
-  <tr><td>122</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>123</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>124</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>125</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
-  <tr><td>126</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
-  <tr><td>127</td><td>   <span class="codeReserved">return</span> input</td></tr>
-  <tr><td>128</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>129</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
-  <tr><td>130</td><td>  }</td></tr>
-  <tr><td>131</td><td> }</td></tr>
-  <tr><td>132</td><td>}</td></tr>
+  <tr><td>114</td><td><span class="codeComment">/**</span></td></tr>
+  <tr><td>115</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement } raizHtml</span></td></tr>
+  <tr><td>116</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { HTMLElement } elementoHtml</span></td></tr>
+  <tr><td>117</td><td><span class="codeComment"> */</span></td></tr>
+  <tr><td>118</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> getImgParaElementoHtml(raizHtml, elementoHtml) {</td></tr>
+  <tr><td>119</td><td> <span class="codeReserved">const</span> imgId = elementoHtml.getAttribute(<span class="codeString">"data-img"</span>)</td></tr>
+  <tr><td>120</td><td> <span class="codeReserved">if</span> (imgId === <span class="codeReserved">null</span>) {</td></tr>
+  <tr><td>121</td><td>  <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>122</td><td> } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>123</td><td>  <span class="codeReserved">const</span> input = buscaElementoHtml(raizHtml, imgId)</td></tr>
+  <tr><td>124</td><td>  <span class="codeReserved">if</span> (input <span class="codeReserved">instanceof</span> HTMLImageElement) {</td></tr>
+  <tr><td>125</td><td>   <span class="codeReserved">return</span> input</td></tr>
+  <tr><td>126</td><td>  } <span class="codeReserved">else</span> {</td></tr>
+  <tr><td>127</td><td>   <span class="codeReserved">return</span> <span class="codeReserved">null</span></td></tr>
+  <tr><td>128</td><td>  }</td></tr>
+  <tr><td>129</td><td> }</td></tr>
+  <tr><td>130</td><td>}</td></tr>
  </tbody>
 </table>
       </section>

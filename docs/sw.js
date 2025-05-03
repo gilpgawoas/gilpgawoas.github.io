@@ -754,6 +754,7 @@ const ARCHIVOS = [
  "/m19aut/m-srv/m-login-php.html",
  "/m19aut/m-srv/m-logout-php.html",
  "/m19aut/m-srv/m-protege-php.html",
+ "/m19aut/m-srv/m-rolIdsParaUsuId-php.html",
  "/m19aut/m-srv/m-ROL_IDS-php.html",
  "/m19aut/m-srv/m-ROL_ID_ADMINISTRADOR-php.html",
  "/m19aut/m-srv/m-ROL_ID_CLIENTE-php.html",
