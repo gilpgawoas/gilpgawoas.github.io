@@ -741,7 +741,7 @@
 </head>
 
 <body class="print">
-   <h1 >10. Servicio que devuelve JSON</h1>
+   <h1 >7. Servicio que devuelve JSON</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -757,11 +757,6 @@
    <li>
     <p>
      <a href="/m08srvdevuelve/mAintro.html">Introducción</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/mBexportaAHtml.html">La función <dfn><code>exportaAHtml</code></dfn></a>
     </p>
    </li>
    <li>
@@ -796,7 +791,12 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mDinstrucciones.html">Hazlo funcionar</a>
+     <a href="/m08srvdevuelve/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/mDinstrucciones.html">Hazlo funcionar (texto)</a>
     </p>
    </li>
    <li>
@@ -811,17 +811,17 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-srv/">Carpeta « srv »</a>
+     <a href="/m08srvdevuelve/m-php/">Carpeta « php »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-error/">Carpeta « error »</a>
+     <a href="/m08srvdevuelve/m-errors/">Carpeta « errors »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/">Carpeta « lib »</a>
+     <a href="/m08srvdevuelve/m-js/">Carpeta « js »</a>
     </p>
    </li>
    <li>
@@ -854,47 +854,7 @@
 </div>
       </section>
      <section >
-         <h1 >B. La función <dfn><code>exportaAHtml</code></dfn></h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    El código más moderno de JavaScript se distribuye en módulos.
-   </p>
-  </li>
-  <li>
-   <p>
-    El código de eventos de las etiquetas de HTML no tienen acceso directo al
-    contenido de módulos, pero al asignar un elemento del módulo como una
-    propiedad del objeto window, el elemento de software se vuelve visible
-    dentro de los eventos. Se puede hacer con una instrucción de la forma<br>
-    <code>window["propiedad"] = elementoDeSoftware</code><br>
-    o de la forma<br>
-    <code>window.propiedad = elementoDeSoftware</code><br>
-   </p>
-  </li>
-  <li>
-   <p>
-    La función <code>exportaAHtml</code> hace visible una función a los eventos
-    del código HTML.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para usarla, debes importar el archivo donde está definida esta función y
-    luego invocarla pasándole la función que se exporta..
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta función.
-   </p>
-  </li>
- </ul>
-</div>
-      </section>
-     <section >
-         <h1 >C. La función <dfn><code>consumeJson</code></dfn></h1><div class="lectura">
+         <h1 >B. La función <dfn><code>consumeJson</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -922,7 +882,7 @@
 </div>
       </section>
      <section >
-         <h1 >D. La función <dfn><code>devuelveJson</code></dfn></h1><div class="lectura">
+         <h1 >C. La función <dfn><code>devuelveJson</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -947,7 +907,7 @@
 </div>
       </section>
      <section >
-         <h1 >E. La clase <dfn><code>ProblemDetails</code></dfn></h1><div class="lectura">
+         <h1 >D. La clase <dfn><code>ProblemDetails</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -992,7 +952,7 @@
 </div>
       </section>
      <section >
-         <h1 >F. La función <dfn><code>muestraError</code></dfn></h1><div class="lectura">
+         <h1 >E. La función <dfn><code>muestraError</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -1031,14 +991,14 @@
 </div>
       </section>
      <section >
-         <h1 >G. Diagrama de despliegue</h1><figure>
+         <h1 >F. Diagrama de despliegue</h1><figure>
  <img style="max-height: none;"
    src="/img/m08srvdevuelve/srvdevuelvedistribucion.drawio.svg"
    alt="Diagrama de despliegue">
 </figure>
       </section>
      <section>
-         <h1 >H. Funcionamiento</h1>
+         <h1 >G. Funcionamiento</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -1277,13 +1237,130 @@
       </section>
       </section>
      <section >
-         <h1 >I. Hazlo funcionar</h1><div class="lectura">
+         <h1 >H. Hazlo funcionar (con videos)</h1><div class="lectura">
  <ol>
   <li>
    <p>
     Prueba el ejemplo en
     <a href="http://srvdevuelve.rf.gd/" rel="noreferrer"
-      target="_blank">http://srvdevuelve.rf.gd/</a>.
+       target="_blank">http://srvdevuelve.rf.gd/</a>.
+   </p>
+  </li>
+  <li>
+   <p>
+    Descarga el archivo
+    <a href="/src/srvdevuelve.zip" download>/src/srvdevuelve.zip</a> y
+    descompáctalo.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1NPT_wiMuP9c79b4BPmXn-Go7KaNtuTvJ/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Crea una cuenta de email pqra
+     ti</a>, por ejemplo,
+    <samp>pepito@google.com</samp>.
+    Si ya tienes un email, omite este paso.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1zhsrkIwyEC3eN543bbmIf3Y41QBGn15k/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Crea una cuenta de GitHub</a>
+    <mark>usando el email anterior</mark> y selecciona el nombre
+    de usuario unsando la parte inicial del correo electrónico, por ejemplo
+    <samp>pepito</samp>.
+    Si ya tienes una cuenta, omite este paso.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1oBWPtoktqYVh-y3YD4SkOA_qYQ7UpTET/view?usp=drive_link"
+       target="_blank" rel="noopener noreferrer">Crea un repositorio nuevo.</a>
+    En el nombre del repositorio debes poner el nombre de tu sitio; por ejemplo
+    <samp>devuelvejson</samp></mark>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/17PrBrRrg_yPLiF2v5WLW1xKf7PxEFMoW/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Importa el proyecto de GitHub a
+     Visual Studio Code</a>
+   </p>
+  </li>
+  <li>
+   <p><strong>Edita los archivos que desees.</strong></p>
+  </li>
+  <li>
+   <p>Prueba tu sitio localmente.</p>
+   <ul>
+    <li>
+     <p>
+      <a href="https://drive.google.com/file/d/1IOexdmDa2kNqh4Z_9eOKmnn7u59c4OzA/view?usp=sharing"
+         target="_blank" rel="noopener noreferrer">En este video
+       se muestra como levantar el servidor de php para correr y
+       depurar localmente.</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
+         target="_blank" rel="noopener noreferrer">En este video
+       se muestra como depurar javascript y php.</a>
+     </p>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    Necesitas un hosting. En este ejemplo se muestra como usar el hosting.
+    <a href="https://infinityfree.com/" target="_blank"
+       rel="noopener noreferrer">https://infinityfree.com/</a>
+    Si no lo has usado, lo primero que tienes que hacer es entrar a registrar tu
+    email con el botón
+    <em>Registrar</em>.
+    Si ya tienes tu email registrado, omite este paso.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1Km1cR5zTxQsohqTOqzleq948sVKfsuQZ/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Crea una cuenta.</a>
+    Si ya tienes cuenta, entra a ella y crea un nuevo domino. En este ejemplo
+    no se crean los archivos directamente en el hosting.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1mkyVQCPbxxqvJolg6Nc1cP2rdr7HNk0E/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Sube tus archivos al hosting
+     usando ftp.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1SmWlSuVB-ZUHDo4K5ncQSRry_pNKdL8F/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Sube tus archivos a GitHub.</a>
+    En este ejemplo no hay archivo sw.js ni necesitas esperar 11 o más minutos.
+   </p>
+  </li>
+ </ol>
+</div>
+      </section>
+     <section >
+         <h1 >I. Hazlo funcionar (texto)</h1><div class="lectura">
+ <ol>
+  <li>
+   <p>
+    Prueba el ejemplo en
+    <a href="http://srvdevuelve.rf.gd/" rel="noreferrer"
+       target="_blank">http://srvdevuelve.rf.gd/</a>.
+   </p>
+  </li>
+  <li>
+   <p>
+    Descarga el archivo
+    <a href="/src/srvdevuelve.zip" download>/src/srvdevuelve.zip</a> y
+    descompáctalo.
    </p>
   </li>
   <li>
@@ -1291,8 +1368,9 @@
    <ol type="A">
     <li>
      <p>
-      <em>Crea una cuenta de email</em>, por ejemplo,
-      <samp>pepito@google.com</samp>
+      <em>Crea una cuenta de email para tí</em>, por ejemplo,
+      <samp>pepito@google.com</samp>.
+      Si ya tienes un email, omite este paso.
      </p>
     </li>
     <li>
@@ -1300,6 +1378,7 @@
       <em>Crea una cuenta de GitHub</em> usando el email anterior y selecciona
       el nombre de usuario unsando la parte inicial del correo electrónico, por
       ejemplo <samp>pepito</samp>.
+      Si ya tienes una cuenta, omite este paso.
      </p>
     </li>
     <li>
@@ -1444,7 +1523,7 @@
     <li>
      <p>
       Haz clic en <em>Run and Debug</em> <img alt=""
-        src="/img/runanddebug.png">.
+           src="/img/runanddebug.png">.
      </p>
     </li>
     <li>
@@ -1482,25 +1561,56 @@
       resaltada en la pestaña de fuentes. Usa los controles de depuración para
       avanzar, como se muestra en
       <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-        target="_blank" rel="noreferrer">este video</a>.
+         target="_blank" rel="noreferrer">este video</a>.
      </p>
     </li>
    </ol>
   </li>
   <li>
-   <p>
-    Sube el proyecto al hosting que elijas. En algunos casos puedes usar
-    filezilla
-    (<a href="https://filezilla-project.org/" target="_blank"
-      rel="noreferrer">https://filezilla-project.org/</a>)
-   </p>
+   <p>Sube el proyecto al hosting que elijas.</p>
+   <ol>
+    <li>
+     <p>
+      Crea una nueva carpeta para crear un nuevo proyecto que estará conectado
+      directamente al servidor web por ftp.
+     </p>
+    </li>
+    <li>
+     <p>
+      Abre la nueva carpeta con Visual Studio Code.
+     </p>
+    </li>
+    <li>
+     <p>
+      Tecle al mismo Mayúsculas+Control+P y selecciona SFTP: Config. Aparece un
+      archivo de configuración de FTP. Llena los datos con la configuración de
+      FTP de tu servidor, excepto la contraseña.
+     </p>
+    </li>
+    <li>
+     <p>
+      Cliquea el botón de SFTP y luego haz clic en la URL de tu servidos. En
+      la barra superior te pide la contraseña y ENTER.
+     </p>
+    </li>
+    <li>
+     <p>
+      Pásate a la parte de archivos y coloca tus archivos.
+     </p>
+    <li>
+     <p>
+      Cliquea con el botón derecho en la sección de archivos y selecciona Sync:
+      Local -> Remote.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>Abre un navegador y prueba el proyecto en tu hosting.</p>
   </li>
   <li>
    <p>
-    <strong>En el hosting InfinityFree,</strong> la primera ves que corres la
+    <strong>En el hosting InfinityFree,</strong> la primera vez que corres la
     página, puede marcar un mensaje de error, pero al recargar funciona
     correctamente. Puedes evitar este problema usando un dominio propio.
    </p>
@@ -1533,37 +1643,40 @@
   </li>
     <li>
      <details>
-      <summary>error</summary>
+      <summary>errors</summary>
       <ul>
   <li>
-   <p><a href="m-error/m-errorinterno-html.html">errorinterno.html</a></p>
+   <p><a href="m-errors/m-errorinterno-html.html">errorinterno.html</a></p>
   </li>
   <li>
-   <p><a href="m-error/m-resultadonojson-html.html">resultadonojson.html</a></p>
+   <p><a href="m-errors/m-resultadonojson-html.html">resultadonojson.html</a></p>
   </li>
       </ul>
      </details>
     </li>
     <li>
      <details>
-      <summary>lib</summary>
+      <summary>js</summary>
       <ul>
     <li>
      <details>
-      <summary>js</summary>
+      <summary>lib</summary>
       <ul>
   <li>
-   <p><a href="m-lib/m-js/m-consumeJson-js.html">consumeJson.js</a></p>
+   <p><a href="m-js/m-lib/m-consume-js.html">consume.js</a></p>
   </li>
   <li>
-   <p><a href="m-lib/m-js/m-exportaAHtml-js.html">exportaAHtml.js</a></p>
+   <p><a href="m-js/m-lib/m-muestraError-js.html">muestraError.js</a></p>
   </li>
   <li>
-   <p><a href="m-lib/m-js/m-muestraError-js.html">muestraError.js</a></p>
+   <p><a href="m-js/m-lib/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
   </li>
   <li>
-   <p><a href="m-lib/m-js/m-ProblemDetails-js.html">ProblemDetails.js</a></p>
+   <p><a href="m-js/m-lib/m-recibeJson-js.html">recibeJson.js</a></p>
   </li>
+      </ul>
+     </details>
+    </li>
       </ul>
      </details>
     </li>
@@ -1572,27 +1685,24 @@
       <summary>php</summary>
       <ul>
   <li>
-   <p><a href="m-lib/m-php/m-devuelveJson-php.html">devuelveJson.php</a></p>
+   <p><a href="m-php/m-devuelve-php.html">devuelve.php</a></p>
   </li>
-  <li>
-   <p><a href="m-lib/m-php/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
-  </li>
-      </ul>
-     </details>
-    </li>
-      </ul>
-     </details>
-    </li>
     <li>
      <details>
-      <summary>srv</summary>
+      <summary>lib</summary>
       <ul>
   <li>
-   <p><a href="m-srv/m-devuelve-php.html">devuelve.php</a></p>
+   <p><a href="m-php/m-lib/m-devuelveJson-php.html">devuelveJson.php</a></p>
   </li>
+  <li>
+   <p><a href="m-php/m-lib/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-php/m-lib/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
       </ul>
      </details>
     </li>
@@ -1610,52 +1720,56 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Servicio que devuelve JSON&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;Servicio que devuelve JSON&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> onclick=<span class="codeString">"resultado()"</span>&gt;Resultado&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>  <span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/exportaAHtml.js"</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/consumeJson.js"</span></td></tr>
-  <tr><td>23</td><td>  <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./lib/js/muestraError.js"</span></td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> resultado() {</td></tr>
-  <tr><td>26</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>27</td><td>    <span class="codeReserved">const</span> respuesta =</td></tr>
-  <tr><td>28</td><td>     <span class="codeReserved">await</span> consumeJson(<span class="codeString">"srv/devuelve.php"</span>)</td></tr>
-  <tr><td>29</td><td>    alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</td></tr>
-  <tr><td>31</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>32</td><td>    muestraError(error)</td></tr>
-  <tr><td>33</td><td>   }</td></tr>
-  <tr><td>34</td><td>  }</td></tr>
-  <tr><td>35</td><td>  exportaAHtml(resultado)</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Servicio que devuelve JSON&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Servicio que devuelve JSON&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> id=<span class="codeString">"boton"</span>&gt;Recupera datos&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  <span class="codeReserved">import</span> { recibeJson } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/recibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>  <span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/muestraError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  boton.addEventListener(<span class="codeString">"click"</span>, recibeDatos)</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> recibeDatos() {</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>   <span class="codeReserved">try</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>    <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>     recibeJson(<span class="codeString">"php/devuelve.php"</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>    <span class="codeReserved">const</span> json =</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>     <span class="codeReserved">await</span> respuesta.json()</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>    alert(</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>     <span class="codeString">`Mensaje: ${json.mensaje}</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">Nombre: ${json.nombre}`</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>   } <span class="codeReserved">catch</span> (error) {</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>    muestraError(error)</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section>
-         <h1 >L. Carpeta « srv »</h1>
+         <h1 >L. Carpeta « php »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -1671,14 +1785,19 @@
     
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-srv/m-devuelve-php.html">srv / devuelve.php</a>
+     <a href="/m08srvdevuelve/m-php/m-devuelve-php.html">php / devuelve.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-php/m-lib/">Carpeta « php / lib »</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >A. srv / devuelve.php</h1><table class="codeShow">
+         <h1 >A. php / devuelve.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1688,151 +1807,20 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../lib/php/devuelveJson.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td>devuelveJson([</td></tr>
-  <tr><td>6</td><td> <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"pp"</span>,</td></tr>
-  <tr><td>7</td><td> <span class="codeString">"mensaje"</span> =&gt; <span class="codeString">"Hola."</span></td></tr>
-  <tr><td>8</td><td>]);</td></tr>
-  <tr><td>9</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/devuelveJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>devuelveJson([</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"pp"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> <span class="codeString">"mensaje"</span> =&gt; <span class="codeString">"Hola."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>]);</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
-      </section>
      <section>
-         <h1 >M. Carpeta « error »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a target="_blank" rel="noreferrer"
-      href="print.html">Versión para imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="A">
-    
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-error/m-errorinterno-html.html">error / errorinterno.html</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-error/m-resultadonojson-html.html">error / resultadonojson.html</a>
-    </p>
-   </li>
-   </ol>
-   </nav>
-  </div>
-     <section >
-         <h1 >A. error / errorinterno.html</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> &lt;<span class="codeReserved">p</span>&gt;Se presentó de forma inesperada un error interno del servidor.&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >B. error / resultadonojson.html</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;El resultado no puede representarse como JSON&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td> &lt;<span class="codeReserved">h1</span>&gt;El resultado no puede representarse como JSON&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td> &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>18</td><td>  Debido a un error interno del servidor, el resultado generado, no se puede</td></tr>
-  <tr><td>19</td><td>  recuperar.</td></tr>
-  <tr><td>20</td><td> &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
- </tbody>
-</table>
-      </section>
-      </section>
-     <section>
-         <h1 >N. Carpeta « lib »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a target="_blank" rel="noreferrer"
-      href="print.html">Versión para imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="A">
-    
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/">Carpeta « lib / js »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-lib/m-php/">Carpeta « lib / php »</a>
-    </p>
-   </li>
-   </ol>
-   </nav>
-  </div>
-     <section>
-         <h1 >A. Carpeta « lib / js »</h1>
+         <h1 >B. Carpeta « php / lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -1848,29 +1836,24 @@
     
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-consumeJson-js.html">lib / js / consumeJson.js</a>
+     <a href="/m08srvdevuelve/m-php/m-lib/m-devuelveJson-php.html">php / lib / devuelveJson.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-exportaAHtml-js.html">lib / js / exportaAHtml.js</a>
+     <a href="/m08srvdevuelve/m-php/m-lib/m-devuelveResultadoNoJson-php.html">php / lib / devuelveResultadoNoJson.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-muestraError-js.html">lib / js / muestraError.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m08srvdevuelve/m-lib/m-js/m-ProblemDetails-js.html">lib / js / ProblemDetails.js</a>
+     <a href="/m08srvdevuelve/m-php/m-lib/m-INTERNAL_SERVER_ERROR-php.html">php / lib / INTERNAL_SERVER_ERROR.php</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. lib / js / consumeJson.js</h1><table class="codeShow">
+         <h1 >1. php / lib / devuelveJson.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1880,107 +1863,27 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./exportaAHtml.js"</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetails.js"</span></td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * hay error, lanza una excepción. Si no hay error,</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * interpreta la respuesta del servidor como JSON y</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> * la convierte en una literal de objeto.</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment"> * </span></td></tr>
-  <tr><td>10</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { string | Promise&lt;Response&gt; } servicio</span></td></tr>
-  <tr><td>11</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> consumeJson(servicio) {</td></tr>
-  <tr><td>13</td><td></td></tr>
-  <tr><td>14</td><td> <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> servicio === <span class="codeString">"string"</span>) {</td></tr>
-  <tr><td>15</td><td>  servicio = fetch(servicio, {</td></tr>
-  <tr><td>16</td><td>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</td></tr>
-  <tr><td>17</td><td>  })</td></tr>
-  <tr><td>18</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (!(servicio <span class="codeReserved">instanceof</span> Promise)) {</td></tr>
-  <tr><td>19</td><td>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"Servicio de tipo incorrecto."</span>)</td></tr>
-  <tr><td>20</td><td> }</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> servicio</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td> <span class="codeReserved">const</span> headers = respuesta.headers</td></tr>
-  <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td> <span class="codeReserved">if</span> (respuesta.ok) {</td></tr>
-  <tr><td>27</td><td>  <span class="codeComment">// Aparentemente el servidor tuvo éxito.</span></td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>  <span class="codeReserved">if</span> (respuesta.status === 204) {</td></tr>
-  <tr><td>30</td><td>   <span class="codeComment">// No contiene texto de respuesta.</span></td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td>   <span class="codeReserved">return</span> { headers, body: {} }</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>35</td><td></td></tr>
-  <tr><td>36</td><td>   <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td>    <span class="codeReserved">return</span> { headers, body: JSON.parse(texto) }</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>43</td><td></td></tr>
-  <tr><td>44</td><td>    <span class="codeComment">// El contenido no es JSON. Probablemente sea texto de un error.</span></td></tr>
-  <tr><td>45</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, texto,</td></tr>
-  <tr><td>46</td><td>     <span class="codeString">"/error/errorinterno.html"</span>)</td></tr>
-  <tr><td>47</td><td></td></tr>
-  <tr><td>48</td><td>   }</td></tr>
-  <tr><td>49</td><td></td></tr>
-  <tr><td>50</td><td>  }</td></tr>
-  <tr><td>51</td><td></td></tr>
-  <tr><td>52</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>53</td><td>  <span class="codeComment">// Hay un error.</span></td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td>  <span class="codeReserved">const</span> texto = <span class="codeReserved">await</span> respuesta.text()</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  <span class="codeReserved">if</span> (texto === <span class="codeString">""</span>) {</td></tr>
-  <tr><td>58</td><td></td></tr>
-  <tr><td>59</td><td>   <span class="codeComment">// No hay texto. Se usa el texto predeterminado.</span></td></tr>
-  <tr><td>60</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText)</td></tr>
-  <tr><td>61</td><td></td></tr>
-  <tr><td>62</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>63</td><td>   <span class="codeComment">// Debiera se un ProblemDetails en JSON.</span></td></tr>
-  <tr><td>64</td><td></td></tr>
-  <tr><td>65</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>66</td><td></td></tr>
-  <tr><td>67</td><td>    <span class="codeReserved">const</span> { title, type, detail } = JSON.parse(texto)</td></tr>
-  <tr><td>68</td><td></td></tr>
-  <tr><td>69</td><td>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers,</td></tr>
-  <tr><td>70</td><td>     <span class="codeReserved">typeof</span> title === <span class="codeString">"string"</span> ? title : respuesta.statusText,</td></tr>
-  <tr><td>71</td><td>     <span class="codeReserved">typeof</span> type === <span class="codeString">"string"</span> ? type : undefined,</td></tr>
-  <tr><td>72</td><td>     <span class="codeReserved">typeof</span> detail === <span class="codeString">"string"</span> ? detail : undefined)</td></tr>
-  <tr><td>73</td><td></td></tr>
-  <tr><td>74</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>75</td><td></td></tr>
-  <tr><td>76</td><td>    <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
-  <tr><td>77</td><td>     <span class="codeComment">// El error si era un ProblemDetails</span></td></tr>
-  <tr><td>78</td><td></td></tr>
-  <tr><td>79</td><td>     <span class="codeReserved">throw</span> error</td></tr>
-  <tr><td>80</td><td></td></tr>
-  <tr><td>81</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>82</td><td></td></tr>
-  <tr><td>83</td><td>     <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(respuesta.status, headers, respuesta.statusText,</td></tr>
-  <tr><td>84</td><td>      undefined, texto)</td></tr>
-  <tr><td>85</td><td></td></tr>
-  <tr><td>86</td><td>    }</td></tr>
-  <tr><td>87</td><td></td></tr>
-  <tr><td>88</td><td>   }</td></tr>
-  <tr><td>89</td><td></td></tr>
-  <tr><td>90</td><td>  }</td></tr>
-  <tr><td>91</td><td></td></tr>
-  <tr><td>92</td><td> }</td></tr>
-  <tr><td>93</td><td></td></tr>
-  <tr><td>94</td><td>}</td></tr>
-  <tr><td>95</td><td></td></tr>
-  <tr><td>96</td><td>exportaAHtml(consumeJson)</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveResultadoNoJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> devuelveJson($resultado)</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $json = json_encode($resultado);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  devuelveResultadoNoJson();</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  header(<span class="codeString">"Content-Type: application/json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  echo $json;</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> exit();</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >2. lib / js / exportaAHtml.js</h1><table class="codeShow">
+         <h1 >2. php / lib / devuelveResultadoNoJson.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1990,26 +1893,27 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>2</td><td><span class="codeComment"> * Permite que los eventos de html usen la función.</span></td></tr>
-  <tr><td>3</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {<span class="codeReserved">function</span>} functionInstance</span></td></tr>
-  <tr><td>4</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> exportaAHtml(functionInstance) {</td></tr>
-  <tr><td>6</td><td> window[nombreDeFuncionParaHtml(functionInstance)] = functionInstance</td></tr>
-  <tr><td>7</td><td>}</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {<span class="codeReserved">function</span>} valor</span></td></tr>
-  <tr><td>11</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>12</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> nombreDeFuncionParaHtml(valor) {</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">const</span> names = valor.name.split(<span class="codeString">/\s+/</span>g)</td></tr>
-  <tr><td>14</td><td> <span class="codeReserved">return</span> names[names.length - 1]</td></tr>
-  <tr><td>15</td><td>}</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> devuelveResultadoNoJson()</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> http_response_code(INTERNAL_SERVER_ERROR);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> header(<span class="codeString">"Content-Type: application/problem+json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> echo <span class="codeString">'{'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeString">"status: "</span> . INTERNAL_SERVER_ERROR .</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeString">'&quot;title&quot;: &quot;El resultado no puede representarse como JSON.&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">'&quot;type&quot;: &quot;/errors/resultadonojson.html&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeString">'}'</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >3. lib / js / muestraError.js</h1><table class="codeShow">
+         <h1 >3. php / lib / INTERNAL_SERVER_ERROR.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2019,53 +1923,79 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"./exportaAHtml.js"</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { ProblemDetails } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetails.js"</span></td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>5</td><td><span class="codeComment"> * Muestra un error en la consola y en un cuadro de</span></td></tr>
-  <tr><td>6</td><td><span class="codeComment"> * alerta el mensaje de una excepción.</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> { ProblemDetails | Error | <span class="codeReserved">null</span> } error descripción del error.</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>9</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>  console.error(<span class="codeString">"Error"</span>)</td></tr>
-  <tr><td>14</td><td>  alert(<span class="codeString">"Error"</span>)</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetails) {</td></tr>
-  <tr><td>17</td><td></td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">let</span> mensaje = error.title</td></tr>
-  <tr><td>19</td><td>  <span class="codeReserved">if</span> (error.detail) {</td></tr>
-  <tr><td>20</td><td>   mensaje += <span class="codeString">`\n\n${error.detail}`</span></td></tr>
-  <tr><td>21</td><td>  }</td></tr>
-  <tr><td>22</td><td>  mensaje += <span class="codeString">`\n\nCódigo: ${error.status}`</span></td></tr>
-  <tr><td>23</td><td>  <span class="codeReserved">if</span> (error.type) {</td></tr>
-  <tr><td>24</td><td>   mensaje += <span class="codeString">` ${error.type}`</span></td></tr>
-  <tr><td>25</td><td>  }</td></tr>
-  <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td>  console.error(mensaje)</td></tr>
-  <tr><td>28</td><td>  console.error(error)</td></tr>
-  <tr><td>29</td><td>  console.error(<span class="codeString">"Headers:"</span>)</td></tr>
-  <tr><td>30</td><td>  error.headers.forEach((valor, llave) =&gt; console.error(llave, <span class="codeString">"="</span>, valor))</td></tr>
-  <tr><td>31</td><td>  alert(mensaje)</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td>  console.error(error)</td></tr>
-  <tr><td>36</td><td>  alert(error.message)</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td> }</td></tr>
-  <tr><td>39</td><td></td></tr>
-  <tr><td>40</td><td>}</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td>exportaAHtml(muestraError)</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">const</span> INTERNAL_SERVER_ERROR = 500;</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+      </section>
+      </section>
+     <section>
+         <h1 >M. Carpeta « errors »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a target="_blank" rel="noreferrer"
+      href="print.html">Versión para imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-errors/m-errorinterno-html.html">errors / errorinterno.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-errors/m-resultadonojson-html.html">errors / resultadonojson.html</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >A. errors / errorinterno.html</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Error interno del servidor&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;Se presentó de forma inesperada un error interno del servidor.&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >4. lib / js / ProblemDetails.js</h1><table class="codeShow">
+         <h1 >B. errors / resultadonojson.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2075,49 +2005,59 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>2</td><td><span class="codeComment"> * Detalle de los errores devueltos por un servicio.</span></td></tr>
-  <tr><td>3</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetails <span class="codeReserved">extends</span> Error {</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>7</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {number} status</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Headers} headers</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} title</span></td></tr>
-  <tr><td>10</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [type]</span></td></tr>
-  <tr><td>11</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {string} [detail]</span></td></tr>
-  <tr><td>12</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">constructor</span>(status, headers, title, type, detail) {</td></tr>
-  <tr><td>14</td><td>  super(title)</td></tr>
-  <tr><td>15</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>16</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>17</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">this</span>.status = status</td></tr>
-  <tr><td>19</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>20</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">this</span>.headers = headers</td></tr>
-  <tr><td>23</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>24</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>25</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>26</td><td>  <span class="codeReserved">this</span>.type = type</td></tr>
-  <tr><td>27</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>28</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>29</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>30</td><td>  <span class="codeReserved">this</span>.detail = detail</td></tr>
-  <tr><td>31</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>32</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>33</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>34</td><td>  <span class="codeReserved">this</span>.title = title</td></tr>
-  <tr><td>35</td><td> }</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>}</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;El resultado no puede representarse como JSON&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;El resultado no puede representarse como JSON&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>  Debido a un error interno del servidor, el resultado generado, no se puede</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>  recuperar.</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre> &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>
       </section>
      <section>
-         <h1 >B. Carpeta « lib / php »</h1>
+         <h1 >N. Carpeta « js »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a target="_blank" rel="noreferrer"
+      href="print.html">Versión para imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-js/m-lib/">Carpeta « js / lib »</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section>
+         <h1 >A. Carpeta « js / lib »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -2133,24 +2073,29 @@
     
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-php/m-devuelveJson-php.html">lib / php / devuelveJson.php</a>
+     <a href="/m08srvdevuelve/m-js/m-lib/m-consume-js.html">js / lib / consume.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-php/m-devuelveResultadoNoJson-php.html">lib / php / devuelveResultadoNoJson.php</a>
+     <a href="/m08srvdevuelve/m-js/m-lib/m-muestraError-js.html">js / lib / muestraError.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">lib / php / INTERNAL_SERVER_ERROR.php</a>
+     <a href="/m08srvdevuelve/m-js/m-lib/m-ProblemDetailsError-js.html">js / lib / ProblemDetailsError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/m-js/m-lib/m-recibeJson-js.html">js / lib / recibeJson.js</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. lib / php / devuelveJson.php</h1><table class="codeShow">
+         <h1 >1. js / lib / consume.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2160,31 +2105,31 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveResultadoNoJson.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">function</span> devuelveJson($resultado)</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> $json = json_encode($resultado);</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>  devuelveResultadoNoJson();</td></tr>
-  <tr><td>13</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>  http_response_code(200);</td></tr>
-  <tr><td>16</td><td>  header(<span class="codeString">"Content-Type: application/json"</span>);</td></tr>
-  <tr><td>17</td><td>  echo $json;</td></tr>
-  <tr><td>18</td><td> }</td></tr>
-  <tr><td>19</td><td>}</td></tr>
-  <tr><td>20</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { ProblemDetailsError } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetailsError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * hay error, lanza una excepción.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * </span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Promise&lt;Response&gt; } servicio</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> consume(servicio) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> servicio</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeReserved">if</span> (respuesta.ok) {</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> respuesta</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeReserved">const</span> contentType = respuesta.headers.get(<span class="codeString">"Content-Type"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  <span class="codeReserved">if</span> (contentType === <span class="codeString">"application/problem+json; charset=utf-8"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsError(<span class="codeReserved">await</span> respuesta.json())</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeReserved">else</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(respuesta.statusText)</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >2. lib / php / devuelveResultadoNoJson.php</h1><table class="codeShow">
+         <h1 >2. js / lib / muestraError.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2194,26 +2139,50 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">function</span> devuelveResultadoNoJson()</td></tr>
-  <tr><td>6</td><td>{</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> http_response_code(INTERNAL_SERVER_ERROR);</td></tr>
-  <tr><td>9</td><td> header(<span class="codeString">"Content-Type: application/problem+json"</span>);</td></tr>
-  <tr><td>10</td><td> echo <span class="codeString">'{'</span> .</td></tr>
-  <tr><td>11</td><td>  <span class="codeString">'&quot;title&quot;: &quot;El resultado no puede representarse como JSON.&quot;'</span> .</td></tr>
-  <tr><td>12</td><td>  <span class="codeString">'&quot;type&quot;: &quot;/error/resultadonojson.html&quot;'</span> .</td></tr>
-  <tr><td>13</td><td>  <span class="codeString">'}'</span>;</td></tr>
-  <tr><td>14</td><td>}</td></tr>
-  <tr><td>15</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { ProblemDetailsError } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetailsError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Muestra los datos de una Error en la consola y en un cuadro de alerta.</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { ProblemDetailsError | Error | <span class="codeReserved">null</span> } error descripción del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  console.error(<span class="codeString">"Error"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  alert(<span class="codeString">"Error"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetailsError) {</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">const</span> problemDetails = error.problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>  <span class="codeReserved">let</span> mensaje =</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>   <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span> ? problemDetails[<span class="codeString">"title"</span>] : <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>   <span class="codeReserved">if</span> (mensaje !== <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>    mensaje += <span class="codeString">"\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>   mensaje += problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeReserved">if</span> (mensaje === <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>   mensaje = <span class="codeString">"Error"</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>  console.error(error, problemDetails)</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  alert(mensaje)</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>  console.error(error)</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>  alert(error.message)</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >3. lib / php / INTERNAL_SERVER_ERROR.php</h1><table class="codeShow">
+         <h1 >3. js / lib / ProblemDetailsError.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2223,9 +2192,55 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">const</span> INTERNAL_SERVER_ERROR = 500;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetailsError <span class="codeReserved">extends</span> Error {</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre> <span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment">  * Detalle de los errores devueltos por un servicio.</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment">  * Crea una instancia de ProblemDetailsError.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment">  * <span class="codeReserved">@param</span> {object} problemDetails Objeto con la descripcipon del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment">  */</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">constructor</span>(problemDetails) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  super(<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   ? problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   : (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>    ? problemDetails[<span class="codeString">"title"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>    : <span class="codeString">"Error"</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">this</span>.problemDetails = problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. js / lib / recibeJson.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> recibeJson(url, metodoHttp = <span class="codeString">"GET"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> fetch(</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  url,</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   method: metodoHttp,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> )</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -2255,27 +2270,91 @@
 <table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
+          onclick="copyToClipboard(this)">
    <span class="material-symbols-outlined">
     content_copy
    </span>
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td> <span class="codeString">&quot;compilerOptions&quot;</span>: {</td></tr>
-  <tr><td>3</td><td>  <span class="codeString">&quot;checkJs&quot;</span>: <span class="codeReserved">true</span>,</td></tr>
-  <tr><td>4</td><td>  <span class="codeString">&quot;strictNullChecks&quot;</span>: <span class="codeReserved">true</span>,</td></tr>
-  <tr><td>5</td><td>  <span class="codeString">&quot;target&quot;</span>: <span class="codeString">&quot;ES6&quot;</span>,</td></tr>
-  <tr><td>6</td><td>  <span class="codeString">&quot;module&quot;</span>: <span class="codeString">&quot;Node16&quot;</span>,</td></tr>
-  <tr><td>7</td><td>  <span class="codeString">&quot;moduleResolution&quot;</span>: <span class="codeString">&quot;Node16&quot;</span>,</td></tr>
-  <tr><td>8</td><td>  <span class="codeString">&quot;lib&quot;</span>: [</td></tr>
-  <tr><td>9</td><td>   <span class="codeString">&quot;ES2017&quot;</span>,</td></tr>
-  <tr><td>10</td><td>   <span class="codeString">&quot;WebWorker&quot;</span>,</td></tr>
-  <tr><td>11</td><td>   <span class="codeString">&quot;DOM&quot;</span></td></tr>
-  <tr><td>12</td><td>  ]</td></tr>
-  <tr><td>13</td><td> }</td></tr>
-  <tr><td>14</td><td>}</td></tr>
+  <tr>
+   <td class="codeShow_order">1</td>
+   <td>
+    <pre>{</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">2</td>
+   <td>
+    <pre> <span class="codeString">"compilerOptions"</span>: {</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">3</td>
+   <td>
+    <pre>  <span class="codeString">"checkJs"</span>: <span class="codeReserved">true</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">4</td>
+   <td>
+    <pre>  <span class="codeString">"strictNullChecks"</span>: <span class="codeReserved">true</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">5</td>
+   <td>
+    <pre>  <span class="codeString">"target"</span>: <span class="codeString">"ES6"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">6</td>
+   <td>
+    <pre>  <span class="codeString">"module"</span>: <span class="codeString">"Node16"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">7</td>
+   <td>
+    <pre>  <span class="codeString">"moduleResolution"</span>: <span class="codeString">"Node16"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">8</td>
+   <td>
+    <pre>  <span class="codeString">"lib"</span>: [</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">9</td>
+   <td>
+    <pre>   <span class="codeString">"ES2017"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">10</td>
+   <td>
+    <pre>   <span class="codeString">"WebWorker"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">11</td>
+   <td>
+    <pre>   <span class="codeString">"DOM"</span></pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">12</td>
+   <td>
+    <pre>  ]</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">18</td>
+   <td>
+    <pre>}</pre>
+   </td>
+  </tr>
  </tbody>
 </table>
       </section>
