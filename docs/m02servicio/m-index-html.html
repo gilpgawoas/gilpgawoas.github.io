@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>F. index.html - GilPG AWOAS</title>
+ <title>G. index.html - GilPG AWOAS</title>
  <meta name="description" content="Código de «index.html».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -234,6 +234,36 @@
   margin-top: 0;
  }
 
+ h1 {
+  font-size: 3rem;
+ }
+
+ section h1,
+ nav h1 {
+  font-size: 2.5rem;
+  font-style: oblique;
+ }
+
+ section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section section h1 {
+  font-size: 1.5rem;
+  font-style: oblique;
+ }
+
+ section section section section section h1 {
+  font-size: 1.5rem;
+  font-style: normal;
+ }
+
  a {
   color: var(--colA);
  }
@@ -453,8 +483,9 @@
  }
 
  iframe {
+  /* background-color: white; */
   box-sizing: border-box;
-  width: 300px;
+  resize: both;
  }
 
  .lectura {
@@ -476,12 +507,15 @@
  }
 
  .horizontal>*:first-child {
-  flex: 1 1 300px;
-  text-align: center;
+  flex: 1 1 auto;
  }
 
  .horizontal>*:nth-child(2) {
-  flex: 1 1 auto;
+  flex: 1 1 40ch;
+ }
+
+ .horizontal iframe {
+  width: 300px;
  }
 
  .columnas4 {
@@ -528,9 +562,10 @@
  table.codeShow {
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
  }
 
- .codeShow td:first-child {
+ .codeShow td.codeShow_order {
   text-align: right;
   padding: 0 0 0 0;
   vertical-align: top;
@@ -544,14 +579,18 @@
   user-select: none;
  }
 
- .codeShow td:nth-child(2) {
+ .codeShow td:has(pre) {
   padding: 0 0 0 0.25rem;
   vertical-align: top;
+ }
+
+ .codeShow td pre {
   font-family: var(--fontMono);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   font-size: 1rem;
   line-height: 1.2rem;
+  margin: 0;
  }
 
  .codeReserved {
@@ -818,7 +857,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >F. index.html</h1><table class="codeShow">
+   <h1 >G. index.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -828,51 +867,51 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">&quot;es&quot;</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">&quot;UTF-8&quot;</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">&quot;viewport&quot;</span> content=<span class="codeString">&quot;width=device-width&quot;</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Ejemplo de servicio&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>12</td><td></td></tr>
-  <tr><td>13</td><td>&lt;<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>14</td><td> &lt;<span class="codeReserved">h1</span>&gt;Ejemplo de servicio&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> &lt;<span class="codeReserved">button</span> onclick=<span class="codeString">&quot;ejecuta()&quot;</span>&gt;</td></tr>
-  <tr><td>17</td><td>  Ejecuta</td></tr>
-  <tr><td>18</td><td> &lt;/<span class="codeReserved">button</span>&gt;</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>21</td><td></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> ejecuta() {</td></tr>
-  <tr><td>23</td><td>   <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>24</td><td>    <span class="codeComment">// Se conecta a servicio.php y recibe su respuesta.</span></td></tr>
-  <tr><td>25</td><td>    <span class="codeReserved">const</span> resp =</td></tr>
-  <tr><td>26</td><td>     <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</td></tr>
-  <tr><td>27</td><td>    <span class="codeReserved">if</span> (resp.ok) {</td></tr>
-  <tr><td>28</td><td>     <span class="codeReserved">const</span> texto =</td></tr>
-  <tr><td>29</td><td>      <span class="codeReserved">await</span> resp.text()</td></tr>
-  <tr><td>30</td><td>     alert(texto)</td></tr>
-  <tr><td>31</td><td>    } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>32</td><td>     throw <span class="codeReserved">new</span> Error(</td></tr>
-  <tr><td>33</td><td>      resp.statusText)</td></tr>
-  <tr><td>34</td><td>    }</td></tr>
-  <tr><td>35</td><td>   } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>36</td><td>    console.error(error)</td></tr>
-  <tr><td>37</td><td>    alert(error.message)</td></tr>
-  <tr><td>38</td><td>   }</td></tr>
-  <tr><td>39</td><td>  }</td></tr>
-  <tr><td>40</td><td></td></tr>
-  <tr><td>41</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Ejemplo de servicio&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Ejemplo de servicio&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> &lt;<span class="codeReserved">button</span> onclick=<span class="codeString">"ejecuta()"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  Ejecuta</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> &lt;/<span class="codeReserved">button</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre> &lt;<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> ejecuta() {</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   <span class="codeReserved">try</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>    <span class="codeComment">// Se conecta a servicio.php y recibe su respuesta.</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>    <span class="codeReserved">const</span> respuesta =</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>     <span class="codeReserved">await</span> fetch(<span class="codeString">"servicio.php"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>    <span class="codeReserved">if</span> (respuesta.ok) {</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>     <span class="codeReserved">const</span> texto =</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>      <span class="codeReserved">await</span> respuesta.text()</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>     alert(texto)</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>    } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>     <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>      respuesta.statusText)</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>    }</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>   } <span class="codeReserved">catch</span> (error) {</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>    console.error(error)</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>    alert(error.message)</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
  <footer>
@@ -900,10 +939,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m02servicio/mArchivos.html" title="E. Archivos"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m02servicio/mArchivos.html" title="F. Archivos"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m02servicio/m-servicio-php.html" title="G. servicio.php"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m02servicio/m-servicio-php.html" title="H. servicio.php"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -949,7 +988,12 @@
    </li>
    <li>
     <p>
-     <a href="/m02servicio/mDinstrucciones.html">Hazlo funcionar</a>
+     <a href="/m02servicio/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m02servicio/mDinstrucciones.html">Hazlo funcionar (texto)</a>
     </p>
    </li>
    <li>

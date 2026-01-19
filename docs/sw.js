@@ -90,6 +90,7 @@ const ARCHIVOS = [
  "/m02servicio/m-servicio-php.html",
  "/m02servicio/mAintro.html",
  "/m02servicio/mArchivos.html",
+ "/m02servicio/mAvideoinstrucciones.html",
  "/m02servicio/mBdeploy.html",
  "/m02servicio/mCfuncionamiento/",
  "/m02servicio/mCfuncionamiento/index.html",
