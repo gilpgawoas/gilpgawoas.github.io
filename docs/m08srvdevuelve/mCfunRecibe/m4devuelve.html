@@ -973,10 +973,13 @@
  <div id="principal">
    <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
  <p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
@@ -1008,13 +1011,17 @@
      <dd>200</dd>
      <dt>body</dt>
      <dd>
-      <dl>
-       <dt>nombre</dt>
-       <dd>"pp"</dd>
-       <dt>mensaje</dt>
-       <dd>"Hola."</dd>
-      </dl>
+      {"nombre":"pp","mensaje":"Hola."}
      </dd>
+    </dl>
+   </dd>
+   <dt>json</dt>
+   <dd>
+    <dl>
+     <dt>nombre</dt>
+     <dd>"pp"</dd>
+     <dt>mensaje</dt>
+     <dd>"Hola."</dd>
     </dl>
    </dd>
   </dl>
@@ -1079,12 +1086,12 @@
    
      <p>
       <a class="paginaAnterior" href="/m08srvdevuelve/mBdeploy.html"
-        title="F. Diagrama de despliegue"><span
+        title="G. Diagrama de despliegue"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m08srvdevuelve/mCfunRecibe/index.html">G. Funcionamiento</a></h1>
+   <h1><a href="/m08srvdevuelve/mCfunRecibe/index.html">H. Funcionamiento</a></h1>
    
    <ol type="1">
     
@@ -1122,7 +1129,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m08srvdevuelve/mAvideoinstrucciones.html"
-       title="H. Hazlo funcionar (con videos)"><span
+       title="I. Hazlo funcionar (con videos)"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>

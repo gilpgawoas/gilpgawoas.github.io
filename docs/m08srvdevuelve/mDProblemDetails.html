@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>D. La clase ProblemDetails - GilPG AWOAS</title>
- <meta name="description" content="Se presenta la clase ProblemDetails.">
+ <title>E. La clase ProblemDetailsError - GilPG AWOAS</title>
+ <meta name="description" content="Se presenta la clase ProblemDetailsError.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -857,14 +857,13 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >D. La clase <dfn><code>ProblemDetails</code></dfn></h1><div class="lectura">
+   <h1 >E. La clase <dfn><code>ProblemDetailsError</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
     Se acuerdo con el RFC 9457 en
-    <a rel="noo"
-      href="https://www.rfc-editor.org/info/rfc9457" rel="noreferrer"
-      target="_blank">https://www.rfc-editor.org/info/rfc9457</a>,
+    <a rel="noo" href="https://www.rfc-editor.org/info/rfc9457" rel="noreferrer"
+       target="_blank">https://www.rfc-editor.org/info/rfc9457</a>,
     cuando un servicio falla, debe devolver una
     estructura JSON conocida como <dfn>Problem Details</dfn> que informa los
     detalles del fallo.
@@ -872,30 +871,16 @@
   </li>
   <li>
    <p>
-    El tipo de fallo se describe en el campo <var>type</var>, del problem
-    details y, adicionalmente, todo tipo de fallo debe tener una pequeña página
-    donde se describe el problema. En estos ejemplos, se usa la carpeta
-    <dfn>error</dfn> para almacenar las páginas que decriben los errores.
+    El tipo de fallo se describe en el campo <var>type</var>; adicionalmente,
+    todo tipo de fallo debe tener una pequeña página donde se describe el
+    problema. En estos ejemplos, se usa la carpeta <dfn>errors</dfn> para
+    almacenar las páginas que decriben los errores.
    </p>
   </li>
   <li>
    <p>
     Para usarla en JavaScript, debes importar el archivo donde está definida
     esta clase.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para usarla en PHP, debes importar el archivo donde está definida esta
-    clase usando <code>require</code> o <code>require_once</code>. En este
-    ejemplo no se usa la versión en PHP; se empezará a usar a partir de la
-    lección sobre validaciones.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de estas clases.
    </p>
   </li>
  </ul>
@@ -925,10 +910,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m08srvdevuelve/mCdevuelveJson.html" title="C. La función devuelveJson"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/mCdevuelveJson.html" title="D. La función devuelveJson"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m08srvdevuelve/mD3muestraerror.html" title="E. La función muestraError"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m08srvdevuelve/mD3muestraerror.html" title="F. La función muestraError"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -964,7 +949,12 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mBconsumeJson.html">La función <dfn><code>consumeJson</code></dfn></a>
+     <a href="/m08srvdevuelve/mBconsume.html">La función <dfn><code>consume</code></dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/mBrecibeJson.html">La función <dfn><code>recibeJson</code></dfn></a>
     </p>
    </li>
    <li>
@@ -974,7 +964,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mDProblemDetails.html" class="actual">La clase <dfn><code>ProblemDetails</code></dfn></a>
+     <a href="/m08srvdevuelve/mDProblemDetails.html" class="actual">La clase <dfn><code>ProblemDetailsError</code></dfn></a>
     </p>
    </li>
    <li>

@@ -3636,7 +3636,12 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mBconsumeJson.html">La función <dfn><code>consumeJson</code></dfn></a>
+     <a href="/m08srvdevuelve/mBconsume.html">La función <dfn><code>consume</code></dfn></a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m08srvdevuelve/mBrecibeJson.html">La función <dfn><code>recibeJson</code></dfn></a>
     </p>
    </li>
    <li>
@@ -3646,7 +3651,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mDProblemDetails.html">La clase <dfn><code>ProblemDetails</code></dfn></a>
+     <a href="/m08srvdevuelve/mDProblemDetails.html">La clase <dfn><code>ProblemDetailsError</code></dfn></a>
     </p>
    </li>
    <li>
@@ -3729,35 +3734,48 @@
 </div>
       </section>
      <section >
-         <h1 >B. La función <dfn><code>consumeJson</code></dfn></h1><div class="lectura">
+         <h1 >B. La función <dfn><code>consume</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
     El código que se muestra en el ejemplo de servicio se repite en muchos
     ejemplos posteriores, pero además debe realizar algunas cuastiones
     adicionales. Para simplificar el trabajo, se introduce la función
-    <code>consumeJson</code>, que realiza todo lo necesario para controlar la
+    <code>consume</code>, que realiza todo lo necesario para controlar la
     conxión desde el navegador web hacia el servidor.
    </p>
   </li>
   <li>
    <p>
     Para usarla, debes importar el archivo donde está definida esta función y
-    luego invocarla pasándole la url del servicio, o alternativamente, pasándole
-    el resultado de invocar la función fetch que comunica al servicio.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta función.
+    luego invocarla pasándole el resultado de invocar la función fetch que
+    comunica al servicio.
    </p>
   </li>
  </ul>
 </div>
       </section>
      <section >
-         <h1 >C. La función <dfn><code>devuelveJson</code></dfn></h1><div class="lectura">
+         <h1 >C. La función <dfn><code>recibeJson</code></dfn></h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Recibe una URL a donde debe conectarse y opcionalmente el método HTTP a
+    usar, que por default es GET. Ejecuta un fetch indicando que el cliente
+    acepta solo los formatos JSON y problem details para la respuesta.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla, debes importar el archivo donde está definida esta función y
+    luego invocarla pasándole la url del servicioy opcionalmente el método HTTP.
+   </p>
+  </li>
+ </ul>
+</div>
+      </section>
+     <section >
+         <h1 >D. La función <dfn><code>devuelveJson</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -3772,24 +3790,17 @@
     pasándole el resultado generado por el servicio.
    </p>
   </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de esta clase.
-   </p>
-  </li>
  </ul>
 </div>
       </section>
      <section >
-         <h1 >D. La clase <dfn><code>ProblemDetails</code></dfn></h1><div class="lectura">
+         <h1 >E. La clase <dfn><code>ProblemDetailsError</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
     Se acuerdo con el RFC 9457 en
-    <a rel="noo"
-      href="https://www.rfc-editor.org/info/rfc9457" rel="noreferrer"
-      target="_blank">https://www.rfc-editor.org/info/rfc9457</a>,
+    <a rel="noo" href="https://www.rfc-editor.org/info/rfc9457" rel="noreferrer"
+       target="_blank">https://www.rfc-editor.org/info/rfc9457</a>,
     cuando un servicio falla, debe devolver una
     estructura JSON conocida como <dfn>Problem Details</dfn> que informa los
     detalles del fallo.
@@ -3797,10 +3808,10 @@
   </li>
   <li>
    <p>
-    El tipo de fallo se describe en el campo <var>type</var>, del problem
-    details y, adicionalmente, todo tipo de fallo debe tener una pequeña página
-    donde se describe el problema. En estos ejemplos, se usa la carpeta
-    <dfn>error</dfn> para almacenar las páginas que decriben los errores.
+    El tipo de fallo se describe en el campo <var>type</var>; adicionalmente,
+    todo tipo de fallo debe tener una pequeña página donde se describe el
+    problema. En estos ejemplos, se usa la carpeta <dfn>errors</dfn> para
+    almacenar las páginas que decriben los errores.
    </p>
   </li>
   <li>
@@ -3809,30 +3820,15 @@
     esta clase.
    </p>
   </li>
-  <li>
-   <p>
-    Para usarla en PHP, debes importar el archivo donde está definida esta
-    clase usando <code>require</code> o <code>require_once</code>. En este
-    ejemplo no se usa la versión en PHP; se empezará a usar a partir de la
-    lección sobre validaciones.
-   </p>
-  </li>
-  <li>
-   <p>
-    A lo largo de esta lección y las siguientes, se profundiza en el uso y
-    estructura de estas clases.
-   </p>
-  </li>
  </ul>
 </div>
       </section>
      <section >
-         <h1 >E. La función <dfn><code>muestraError</code></dfn></h1><div class="lectura">
+         <h1 >F. La función <dfn><code>muestraError</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
-    Manejamos los errores en el navegador web y de una manera uniforme con la
-    función <code>muestraError</code>.
+    Maneja los errores en el navegador web de una manera uniforme.
    </p>
   </li>
   <li>
@@ -3866,14 +3862,14 @@
 </div>
       </section>
      <section >
-         <h1 >F. Diagrama de despliegue</h1><figure>
+         <h1 >G. Diagrama de despliegue</h1><figure>
  <img style="max-height: none;"
    src="/img/m08srvdevuelve/srvdevuelvedistribucion.drawio.svg"
    alt="Diagrama de despliegue">
 </figure>
       </section>
      <section>
-         <h1 >G. Funcionamiento</h1>
+         <h1 >H. Funcionamiento</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -3922,20 +3918,27 @@
      <section class="pruebaDeEscritorio">
          <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
  <h1>index.html</h1>
- <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre class="resaltado"><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
          <h1 >2. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
- <p class="resaltado2">Ejecuta invocaServicio y envía request (solicitud).
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
+ <p class="resaltado2">Envía la solicitud (request) a la red para que<br>
+  se ejecute el servicio asociado con la URL.
  </p>
 </section>
 <section>
@@ -3969,10 +3972,13 @@
      <section class="pruebaDeEscritorio">
          <h1 >3. El servicio procesa la request y genera la response</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
@@ -4006,10 +4012,13 @@
      <section class="pruebaDeEscritorio">
          <h1 >4. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
  <p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
@@ -4041,13 +4050,17 @@
      <dd>200</dd>
      <dt>body</dt>
      <dd>
-      <dl>
-       <dt>nombre</dt>
-       <dd>"pp"</dd>
-       <dt>mensaje</dt>
-       <dd>"Hola."</dd>
-      </dl>
+      {"nombre":"pp","mensaje":"Hola."}
      </dd>
+    </dl>
+   </dd>
+   <dt>json</dt>
+   <dd>
+    <dl>
+     <dt>nombre</dt>
+     <dd>"pp"</dd>
+     <dt>mensaje</dt>
+     <dd>"Hola."</dd>
     </dl>
    </dd>
   </dl>
@@ -4065,28 +4078,35 @@
      <section class="pruebaDeEscritorio">
          <h1 >5. Muestra el objeto recibido en un alert</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span class="resaltado">alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span class="resaltado"><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))
+<span class="resaltado"><span class="codeReserved">const</span> json</span> =
+ <span class="codeReserved">await</span> respuesta.json()
+<span class="resaltado">alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</span></code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
  <dl>
-  <dt class="resaltado2">respuesta</dt>
+  <dt>respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
     <dd>200</dd>
-    <dt class="resaltado2">body</dt>
+    <dt>body</dt>
     <dd>
-     <dl>
-      <dt class="resaltado2">nombre</dt>
-      <dd class="resaltado2">"pp"</dd>
-      <dt class="resaltado2">mensaje</dt>
-      <dd class="resaltado2">"Hola."</dd>
-     </dl>
+     {"nombre":"pp","mensaje":"Hola."}
     </dd>
+   </dl>
+  </dd>
+  <dt class="resaltado2">json</dt>
+  <dd class="resaltado2">
+   <dl>
+    <dt>nombre</dt>
+    <dd>"pp"</dd>
+    <dt>mensaje</dt>
+    <dd>"Hola."</dd>
    </dl>
   </dd>
  </dl>
@@ -4104,15 +4124,18 @@
      <section class="pruebaDeEscritorio">
          <h1 >6. Al cerrar el alert, termina el evento</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
-</section>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
+ </section>
       </section>
       </section>
      <section >
-         <h1 >H. Hazlo funcionar (con videos)</h1><div class="lectura">
+         <h1 >I. Hazlo funcionar (con videos)</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -4222,7 +4245,7 @@
 </div>
       </section>
      <section >
-         <h1 >I. Hazlo funcionar (texto)</h1><div class="lectura">
+         <h1 >J. Hazlo funcionar (texto)</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -4506,7 +4529,7 @@
 </div>
       </section>
      <section >
-         <h1 >J. Archivos</h1>
+         <h1 >K. Archivos</h1>
   <div class="lectura">
    <p>Haz clic en los triángulos para expandir las carpetas</p>
    <ul class="tree">
@@ -4585,7 +4608,7 @@
   </div>
       </section>
      <section >
-         <h1 >K. index.html</h1><table class="codeShow">
+         <h1 >L. index.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -4644,7 +4667,7 @@
 </table>
       </section>
      <section>
-         <h1 >L. Carpeta « php »</h1>
+         <h1 >M. Carpeta « php »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -4807,7 +4830,7 @@
       </section>
       </section>
      <section>
-         <h1 >M. Carpeta « errors »</h1>
+         <h1 >N. Carpeta « errors »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -4909,7 +4932,7 @@
       </section>
       </section>
      <section>
-         <h1 >N. Carpeta « js »</h1>
+         <h1 >O. Carpeta « js »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -5122,7 +5145,7 @@
       </section>
       </section>
      <section >
-         <h1 >O. jsconfig.json</h1><div class="lectura">
+         <h1 >P. jsconfig.json</h1><div class="lectura">
  <ul>
   <li>
    <p>
@@ -5234,7 +5257,7 @@
 </table>
       </section>
      <section >
-         <h1 >P. Resumen</h1><div class="lectura">
+         <h1 >Q. Resumen</h1><div class="lectura">
  <ul>
   <li>
    <p>

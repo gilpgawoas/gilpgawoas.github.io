@@ -1,9 +1,12 @@
 <section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>

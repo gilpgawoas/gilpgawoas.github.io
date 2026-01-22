@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>Q. Resumen - GilPG AWOAS</title>
- <meta name="description" content="Resumen de la lección «Servicio que devuelve un resultado JSON».">
+ <title>C. La función recibeJson - GilPG AWOAS</title>
+ <meta name="description" content="Se presenta la función recibeJson.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -857,12 +857,19 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >Q. Resumen</h1><div class="lectura">
+   <h1 >C. La función <dfn><code>recibeJson</code></dfn></h1><div class="lectura">
  <ul>
   <li>
    <p>
-    En esta lección se mostró el funcionamiento de un ejemplo recibe los datos
-    JSON generados por un servicio.
+    Recibe una URL a donde debe conectarse y opcionalmente el método HTTP a
+    usar, que por default es GET. Ejecuta un fetch indicando que el cliente
+    acepta solo los formatos JSON y problem details para la respuesta.
+   </p>
+  </li>
+  <li>
+   <p>
+    Para usarla, debes importar el archivo donde está definida esta función y
+    luego invocarla pasándole la url del servicioy opcionalmente el método HTTP.
    </p>
   </li>
  </ul>
@@ -892,10 +899,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m08srvdevuelve/m-jsconfig-json.html" title="P. jsconfig.json"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m08srvdevuelve/mBconsume.html" title="B. La función consume"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m09srvjson/index.html" title="8. Servicio que recibe y devuelve JSON"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m08srvdevuelve/mCdevuelveJson.html" title="D. La función devuelveJson"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -936,7 +943,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mBrecibeJson.html">La función <dfn><code>recibeJson</code></dfn></a>
+     <a href="/m08srvdevuelve/mBrecibeJson.html" class="actual">La función <dfn><code>recibeJson</code></dfn></a>
     </p>
    </li>
    <li>
@@ -1006,7 +1013,7 @@
    </li>
    <li>
     <p>
-     <a href="/m08srvdevuelve/mHresumen.html" class="actual">Resumen</a>
+     <a href="/m08srvdevuelve/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
@@ -1030,9 +1037,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m08srvdevuelve/m-jsconfig-json.html"
+ let urlAnterior = "/m08srvdevuelve/mBconsume.html"
  /**@type {string} */
- let urlSiguiente = "/m09srvjson/index.html"
+ let urlSiguiente = "/m08srvdevuelve/mCdevuelveJson.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -973,11 +973,15 @@
  <div id="principal">
    <h1 >2. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> consumeJson(<span class="codeString">&quot;srv&#47;devuelve.php&quot;</span>)</span>
-<span>alert(<span class="codeString">`Nombre: ${respuesta.body.nombre}</span></span>
-<span><span class="codeString">Mensaje: ${respuesta.body.mensaje}`</span>)</span></code></pre>
- <p class="resaltado2">Ejecuta invocaServicio y envía request (solicitud).
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span class="codeReserved">await</span> consume(
+ recibeJson(<span class="codeString">"php/devuelve.php"</span>))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(
+ <span class="codeString">`Mensaje: ${json.mensaje}</span>
+<span class="codeString">Nombre: ${json.nombre}`</span>)</code></pre>
+ <p class="resaltado2">Envía la solicitud (request) a la red para que<br>
+  se ejecute el servicio asociado con la URL.
  </p>
 </section>
 <section>
@@ -1058,12 +1062,12 @@
    
      <p>
       <a class="paginaAnterior" href="/m08srvdevuelve/mBdeploy.html"
-        title="F. Diagrama de despliegue"><span
+        title="G. Diagrama de despliegue"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m08srvdevuelve/mCfunRecibe/index.html">G. Funcionamiento</a></h1>
+   <h1><a href="/m08srvdevuelve/mCfunRecibe/index.html">H. Funcionamiento</a></h1>
    
    <ol type="1">
     
@@ -1101,7 +1105,7 @@
    
     <p>
      <a class="paginaSiguiente" href="/m08srvdevuelve/mAvideoinstrucciones.html"
-       title="H. Hazlo funcionar (con videos)"><span
+       title="I. Hazlo funcionar (con videos)"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
