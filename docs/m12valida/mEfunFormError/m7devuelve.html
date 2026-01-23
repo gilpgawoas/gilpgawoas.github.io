@@ -973,15 +973,14 @@
  <div id="principal">
    <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado2">Despierta y recibe response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <section>
  <h1>Response</h1>
@@ -1056,7 +1055,7 @@
  <a class="anterior" href="/m12valida/mEfunFormError/m6aborta.html" title="6. Como el saludo no es válido, aborta y genera la response"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12valida/mEfunFormError/m8throwCliente.html" title="8. Como hay error, lanza una excepción que atrapa catch"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12valida/mEfunFormError/m9muestra.html" title="8. Como hay error, lanza una excepción cuyos detalles se muestran en la consola y en un alert"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1125,12 +1124,7 @@
    </li>
    <li>
     <p>
-     <a href="/m12valida/mEfunFormError/m8throwCliente.html">Como hay error, lanza una excepción que atrapa catch</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12valida/mEfunFormError/m9muestra.html">Muestra los detalles de la excepción en la consola y en un alert</a>
+     <a href="/m12valida/mEfunFormError/m9muestra.html">Como hay error, lanza una excepción cuyos detalles se muestran en la consola y en un alert</a>
     </p>
    </li>
    <li>
@@ -1161,7 +1155,7 @@
  /**@type {string} */
  let urlAnterior = "/m12valida/mEfunFormError/m6aborta.html"
  /**@type {string} */
- let urlSiguiente = "/m12valida/mEfunFormError/m8throwCliente.html"
+ let urlSiguiente = "/m12valida/mEfunFormError/m9muestra.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

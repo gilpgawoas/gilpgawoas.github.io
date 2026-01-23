@@ -1,13 +1,12 @@
 <section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span class="resaltado"> muestraError(error)</span>
-<span>}</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
 <section>
  <h1>Memoria</h1>

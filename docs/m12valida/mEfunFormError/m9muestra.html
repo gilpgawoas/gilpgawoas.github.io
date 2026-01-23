@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>9. Muestra los detalles de la excepción en la consola y en un alert - GilPG AWOAS</title>
+ <title>8. Como hay error, lanza una excepción cuyos detalles se muestran en la consola y en un alert - GilPG AWOAS</title>
  <meta name="description" content="Muestra el texto en la consola y en un alert.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -971,16 +971,15 @@
 
 <body  class="xmenu noTransition pruebaDeEscritorio">
  <div id="principal">
-   <h1 >9. Muestra los detalles de la excepción en la consola y en un alert</h1><section>
+   <h1 >8. Como hay error, lanza una excepción cuyos detalles se muestran en la consola y en un alert</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span class="resaltado"> muestraError(error)</span>
-<span>}</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -1136,10 +1135,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m12valida/mEfunFormError/m8throwCliente.html" title="8. Como hay error, lanza una excepción que atrapa catch"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m12valida/mEfunFormError/m7devuelve.html" title="7. El servicio devuelve la response, que es recibida en el cliente"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m12valida/mEfunFormError/m10termina.html" title="10. Al cerrar el alert, termina el evento"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m12valida/mEfunFormError/m10termina.html" title="9. Al cerrar el alert, termina el evento"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1208,12 +1207,7 @@
    </li>
    <li>
     <p>
-     <a href="/m12valida/mEfunFormError/m8throwCliente.html">Como hay error, lanza una excepción que atrapa catch</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m12valida/mEfunFormError/m9muestra.html" class="actual">Muestra los detalles de la excepción en la consola y en un alert</a>
+     <a href="/m12valida/mEfunFormError/m9muestra.html" class="actual">Como hay error, lanza una excepción cuyos detalles se muestran en la consola y en un alert</a>
     </p>
    </li>
    <li>
@@ -1242,7 +1236,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m12valida/mEfunFormError/m8throwCliente.html"
+ let urlAnterior = "/m12valida/mEfunFormError/m7devuelve.html"
  /**@type {string} */
  let urlSiguiente = "/m12valida/mEfunFormError/m10termina.html"
  /**@type {number|null} */

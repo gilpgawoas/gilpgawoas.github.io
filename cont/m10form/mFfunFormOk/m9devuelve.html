@@ -1,9 +1,12 @@
 <section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;procesa.php&quot;</span>, event)</span>
-<span>alert(respuesta.body)</span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/procesa.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(json)</code></pre>
  <p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
@@ -37,6 +40,9 @@
      <dd>"Hola pp."</dd>
     </dl>
    </dd>
+   <dt class="resaltado">json</dt>
+   <dd class="resaltado">
+   <dd class="resaltado">"Hola pp."</dd>
   </dl>
  </section>
 </div>

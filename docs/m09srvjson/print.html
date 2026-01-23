@@ -974,27 +974,31 @@
      <section class="pruebaDeEscritorio">
          <h1 >1. Iniciamos al ejecutar código en el cliente</h1><section>
  <h1>index.html</h1>
- <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> enviaJson(</span>
-<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
+ <pre class="resaltado"><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
       </section>
      <section class="pruebaDeEscritorio">
          <h1 >2. Se crea la literal de objeto</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> datos = {</span>
-<span class="resaltado"> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span class="resaltado"> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span class="resaltado">}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> enviaJson(</span>
-<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}</span>
+<span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -1014,15 +1018,17 @@
      <section class="pruebaDeEscritorio">
          <h1 >3. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
- <p class="resaltado2">Ejecuta fetch y envía<br>request (solicitud).</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="resaltado"><span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+ <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>
 <div class="section">
  <section>
@@ -1079,14 +1085,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >4. El servicio lee los datos</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
+<pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
@@ -1163,15 +1171,17 @@
      <section class="pruebaDeEscritorio">
          <h1 >5. El servicio procesa los datos</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -1220,15 +1230,17 @@
      <section class="pruebaDeEscritorio">
          <h1 >6. El servicio genera la response</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>Memoria</h1>
@@ -1297,14 +1309,16 @@
      <section class="pruebaDeEscritorio">
          <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span class="resaltado"><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="resaltado"><span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(json)</code></pre>
  <p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
@@ -1329,6 +1343,9 @@
      <dd>"Hola pp."</dd>
     </dl>
    </dd>
+   <dt class="resaltado">json</dt>
+   <dd class="resaltado">
+   <dd class="resaltado">"Hola pp."</dd>
   </dl>
  </section>
  <section>
@@ -1364,15 +1381,17 @@
      <section class="pruebaDeEscritorio">
          <h1 >8. Muestra el valor recibido recibido en un alert</h1><section style="vertical-align: top;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> enviaJson(</span>
-<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span class="resaltado">alert(respuesta.body)</span></code></pre>
-</section>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+<span class="resaltado">alert(json)</span></code></pre>
+ </section>
 <section style="vertical-align: top;">
  <h1>Memoria</h1>
  <dl>
@@ -1385,16 +1404,19 @@
     <dd>"pp"</dd>
    </dl>
   </dd>
-  <dt class="resaltado">respuesta</dt>
+  <dt>respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
     <dd>200</dd>
-    <dt class="resaltado">body</dt>
-    <dd class="resaltado">"Hola pp."</dd>
+    <dt>body</dt>
+    <dd>"Hola pp."</dd>
    </dl>
   </dd>
- </dl>
+  <dt class="resaltado">json</dt>
+  <dd class="resaltado">
+  <dd class="resaltado">"Hola pp."</dd>
+</dl>
 </section>
 <section>
  <h1>Alert</h1>
@@ -1409,15 +1431,17 @@
      <section class="pruebaDeEscritorio">
          <h1 >9. Al cerrar el alert, termina el evento</h1><section style="vertical-align: middle;">
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> enviaJson(</span>
-<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
-  </section>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+</section>
       </section>
       </section>
      <section >

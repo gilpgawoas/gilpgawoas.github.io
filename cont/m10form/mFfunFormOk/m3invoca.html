@@ -22,10 +22,13 @@
  </section>
  <section>
   <h1>index.html</h1>
-  <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">  <span class="codeString">&quot;srv&#47;procesa.php&quot;</span>, event)</span>
-<span>alert(respuesta.body)</span></code></pre>
+  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/procesa.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+  <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
  </section>
 </div>
 <section>

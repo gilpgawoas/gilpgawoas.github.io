@@ -973,15 +973,17 @@
  <div id="principal">
    <h1 >5. El servicio procesa los datos</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> datos = {</span>
-<span> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span>}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3"> <span class="codeReserved">await</span> enviaJson(</span>
-<span class="resaltado3">  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}
+<span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>Memoria</h1>

@@ -428,7 +428,6 @@ const ARCHIVOS = [
  "/m12valida/mEfunFormError/m5validaDatos.html",
  "/m12valida/mEfunFormError/m6aborta.html",
  "/m12valida/mEfunFormError/m7devuelve.html",
- "/m12valida/mEfunFormError/m8throwCliente.html",
  "/m12valida/mEfunFormError/m9muestra.html",
  "/m12valida/mFfunFormOk/",
  "/m12valida/mFfunFormOk/index.html",

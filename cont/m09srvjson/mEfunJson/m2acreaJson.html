@@ -1,13 +1,15 @@
 <section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> datos = {</span>
-<span class="resaltado"> saludo: <span class="codeString">&quot;Hola&quot;</span>,</span>
-<span class="resaltado"> nombre: <span class="codeString">&quot;pp&quot;</span></span>
-<span class="resaltado">}</span>
-<span><span class="codeReserved">const</span> respuesta =</span>
-<span> <span class="codeReserved">await</span> enviaJson(</span>
-<span>  <span class="codeString">&quot;srv&#47;json.php&quot;</span>, datos)</span>
-<span>alert(respuesta.body)</span></code></pre>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> datos = {
+ saludo: <span class="codeString">"Hola"</span>,
+ nombre: <span class="codeString">"pp"</span>
+}</span>
+<span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(
+ enviaJsonRecibeJson(
+  <span class="codeString">"php/json.php"</span>, datos))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
