@@ -757,223 +757,19 @@
     
    <li>
     <p>
-     <a href="/m19aut/m-js/m-CUE-js.html">js / CUE.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-protege-js.html">js / protege.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-ROL_IDS-js.html">js / ROL_IDS.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-ROL_ID_ADMINISTRADOR-js.html">js / ROL_ID_ADMINISTRADOR.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-ROL_ID_CLIENTE-js.html">js / ROL_ID_CLIENTE.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-js/m-Sesion-js.html">js / Sesion.js</a>
-    </p>
-   </li>
-   <li>
-    <p>
      <a href="/m19aut/m-js/m-custom/">Carpeta « js / custom »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/">Carpeta « js / lib »</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
-     <section >
-         <h1 >A. js / CUE.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> CUE = <span class="codeString">"cue"</span></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >B. js / protege.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { consumeJson } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/consumeJson.js"</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/exportaAHtml.js"</span></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/muestraError.js"</span></td></tr>
-  <tr><td>4</td><td><span class="codeReserved">import</span> { MiNav } <span class="codeReserved">from</span> <span class="codeString">"./custom/mi-nav.js"</span></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"./Sesion.js"</span></td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td><span class="codeReserved">const</span> SERVICIO = <span class="codeString">'srv/sesion-actual.php'</span></td></tr>
-  <tr><td>8</td><td><span class="codeReserved">const</span> URL_DE_PROTECCION = <span class="codeString">'index.html'</span></td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>11</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {MiNav} [nav]</span></td></tr>
-  <tr><td>12</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string[]} [rolIdsPermitidos]</span></td></tr>
-  <tr><td>13</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>14</td><td><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> protege(nav, rolIdsPermitidos) {</td></tr>
-  <tr><td>15</td><td> <span class="codeReserved">try</span> {</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>  <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consumeJson(SERVICIO)</td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">const</span> sesion = <span class="codeReserved">new</span> Sesion(respuesta.body)</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td>  <span class="codeReserved">if</span> (nav) {</td></tr>
-  <tr><td>21</td><td>   nav.sesion = sesion</td></tr>
-  <tr><td>22</td><td>  }</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td>  <span class="codeReserved">if</span> (rolIdsPermitidos === undefined) {</td></tr>
-  <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td>   <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td>  } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td>   <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td>   <span class="codeReserved">for</span> (<span class="codeReserved">const</span> rolId of rolIdsPermitidos) {</td></tr>
-  <tr><td>33</td><td>    <span class="codeReserved">if</span> (rolIds.has(rolId)) {</td></tr>
-  <tr><td>34</td><td>     <span class="codeReserved">return</span> sesion</td></tr>
-  <tr><td>35</td><td>    }</td></tr>
-  <tr><td>36</td><td>   }</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>   <span class="codeReserved">if</span> (location.href !== URL_DE_PROTECCION) {</td></tr>
-  <tr><td>39</td><td>    location.href = URL_DE_PROTECCION</td></tr>
-  <tr><td>40</td><td>   }</td></tr>
-  <tr><td>41</td><td></td></tr>
-  <tr><td>42</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"No autorizado."</span>)</td></tr>
-  <tr><td>43</td><td></td></tr>
-  <tr><td>44</td><td>  }</td></tr>
-  <tr><td>45</td><td></td></tr>
-  <tr><td>46</td><td> } <span class="codeReserved">catch</span> (error) {</td></tr>
-  <tr><td>47</td><td>  muestraError(error)</td></tr>
-  <tr><td>48</td><td> }</td></tr>
-  <tr><td>49</td><td>}</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td>exportaAHtml(protege)</td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >C. js / ROL_IDS.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ROL_IDS = <span class="codeString">"rolIds"</span></td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >D. js / ROL_ID_ADMINISTRADOR.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ROL_ID_ADMINISTRADOR = <span class="codeString">"Administrador"</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">// Permite que los eventos de html usen la constante.</span></td></tr>
-  <tr><td>4</td><td>window[<span class="codeString">"ROL_ID_ADMINISTRADOR"</span>] = ROL_ID_ADMINISTRADOR</td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >E. js / ROL_ID_CLIENTE.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">export</span> <span class="codeReserved">const</span> ROL_ID_CLIENTE = <span class="codeString">"Cliente"</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeComment">// Permite que los eventos de html usen la constante.</span></td></tr>
-  <tr><td>4</td><td>window[<span class="codeString">"ROL_ID_CLIENTE"</span>] = ROL_ID_CLIENTE</td></tr>
- </tbody>
-</table>
-      </section>
-     <section >
-         <h1 >F. js / Sesion.js</h1><table class="codeShow">
- <caption style="text-align: left">
-  <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
-   <span class="material-symbols-outlined">
-    content_copy
-   </span>
-  </button>
- </caption>
- <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { exportaAHtml } <span class="codeReserved">from</span> <span class="codeString">"../lib/js/exportaAHtml.js"</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { CUE } <span class="codeReserved">from</span> <span class="codeString">"./CUE.js"</span></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">import</span> { ROL_IDS } <span class="codeReserved">from</span> <span class="codeString">"./ROL_IDS.js"</span></td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> Sesion {</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>8</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> { any } objeto</span></td></tr>
-  <tr><td>9</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>10</td><td> <span class="codeReserved">constructor</span>(objeto) {</td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>13</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>14</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>15</td><td>  <span class="codeReserved">this</span>.cue = objeto[CUE]</td></tr>
-  <tr><td>16</td><td>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> <span class="codeReserved">this</span>.cue !== <span class="codeString">"string"</span>)</td></tr>
-  <tr><td>17</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"cue debe ser string."</span>)</td></tr>
-  <tr><td>18</td><td></td></tr>
-  <tr><td>19</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>20</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>21</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>22</td><td>  <span class="codeReserved">const</span> rolIds = objeto[ROL_IDS]</td></tr>
-  <tr><td>23</td><td>  <span class="codeReserved">if</span> (!Array.isArray(rolIds))</td></tr>
-  <tr><td>24</td><td>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(<span class="codeString">"rolIds debe ser arreglo."</span>)</td></tr>
-  <tr><td>25</td><td>  <span class="codeComment">/**</span></td></tr>
-  <tr><td>26</td><td><span class="codeComment">   * <span class="codeReserved">@readonly</span></span></td></tr>
-  <tr><td>27</td><td><span class="codeComment">   */</span></td></tr>
-  <tr><td>28</td><td>  <span class="codeReserved">this</span>.rolIds = <span class="codeReserved">new</span> Set(rolIds)</td></tr>
-  <tr><td>29</td><td></td></tr>
-  <tr><td>30</td><td> }</td></tr>
-  <tr><td>31</td><td></td></tr>
-  <tr><td>32</td><td>}</td></tr>
-  <tr><td>33</td><td></td></tr>
-  <tr><td>34</td><td>exportaAHtml(Sesion)</td></tr>
- </tbody>
-</table>
-      </section>
      <section>
-         <h1 >G. Carpeta « js / custom »</h1>
+         <h1 >A. Carpeta « js / custom »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -1006,70 +802,494 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">"../../lib/js/htmlentities.js"</span></td></tr>
-  <tr><td>2</td><td><span class="codeReserved">import</span> { Sesion } <span class="codeReserved">from</span> <span class="codeString">"../Sesion.js"</span></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">import</span> { ROL_ID_ADMINISTRADOR } <span class="codeReserved">from</span> <span class="codeString">"../ROL_ID_ADMINISTRADOR.js"</span></td></tr>
-  <tr><td>4</td><td><span class="codeReserved">import</span> { ROL_ID_CLIENTE } <span class="codeReserved">from</span> <span class="codeString">"../ROL_ID_CLIENTE.js"</span></td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td><span class="codeReserved">export</span> <span class="codeReserved">class</span> MiNav <span class="codeReserved">extends</span> HTMLElement {</td></tr>
-  <tr><td>7</td><td></td></tr>
-  <tr><td>8</td><td> connectedCallback() {</td></tr>
-  <tr><td>9</td><td></td></tr>
-  <tr><td>10</td><td>  <span class="codeReserved">this</span>.style.<span class="codeReserved">display</span> = <span class="codeString">"block"</span></td></tr>
-  <tr><td>11</td><td></td></tr>
-  <tr><td>12</td><td>  <span class="codeReserved">this</span>.innerHTML = <span class="codeComment">/* html */</span></td></tr>
-  <tr><td>13</td><td>   <span class="codeString">`&lt;<span class="codeReserved">nav</span>&gt;</span></td></tr>
-  <tr><td>14</td><td><span class="codeString">     &lt;<span class="codeReserved">ul</span> style=&quot;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>;</span></td></tr>
-  <tr><td>15</td><td><span class="codeString">            flex-wrap: wrap;</span></td></tr>
-  <tr><td>16</td><td><span class="codeString">            <span class="codeReserved">padding</span>:0;</span></td></tr>
-  <tr><td>17</td><td><span class="codeString">            <span class="codeReserved">gap</span>: 0.5em;</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">            <span class="codeReserved">list-style-type</span>: none&quot;&gt;</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">      &lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">progress</span> max=&quot;100&quot;&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">     &lt;/<span class="codeReserved">ul</span>&gt;</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">    &lt;/<span class="codeReserved">nav</span>&gt;`</span></td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td> }</td></tr>
-  <tr><td>24</td><td></td></tr>
-  <tr><td>25</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>26</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Sesion} sesion</span></td></tr>
-  <tr><td>27</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>28</td><td> set sesion(sesion) {</td></tr>
-  <tr><td>29</td><td>  <span class="codeReserved">const</span> cue = sesion.cue</td></tr>
-  <tr><td>30</td><td>  <span class="codeReserved">const</span> rolIds = sesion.rolIds</td></tr>
-  <tr><td>31</td><td>  <span class="codeReserved">let</span> innerHTML = <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;index.html&quot;&gt;Inicio&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
-  <tr><td>32</td><td>  innerHTML += <span class="codeReserved">this</span>.hipervinculosAdmin(rolIds)</td></tr>
-  <tr><td>33</td><td>  innerHTML += <span class="codeReserved">this</span>.hipervinculosCliente(rolIds)</td></tr>
-  <tr><td>34</td><td>  <span class="codeReserved">const</span> cueHtml = htmlentities(cue)</td></tr>
-  <tr><td>35</td><td>  <span class="codeReserved">if</span> (cue !== <span class="codeString">""</span>) {</td></tr>
-  <tr><td>36</td><td>   innerHTML +=  <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;${cueHtml}&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
-  <tr><td>37</td><td>  }</td></tr>
-  <tr><td>38</td><td>  innerHTML += <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;perfil.html&quot;&gt;Perfil&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
-  <tr><td>39</td><td>  <span class="codeReserved">const</span> ul = <span class="codeReserved">this</span>.querySelector(<span class="codeString">"ul"</span>)</td></tr>
-  <tr><td>40</td><td>  <span class="codeReserved">if</span> (ul !== <span class="codeReserved">null</span>) {</td></tr>
-  <tr><td>41</td><td>   ul.innerHTML = innerHTML</td></tr>
-  <tr><td>42</td><td>  }</td></tr>
-  <tr><td>43</td><td> }</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>46</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Set&lt;string&gt;} rolIds</span></td></tr>
-  <tr><td>47</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>48</td><td> hipervinculosAdmin(rolIds) {</td></tr>
-  <tr><td>49</td><td>  <span class="codeReserved">return</span> rolIds.has(ROL_ID_ADMINISTRADOR) ?</td></tr>
-  <tr><td>50</td><td>   <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;admin.html&quot;&gt;Para administradores&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
-  <tr><td>51</td><td>   : <span class="codeString">""</span></td></tr>
-  <tr><td>52</td><td> }</td></tr>
-  <tr><td>53</td><td></td></tr>
-  <tr><td>54</td><td> <span class="codeComment">/**</span></td></tr>
-  <tr><td>55</td><td><span class="codeComment">  * <span class="codeReserved">@param</span> {Set&lt;string&gt;} rolIds</span></td></tr>
-  <tr><td>56</td><td><span class="codeComment">  */</span></td></tr>
-  <tr><td>57</td><td> hipervinculosCliente(rolIds) {</td></tr>
-  <tr><td>58</td><td>  <span class="codeReserved">return</span> rolIds.has(ROL_ID_CLIENTE) ?</td></tr>
-  <tr><td>59</td><td>   <span class="codeComment">/* html */</span> <span class="codeString">`&lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;cliente.html&quot;&gt;Para clientes&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;`</span></td></tr>
-  <tr><td>60</td><td>   : <span class="codeString">""</span></td></tr>
-  <tr><td>61</td><td> }</td></tr>
-  <tr><td>62</td><td>}</td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td>customElements.define(<span class="codeString">"mi-nav"</span>, MiNav)</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">class</span> MiNav <span class="codeReserved">extends</span> HTMLElement {</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre> <span class="codeReserved">constructor</span>() {</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>  super()</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>  <span class="codeReserved">this</span>.cargado = <span class="codeReserved">false</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> connectedCallback() {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  <span class="codeReserved">this</span>.style.<span class="codeReserved">display</span> = <span class="codeString">"block"</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">this</span>.cargado === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   <span class="codeReserved">this</span>.innerHTML = <span class="codeComment">/* html */</span></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>    <span class="codeString">`&lt;<span class="codeReserved">nav</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">ul</span> style=&quot;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>;</span></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre><span class="codeString">                 flex-wrap: wrap;</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre><span class="codeString">                 <span class="codeReserved">padding</span>:0;</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString">                 <span class="codeReserved">gap</span>: 0.5em;</span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeString">                 <span class="codeReserved">list-style-type</span>: none&quot;&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;ocupado&quot;&gt;&lt;<span class="codeReserved">progress</span> max=&quot;100&quot;&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aIndex&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;index.html&quot;&gt;Inicio&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aAdmin&quot; hidden&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">        &lt;<span class="codeReserved">a</span> href=&quot;administrador.html&quot;&gt;Para administradores&lt;/<span class="codeReserved">a</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre><span class="codeString">       &lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aCliente&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;cliente.html&quot;&gt;Para clientes&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;san&quot; hidden&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aPerfil&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;perfil.html&quot;&gt;Perfil&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre><span class="codeString">      &lt;/<span class="codeReserved">ul</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre><span class="codeString">     &lt;/<span class="codeReserved">nav</span>&gt;`</span></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>   <span class="codeReserved">this</span>.cargado = <span class="codeReserved">true</span></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>customElements.define(<span class="codeString">"mi-nav"</span>, MiNav)</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+      </section>
+     <section>
+         <h1 >B. Carpeta « js / lib »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a target="_blank" rel="noreferrer"
+      href="print.html">Versión para imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-consume-js.html">js / lib / consume.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-descargaVista-js.html">js / lib / descargaVista.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-enviaFormRecibeJson-js.html">js / lib / enviaFormRecibeJson.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-manejaErrores-js.html">js / lib / manejaErrores.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-muestraError-js.html">js / lib / muestraError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-muestraObjeto-js.html">js / lib / muestraObjeto.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-ProblemDetailsError-js.html">js / lib / ProblemDetailsError.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-recibeJson-js.html">js / lib / recibeJson.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-js/m-lib/m-submitAccion-js.html">js / lib / submitAccion.js</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. js / lib / consume.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { ProblemDetailsError } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetailsError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Espera a que la promesa de un fetch termine. Si</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * hay error, lanza una excepción.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * </span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Promise&lt;Response&gt; } servicio</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> consume(servicio) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> servicio</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeReserved">if</span> (respuesta.ok) {</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> respuesta</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeReserved">const</span> contentType = respuesta.headers.get(<span class="codeString">"Content-Type"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  <span class="codeReserved">if</span> (contentType === <span class="codeString">"application/problem+json; charset=utf-8"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsError(<span class="codeReserved">await</span> respuesta.json())</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeReserved">else</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(respuesta.statusText)</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >2. js / lib / descargaVista.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeReserved">import</span> { muestraObjeto } <span class="codeReserved">from</span> <span class="codeString">"./muestraObjeto.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">import</span> { recibeJson } <span class="codeReserved">from</span> <span class="codeString">"./recibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaVista(url, metodoHttp = <span class="codeString">"GET"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(recibeJson(url, metodoHttp))</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> <span class="codeReserved">const</span> json = <span class="codeReserved">await</span> respuesta.json()</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> muestraObjeto(document, json)</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> <span class="codeReserved">return</span> json</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >3. js / lib / enviaFormRecibeJson.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * Envía los datos de un formolario a la url usando la codificación</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * multipart/form-data.</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {HTMLFormElement} formulario</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> enviaFormRecibeJson(url, formulario, metodoHttp = <span class="codeString">"POST"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeReserved">return</span> fetch(</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  url,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  {</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   method: metodoHttp,</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> },</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>   body: <span class="codeReserved">new</span> FormData(formulario)</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> )</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. js / lib / manejaErrores.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { muestraError } <span class="codeReserved">from</span> <span class="codeString">"./muestraError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Intercepta Response.prototype.json para capturar errores de parseo</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * y asegurar que se reporten correctamente en navegadores Chromium.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">const</span> originalJson = Response.prototype.json</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> Response.prototype.json = <span class="codeReserved">function</span> () {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeComment">// Llamamos al método original usando el contexto (this) de la respuesta</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> originalJson.apply(<span class="codeReserved">this</span>, arguments)</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   .<span class="codeReserved">catch</span>((<span class="codeComment">/** <span class="codeReserved">@type</span> {any} */</span> error) =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>    <span class="codeComment">// Corrige un error de Chrome que evita el manejo correcto de errores.</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(error)</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   })</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>window.onerror = <span class="codeReserved">function</span> (</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {string} */</span> _message,</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {string} */</span> _url,</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {number} */</span> _line,</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {number} */</span> _column,</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {Error} */</span> errorObject</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>) {</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> muestraError(errorObject)</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre> <span class="codeReserved">return</span> <span class="codeReserved">true</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>window.addEventListener(<span class="codeString">'unhandledrejection'</span>, event =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> muestraError(event.reason)</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre> event.preventDefault()</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>})</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. js / lib / muestraError.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { ProblemDetailsError } <span class="codeReserved">from</span> <span class="codeString">"./ProblemDetailsError.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Muestra los datos de una Error en la consola y en un cuadro de alerta.</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { ProblemDetailsError | Error | <span class="codeReserved">null</span> } error descripción del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  console.error(<span class="codeString">"Error"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  alert(<span class="codeString">"Error"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetailsError) {</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">const</span> problemDetails = error.problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>  <span class="codeReserved">let</span> mensaje =</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>   <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span> ? problemDetails[<span class="codeString">"title"</span>] : <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>   <span class="codeReserved">if</span> (mensaje !== <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>    mensaje += <span class="codeString">"\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>   mensaje += problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeReserved">if</span> (mensaje === <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>   mensaje = <span class="codeString">"Error"</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>  console.error(error, problemDetails)</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  alert(mensaje)</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>  console.error(error)</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>  alert(error.message)</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. js / lib / muestraObjeto.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Document | HTMLElement | ShadowRoot} raizHtml</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { any } objeto</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraObjeto(raizHtml, objeto) {</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [nombre, definiciones] of Object.entries(objeto)) {</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>  <span class="codeReserved">if</span> (Array.isArray(definiciones)) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>   muestraArray(raizHtml, nombre, definiciones)</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (definiciones !== undefined && definiciones !== <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>   muestraElemento(raizHtml, nombre, definiciones)</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { string } nombre</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> selectorDeNombre(nombre) {</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> <span class="codeReserved">return</span> <span class="codeString">`[id=&quot;${nombre}&quot;],[name=&quot;${nombre}&quot;],[data-name=&quot;${nombre}&quot;]`</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { Document | HTMLElement | ShadowRoot } raizHtml</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { string } propiedad</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {any[]} valores</span></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre><span class="codeReserved">function</span> muestraArray(raizHtml, propiedad, valores) {</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre> <span class="codeReserved">const</span> conjunto = <span class="codeReserved">new</span> Set(valores)</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> <span class="codeReserved">const</span> elementos = raizHtml.querySelectorAll(selectorDeNombre(propiedad))</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre> <span class="codeReserved">if</span> (elementos.length === 1 && elementos[0] <span class="codeReserved">instanceof</span> HTMLSelectElement) {</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>  muestraOptions(elementos[0], conjunto)</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>  muestraInputs(elementos, conjunto)</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {HTMLSelectElement} select</span></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Set&lt;any&gt;} conjunto</span></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre><span class="codeReserved">function</span> muestraOptions(select, conjunto) {</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, options = select.options, len = options.length; i &lt; len; i++) {</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>  <span class="codeReserved">const</span> option = options[i]</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>  option.selected = conjunto.has(option.value)</pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {NodeListOf&lt;Element&gt;} elementos</span></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Set&lt;any&gt;} conjunto</span></pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre><span class="codeReserved">function</span> muestraInputs(elementos, conjunto) {</pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre> <span class="codeReserved">for</span> (<span class="codeReserved">let</span> i = 0, len = elementos.length; i &lt; len; i++) {</pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>  <span class="codeReserved">const</span> elemento = elementos[i]</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>  <span class="codeReserved">if</span> (elemento <span class="codeReserved">instanceof</span> HTMLInputElement) {</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>   elemento.checked = conjunto.has(elemento.value)</pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre><span class="codeReserved">const</span> data_ = <span class="codeString">"data-"</span></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre><span class="codeReserved">const</span> dataLength = data_.length</pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Document | HTMLElement | ShadowRoot} raizHtml</span></pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} nombre</span></pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {{ [s: string]: any; } } definiciones</span></pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre><span class="codeReserved">function</span> muestraElemento(raizHtml, nombre, definiciones) {</pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre> <span class="codeReserved">const</span> elemento = raizHtml.querySelector(selectorDeNombre(nombre))</pre></td></tr>
+  <tr><td class="codeShow_order">72</td><td><pre> <span class="codeReserved">if</span> (elemento !== <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">73</td><td><pre>  <span class="codeReserved">for</span> (<span class="codeReserved">const</span> [propiedad, valor] of Object.entries(definiciones)) {</pre></td></tr>
+  <tr><td class="codeShow_order">74</td><td><pre>   <span class="codeReserved">if</span> (propiedad <span class="codeReserved">in</span> elemento) {</pre></td></tr>
+  <tr><td class="codeShow_order">75</td><td><pre>    elemento[propiedad] = valor</pre></td></tr>
+  <tr><td class="codeShow_order">76</td><td><pre>   } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (</pre></td></tr>
+  <tr><td class="codeShow_order">77</td><td><pre>    propiedad.length &gt; dataLength</pre></td></tr>
+  <tr><td class="codeShow_order">78</td><td><pre>    && propiedad.startsWith(data_)</pre></td></tr>
+  <tr><td class="codeShow_order">79</td><td><pre>    && elemento <span class="codeReserved">instanceof</span> HTMLElement</pre></td></tr>
+  <tr><td class="codeShow_order">80</td><td><pre>   ) {</pre></td></tr>
+  <tr><td class="codeShow_order">81</td><td><pre>    elemento.dataset[propiedad.substring(dataLength)] = valor</pre></td></tr>
+  <tr><td class="codeShow_order">82</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">83</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">84</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">85</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >7. js / lib / ProblemDetailsError.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">class</span> ProblemDetailsError <span class="codeReserved">extends</span> Error {</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre> <span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment">  * Detalle de los errores devueltos por un servicio.</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment">  * Crea una instancia de ProblemDetailsError.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment">  * <span class="codeReserved">@param</span> {object} problemDetails Objeto con la descripcipon del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment">  */</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">constructor</span>(problemDetails) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  super(<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   ? problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   : (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>    ? problemDetails[<span class="codeString">"title"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>    : <span class="codeString">"Error"</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">this</span>.problemDetails = problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >8. js / lib / recibeJson.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> recibeJson(url, metodoHttp = <span class="codeString">"GET"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> fetch(</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  url,</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   method: metodoHttp,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> )</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >9. js / lib / submitAccion.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeReserved">import</span> { enviaFormRecibeJson } <span class="codeReserved">from</span> <span class="codeString">"./enviaFormRecibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {Event} event</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {HTMLFormElement} formulario</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} nuevaVista</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> submitAccion(event, url, formulario, nuevaVista) {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> event.preventDefault()</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> <span class="codeReserved">await</span> consume(enviaFormRecibeJson(url, formulario))</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> location.href = nuevaVista</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>

@@ -1,0 +1,72 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/FORBIDDEN.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetailsException.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">function</span> validaToken(string $pagina, string $token)</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> (!isset($_SESSION[$pagina]))</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   <span class="codeString">"status"</span> =&gt; FORBIDDEN,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   <span class="codeString">"title"</span> =&gt; <span class="codeString">"Página no registrada."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/error/paginanoregistrada.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> $tokensParaPagina = $_SESSION[$pagina];</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> <span class="codeReserved">if</span> (!is_array($tokensParaPagina))</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>   <span class="codeString">"status"</span> =&gt; INTERNAL_SERVER_ERROR,</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>   <span class="codeString">" title"</span> =&gt; <span class="codeString">"No hay arreglo de tokens."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/error/sintokens.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> $hallado = <span class="codeReserved">false</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> <span class="codeComment">// Valida que el token se haya registrado.</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  $time = time();</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> <span class="codeReserved">foreach</span> ($tokensParaPagina <span class="codeReserved">as</span> $llave =&gt; $tokenParaPagina) {</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>  <span class="codeReserved">if</span> (strcmp($token, $tokenParaPagina[<span class="codeString">"texto"</span>]) === 0) {</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>   <span class="codeReserved">if</span> ($tokenParaPagina[<span class="codeString">"expiracion"</span>] &lt; $time) {</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>    unset($tokensParaPagina[$llave]);</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>    $_SESSION[$pagina] = $tokensParaPagina;</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>     <span class="codeString">"status"</span> =&gt; FORBIDDEN,</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>     <span class="codeString">"title"</span> =&gt; <span class="codeString">"Tiempo de expiración excedido."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>     <span class="codeString">"type"</span> =&gt; <span class="codeString">"/error/paginaexpirada.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>    ]);</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>   $hallado = <span class="codeReserved">true</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>  } <span class="codeReserved">elseif</span> ($tokenParaPagina[<span class="codeString">"expiracion"</span>] &gt; $time) {</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>   <span class="codeComment">// Elimina tokens expirados</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>   unset($tokensParaPagina[$llave]);</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre> $_SESSION[$pagina] = $tokensParaPagina;</pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre> <span class="codeReserved">if</span> ($hallado === <span class="codeReserved">false</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>   <span class="codeString">"status"</span> =&gt; FORBIDDEN,</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>   <span class="codeString">"title"</span> =&gt; <span class="codeString">"Página no registrada."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/error/paginanoregistrada.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,61 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/manejaErrores.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/devuelveCreated.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/validaEntidadObligatoria.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/detVentaConsulta.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaAgrega.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>$bd = Bd::pdo();</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>$bd-&gt;beginTransaction();</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>$venta = ventaEnCapturaBusca($bd);</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>$venta = validaEntidadObligatoria(<span class="codeString">"Venta en captura"</span>,  $venta);</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>$detalles = detVentaConsulta($bd, $venta[<span class="codeString">"VENT_ID"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeComment">// Actualiza las existencias de los productos vendidos.</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>$update = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> <span class="codeString">"<span class="codeReserved">UPDATE</span> PRODUCTO</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString">   <span class="codeReserved">SET</span> PROD_EXISTENCIAS = :PROD_EXISTENCIAS</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">   <span class="codeReserved">WHERE</span> PROD_ID = :PROD_ID"</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>);</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeReserved">foreach</span> ($detalles <span class="codeReserved">as</span> $detVenta) {</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre> $update-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>  <span class="codeString">":PROD_ID"</span> =&gt; $detVenta[<span class="codeString">"PROD_ID"</span>],</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  <span class="codeString">":PROD_EXISTENCIAS"</span> =&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>  $detVenta[<span class="codeString">"PROD_EXISTENCIAS"</span>] - $detVenta[<span class="codeString">"DTV_CANTIDAD"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre> ]);</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>$update = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre> <span class="codeString">"<span class="codeReserved">UPDATE</span> VENTA</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">   <span class="codeReserved">SET</span> VENT_EN_CAPTURA = 0</span></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre><span class="codeString">   <span class="codeReserved">WHERE</span> VENT_ID = :VENT_ID"</span></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>);</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>$update-&gt;execute([<span class="codeString">":VENT_ID"</span> =&gt; $venta[<span class="codeString">"VENT_ID"</span>]]);</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>ventaEnCapturaAgrega($bd);</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre>$folio = $bd-&gt;lastInsertId();</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>$bd-&gt;commit();</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>devuelveCreated(<span class="codeString">"/srv/venta-en-captura.php"</span>, [</pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre> <span class="codeString">"folio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $folio],</pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre> <span class="codeString">"detalles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; <span class="codeString">""</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>]);</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

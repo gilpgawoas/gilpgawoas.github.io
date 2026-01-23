@@ -1,0 +1,41 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> rolCheckboxes()</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $bd = Bd::pdo();</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> $lista =</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  $bd-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> ROL <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> ROL_ID"</span>)-&gt;fetchAll(PDO::FETCH_ASSOC);</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> $render = <span class="codeString">"&lt;<span class="codeReserved">legend</span>&gt;Roles&lt;/<span class="codeReserved">legend</span>&gt;"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> <span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  $id = htmlentities($modelo[<span class="codeString">"ROL_ID"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  $descripcion = htmlentities($modelo[<span class="codeString">"ROL_DESCRIPCION"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  $render .=</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeString">"&lt;<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">label</span> style=&#039;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>&#039;&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString">     &lt;<span class="codeReserved">input</span> type=&#039;checkbox&#039; name=&#039;rolIds[]&#039; value=&#039;$id&#039;&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeString">     &lt;<span class="codeReserved">span</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">strong</span> style=&#039;<span class="codeReserved">display</span>: block&#039;&gt;$id&lt;/<span class="codeReserved">strong</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre><span class="codeString">      $descripcion</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString">     &lt;/<span class="codeReserved">span</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">    &lt;/<span class="codeReserved">label</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre><span class="codeString">   &lt;/<span class="codeReserved">p</span>&gt;"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> <span class="codeReserved">return</span> $render;</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

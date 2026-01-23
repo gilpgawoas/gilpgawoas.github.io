@@ -1,0 +1,23 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * Añade caracteres al azar a una raíz, para obtener un clientId único.</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} raiz </span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> creaIdCliente(raiz) {</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> <span class="codeReserved">const</span> chars = <span class="codeString">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> <span class="codeReserved">for</span> (<span class="codeReserved">var</span> i = 0; i &lt; 15; i++) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  raiz += chars.charAt(Math.floor(Math.random() * chars.length))</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeReserved">return</span> raiz</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,56 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/manejaErrores.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/devuelveJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/validaEntidadObligatoria.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ventaEnCapturaBusca.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/detVentaConsulta.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>$bd = Bd::pdo();</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>$venta = ventaEnCapturaBusca($bd);</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>$venta = validaEntidadObligatoria(<span class="codeString">"Venta en captura"</span>,  $venta);</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>$detalles = detVentaConsulta($bd, $venta[<span class="codeString">"VENT_ID"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>$renderDetalles = <span class="codeString">""</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeReserved">foreach</span> ($detalles <span class="codeReserved">as</span> $detVenta) {</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre> $encodeProdId = urlencode($detVenta[<span class="codeString">"PROD_ID"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> $prodId = htmlentities($encodeProdId);</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> $prodNombre = htmlentities($detVenta[<span class="codeString">"PROD_NOMBRE"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre> $precio = htmlentities(<span class="codeString">"$"</span> . number_format($detVenta[<span class="codeString">"PROD_PRECIO"</span>], 2));</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre> $cantidad = htmlentities(number_format($detVenta[<span class="codeString">"DTV_CANTIDAD"</span>], 2));</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> $renderDetalles .=</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeString">"&lt;<span class="codeReserved">dt</span>&gt;$prodNombre&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre><span class="codeString">     &lt;<span class="codeReserved">a</span> href= &#039;modifica.html?prodId=$prodId&#039;&gt;Modificar o eliminar&lt;/<span class="codeReserved">a</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre><span class="codeString">    &lt;/<span class="codeReserved">dd</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre><span class="codeString">     &lt;<span class="codeReserved">dl</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">dt</span>&gt;Cantidad&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">dd</span>&gt;$cantidad&lt;/<span class="codeReserved">dd</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">dt</span>&gt;Precio&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">dd</span>&gt;$precio&lt;/<span class="codeReserved">dd</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre><span class="codeString">     &lt;/<span class="codeReserved">dl</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre><span class="codeString">    &lt;/<span class="codeReserved">dd</span>&gt;"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>devuelveJson([</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre> <span class="codeString">"folio"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $venta[<span class="codeString">"VENT_ID"</span>]],</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre> <span class="codeString">"detalles"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $renderDetalles]</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>]);</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

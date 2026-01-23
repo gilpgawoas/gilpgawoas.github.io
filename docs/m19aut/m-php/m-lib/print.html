@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" sizes="32x32" href="/favicon.ico">
+<meta name="theme-color" content="#039623">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/lib/js/muestra-codigo.js"></script>
+ <title>Carpeta « php / lib » - GilPG AWOAS</title>
+ <meta name="description" content="">
+ <style>
+ /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
+ :root {
+  --marginTop: 0.25rem;
+  --padTop: 0;
+  --h1PadTop: 2.5rem;
+  --introDuracion: 2s;
+  --introFuncion: ease-out;
+  --padCont: 0.5rem;
+  --padNav: 0.75rem 0.5rem;
+  --anchoNav: 300px;
+  --anchoLectura: 900px;
+  --colLetra: black;
+  --colFondo: white;
+  --colPush: var(--colFondo);
+  --colPushHover: var(--colFondo);
+  --colPushFocus: var(--colFondo);
+  --colPushActive: #bae397;
+  --colFondoPush: #609732;
+  --colFondoPushHover: #8abd5f;
+  --colFondoPushFocus: #3e7213;
+  --colFondoPushActive: #224c00;
+  --paddingPush: 0.2rem 0.3rem;
+  --borderPush: none;
+  --borderRadiusPush: 0.6em;
+  --colA: #6a7b15;
+  --colAVisited: #6f256f;
+  --colAActive: #e498af;
+  --colAPush: var(--colFondo);
+  --colAVisitedPush: var(--colFondo);
+  --colAPushHover: var(--colFondo);
+  --colAVisitedPushHover: var(--colFondo);
+  --colAPushFocus: var(--colFondo);
+  --colAVisitedPushFocus: var(--colFondo);
+  --colAPushActive: var(--colFondo);
+  --colAVisitedPushActive: var(--colFondo);
+  --colFondoAPush: #6a7b15;
+  --colFondoAVisitedPush: #6f256f;
+  --colFondoAPushHover: #91a437;
+  --colFondoAVisitedPushHover: #a66fa6;
+  --colFondoAPushFocus: #445200;
+  --colFondoAVisitedPushFocus: #530e53;
+  --colFondoAPushActive: #e498af;
+  --colFondoAVisitedPushActive: #e498af;
+  --colSombra: #49494980;
+  --navSombra: 0.5rem 0 0.5rem var(--colSombra);
+  --shadowTitulo: 3px 1px 2px black;
+  /* --colTitulo: #bae397; */
+  --colTitulo: #609732;
+  /* --colTituloFondo: #609732; */
+  --colPrincipalTituloStrong: #6E256E;
+  --colAStrong: var(--colLetra);
+  /* --colNavH1Sel: #b35f7c; */
+  --colFondoNav: var(--colFondo);
+  --colFondoNavSel: #e498af;
+  --colScrollbar: #CFD8DC;
+  --colThumb: #90a4ae;
+  --colThumbActivo: #3f3f3f;
+  --colResaltado: #e9c8d2;
+  --colResaltado2: #bae397;
+  --colResaltado3: #cfcfcf;
+  --colLetraResaltado: black;
+  --colLetraCodeComment: #224c00;
+  --colLetraCodeString: #903357;
+  --colLetraCodeReserved: #445200;
+  --colSecundario: #e498af;
+  --colTarget: #cef4ff;
+  --colStack1: black;
+  --colStack2: #224ba5;
+  --colStack3: #92731f;
+  --anchoThumb: 7px;
+  --borderRadiusThumb: 3.5px;
+  --gap: 0.5rem;
+  --fontMono: 'Xanh Mono', monospace;
+  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontSerif: 'Purple Purse', serif; */
+  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--fontSerif);
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ /* https://paletton.com/#uid=74W0u0kaVz84jP27qHbeJtFiHpX */
+ @media (prefers-color-scheme: dark) {
+
+  :root {
+   --colLetra: white;
+   /* --colFondo: #272727; */
+   --colFondo: black;
+   --colPushActive: #e3f5d4;
+   --colFondoPush: #bbe697;
+   --colFondoPushHover: #d0eeb7;
+   --colFondoPushFocus: #9ed372;
+   --colFondoPushActive: #7db84d;
+   --colA: #e9f7a3;
+   --colAVisited: #c89ac8;
+   --colAActive: #983351;
+   --colFondoAPush: #e9f7a3;
+   --colFondoAVisitedPush: #c89ac8;
+   --colFondoAPushHover: #f6fcda;
+   --colFondoAVisitedPushHover: #dec0de;
+   --colFondoAPushFocus: #b4c853;
+   --colFondoAVisitedPushFocus: #9a539a;
+   --colFondoAPushActive: #983351;
+   --colFondoAVisitedPushActive: #983351;
+   --colSombra: #00000080;
+   --colTitulo: #e3f5d4;
+   --colPrincipalTituloStrong: #C899C8;
+   /* --colTituloFondo: #7db84d; */
+   /* --colNavH1Sel: #d37290; */
+   --colFondoNavSel: #7a3059;
+   --colScrollbar: #616161;
+   --colThumb: #ffffff;
+   --colResaltado: #7a3059;
+   --colResaltado2: #5c922f;
+   --colResaltado3: #4e4e4e;
+   --colLetraResaltado: white;
+   --colLetraCodeComment: #d0eeb7;
+   --colLetraCodeString: #eeb7c8;
+   --colLetraCodeReserved: #f0fac0;
+  }
+ }
+
+ /* xanh-mono-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* xanh-mono-italic - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Xanh Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
+ }
+
+ /* patrick-hand-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ /* purple-purse-regular - latin_latin-ext */
+ @font-face {
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  font-family: 'Purple Purse';
+  font-style: normal;
+  font-weight: 400;
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
+ }
+
+ .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+ }
+
+ body::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ body::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ body::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ body {
+  margin-top: 0;
+ }
+
+ h1 {
+  font-size: 3rem;
+ }
+
+ section h1,
+ nav h1 {
+  font-size: 2.5rem;
+  font-style: oblique;
+ }
+
+ section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section section h1 {
+  font-size: 1.5rem;
+  font-style: oblique;
+ }
+
+ section section section section section h1 {
+  font-size: 1.5rem;
+  font-style: normal;
+ }
+
+ a {
+  color: var(--colA);
+ }
+
+ a:visited {
+  color: var(--colAVisited);
+ }
+
+ a:active {
+  color: var(--colAActive);
+ }
+
+ .anterior,
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente,
+ button {
+  display: inline-block;
+  padding: var(--paddingPush);
+  border: var(--borderPush);
+  border-radius: var(--borderRadiusPush);
+  text-align: center;
+  text-decoration: none;
+ }
+
+ .anterior,
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente {
+  color: var(--colAPush);
+  background-color: var(--colFondoAPush);
+ }
+
+ .anterior:visited,
+ .siguiente:visited,
+ .paginaAnterior:visited,
+ .paginaSiguiente:visited {
+  color: var(--colAVisitedPush);
+  background-color: var(--colFondoAVisitedPush);
+ }
+
+ .anterior.bye,
+ .siguiente.bye,
+ .paginaAnterior.bye,
+ .paginaSiguiente.bye {
+  display: none;
+ }
+
+ .anterior:hover,
+ .siguiente:hover,
+ .paginaAnterior:hover,
+ .paginaSiguiente:hover {
+  color: var(--colAPushHover);
+  background-color: var(--colFondoAPushHover);
+ }
+
+ .anterior:visited:hover,
+ .siguiente:visited:hover,
+ .paginaAnterior:visited:hover,
+ .paginaSiguiente:visited:hover {
+  color: var(--colAVisitedPushHover);
+  background-color: var(--colFondoAVisitedPushHover);
+ }
+
+ .anterior:focus,
+ .siguiente:focus,
+ .paginaAnterior:focus,
+ .paginaSiguiente:focus {
+  color: var(--colAPushFocus);
+  background-color: var(--colFondoAPushFocus);
+ }
+
+ .anterior:visited:focus,
+ .siguiente:visited:focus,
+ .paginaAnterior:visited:focus,
+ .paginaSiguiente:visited:focus {
+  color: var(--colAVisitedPushFocus);
+  background-color: var(--colFondoAVisitedPushFocus);
+ }
+
+ .anterior:active,
+ .siguiente:active,
+ .paginaAnterior:active,
+ .paginaSiguiente:active {
+  color: var(--colAPushActive);
+  background-color: var(--colFondoAPushActive);
+ }
+
+ .anterior:visited:active,
+ .siguiente:visited:active,
+ .paginaAnterior:visited:active,
+ .paginaSiguiente:visited:active {
+  color: var(--colAVisitedPushActive);
+  background-color: var(--colFondoAVisitedPushActive);
+ }
+
+ button {
+  color: var(--colPush);
+  background-color: var(--colFondoPush);
+ }
+
+ button:hover {
+  color: var(--colPushHover);
+  background-color: var(--colFondoPushHover);
+ }
+
+ button:focus {
+  color: var(--colPushFocus);
+  background-color: var(--colFondoPushFocus);
+ }
+
+ button:active {
+  color: var(--colPushActive);
+  background-color: var(--colFondoPushActive);
+ }
+
+ .anterior span,
+ .siguiente span,
+ .paginaAnterior span,
+ .paginaSiguiente span,
+ button span {
+  vertical-align: middle;
+ }
+
+ a[data-logo] {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  padding-left: 54px;
+  margin-top: 1rem;
+  background-image: url("/img/icono/maskable_icon_x48.png");
+  background-position: 3px center;
+  background-repeat: no-repeat;
+ }
+
+ a strong,
+ a code,
+ h1 strong,
+ h1 code {
+  font-size: 1em;
+ }
+
+ a strong,
+ a code {
+  color: var(--colAStrong);
+ }
+
+ nav a {
+  font-family: var(--fontSans);
+ }
+
+ pre {
+  font-family: var(--fontMono);
+ }
+
+ code {
+  font-family: var(--fontMono);
+  font-size: 1rem;
+ }
+
+ .tree {
+  font-family: var(--fontSans);
+ }
+
+ .tree summary {
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .tree li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
+ h1:not(.default) {
+  font-family: var(--fontSans);
+  color: var(--colTituloFondo);
+ }
+
+ h1,
+ .lectura a,
+ .lectura p,
+ .lectura blockquote {
+  overflow-wrap: anywhere;
+ }
+
+ .autor {
+  font-family: var(--fontSans);
+  font-size: 1.5rem;
+  color: var(--colTituloFondo);
+ }
+
+ figure {
+  text-align: center;
+ }
+
+ figure img {
+  width: 100%;
+ }
+
+ figcaption {
+  font-family: var(--fontMono);
+ }
+
+ .print .noPrint {
+  display: none;
+ }
+
+ @media print {
+  .noPrint {
+   display: none;
+  }
+
+  .pruebaDeEscritorio {
+   page-break-before: always;
+  }
+ }
+
+ iframe {
+  /* background-color: white; */
+  box-sizing: border-box;
+  resize: both;
+ }
+
+ .lectura {
+  max-width: var(--anchoLectura);
+  margin: 1rem auto;
+ }
+
+ .lectura p,
+ .lectura blockquote {
+  text-align: justify;
+ }
+
+ .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  justify-content: center;
+ }
+
+ .horizontal>*:first-child {
+  flex: 1 1 auto;
+ }
+
+ .horizontal>*:nth-child(2) {
+  flex: 1 1 40ch;
+ }
+
+ .horizontal iframe {
+  width: 300px;
+ }
+
+ .columnas4 {
+  columns: 4 180px;
+  column-gap: 1rem;
+ }
+
+ .columnas2 {
+  columns: 2 360px;
+  column-gap: 1rem;
+ }
+
+ .resaltado {
+  background-color: var(--colResaltado);
+  color: var(--colLetraResaltado);
+ }
+
+ .resaltado2 {
+  background-color: var(--colResaltado2);
+  color: var(--colLetraResaltado);
+ }
+
+ .resaltado3 {
+  background-color: var(--colResaltado3);
+  color: var(--colLetraResaltado);
+ }
+
+ table.borde {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ table.borde,
+ table.borde td {
+  border: thin solid;
+  border-collapse: collapse;
+ }
+
+ table.borde th,
+ table.borde td {
+  padding: 0.4rem;
+ }
+
+ table.codeShow {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+ }
+
+ .codeShow td.codeShow_order {
+  text-align: right;
+  padding: 0 0 0 0;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  /* Avoid selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+
+ .codeShow td:has(pre) {
+  padding: 0 0 0 0.25rem;
+  vertical-align: top;
+ }
+
+ .codeShow td pre {
+  font-family: var(--fontMono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  margin: 0;
+ }
+
+ .codeReserved {
+  color: var(--colLetraCodeReserved);
+  font-weight: bolder;
+ }
+
+ .codeString {
+  color: var(--colLetraCodeString);
+  font-weight: 600;
+ }
+
+ .codeComment {
+  color: var(--colLetraCodeComment);
+  font-style: italic;
+ }
+
+ @media print {
+
+  .codeShow button {
+   display: none;
+  }
+ }
+
+
+ footer {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-family: var(--fontSans);
+  font-size: small;
+ }
+</style>
+ <style>
+ .pruebaDeEscritorio {
+  font-family: var(--fontSans);
+ }
+
+ .pruebaDeEscritorio .section,
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+ }
+
+ .pruebaDeEscritorio section {
+  margin: 1em;
+ }
+
+ .section section {
+  display: block;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
+</head>
+
+<body class="print">
+   <h1 >S. Carpeta « php / lib »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a target="_blank" rel="noreferrer"
+      href="print.html">Versión para imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="1">
+    
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-BAD_REQUEST-php.html">php / lib / BAD_REQUEST.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-devuelveJson-php.html">php / lib / devuelveJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-devuelveNoContent-php.html">php / lib / devuelveNoContent.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-devuelveResultadoNoJson-php.html">php / lib / devuelveResultadoNoJson.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-INTERNAL_SERVER_ERROR-php.html">php / lib / INTERNAL_SERVER_ERROR.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-manejaErrores-php.html">php / lib / manejaErrores.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-NO_AUTORIZADO-php.html">php / lib / NO_AUTORIZADO.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-ProblemDetailsException-php.html">php / lib / ProblemDetailsException.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-recibeTexto-php.html">php / lib / recibeTexto.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-recibeTextoObligatorio-php.html">php / lib / recibeTextoObligatorio.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-rolAgrega-php.html">php / lib / rolAgrega.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-rolBusca-php.html">php / lib / rolBusca.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-rolIdsParaUsuId-php.html">php / lib / rolIdsParaUsuId.php</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-php/m-lib/m-usuRolAgrega-php.html">php / lib / usuRolAgrega.php</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >1. php / lib / BAD_REQUEST.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">const</span> BAD_REQUEST = 400;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >2. php / lib / devuelveJson.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/devuelveResultadoNoJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> devuelveJson($resultado)</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $json = json_encode($resultado);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  devuelveResultadoNoJson();</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  header(<span class="codeString">"Content-Type: application/json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  echo $json;</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> exit();</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >3. php / lib / devuelveNoContent.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> devuelveNoContent()</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> http_response_code(204);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >4. php / lib / devuelveResultadoNoJson.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> devuelveResultadoNoJson()</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> http_response_code(INTERNAL_SERVER_ERROR);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> header(<span class="codeString">"Content-Type: application/problem+json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> echo <span class="codeString">'{'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeString">"status: "</span> . INTERNAL_SERVER_ERROR .</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeString">'&quot;title&quot;: &quot;El resultado no puede representarse como JSON.&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">'&quot;type&quot;: &quot;/errors/resultadonojson.html&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeString">'}'</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >5. php / lib / INTERNAL_SERVER_ERROR.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">const</span> INTERNAL_SERVER_ERROR = 500;</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >6. php / lib / manejaErrores.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetailsException.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment">// Hace que se lance una excepción automáticamente cuando se genere un error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>set_error_handler(<span class="codeReserved">function</span> ($severity, $message, $file, $line) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ErrorException($message, 0, $severity, $file, $line);</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>});</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre><span class="codeComment">// Código cuando una excepción no es atrapada.</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>set_exception_handler(<span class="codeReserved">function</span> (Throwable $excepcion) {</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeReserved">if</span> ($excepcion <span class="codeReserved">instanceof</span> ProblemDetailsException) {</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  devuelveProblemDetails($excepcion-&gt;problemDetails);</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  devuelveProblemDetails([</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>   <span class="codeString">"status"</span> =&gt; INTERNAL_SERVER_ERROR,</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeString">"title"</span> =&gt; <span class="codeString">"Error interno del servidor"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>   <span class="codeString">"detail"</span> =&gt; $excepcion-&gt;getMessage(),</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/errorinterno.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre> exit();</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>});</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre><span class="codeReserved">function</span> devuelveProblemDetails(array $array)</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre> $json = json_encode($array);</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> <span class="codeReserved">if</span> ($json === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  devuelveResultadoNoJson();</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>  http_response_code(isset($array[<span class="codeString">"status"</span>]) ? $array[<span class="codeString">"status"</span>] : 500);</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>  header(<span class="codeString">"Content-Type: application/problem+json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>  echo $json;</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >7. php / lib / NO_AUTORIZADO.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">const</span> NO_AUTORIZADO = 401;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >8. php / lib / ProblemDetailsException.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/INTERNAL_SERVER_ERROR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * Detalle de los errores devueltos por un servicio.</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">class</span> ProblemDetailsException <span class="codeReserved">extends</span> Exception</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeReserved">public</span> array $problemDetails;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeReserved">public</span> <span class="codeReserved">function</span> <span class="codeReserved">__construct</span>(</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  array $problemDetails,</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> ) {</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  </pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeReserved">parent</span>::<span class="codeReserved">__construct</span>(</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   isset($problemDetails[<span class="codeString">"detail"</span>])</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>    ? $problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>    : (isset($problemDetails[<span class="codeString">"title"</span>])</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>     ? $problemDetails[<span class="codeString">"title"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>     : <span class="codeString">"Error"</span>),</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   $problemDetails[<span class="codeString">"status"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>    ? $problemDetails[<span class="codeString">"status"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>    : INTERNAL_SERVER_ERROR</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>  );</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  $this-&gt;problemDetails = $problemDetails;</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >9. php / lib / recibeTexto.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Devuelve el texto de un parámetro enviado al</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * servidor por medio de GET, POST o cookie.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * </span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment"> * Si el parámetro no se recibe, devuelve <span class="codeReserved">false</span>.</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeReserved">function</span> recibeTexto(string $parametro): <span class="codeReserved">false</span>|string</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeComment">/* Si el parámetro está asignado en $_REQUEST,</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre><span class="codeComment">  * devuelve su valor; de lo contrario, devuelve <span class="codeReserved">false</span>.</span></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre><span class="codeComment">  */</span></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> $valor = isset($_REQUEST[$parametro])</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  ? $_REQUEST[$parametro]</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  : <span class="codeReserved">false</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> <span class="codeReserved">return</span> $valor;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >10. php / lib / recibeTextoObligatorio.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/BAD_REQUEST.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/recibeTexto.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ProblemDetailsException.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">function</span> recibeTextoObligatorio(string $parametro)</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> $texto = recibeTexto($parametro);</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeReserved">if</span> ($texto === <span class="codeReserved">false</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>   <span class="codeString">"title"</span> =&gt; <span class="codeString">"Falta el valor $parametro."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/faltavalor.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeString">"detail"</span> =&gt; <span class="codeString">"La solicitud no tiene el valor de $parametro."</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> $trimTexto = trim($texto);</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> <span class="codeReserved">if</span> ($trimTexto === <span class="codeString">""</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>   <span class="codeString">"title"</span> =&gt; <span class="codeString">"Campo $parametro en blanco."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>   <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/campoenblanco.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>   <span class="codeString">"detail"</span> =&gt; <span class="codeString">"Pon texto en el campo $parametro."</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> <span class="codeReserved">return</span> $trimTexto;</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >11. php / lib / rolAgrega.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> rolAgrega(\PDO $bd, string $id, string $descripcion)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $rolAgrega = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> ROL (</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeString">     ROL_ID, ROL_DESCRIPCION</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeString">    ) <span class="codeReserved">VALUES</span> (</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeString">     :ROL_ID, :ROL_DESCRIPCION</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeString">    )"</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> );</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> $rolAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">":ROL_ID"</span> =&gt; $id,</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeString">":ROL_DESCRIPCION"</span> =&gt; $descripcion,</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> ]);</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >12. php / lib / rolBusca.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> rolBusca(\PDO $bd, string $id)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $rolBusca =  $bd-&gt;prepare(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> ROL <span class="codeReserved">WHERE</span> ROL_ID = :ROL_ID"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> $rolBusca-&gt;execute([<span class="codeString">":ROL_ID"</span> =&gt; $id]);</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $rol = $rolBusca-&gt;fetch(PDO::FETCH_ASSOC);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> $rol;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >13. php / lib / rolIdsParaUsuId.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> rolIdsParaUsuId(\PDO $bd, <span class="codeReserved">int</span> $usuId)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $stmt = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeString">"<span class="codeReserved">SELECT</span> ROL_ID</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeString">   <span class="codeReserved">FROM</span> USU_ROL</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeString">   <span class="codeReserved">WHERE</span> USU_ID = :USU_ID</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeString">   <span class="codeReserved">ORDER</span> <span class="codeReserved">BY</span> USU_ID"</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> );</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> $stmt-&gt;execute([<span class="codeString">":USU_ID"</span> =&gt; $usuId]);</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> $rolIds = $stmt-&gt;fetchAll(PDO::FETCH_COLUMN, 0);</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeReserved">return</span> $rolIds;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >14. php / lib / usuRolAgrega.php</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> usuRolAgrega(\PDO $bd, string $usuId, array $rolIds)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $usuRolAgrega = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> USU_ROL (USU_ID, ROL_ID) values (:USU_ID, :ROL_ID)"</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> );</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">foreach</span> ($rolIds <span class="codeReserved">as</span> $rolId) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  $usuRolAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>   <span class="codeString">":USU_ID"</span> =&gt; $usuId,</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   <span class="codeString">":ROL_ID"</span> =&gt; $rolId,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  ]);</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+</body>
+
+</html>

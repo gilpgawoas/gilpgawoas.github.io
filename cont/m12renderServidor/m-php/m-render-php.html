@@ -1,0 +1,51 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/manejaErrores.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/devuelveJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>$lista = [</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> [</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"pp"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  <span class="codeString">"<span class="codeReserved">color</span>"</span> =&gt; <span class="codeString">"azul"</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> ],</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> [</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"qk"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">"<span class="codeReserved">color</span>"</span> =&gt; <span class="codeString">"rojo"</span></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> ],</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> [</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"tt"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeString">"<span class="codeReserved">color</span>"</span> =&gt; <span class="codeString">"rosa"</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> ],</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> [</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  <span class="codeString">"nombre"</span> =&gt; <span class="codeString">"bb"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeString">"<span class="codeReserved">color</span>"</span> =&gt; <span class="codeString">"azul"</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> ]</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>];</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeComment">// Genera el código HTML de la lista.</span></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>$render = <span class="codeString">""</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre><span class="codeReserved">foreach</span> ($lista <span class="codeReserved">as</span> $modelo) {</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre> <span class="codeComment">/* Codifica nombre y <span class="codeReserved">color</span> para que cambie los caracteres</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre><span class="codeComment">   * especiales y el texto no se pueda interpretar como HTML.</span></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre><span class="codeComment">   * Esta técnica evita la inyección de código. */</span></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre> $nombre = htmlentities($modelo[<span class="codeString">"nombre"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> $color = htmlentities($modelo[<span class="codeString">"<span class="codeReserved">color</span>"</span>]);</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre> $render .=</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>  <span class="codeString">"&lt;<span class="codeReserved">dt</span>&gt;{$nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">dd</span>&gt;{$color}&lt;/<span class="codeReserved">dd</span>&gt;"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>devuelveJson([<span class="codeString">"lista"</span> =&gt; [<span class="codeString">"innerHTML"</span> =&gt; $render]]);</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

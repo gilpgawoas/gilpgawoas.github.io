@@ -867,78 +867,90 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Agregar&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/consumeJson.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/submitForm.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraObjeto.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>14</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraError.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>15</td><td></td></tr>
-  <tr><td>16</td><td> &lt;<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>17</td><td>  <span class="codeComment">// Obtiene los parámetros de la página.</span></td></tr>
-  <tr><td>18</td><td>  <span class="codeReserved">const</span> params = <span class="codeReserved">new</span> URL(location.href).searchParams</td></tr>
-  <tr><td>19</td><td> &lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>20</td><td></td></tr>
-  <tr><td>21</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"<span class="codeReserved">if</span> (params.size &gt; 0) {</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">   consumeJson(&#039;srv/producto.php?&#039; + params)</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">    .then(producto =&gt; muestraObjeto(document, producto.body))</span></td></tr>
-  <tr><td>26</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)</span></td></tr>
-  <tr><td>27</td><td><span class="codeString">  }"</span>&gt;</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td> &lt;<span class="codeReserved">form</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/det-venta-agrega.php&#039;, event)</span></td></tr>
-  <tr><td>30</td><td><span class="codeString">    .then(modelo =&gt; location.href = &#039;index.html&#039;)</span></td></tr>
-  <tr><td>31</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>32</td><td></td></tr>
-  <tr><td>33</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Agregar&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>36</td><td></td></tr>
-  <tr><td>37</td><td>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">"hidden"</span> name=<span class="codeString">"id"</span>&gt;</td></tr>
-  <tr><td>38</td><td></td></tr>
-  <tr><td>39</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>40</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>41</td><td>    Producto</td></tr>
-  <tr><td>42</td><td>    &lt;<span class="codeReserved">output</span> name=<span class="codeString">"producto"</span>&gt;</td></tr>
-  <tr><td>43</td><td>     &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>44</td><td>    &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>45</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>46</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>47</td><td></td></tr>
-  <tr><td>48</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>49</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>50</td><td>    Precio</td></tr>
-  <tr><td>51</td><td>    &lt;<span class="codeReserved">output</span> name=<span class="codeString">"precio"</span>&gt;</td></tr>
-  <tr><td>52</td><td>     &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</td></tr>
-  <tr><td>53</td><td>    &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>54</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>55</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>56</td><td></td></tr>
-  <tr><td>57</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>58</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>59</td><td>    Cantidad *</td></tr>
-  <tr><td>60</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"cantidad"</span> type=<span class="codeString">"number"</span> min=<span class="codeString">"0"</span> step=<span class="codeString">"0.01"</span>&gt;</td></tr>
-  <tr><td>61</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>62</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>63</td><td></td></tr>
-  <tr><td>64</td><td>  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>65</td><td></td></tr>
-  <tr><td>66</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Agregar&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>67</td><td></td></tr>
-  <tr><td>68</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
-  <tr><td>69</td><td></td></tr>
-  <tr><td>70</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>71</td><td></td></tr>
-  <tr><td>72</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Agregar&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"formulario"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>  &lt;<span class="codeReserved">h1</span>&gt;Agregar&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  &lt;<span class="codeReserved">input</span> type=<span class="codeString">"hidden"</span> name=<span class="codeString">"id"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>    Producto</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>    &lt;<span class="codeReserved">output</span> name=<span class="codeString">"producto"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>     &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>    &lt;/<span class="codeReserved">output</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>    Precio</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>    &lt;<span class="codeReserved">output</span> name=<span class="codeString">"precio"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>     &lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>    &lt;/<span class="codeReserved">output</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>    Cantidad *</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"cantidad"</span> type=<span class="codeString">"number"</span> min=<span class="codeString">"0"</span> step=<span class="codeString">"0.01"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Agregar&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre> &lt;/<span class="codeReserved">form</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>  <span class="codeReserved">import</span> { descargaVista } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/descargaVista.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>  <span class="codeReserved">import</span> { submitAccion } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/submitAccion.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre>  <span class="codeReserved">const</span> params = <span class="codeReserved">new</span> URL(location.href).searchParams</pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre>  descargaDatos()</pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre>   <span class="codeReserved">if</span> (params.size &gt; 0) {</pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre>    <span class="codeReserved">await</span> descargaVista(<span class="codeString">"php/vista-agrega.php?"</span> + params)</pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre>    formulario.addEventListener(</pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre>     <span class="codeString">"submit"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre>     event =&gt; submitAccion(</pre></td></tr>
+  <tr><td class="codeShow_order">72</td><td><pre>      event, <span class="codeString">"php/det-venta-agrega.php"</span>, formulario, <span class="codeString">"index.html"</span></pre></td></tr>
+  <tr><td class="codeShow_order">73</td><td><pre>     )</pre></td></tr>
+  <tr><td class="codeShow_order">74</td><td><pre>    )</pre></td></tr>
+  <tr><td class="codeShow_order">75</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">76</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">77</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">78</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">79</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">80</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">81</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">82</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">83</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">84</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
  <footer>
@@ -1050,17 +1062,17 @@
    </li>
    <li>
     <p>
-     <a href="/m21compras/m-srv/">Carpeta « srv »</a>
+     <a href="/m21compras/m-php/">Carpeta « php »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m21compras/m-lib/">Carpeta « lib »</a>
+     <a href="/m21compras/m-js/">Carpeta « js »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m21compras/m-error/">Carpeta « error »</a>
+     <a href="/m21compras/m-errors/">Carpeta « errors »</a>
     </p>
    </li>
    <li>

@@ -1,0 +1,31 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * Codifica un texto para que cambie los caracteres</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * especiales y no se pueda interpretar como</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * etiiqueta HTML. Esta técnica evita la inyección</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * de código.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { string } texto</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment">*/</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> htmlentities(texto) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">return</span> texto.replace(<span class="codeString">/[&lt;&gt;&quot;&#039;]/</span>g, textoDetectado =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  <span class="codeReserved">switch</span> (textoDetectado) {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   <span class="codeReserved">case</span> <span class="codeString">"<"</span>: <span class="codeReserved">return</span> <span class="codeString">"&lt;"</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   <span class="codeReserved">case</span> <span class="codeString">"&gt;"</span>: <span class="codeReserved">return</span> <span class="codeString">"&gt;"</span></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>   <span class="codeReserved">case</span> <span class="codeString">'&quot;'</span>: <span class="codeReserved">return</span> <span class="codeString">"&quot;"</span></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>   <span class="codeReserved">case</span> <span class="codeString">"&#039;"</span>: <span class="codeReserved">return</span> <span class="codeString">"&#039;"</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>   <span class="codeReserved">default</span>: <span class="codeReserved">return</span> textoDetectado</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> })</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,29 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> rolAgrega(\PDO $bd, string $id, string $descripcion)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $rolAgrega = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> ROL (</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeString">     ROL_ID, ROL_DESCRIPCION</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeString">    ) <span class="codeReserved">VALUES</span> (</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre><span class="codeString">     :ROL_ID, :ROL_DESCRIPCION</span></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeString">    )"</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> );</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> $rolAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">":ROL_ID"</span> =&gt; $id,</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeString">":ROL_DESCRIPCION"</span> =&gt; $descripcion,</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> ]);</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

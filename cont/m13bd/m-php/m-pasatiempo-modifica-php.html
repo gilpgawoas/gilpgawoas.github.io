@@ -1,0 +1,41 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/manejaErrores.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/recibeEnteroObligatorio.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/recibeTextoObligatorio.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/devuelveJson.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>$id = recibeEnteroObligatorio(<span class="codeString">"id"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>$nombre = recibeTextoObligatorio(<span class="codeString">"nombre"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>$bd = Bd::pdo();</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>$stmt = $bd-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> <span class="codeString">"<span class="codeReserved">UPDATE</span> PASATIEMPO</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre><span class="codeString">   <span class="codeReserved">SET</span></span></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre><span class="codeString">    PAS_NOMBRE = :PAS_NOMBRE</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre><span class="codeString">   <span class="codeReserved">WHERE</span></span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString">    PAS_ID = :PAS_ID"</span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>);</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>$stmt-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> <span class="codeString">":PAS_NOMBRE"</span> =&gt; $nombre,</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> <span class="codeString">":PAS_ID"</span> =&gt; $id,</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>]);</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>devuelveJson([</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre> <span class="codeString">"id"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $id],</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> <span class="codeString">"nombre"</span> =&gt; [<span class="codeString">"value"</span> =&gt; $nombre],</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>]);</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

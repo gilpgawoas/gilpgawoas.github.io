@@ -1,0 +1,37 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/BAD_REQUEST.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">function</span> recibeJson()</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $json = json_decode(file_get_contents(<span class="codeString">"php://input"</span>));</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> ($json === <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  http_response_code(BAD_REQUEST);</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  header(<span class="codeString">"Content-Type: application/problem+json; charset=utf-8"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>  echo <span class="codeString">'{'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>   <span class="codeString">"status: "</span> . BAD_REQUEST .</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeString">'&quot;title&quot;: &quot;Los datos recibidos no están en formato JSON.&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>   <span class="codeString">'&quot;type&quot;: &quot;/errors/datosnojson.html&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeString">'}'</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  exit();</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre> <span class="codeReserved">return</span> $json;</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,20 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> usuRolElimina(\PDO $bd, string $usuId)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $usuRolElimina = $bd-&gt;prepare(<span class="codeString">"<span class="codeReserved">DELETE</span> <span class="codeReserved">FROM</span> USU_ROL <span class="codeReserved">WHERE</span> USU_ID = :USU_ID"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> $usuRolElimina-&gt;execute([<span class="codeString">":USU_ID"</span> =&gt; $usuId]);</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

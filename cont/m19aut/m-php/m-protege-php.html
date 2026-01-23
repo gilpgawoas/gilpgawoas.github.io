@@ -1,0 +1,57 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/NO_AUTORIZADO.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/ProblemDetailsException.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/rolIdsParaUsuId.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/SAN.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/USU_ID.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/Bd.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeReserved">function</span> protege(array $rolIdsPermitidos)</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> session_start();</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> $san = isset($_SESSION[SAN]) ? $_SESSION[SAN] : <span class="codeString">""</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> $usuId = isset($_SESSION[USU_ID]) ? $_SESSION[USU_ID] : -1;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> $rolIds = rolIdsParaUsuId(Bd::pdo(), $usuId);</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> <span class="codeReserved">if</span> (count($rolIdsPermitidos) === 0) {</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeReserved">return</span> [$san, $rolIds, $usuId];</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>  <span class="codeReserved">if</span> ($san === <span class="codeString">""</span>)  <span class="codeReserved">throw</span> creaNoAutorizado();</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeReserved">foreach</span> ($rolIdsPermitidos <span class="codeReserved">as</span> $rolId) {</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>   <span class="codeReserved">if</span> (array_search($rolId, $rolIds, <span class="codeReserved">true</span>) !== <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>    <span class="codeReserved">return</span> [$san, $rolIds, $usuId];</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>  <span class="codeReserved">throw</span> creaNoAutorizado();</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre><span class="codeReserved">function</span> creaNoAutorizado()</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre> <span class="codeReserved">return</span> <span class="codeReserved">new</span> ProblemDetailsException([</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>  <span class="codeString">"status"</span> =&gt; NO_AUTORIZADO,</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>  <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/noautorizado.html"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre>  <span class="codeString">"title"</span> =&gt; <span class="codeString">"No autorizado."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre>  <span class="codeString">"detail"</span> =&gt; <span class="codeString">"No estás autorizado para usar este recurso."</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre> ]);</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

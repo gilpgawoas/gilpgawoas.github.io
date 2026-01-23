@@ -867,57 +867,71 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/submitForm.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraError.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"./js/protege.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"protege().then(sesion =&gt; {</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   <span class="codeReserved">if</span> (sesion.cue !== &#039;&#039;) {</span></td></tr>
-  <tr><td>19</td><td><span class="codeString">    location.href = &#039;perfil.html&#039;</span></td></tr>
-  <tr><td>20</td><td><span class="codeString">   }</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">  })"</span>&gt;</td></tr>
-  <tr><td>22</td><td></td></tr>
-  <tr><td>23</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"login"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/login.php&#039;, event)</span></td></tr>
-  <tr><td>24</td><td><span class="codeString">   .then(sesion =&gt; location.href = &#039;perfil.html&#039;)</span></td></tr>
-  <tr><td>25</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>26</td><td></td></tr>
-  <tr><td>27</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Iniciar Sesión&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>28</td><td></td></tr>
-  <tr><td>29</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"perfil.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>30</td><td></td></tr>
-  <tr><td>31</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>32</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>33</td><td>    Cue</td></tr>
-  <tr><td>34</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"cue"</span>&gt;</td></tr>
-  <tr><td>35</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>36</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>37</td><td></td></tr>
-  <tr><td>38</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>39</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>40</td><td>    Match</td></tr>
-  <tr><td>41</td><td>    &lt;<span class="codeReserved">input</span> type=<span class="codeString">"password"</span> name=<span class="codeString">"match"</span>&gt;</td></tr>
-  <tr><td>42</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>43</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
-  <tr><td>48</td><td></td></tr>
-  <tr><td>49</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">progress</span> id=<span class="codeString">"ocupado"</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"formulario"</span> hidden&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  &lt;<span class="codeReserved">h1</span>&gt;Iniciar Sesión&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"perfil.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>    San</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"san"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>    Sen</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>    &lt;<span class="codeReserved">input</span> type=<span class="codeString">"password"</span> name=<span class="codeString">"sen"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Iniciar sesión&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre> &lt;/<span class="codeReserved">form</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>  <span class="codeReserved">import</span> { descargaVista } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/descargaVista.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { submitAccion } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/submitAccion.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>  descargaDatos()</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre>   <span class="codeReserved">await</span> descargaVista(<span class="codeString">"php/vista-login.php"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre>   formulario.addEventListener(</pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>    <span class="codeString">"submit"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>    event =&gt; submitAccion(event, <span class="codeString">"php/login.php"</span>, formulario, <span class="codeString">"perfil.html"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>   )</pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
  <footer>
@@ -948,7 +962,7 @@
  <a class="anterior" href="/m19aut/m-perfil-html.html" title="H. perfil.html"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m19aut/m-admin-html.html" title="J. admin.html"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m19aut/m-administrador-html.html" title="J. administrador.html"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1024,7 +1038,7 @@
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-admin-html.html">admin.html</a>
+     <a href="/m19aut/m-administrador-html.html">administrador.html</a>
     </p>
    </li>
    <li>
@@ -1039,22 +1053,12 @@
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-srv/">Carpeta « srv »</a>
+     <a href="/m19aut/m-php/">Carpeta « php »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-lib/">Carpeta « lib »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m-error/">Carpeta « error »</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m19aut/m--htaccess.html">.htaccess</a>
+     <a href="/m19aut/m-errors/">Carpeta « errors »</a>
     </p>
    </li>
    <li>
@@ -1090,7 +1094,7 @@
  /**@type {string} */
  let urlAnterior = "/m19aut/m-perfil-html.html"
  /**@type {string} */
- let urlSiguiente = "/m19aut/m-admin-html.html"
+ let urlSiguiente = "/m19aut/m-administrador-html.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

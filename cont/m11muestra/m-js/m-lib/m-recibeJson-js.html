@@ -1,0 +1,27 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} url</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { &quot;GET&quot; | &quot;POST&quot;| &quot;PUT&quot; | &quot;PATCH&quot; | &quot;<span class="codeReserved">DELETE</span>&quot; | &quot;TRACE&quot; | &quot;OPTIONS&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> *  | &quot;CONNECT&quot; | &quot;HEAD&quot; } metodoHttp</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">async</span> <span class="codeReserved">function</span> recibeJson(url, metodoHttp = <span class="codeString">"GET"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> fetch(</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  url,</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   method: metodoHttp,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>   headers: { <span class="codeString">"Accept"</span>: <span class="codeString">"application/json, application/problem+json"</span> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> )</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>

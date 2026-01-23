@@ -1,0 +1,22 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> rolBusca(\PDO $bd, string $id)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $rolBusca =  $bd-&gt;prepare(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> ROL <span class="codeReserved">WHERE</span> ROL_ID = :ROL_ID"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> $rolBusca-&gt;execute([<span class="codeString">":ROL_ID"</span> =&gt; $id]);</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $rol = $rolBusca-&gt;fetch(PDO::FETCH_ASSOC);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> $rol;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

@@ -1,0 +1,22 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> usuarioBuscaSan(\PDO $bd, string $san)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $usuarioBusca = $bd-&gt;prepare(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> USUARIO <span class="codeReserved">WHERE</span> USU_SAN = :USU_SAN"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> $usuarioBusca-&gt;execute([<span class="codeString">":USU_SAN"</span> =&gt; $san]);</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> $usuario = $usuarioBusca-&gt;fetch(PDO::FETCH_ASSOC);</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">return</span> $usuario;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

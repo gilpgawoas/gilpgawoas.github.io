@@ -8,60 +8,76 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</td></tr>
-  <tr><td>2</td><td>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</td></tr>
-  <tr><td>3</td><td></td></tr>
-  <tr><td>4</td><td>&lt;<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>5</td><td></td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</td></tr>
-  <tr><td>8</td><td></td></tr>
-  <tr><td>9</td><td> &lt;<span class="codeReserved">title</span>&gt;Agregar&lt;/<span class="codeReserved">title</span>&gt;</td></tr>
-  <tr><td>10</td><td></td></tr>
-  <tr><td>11</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/submitForm.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>12</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraError.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>13</td><td> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"lib/js/muestraImagenSeleccionada.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</td></tr>
-  <tr><td>14</td><td></td></tr>
-  <tr><td>15</td><td>&lt;/<span class="codeReserved">head</span>&gt;</td></tr>
-  <tr><td>16</td><td></td></tr>
-  <tr><td>17</td><td>&lt;<span class="codeReserved">body</span> onload=<span class="codeString">"muestraImagenSeleccionada(forma, forma.imagen)</span></td></tr>
-  <tr><td>18</td><td><span class="codeString">   .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>19</td><td></td></tr>
-  <tr><td>20</td><td> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"forma"</span> onsubmit=<span class="codeString">"submitForm(&#039;srv/producto-agrega.php&#039;, event)</span></td></tr>
-  <tr><td>21</td><td><span class="codeString">   .then(respuesta =&gt; location.href = &#039;index.html&#039;)</span></td></tr>
-  <tr><td>22</td><td><span class="codeString">    .<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>23</td><td></td></tr>
-  <tr><td>24</td><td>  &lt;<span class="codeReserved">h1</span>&gt;Agregar&lt;/<span class="codeReserved">h1</span>&gt;</td></tr>
-  <tr><td>25</td><td></td></tr>
-  <tr><td>26</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href=<span class="codeString">"index.html"</span>&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>27</td><td></td></tr>
-  <tr><td>28</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>29</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>30</td><td>    Nombre *</td></tr>
-  <tr><td>31</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"nombre"</span>&gt;</td></tr>
-  <tr><td>32</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>33</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>34</td><td></td></tr>
-  <tr><td>35</td><td>  &lt;<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>36</td><td>   &lt;<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>37</td><td>    Imagen *</td></tr>
-  <tr><td>38</td><td>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"imagen"</span> type=<span class="codeString">"file"</span> accept=<span class="codeString">"image/*"</span> data-img=<span class="codeString">"preview"</span></td></tr>
-  <tr><td>39</td><td>      oninput=<span class="codeString">"muestraImagenSeleccionada(forma, <span class="codeReserved">this</span>).<span class="codeReserved">catch</span>(muestraError)"</span>&gt;</td></tr>
-  <tr><td>40</td><td>   &lt;/<span class="codeReserved">label</span>&gt;</td></tr>
-  <tr><td>41</td><td>  &lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>42</td><td></td></tr>
-  <tr><td>43</td><td>  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>44</td><td></td></tr>
-  <tr><td>45</td><td>  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type=<span class="codeString">"submit"</span>&gt;Agregar&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</td></tr>
-  <tr><td>46</td><td></td></tr>
-  <tr><td>47</td><td>  &lt;<span class="codeReserved">figure</span>&gt;</td></tr>
-  <tr><td>48</td><td>   &lt;<span class="codeReserved">img</span> id=<span class="codeString">"preview"</span> hidden alt=<span class="codeString">"Imagen del producto"</span> style=<span class="codeString">"<span class="codeReserved">max-width</span>: 100%;"</span>&gt;</td></tr>
-  <tr><td>49</td><td>  &lt;/<span class="codeReserved">figure</span>&gt;</td></tr>
-  <tr><td>50</td><td></td></tr>
-  <tr><td>51</td><td> &lt;/<span class="codeReserved">form</span>&gt;</td></tr>
-  <tr><td>52</td><td></td></tr>
-  <tr><td>53</td><td>&lt;/<span class="codeReserved">body</span>&gt;</td></tr>
-  <tr><td>54</td><td></td></tr>
-  <tr><td>55</td><td>&lt;/<span class="codeReserved">html</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Agregar&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">form</span> id=<span class="codeString">"formulario"</span><span class="codeString">"&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">h1</span>&gt;Agregar&lt;/<span class="codeReserved">h1</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">a</span> href="</span> index.html<span class="codeString">"&gt;Cancelar&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre><span class="codeString">   &lt;<span class="codeReserved">label</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeString">    Nombre *</span></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">input</span> name="</span>nombre<span class="codeString">"&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre><span class="codeString">   &lt;/<span class="codeReserved">label</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre><span class="codeString">  &lt;/<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre><span class="codeString">   &lt;<span class="codeReserved">label</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre><span class="codeString">    Imagen *</span></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre><span class="codeString">    &lt;<span class="codeReserved">input</span> name="</span>imagen<span class="codeString">" type="</span>file<span class="codeString">" accept="</span>image/*<span class="codeString">"&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre><span class="codeString">   &lt;/<span class="codeReserved">label</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">  &lt;/<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;* Obligatorio&lt;/<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">p</span>&gt;&lt;<span class="codeReserved">button</span> type="</span>submit<span class="codeString">"&gt;Agregar&lt;/<span class="codeReserved">button</span>&gt;&lt;/<span class="codeReserved">p</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre><span class="codeString">  &lt;<span class="codeReserved">figure</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre><span class="codeString">   &lt;<span class="codeReserved">img</span> id="</span>preview<span class="codeString">" hidden alt="</span>Imagen del producto<span class="codeString">" style="</span><span class="codeReserved">max-width</span>: 100%;<span class="codeString">"&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre><span class="codeString">  &lt;/<span class="codeReserved">figure</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre><span class="codeString"> &lt;/<span class="codeReserved">form</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre><span class="codeString"> &lt;<span class="codeReserved">script</span> type="</span>module<span class="codeString">"&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre><span class="codeString">  <span class="codeReserved">import</span> { submitAccion } <span class="codeReserved">from</span> "</span>./js/lib/submitAccion.js<span class="codeString">"</span></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre><span class="codeString">  <span class="codeReserved">import</span> {</span></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre><span class="codeString">   muestraImagenSeleccionada</span></pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre><span class="codeString">  } <span class="codeReserved">from</span> "</span>./js/lib/muestraImagenSeleccionada.js<span class="codeString">"</span></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre><span class="codeString">  formulario.addEventListener(</span></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre><span class="codeString">   "</span>submit<span class="codeString">",</span></pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre><span class="codeString">   event =&gt; submitAccion(</span></pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre><span class="codeString">    event, "</span>php/producto-agrega.php<span class="codeString">", formulario, "</span>index.html<span class="codeString">"</span></pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre><span class="codeString">   )</span></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre><span class="codeString">  )</span></pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre><span class="codeString"></span></pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre><span class="codeString">  formulario.imagen.addEventListener(</span></pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre><span class="codeString">   "</span>input",</pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre>   () =&gt; muestraImagenSeleccionada(formulario.imagen, preview)</pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre>  )</pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre>  muestraImagenSeleccionada(formulario.imagen, preview)</pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>

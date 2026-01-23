@@ -1076,19 +1076,19 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td><span class="codeReserved">function</span> recomienda(string $genero): string</td></tr>
-  <tr><td>4</td><td>{</td></tr>
-  <tr><td>5</td><td> <span class="codeReserved">if</span> ($genero === <span class="codeString">&quot;pop&quot;</span>) {</td></tr>
-  <tr><td>6</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;Dua Lipa.&quot;</span>;</td></tr>
-  <tr><td>7</td><td> } <span class="codeReserved">elseif</span> ($genero === <span class="codeString">&quot;reg&quot;</span>) {</td></tr>
-  <tr><td>8</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;Bad Bunny.&quot;</span>;</td></tr>
-  <tr><td>9</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>10</td><td>  <span class="codeReserved">return</span> <span class="codeString">&quot;De eso no conozco&quot;</span>;</td></tr>
-  <tr><td>11</td><td> }</td></tr>
-  <tr><td>12</td><td>}</td></tr>
-  <tr><td>13</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> recomienda(string $genero): string</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> <span class="codeReserved">if</span> ($genero === <span class="codeString">"pop"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"Dua Lipa."</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> } <span class="codeReserved">elseif</span> ($genero === <span class="codeString">"reg"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"Bad Bunny."</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"De eso no conozco"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1127,28 +1127,28 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">php</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td>use PHPUnit\Framework\TestCase;</td></tr>
-  <tr><td>4</td><td></td></tr>
-  <tr><td>5</td><td><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">&quot;/../src/recomienda.php&quot;</span>;</td></tr>
-  <tr><td>6</td><td></td></tr>
-  <tr><td>7</td><td>final <span class="codeReserved">class</span> RecomiendaTest extends TestCase</td></tr>
-  <tr><td>8</td><td>{</td></tr>
-  <tr><td>9</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testPop()</td></tr>
-  <tr><td>10</td><td> {</td></tr>
-  <tr><td>11</td><td>  $<span class="codeReserved">this</span>-&gt;assertEquals(<span class="codeString">&quot;Dua Lipa.&quot;</span>, recomienda(<span class="codeString">&quot;pop&quot;</span>), <span class="codeString">&quot;Probando pop&quot;</span>);</td></tr>
-  <tr><td>12</td><td> }</td></tr>
-  <tr><td>13</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testReg()</td></tr>
-  <tr><td>14</td><td> {</td></tr>
-  <tr><td>15</td><td>  $<span class="codeReserved">this</span>-&gt;assertEquals(<span class="codeString">&quot;Bad Bunny.&quot;</span>, recomienda(<span class="codeString">&quot;reg&quot;</span>), <span class="codeString">&quot;Probando reg&quot;</span>);</td></tr>
-  <tr><td>16</td><td> }</td></tr>
-  <tr><td>17</td><td> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testReg2()</td></tr>
-  <tr><td>18</td><td> {</td></tr>
-  <tr><td>19</td><td>  $<span class="codeReserved">this</span>-&gt;assertEquals(<span class="codeString">&quot;Daddy Yankee.&quot;</span>, recomienda(<span class="codeString">&quot;reg&quot;</span>), <span class="codeString">&quot;Probando reg 2&quot;</span>);</td></tr>
-  <tr><td>20</td><td> }</td></tr>
-  <tr><td>21</td><td>}</td></tr>
-  <tr><td>22</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>use PHPUnit\Framework\TestCase;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/../<span class="codeReserved">src</span>/recomienda.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>final <span class="codeReserved">class</span> RecomiendaTest <span class="codeReserved">extends</span> TestCase</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testPop()</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  $this-&gt;assertEquals(<span class="codeString">"Dua Lipa."</span>, recomienda(<span class="codeString">"pop"</span>), <span class="codeString">"Probando pop"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testReg()</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre> {</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  $this-&gt;assertEquals(<span class="codeString">"Bad Bunny."</span>, recomienda(<span class="codeString">"reg"</span>), <span class="codeString">"Probando reg"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> <span class="codeReserved">public</span> <span class="codeReserved">function</span> testReg2()</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> {</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>  $this-&gt;assertEquals(<span class="codeString">"Daddy Yankee."</span>, recomienda(<span class="codeString">"reg"</span>), <span class="codeString">"Probando reg 2"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1164,11 +1164,11 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td> <span class="codeString">&quot;require-dev&quot;</span>: {</td></tr>
-  <tr><td>3</td><td>  <span class="codeString">&quot;phpunit/phpunit&quot;</span>: <span class="codeString">&quot;^10&quot;</span></td></tr>
-  <tr><td>4</td><td> }</td></tr>
-  <tr><td>5</td><td>}</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre> <span class="codeString">"require-dev"</span>: {</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>  <span class="codeString">"phpunit/phpunit"</span>: <span class="codeString">"^10"</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1183,7 +1183,7 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>-- No se muestra eñ contenido de este archivo --</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>-- No se muestra eñ contenido de este archivo --</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1445,6 +1445,9 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   <li>
    <p><a href="m-package-json.html">package.json</a></p>
   </li>
+  <li>
+   <p><a href="m-pasos-txt.html">pasos.txt</a></p>
+  </li>
     <li>
      <details>
       <summary>node_modules</summary>
@@ -1522,18 +1525,18 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeComment">/**</span></td></tr>
-  <tr><td>2</td><td><span class="codeComment"> * <span class="codeReserved">@param</span> {string} genero</span></td></tr>
-  <tr><td>3</td><td><span class="codeComment"> */</span></td></tr>
-  <tr><td>4</td><td><span class="codeReserved">export</span> <span class="codeReserved">function</span> recomienda(genero) {</td></tr>
-  <tr><td>5</td><td> <span class="codeReserved">if</span> (genero === <span class="codeString">"pop"</span>) {</td></tr>
-  <tr><td>6</td><td>  <span class="codeReserved">return</span> <span class="codeString">"Dua Lipa."</span></td></tr>
-  <tr><td>7</td><td> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (genero === <span class="codeString">"reg"</span>) {</td></tr>
-  <tr><td>8</td><td>  <span class="codeReserved">return</span> <span class="codeString">"Bad Bunny."</span></td></tr>
-  <tr><td>9</td><td> } <span class="codeReserved">else</span> {</td></tr>
-  <tr><td>10</td><td>  <span class="codeReserved">return</span> <span class="codeString">"De eso no conozco."</span></td></tr>
-  <tr><td>11</td><td> }</td></tr>
-  <tr><td>12</td><td>}</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {string} genero</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> recomienda(genero) {</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> <span class="codeReserved">if</span> (genero === <span class="codeString">"pop"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"Dua Lipa."</span></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (genero === <span class="codeString">"reg"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"Bad Bunny."</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  <span class="codeReserved">return</span> <span class="codeString">"De eso no conozco."</span></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1577,13 +1580,13 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td><span class="codeReserved">import</span> { recomienda } <span class="codeReserved">from</span> <span class="codeString">'../src/recomienda.js'</span></td></tr>
-  <tr><td>2</td><td></td></tr>
-  <tr><td>3</td><td>describe(<span class="codeString">"recomienda"</span>, () =&gt; {</td></tr>
-  <tr><td>4</td><td> it(<span class="codeString">"pop"</span>, () =&gt; expect(recomienda(<span class="codeString">"pop"</span>)).toBe(<span class="codeString">"Dua Lipa."</span>))</td></tr>
-  <tr><td>5</td><td> it(<span class="codeString">"reg"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Bad Bunny."</span>))</td></tr>
-  <tr><td>6</td><td> it(<span class="codeString">"reg2"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Daddy Yankee."</span>))</td></tr>
-  <tr><td>7</td><td>})</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { recomienda } <span class="codeReserved">from</span> <span class="codeString">'../<span class="codeReserved">src</span>/recomienda.js'</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>describe(<span class="codeString">"recomienda"</span>, () =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre> it(<span class="codeString">"pop"</span>, () =&gt; expect(recomienda(<span class="codeString">"pop"</span>)).toBe(<span class="codeString">"Dua Lipa."</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> it(<span class="codeString">"reg"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Bad Bunny."</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> it(<span class="codeString">"reg2"</span>, () =&gt; expect(recomienda(<span class="codeString">"reg"</span>)).toBe(<span class="codeString">"Daddy Yankee."</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>})</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1621,20 +1624,20 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td>  <span class="codeString">"spec_dir"</span>: <span class="codeString">"spec"</span>,</td></tr>
-  <tr><td>3</td><td>  <span class="codeString">"spec_files"</span>: [</td></tr>
-  <tr><td>4</td><td>    <span class="codeString">"**/*[sS]pec.?(m)js"</span></td></tr>
-  <tr><td>5</td><td>  ],</td></tr>
-  <tr><td>6</td><td>  <span class="codeString">"helpers"</span>: [</td></tr>
-  <tr><td>7</td><td>    <span class="codeString">"helpers/**/*.?(m)js"</span></td></tr>
-  <tr><td>8</td><td>  ],</td></tr>
-  <tr><td>9</td><td>  <span class="codeString">"env"</span>: {</td></tr>
-  <tr><td>10</td><td>    <span class="codeString">"stopSpecOnExpectationFailure"</span>: <span class="codeReserved">false</span>,</td></tr>
-  <tr><td>11</td><td>    <span class="codeString">"random"</span>: <span class="codeReserved">true</span></td></tr>
-  <tr><td>12</td><td>  }</td></tr>
-  <tr><td>13</td><td>}</td></tr>
-  <tr><td>14</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>  <span class="codeString">"spec_dir"</span>: <span class="codeString">"spec"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>  <span class="codeString">"spec_files"</span>: [</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>    <span class="codeString">"**/*[sS]pec.?(m)js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>  ],</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>  <span class="codeString">"helpers"</span>: [</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>    <span class="codeString">"helpers/**/*.?(m)js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  ],</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>  <span class="codeString">"env"</span>: {</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>    <span class="codeString">"stopSpecOnExpectationFailure"</span>: <span class="codeReserved">false</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>    <span class="codeString">"random"</span>: <span class="codeReserved">true</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1651,27 +1654,27 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td> <span class="codeString">"name"</span>: <span class="codeString">"nodejs"</span>,</td></tr>
-  <tr><td>3</td><td> <span class="codeString">"version"</span>: <span class="codeString">"1.0.0"</span>,</td></tr>
-  <tr><td>4</td><td> <span class="codeString">"description"</span>: ,</td></tr>
-  <tr><td>5</td><td> <span class="codeString">"main"</span>: <span class="codeString">"index.js"</span>,</td></tr>
-  <tr class="resaltado"><td>6</td><td> <span class="codeString">"type"</span>: <span class="codeString">"module"</span>,</td></tr>
-  <tr><td>7</td><td> <span class="codeString">"scripts"</span>: {</td></tr>
-  <tr class="resaltado"><td>8</td><td>   <span class="codeString">"test"</span>: <span class="codeString">"jasmine"</span></td></tr>
-  <tr><td>9</td><td> },</td></tr>
-  <tr><td>10</td><td> <span class="codeString">"keywords"</span>: [],</td></tr>
-  <tr><td>11</td><td> <span class="codeString">"author"</span>: ,</td></tr>
-  <tr><td>12</td><td> <span class="codeString">"license"</span>: <span class="codeString">"ISC"</span>,</td></tr>
-  <tr><td>13</td><td> <span class="codeString">"dependencies"</span>: {</td></tr>
-  <tr><td>14</td><td>   <span class="codeString">"@types/node"</span>: <span class="codeString">"^18.0.6"</span>,</td></tr>
-  <tr><td>15</td><td>   <span class="codeString">"node-fetch"</span>: <span class="codeString">"^3.2.6"</span></td></tr>
-  <tr><td>16</td><td> },</td></tr>
-  <tr><td>17</td><td> <span class="codeString">"devDependencies"</span>: {</td></tr>
-  <tr><td>18</td><td>   <span class="codeString">"jasmine"</span>: <span class="codeString">"^5.1.0"</span></td></tr>
-  <tr><td>19</td><td> }</td></tr>
-  <tr><td>20</td><td>}</td></tr>
-  <tr><td>21</td><td></td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre> <span class="codeString">"name"</span>: <span class="codeString">"nodejs"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre> <span class="codeString">"version"</span>: <span class="codeString">"1.0.0"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre> <span class="codeString">"description"</span>: <span class="codeString">""</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> <span class="codeString">"main"</span>: <span class="codeString">"index.js"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> <span class="codeString">"type"</span>: <span class="codeString">"module"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> <span class="codeString">"scripts"</span>: {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>   <span class="codeString">"test"</span>: <span class="codeString">"jasmine"</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> },</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeString">"keywords"</span>: [],</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> <span class="codeString">"author"</span>: <span class="codeString">""</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> <span class="codeString">"license"</span>: <span class="codeString">"ISC"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeString">"dependencies"</span>: {</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>   <span class="codeString">"@types/node"</span>: <span class="codeString">"^18.0.6"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>   <span class="codeString">"node-fetch"</span>: <span class="codeString">"^3.2.6"</span></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> },</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> <span class="codeString">"devDependencies"</span>: {</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeString">"jasmine"</span>: <span class="codeString">"^5.1.0"</span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1686,7 +1689,7 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>-- No se muestra el contenido de este archivo. --</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>-- No se muestra el contenido de este archivo. --</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -1753,27 +1756,91 @@ Randomized with seed 87173 (jasmine --random=true --seed=87173)
 <table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
-    onclick="copyToClipboard(this)">
+          onclick="copyToClipboard(this)">
    <span class="material-symbols-outlined">
     content_copy
    </span>
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>{</td></tr>
-  <tr><td>2</td><td> <span class="codeString">&quot;compilerOptions&quot;</span>: {</td></tr>
-  <tr><td>3</td><td>  <span class="codeString">&quot;checkJs&quot;</span>: <span class="codeReserved">true</span>,</td></tr>
-  <tr><td>4</td><td>  <span class="codeString">&quot;strictNullChecks&quot;</span>: <span class="codeReserved">true</span>,</td></tr>
-  <tr><td>5</td><td>  <span class="codeString">&quot;target&quot;</span>: <span class="codeString">&quot;ES6&quot;</span>,</td></tr>
-  <tr><td>6</td><td>  <span class="codeString">&quot;module&quot;</span>: <span class="codeString">&quot;Node16&quot;</span>,</td></tr>
-  <tr><td>7</td><td>  <span class="codeString">&quot;moduleResolution&quot;</span>: <span class="codeString">&quot;Node16&quot;</span>,</td></tr>
-  <tr><td>8</td><td>  <span class="codeString">&quot;lib&quot;</span>: [</td></tr>
-  <tr><td>9</td><td>   <span class="codeString">&quot;ES2017&quot;</span>,</td></tr>
-  <tr><td>10</td><td>   <span class="codeString">&quot;WebWorker&quot;</span>,</td></tr>
-  <tr><td>11</td><td>   <span class="codeString">&quot;DOM&quot;</span></td></tr>
-  <tr><td>12</td><td>  ]</td></tr>
-  <tr><td>13</td><td> }</td></tr>
-  <tr><td>14</td><td>}</td></tr>
+  <tr>
+   <td class="codeShow_order">1</td>
+   <td>
+    <pre>{</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">2</td>
+   <td>
+    <pre> <span class="codeString">"compilerOptions"</span>: {</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">3</td>
+   <td>
+    <pre>  <span class="codeString">"checkJs"</span>: <span class="codeReserved">true</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">4</td>
+   <td>
+    <pre>  <span class="codeString">"strictNullChecks"</span>: <span class="codeReserved">true</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">5</td>
+   <td>
+    <pre>  <span class="codeString">"target"</span>: <span class="codeString">"ES6"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">6</td>
+   <td>
+    <pre>  <span class="codeString">"module"</span>: <span class="codeString">"Node16"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">7</td>
+   <td>
+    <pre>  <span class="codeString">"moduleResolution"</span>: <span class="codeString">"Node16"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">8</td>
+   <td>
+    <pre>  <span class="codeString">"lib"</span>: [</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">9</td>
+   <td>
+    <pre>   <span class="codeString">"ES2017"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">10</td>
+   <td>
+    <pre>   <span class="codeString">"WebWorker"</span>,</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">11</td>
+   <td>
+    <pre>   <span class="codeString">"DOM"</span></pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">12</td>
+   <td>
+    <pre>  ]</pre>
+   </td>
+  </tr>
+  <tr>
+   <td class="codeShow_order">18</td>
+   <td>
+    <pre>}</pre>
+   </td>
+  </tr>
  </tbody>
 </table>
       </section>

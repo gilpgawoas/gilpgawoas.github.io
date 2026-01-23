@@ -1,0 +1,141 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ROL_ID_CLIENTE.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/ROL_ID_ADMINISTRADOR.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/rolBusca.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/rolAgrega.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/lib/usuRolAgrega.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre><span class="codeReserved">require_once</span> <span class="codeReserved">__DIR__</span> . <span class="codeString">"/usuarioBuscaSan.php"</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre><span class="codeReserved">class</span> Bd</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre> <span class="codeReserved">private</span> <span class="codeReserved">static</span> ?PDO $pdo = <span class="codeReserved">null</span>;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> <span class="codeReserved">static</span> <span class="codeReserved">function</span> pdo(): PDO</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> {</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">self</span>::$pdo === <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>   <span class="codeReserved">self</span>::$pdo = <span class="codeReserved">new</span> PDO(</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>    <span class="codeComment">// cadena de conexión</span></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>    <span class="codeString">"sqlite:"</span> . <span class="codeReserved">__DIR__</span> . <span class="codeString">"/srvaut.db"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>    <span class="codeComment">// usuario</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>    <span class="codeReserved">null</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>    <span class="codeComment">// contraseña</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>    <span class="codeReserved">null</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre>    <span class="codeComment">// Opciones: pdos no persistentes y lanza excepciones.</span></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>    [PDO::ATTR_PERSISTENT =&gt; <span class="codeReserved">false</span>, PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION]</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>   );</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>   <span class="codeReserved">self</span>::$pdo-&gt;exec(</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> USUARIO (</span></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre><span class="codeString">      USU_ID <span class="codeReserved">INTEGER</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre><span class="codeString">      USU_SAN <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre><span class="codeString">      USU_SEN <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> USU_PK</span></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(USU_ID),</span></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> USU_SAN_UNQ</span></pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre><span class="codeString">       <span class="codeReserved">UNIQUE</span>(USU_SAN),</span></pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> USU_SAN_NV</span></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre><span class="codeString">       CHECK(LENGTH(USU_SAN) &gt; 0)</span></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre><span class="codeString">     )'</span></pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre>   );</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>   <span class="codeReserved">self</span>::$pdo-&gt;exec(</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> ROL (</span></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre><span class="codeString">      ROL_ID <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre><span class="codeString">      ROL_DESCRIPCION <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> ROL_PK</span></pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre><span class="codeString">       <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(ROL_ID),</span></pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> ROL_ID_NV</span></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre><span class="codeString">       CHECK(LENGTH(ROL_ID) &gt; 0),</span></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> ROL_DESCR_UNQ</span></pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre><span class="codeString">       <span class="codeReserved">UNIQUE</span>(ROL_DESCRIPCION),</span></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre><span class="codeString">      <span class="codeReserved">CONSTRAINT</span> ROL_DESCR_NV</span></pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre><span class="codeString">       CHECK(LENGTH(ROL_DESCRIPCION) &gt; 0)</span></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre><span class="codeString">     )'</span></pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>   );</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>   <span class="codeReserved">self</span>::$pdo-&gt;exec(</pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>    <span class="codeString">'<span class="codeReserved">CREATE</span> <span class="codeReserved">TABLE</span> <span class="codeReserved">IF</span> <span class="codeReserved">NOT</span> <span class="codeReserved">EXISTS</span> USU_ROL (</span></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre><span class="codeString">       USU_ID <span class="codeReserved">INTEGER</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre><span class="codeString">       ROL_ID <span class="codeReserved">TEXT</span> <span class="codeReserved">NOT</span> <span class="codeReserved">NULL</span>,</span></pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre><span class="codeString">       <span class="codeReserved">CONSTRAINT</span> USU_ROL_PK</span></pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre><span class="codeString">        <span class="codeReserved">PRIMARY</span> <span class="codeReserved">KEY</span>(USU_ID, ROL_ID),</span></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre><span class="codeString">       <span class="codeReserved">CONSTRAINT</span> USU_ROL_USU_FK</span></pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre><span class="codeString">        <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (USU_ID) <span class="codeReserved">REFERENCES</span> USUARIO(USU_ID),</span></pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre><span class="codeString">       <span class="codeReserved">CONSTRAINT</span> USU_ROL_ROL_FK</span></pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre><span class="codeString">        <span class="codeReserved">FOREIGN</span> <span class="codeReserved">KEY</span> (ROL_ID) <span class="codeReserved">REFERENCES</span> ROL(ROL_ID)</span></pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre><span class="codeString">      )'</span></pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre>   );</pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre>   <span class="codeReserved">self</span>::$pdo-&gt;beginTransaction();</pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">72</td><td><pre>   <span class="codeReserved">if</span> (rolBusca(<span class="codeReserved">self</span>::$pdo, <span class="codeString">"Administrador"</span>) === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">73</td><td><pre>    rolAgrega(</pre></td></tr>
+  <tr><td class="codeShow_order">74</td><td><pre>     bd: <span class="codeReserved">self</span>::$pdo,</pre></td></tr>
+  <tr><td class="codeShow_order">75</td><td><pre>     id: <span class="codeString">"Administrador"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">76</td><td><pre>     descripcion: <span class="codeString">"Administra el sistema."</span></pre></td></tr>
+  <tr><td class="codeShow_order">77</td><td><pre>    );</pre></td></tr>
+  <tr><td class="codeShow_order">78</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">79</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">80</td><td><pre>   <span class="codeReserved">if</span> (rolBusca(<span class="codeReserved">self</span>::$pdo, <span class="codeString">"Cliente"</span>) === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">81</td><td><pre>    rolAgrega(</pre></td></tr>
+  <tr><td class="codeShow_order">82</td><td><pre>     bd: <span class="codeReserved">self</span>::$pdo,</pre></td></tr>
+  <tr><td class="codeShow_order">83</td><td><pre>     id: <span class="codeString">"Cliente"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">84</td><td><pre>     descripcion: <span class="codeString">"Realiza compras."</span></pre></td></tr>
+  <tr><td class="codeShow_order">85</td><td><pre>    );</pre></td></tr>
+  <tr><td class="codeShow_order">86</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">87</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">88</td><td><pre>   $usuarioAgrega = <span class="codeReserved">self</span>::$pdo-&gt;prepare(</pre></td></tr>
+  <tr><td class="codeShow_order">89</td><td><pre>    <span class="codeString">"<span class="codeReserved">INSERT</span> <span class="codeReserved">INTO</span> USUARIO (</span></pre></td></tr>
+  <tr><td class="codeShow_order">90</td><td><pre><span class="codeString">        USU_SAN, USU_SEN</span></pre></td></tr>
+  <tr><td class="codeShow_order">91</td><td><pre><span class="codeString">       ) <span class="codeReserved">VALUES</span> (</span></pre></td></tr>
+  <tr><td class="codeShow_order">92</td><td><pre><span class="codeString">        :USU_SAN, :USU_SEN</span></pre></td></tr>
+  <tr><td class="codeShow_order">93</td><td><pre><span class="codeString">       )"</span></pre></td></tr>
+  <tr><td class="codeShow_order">94</td><td><pre>   );</pre></td></tr>
+  <tr><td class="codeShow_order">95</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">96</td><td><pre>   <span class="codeReserved">if</span> (usuarioBuscaSan(<span class="codeReserved">self</span>::$pdo, <span class="codeString">"pepito"</span>) === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">97</td><td><pre>    $usuarioAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">98</td><td><pre>     <span class="codeString">":USU_SAN"</span> =&gt; <span class="codeString">"pepito"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">99</td><td><pre>     <span class="codeString">":USU_SEN"</span> =&gt; password_hash(<span class="codeString">"cuentos"</span>, PASSWORD_DEFAULT),</pre></td></tr>
+  <tr><td class="codeShow_order">100</td><td><pre>    ]);</pre></td></tr>
+  <tr><td class="codeShow_order">101</td><td><pre>    $usuId = <span class="codeReserved">self</span>::$pdo-&gt;lastInsertId();</pre></td></tr>
+  <tr><td class="codeShow_order">102</td><td><pre>    usuRolAgrega(<span class="codeReserved">self</span>::$pdo, $usuId, [ROL_ID_CLIENTE]);</pre></td></tr>
+  <tr><td class="codeShow_order">103</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">104</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">105</td><td><pre>   <span class="codeReserved">if</span> (usuarioBuscaSan(<span class="codeReserved">self</span>::$pdo, <span class="codeString">"susana"</span>) === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">106</td><td><pre>    $usuarioAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">107</td><td><pre>     <span class="codeString">":USU_SAN"</span> =&gt; <span class="codeString">"susana"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">108</td><td><pre>     <span class="codeString">":USU_SEN"</span> =&gt; password_hash(<span class="codeString">"alegria"</span>, PASSWORD_DEFAULT),</pre></td></tr>
+  <tr><td class="codeShow_order">109</td><td><pre>    ]);</pre></td></tr>
+  <tr><td class="codeShow_order">110</td><td><pre>    $usuId = <span class="codeReserved">self</span>::$pdo-&gt;lastInsertId();</pre></td></tr>
+  <tr><td class="codeShow_order">111</td><td><pre>    usuRolAgrega(<span class="codeReserved">self</span>::$pdo, $usuId, [ROL_ID_ADMINISTRADOR]);</pre></td></tr>
+  <tr><td class="codeShow_order">112</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">113</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">114</td><td><pre>   <span class="codeReserved">if</span> (usuarioBuscaSan(<span class="codeReserved">self</span>::$pdo, <span class="codeString">"bebe"</span>) === <span class="codeReserved">false</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">115</td><td><pre>    $usuarioAgrega-&gt;execute([</pre></td></tr>
+  <tr><td class="codeShow_order">116</td><td><pre>     <span class="codeString">":USU_SAN"</span> =&gt; <span class="codeString">"bebe"</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">117</td><td><pre>     <span class="codeString">":USU_SEN"</span> =&gt; password_hash(<span class="codeString">"saurio"</span>, PASSWORD_DEFAULT),</pre></td></tr>
+  <tr><td class="codeShow_order">118</td><td><pre>    ]);</pre></td></tr>
+  <tr><td class="codeShow_order">119</td><td><pre>    $usuId = <span class="codeReserved">self</span>::$pdo-&gt;lastInsertId();</pre></td></tr>
+  <tr><td class="codeShow_order">120</td><td><pre>    usuRolAgrega(<span class="codeReserved">self</span>::$pdo, $usuId, [ROL_ID_CLIENTE,ROL_ID_ADMINISTRADOR]);</pre></td></tr>
+  <tr><td class="codeShow_order">121</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">122</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">123</td><td><pre>   <span class="codeReserved">self</span>::$pdo-&gt;commit();</pre></td></tr>
+  <tr><td class="codeShow_order">124</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">125</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">126</td><td><pre>  <span class="codeReserved">return</span> <span class="codeReserved">self</span>::$pdo;</pre></td></tr>
+  <tr><td class="codeShow_order">127</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">128</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">129</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

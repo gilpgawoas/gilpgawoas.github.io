@@ -1,0 +1,21 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">php</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">function</span> ventaEnCapturaBusca(\PDO $bd)</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>{</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> $stmt = $bd-&gt;query(<span class="codeString">"<span class="codeReserved">SELECT</span> * <span class="codeReserved">FROM</span> VENTA <span class="codeReserved">WHERE</span> VENT_EN_CAPTURA = 1"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> $venta = $stmt-&gt;fetch(PDO::FETCH_ASSOC);</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> <span class="codeReserved">return</span> $venta;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
