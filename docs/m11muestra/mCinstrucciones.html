@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>C. Hazlo funcionar - GilPG AWOAS</title>
- <meta name="description" content="Instrucciones para hacer funcionar el ejemplo.">
+ <title>D. Hazlo funcionar (texto) - GilPG AWOAS</title>
+ <meta name="description" content="Instrucciones en texto para hacer funcionar el ejemplo.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -857,7 +857,7 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >C. Hazlo funcionar</h1><div class="lectura">
+   <h1 >D. Hazlo funcionar (texto)</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -878,8 +878,9 @@
    <ol type="A">
     <li>
      <p>
-      <em>Crea una cuenta de email</em>, por ejemplo,
-      <samp>pepito@google.com</samp>
+      <em>Crea una cuenta de email para tí</em>, por ejemplo,
+      <samp>pepito@google.com</samp>.
+      Si ya tienes un email, omite este paso.
      </p>
     </li>
     <li>
@@ -887,6 +888,7 @@
       <em>Crea una cuenta de GitHub</em> usando el email anterior y selecciona
       el nombre de usuario unsando la parte inicial del correo electrónico, por
       ejemplo <samp>pepito</samp>.
+      Si ya tienes una cuenta, omite este paso.
      </p>
     </li>
     <li>
@@ -1030,8 +1032,7 @@
     </li>
     <li>
      <p>
-      Haz clic en <em>Run and Debug</em> <img alt=""
-        src="/img/runanddebug.png">.
+      Haz clic en <em>Run and Debug</em> <img alt="" src="/img/runanddebug.png">.
      </p>
     </li>
     <li>
@@ -1069,25 +1070,56 @@
       resaltada en la pestaña de fuentes. Usa los controles de depuración para
       avanzar, como se muestra en
       <a href="https://drive.google.com/file/d/1wdg7LKHR8L21FQGsRr2bXpXqAcaEGxCx/view?usp=sharing"
-        target="_blank" rel="noreferrer">este video</a>.
+         target="_blank" rel="noreferrer">este video</a>.
      </p>
     </li>
    </ol>
   </li>
   <li>
-   <p>
-    Sube el proyecto al hosting que elijas. En algunos casos puedes usar
-    filezilla
-    (<a href="https://filezilla-project.org/" target="_blank"
-      rel="noreferrer">https://filezilla-project.org/</a>)
-   </p>
+   <p>Sube el proyecto al hosting que elijas.</p>
+   <ol>
+    <li>
+     <p>
+      Crea una nueva carpeta para crear un nuevo proyecto que estará conectado
+      directamente al servidor web por ftp.
+     </p>
+    </li>
+    <li>
+     <p>
+      Abre la nueva carpeta con Visual Studio Code.
+     </p>
+    </li>
+    <li>
+     <p>
+      Tecle al mismo Mayúsculas+Control+P y selecciona SFTP: Config. Aparece un
+      archivo de configuración de FTP. Llena los datos con la configuración de
+      FTP de tu servidor, excepto la contraseña.
+     </p>
+    </li>
+    <li>
+     <p>
+      Cliquea el botón de SFTP y luego haz clic en la URL de tu servidos. En
+      la barra superior te pide la contraseña y ENTER.
+     </p>
+    </li>
+    <li>
+     <p>
+      Pásate a la parte de archivos y coloca tus archivos.
+     </p>
+    <li>
+     <p>
+      Cliquea con el botón derecho en la sección de archivos y selecciona Sync:
+      Local -> Remote.
+     </p>
+    </li>
+   </ol>
   </li>
   <li>
    <p>Abre un navegador y prueba el proyecto en tu hosting.</p>
   </li>
   <li>
    <p>
-    <strong>En el hosting InfinityFree,</strong> la primera ves que corres la
+    <strong>En el hosting InfinityFree,</strong> la primera vez que corres la
     página, puede marcar un mensaje de error, pero al recargar funciona
     correctamente. Puedes evitar este problema usando un dominio propio.
    </p>
@@ -1104,8 +1136,8 @@
     <img alt="Imagen de Commit & Push" src="/img/github_commit.png">
    </figure>
   </li>
- </ol>
-</div>
+  </ol>
+  </div>
  <footer>
  <p>
   <a rel="license"
@@ -1131,10 +1163,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m11muestra/mBdeploy.html" title="B. Diagrama de despliegue"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m11muestra/mAvideoinstrucciones.html" title="C. Hazlo funcionar (con videos)"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m11muestra/mArchivos.html" title="D. Archivos"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m11muestra/mArchivos.html" title="E. Archivos"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1175,7 +1207,12 @@
    </li>
    <li>
     <p>
-     <a href="/m11muestra/mCinstrucciones.html" class="actual">Hazlo funcionar</a>
+     <a href="/m11muestra/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m11muestra/mCinstrucciones.html" class="actual">Hazlo funcionar (texto)</a>
     </p>
    </li>
    <li>
@@ -1234,7 +1271,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m11muestra/mBdeploy.html"
+ let urlAnterior = "/m11muestra/mAvideoinstrucciones.html"
  /**@type {string} */
  let urlSiguiente = "/m11muestra/mArchivos.html"
  /**@type {number|null} */
