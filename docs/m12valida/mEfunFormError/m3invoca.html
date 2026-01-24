@@ -1047,15 +1047,15 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>srv/valida.php</h1>
- <pre class="resaltado"><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre class="resaltado"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
 <span> $saludo === <span class="codeReserved">false</span></span>
 <span> || $saludo === <span class="codeString">&quot;&quot;</span></span>
 <span>) {</span>
 <span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
 <span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;error&#47;faltasaludo.html&quot;</span>,</span>
+<span>  type: <span class="codeString">&quot;&#47;errors&#47;faltasaludo.html&quot;</span>,</span>
 <span>  title: <span class="codeString">&quot;Falta el saludo.&quot;</span>,</span>
 <span> );</span>
 <span>}</span>
@@ -1065,7 +1065,7 @@ alert(json)</code></pre>
 <span>) {</span>
 <span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
 <span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;error&#47;faltanombre.html&quot;</span>,</span>
+<span>  type: <span class="codeString">&quot;&#47;errors&#47;faltanombre.html&quot;</span>,</span>
 <span>  title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</span>
 <span> );</span>
 <span>}</span>

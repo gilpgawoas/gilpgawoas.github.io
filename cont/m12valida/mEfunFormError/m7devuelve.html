@@ -22,13 +22,13 @@ alert(json)</code></pre>
    Transfer-Encoding: chunked<br>
    Connection: keep-alive
   </details>
-  {"title":"Falta el saludo.","type":"\/error\/faltasaludo.html"}
+  {"title":"Falta el saludo.","type":"\/errors\/faltasaludo.html"}
  </div>
 </section>
 <section>
  <h1>srv/valida.php</h1>
- <pre class="resaltado3"><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
 <span> $saludo === <span class="codeReserved">false</span></span>
 <span> || $saludo === <span class="codeString">&quot;&quot;</span></span>

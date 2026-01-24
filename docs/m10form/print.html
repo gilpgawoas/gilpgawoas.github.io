@@ -1109,8 +1109,8 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>srv/procesa.php</h1>
- <pre class="resaltado"><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre class="resaltado"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
 <span>devuelveJson($resultado);</span></code></pre>
@@ -1131,8 +1131,8 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>srv/procesa.php</h1>
- <pre><code class="language-php"><span class="resaltado">$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span class="resaltado">$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre><code class="language-php"><span class="resaltado">$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span class="resaltado">$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
 <span>devuelveJson($resultado);</span></code></pre>
@@ -1202,8 +1202,8 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>srv/procesa.php</h1>
- <pre><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span class="resaltado">$resultado =</span>
 <span class="resaltado"> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
 <span>devuelveJson($resultado);</span></code></pre>
@@ -1234,8 +1234,8 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>srv/procesa.php</h1>
- <pre><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
 <span class="resaltado">devuelveJson($resultado);</span></code></pre>
@@ -1323,8 +1323,8 @@ alert(json)</code></pre>
 </div>
 <section>
  <h1>srv/procesa.php</h1>
- <pre class="resaltado3"><code class="language-php"><span>$saludo = leeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = leeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
 <span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
 <span>devuelveJson($resultado);</span></code></pre>
@@ -1890,7 +1890,7 @@ alert(json)</code></pre>
   <tr><td class="codeShow_order">20</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">21</td><td><pre>    Saludo:</pre></td></tr>
   <tr><td class="codeShow_order">22</td><td><pre>    <span class="codeComment">&lt;!-- Como este input tiene name=&quot;saludo&quot;, su valor se recupera en el</span></pre></td></tr>
-  <tr><td class="codeShow_order">23</td><td><pre><span class="codeComment">     servidor con leeTexto(&quot;saludo&quot;) --&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeComment">     servidor con recibeTexto(&quot;saludo&quot;) --&gt;</span></pre></td></tr>
   <tr><td class="codeShow_order">24</td><td><pre>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"saludo"</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">25</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">26</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
@@ -1899,7 +1899,7 @@ alert(json)</code></pre>
   <tr><td class="codeShow_order">29</td><td><pre>   &lt;<span class="codeReserved">label</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">30</td><td><pre>    Nombre:</pre></td></tr>
   <tr><td class="codeShow_order">31</td><td><pre>    <span class="codeComment">&lt;!-- Como este input tiene name=&quot;nombre&quot;, su valor se recupera en el</span></pre></td></tr>
-  <tr><td class="codeShow_order">32</td><td><pre><span class="codeComment">     servidor con leeTexto(&quot;nombre&quot;) --&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre><span class="codeComment">     servidor con recibeTexto(&quot;nombre&quot;) --&gt;</span></pre></td></tr>
   <tr><td class="codeShow_order">33</td><td><pre>    &lt;<span class="codeReserved">input</span> name=<span class="codeString">"nombre"</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">34</td><td><pre>   &lt;/<span class="codeReserved">label</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">35</td><td><pre>  &lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
