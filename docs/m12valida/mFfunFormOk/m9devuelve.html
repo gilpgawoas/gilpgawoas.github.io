@@ -973,15 +973,14 @@
  <div id="principal">
    <h1 >9. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span class="resaltado"> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado2">Despierta y recibe response.</p>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(json)</code></pre>
+<p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
  <section>
@@ -1014,6 +1013,8 @@
      <dd>"Hola pp."</dd>
     </dl>
    </dd>
+   <dt class="resaltado">json</dt>
+   <dd class="resaltado">"Hola pp."</dd>
   </dl>
  </section>
 </div>

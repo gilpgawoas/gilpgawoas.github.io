@@ -973,15 +973,14 @@
  <div id="principal">
    <h1 >5. El servicio comprueba que el saludo sea válido</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>

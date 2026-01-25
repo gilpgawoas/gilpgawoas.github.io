@@ -1,27 +1,28 @@
 <section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span class="resaltado"> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+<span class="resaltado">alert(json)</span></code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
  <dl>
-  <dt class="resaltado">respuesta</dt>
+  <dt>respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
     <dd>200</dd>
-    <dt class="resaltado">body</dt>
-    <dd class="resaltado">"Hola pp."</dd>
+    <dt>body</dt>
+    <dd>"Hola pp."</dd>
    </dl>
   </dd>
-</dl>
+  <dt class="resaltado">json</dt>
+  <dd class="resaltado">"Hola pp."</dd>
+ </dl>
 </section>
 <section>
  <h1>Alert</h1>

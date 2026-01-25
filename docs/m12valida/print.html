@@ -1545,10 +1545,9 @@ alert(json)</code></pre>
       </section>
      <section class="pruebaDeEscritorio">
          <h1 >2. Se activa el código del evento submit.</h1><div class="section">
- <section >
+ <section>
   <h1>Forma</h1>
-  <form action="javascript:;"
-    style="overflow: auto; padding: 0 1rem;">
+  <form action="javascript:;" style="overflow: auto; padding: 0 1rem;">
    <p>
     <label>
      Saludo:
@@ -1568,14 +1567,13 @@ alert(json)</code></pre>
  </section>
  <section>
   <h1>index.html</h1>
-  <pre class="resaltado"><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
+  <pre class="resaltado"><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+     class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
  </section>
 </div>
       </section>
@@ -1604,15 +1602,14 @@ alert(json)</code></pre>
  </section>
  <section>
   <h1>index.html</h1>
-  <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- </section>
+  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
+     class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+ <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+</section>
 </div>
 <section>
  <h1>Request</h1>
@@ -1688,15 +1685,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >4. El servicio lee los datos</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>
@@ -1780,15 +1776,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >5. El servicio comprueba que el saludo sea válido</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>
@@ -1832,15 +1827,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >6. Como el saludo es válido, se comprueba que el nombre sea válido</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>
@@ -1884,15 +1878,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >7. Como el nombre es válido, procesa los datos</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>
@@ -1937,15 +1930,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >8. El servicio genera la response</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado3">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado3">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado3">Hace wait esperando response.</p>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
+<p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
  <h1>srv/valida.php</h1>
@@ -2010,15 +2002,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >9. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span class="resaltado"> <span class="codeReserved">const</span> respuesta =</span>
-<span class="resaltado">  <span class="codeReserved">await</span> submitForm(</span>
-<span class="resaltado">   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
- <p class="resaltado2">Despierta y recibe response.</p>
+ <pre><code class="language-javascript"><span class="resaltado"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()</span>
+alert(json)</code></pre>
+<p class="resaltado2">Despierta y recibe response.</p>
 </section>
 <div class="section">
  <section>
@@ -2051,6 +2042,8 @@ alert(json)</code></pre>
      <dd>"Hola pp."</dd>
     </dl>
    </dd>
+   <dt class="resaltado">json</dt>
+   <dd class="resaltado">"Hola pp."</dd>
   </dl>
  </section>
 </div>
@@ -2087,28 +2080,29 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >10. Muestra el texto recibido en un alert</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span class="resaltado"> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+<span class="resaltado">alert(json)</span></code></pre>
 </section>
 <section>
  <h1>Memoria</h1>
  <dl>
-  <dt class="resaltado">respuesta</dt>
+  <dt>respuesta</dt>
   <dd>
    <dl>
     <dt>status</dt>
     <dd>200</dd>
-    <dt class="resaltado">body</dt>
-    <dd class="resaltado">"Hola pp."</dd>
+    <dt>body</dt>
+    <dd>"Hola pp."</dd>
    </dl>
   </dd>
-</dl>
+  <dt class="resaltado">json</dt>
+  <dd class="resaltado">"Hola pp."</dd>
+ </dl>
 </section>
 <section>
  <h1>Alert</h1>
@@ -2123,16 +2117,14 @@ alert(json)</code></pre>
      <section class="pruebaDeEscritorio">
          <h1 >11. Al cerrar el alert, termina el evento</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">try</span> {</span>
-<span> <span class="codeReserved">const</span> respuesta =</span>
-<span>  <span class="codeReserved">await</span> submitForm(</span>
-<span>   <span class="codeString">&quot;srv&#47;valida.php&quot;</span>, event)</span>
-<span> alert(respuesta.body)</span>
-<span>} <span class="codeReserved">catch</span> (error) {</span>
-<span> muestraError(error)</span>
-<span>}</span></code></pre>
+ <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
+   class="codeReserved">await</span> consume(
+ enviaFormRecibeJson(
+  <span class="codeString">"php/valida.php"</span>, formulario))
+<span class="codeReserved">const</span> json =
+ <span class="codeReserved">await</span> respuesta.json()
+alert(json)</code></pre>
 </section>
-
       </section>
       </section>
      <section >
