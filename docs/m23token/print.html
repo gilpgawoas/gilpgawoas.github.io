@@ -1317,47 +1317,6 @@
     </li>
     <li>
      <details>
-      <summary>lib</summary>
-      <ul>
-    <li>
-     <details>
-      <summary>php</summary>
-      <ul>
-  <li>
-   <p><a href="m-lib/m-php/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-devuelveErrorInterno-php.html">devuelveErrorInterno.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-devuelveJson-php.html">devuelveJson.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-devuelveProblemDetails-php.html">devuelveProblemDetails.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-ejecutaServicio-php.html">ejecutaServicio.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-ProblemDetails-php.html">ProblemDetails.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-lib/m-php/m-recuperaTexto-php.html">recuperaTexto.php</a></p>
-  </li>
-      </ul>
-     </details>
-    </li>
-      </ul>
-     </details>
-    </li>
-    <li>
-     <details>
       <summary>php</summary>
       <ul>
   <li>
@@ -1595,7 +1554,7 @@
   <tr><td class="codeShow_order">7</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">8</td><td><pre>session_start();</pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">10</td><td><pre>$token = recibeTextoObligatorio(<span class="codeString">"token"</span>);</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>$token = $_POST[<span class="codeString">"token"</span>];</pre></td></tr>
   <tr><td class="codeShow_order">11</td><td><pre>validaToken(<span class="codeString">"formulario"</span>, $token);</pre></td></tr>
   <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre><span class="codeComment">// Si el token se halló, precesa normalmente la forma.</span></pre></td></tr>
@@ -2239,12 +2198,14 @@
   <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> respuesta</pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeReserved">const</span> contentType = respuesta.headers.get(<span class="codeString">"Content-Type"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">15</td><td><pre>  <span class="codeReserved">if</span> (contentType === <span class="codeString">"application/problem+json; charset=utf-8"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsError(<span class="codeReserved">await</span> respuesta.json())</pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre>  <span class="codeReserved">else</span></pre></td></tr>
-  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(respuesta.statusText)</pre></td></tr>
-  <tr><td class="codeShow_order">19</td><td><pre> }</pre></td></tr>
-  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  <span class="codeReserved">if</span> (</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   contentType !== <span class="codeReserved">null</span> && contentType.startsWith(<span class="codeString">"application/problem+json"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>  )</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsError(<span class="codeReserved">await</span> respuesta.json())</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>  <span class="codeReserved">else</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>   <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(respuesta.statusText)</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
