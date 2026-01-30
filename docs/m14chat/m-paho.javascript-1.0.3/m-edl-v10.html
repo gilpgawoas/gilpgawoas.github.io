@@ -19,6 +19,8 @@
   --h1PadTop: 2.5rem;
   --introDuracion: 2s;
   --introFuncion: ease-out;
+  --navDuracion: 0.7s;
+  --navFuncion: ease-out;
   --padCont: 0.5rem;
   --padNav: 0.75rem 0.5rem;
   --anchoNav: 300px;
@@ -629,41 +631,6 @@
   scroll-padding-top: var(--padTop);
  }
 
- body {
-  animation-timing-function: var(--introFuncion);
-  animation-duration: var(--introDuracion);
-  animation-fill-mode: forwards;
-  animation-name: appear;
- }
-
- body.noTransition {
-  animation-name: noTransition;
- }
-
- @keyframes appear {
-  from {
-   opacity: 0;
-  }
-
-  to {
-   opacity: 1;
-  }
- }
-
- @keyframes noTransition {
-  0% {
-   opacity: 0;
-  }
-
-  0.7% {
-   opacity: 1;
-  }
-
-  100% {
-   opacity: 1;
-  }
- }
-
  #principal {
   padding-top: var(--padTop);
   box-sizing: border-box;
@@ -726,10 +693,13 @@
   color: var(--colLetra);
   background-color: var(--colFondoNav);
   padding: var(--padCont);
-  transition: transform 0.7s ease-in-out;
   scrollbar-width: thin;
   scrollbar-color: var(--colThumb) var(--colScrollbar);
   overflow-wrap: anywhere;
+  transition-property: display, transform;
+  transition-duration: var(--navDuracion);
+  transition-behavior: allow-discrete;
+  transition-timing-function: var(--navFuncion);
  }
 
  #nav::-webkit-scrollbar {
@@ -791,6 +761,7 @@
 
   .xmenu>#nav {
    transform: translateX(-120%);
+   display: none;
   }
 
   .menu>#cierra,
@@ -814,6 +785,7 @@
 
   .menu>#nav {
    transform: translateX(-120%);
+   display: none;
   }
 
   .xmenu>#principal {
@@ -832,6 +804,28 @@
   .xmenu.scroll #principal>.anterior {
    top: -10rem;
   }
+ }
+
+ @starting-style {
+
+  @media screen and (max-width: 999px) {
+
+   .xmenu-undo>#nav {
+    transform: translateX(-120vw);
+    display: block;
+   }
+
+  }
+
+  @media screen and (min-width: 1000px) {
+
+   .xmenu-undo>#nav {
+    transform: translateX(-120vw);
+    display: block;
+   }
+
+  }
+
  }
 
  @media print {
@@ -853,6 +847,37 @@
  }
 </style>
  
+ <style>
+ /* Activa transiciones de vistas
+   * entre documentos para esta
+   * página. */
+ @view-transition {
+  navigation: auto;
+ }
+
+ @keyframes aparece {
+  from {
+   opacity: 0;
+  }
+ }
+
+ @keyframes desvanece {
+  to {
+   opacity: 0;
+  }
+ }
+
+ ::view-transition-old(root) {
+  animation-duration: 1s;
+  animation-name: desvanece;
+ }
+
+ ::view-transition-new(root) {
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-name: aparece;
+ }
+</style>
 </head>
 
 <body  class="xmenu">
@@ -990,7 +1015,9 @@
  registraServiceWorker("/sw.js")
  const LOCAL_STORAGE_MENU = "menu"
  const MENU = "menu"
+ const MENU_UNDO = "menu-undo"
  const XMENU = "xmenu"
+ const XMENU_UNDO = "xmenu-undo"
  const SCROLL = "scroll"
  const nav = document.querySelector("#nav")
  const abre = document.querySelector("#abre")
@@ -1067,9 +1094,20 @@
  }
 
  function cambiaMenu() {
-  document.body.classList.toggle(XMENU)
-  document.body.classList.toggle(MENU)
-  if (document.body.classList.contains(MENU)) {
+  const classList = document.body.classList
+  if (classList.contains(XMENU)) {
+   classList.add(XMENU_UNDO)
+  } else {
+   classList.remove(XMENU_UNDO)
+  }
+  classList.toggle(XMENU)
+  if (classList.contains(MENU)) {
+   classList.add(MENU_UNDO)
+  } else {
+   classList.remove(MENU_UNDO)
+  }
+  classList.toggle(MENU)
+  if (classList.contains(MENU)) {
    localStorage.setItem(LOCAL_STORAGE_MENU, MENU)
   } else {
    localStorage.setItem(LOCAL_STORAGE_MENU, XMENU)
