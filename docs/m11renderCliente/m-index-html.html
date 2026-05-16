@@ -2,13 +2,82 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 
 <head>
+ <title>F. index.html</title>
+ <style>
+ /* Activa transiciones de vistas
+   * entre documentos para esta
+   * página. */
+ @view-transition {
+  navigation: auto;
+ }
+
+ @keyframes aparece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+ }
+
+ @keyframes desvanece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+ }
+
+ ::view-transition-old(root) {
+  animation-duration: 0.7s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 1;
+  animation-name: desvanece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+
+ ::view-transition-new(root) {
+  /* animation-delay: 1s; */
+  animation-duration: 1s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 0;
+  animation-name: aparece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+</style>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>F. index.html - GilPG AWOAS</title>
  <meta name="description" content="Código de «index.html».">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -86,10 +155,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -145,50 +217,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -232,7 +260,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -847,37 +880,6 @@
  }
 </style>
  
- <style>
- /* Activa transiciones de vistas
-   * entre documentos para esta
-   * página. */
- @view-transition {
-  navigation: auto;
- }
-
- @keyframes aparece {
-  from {
-   opacity: 0;
-  }
- }
-
- @keyframes desvanece {
-  to {
-   opacity: 0;
-  }
- }
-
- ::view-transition-old(root) {
-  animation-duration: 1s;
-  animation-name: desvanece;
- }
-
- ::view-transition-new(root) {
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-name: aparece;
- }
-</style>
 </head>
 
 <body  class="xmenu">
@@ -902,52 +904,53 @@
   <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Render en el cliente&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">13</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">15</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Render en el cliente&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">19</td><td><pre> &lt;<span class="codeReserved">dl</span> id=<span class="codeString">"lista"</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">20</td><td><pre>  &lt;<span class="codeReserved">dt</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">dt</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">21</td><td><pre>  &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">22</td><td><pre> &lt;/<span class="codeReserved">dl</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">23</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">24</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">25</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/consume.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">27</td><td><pre>  <span class="codeReserved">import</span> { recibeJson } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/recibeJson.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">28</td><td><pre>  <span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/htmlentities.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">29</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">30</td><td><pre>  descargaDatos()</pre></td></tr>
-  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">32</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</pre></td></tr>
-  <tr><td class="codeShow_order">33</td><td><pre>  <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(recibeJson(<span class="codeString">"php/lista.php"</span>))</pre></td></tr>
-  <tr><td class="codeShow_order">34</td><td><pre>  <span class="codeReserved">const</span> json = <span class="codeReserved">await</span> respuesta.json()</pre></td></tr>
-  <tr><td class="codeShow_order">35</td><td><pre>    <span class="codeComment">// Genera el código HTML de la lista.</span></pre></td></tr>
-  <tr><td class="codeShow_order">36</td><td><pre>    <span class="codeReserved">let</span> render = <span class="codeString">""</span></pre></td></tr>
-  <tr><td class="codeShow_order">37</td><td><pre>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> modelo of json) {</pre></td></tr>
-  <tr><td class="codeShow_order">38</td><td><pre>     <span class="codeComment">/* Codifica nombre y <span class="codeReserved">color</span> para que cambie los caracteres especiales y</span></pre></td></tr>
-  <tr><td class="codeShow_order">39</td><td><pre><span class="codeComment">      * el texto no se pueda interpretar como HTML. Esta técnica evita la</span></pre></td></tr>
-  <tr><td class="codeShow_order">40</td><td><pre><span class="codeComment">      * inyección de código. */</span></pre></td></tr>
-  <tr><td class="codeShow_order">41</td><td><pre>     <span class="codeReserved">const</span> nombre =</pre></td></tr>
-  <tr><td class="codeShow_order">42</td><td><pre>      <span class="codeReserved">typeof</span> modelo.nombre === <span class="codeString">"string"</span> ? htmlentities(modelo.nombre) : <span class="codeString">""</span></pre></td></tr>
-  <tr><td class="codeShow_order">43</td><td><pre>     <span class="codeReserved">const</span> <span class="codeReserved">color</span> =</pre></td></tr>
-  <tr><td class="codeShow_order">44</td><td><pre>      <span class="codeReserved">typeof</span> modelo.<span class="codeReserved">color</span> === <span class="codeString">"string"</span> ? htmlentities(modelo.<span class="codeReserved">color</span>) : <span class="codeString">""</span></pre></td></tr>
-  <tr><td class="codeShow_order">45</td><td><pre>     render += <span class="codeComment">/* html */</span></pre></td></tr>
-  <tr><td class="codeShow_order">46</td><td><pre>      <span class="codeString">`&lt;<span class="codeReserved">dt</span>&gt;${nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">47</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">dd</span>&gt;${<span class="codeReserved">color</span>}&lt;/<span class="codeReserved">dd</span>&gt;`</span></pre></td></tr>
-  <tr><td class="codeShow_order">48</td><td><pre>    }</pre></td></tr>
-  <tr><td class="codeShow_order">49</td><td><pre>    lista.innerHTML = render</pre></td></tr>
-  <tr><td class="codeShow_order">50</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">51</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">52</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">53</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">54</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
-  <tr><td class="codeShow_order">55</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">56</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> <span class="codeReserved">src</span>=<span class="codeString">"dompurify/purify.min.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"libclienteweb/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Render en el cliente&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre> &lt;<span class="codeReserved">dl</span> id=<span class="codeString">"lista"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  &lt;<span class="codeReserved">dt</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">dt</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>  &lt;<span class="codeReserved">dd</span>&gt;&lt;<span class="codeReserved">progress</span> max=<span class="codeString">"100"</span>&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">dd</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre> &lt;/<span class="codeReserved">dl</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>  <span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  <span class="codeReserved">import</span> { recibeJson } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/recibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre>  <span class="codeReserved">import</span> { htmlentities } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/htmlentities.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>  descargaDatos()</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>  <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(recibeJson(<span class="codeString">"api/lista.php"</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>  <span class="codeReserved">const</span> json = <span class="codeReserved">await</span> respuesta.json()</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>    <span class="codeComment">// Genera el código HTML de la lista.</span></pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>    <span class="codeReserved">let</span> render = <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre>    <span class="codeReserved">for</span> (<span class="codeReserved">const</span> modelo of json) {</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>     <span class="codeComment">/* Codifica nombre y <span class="codeReserved">color</span> para que cambie los caracteres especiales y</span></pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre><span class="codeComment">      * el texto no se pueda interpretar como HTML. Esta técnica evita la</span></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre><span class="codeComment">      * inyección de código. */</span></pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre>     <span class="codeReserved">const</span> nombre =</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>      <span class="codeReserved">typeof</span> modelo.nombre === <span class="codeString">"string"</span> ? htmlentities(modelo.nombre) : <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>     <span class="codeReserved">const</span> <span class="codeReserved">color</span> =</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>      <span class="codeReserved">typeof</span> modelo.<span class="codeReserved">color</span> === <span class="codeString">"string"</span> ? htmlentities(modelo.<span class="codeReserved">color</span>) : <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>     render += <span class="codeComment">/* html */</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>      <span class="codeString">`&lt;<span class="codeReserved">dt</span>&gt;${nombre}&lt;/<span class="codeReserved">dt</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">dd</span>&gt;${<span class="codeReserved">color</span>}&lt;/<span class="codeReserved">dd</span>&gt;`</span></pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre>    }</pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre>    lista.innerHTML = DOMPurify.sanitize(render)</pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
  <footer>
@@ -978,7 +981,7 @@
  <a class="anterior" href="/m11renderCliente/mArchivos.html" title="E. Archivos"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m11renderCliente/m-php/index.html" title="G. Carpeta « php »"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m11renderCliente/m-api/index.html" title="G. Carpeta « api »"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -998,7 +1001,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m11muestra/mTresumen.html"
-        title="K. Resumen"><span
+        title="M. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -1039,12 +1042,17 @@
    </li>
    <li>
     <p>
-     <a href="/m11renderCliente/m-php/">Carpeta « php »</a>
+     <a href="/m11renderCliente/m-api/">Carpeta « api »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m11renderCliente/m-js/">Carpeta « js »</a>
+     <a href="/m11renderCliente/m-libclienteweb/">Carpeta « libclienteweb »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m11renderCliente/m-libservidorphp/">Carpeta « libservidorphp »</a>
     </p>
    </li>
    <li>
@@ -1055,6 +1063,11 @@
    <li>
     <p>
      <a href="/m11renderCliente/m-jsconfig-json.html">jsconfig.json</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m11renderCliente/m-dompurify/">Carpeta « dompurify »</a>
     </p>
    </li>
    <li>
@@ -1087,7 +1100,7 @@
  /**@type {string} */
  let urlAnterior = "/m11renderCliente/mArchivos.html"
  /**@type {string} */
- let urlSiguiente = "/m11renderCliente/m-php/index.html"
+ let urlSiguiente = "/m11renderCliente/m-api/index.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

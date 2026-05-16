@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" sizes="32x32" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/lib/js/muestra-codigo.js"></script>
+ <title>Carpeta « dompurify » - GilPG AWOAS</title>
+ <meta name="description" content="">
+ <style>
+ /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
+ :root {
+  --marginTop: 0.25rem;
+  --padTop: 0;
+  --h1PadTop: 2.5rem;
+  --introDuracion: 2s;
+  --introFuncion: ease-out;
+  --navDuracion: 0.7s;
+  --navFuncion: ease-out;
+  --padCont: 0.5rem;
+  --padNav: 0.75rem 0.5rem;
+  --anchoNav: 300px;
+  --anchoLectura: 900px;
+  --colLetra: black;
+  --colFondo: white;
+  --colPush: var(--colFondo);
+  --colPushHover: var(--colFondo);
+  --colPushFocus: var(--colFondo);
+  --colPushActive: #bae397;
+  --colFondoPush: #609732;
+  --colFondoPushHover: #8abd5f;
+  --colFondoPushFocus: #3e7213;
+  --colFondoPushActive: #224c00;
+  --paddingPush: 0.2rem 0.3rem;
+  --borderPush: none;
+  --borderRadiusPush: 0.6em;
+  --colA: #6a7b15;
+  --colAVisited: #6f256f;
+  --colAActive: #e498af;
+  --colAPush: var(--colFondo);
+  --colAVisitedPush: var(--colFondo);
+  --colAPushHover: var(--colFondo);
+  --colAVisitedPushHover: var(--colFondo);
+  --colAPushFocus: var(--colFondo);
+  --colAVisitedPushFocus: var(--colFondo);
+  --colAPushActive: var(--colFondo);
+  --colAVisitedPushActive: var(--colFondo);
+  --colFondoAPush: #6a7b15;
+  --colFondoAVisitedPush: #6f256f;
+  --colFondoAPushHover: #91a437;
+  --colFondoAVisitedPushHover: #a66fa6;
+  --colFondoAPushFocus: #445200;
+  --colFondoAVisitedPushFocus: #530e53;
+  --colFondoAPushActive: #e498af;
+  --colFondoAVisitedPushActive: #e498af;
+  --colSombra: #49494980;
+  --navSombra: 0.5rem 0 0.5rem var(--colSombra);
+  --shadowTitulo: 3px 1px 2px black;
+  /* --colTitulo: #bae397; */
+  --colTitulo: #609732;
+  /* --colTituloFondo: #609732; */
+  --colPrincipalTituloStrong: #6E256E;
+  --colAStrong: var(--colLetra);
+  /* --colNavH1Sel: #b35f7c; */
+  --colFondoNav: var(--colFondo);
+  --colFondoNavSel: #e498af;
+  --colScrollbar: #CFD8DC;
+  --colThumb: #90a4ae;
+  --colThumbActivo: #3f3f3f;
+  --colResaltado: #e9c8d2;
+  --colResaltado2: #bae397;
+  --colResaltado3: #cfcfcf;
+  --colLetraResaltado: black;
+  --colLetraCodeComment: #224c00;
+  --colLetraCodeString: #903357;
+  --colLetraCodeReserved: #445200;
+  --colSecundario: #e498af;
+  --colTarget: #cef4ff;
+  --colStack1: black;
+  --colStack2: #224ba5;
+  --colStack3: #92731f;
+  --anchoThumb: 7px;
+  --borderRadiusThumb: 3.5px;
+  --gap: 0.5rem;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
+  /* --fontSerif: 'Purple Purse', serif; */
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
+  font-family: var(--fontSerif);
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ /* https://paletton.com/#uid=74W0u0kaVz84jP27qHbeJtFiHpX */
+ @media (prefers-color-scheme: dark) {
+
+  :root {
+   --colLetra: white;
+   /* --colFondo: #272727; */
+   --colFondo: black;
+   --colPushActive: #e3f5d4;
+   --colFondoPush: #bbe697;
+   --colFondoPushHover: #d0eeb7;
+   --colFondoPushFocus: #9ed372;
+   --colFondoPushActive: #7db84d;
+   --colA: #e9f7a3;
+   --colAVisited: #c89ac8;
+   --colAActive: #983351;
+   --colFondoAPush: #e9f7a3;
+   --colFondoAVisitedPush: #c89ac8;
+   --colFondoAPushHover: #f6fcda;
+   --colFondoAVisitedPushHover: #dec0de;
+   --colFondoAPushFocus: #b4c853;
+   --colFondoAVisitedPushFocus: #9a539a;
+   --colFondoAPushActive: #983351;
+   --colFondoAVisitedPushActive: #983351;
+   --colSombra: #00000080;
+   --colTitulo: #e3f5d4;
+   --colPrincipalTituloStrong: #C899C8;
+   /* --colTituloFondo: #7db84d; */
+   /* --colNavH1Sel: #d37290; */
+   --colFondoNavSel: #7a3059;
+   --colScrollbar: #616161;
+   --colThumb: #ffffff;
+   --colResaltado: #7a3059;
+   --colResaltado2: #5c922f;
+   --colResaltado3: #4e4e4e;
+   --colLetraResaltado: white;
+   --colLetraCodeComment: #d0eeb7;
+   --colLetraCodeString: #eeb7c8;
+   --colLetraCodeReserved: #f0fac0;
+  }
+ }
+
+ @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src:
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
+   url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf) format('truetype');
+ }
+
+ .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+ }
+
+ body::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ body::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ body::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ :root {
+  background-color: var(--colFondo);
+ }
+
+ body {
+  background-color: var(--colFondo);
+  margin-top: 0;
+ }
+
+ h1 {
+  font-size: 3rem;
+ }
+
+ section h1,
+ nav h1 {
+  font-size: 2.5rem;
+  font-style: oblique;
+ }
+
+ section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section h1 {
+  font-size: 2rem;
+  font-style: normal;
+ }
+
+ section section section section h1 {
+  font-size: 1.5rem;
+  font-style: oblique;
+ }
+
+ section section section section section h1 {
+  font-size: 1.5rem;
+  font-style: normal;
+ }
+
+ a {
+  color: var(--colA);
+ }
+
+ a:visited {
+  color: var(--colAVisited);
+ }
+
+ a:active {
+  color: var(--colAActive);
+ }
+
+ .anterior,
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente,
+ button {
+  display: inline-block;
+  padding: var(--paddingPush);
+  border: var(--borderPush);
+  border-radius: var(--borderRadiusPush);
+  text-align: center;
+  text-decoration: none;
+ }
+
+ .anterior,
+ .siguiente,
+ .paginaAnterior,
+ .paginaSiguiente {
+  color: var(--colAPush);
+  background-color: var(--colFondoAPush);
+ }
+
+ .anterior:visited,
+ .siguiente:visited,
+ .paginaAnterior:visited,
+ .paginaSiguiente:visited {
+  color: var(--colAVisitedPush);
+  background-color: var(--colFondoAVisitedPush);
+ }
+
+ .anterior.bye,
+ .siguiente.bye,
+ .paginaAnterior.bye,
+ .paginaSiguiente.bye {
+  display: none;
+ }
+
+ .anterior:hover,
+ .siguiente:hover,
+ .paginaAnterior:hover,
+ .paginaSiguiente:hover {
+  color: var(--colAPushHover);
+  background-color: var(--colFondoAPushHover);
+ }
+
+ .anterior:visited:hover,
+ .siguiente:visited:hover,
+ .paginaAnterior:visited:hover,
+ .paginaSiguiente:visited:hover {
+  color: var(--colAVisitedPushHover);
+  background-color: var(--colFondoAVisitedPushHover);
+ }
+
+ .anterior:focus,
+ .siguiente:focus,
+ .paginaAnterior:focus,
+ .paginaSiguiente:focus {
+  color: var(--colAPushFocus);
+  background-color: var(--colFondoAPushFocus);
+ }
+
+ .anterior:visited:focus,
+ .siguiente:visited:focus,
+ .paginaAnterior:visited:focus,
+ .paginaSiguiente:visited:focus {
+  color: var(--colAVisitedPushFocus);
+  background-color: var(--colFondoAVisitedPushFocus);
+ }
+
+ .anterior:active,
+ .siguiente:active,
+ .paginaAnterior:active,
+ .paginaSiguiente:active {
+  color: var(--colAPushActive);
+  background-color: var(--colFondoAPushActive);
+ }
+
+ .anterior:visited:active,
+ .siguiente:visited:active,
+ .paginaAnterior:visited:active,
+ .paginaSiguiente:visited:active {
+  color: var(--colAVisitedPushActive);
+  background-color: var(--colFondoAVisitedPushActive);
+ }
+
+ button {
+  color: var(--colPush);
+  background-color: var(--colFondoPush);
+ }
+
+ button:hover {
+  color: var(--colPushHover);
+  background-color: var(--colFondoPushHover);
+ }
+
+ button:focus {
+  color: var(--colPushFocus);
+  background-color: var(--colFondoPushFocus);
+ }
+
+ button:active {
+  color: var(--colPushActive);
+  background-color: var(--colFondoPushActive);
+ }
+
+ .anterior span,
+ .siguiente span,
+ .paginaAnterior span,
+ .paginaSiguiente span,
+ button span {
+  vertical-align: middle;
+ }
+
+ a[data-logo] {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  padding-left: 54px;
+  margin-top: 1rem;
+  background-image: url("/img/icono/maskable_icon_x48.png");
+  background-position: 3px center;
+  background-repeat: no-repeat;
+ }
+
+ a strong,
+ a code,
+ h1 strong,
+ h1 code {
+  font-size: 1em;
+ }
+
+ a strong,
+ a code {
+  color: var(--colAStrong);
+ }
+
+ nav a {
+  font-family: var(--fontSans);
+ }
+
+ pre {
+  font-family: var(--fontMono);
+ }
+
+ code {
+  font-family: var(--fontMono);
+  font-size: 1rem;
+ }
+
+ .tree {
+  font-family: var(--fontSans);
+ }
+
+ .tree summary {
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .tree li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
+ h1:not(.default) {
+  font-family: var(--fontSans);
+  color: var(--colTituloFondo);
+ }
+
+ h1,
+ .lectura a,
+ .lectura p,
+ .lectura blockquote {
+  overflow-wrap: anywhere;
+ }
+
+ .autor {
+  font-family: var(--fontSans);
+  font-size: 1.5rem;
+  color: var(--colTituloFondo);
+ }
+
+ figure {
+  text-align: center;
+ }
+
+ figure img {
+  width: 100%;
+ }
+
+ figcaption {
+  font-family: var(--fontMono);
+ }
+
+ .print .noPrint {
+  display: none;
+ }
+
+ @media print {
+  .noPrint {
+   display: none;
+  }
+
+  .pruebaDeEscritorio {
+   page-break-before: always;
+  }
+ }
+
+ iframe {
+  /* background-color: white; */
+  box-sizing: border-box;
+  resize: both;
+ }
+
+ .lectura {
+  max-width: var(--anchoLectura);
+  margin: 1rem auto;
+ }
+
+ .lectura p,
+ .lectura blockquote {
+  text-align: justify;
+ }
+
+ .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  justify-content: center;
+ }
+
+ .horizontal>*:first-child {
+  flex: 1 1 auto;
+ }
+
+ .horizontal>*:nth-child(2) {
+  flex: 1 1 40ch;
+ }
+
+ .horizontal iframe {
+  width: 300px;
+ }
+
+ .columnas4 {
+  columns: 4 180px;
+  column-gap: 1rem;
+ }
+
+ .columnas2 {
+  columns: 2 360px;
+  column-gap: 1rem;
+ }
+
+ .resaltado {
+  background-color: var(--colResaltado);
+  color: var(--colLetraResaltado);
+ }
+
+ .resaltado2 {
+  background-color: var(--colResaltado2);
+  color: var(--colLetraResaltado);
+ }
+
+ .resaltado3 {
+  background-color: var(--colResaltado3);
+  color: var(--colLetraResaltado);
+ }
+
+ table.borde {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ table.borde,
+ table.borde td {
+  border: thin solid;
+  border-collapse: collapse;
+ }
+
+ table.borde th,
+ table.borde td {
+  padding: 0.4rem;
+ }
+
+ table.codeShow {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+ }
+
+ .codeShow td.codeShow_order {
+  text-align: right;
+  padding: 0 0 0 0;
+  vertical-align: top;
+  font-family: var(--fontMono);
+  white-space: pre;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  /* Avoid selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+
+ .codeShow td:has(pre) {
+  padding: 0 0 0 0.25rem;
+  vertical-align: top;
+ }
+
+ .codeShow td pre {
+  font-family: var(--fontMono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  margin: 0;
+ }
+
+ .codeReserved {
+  color: var(--colLetraCodeReserved);
+  font-weight: bolder;
+ }
+
+ .codeString {
+  color: var(--colLetraCodeString);
+  font-weight: 600;
+ }
+
+ .codeComment {
+  color: var(--colLetraCodeComment);
+  font-style: italic;
+ }
+
+ @media print {
+
+  .codeShow button {
+   display: none;
+  }
+ }
+
+
+ footer {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-family: var(--fontSans);
+  font-size: small;
+ }
+</style>
+ <style>
+ .pruebaDeEscritorio {
+  font-family: var(--fontSans);
+ }
+
+ .pruebaDeEscritorio .section,
+ .pruebaDeEscritorio section {
+  display: inline-block;
+  vertical-align: top;
+ }
+
+ .pruebaDeEscritorio section {
+  margin: 1em;
+ }
+
+ .section section {
+  display: block;
+ }
+
+ .pruebaDeEscritorio section pre {
+  margin: 0;
+ }
+
+ .pruebaDeEscritorio samp {
+  font-weight: bold;
+ }
+
+ .pruebaDeEscritorio .activo {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  vertical-align: top;
+  background-color: var(--colSecundario);
+  border: 1px solid var(--colSecundario);
+ }
+
+ .pruebaDeEscritorio :target,
+ .pruebaDeEscritorio :target caption {
+  background-color: var(--colTarget);
+ }
+
+ .pruebaDeEscritorio .numero1 {
+  display: inline-block;
+  margin: 0 0.2rem 0 0;
+  color: var(--colStack1);
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio .numero2 {
+  display: inline-block;
+  color: var(--colStack2);
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio .numero3 {
+  display: inline-block;
+  color: var(--colStack3);
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio a.parametro1,
+ .pruebaDeEscritorio .parametro1 {
+  color: var(--colPar1);
+ }
+
+ .pruebaDeEscritorio a.parametro2,
+ .pruebaDeEscritorio .parametro2 {
+  color: var(--colPar2);
+ }
+
+ .pruebaDeEscritorio .descongela {
+  color: var(--colDescongela);
+ }
+
+ .pruebaDeEscritorio table.tabla1,
+ .pruebaDeEscritorio table.tabla1 th,
+ .pruebaDeEscritorio table.tabla1 td {
+  border: 1px solid var(--colStack1);
+ }
+
+ .pruebaDeEscritorio table.tabla2,
+ .pruebaDeEscritorio table.tabla2 th,
+ .pruebaDeEscritorio table.tabla2 td {
+  border: 1px solid var(--colStack2);
+ }
+
+ .pruebaDeEscritorio table.tabla3,
+ .pruebaDeEscritorio table.tabla3 th,
+ .pruebaDeEscritorio table.tabla3 td {
+  border: 1px solid var(--colStack3);
+ }
+
+ .pruebaDeEscritorio .frame {
+  font-family: var(--fontMono);
+  border-collapse: collapse;
+ }
+
+ .pruebaDeEscritorio .frame,
+ .pruebaDeEscritorio .frame th,
+ .pruebaDeEscritorio .frame td {
+  border: thin solid;
+ }
+
+ .pruebaDeEscritorio .frame caption {
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .objeto caption {
+  text-decoration: underline;
+  font-style: italic;
+ }
+
+ .pruebaDeEscritorio .creación {
+  display: flex;
+ }
+</style>
+</head>
+
+<body class="print">
+   <h1 >P. Carpeta « dompurify »</h1>
+   <div class="lectura"> 
+    <p class="noPrint">
+     <a target="_blank" rel="noreferrer"
+      href="print.html">Versión para imprimir.</a>
+    </p>
+   </div>
+
+  <div class="lectura">
+   <nav>
+    <h1>Contenido</h1>
+    
+   <ol type="A">
+    
+   <li>
+    <p>
+     <a href="/m20archivos/m-dompurify/m-purify-min-js.html">dompurify / purify.min.js</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m20archivos/m-dompurify/m-purify-min-js-map.html">dompurify / purify.min.js.map</a>
+    </p>
+   </li>
+   </ol>
+   </nav>
+  </div>
+     <section >
+         <h1 >A. dompurify / purify.min.js</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeComment">/*! <span class="codeReserved">@license</span> DOMPurify 3.4.1 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.4.1/LICENSE */</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>!<span class="codeReserved">function</span>(e,t){<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> exports&&<span class="codeString">"undefined"</span>!=<span class="codeReserved">typeof</span> module?module.exports=t():<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> define&&define.amd?define(t):(e=<span class="codeString">"undefined"</span>!=<span class="codeReserved">typeof</span> globalThis?globalThis:e||<span class="codeReserved">self</span>).DOMPurify=t()}(<span class="codeReserved">this</span>,<span class="codeReserved">function</span>(){<span class="codeString">"use strict"</span>;<span class="codeReserved">const</span>{entries:e,setPrototypeOf:t,isFrozen:n,getPrototypeOf:o,getOwnPropertyDescriptor:r}=Object;<span class="codeReserved">let</span>{freeze:i,seal:a,create:l}=Object,{apply:c,construct:s}=<span class="codeString">"undefined"</span>!=<span class="codeReserved">typeof</span> Reflect&&Reflect;i||(i=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span> e}),a||(a=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span> e}),c||(c=<span class="codeReserved">function</span>(e,t){<span class="codeReserved">for</span>(<span class="codeReserved">var</span> n=arguments.length,o=<span class="codeReserved">new</span> Array(n&gt;2?n-2:0),r=2;r&lt;<span class="codeReserved">n</span>;r++)o[r-2]=arguments[r];<span class="codeReserved">return</span> e.apply(t,o)}),s||(s=<span class="codeReserved">function</span>(e){<span class="codeReserved">for</span>(<span class="codeReserved">var</span> t=arguments.length,n=<span class="codeReserved">new</span> Array(t&gt;1?t-1:0),o=1;o&lt;<span class="codeReserved">t</span>;o++)n[o-1]=arguments[o];<span class="codeReserved">return</span> <span class="codeReserved">new</span> e(...n)});<span class="codeReserved">const</span> u=L(Array.prototype.forEach),m=L(Array.prototype.lastIndexOf),f=L(Array.prototype.pop),p=L(Array.prototype.push),d=L(Array.prototype.splice),h=Array.isArray,T=L(String.prototype.toLowerCase),g=L(String.prototype.toString),y=L(String.prototype.match),A=L(String.prototype.replace),E=L(String.prototype.indexOf),_=L(String.prototype.trim),S=L(Number.prototype.toString),b=L(Boolean.prototype.toString),N=<span class="codeString">"undefined"</span>==<span class="codeReserved">typeof</span> BigInt?<span class="codeReserved">null</span>:L(BigInt.prototype.toString),R=<span class="codeString">"undefined"</span>==<span class="codeReserved">typeof</span> Symbol?<span class="codeReserved">null</span>:L(Symbol.prototype.toString),D=L(Object.prototype.hasOwnProperty),O=L(Object.prototype.toString),I=L(RegExp.prototype.test),w=(C=TypeError,<span class="codeReserved">function</span>(){<span class="codeReserved">for</span>(<span class="codeReserved">var</span> e=arguments.length,t=<span class="codeReserved">new</span> Array(e),n=0;n&lt;<span class="codeReserved">e</span>;n++)t[n]=arguments[n];<span class="codeReserved">return</span> s(C,t)});<span class="codeReserved">var</span> C;<span class="codeReserved">function</span> L(e){<span class="codeReserved">return</span> <span class="codeReserved">function</span>(t){t <span class="codeReserved">instanceof</span> RegExp&&(t.lastIndex=0);<span class="codeReserved">for</span>(<span class="codeReserved">var</span> n=arguments.length,o=<span class="codeReserved">new</span> Array(n&gt;1?n-1:0),r=1;r&lt;<span class="codeReserved">n</span>;r++)o[r-1]=arguments[r];<span class="codeReserved">return</span> c(e,t,o)}}<span class="codeReserved">function</span> k(e,o){<span class="codeReserved">let</span> r=arguments.length&gt;2&&<span class="codeReserved">void</span> 0!==arguments[2]?arguments[2]:T;<span class="codeReserved">if</span>(t&&t(e,<span class="codeReserved">null</span>),!h(o))<span class="codeReserved">return</span> e;<span class="codeReserved">let</span> i=o.length;<span class="codeReserved">for</span>(;i--;){<span class="codeReserved">let</span> t=o[i];<span class="codeReserved">if</span>(<span class="codeString">"string"</span>==<span class="codeReserved">typeof</span> t){<span class="codeReserved">const</span> e=r(t);e!==t&&(n(o)||(o[i]=e),t=e)}e[t]=!0}<span class="codeReserved">return</span> e}<span class="codeReserved">function</span> x(e){<span class="codeReserved">for</span>(<span class="codeReserved">let</span> t=0;t&lt;<span class="codeReserved">e</span>.length;t++){D(e,t)||(e[t]=<span class="codeReserved">null</span>)}<span class="codeReserved">return</span> e}<span class="codeReserved">function</span> v(t){<span class="codeReserved">const</span> n=l(<span class="codeReserved">null</span>);<span class="codeReserved">for</span>(<span class="codeReserved">const</span>[o,r]of e(t)){D(t,o)&&(h(r)?n[o]=x(r):r&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> r&&r.<span class="codeReserved">constructor</span>===Object?n[o]=v(r):n[o]=r)}<span class="codeReserved">return</span> n}<span class="codeReserved">function</span> M(e,t){<span class="codeReserved">for</span>(;<span class="codeReserved">null</span>!==e;){<span class="codeReserved">const</span> n=r(e,t);<span class="codeReserved">if</span>(n){<span class="codeReserved">if</span>(n.get)<span class="codeReserved">return</span> L(n.get);<span class="codeReserved">if</span>(<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> n.value)<span class="codeReserved">return</span> L(n.value)}e=o(e)}<span class="codeReserved">return</span> <span class="codeReserved">function</span>(){<span class="codeReserved">return</span> <span class="codeReserved">null</span>}}<span class="codeReserved">const</span> P=i([<span class="codeString">"a"</span>,<span class="codeString">"abbr"</span>,<span class="codeString">"acronym"</span>,<span class="codeString">"address"</span>,<span class="codeString">"area"</span>,<span class="codeString">"article"</span>,<span class="codeString">"aside"</span>,<span class="codeString">"audio"</span>,<span class="codeString">"b"</span>,<span class="codeString">"bdi"</span>,<span class="codeString">"bdo"</span>,<span class="codeString">"big"</span>,<span class="codeString">"blink"</span>,<span class="codeString">"blockquote"</span>,<span class="codeString">"body"</span>,<span class="codeString">"br"</span>,<span class="codeString">"button"</span>,<span class="codeString">"canvas"</span>,<span class="codeString">"caption"</span>,<span class="codeString">"center"</span>,<span class="codeString">"cite"</span>,<span class="codeString">"code"</span>,<span class="codeString">"col"</span>,<span class="codeString">"colgroup"</span>,<span class="codeString">"<span class="codeReserved">content</span>"</span>,<span class="codeString">"data"</span>,<span class="codeString">"datalist"</span>,<span class="codeString">"dd"</span>,<span class="codeString">"decorator"</span>,<span class="codeString">"del"</span>,<span class="codeString">"details"</span>,<span class="codeString">"dfn"</span>,<span class="codeString">"dialog"</span>,<span class="codeString">"dir"</span>,<span class="codeString">"div"</span>,<span class="codeString">"dl"</span>,<span class="codeString">"dt"</span>,<span class="codeString">"element"</span>,<span class="codeString">"em"</span>,<span class="codeString">"fieldset"</span>,<span class="codeString">"figcaption"</span>,<span class="codeString">"figure"</span>,<span class="codeString">"font"</span>,<span class="codeString">"footer"</span>,<span class="codeString">"form"</span>,<span class="codeString">"h1"</span>,<span class="codeString">"h2"</span>,<span class="codeString">"h3"</span>,<span class="codeString">"h4"</span>,<span class="codeString">"h5"</span>,<span class="codeString">"h6"</span>,<span class="codeString">"head"</span>,<span class="codeString">"header"</span>,<span class="codeString">"hgroup"</span>,<span class="codeString">"hr"</span>,<span class="codeString">"html"</span>,<span class="codeString">"i"</span>,<span class="codeString">"img"</span>,<span class="codeString">"input"</span>,<span class="codeString">"ins"</span>,<span class="codeString">"kbd"</span>,<span class="codeString">"label"</span>,<span class="codeString">"legend"</span>,<span class="codeString">"li"</span>,<span class="codeString">"main"</span>,<span class="codeString">"map"</span>,<span class="codeString">"mark"</span>,<span class="codeString">"marquee"</span>,<span class="codeString">"menu"</span>,<span class="codeString">"menuitem"</span>,<span class="codeString">"meter"</span>,<span class="codeString">"nav"</span>,<span class="codeString">"nobr"</span>,<span class="codeString">"ol"</span>,<span class="codeString">"optgroup"</span>,<span class="codeString">"option"</span>,<span class="codeString">"output"</span>,<span class="codeString">"p"</span>,<span class="codeString">"picture"</span>,<span class="codeString">"pre"</span>,<span class="codeString">"progress"</span>,<span class="codeString">"q"</span>,<span class="codeString">"rp"</span>,<span class="codeString">"rt"</span>,<span class="codeString">"ruby"</span>,<span class="codeString">"s"</span>,<span class="codeString">"samp"</span>,<span class="codeString">"search"</span>,<span class="codeString">"section"</span>,<span class="codeString">"select"</span>,<span class="codeString">"shadow"</span>,<span class="codeString">"slot"</span>,<span class="codeString">"small"</span>,<span class="codeString">"source"</span>,<span class="codeString">"spacer"</span>,<span class="codeString">"span"</span>,<span class="codeString">"strike"</span>,<span class="codeString">"strong"</span>,<span class="codeString">"style"</span>,<span class="codeString">"sub"</span>,<span class="codeString">"summary"</span>,<span class="codeString">"sup"</span>,<span class="codeString">"table"</span>,<span class="codeString">"tbody"</span>,<span class="codeString">"td"</span>,<span class="codeString">"template"</span>,<span class="codeString">"textarea"</span>,<span class="codeString">"tfoot"</span>,<span class="codeString">"th"</span>,<span class="codeString">"thead"</span>,<span class="codeString">"time"</span>,<span class="codeString">"tr"</span>,<span class="codeString">"track"</span>,<span class="codeString">"tt"</span>,<span class="codeString">"u"</span>,<span class="codeString">"ul"</span>,<span class="codeString">"<span class="codeReserved">var</span>"</span>,<span class="codeString">"video"</span>,<span class="codeString">"wbr"</span>]),U=i([<span class="codeString">"svg"</span>,<span class="codeString">"a"</span>,<span class="codeString">"altglyph"</span>,<span class="codeString">"altglyphdef"</span>,<span class="codeString">"altglyphitem"</span>,<span class="codeString">"animatecolor"</span>,<span class="codeString">"animatemotion"</span>,<span class="codeString">"animatetransform"</span>,<span class="codeString">"circle"</span>,<span class="codeString">"clippath"</span>,<span class="codeString">"defs"</span>,<span class="codeString">"desc"</span>,<span class="codeString">"ellipse"</span>,<span class="codeString">"enterkeyhint"</span>,<span class="codeString">"exportparts"</span>,<span class="codeString">"filter"</span>,<span class="codeString">"font"</span>,<span class="codeString">"g"</span>,<span class="codeString">"glyph"</span>,<span class="codeString">"glyphref"</span>,<span class="codeString">"hkern"</span>,<span class="codeString">"image"</span>,<span class="codeString">"inputmode"</span>,<span class="codeString">"line"</span>,<span class="codeString">"lineargradient"</span>,<span class="codeString">"marker"</span>,<span class="codeString">"mask"</span>,<span class="codeString">"metadata"</span>,<span class="codeString">"mpath"</span>,<span class="codeString">"part"</span>,<span class="codeString">"path"</span>,<span class="codeString">"pattern"</span>,<span class="codeString">"polygon"</span>,<span class="codeString">"polyline"</span>,<span class="codeString">"radialgradient"</span>,<span class="codeString">"rect"</span>,<span class="codeString">"stop"</span>,<span class="codeString">"style"</span>,<span class="codeString">"<span class="codeReserved">switch</span>"</span>,<span class="codeString">"symbol"</span>,<span class="codeString">"text"</span>,<span class="codeString">"textpath"</span>,<span class="codeString">"title"</span>,<span class="codeString">"tref"</span>,<span class="codeString">"tspan"</span>,<span class="codeString">"view"</span>,<span class="codeString">"vkern"</span>]),z=i([<span class="codeString">"feBlend"</span>,<span class="codeString">"feColorMatrix"</span>,<span class="codeString">"feComponentTransfer"</span>,<span class="codeString">"feComposite"</span>,<span class="codeString">"feConvolveMatrix"</span>,<span class="codeString">"feDiffuseLighting"</span>,<span class="codeString">"feDisplacementMap"</span>,<span class="codeString">"feDistantLight"</span>,<span class="codeString">"feDropShadow"</span>,<span class="codeString">"feFlood"</span>,<span class="codeString">"feFuncA"</span>,<span class="codeString">"feFuncB"</span>,<span class="codeString">"feFuncG"</span>,<span class="codeString">"feFuncR"</span>,<span class="codeString">"feGaussianBlur"</span>,<span class="codeString">"feImage"</span>,<span class="codeString">"feMerge"</span>,<span class="codeString">"feMergeNode"</span>,<span class="codeString">"feMorphology"</span>,<span class="codeString">"feOffset"</span>,<span class="codeString">"fePointLight"</span>,<span class="codeString">"feSpecularLighting"</span>,<span class="codeString">"feSpotLight"</span>,<span class="codeString">"feTile"</span>,<span class="codeString">"feTurbulence"</span>]),F=i([<span class="codeString">"animate"</span>,<span class="codeString">"color-profile"</span>,<span class="codeString">"<span class="codeReserved">cursor</span>"</span>,<span class="codeString">"discard"</span>,<span class="codeString">"font-face"</span>,<span class="codeString">"font-face-format"</span>,<span class="codeString">"font-face-name"</span>,<span class="codeString">"font-face-src"</span>,<span class="codeString">"font-face-uri"</span>,<span class="codeString">"foreignobject"</span>,<span class="codeString">"hatch"</span>,<span class="codeString">"hatchpath"</span>,<span class="codeString">"mesh"</span>,<span class="codeString">"meshgradient"</span>,<span class="codeString">"meshpatch"</span>,<span class="codeString">"meshrow"</span>,<span class="codeString">"missing-glyph"</span>,<span class="codeString">"script"</span>,<span class="codeString">"set"</span>,<span class="codeString">"solidcolor"</span>,<span class="codeString">"unknown"</span>,<span class="codeString">"use"</span>]),H=i([<span class="codeString">"math"</span>,<span class="codeString">"menclose"</span>,<span class="codeString">"merror"</span>,<span class="codeString">"mfenced"</span>,<span class="codeString">"mfrac"</span>,<span class="codeString">"mglyph"</span>,<span class="codeString">"mi"</span>,<span class="codeString">"mlabeledtr"</span>,<span class="codeString">"mmultiscripts"</span>,<span class="codeString">"mn"</span>,<span class="codeString">"mo"</span>,<span class="codeString">"mover"</span>,<span class="codeString">"mpadded"</span>,<span class="codeString">"mphantom"</span>,<span class="codeString">"mroot"</span>,<span class="codeString">"mrow"</span>,<span class="codeString">"ms"</span>,<span class="codeString">"mspace"</span>,<span class="codeString">"msqrt"</span>,<span class="codeString">"mstyle"</span>,<span class="codeString">"msub"</span>,<span class="codeString">"msup"</span>,<span class="codeString">"msubsup"</span>,<span class="codeString">"mtable"</span>,<span class="codeString">"mtd"</span>,<span class="codeString">"mtext"</span>,<span class="codeString">"mtr"</span>,<span class="codeString">"munder"</span>,<span class="codeString">"munderover"</span>,<span class="codeString">"mprescripts"</span>]),B=i([<span class="codeString">"maction"</span>,<span class="codeString">"maligngroup"</span>,<span class="codeString">"malignmark"</span>,<span class="codeString">"mlongdiv"</span>,<span class="codeString">"mscarries"</span>,<span class="codeString">"mscarry"</span>,<span class="codeString">"msgroup"</span>,<span class="codeString">"mstack"</span>,<span class="codeString">"msline"</span>,<span class="codeString">"msrow"</span>,<span class="codeString">"semantics"</span>,<span class="codeString">"annotation"</span>,<span class="codeString">"annotation-xml"</span>,<span class="codeString">"mprescripts"</span>,<span class="codeString">"none"</span>]),G=i([<span class="codeString">"#text"</span>]),W=i([<span class="codeString">"accept"</span>,<span class="codeString">"action"</span>,<span class="codeString">"align"</span>,<span class="codeString">"alt"</span>,<span class="codeString">"autocapitalize"</span>,<span class="codeString">"autocomplete"</span>,<span class="codeString">"autopictureinpicture"</span>,<span class="codeString">"autoplay"</span>,<span class="codeString">"background"</span>,<span class="codeString">"bgcolor"</span>,<span class="codeString">"<span class="codeReserved">border</span>"</span>,<span class="codeString">"capture"</span>,<span class="codeString">"cellpadding"</span>,<span class="codeString">"cellspacing"</span>,<span class="codeString">"checked"</span>,<span class="codeString">"cite"</span>,<span class="codeString">"<span class="codeReserved">class</span>"</span>,<span class="codeString">"clear"</span>,<span class="codeString">"<span class="codeReserved">color</span>"</span>,<span class="codeString">"cols"</span>,<span class="codeString">"colspan"</span>,<span class="codeString">"controls"</span>,<span class="codeString">"controlslist"</span>,<span class="codeString">"coords"</span>,<span class="codeString">"crossorigin"</span>,<span class="codeString">"datetime"</span>,<span class="codeString">"decoding"</span>,<span class="codeString">"<span class="codeReserved">default</span>"</span>,<span class="codeString">"dir"</span>,<span class="codeString">"disabled"</span>,<span class="codeString">"disablepictureinpicture"</span>,<span class="codeString">"disableremoteplayback"</span>,<span class="codeString">"download"</span>,<span class="codeString">"draggable"</span>,<span class="codeString">"enctype"</span>,<span class="codeString">"enterkeyhint"</span>,<span class="codeString">"exportparts"</span>,<span class="codeString">"face"</span>,<span class="codeString">"<span class="codeReserved">for</span>"</span>,<span class="codeString">"headers"</span>,<span class="codeString">"<span class="codeReserved">height</span>"</span>,<span class="codeString">"hidden"</span>,<span class="codeString">"high"</span>,<span class="codeString">"href"</span>,<span class="codeString">"hreflang"</span>,<span class="codeString">"id"</span>,<span class="codeString">"inert"</span>,<span class="codeString">"inputmode"</span>,<span class="codeString">"integrity"</span>,<span class="codeString">"ismap"</span>,<span class="codeString">"kind"</span>,<span class="codeString">"label"</span>,<span class="codeString">"lang"</span>,<span class="codeString">"list"</span>,<span class="codeString">"loading"</span>,<span class="codeString">"loop"</span>,<span class="codeString">"low"</span>,<span class="codeString">"max"</span>,<span class="codeString">"maxlength"</span>,<span class="codeString">"media"</span>,<span class="codeString">"method"</span>,<span class="codeString">"min"</span>,<span class="codeString">"minlength"</span>,<span class="codeString">"multiple"</span>,<span class="codeString">"muted"</span>,<span class="codeString">"name"</span>,<span class="codeString">"nonce"</span>,<span class="codeString">"noshade"</span>,<span class="codeString">"novalidate"</span>,<span class="codeString">"nowrap"</span>,<span class="codeString">"open"</span>,<span class="codeString">"optimum"</span>,<span class="codeString">"part"</span>,<span class="codeString">"pattern"</span>,<span class="codeString">"placeholder"</span>,<span class="codeString">"playsinline"</span>,<span class="codeString">"popover"</span>,<span class="codeString">"popovertarget"</span>,<span class="codeString">"popovertargetaction"</span>,<span class="codeString">"poster"</span>,<span class="codeString">"preload"</span>,<span class="codeString">"pubdate"</span>,<span class="codeString">"radiogroup"</span>,<span class="codeString">"readonly"</span>,<span class="codeString">"rel"</span>,<span class="codeString">"required"</span>,<span class="codeString">"rev"</span>,<span class="codeString">"reversed"</span>,<span class="codeString">"role"</span>,<span class="codeString">"rows"</span>,<span class="codeString">"rowspan"</span>,<span class="codeString">"spellcheck"</span>,<span class="codeString">"scope"</span>,<span class="codeString">"selected"</span>,<span class="codeString">"shape"</span>,<span class="codeString">"size"</span>,<span class="codeString">"sizes"</span>,<span class="codeString">"slot"</span>,<span class="codeString">"span"</span>,<span class="codeString">"srclang"</span>,<span class="codeString">"start"</span>,<span class="codeString">"<span class="codeReserved">src</span>"</span>,<span class="codeString">"srcset"</span>,<span class="codeString">"step"</span>,<span class="codeString">"style"</span>,<span class="codeString">"summary"</span>,<span class="codeString">"tabindex"</span>,<span class="codeString">"title"</span>,<span class="codeString">"translate"</span>,<span class="codeString">"type"</span>,<span class="codeString">"usemap"</span>,<span class="codeString">"valign"</span>,<span class="codeString">"value"</span>,<span class="codeString">"<span class="codeReserved">width</span>"</span>,<span class="codeString">"wrap"</span>,<span class="codeString">"xmlns"</span>]),j=i([<span class="codeString">"accent-height"</span>,<span class="codeString">"accumulate"</span>,<span class="codeString">"additive"</span>,<span class="codeString">"alignment-baseline"</span>,<span class="codeString">"amplitude"</span>,<span class="codeString">"ascent"</span>,<span class="codeString">"attributename"</span>,<span class="codeString">"attributetype"</span>,<span class="codeString">"azimuth"</span>,<span class="codeString">"basefrequency"</span>,<span class="codeString">"baseline-shift"</span>,<span class="codeString">"begin"</span>,<span class="codeString">"bias"</span>,<span class="codeString">"by"</span>,<span class="codeString">"<span class="codeReserved">class</span>"</span>,<span class="codeString">"clip"</span>,<span class="codeString">"clippathunits"</span>,<span class="codeString">"clip-path"</span>,<span class="codeString">"clip-rule"</span>,<span class="codeString">"<span class="codeReserved">color</span>"</span>,<span class="codeString">"color-interpolation"</span>,<span class="codeString">"color-interpolation-filters"</span>,<span class="codeString">"color-profile"</span>,<span class="codeString">"color-rendering"</span>,<span class="codeString">"cx"</span>,<span class="codeString">"cy"</span>,<span class="codeString">"d"</span>,<span class="codeString">"dx"</span>,<span class="codeString">"dy"</span>,<span class="codeString">"diffuseconstant"</span>,<span class="codeString">"<span class="codeReserved">direction</span>"</span>,<span class="codeString">"<span class="codeReserved">display</span>"</span>,<span class="codeString">"divisor"</span>,<span class="codeString">"dur"</span>,<span class="codeString">"edgemode"</span>,<span class="codeString">"elevation"</span>,<span class="codeString">"end"</span>,<span class="codeString">"exponent"</span>,<span class="codeString">"fill"</span>,<span class="codeString">"fill-opacity"</span>,<span class="codeString">"fill-rule"</span>,<span class="codeString">"filter"</span>,<span class="codeString">"filterunits"</span>,<span class="codeString">"flood-color"</span>,<span class="codeString">"flood-opacity"</span>,<span class="codeString">"<span class="codeReserved">font-family</span>"</span>,<span class="codeString">"<span class="codeReserved">font-size</span>"</span>,<span class="codeString">"font-size-adjust"</span>,<span class="codeString">"font-stretch"</span>,<span class="codeString">"<span class="codeReserved">font-style</span>"</span>,<span class="codeString">"font-variant"</span>,<span class="codeString">"<span class="codeReserved">font-weight</span>"</span>,<span class="codeString">"fx"</span>,<span class="codeString">"fy"</span>,<span class="codeString">"g1"</span>,<span class="codeString">"g2"</span>,<span class="codeString">"glyph-name"</span>,<span class="codeString">"glyphref"</span>,<span class="codeString">"gradientunits"</span>,<span class="codeString">"gradienttransform"</span>,<span class="codeString">"<span class="codeReserved">height</span>"</span>,<span class="codeString">"href"</span>,<span class="codeString">"id"</span>,<span class="codeString">"image-rendering"</span>,<span class="codeString">"<span class="codeReserved">in</span>"</span>,<span class="codeString">"in2"</span>,<span class="codeString">"intercept"</span>,<span class="codeString">"k"</span>,<span class="codeString">"k1"</span>,<span class="codeString">"k2"</span>,<span class="codeString">"k3"</span>,<span class="codeString">"k4"</span>,<span class="codeString">"kerning"</span>,<span class="codeString">"keypoints"</span>,<span class="codeString">"keysplines"</span>,<span class="codeString">"keytimes"</span>,<span class="codeString">"lang"</span>,<span class="codeString">"lengthadjust"</span>,<span class="codeString">"<span class="codeReserved">letter-spacing</span>"</span>,<span class="codeString">"kernelmatrix"</span>,<span class="codeString">"kernelunitlength"</span>,<span class="codeString">"lighting-color"</span>,<span class="codeString">"local"</span>,<span class="codeString">"marker-end"</span>,<span class="codeString">"marker-mid"</span>,<span class="codeString">"marker-start"</span>,<span class="codeString">"markerheight"</span>,<span class="codeString">"markerunits"</span>,<span class="codeString">"markerwidth"</span>,<span class="codeString">"maskcontentunits"</span>,<span class="codeString">"maskunits"</span>,<span class="codeString">"max"</span>,<span class="codeString">"mask"</span>,<span class="codeString">"mask-type"</span>,<span class="codeString">"media"</span>,<span class="codeString">"method"</span>,<span class="codeString">"mode"</span>,<span class="codeString">"min"</span>,<span class="codeString">"name"</span>,<span class="codeString">"numoctaves"</span>,<span class="codeString">"offset"</span>,<span class="codeString">"operator"</span>,<span class="codeString">"<span class="codeReserved">opacity</span>"</span>,<span class="codeString">"order"</span>,<span class="codeString">"orient"</span>,<span class="codeString">"orientation"</span>,<span class="codeString">"origin"</span>,<span class="codeString">"<span class="codeReserved">overflow</span>"</span>,<span class="codeString">"paint-order"</span>,<span class="codeString">"path"</span>,<span class="codeString">"pathlength"</span>,<span class="codeString">"patterncontentunits"</span>,<span class="codeString">"patterntransform"</span>,<span class="codeString">"patternunits"</span>,<span class="codeString">"points"</span>,<span class="codeString">"preservealpha"</span>,<span class="codeString">"preserveaspectratio"</span>,<span class="codeString">"primitiveunits"</span>,<span class="codeString">"r"</span>,<span class="codeString">"rx"</span>,<span class="codeString">"ry"</span>,<span class="codeString">"radius"</span>,<span class="codeString">"refx"</span>,<span class="codeString">"refy"</span>,<span class="codeString">"repeatcount"</span>,<span class="codeString">"repeatdur"</span>,<span class="codeString">"restart"</span>,<span class="codeString">"result"</span>,<span class="codeString">"rotate"</span>,<span class="codeString">"scale"</span>,<span class="codeString">"seed"</span>,<span class="codeString">"shape-rendering"</span>,<span class="codeString">"slope"</span>,<span class="codeString">"specularconstant"</span>,<span class="codeString">"specularexponent"</span>,<span class="codeString">"spreadmethod"</span>,<span class="codeString">"startoffset"</span>,<span class="codeString">"stddeviation"</span>,<span class="codeString">"stitchtiles"</span>,<span class="codeString">"stop-color"</span>,<span class="codeString">"stop-opacity"</span>,<span class="codeString">"stroke-dasharray"</span>,<span class="codeString">"stroke-dashoffset"</span>,<span class="codeString">"stroke-linecap"</span>,<span class="codeString">"stroke-linejoin"</span>,<span class="codeString">"stroke-miterlimit"</span>,<span class="codeString">"stroke-opacity"</span>,<span class="codeString">"stroke"</span>,<span class="codeString">"stroke-width"</span>,<span class="codeString">"style"</span>,<span class="codeString">"surfacescale"</span>,<span class="codeString">"systemlanguage"</span>,<span class="codeString">"tabindex"</span>,<span class="codeString">"tablevalues"</span>,<span class="codeString">"targetx"</span>,<span class="codeString">"targety"</span>,<span class="codeString">"<span class="codeReserved">transform</span>"</span>,<span class="codeString">"transform-origin"</span>,<span class="codeString">"text-anchor"</span>,<span class="codeString">"<span class="codeReserved">text-decoration</span>"</span>,<span class="codeString">"text-rendering"</span>,<span class="codeString">"textlength"</span>,<span class="codeString">"type"</span>,<span class="codeString">"u1"</span>,<span class="codeString">"u2"</span>,<span class="codeString">"unicode"</span>,<span class="codeString">"values"</span>,<span class="codeString">"viewbox"</span>,<span class="codeString">"visibility"</span>,<span class="codeString">"version"</span>,<span class="codeString">"vert-adv-y"</span>,<span class="codeString">"vert-origin-x"</span>,<span class="codeString">"vert-origin-y"</span>,<span class="codeString">"<span class="codeReserved">width</span>"</span>,<span class="codeString">"word-spacing"</span>,<span class="codeString">"wrap"</span>,<span class="codeString">"writing-mode"</span>,<span class="codeString">"xchannelselector"</span>,<span class="codeString">"ychannelselector"</span>,<span class="codeString">"x"</span>,<span class="codeString">"x1"</span>,<span class="codeString">"x2"</span>,<span class="codeString">"xmlns"</span>,<span class="codeString">"y"</span>,<span class="codeString">"y1"</span>,<span class="codeString">"y2"</span>,<span class="codeString">"z"</span>,<span class="codeString">"zoomandpan"</span>]),Y=i([<span class="codeString">"accent"</span>,<span class="codeString">"accentunder"</span>,<span class="codeString">"align"</span>,<span class="codeString">"bevelled"</span>,<span class="codeString">"close"</span>,<span class="codeString">"columnalign"</span>,<span class="codeString">"columnlines"</span>,<span class="codeString">"columnspacing"</span>,<span class="codeString">"columnspan"</span>,<span class="codeString">"denomalign"</span>,<span class="codeString">"depth"</span>,<span class="codeString">"dir"</span>,<span class="codeString">"<span class="codeReserved">display</span>"</span>,<span class="codeString">"displaystyle"</span>,<span class="codeString">"encoding"</span>,<span class="codeString">"fence"</span>,<span class="codeString">"frame"</span>,<span class="codeString">"<span class="codeReserved">height</span>"</span>,<span class="codeString">"href"</span>,<span class="codeString">"id"</span>,<span class="codeString">"largeop"</span>,<span class="codeString">"length"</span>,<span class="codeString">"linethickness"</span>,<span class="codeString">"lquote"</span>,<span class="codeString">"lspace"</span>,<span class="codeString">"mathbackground"</span>,<span class="codeString">"mathcolor"</span>,<span class="codeString">"mathsize"</span>,<span class="codeString">"mathvariant"</span>,<span class="codeString">"maxsize"</span>,<span class="codeString">"minsize"</span>,<span class="codeString">"movablelimits"</span>,<span class="codeString">"notation"</span>,<span class="codeString">"numalign"</span>,<span class="codeString">"open"</span>,<span class="codeString">"rowalign"</span>,<span class="codeString">"rowlines"</span>,<span class="codeString">"rowspacing"</span>,<span class="codeString">"rowspan"</span>,<span class="codeString">"rspace"</span>,<span class="codeString">"rquote"</span>,<span class="codeString">"scriptlevel"</span>,<span class="codeString">"scriptminsize"</span>,<span class="codeString">"scriptsizemultiplier"</span>,<span class="codeString">"selection"</span>,<span class="codeString">"separator"</span>,<span class="codeString">"separators"</span>,<span class="codeString">"stretchy"</span>,<span class="codeString">"subscriptshift"</span>,<span class="codeString">"supscriptshift"</span>,<span class="codeString">"symmetric"</span>,<span class="codeString">"voffset"</span>,<span class="codeString">"<span class="codeReserved">width</span>"</span>,<span class="codeString">"xmlns"</span>]),X=i([<span class="codeString">"xlink:href"</span>,<span class="codeString">"xml:id"</span>,<span class="codeString">"xlink:title"</span>,<span class="codeString">"xml:space"</span>,<span class="codeString">"xmlns:xlink"</span>]),q=a(<span class="codeString">/\{\{[\w\W]*|[\w\W]*\}\}/</span>gm),$=a(<span class="codeString">/&lt;%[\w\W]*|[\w\W]*%&gt;/</span>gm),K=a(<span class="codeString">/\$\{[\w\W]*/</span>gm),V=a(<span class="codeString">/^data-[\-\w.\u00B7-\uFFFF]+$/</span>),Z=a(<span class="codeString">/^aria-[\-\w]+$/</span>),J=a(<span class="codeString">/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/</span>i),Q=a(<span class="codeString">/^(?:\w+script|data):/</span>i),ee=a(<span class="codeString">/[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/</span>g),te=a(<span class="codeString">/^html$/</span>i),ne=a(<span class="codeString">/^[a-z][.\w]*(-[.\w]+)+$/</span>i);<span class="codeReserved">var</span> oe=Object.freeze({__proto__:<span class="codeReserved">null</span>,ARIA_ATTR:Z,ATTR_WHITESPACE:ee,CUSTOM_ELEMENT:ne,DATA_ATTR:V,DOCTYPE_NAME:te,ERB_EXPR:$,IS_ALLOWED_URI:J,IS_SCRIPT_OR_DATA:Q,MUSTACHE_EXPR:q,TMPLIT_EXPR:K});<span class="codeReserved">const</span> re=1,ie=3,ae=7,le=8,ce=9,se=<span class="codeReserved">function</span>(){<span class="codeReserved">return</span><span class="codeString">"undefined"</span>==<span class="codeReserved">typeof</span> window?<span class="codeReserved">null</span>:window};<span class="codeReserved">var</span> ue=<span class="codeReserved">function</span> t(){<span class="codeReserved">let</span> n=arguments.length&gt;0&&<span class="codeReserved">void</span> 0!==arguments[0]?arguments[0]:se();<span class="codeReserved">const</span> o=e=&gt;t(e);<span class="codeReserved">if</span>(o.version=<span class="codeString">"3.4.1"</span>,o.removed=[],!n||!n.document||n.document.nodeType!==ce||!n.Element)<span class="codeReserved">return</span> o.isSupported=!1,o;<span class="codeReserved">let</span>{document:r}=n;<span class="codeReserved">const</span> a=r,c=a.currentScript,{DocumentFragment:s,HTMLTemplateElement:C,Node:L,Element:x,NodeFilter:q,NamedNodeMap:$=n.NamedNodeMap||n.MozNamedAttrMap,HTMLFormElement:K,DOMParser:V,trustedTypes:Z}=n,Q=x.prototype,ee=M(Q,<span class="codeString">"cloneNode"</span>),ne=M(Q,<span class="codeString">"remove"</span>),ue=M(Q,<span class="codeString">"nextSibling"</span>),me=M(Q,<span class="codeString">"childNodes"</span>),fe=M(Q,<span class="codeString">"parentNode"</span>);<span class="codeReserved">if</span>(<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> C){<span class="codeReserved">const</span> e=r.createElement(<span class="codeString">"template"</span>);e.<span class="codeReserved">content</span>&&e.<span class="codeReserved">content</span>.ownerDocument&&(r=e.<span class="codeReserved">content</span>.ownerDocument)}<span class="codeReserved">let</span> pe,de=<span class="codeString">""</span>;<span class="codeReserved">const</span>{implementation:he,createNodeIterator:Te,createDocumentFragment:ge,getElementsByTagName:ye}=r,{importNode:Ae}=a;<span class="codeReserved">let</span> Ee={afterSanitizeAttributes:[],afterSanitizeElements:[],afterSanitizeShadowDOM:[],beforeSanitizeAttributes:[],beforeSanitizeElements:[],beforeSanitizeShadowDOM:[],uponSanitizeAttribute:[],uponSanitizeElement:[],uponSanitizeShadowNode:[]};o.isSupported=<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> e&&<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> fe&&he&&<span class="codeReserved">void</span> 0!==he.createHTMLDocument;<span class="codeReserved">const</span>{MUSTACHE_EXPR:_e,ERB_EXPR:Se,TMPLIT_EXPR:be,DATA_ATTR:Ne,ARIA_ATTR:Re,IS_SCRIPT_OR_DATA:De,ATTR_WHITESPACE:Oe,CUSTOM_ELEMENT:Ie}=oe;<span class="codeReserved">let</span>{IS_ALLOWED_URI:we}=oe,Ce=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> Le=k({},[...P,...U,...z,...H,...G]);<span class="codeReserved">let</span> ke=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> xe=k({},[...W,...j,...Y,...X]);<span class="codeReserved">let</span> ve=Object.seal(l(<span class="codeReserved">null</span>,{tagNameCheck:{writable:!0,configurable:!1,enumerable:!0,value:<span class="codeReserved">null</span>},attributeNameCheck:{writable:!0,configurable:!1,enumerable:!0,value:<span class="codeReserved">null</span>},allowCustomizedBuiltInElements:{writable:!0,configurable:!1,enumerable:!0,value:!1}})),Me=<span class="codeReserved">null</span>,Pe=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> Ue=Object.seal(l(<span class="codeReserved">null</span>,{tagCheck:{writable:!0,configurable:!1,enumerable:!0,value:<span class="codeReserved">null</span>},attributeCheck:{writable:!0,configurable:!1,enumerable:!0,value:<span class="codeReserved">null</span>}}));<span class="codeReserved">let</span> ze=!0,Fe=!0,He=!1,Be=!0,Ge=!1,We=!0,je=!1,Ye=!1,Xe=!1,qe=!1,$e=!1,Ke=!1,Ve=!0,Ze=!1;<span class="codeReserved">const</span> Je=<span class="codeString">"user-content-"</span>;<span class="codeReserved">let</span> Qe=!0,et=!1,tt={},nt=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> ot=k({},[<span class="codeString">"annotation-xml"</span>,<span class="codeString">"audio"</span>,<span class="codeString">"colgroup"</span>,<span class="codeString">"desc"</span>,<span class="codeString">"foreignobject"</span>,<span class="codeString">"head"</span>,<span class="codeString">"iframe"</span>,<span class="codeString">"math"</span>,<span class="codeString">"mi"</span>,<span class="codeString">"mn"</span>,<span class="codeString">"mo"</span>,<span class="codeString">"ms"</span>,<span class="codeString">"mtext"</span>,<span class="codeString">"noembed"</span>,<span class="codeString">"noframes"</span>,<span class="codeString">"noscript"</span>,<span class="codeString">"plaintext"</span>,<span class="codeString">"script"</span>,<span class="codeString">"style"</span>,<span class="codeString">"svg"</span>,<span class="codeString">"template"</span>,<span class="codeString">"thead"</span>,<span class="codeString">"title"</span>,<span class="codeString">"video"</span>,<span class="codeString">"xmp"</span>]);<span class="codeReserved">let</span> rt=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> it=k({},[<span class="codeString">"audio"</span>,<span class="codeString">"video"</span>,<span class="codeString">"img"</span>,<span class="codeString">"source"</span>,<span class="codeString">"image"</span>,<span class="codeString">"track"</span>]);<span class="codeReserved">let</span> at=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> lt=k({},[<span class="codeString">"alt"</span>,<span class="codeString">"<span class="codeReserved">class</span>"</span>,<span class="codeString">"<span class="codeReserved">for</span>"</span>,<span class="codeString">"id"</span>,<span class="codeString">"label"</span>,<span class="codeString">"name"</span>,<span class="codeString">"pattern"</span>,<span class="codeString">"placeholder"</span>,<span class="codeString">"role"</span>,<span class="codeString">"summary"</span>,<span class="codeString">"title"</span>,<span class="codeString">"value"</span>,<span class="codeString">"style"</span>,<span class="codeString">"xmlns"</span>]),ct=<span class="codeString">"http://www.w3.org/1998/Math/MathML"</span>,st=<span class="codeString">"http://www.w3.org/2000/svg"</span>,ut=<span class="codeString">"http://www.w3.org/1999/xhtml"</span>;<span class="codeReserved">let</span> mt=ut,ft=!1,pt=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> dt=k({},[ct,st,ut],g);<span class="codeReserved">let</span> ht=k({},[<span class="codeString">"mi"</span>,<span class="codeString">"mo"</span>,<span class="codeString">"mn"</span>,<span class="codeString">"ms"</span>,<span class="codeString">"mtext"</span>]),Tt=k({},[<span class="codeString">"annotation-xml"</span>]);<span class="codeReserved">const</span> gt=k({},[<span class="codeString">"title"</span>,<span class="codeString">"style"</span>,<span class="codeString">"font"</span>,<span class="codeString">"a"</span>,<span class="codeString">"script"</span>]);<span class="codeReserved">let</span> yt=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> At=[<span class="codeString">"application/xhtml+xml"</span>,<span class="codeString">"text/html"</span>];<span class="codeReserved">let</span> Et=<span class="codeReserved">null</span>,_t=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> St=r.createElement(<span class="codeString">"form"</span>),bt=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span> e <span class="codeReserved">instanceof</span> RegExp||e <span class="codeReserved">instanceof</span> Function},Nt=<span class="codeReserved">function</span>(){<span class="codeReserved">let</span> e=arguments.length&gt;0&&<span class="codeReserved">void</span> 0!==arguments[0]?arguments[0]:{};<span class="codeReserved">if</span>(_t&&_t===e)<span class="codeReserved">return</span>;e&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> e||(e={}),e=v(e),yt=-1===At.indexOf(e.PARSER_MEDIA_TYPE)?<span class="codeString">"text/html"</span>:e.PARSER_MEDIA_TYPE,Et=<span class="codeString">"application/xhtml+xml"</span>===yt?g:T,Ce=D(e,<span class="codeString">"ALLOWED_TAGS"</span>)&&h(e.ALLOWED_TAGS)?k({},e.ALLOWED_TAGS,Et):Le,ke=D(e,<span class="codeString">"ALLOWED_ATTR"</span>)&&h(e.ALLOWED_ATTR)?k({},e.ALLOWED_ATTR,Et):xe,pt=D(e,<span class="codeString">"ALLOWED_NAMESPACES"</span>)&&h(e.ALLOWED_NAMESPACES)?k({},e.ALLOWED_NAMESPACES,g):dt,at=D(e,<span class="codeString">"ADD_URI_SAFE_ATTR"</span>)&&h(e.ADD_URI_SAFE_ATTR)?k(v(lt),e.ADD_URI_SAFE_ATTR,Et):lt,rt=D(e,<span class="codeString">"ADD_DATA_URI_TAGS"</span>)&&h(e.ADD_DATA_URI_TAGS)?k(v(it),e.ADD_DATA_URI_TAGS,Et):it,nt=D(e,<span class="codeString">"FORBID_CONTENTS"</span>)&&h(e.FORBID_CONTENTS)?k({},e.FORBID_CONTENTS,Et):ot,Me=D(e,<span class="codeString">"FORBID_TAGS"</span>)&&h(e.FORBID_TAGS)?k({},e.FORBID_TAGS,Et):v({}),Pe=D(e,<span class="codeString">"FORBID_ATTR"</span>)&&h(e.FORBID_ATTR)?k({},e.FORBID_ATTR,Et):v({}),tt=!!D(e,<span class="codeString">"USE_PROFILES"</span>)&&(e.USE_PROFILES&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> e.USE_PROFILES?v(e.USE_PROFILES):e.USE_PROFILES),ze=!1!==e.ALLOW_ARIA_ATTR,Fe=!1!==e.ALLOW_DATA_ATTR,He=e.ALLOW_UNKNOWN_PROTOCOLS||!1,Be=!1!==e.ALLOW_SELF_CLOSE_IN_ATTR,Ge=e.SAFE_FOR_TEMPLATES||!1,We=!1!==e.SAFE_FOR_XML,je=e.WHOLE_DOCUMENT||!1,qe=e.RETURN_DOM||!1,$e=e.RETURN_DOM_FRAGMENT||!1,Ke=e.RETURN_TRUSTED_TYPE||!1,Xe=e.FORCE_BODY||!1,Ve=!1!==e.SANITIZE_DOM,Ze=e.SANITIZE_NAMED_PROPS||!1,Qe=!1!==e.KEEP_CONTENT,et=e.IN_PLACE||!1,we=<span class="codeReserved">function</span>(e){<span class="codeReserved">try</span>{<span class="codeReserved">return</span> I(e,<span class="codeString">""</span>),!0}<span class="codeReserved">catch</span>(e){<span class="codeReserved">return</span>!1}}(e.ALLOWED_URI_REGEXP)?e.ALLOWED_URI_REGEXP:J,mt=<span class="codeString">"string"</span>==<span class="codeReserved">typeof</span> e.NAMESPACE?e.NAMESPACE:ut,ht=D(e,<span class="codeString">"MATHML_TEXT_INTEGRATION_POINTS"</span>)&&e.MATHML_TEXT_INTEGRATION_POINTS&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> e.MATHML_TEXT_INTEGRATION_POINTS?v(e.MATHML_TEXT_INTEGRATION_POINTS):k({},[<span class="codeString">"mi"</span>,<span class="codeString">"mo"</span>,<span class="codeString">"mn"</span>,<span class="codeString">"ms"</span>,<span class="codeString">"mtext"</span>]),Tt=D(e,<span class="codeString">"HTML_INTEGRATION_POINTS"</span>)&&e.HTML_INTEGRATION_POINTS&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> e.HTML_INTEGRATION_POINTS?v(e.HTML_INTEGRATION_POINTS):k({},[<span class="codeString">"annotation-xml"</span>]);<span class="codeReserved">const</span> t=D(e,<span class="codeString">"CUSTOM_ELEMENT_HANDLING"</span>)&&e.CUSTOM_ELEMENT_HANDLING&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> e.CUSTOM_ELEMENT_HANDLING?v(e.CUSTOM_ELEMENT_HANDLING):l(<span class="codeReserved">null</span>);<span class="codeReserved">if</span>(ve=l(<span class="codeReserved">null</span>),D(t,<span class="codeString">"tagNameCheck"</span>)&&bt(t.tagNameCheck)&&(ve.tagNameCheck=t.tagNameCheck),D(t,<span class="codeString">"attributeNameCheck"</span>)&&bt(t.attributeNameCheck)&&(ve.attributeNameCheck=t.attributeNameCheck),D(t,<span class="codeString">"allowCustomizedBuiltInElements"</span>)&&<span class="codeString">"boolean"</span>==<span class="codeReserved">typeof</span> t.allowCustomizedBuiltInElements&&(ve.allowCustomizedBuiltInElements=t.allowCustomizedBuiltInElements),Ge&&(Fe=!1),$e&&(qe=!0),tt&&(Ce=k({},G),ke=l(<span class="codeReserved">null</span>),!0===tt.html&&(k(Ce,P),k(ke,W)),!0===tt.svg&&(k(Ce,U),k(ke,j),k(ke,X)),!0===tt.svgFilters&&(k(Ce,z),k(ke,j),k(ke,X)),!0===tt.mathMl&&(k(Ce,H),k(ke,Y),k(ke,X))),Ue.tagCheck=<span class="codeReserved">null</span>,Ue.attributeCheck=<span class="codeReserved">null</span>,D(e,<span class="codeString">"ADD_TAGS"</span>)&&(<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> e.ADD_TAGS?Ue.tagCheck=e.ADD_TAGS:h(e.ADD_TAGS)&&(Ce===Le&&(Ce=v(Ce)),k(Ce,e.ADD_TAGS,Et))),D(e,<span class="codeString">"ADD_ATTR"</span>)&&(<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> e.ADD_ATTR?Ue.attributeCheck=e.ADD_ATTR:h(e.ADD_ATTR)&&(ke===xe&&(ke=v(ke)),k(ke,e.ADD_ATTR,Et))),D(e,<span class="codeString">"ADD_URI_SAFE_ATTR"</span>)&&h(e.ADD_URI_SAFE_ATTR)&&k(at,e.ADD_URI_SAFE_ATTR,Et),D(e,<span class="codeString">"FORBID_CONTENTS"</span>)&&h(e.FORBID_CONTENTS)&&(nt===ot&&(nt=v(nt)),k(nt,e.FORBID_CONTENTS,Et)),D(e,<span class="codeString">"ADD_FORBID_CONTENTS"</span>)&&h(e.ADD_FORBID_CONTENTS)&&(nt===ot&&(nt=v(nt)),k(nt,e.ADD_FORBID_CONTENTS,Et)),Qe&&(Ce[<span class="codeString">"#text"</span>]=!0),je&&k(Ce,[<span class="codeString">"html"</span>,<span class="codeString">"head"</span>,<span class="codeString">"body"</span>]),Ce.table&&(k(Ce,[<span class="codeString">"tbody"</span>]),delete Me.tbody),e.TRUSTED_TYPES_POLICY){<span class="codeReserved">if</span>(<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.TRUSTED_TYPES_POLICY.createHTML)<span class="codeReserved">throw</span> w(<span class="codeString">'TRUSTED_TYPES_POLICY configuration option must provide a &quot;createHTML&quot; hook.'</span>);<span class="codeReserved">if</span>(<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.TRUSTED_TYPES_POLICY.createScriptURL)<span class="codeReserved">throw</span> w(<span class="codeString">'TRUSTED_TYPES_POLICY configuration option must provide a &quot;createScriptURL&quot; hook.'</span>);pe=e.TRUSTED_TYPES_POLICY,de=pe.createHTML(<span class="codeString">""</span>)}<span class="codeReserved">else</span> <span class="codeReserved">void</span> 0===pe&&(pe=<span class="codeReserved">function</span>(e,t){<span class="codeReserved">if</span>(<span class="codeString">"object"</span>!=<span class="codeReserved">typeof</span> e||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.createPolicy)<span class="codeReserved">return</span> <span class="codeReserved">null</span>;<span class="codeReserved">let</span> n=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> o=<span class="codeString">"data-tt-policy-suffix"</span>;t&&t.hasAttribute(o)&&(n=t.getAttribute(o));<span class="codeReserved">const</span> r=<span class="codeString">"dompurify"</span>+(n?<span class="codeString">"#"</span>+n:<span class="codeString">""</span>);<span class="codeReserved">try</span>{<span class="codeReserved">return</span> e.createPolicy(r,{createHTML:e=&gt;e,createScriptURL:e=&gt;e})}<span class="codeReserved">catch</span>(e){<span class="codeReserved">return</span> console.warn(<span class="codeString">"TrustedTypes policy "</span>+r+<span class="codeString">" could not be created."</span>),<span class="codeReserved">null</span>}}(Z,c)),<span class="codeReserved">null</span>!==pe&&<span class="codeString">"string"</span>==<span class="codeReserved">typeof</span> de&&(de=pe.createHTML(<span class="codeString">""</span>));i&&i(e),_t=e},Rt=k({},[...U,...z,...F]),Dt=k({},[...H,...B]),Ot=<span class="codeReserved">function</span>(e){p(o.removed,{element:e});<span class="codeReserved">try</span>{fe(e).removeChild(e)}<span class="codeReserved">catch</span>(t){ne(e)}},It=<span class="codeReserved">function</span>(e,t){<span class="codeReserved">try</span>{p(o.removed,{attribute:t.getAttributeNode(e),<span class="codeReserved">from</span>:t})}<span class="codeReserved">catch</span>(e){p(o.removed,{attribute:<span class="codeReserved">null</span>,<span class="codeReserved">from</span>:t})}<span class="codeReserved">if</span>(t.removeAttribute(e),<span class="codeString">"is"</span>===e)<span class="codeReserved">if</span>(qe||$e)<span class="codeReserved">try</span>{Ot(t)}<span class="codeReserved">catch</span>(e){}<span class="codeReserved">else</span> <span class="codeReserved">try</span>{t.setAttribute(e,<span class="codeString">""</span>)}<span class="codeReserved">catch</span>(e){}},wt=<span class="codeReserved">function</span>(e){<span class="codeReserved">let</span> t=<span class="codeReserved">null</span>,n=<span class="codeReserved">null</span>;<span class="codeReserved">if</span>(Xe)e=<span class="codeString">"&lt;<span class="codeReserved">remove</span>&gt;&lt;/<span class="codeReserved">remove</span>&gt;"</span>+e;<span class="codeReserved">else</span>{<span class="codeReserved">const</span> t=y(e,/^[\r\n\t ]+/);n=t&&t[0]}<span class="codeString">"application/xhtml+xml"</span>===yt&&mt===ut&&(e=<span class="codeString">'&lt;<span class="codeReserved">html</span> xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;<span class="codeReserved">head</span>&gt;&lt;/<span class="codeReserved">head</span>&gt;&lt;<span class="codeReserved">body</span>&gt;'</span>+e+<span class="codeString">"&lt;/<span class="codeReserved">body</span>&gt;&lt;/<span class="codeReserved">html</span>&gt;"</span>);<span class="codeReserved">const</span> o=pe?pe.createHTML(e):e;<span class="codeReserved">if</span>(mt===ut)<span class="codeReserved">try</span>{t=(<span class="codeReserved">new</span> V).parseFromString(o,yt)}<span class="codeReserved">catch</span>(e){}<span class="codeReserved">if</span>(!t||!t.documentElement){t=he.createDocument(mt,<span class="codeString">"template"</span>,<span class="codeReserved">null</span>);<span class="codeReserved">try</span>{t.documentElement.innerHTML=ft?de:o}<span class="codeReserved">catch</span>(e){}}<span class="codeReserved">const</span> i=t.body||t.documentElement;<span class="codeReserved">return</span> e&&n&&i.insertBefore(r.createTextNode(n),i.childNodes[0]||<span class="codeReserved">null</span>),mt===ut?ye.call(t,je?<span class="codeString">"html"</span>:<span class="codeString">"body"</span>)[0]:je?t.documentElement:i},Ct=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span> Te.call(e.ownerDocument||e,e,q.SHOW_ELEMENT|q.SHOW_COMMENT|q.SHOW_TEXT|q.SHOW_PROCESSING_INSTRUCTION|q.SHOW_CDATA_SECTION,<span class="codeReserved">null</span>)},Lt=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span> e <span class="codeReserved">instanceof</span> K&&(<span class="codeString">"string"</span>!=<span class="codeReserved">typeof</span> e.nodeName||<span class="codeString">"string"</span>!=<span class="codeReserved">typeof</span> e.textContent||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.removeChild||!(e.attributes <span class="codeReserved">instanceof</span> $)||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.removeAttribute||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.setAttribute||<span class="codeString">"string"</span>!=<span class="codeReserved">typeof</span> e.namespaceURI||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.insertBefore||<span class="codeString">"<span class="codeReserved">function</span>"</span>!=<span class="codeReserved">typeof</span> e.hasChildNodes)},kt=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span><span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> L&&e <span class="codeReserved">instanceof</span> L};<span class="codeReserved">function</span> xt(e,t,n){u(e,e=&gt;{e.call(o,t,n,_t)})}<span class="codeReserved">const</span> vt=<span class="codeReserved">function</span>(e){<span class="codeReserved">let</span> t=<span class="codeReserved">null</span>;<span class="codeReserved">if</span>(xt(Ee.beforeSanitizeElements,e,<span class="codeReserved">null</span>),Lt(e))<span class="codeReserved">return</span> Ot(e),!0;<span class="codeReserved">const</span> n=Et(e.nodeName);<span class="codeReserved">if</span>(xt(Ee.uponSanitizeElement,e,{tagName:n,allowedTags:Ce}),We&&e.hasChildNodes()&&!kt(e.firstElementChild)&&I(<span class="codeString">/&lt;[/</span>\w!]/g,e.innerHTML)&&I(<span class="codeString">/&lt;[/</span>\w!]/g,e.textContent))<span class="codeReserved">return</span> Ot(e),!0;<span class="codeReserved">if</span>(We&&e.namespaceURI===ut&&<span class="codeString">"style"</span>===n&&kt(e.firstElementChild))<span class="codeReserved">return</span> Ot(e),!0;<span class="codeReserved">if</span>(e.nodeType===ae)<span class="codeReserved">return</span> Ot(e),!0;<span class="codeReserved">if</span>(We&&e.nodeType===le&&I(<span class="codeString">/&lt;[/</span>\w]/g,e.data))<span class="codeReserved">return</span> Ot(e),!0;<span class="codeReserved">if</span>(Me[n]||!(Ue.tagCheck <span class="codeReserved">instanceof</span> Function&&Ue.tagCheck(n))&&!Ce[n]){<span class="codeReserved">if</span>(!Me[n]&&Ut(n)){<span class="codeReserved">if</span>(ve.tagNameCheck <span class="codeReserved">instanceof</span> RegExp&&I(ve.tagNameCheck,n))<span class="codeReserved">return</span>!1;<span class="codeReserved">if</span>(ve.tagNameCheck <span class="codeReserved">instanceof</span> Function&&ve.tagNameCheck(n))<span class="codeReserved">return</span>!1}<span class="codeReserved">if</span>(Qe&&!nt[n]){<span class="codeReserved">const</span> t=fe(e)||e.parentNode,n=me(e)||e.childNodes;<span class="codeReserved">if</span>(n&&t){<span class="codeReserved">for</span>(<span class="codeReserved">let</span> o=n.length-1;o&gt;=0;--o){<span class="codeReserved">const</span> r=ee(n[o],!0);t.insertBefore(r,ue(e))}}}<span class="codeReserved">return</span> Ot(e),!0}<span class="codeReserved">return</span> e <span class="codeReserved">instanceof</span> x&&!<span class="codeReserved">function</span>(e){<span class="codeReserved">let</span> t=fe(e);t&&t.tagName||(t={namespaceURI:mt,tagName:<span class="codeString">"template"</span>});<span class="codeReserved">const</span> n=T(e.tagName),o=T(t.tagName);<span class="codeReserved">return</span>!!pt[e.namespaceURI]&&(e.namespaceURI===st?t.namespaceURI===ut?<span class="codeString">"svg"</span>===n:t.namespaceURI===ct?<span class="codeString">"svg"</span>===n&&(<span class="codeString">"annotation-xml"</span>===o||ht[o]):Boolean(Rt[n]):e.namespaceURI===ct?t.namespaceURI===ut?<span class="codeString">"math"</span>===n:t.namespaceURI===st?<span class="codeString">"math"</span>===n&&Tt[o]:Boolean(Dt[n]):e.namespaceURI===ut?!(t.namespaceURI===st&&!Tt[o])&&!(t.namespaceURI===ct&&!ht[o])&&!Dt[n]&&(gt[n]||!Rt[n]):!(<span class="codeString">"application/xhtml+xml"</span>!==yt||!pt[e.namespaceURI]))}(e)?(Ot(e),!0):<span class="codeString">"noscript"</span>!==n&&<span class="codeString">"noembed"</span>!==n&&<span class="codeString">"noframes"</span>!==n||!I(<span class="codeString">/&lt;\/</span>no(script|embed|frames)/i,e.innerHTML)?(Ge&&e.nodeType===ie&&(t=e.textContent,u([_e,Se,be],e=&gt;{t=A(t,e,<span class="codeString">" "</span>)}),e.textContent!==t&&(p(o.removed,{element:e.cloneNode()}),e.textContent=t)),xt(Ee.afterSanitizeElements,e,<span class="codeReserved">null</span>),!1):(Ot(e),!0)},Mt=<span class="codeReserved">function</span>(e,t,n){<span class="codeReserved">if</span>(Pe[t])<span class="codeReserved">return</span>!1;<span class="codeReserved">if</span>(Ve&&(<span class="codeString">"id"</span>===t||<span class="codeString">"name"</span>===t)&&(n <span class="codeReserved">in</span> r||n <span class="codeReserved">in</span> St))<span class="codeReserved">return</span>!1;<span class="codeReserved">if</span>(Fe&&!Pe[t]&&I(Ne,t));<span class="codeReserved">else</span> <span class="codeReserved">if</span>(ze&&I(Re,t));<span class="codeReserved">else</span> <span class="codeReserved">if</span>(Ue.attributeCheck <span class="codeReserved">instanceof</span> Function&&Ue.attributeCheck(t,e));<span class="codeReserved">else</span> <span class="codeReserved">if</span>(!ke[t]||Pe[t]){<span class="codeReserved">if</span>(!(Ut(e)&&(ve.tagNameCheck <span class="codeReserved">instanceof</span> RegExp&&I(ve.tagNameCheck,e)||ve.tagNameCheck <span class="codeReserved">instanceof</span> Function&&ve.tagNameCheck(e))&&(ve.attributeNameCheck <span class="codeReserved">instanceof</span> RegExp&&I(ve.attributeNameCheck,t)||ve.attributeNameCheck <span class="codeReserved">instanceof</span> Function&&ve.attributeNameCheck(t,e))||<span class="codeString">"is"</span>===t&&ve.allowCustomizedBuiltInElements&&(ve.tagNameCheck <span class="codeReserved">instanceof</span> RegExp&&I(ve.tagNameCheck,n)||ve.tagNameCheck <span class="codeReserved">instanceof</span> Function&&ve.tagNameCheck(n))))<span class="codeReserved">return</span>!1}<span class="codeReserved">else</span> <span class="codeReserved">if</span>(at[t]);<span class="codeReserved">else</span> <span class="codeReserved">if</span>(I(we,A(n,Oe,<span class="codeString">""</span>)));<span class="codeReserved">else</span> <span class="codeReserved">if</span>(<span class="codeString">"<span class="codeReserved">src</span>"</span>!==t&&<span class="codeString">"xlink:href"</span>!==t&&<span class="codeString">"href"</span>!==t||<span class="codeString">"script"</span>===e||0!==E(n,<span class="codeString">"data:"</span>)||!rt[e]){<span class="codeReserved">if</span>(He&&!I(De,A(n,Oe,<span class="codeString">""</span>)));<span class="codeReserved">else</span> <span class="codeReserved">if</span>(n)<span class="codeReserved">return</span>!1}<span class="codeReserved">else</span>;<span class="codeReserved">return</span>!0},Pt=k({},[<span class="codeString">"annotation-xml"</span>,<span class="codeString">"color-profile"</span>,<span class="codeString">"font-face"</span>,<span class="codeString">"font-face-format"</span>,<span class="codeString">"font-face-name"</span>,<span class="codeString">"font-face-src"</span>,<span class="codeString">"font-face-uri"</span>,<span class="codeString">"missing-glyph"</span>]),Ut=<span class="codeReserved">function</span>(e){<span class="codeReserved">return</span>!Pt[T(e)]&&I(Ie,e)},zt=<span class="codeReserved">function</span>(e){xt(Ee.beforeSanitizeAttributes,e,<span class="codeReserved">null</span>);<span class="codeReserved">const</span>{attributes:t}=e;<span class="codeReserved">if</span>(!t||Lt(e))<span class="codeReserved">return</span>;<span class="codeReserved">const</span> n={attrName:<span class="codeString">""</span>,attrValue:<span class="codeString">""</span>,keepAttr:!0,allowedAttributes:ke,forceKeepAttr:<span class="codeReserved">void</span> 0};<span class="codeReserved">let</span> r=t.length;<span class="codeReserved">for</span>(;r--;){<span class="codeReserved">const</span> i=t[r],{name:a,namespaceURI:l,value:c}=i,s=Et(a),m=c;<span class="codeReserved">let</span> p=<span class="codeString">"value"</span>===a?m:_(m);<span class="codeReserved">if</span>(n.attrName=s,n.attrValue=p,n.keepAttr=!0,n.forceKeepAttr=<span class="codeReserved">void</span> 0,xt(Ee.uponSanitizeAttribute,e,n),p=n.attrValue,!Ze||<span class="codeString">"id"</span>!==s&&<span class="codeString">"name"</span>!==s||0===E(p,Je)||(It(a,e),p=Je+p),We&&I(<span class="codeString">/((--!?|])&gt;)|&lt;\/</span>(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i,p)){It(a,e);<span class="codeReserved">continue</span>}<span class="codeReserved">if</span>(<span class="codeString">"attributename"</span>===s&&y(p,<span class="codeString">"href"</span>)){It(a,e);<span class="codeReserved">continue</span>}<span class="codeReserved">if</span>(n.forceKeepAttr)<span class="codeReserved">continue</span>;<span class="codeReserved">if</span>(!n.keepAttr){It(a,e);<span class="codeReserved">continue</span>}<span class="codeReserved">if</span>(!Be&&I(<span class="codeString">/\/</span>&gt;/i,p)){It(a,e);<span class="codeReserved">continue</span>}Ge&&u([_e,Se,be],e=&gt;{p=A(p,e,<span class="codeString">" "</span>)});<span class="codeReserved">const</span> d=Et(e.nodeName);<span class="codeReserved">if</span>(Mt(d,s,p)){<span class="codeReserved">if</span>(pe&&<span class="codeString">"object"</span>==<span class="codeReserved">typeof</span> Z&&<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> Z.getAttributeType)<span class="codeReserved">if</span>(l);<span class="codeReserved">else</span> <span class="codeReserved">switch</span>(Z.getAttributeType(d,s)){<span class="codeReserved">case</span><span class="codeString">"TrustedHTML"</span>:p=pe.createHTML(p);<span class="codeReserved">break</span>;<span class="codeReserved">case</span><span class="codeString">"TrustedScriptURL"</span>:p=pe.createScriptURL(p)}<span class="codeReserved">if</span>(p!==m)<span class="codeReserved">try</span>{l?e.setAttributeNS(l,a,p):e.setAttribute(a,p),Lt(e)?Ot(e):f(o.removed)}<span class="codeReserved">catch</span>(t){It(a,e)}}<span class="codeReserved">else</span> It(a,e)}xt(Ee.afterSanitizeAttributes,e,<span class="codeReserved">null</span>)},Ft=<span class="codeReserved">function</span>(e){<span class="codeReserved">let</span> t=<span class="codeReserved">null</span>;<span class="codeReserved">const</span> n=Ct(e);<span class="codeReserved">for</span>(xt(Ee.beforeSanitizeShadowDOM,e,<span class="codeReserved">null</span>);t=n.nextNode();)xt(Ee.uponSanitizeShadowNode,t,<span class="codeReserved">null</span>),vt(t),zt(t),t.<span class="codeReserved">content</span> <span class="codeReserved">instanceof</span> s&&Ft(t.<span class="codeReserved">content</span>);xt(Ee.afterSanitizeShadowDOM,e,<span class="codeReserved">null</span>)};<span class="codeReserved">return</span> o.sanitize=<span class="codeReserved">function</span>(e){<span class="codeReserved">let</span> t=arguments.length&gt;1&&<span class="codeReserved">void</span> 0!==arguments[1]?arguments[1]:{},n=<span class="codeReserved">null</span>,r=<span class="codeReserved">null</span>,i=<span class="codeReserved">null</span>,l=<span class="codeReserved">null</span>;<span class="codeReserved">if</span>(ft=!e,ft&&(e="\x3c!--\x3e<span class="codeString">"),"</span>string<span class="codeString">"!=<span class="codeReserved">typeof</span> e&&!kt(e)&&"</span>string<span class="codeString">"!=<span class="codeReserved">typeof</span>(e=<span class="codeReserved">function</span>(e){<span class="codeReserved">switch</span>(<span class="codeReserved">typeof</span> e){<span class="codeReserved">case</span>"</span>string<span class="codeString">":<span class="codeReserved">return</span> e;<span class="codeReserved">case</span>"</span>number<span class="codeString">":<span class="codeReserved">return</span> S(e);<span class="codeReserved">case</span>"</span>boolean<span class="codeString">":<span class="codeReserved">return</span> b(e);<span class="codeReserved">case</span>"</span>bigint<span class="codeString">":<span class="codeReserved">return</span> N?N(e):"</span>0<span class="codeString">";<span class="codeReserved">case</span>"</span>symbol<span class="codeString">":<span class="codeReserved">return</span> R?R(e):"</span>Symbol()<span class="codeString">";<span class="codeReserved">case</span>"</span>undefined<span class="codeString">":<span class="codeReserved">default</span>:<span class="codeReserved">return</span> O(e);<span class="codeReserved">case</span>"</span><span class="codeReserved">function</span><span class="codeString">":<span class="codeReserved">case</span>"</span>object<span class="codeString">":{<span class="codeReserved">if</span>(<span class="codeReserved">null</span>===e)<span class="codeReserved">return</span> O(e);<span class="codeReserved">const</span> t=e,n=M(t,"</span>toString<span class="codeString">");<span class="codeReserved">if</span>("</span><span class="codeReserved">function</span><span class="codeString">"==<span class="codeReserved">typeof</span> n){<span class="codeReserved">const</span> e=n(t);<span class="codeReserved">return</span>"</span>string<span class="codeString">"==<span class="codeReserved">typeof</span> e?e:O(e)}<span class="codeReserved">return</span> O(e)}}}(e)))<span class="codeReserved">throw</span> w("</span>dirty is not a string, aborting<span class="codeString">");<span class="codeReserved">if</span>(!o.isSupported)<span class="codeReserved">return</span> e;<span class="codeReserved">if</span>(Ye||Nt(t),o.removed=[],"</span>string<span class="codeString">"==<span class="codeReserved">typeof</span> e&&(et=!1),et){<span class="codeReserved">const</span> t=e.nodeName;<span class="codeReserved">if</span>("</span>string<span class="codeString">"==<span class="codeReserved">typeof</span> t){<span class="codeReserved">const</span> e=Et(t);<span class="codeReserved">if</span>(!Ce[e]||Me[e])<span class="codeReserved">throw</span> w("</span>root node is forbidden and cannot be sanitized in-place<span class="codeString">")}}<span class="codeReserved">else</span> <span class="codeReserved">if</span>(e <span class="codeReserved">instanceof</span> L)n=wt("</span>\x3c!----\x3e<span class="codeString">"),r=n.ownerDocument.importNode(e,!0),r.nodeType===re&&"</span>BODY<span class="codeString">"===r.nodeName||"</span>HTML<span class="codeString">"===r.nodeName?n=r:n.appendChild(r);<span class="codeReserved">else</span>{<span class="codeReserved">if</span>(!qe&&!Ge&&!je&&-1===e.indexOf("</span>&lt;&quot;))<span class="codeReserved">return</span> pe&&Ke?pe.createHTML(e):e;<span class="codeReserved">if</span>(n=wt(e),!n)<span class="codeReserved">return</span> qe?<span class="codeReserved">null</span>:Ke?de:<span class="codeString">""</span>}n&&Xe&&Ot(n.firstChild);<span class="codeReserved">const</span> c=Ct(et?e:n);<span class="codeReserved">for</span>(;i=c.nextNode();)vt(i),zt(i),i.<span class="codeReserved">content</span> <span class="codeReserved">instanceof</span> s&&Ft(i.<span class="codeReserved">content</span>);<span class="codeReserved">if</span>(et)<span class="codeReserved">return</span> e;<span class="codeReserved">if</span>(qe){<span class="codeReserved">if</span>(Ge){n.normalize();<span class="codeReserved">let</span> e=n.innerHTML;u([_e,Se,be],t=&gt;{e=A(e,t,<span class="codeString">" "</span>)}),n.innerHTML=e}<span class="codeReserved">if</span>($e)<span class="codeReserved">for</span>(l=ge.call(n.ownerDocument);n.firstChild;)l.appendChild(n.firstChild);<span class="codeReserved">else</span> l=n;<span class="codeReserved">return</span>(ke.shadowroot||ke.shadowrootmode)&&(l=Ae.call(a,l,!0)),l}<span class="codeReserved">let</span> m=je?n.outerHTML:n.innerHTML;<span class="codeReserved">return</span> je&&Ce[<span class="codeString">"!doctype"</span>]&&n.ownerDocument&&n.ownerDocument.doctype&&n.ownerDocument.doctype.name&&I(te,n.ownerDocument.doctype.name)&&(m=<span class="codeString">"&lt;!DOCTYPE "</span>+n.ownerDocument.doctype.name+<span class="codeString">"&gt;\n"</span>+m),Ge&&u([_e,Se,be],e=&gt;{m=A(m,e,<span class="codeString">" "</span>)}),pe&&Ke?pe.createHTML(m):m},o.setConfig=<span class="codeReserved">function</span>(){Nt(arguments.length&gt;0&&<span class="codeReserved">void</span> 0!==arguments[0]?arguments[0]:{}),Ye=!0},o.clearConfig=<span class="codeReserved">function</span>(){_t=<span class="codeReserved">null</span>,Ye=!1},o.isValidAttribute=<span class="codeReserved">function</span>(e,t,n){_t||Nt({});<span class="codeReserved">const</span> o=Et(e),r=Et(t);<span class="codeReserved">return</span> Mt(o,r,n)},o.addHook=<span class="codeReserved">function</span>(e,t){<span class="codeString">"<span class="codeReserved">function</span>"</span>==<span class="codeReserved">typeof</span> t&&p(Ee[e],t)},o.removeHook=<span class="codeReserved">function</span>(e,t){<span class="codeReserved">if</span>(<span class="codeReserved">void</span> 0!==t){<span class="codeReserved">const</span> n=m(Ee[e],t);return-1===n?<span class="codeReserved">void</span> 0:d(Ee[e],n,1)[0]}<span class="codeReserved">return</span> f(Ee[e])},o.removeHooks=<span class="codeReserved">function</span>(e){Ee[e]=[]},o.removeAllHooks=<span class="codeReserved">function</span>(){Ee={afterSanitizeAttributes:[],afterSanitizeElements:[],afterSanitizeShadowDOM:[],beforeSanitizeAttributes:[],beforeSanitizeElements:[],beforeSanitizeShadowDOM:[],uponSanitizeAttribute:[],uponSanitizeElement:[],uponSanitizeShadowNode:[]}},o}();<span class="codeReserved">return</span> ue});</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">//# sourceMappingURL=purify.min.js.map</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >B. dompurify / purify.min.js.map</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>{"version":3,"file":"purify.min.js","sources":["../src/utils.ts","../src/tags.ts","../src/attrs.ts","../src/regexp.ts","../src/purify.ts"],"sourcesContent":[null,null,null,null,null],"names":["entries","setPrototypeOf","isFrozen","getPrototypeOf","getOwnPropertyDescriptor","Object","freeze","seal","create","apply","construct","Reflect","x","func","thisArg","_len","arguments","length","args","Array","_key","Func","_len2","_key2","arrayForEach","unapply","prototype","forEach","arrayLastIndexOf","lastIndexOf","arrayPop","pop","arrayPush","push","arraySplice","splice","arrayIsArray","isArray","stringToLowerCase","String","toLowerCase","stringToString","toString","stringMatch","match","stringReplace","replace","stringIndexOf","indexOf","stringTrim","trim","numberToString","Number","booleanToString","Boolean","bigintToString","BigInt","symbolToString","Symbol","objectHasOwnProperty","hasOwnProperty","objectToString","regExpTest","RegExp","test","typeErrorCreate","TypeError","_len4","_key4","lastIndex","_len3","_key3","addToSet","set","array","transformCaseFunc","l","element","lcElement","cleanArray","index","clone","object","newObject","property","value","constructor","lookupGetter","prop","desc","get","html","svg","svgFilters","svgDisallowed","mathMl","mathMlDisallowed","text","xml","MUSTACHE_EXPR","ERB_EXPR","TMPLIT_EXPR","DATA_ATTR","ARIA_ATTR","IS_ALLOWED_URI","IS_SCRIPT_OR_DATA","ATTR_WHITESPACE","DOCTYPE_NAME","CUSTOM_ELEMENT","NODE_TYPE","getGlobal","window","purify","createDOMPurify","undefined","DOMPurify","root","version","VERSION","removed","document","nodeType","Element","isSupported","originalDocument","currentScript","DocumentFragment","HTMLTemplateElement","Node","NodeFilter","NamedNodeMap","MozNamedAttrMap","HTMLFormElement","DOMParser","trustedTypes","ElementPrototype","cloneNode","remove","getNextSibling","getChildNodes","getParentNode","template","createElement","content","ownerDocument","trustedTypesPolicy","emptyHTML","implementation","createNodeIterator","createDocumentFragment","getElementsByTagName","importNode","hooks","afterSanitizeAttributes","afterSanitizeElements","afterSanitizeShadowDOM","beforeSanitizeAttributes","beforeSanitizeElements","beforeSanitizeShadowDOM","uponSanitizeAttribute","uponSanitizeElement","uponSanitizeShadowNode","createHTMLDocument","EXPRESSIONS","ALLOWED_TAGS","DEFAULT_ALLOWED_TAGS","TAGS","ALLOWED_ATTR","DEFAULT_ALLOWED_ATTR","ATTRS","CUSTOM_ELEMENT_HANDLING","tagNameCheck","writable","configurable","enumerable","attributeNameCheck","allowCustomizedBuiltInElements","FORBID_TAGS","FORBID_ATTR","EXTRA_ELEMENT_HANDLING","tagCheck","attributeCheck","ALLOW_ARIA_ATTR","ALLOW_DATA_ATTR","ALLOW_UNKNOWN_PROTOCOLS","ALLOW_SELF_CLOSE_IN_ATTR","SAFE_FOR_TEMPLATES","SAFE_FOR_XML","WHOLE_DOCUMENT","SET_CONFIG","FORCE_BODY","RETURN_DOM","RETURN_DOM_FRAGMENT","RETURN_TRUSTED_TYPE","SANITIZE_DOM","SANITIZE_NAMED_PROPS","SANITIZE_NAMED_PROPS_PREFIX","KEEP_CONTENT","IN_PLACE","USE_PROFILES","FORBID_CONTENTS","DEFAULT_FORBID_CONTENTS","DATA_URI_TAGS","DEFAULT_DATA_URI_TAGS","URI_SAFE_ATTRIBUTES","DEFAULT_URI_SAFE_ATTRIBUTES","MATHML_NAMESPACE","SVG_NAMESPACE","HTML_NAMESPACE","NAMESPACE","IS_EMPTY_INPUT","ALLOWED_NAMESPACES","DEFAULT_ALLOWED_NAMESPACES","MATHML_TEXT_INTEGRATION_POINTS","HTML_INTEGRATION_POINTS","COMMON_SVG_AND_HTML_ELEMENTS","PARSER_MEDIA_TYPE","SUPPORTED_PARSER_MEDIA_TYPES","CONFIG","formElement","isRegexOrFunction","testValue","Function","_parseConfig","cfg","ADD_URI_SAFE_ATTR","ADD_DATA_URI_TAGS","_unused","isRegex","ALLOWED_URI_REGEXP","customElementHandling","ADD_TAGS","ADD_ATTR","ADD_FORBID_CONTENTS","table","tbody","TRUSTED_TYPES_POLICY","createHTML","createScriptURL","purifyHostElement","createPolicy","suffix","ATTR_NAME","hasAttribute","getAttribute","policyName","scriptUrl","_","console","warn","_createTrustedTypesPolicy","ALL_SVG_TAGS","ALL_MATHML_TAGS","_forceRemove","node","removeChild","_removeAttribute","name","attribute","getAttributeNode","from","removeAttribute","setAttribute","_initDocument","dirty","doc","leadingWhitespace","matches","dirtyPayload","parseFromString","documentElement","createDocument","innerHTML","body","insertBefore","createTextNode","childNodes","call","_createNodeIterator","SHOW_ELEMENT","SHOW_COMMENT","SHOW_TEXT","SHOW_PROCESSING_INSTRUCTION","SHOW_CDATA_SECTION","_isClobbered","nodeName","textContent","attributes","namespaceURI","hasChildNodes","_isNode","_executeHooks","currentNode","data","hook","_sanitizeElements","tagName","allowedTags","firstElementChild","_isBasicCustomElement","parentNode","i","childClone","parent","parentTagName","_checkValidNamespace","expr","_isValidAttribute","lcTag","lcName","RESERVED_CUSTOM_ELEMENT_NAMES","_sanitizeAttributes","hookEvent","attrName","attrValue","keepAttr","allowedAttributes","forceKeepAttr","attr","initValue","getAttributeType","setAttributeNS","_sanitizeShadowDOM","fragment","shadowNode","shadowIterator","nextNode","sanitize","importedNode","returnNode","valueAsRecord","valueToString","stringified","stringifyValue","nn","appendChild","firstChild","nodeIterator","normalize","shadowroot","shadowrootmode","serializedHTML","outerHTML","doctype","setConfig","clearConfig","isValidAttribute","tag","addHook","entryPoint","hookFunction","removeHook","removeHooks","removeAllHooks"],"mappings":"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PL,EACAM,GAEA,KAAkB,OAAXN,GAAiB,CACtB,MAAMO,EAAOrF,EAAyB8E,EAAQM,GAE9C,GAAIC,EAAM,CACR,GAAIA,EAAKC,IACP,OAAOjE,EAAQgE,EAAKC,KAGtB,GAA0B,mBAAfD,EAAKJ,MACd,OAAO5D,EAAQgE,EAAKJ,MAExB,CAEAH,EAAS/E,EAAe+E,EAC1B,CAMA,OAJA,WACE,OAAO,IACT,CAGF,CC1RO,MAAMS,EAAOrF,EAAO,CACzB,IACA,OACA,UACA,UACA,OACA,UACA,QACA,QACA,IACA,MACA,MACA,MACA,QACA,aACA,OACA,KACA,SACA,SACA,UACA,SACA,OACA,OACA,MACA,WACA,UACA,OACA,WACA,KACA,YACA,MACA,UACA,MACA,SACA,MACA,MACA,KACA,KACA,UACA,KACA,WACA,aACA,SACA,OACA,SACA,OACA,KACA,KACA,KACA,KACA,KACA,KACA,OACA,SACA,SACA,KACA,OACA,IACA,MACA,QACA,MACA,MACA,QACA,SACA,KACA,OACA,MACA,OACA,UACA,OACA,WACA,QACA,MACA,OACA,KACA,WACA,SACA,SACA,IACA,UACA,MACA,WACA,IACA,KACA,KACA,OACA,IACA,OACA,SACA,UACA,SACA,SACA,OACA,QACA,SACA,SACA,OACA,SACA,SACA,QACA,MACA,UACA,MACA,QACA,QACA,KACA,WACA,WACA,QACA,KACA,QACA,OACA,KACA,QACA,KACA,IACA,KACA,MACA,QACA,QAGWsF,EAAMtF,EAAO,CACxB,MACA,IACA,WACA,cACA,eACA,eACA,gBACA,mBACA,SACA,WACA,OACA,OACA,UACA,eACA,cACA,SACA,OACA,IACA,QACA,WACA,QACA,QACA,YACA,OACA,iBACA,SACA,OACA,WACA,QACA,OACA,OACA,UACA,UACA,WACA,iBACA,OACA,OACA,QACA,SACA,SACA,OACA,WACA,QACA,OACA,QACA,OACA,UAGWuF,EAAavF,EAAO,CAC/B,UACA,gBACA,sBACA,cACA,mBACA,oBACA,oBACA,iBACA,eACA,UACA,UACA,UACA,UACA,UACA,iBACA,UACA,UACA,cACA,eACA,WACA,eACA,qBACA,cACA,SACA,iBAOWwF,EAAgBxF,EAAO,CAClC,UACA,gBACA,SACA,UACA,YACA,mBACA,iBACA,gBACA,gBACA,gBACA,QACA,YACA,OACA,eACA,YACA,UACA,gBACA,SACA,MACA,aACA,UACA,QAGWyF,EAASzF,EAAO,CAC3B,OACA,WACA,SACA,UACA,QACA,SACA,KACA,aACA,gBACA,KACA,KACA,QACA,UACA,WACA,QACA,OACA,KACA,SACA,QACA,SACA,OACA,OACA,UACA,SACA,MACA,QACA,MACA,SACA,aACA,gBAKW0F,EAAmB1F,EAAO,CACrC,UACA,cACA,aACA,WACA,YACA,UACA,UACA,SACA,SACA,QACA,YACA,aACA,iBACA,cACA,SAGW2F,EAAO3F,EAAO,CAAC,UC1RfqF,EAAOrF,EAAO,CACzB,SACA,SACA,QACA,MACA,iBACA,eACA,uBACA,WACA,aACA,UACA,SACA,UACA,cACA,cACA,UACA,OACA,QACA,QACA,QACA,OACA,UACA,WACA,eACA,SACA,cACA,WACA,WACA,UACA,MACA,WACA,0BACA,wBACA,WACA,YACA,UACA,eACA,cACA,OACA,MACA,UACA,SACA,SACA,OACA,OACA,WACA,KACA,QACA,YACA,YACA,QACA,OACA,QACA,OACA,OACA,UACA,OACA,MACA,MACA,YACA,QACA,SACA,MACA,YACA,WACA,QACA,OACA,QACA,UACA,aACA,SACA,OACA,UACA,OACA,UACA,cACA,cACA,UACA,gBACA,sBACA,SACA,UACA,UACA,aACA,WACA,MACA,WACA,MACA,WACA,OACA,OACA,UACA,aACA,QACA,WACA,QACA,OACA,QACA,OACA,OACA,UACA,QACA,MACA,SACA,OACA,QACA,UACA,WACA,QACA,YACA,OACA,SACA,SACA,QACA,QACA,OACA,UAGWsF,EAAMtF,EAAO,CACxB,gBACA,aACA,WACA,qBACA,YACA,SACA,gBACA,gBACA,UACA,gBACA,iBACA,QACA,OACA,KACA,QACA,OACA,gBACA,YACA,YACA,QACA,sBACA,8BACA,gBACA,kBACA,KACA,KACA,IACA,KACA,KACA,kBACA,YACA,UACA,UACA,MACA,WACA,YACA,MACA,WACA,OACA,eACA,YACA,SACA,cACA,cACA,gBACA,cACA,YACA,mBACA,eACA,aACA,eACA,cACA,KACA,KACA,KACA,KACA,aACA,WACA,gBACA,oBACA,SACA,OACA,KACA,kBACA,KACA,MACA,YACA,IACA,KACA,KACA,KACA,KACA,UACA,YACA,aACA,WACA,OACA,eACA,iBACA,eACA,mBACA,iBACA,QACA,aACA,aACA,eACA,eACA,cACA,cACA,mBACA,YACA,MACA,OACA,YACA,QACA,SACA,OACA,MACA,OACA,aACA,SACA,WACA,UACA,QACA,SACA,cACA,SACA,WACA,cACA,OACA,aACA,sBACA,mBACA,eACA,SACA,gBACA,sBACA,iBACA,IACA,KACA,KACA,SACA,OACA,OACA,cACA,YACA,UACA,SACA,SACA,QACA,OACA,kBACA,QACA,mBACA,mBACA,eACA,cACA,eACA,cACA,aACA,eACA,mBACA,oBACA,iBACA,kBACA,oBACA,iBACA,SACA,eACA,QACA,eACA,iBACA,WACA,cACA,UACA,UACA,YACA,mBACA,cACA,kBACA,iBACA,aACA,OACA,KACA,KACA,UACA,SACA,UACA,aACA,UACA,aACA,gBACA,gBACA,QACA,eACA,OACA,eACA,mBACA,mBACA,IACA,KACA,KACA,QACA,IACA,KACA,KACA,IACA,eAGWyF,EAASzF,EAAO,CAC3B,SACA,cACA,QACA,WACA,QACA,cACA,cACA,gBACA,aACA,aACA,QACA,MACA,UACA,eACA,WACA,QACA,QACA,SACA,OACA,KACA,UACA,SACA,gBACA,SACA,SACA,iBACA,YACA,WACA,cACA,UACA,UACA,gBACA,WACA,WACA,OACA,WACA,WACA,aACA,UACA,SACA,SACA,cACA,gBACA,uBACA,YACA,YACA,aACA,WACA,iBACA,iBACA,YACA,UA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"}</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+</body>
+
+</html>

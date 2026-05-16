@@ -3,9 +3,11 @@
 
 <head>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
  <title>Carpeta « errors » - GilPG AWOAS</title>
@@ -85,10 +87,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -144,50 +149,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -231,7 +192,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -743,7 +709,7 @@
 </head>
 
 <body class="print">
-   <h1 >O. Carpeta « errors »</h1>
+   <h1 >T. Carpeta « errors »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -780,6 +746,11 @@
    <li>
     <p>
      <a href="/m19aut/m-errors/m-noautorizado-html.html">errors / noautorizado.html</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-errors/m-prohibido-html.html">errors / prohibido.html</a>
     </p>
    </li>
    <li>
@@ -961,7 +932,7 @@
   <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">15</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;No autorizado&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;No está autorizado para usar este recurso.&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;Necesitas iniciar sesión.&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">19</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
@@ -970,7 +941,42 @@
 </table>
       </section>
      <section >
-         <h1 >F. errors / resultadonojson.html</h1><table class="codeShow">
+         <h1 >F. errors / prohibido.html</h1><table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> html&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;<span class="codeReserved">html</span> lang=<span class="codeString">"es"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">meta</span> charset=<span class="codeString">"UTF-8"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">meta</span> name=<span class="codeString">"viewport"</span> <span class="codeReserved">content</span>=<span class="codeString">"<span class="codeReserved">width</span>=device-width"</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Prohibido&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>&lt;<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre> &lt;<span class="codeReserved">h1</span>&gt;Prohibido&lt;/<span class="codeReserved">h1</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> &lt;<span class="codeReserved">p</span>&gt;No tienes roles para usar este recurso.&lt;/<span class="codeReserved">p</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
+ </tbody>
+</table>
+      </section>
+     <section >
+         <h1 >G. errors / resultadonojson.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1008,7 +1014,7 @@
 </table>
       </section>
      <section >
-         <h1 >G. errors / sesioniniciada.html</h1><table class="codeShow">
+         <h1 >H. errors / sesioniniciada.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">

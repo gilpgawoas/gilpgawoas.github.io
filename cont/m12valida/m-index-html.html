@@ -18,7 +18,7 @@
   <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Servicio que valida datos&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"libclienteweb/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
@@ -52,8 +52,8 @@
   <tr><td class="codeShow_order">42</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">43</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">44</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">45</td><td><pre>  <span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/consume.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { enviaFormRecibeJson } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/enviaFormRecibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>  <span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { submitFormRecibeJson } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/submitFormRecibeJson.js"</span></pre></td></tr>
   <tr><td class="codeShow_order">47</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">48</td><td><pre>  formulario.addEventListener(<span class="codeString">"submit"</span>, submit)</pre></td></tr>
   <tr><td class="codeShow_order">49</td><td><pre></pre></td></tr>
@@ -63,8 +63,8 @@
   <tr><td class="codeShow_order">53</td><td><pre>  <span class="codeReserved">async</span> <span class="codeReserved">function</span> submit(event) {</pre></td></tr>
   <tr><td class="codeShow_order">54</td><td><pre>   event.preventDefault()</pre></td></tr>
   <tr><td class="codeShow_order">55</td><td><pre>   <span class="codeReserved">const</span> respuesta = <span class="codeReserved">await</span> consume(</pre></td></tr>
-  <tr><td class="codeShow_order">56</td><td><pre>    enviaFormRecibeJson(</pre></td></tr>
-  <tr><td class="codeShow_order">57</td><td><pre>     <span class="codeString">"php/valida.php"</span>, formulario))</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>    submitFormRecibeJson(</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre>     <span class="codeString">"api/valida.php"</span>, formulario))</pre></td></tr>
   <tr><td class="codeShow_order">58</td><td><pre>   <span class="codeReserved">const</span> json =</pre></td></tr>
   <tr><td class="codeShow_order">59</td><td><pre>    <span class="codeReserved">await</span> respuesta.json()</pre></td></tr>
   <tr><td class="codeShow_order">60</td><td><pre>   alert(json)</pre></td></tr>

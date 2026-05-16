@@ -2,13 +2,82 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 
 <head>
+ <title>G. Archivos</title>
+ <style>
+ /* Activa transiciones de vistas
+   * entre documentos para esta
+   * página. */
+ @view-transition {
+  navigation: auto;
+ }
+
+ @keyframes aparece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+ }
+
+ @keyframes desvanece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+ }
+
+ ::view-transition-old(root) {
+  animation-duration: 0.7s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 1;
+  animation-name: desvanece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+
+ ::view-transition-new(root) {
+  /* animation-delay: 1s; */
+  animation-duration: 1s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 0;
+  animation-name: aparece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+</style>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>G. Archivos - GilPG AWOAS</title>
  <meta name="description" content="Archivos">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -86,10 +155,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -145,50 +217,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -232,7 +260,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -847,37 +880,6 @@
  }
 </style>
  
- <style>
- /* Activa transiciones de vistas
-   * entre documentos para esta
-   * página. */
- @view-transition {
-  navigation: auto;
- }
-
- @keyframes aparece {
-  from {
-   opacity: 0;
-  }
- }
-
- @keyframes desvanece {
-  to {
-   opacity: 0;
-  }
- }
-
- ::view-transition-old(root) {
-  animation-duration: 1s;
-  animation-name: desvanece;
- }
-
- ::view-transition-new(root) {
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-name: aparece;
- }
-</style>
 </head>
 
 <body  class="xmenu">
@@ -887,10 +889,16 @@
    <p>Haz clic en los triángulos para expandir las carpetas</p>
    <ul class="tree">
   <li>
+   <p><a href="m--htaccess.html">.htaccess</a></p>
+  </li>
+  <li>
    <p><a href="m-administrador-html.html">administrador.html</a></p>
   </li>
   <li>
    <p><a href="m-cliente-html.html">cliente.html</a></p>
+  </li>
+  <li>
+   <p><a href="m-favicon-ico.html">favicon.ico</a></p>
   </li>
   <li>
    <p><a href="m-index-html.html">index.html</a></p>
@@ -904,6 +912,90 @@
   <li>
    <p><a href="m-perfil-html.html">perfil.html</a></p>
   </li>
+    <li>
+     <details>
+      <summary>api</summary>
+      <ul>
+  <li>
+   <p><a href="m-api/m-Bd-php.html">Bd.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-jsonMiNav-php.html">jsonMiNav.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-login-php.html">login.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-logout-php.html">logout.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-protege-php.html">protege.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-protegeLogin-php.html">protegeLogin.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-ROL_IDS-php.html">ROL_IDS.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-ROL_ID_ADMINISTRADOR-php.html">ROL_ID_ADMINISTRADOR.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-ROL_ID_CLIENTE-php.html">ROL_ID_CLIENTE.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-saludo-cliente-php.html">saludo-cliente.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-SAN-php.html">SAN.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuarioBuscaSan-php.html">usuarioBuscaSan.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-USU_ID-php.html">USU_ID.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-vista-administrador-php.html">vista-administrador.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-vista-cliente-php.html">vista-cliente.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-vista-index-php.html">vista-index.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-vista-login-php.html">vista-login.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-vista-perfil-php.html">vista-perfil.php</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary>css</summary>
+      <ul>
+  <li>
+   <p><a href="m-css/m-estilos-css.html">estilos.css</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary>dompurify</summary>
+      <ul>
+  <li>
+   <p><a href="m-dompurify/m-purify-min-js.html">purify.min.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-dompurify/m-purify-min-js-map.html">purify.min.js.map</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
     <li>
      <details>
       <summary>errors</summary>
@@ -924,6 +1016,9 @@
    <p><a href="m-errors/m-noautorizado-html.html">noautorizado.html</a></p>
   </li>
   <li>
+   <p><a href="m-errors/m-prohibido-html.html">prohibido.html</a></p>
+  </li>
+  <li>
    <p><a href="m-errors/m-resultadonojson-html.html">resultadonojson.html</a></p>
   </li>
   <li>
@@ -936,6 +1031,21 @@
      <details>
       <summary>js</summary>
       <ul>
+  <li>
+   <p><a href="m-js/m-administrador-js.html">administrador.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-js/m-cliente-js.html">cliente.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-js/m-index-js.html">index.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-js/m-login-js.html">login.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-js/m-perfil-js.html">perfil.js</a></p>
+  </li>
     <li>
      <details>
       <summary>custom</summary>
@@ -946,150 +1056,92 @@
       </ul>
      </details>
     </li>
-    <li>
-     <details>
-      <summary>lib</summary>
-      <ul>
-  <li>
-   <p><a href="m-js/m-lib/m-consume-js.html">consume.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-descargaVista-js.html">descargaVista.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-enviaFormRecibeJson-js.html">enviaFormRecibeJson.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-manejaErrores-js.html">manejaErrores.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-muestraError-js.html">muestraError.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-muestraObjeto-js.html">muestraObjeto.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-recibeJson-js.html">recibeJson.js</a></p>
-  </li>
-  <li>
-   <p><a href="m-js/m-lib/m-submitAccion-js.html">submitAccion.js</a></p>
-  </li>
-      </ul>
-     </details>
-    </li>
       </ul>
      </details>
     </li>
     <li>
      <details>
-      <summary>php</summary>
+      <summary>libclienteweb</summary>
       <ul>
   <li>
-   <p><a href="m-php/m-Bd-php.html">Bd.php</a></p>
+   <p><a href="m-libclienteweb/m-configuraSubmitAccion-js.html">configuraSubmitAccion.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-jsonMiNav-php.html">jsonMiNav.php</a></p>
+   <p><a href="m-libclienteweb/m-consume-js.html">consume.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-login-php.html">login.php</a></p>
+   <p><a href="m-libclienteweb/m-descargaVista-js.html">descargaVista.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-logout-php.html">logout.php</a></p>
+   <p><a href="m-libclienteweb/m-manejaErrores-js.html">manejaErrores.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-protege-php.html">protege.php</a></p>
+   <p><a href="m-libclienteweb/m-muestraError-js.html">muestraError.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-protegeLogin-php.html">protegeLogin.php</a></p>
+   <p><a href="m-libclienteweb/m-muestraObjeto-js.html">muestraObjeto.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-ROL_IDS-php.html">ROL_IDS.php</a></p>
+   <p><a href="m-libclienteweb/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-ROL_ID_ADMINISTRADOR-php.html">ROL_ID_ADMINISTRADOR.php</a></p>
+   <p><a href="m-libclienteweb/m-recibeJson-js.html">recibeJson.js</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-ROL_ID_CLIENTE-php.html">ROL_ID_CLIENTE.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-saludo-cliente-php.html">saludo-cliente.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-SAN-php.html">SAN.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-usuarioBuscaSan-php.html">usuarioBuscaSan.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-USU_ID-php.html">USU_ID.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-vista-administrador-php.html">vista-administrador.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-vista-cliente-php.html">vista-cliente.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-vista-index-php.html">vista-index.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-vista-login-php.html">vista-login.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-vista-perfil-php.html">vista-perfil.php</a></p>
-  </li>
-    <li>
-     <details>
-      <summary>lib</summary>
-      <ul>
-  <li>
-   <p><a href="m-php/m-lib/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-devuelveJson-php.html">devuelveJson.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-devuelveNoContent-php.html">devuelveNoContent.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-manejaErrores-php.html">manejaErrores.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-NO_AUTORIZADO-php.html">NO_AUTORIZADO.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-ProblemDetailsException-php.html">ProblemDetailsException.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-recibeTexto-php.html">recibeTexto.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-recibeTextoObligatorio-php.html">recibeTextoObligatorio.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolAgrega-php.html">rolAgrega.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolBusca-php.html">rolBusca.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolIdsParaUsuId-php.html">rolIdsParaUsuId.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-usuRolAgrega-php.html">usuRolAgrega.php</a></p>
+   <p><a href="m-libclienteweb/m-submitFormRecibeJson-js.html">submitFormRecibeJson.js</a></p>
   </li>
       </ul>
      </details>
     </li>
+    <li>
+     <details>
+      <summary>libservidorphp</summary>
+      <ul>
+  <li>
+   <p><a href="m-libservidorphp/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-devuelveJson-php.html">devuelveJson.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-devuelveNoContent-php.html">devuelveNoContent.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-manejaErrores-php.html">manejaErrores.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-NO_AUTORIZADO-php.html">NO_AUTORIZADO.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-ProblemDetailsException-php.html">ProblemDetailsException.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-PROHIBIDO-php.html">PROHIBIDO.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-recibeTexto-php.html">recibeTexto.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-recibeTextoObligatorio-php.html">recibeTextoObligatorio.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-rolAgrega-php.html">rolAgrega.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-rolBusca-php.html">rolBusca.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-rolIdsParaUsuId-php.html">rolIdsParaUsuId.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-libservidorphp/m-usuRolAgrega-php.html">usuRolAgrega.php</a></p>
+  </li>
       </ul>
      </details>
     </li>
@@ -1143,7 +1195,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m18amuchos/mTresumen.html"
-        title="O. Resumen"><span
+        title="Q. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -1214,12 +1266,37 @@
    </li>
    <li>
     <p>
+     <a href="/m19aut/m--htaccess.html">.htaccess</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-favicon-ico.html">favicon.ico</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-api/">Carpeta « api »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-css/">Carpeta « css »</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m19aut/m-js/">Carpeta « js »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m19aut/m-php/">Carpeta « php »</a>
+     <a href="/m19aut/m-libclienteweb/">Carpeta « libclienteweb »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-libservidorphp/">Carpeta « libservidorphp »</a>
     </p>
    </li>
    <li>
@@ -1230,6 +1307,11 @@
    <li>
     <p>
      <a href="/m19aut/m-jsconfig-json.html">jsconfig.json</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m19aut/m-dompurify/">Carpeta « dompurify »</a>
     </p>
    </li>
    <li>

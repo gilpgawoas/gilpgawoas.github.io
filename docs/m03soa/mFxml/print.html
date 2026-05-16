@@ -3,9 +3,11 @@
 
 <head>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
  <title>Introducción a XML - GilPG AWOAS</title>
@@ -85,10 +87,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -144,50 +149,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -231,7 +192,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -821,16 +787,17 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;UTF-8&quot;</span> ?&gt;</td></tr>
-  <tr><td>2</td><td>&lt;!<span class="codeReserved">DOCTYPE</span> MiContacto SYSTEM <span class="codeString">&quot;MiContacto.dtd&quot;</span>&gt;</td></tr>
-  <tr><td>3</td><td>&lt;<span class="codeReserved">Contacto</span>&gt;</td></tr>
-  <tr><td>4</td><td> &lt;<span class="codeReserved">Nombre</span>&gt;Juan&lt;/<span class="codeReserved">Nombre</span>&gt;</td></tr>
-  <tr><td>5</td><td> &lt;<span class="codeReserved">Email</span>&gt;juan@gm.com&lt;/<span class="codeReserved">Email</span>&gt;</td></tr>
-  <tr><td>6</td><td> &lt;<span class="codeReserved">Telefonos</span>&gt;</td></tr>
-  <tr><td>7</td><td>  &lt;<span class="codeReserved">Telefono</span>&gt;5555555555&lt;/<span class="codeReserved">Telefono</span>&gt;</td></tr>
-  <tr><td>8</td><td>  &lt;<span class="codeReserved">Telefono</span>&gt;8888888888&lt;/<span class="codeReserved">Telefono</span>&gt;</td></tr>
-  <tr><td>9</td><td> &lt;/<span class="codeReserved">Telefonos</span>&gt;</td></tr>
-  <tr><td>10</td><td>&lt;/<span class="codeReserved">Contacto</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;UTF-8&quot;</span> ?&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  &lt;<span class="codeReserved">Telefono</span>&gt;8888888888&lt;/<span class="codeReserved">Telefono</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre>&lt;!<span class="codeReserved">DOCTYPE</span> MiContacto SYSTEM <span class="codeString">&quot;MiContacto.dtd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>&lt;<span class="codeReserved">Contacto</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre> &lt;<span class="codeReserved">Nombre</span>&gt;Juan&lt;/<span class="codeReserved">Nombre</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> &lt;<span class="codeReserved">Email</span>&gt;juan@gm.com&lt;/<span class="codeReserved">Email</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> &lt;<span class="codeReserved">Telefonos</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>  &lt;<span class="codeReserved">Telefono</span>&gt;5555555555&lt;/<span class="codeReserved">Telefono</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  &lt;<span class="codeReserved">Telefono</span>&gt;8888888888&lt;/<span class="codeReserved">Telefono</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> &lt;/<span class="codeReserved">Telefonos</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>&lt;/<span class="codeReserved">Contacto</span>&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>
@@ -845,13 +812,13 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;ISO-8859-1&quot;</span> ?&gt;</td></tr>
-  <tr><td>2</td><td><span class="codeComment">&lt;!-- Este es el DTD de Contacto --&gt;</span></td></tr>
-  <tr><td>3</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Contacto (Nombre, Email, Telefonos)&gt;</td></tr>
-  <tr><td>4</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Nombre (#PCDATA)&gt;</td></tr>
-  <tr><td>5</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Email (#PCDATA)&gt;</td></tr>
-  <tr><td>6</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Telefonos (Telefono)*&gt;</td></tr>
-  <tr><td>7</td><td>&lt;!<span class="codeReserved">ELEMENT</span> Telefono (#PCDATA)&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;?<span class="codeReserved">xml</span> version=<span class="codeString">&quot;1.0&quot;</span> encoding=<span class="codeString">&quot;ISO-8859-1&quot;</span> ?&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment">&lt;!-- Este es el DTD de Contacto --&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>&lt;!<span class="codeReserved">ELEMENT</span> Contacto (Nombre, Email, Telefonos)&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre>&lt;!<span class="codeReserved">ELEMENT</span> Nombre (#PCDATA)&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>&lt;!<span class="codeReserved">ELEMENT</span> Email (#PCDATA)&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre>&lt;!<span class="codeReserved">ELEMENT</span> Telefonos (Telefono)*&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre>&lt;!<span class="codeReserved">ELEMENT</span> Telefono (#PCDATA)&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>

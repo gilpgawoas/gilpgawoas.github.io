@@ -1,0 +1,30 @@
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre><span class="codeReserved">import</span> { consume } <span class="codeReserved">from</span> <span class="codeString">"../libclienteweb/consume.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre><span class="codeReserved">import</span> { descargaVista } <span class="codeReserved">from</span> <span class="codeString">"../libclienteweb/descargaVista.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre><span class="codeReserved">import</span> { recibeJson } <span class="codeReserved">from</span> <span class="codeString">"../libclienteweb/recibeJson.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>descargaDatos()</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">async</span> <span class="codeReserved">function</span> descargaDatos() {</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">await</span> descargaVista(<span class="codeString">"api/vista-perfil.php"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">const</span> botonLogout = document.querySelector(<span class="codeString">"#botonLogout"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre> <span class="codeReserved">if</span> (botonLogout) {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  botonLogout.addEventListener(<span class="codeString">"click"</span>, logout)</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre><span class="codeReserved">async</span> <span class="codeReserved">function</span> logout() {</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre> <span class="codeReserved">await</span> consume(recibeJson(<span class="codeString">'api/logout.php'</span>))</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre> location.reload()</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
+ </tbody>
+</table>

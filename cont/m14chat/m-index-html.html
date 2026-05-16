@@ -18,7 +18,7 @@
   <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Chat&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"libclienteweb/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">12</td><td><pre> &lt;<span class="codeReserved">script</span> <span class="codeReserved">src</span>=<span class="codeString">"paho.javascript-1.0.3/paho-mqtt-min.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
@@ -53,66 +53,68 @@
   <tr><td class="codeShow_order">43</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">44</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">45</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { creaIdCliente } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/creaIdCliente.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">47</td><td><pre>  <span class="codeReserved">import</span> { falloEnLaConexionMqtt } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/falloEnLaConexionMqtt.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">48</td><td><pre>  <span class="codeReserved">import</span> { conexionMqttPerdida } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/conexionMqttPerdida.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">49</td><td><pre>  <span class="codeReserved">import</span> { enviaMensajeMqtt } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/enviaMensajeMqtt.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">50</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">51</td><td><pre>  <span class="codeReserved">const</span> TOPICO_CHAT = <span class="codeString">"gilpgawoas/chat"</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { creaIdCliente } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/creaIdCliente.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>  <span class="codeReserved">import</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>   falloEnLaConexionMqtt</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre>  } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/falloEnLaConexionMqtt.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre>  <span class="codeReserved">import</span> { conexionMqttPerdida } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/conexionMqttPerdida.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre>  <span class="codeReserved">import</span> { enviaMensajeMqtt } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/enviaMensajeMqtt.js"</span></pre></td></tr>
   <tr><td class="codeShow_order">52</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">53</td><td><pre>  <span class="codeComment">// Cambia por una raíz para tu proyecto.</span></pre></td></tr>
-  <tr><td class="codeShow_order">54</td><td><pre>  <span class="codeReserved">const</span> clientId = creaIdCliente(<span class="codeString">"gilpgawoasChat-"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">55</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">56</td><td><pre>  <span class="codeComment">// Si usas un servidor de MQTT diferente, necesitas cambiar los parámetros.</span></pre></td></tr>
-  <tr><td class="codeShow_order">57</td><td><pre>  <span class="codeReserved">const</span> cliente = <span class="codeReserved">new</span> Paho.MQTT.Client(<span class="codeString">"test.mosquitto.org"</span>, 8081, clientId)</pre></td></tr>
-  <tr><td class="codeShow_order">58</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">59</td><td><pre>  <span class="codeComment">/**</span></pre></td></tr>
-  <tr><td class="codeShow_order">60</td><td><pre><span class="codeComment">   * <span class="codeReserved">@param</span> {Event} event</span></pre></td></tr>
-  <tr><td class="codeShow_order">61</td><td><pre><span class="codeComment">   */</span></pre></td></tr>
-  <tr><td class="codeShow_order">62</td><td><pre>  <span class="codeReserved">function</span> submit(event) {</pre></td></tr>
-  <tr><td class="codeShow_order">63</td><td><pre>   event.preventDefault()</pre></td></tr>
-  <tr><td class="codeShow_order">64</td><td><pre>   <span class="codeReserved">const</span> mensaje = <span class="codeString">`${inputAlias.value.trim()}</span></pre></td></tr>
-  <tr><td class="codeShow_order">65</td><td><pre><span class="codeString">${inputMensaje.value.trim()}`</span></pre></td></tr>
-  <tr><td class="codeShow_order">66</td><td><pre>   enviaMensajeMqtt(cliente, mensaje, TOPICO_CHAT)</pre></td></tr>
-  <tr><td class="codeShow_order">67</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">68</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">69</td><td><pre>  <span class="codeComment">// Acciones al recibir un mensaje.</span></pre></td></tr>
-  <tr><td class="codeShow_order">70</td><td><pre>  cliente.onMessageArrived = mensaje =&gt; {</pre></td></tr>
-  <tr><td class="codeShow_order">71</td><td><pre>   <span class="codeReserved">if</span> (mensaje.destinationName === TOPICO_CHAT) {</pre></td></tr>
-  <tr><td class="codeShow_order">72</td><td><pre>    pre.textContent += mensaje.payloadString + <span class="codeString">"\n\n"</span></pre></td></tr>
-  <tr><td class="codeShow_order">73</td><td><pre>   }</pre></td></tr>
-  <tr><td class="codeShow_order">74</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">75</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">76</td><td><pre>  <span class="codeComment">// Acciones al perder la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">77</td><td><pre>  cliente.onConnectionLost = conexionMqttPerdida</pre></td></tr>
-  <tr><td class="codeShow_order">78</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">79</td><td><pre>  <span class="codeComment">// Configura el cliente.</span></pre></td></tr>
-  <tr><td class="codeShow_order">80</td><td><pre>  cliente.connect({</pre></td></tr>
-  <tr><td class="codeShow_order">81</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">82</td><td><pre>   <span class="codeComment">// Manda un mensaje cada número de segundos indicados por este valor,</span></pre></td></tr>
-  <tr><td class="codeShow_order">83</td><td><pre>   <span class="codeComment">// para que el sistema sepa que este dispositivo está activo.</span></pre></td></tr>
-  <tr><td class="codeShow_order">84</td><td><pre>   keepAliveInterval: 10,</pre></td></tr>
-  <tr><td class="codeShow_order">85</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">86</td><td><pre>   useSSL: <span class="codeReserved">true</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre>  <span class="codeReserved">const</span> TOPICO_CHAT = <span class="codeString">"gilpgawoas/chat"</span></pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>  <span class="codeComment">// Cambia por una raíz para tu proyecto.</span></pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>  <span class="codeReserved">const</span> clientId = creaIdCliente(<span class="codeString">"gilpgawoasChat-"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>  <span class="codeComment">// Si usas un servidor de MQTT diferente, necesitas cambiar los parámetros.</span></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre>  <span class="codeReserved">const</span> cliente = <span class="codeReserved">new</span> Paho.MQTT.Client(<span class="codeString">"test.mosquitto.org"</span>, 8081, clientId)</pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre>  <span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre><span class="codeComment">   * <span class="codeReserved">@param</span> {Event} event</span></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre><span class="codeComment">   */</span></pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre>  <span class="codeReserved">function</span> submit(event) {</pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre>   event.preventDefault()</pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre>   <span class="codeReserved">const</span> mensaje = <span class="codeString">`${ inputAlias.value.trim() }</span></pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre><span class="codeString">${ inputMensaje.value.trim() }`</span></pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre>   enviaMensajeMqtt(cliente, mensaje, TOPICO_CHAT)</pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre>  <span class="codeComment">// Acciones al recibir un mensaje.</span></pre></td></tr>
+  <tr><td class="codeShow_order">72</td><td><pre>  cliente.onMessageArrived = mensaje =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">73</td><td><pre>   <span class="codeReserved">if</span> (mensaje.destinationName === TOPICO_CHAT) {</pre></td></tr>
+  <tr><td class="codeShow_order">74</td><td><pre>    pre.textContent += mensaje.payloadString + <span class="codeString">"\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">75</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">76</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">77</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">78</td><td><pre>  <span class="codeComment">// Acciones al perder la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">79</td><td><pre>  cliente.onConnectionLost = conexionMqttPerdida</pre></td></tr>
+  <tr><td class="codeShow_order">80</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">81</td><td><pre>  <span class="codeComment">// Configura el cliente.</span></pre></td></tr>
+  <tr><td class="codeShow_order">82</td><td><pre>  cliente.connect({</pre></td></tr>
+  <tr><td class="codeShow_order">83</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">84</td><td><pre>   <span class="codeComment">// Manda un mensaje cada número de segundos indicados por este valor,</span></pre></td></tr>
+  <tr><td class="codeShow_order">85</td><td><pre>   <span class="codeComment">// para que el sistema sepa que este dispositivo está activo.</span></pre></td></tr>
+  <tr><td class="codeShow_order">86</td><td><pre>   keepAliveInterval: 10,</pre></td></tr>
   <tr><td class="codeShow_order">87</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">88</td><td><pre>   <span class="codeComment">// Acciones al fallar la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">89</td><td><pre>   onFailure: falloEnLaConexionMqtt,</pre></td></tr>
-  <tr><td class="codeShow_order">90</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">91</td><td><pre>   <span class="codeComment">// Acciones al lograr la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">92</td><td><pre>   onSuccess: () =&gt; {</pre></td></tr>
-  <tr><td class="codeShow_order">93</td><td><pre>    console.log(<span class="codeString">"Conectado."</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">94</td><td><pre>    pre.textContent = <span class="codeString">"Conectado.\n\n"</span></pre></td></tr>
-  <tr><td class="codeShow_order">95</td><td><pre>    <span class="codeComment">// Se suscribe a uno o más tópicos.</span></pre></td></tr>
-  <tr><td class="codeShow_order">96</td><td><pre>    cliente.subscribe(TOPICO_CHAT)</pre></td></tr>
-  <tr><td class="codeShow_order">97</td><td><pre>    formulario.addEventListener(<span class="codeString">"submit"</span>, submit)</pre></td></tr>
-  <tr><td class="codeShow_order">98</td><td><pre>   },</pre></td></tr>
-  <tr><td class="codeShow_order">99</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">100</td><td><pre>  })</pre></td></tr>
+  <tr><td class="codeShow_order">88</td><td><pre>   useSSL: <span class="codeReserved">true</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">89</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">90</td><td><pre>   <span class="codeComment">// Acciones al fallar la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">91</td><td><pre>   onFailure: falloEnLaConexionMqtt,</pre></td></tr>
+  <tr><td class="codeShow_order">92</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">93</td><td><pre>   <span class="codeComment">// Acciones al lograr la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">94</td><td><pre>   onSuccess: () =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">95</td><td><pre>    console.log(<span class="codeString">"Conectado."</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">96</td><td><pre>    pre.textContent = <span class="codeString">"Conectado.\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">97</td><td><pre>    <span class="codeComment">// Se suscribe a uno o más tópicos.</span></pre></td></tr>
+  <tr><td class="codeShow_order">98</td><td><pre>    cliente.subscribe(TOPICO_CHAT)</pre></td></tr>
+  <tr><td class="codeShow_order">99</td><td><pre>    formulario.addEventListener(<span class="codeString">"submit"</span>, submit)</pre></td></tr>
+  <tr><td class="codeShow_order">100</td><td><pre>   },</pre></td></tr>
   <tr><td class="codeShow_order">101</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">102</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">102</td><td><pre>  })</pre></td></tr>
   <tr><td class="codeShow_order">103</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">104</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">104</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">105</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">106</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">106</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">107</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">108</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>

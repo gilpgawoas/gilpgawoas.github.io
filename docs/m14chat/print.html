@@ -3,9 +3,11 @@
 
 <head>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
  <title>Chat sencillo - Protocolos de comunicación - GilPG AWOAS</title>
@@ -85,10 +87,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -144,50 +149,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -231,7 +192,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -788,7 +754,7 @@
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/">Carpeta « js »</a>
+     <a href="/m14chat/m-libclienteweb/">Carpeta « libclienteweb »</a>
     </p>
    </li>
    <li>
@@ -1210,36 +1176,29 @@
   </li>
     <li>
      <details>
-      <summary>js</summary>
-      <ul>
-    <li>
-     <details>
-      <summary>lib</summary>
+      <summary>libclienteweb</summary>
       <ul>
   <li>
-   <p><a href="m-js/m-lib/m-conexionMqttPerdida-js.html">conexionMqttPerdida.js</a></p>
+   <p><a href="m-libclienteweb/m-conexionMqttPerdida-js.html">conexionMqttPerdida.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-creaIdCliente-js.html">creaIdCliente.js</a></p>
+   <p><a href="m-libclienteweb/m-creaIdCliente-js.html">creaIdCliente.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-enviaMensajeMqtt-js.html">enviaMensajeMqtt.js</a></p>
+   <p><a href="m-libclienteweb/m-enviaMensajeMqtt-js.html">enviaMensajeMqtt.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-falloEnLaConexionMqtt-js.html">falloEnLaConexionMqtt.js</a></p>
+   <p><a href="m-libclienteweb/m-falloEnLaConexionMqtt-js.html">falloEnLaConexionMqtt.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-manejaErrores-js.html">manejaErrores.js</a></p>
+   <p><a href="m-libclienteweb/m-manejaErrores-js.html">manejaErrores.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-muestraError-js.html">muestraError.js</a></p>
+   <p><a href="m-libclienteweb/m-muestraError-js.html">muestraError.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
+   <p><a href="m-libclienteweb/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
   </li>
-      </ul>
-     </details>
-    </li>
       </ul>
      </details>
     </li>
@@ -1292,7 +1251,7 @@
   <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre> &lt;<span class="codeReserved">title</span>&gt;Chat&lt;/<span class="codeReserved">title</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"js/lib/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span> <span class="codeReserved">src</span>=<span class="codeString">"libclienteweb/manejaErrores.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">12</td><td><pre> &lt;<span class="codeReserved">script</span> <span class="codeReserved">src</span>=<span class="codeString">"paho.javascript-1.0.3/paho-mqtt-min.js"</span>&gt;&lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>&lt;/<span class="codeReserved">head</span>&gt;</pre></td></tr>
@@ -1327,72 +1286,74 @@
   <tr><td class="codeShow_order">43</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">44</td><td><pre> &lt;<span class="codeReserved">script</span> type=<span class="codeString">"module"</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">45</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { creaIdCliente } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/creaIdCliente.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">47</td><td><pre>  <span class="codeReserved">import</span> { falloEnLaConexionMqtt } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/falloEnLaConexionMqtt.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">48</td><td><pre>  <span class="codeReserved">import</span> { conexionMqttPerdida } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/conexionMqttPerdida.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">49</td><td><pre>  <span class="codeReserved">import</span> { enviaMensajeMqtt } <span class="codeReserved">from</span> <span class="codeString">"./js/lib/enviaMensajeMqtt.js"</span></pre></td></tr>
-  <tr><td class="codeShow_order">50</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">51</td><td><pre>  <span class="codeReserved">const</span> TOPICO_CHAT = <span class="codeString">"gilpgawoas/chat"</span></pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>  <span class="codeReserved">import</span> { creaIdCliente } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/creaIdCliente.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>  <span class="codeReserved">import</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>   falloEnLaConexionMqtt</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre>  } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/falloEnLaConexionMqtt.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre>  <span class="codeReserved">import</span> { conexionMqttPerdida } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/conexionMqttPerdida.js"</span></pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre>  <span class="codeReserved">import</span> { enviaMensajeMqtt } <span class="codeReserved">from</span> <span class="codeString">"./libclienteweb/enviaMensajeMqtt.js"</span></pre></td></tr>
   <tr><td class="codeShow_order">52</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">53</td><td><pre>  <span class="codeComment">// Cambia por una raíz para tu proyecto.</span></pre></td></tr>
-  <tr><td class="codeShow_order">54</td><td><pre>  <span class="codeReserved">const</span> clientId = creaIdCliente(<span class="codeString">"gilpgawoasChat-"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">55</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">56</td><td><pre>  <span class="codeComment">// Si usas un servidor de MQTT diferente, necesitas cambiar los parámetros.</span></pre></td></tr>
-  <tr><td class="codeShow_order">57</td><td><pre>  <span class="codeReserved">const</span> cliente = <span class="codeReserved">new</span> Paho.MQTT.Client(<span class="codeString">"test.mosquitto.org"</span>, 8081, clientId)</pre></td></tr>
-  <tr><td class="codeShow_order">58</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">59</td><td><pre>  <span class="codeComment">/**</span></pre></td></tr>
-  <tr><td class="codeShow_order">60</td><td><pre><span class="codeComment">   * <span class="codeReserved">@param</span> {Event} event</span></pre></td></tr>
-  <tr><td class="codeShow_order">61</td><td><pre><span class="codeComment">   */</span></pre></td></tr>
-  <tr><td class="codeShow_order">62</td><td><pre>  <span class="codeReserved">function</span> submit(event) {</pre></td></tr>
-  <tr><td class="codeShow_order">63</td><td><pre>   event.preventDefault()</pre></td></tr>
-  <tr><td class="codeShow_order">64</td><td><pre>   <span class="codeReserved">const</span> mensaje = <span class="codeString">`${inputAlias.value.trim()}</span></pre></td></tr>
-  <tr><td class="codeShow_order">65</td><td><pre><span class="codeString">${inputMensaje.value.trim()}`</span></pre></td></tr>
-  <tr><td class="codeShow_order">66</td><td><pre>   enviaMensajeMqtt(cliente, mensaje, TOPICO_CHAT)</pre></td></tr>
-  <tr><td class="codeShow_order">67</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">68</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">69</td><td><pre>  <span class="codeComment">// Acciones al recibir un mensaje.</span></pre></td></tr>
-  <tr><td class="codeShow_order">70</td><td><pre>  cliente.onMessageArrived = mensaje =&gt; {</pre></td></tr>
-  <tr><td class="codeShow_order">71</td><td><pre>   <span class="codeReserved">if</span> (mensaje.destinationName === TOPICO_CHAT) {</pre></td></tr>
-  <tr><td class="codeShow_order">72</td><td><pre>    pre.textContent += mensaje.payloadString + <span class="codeString">"\n\n"</span></pre></td></tr>
-  <tr><td class="codeShow_order">73</td><td><pre>   }</pre></td></tr>
-  <tr><td class="codeShow_order">74</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">75</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">76</td><td><pre>  <span class="codeComment">// Acciones al perder la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">77</td><td><pre>  cliente.onConnectionLost = conexionMqttPerdida</pre></td></tr>
-  <tr><td class="codeShow_order">78</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">79</td><td><pre>  <span class="codeComment">// Configura el cliente.</span></pre></td></tr>
-  <tr><td class="codeShow_order">80</td><td><pre>  cliente.connect({</pre></td></tr>
-  <tr><td class="codeShow_order">81</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">82</td><td><pre>   <span class="codeComment">// Manda un mensaje cada número de segundos indicados por este valor,</span></pre></td></tr>
-  <tr><td class="codeShow_order">83</td><td><pre>   <span class="codeComment">// para que el sistema sepa que este dispositivo está activo.</span></pre></td></tr>
-  <tr><td class="codeShow_order">84</td><td><pre>   keepAliveInterval: 10,</pre></td></tr>
-  <tr><td class="codeShow_order">85</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">86</td><td><pre>   useSSL: <span class="codeReserved">true</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre>  <span class="codeReserved">const</span> TOPICO_CHAT = <span class="codeString">"gilpgawoas/chat"</span></pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre>  <span class="codeComment">// Cambia por una raíz para tu proyecto.</span></pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>  <span class="codeReserved">const</span> clientId = creaIdCliente(<span class="codeString">"gilpgawoasChat-"</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">57</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">58</td><td><pre>  <span class="codeComment">// Si usas un servidor de MQTT diferente, necesitas cambiar los parámetros.</span></pre></td></tr>
+  <tr><td class="codeShow_order">59</td><td><pre>  <span class="codeReserved">const</span> cliente = <span class="codeReserved">new</span> Paho.MQTT.Client(<span class="codeString">"test.mosquitto.org"</span>, 8081, clientId)</pre></td></tr>
+  <tr><td class="codeShow_order">60</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">61</td><td><pre>  <span class="codeComment">/**</span></pre></td></tr>
+  <tr><td class="codeShow_order">62</td><td><pre><span class="codeComment">   * <span class="codeReserved">@param</span> {Event} event</span></pre></td></tr>
+  <tr><td class="codeShow_order">63</td><td><pre><span class="codeComment">   */</span></pre></td></tr>
+  <tr><td class="codeShow_order">64</td><td><pre>  <span class="codeReserved">function</span> submit(event) {</pre></td></tr>
+  <tr><td class="codeShow_order">65</td><td><pre>   event.preventDefault()</pre></td></tr>
+  <tr><td class="codeShow_order">66</td><td><pre>   <span class="codeReserved">const</span> mensaje = <span class="codeString">`${ inputAlias.value.trim() }</span></pre></td></tr>
+  <tr><td class="codeShow_order">67</td><td><pre><span class="codeString">${ inputMensaje.value.trim() }`</span></pre></td></tr>
+  <tr><td class="codeShow_order">68</td><td><pre>   enviaMensajeMqtt(cliente, mensaje, TOPICO_CHAT)</pre></td></tr>
+  <tr><td class="codeShow_order">69</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">70</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">71</td><td><pre>  <span class="codeComment">// Acciones al recibir un mensaje.</span></pre></td></tr>
+  <tr><td class="codeShow_order">72</td><td><pre>  cliente.onMessageArrived = mensaje =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">73</td><td><pre>   <span class="codeReserved">if</span> (mensaje.destinationName === TOPICO_CHAT) {</pre></td></tr>
+  <tr><td class="codeShow_order">74</td><td><pre>    pre.textContent += mensaje.payloadString + <span class="codeString">"\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">75</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">76</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">77</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">78</td><td><pre>  <span class="codeComment">// Acciones al perder la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">79</td><td><pre>  cliente.onConnectionLost = conexionMqttPerdida</pre></td></tr>
+  <tr><td class="codeShow_order">80</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">81</td><td><pre>  <span class="codeComment">// Configura el cliente.</span></pre></td></tr>
+  <tr><td class="codeShow_order">82</td><td><pre>  cliente.connect({</pre></td></tr>
+  <tr><td class="codeShow_order">83</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">84</td><td><pre>   <span class="codeComment">// Manda un mensaje cada número de segundos indicados por este valor,</span></pre></td></tr>
+  <tr><td class="codeShow_order">85</td><td><pre>   <span class="codeComment">// para que el sistema sepa que este dispositivo está activo.</span></pre></td></tr>
+  <tr><td class="codeShow_order">86</td><td><pre>   keepAliveInterval: 10,</pre></td></tr>
   <tr><td class="codeShow_order">87</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">88</td><td><pre>   <span class="codeComment">// Acciones al fallar la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">89</td><td><pre>   onFailure: falloEnLaConexionMqtt,</pre></td></tr>
-  <tr><td class="codeShow_order">90</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">91</td><td><pre>   <span class="codeComment">// Acciones al lograr la conexión.</span></pre></td></tr>
-  <tr><td class="codeShow_order">92</td><td><pre>   onSuccess: () =&gt; {</pre></td></tr>
-  <tr><td class="codeShow_order">93</td><td><pre>    console.log(<span class="codeString">"Conectado."</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">94</td><td><pre>    pre.textContent = <span class="codeString">"Conectado.\n\n"</span></pre></td></tr>
-  <tr><td class="codeShow_order">95</td><td><pre>    <span class="codeComment">// Se suscribe a uno o más tópicos.</span></pre></td></tr>
-  <tr><td class="codeShow_order">96</td><td><pre>    cliente.subscribe(TOPICO_CHAT)</pre></td></tr>
-  <tr><td class="codeShow_order">97</td><td><pre>    formulario.addEventListener(<span class="codeString">"submit"</span>, submit)</pre></td></tr>
-  <tr><td class="codeShow_order">98</td><td><pre>   },</pre></td></tr>
-  <tr><td class="codeShow_order">99</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">100</td><td><pre>  })</pre></td></tr>
+  <tr><td class="codeShow_order">88</td><td><pre>   useSSL: <span class="codeReserved">true</span>,</pre></td></tr>
+  <tr><td class="codeShow_order">89</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">90</td><td><pre>   <span class="codeComment">// Acciones al fallar la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">91</td><td><pre>   onFailure: falloEnLaConexionMqtt,</pre></td></tr>
+  <tr><td class="codeShow_order">92</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">93</td><td><pre>   <span class="codeComment">// Acciones al lograr la conexión.</span></pre></td></tr>
+  <tr><td class="codeShow_order">94</td><td><pre>   onSuccess: () =&gt; {</pre></td></tr>
+  <tr><td class="codeShow_order">95</td><td><pre>    console.log(<span class="codeString">"Conectado."</span>)</pre></td></tr>
+  <tr><td class="codeShow_order">96</td><td><pre>    pre.textContent = <span class="codeString">"Conectado.\n\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">97</td><td><pre>    <span class="codeComment">// Se suscribe a uno o más tópicos.</span></pre></td></tr>
+  <tr><td class="codeShow_order">98</td><td><pre>    cliente.subscribe(TOPICO_CHAT)</pre></td></tr>
+  <tr><td class="codeShow_order">99</td><td><pre>    formulario.addEventListener(<span class="codeString">"submit"</span>, submit)</pre></td></tr>
+  <tr><td class="codeShow_order">100</td><td><pre>   },</pre></td></tr>
   <tr><td class="codeShow_order">101</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">102</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">102</td><td><pre>  })</pre></td></tr>
   <tr><td class="codeShow_order">103</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">104</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">104</td><td><pre> &lt;/<span class="codeReserved">script</span>&gt;</pre></td></tr>
   <tr><td class="codeShow_order">105</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">106</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">106</td><td><pre>&lt;/<span class="codeReserved">body</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">107</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">108</td><td><pre>&lt;/<span class="codeReserved">html</span>&gt;</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section>
-         <h1 >G. Carpeta « js »</h1>
+         <h1 >G. Carpeta « libclienteweb »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -1408,67 +1369,44 @@
     
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/">Carpeta « js / lib »</a>
-    </p>
-   </li>
-   </ol>
-   </nav>
-  </div>
-     <section>
-         <h1 >A. Carpeta « js / lib »</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a target="_blank" rel="noreferrer"
-      href="print.html">Versión para imprimir.</a>
-    </p>
-   </div>
-
-  <div class="lectura">
-   <nav>
-    <h1>Contenido</h1>
-    
-   <ol type="1">
-    
-   <li>
-    <p>
-     <a href="/m14chat/m-js/m-lib/m-conexionMqttPerdida-js.html">js / lib / conexionMqttPerdida.js</a>
+     <a href="/m14chat/m-libclienteweb/m-conexionMqttPerdida-js.html">libclienteweb / conexionMqttPerdida.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-creaIdCliente-js.html">js / lib / creaIdCliente.js</a>
+     <a href="/m14chat/m-libclienteweb/m-creaIdCliente-js.html">libclienteweb / creaIdCliente.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-enviaMensajeMqtt-js.html">js / lib / enviaMensajeMqtt.js</a>
+     <a href="/m14chat/m-libclienteweb/m-enviaMensajeMqtt-js.html">libclienteweb / enviaMensajeMqtt.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-falloEnLaConexionMqtt-js.html">js / lib / falloEnLaConexionMqtt.js</a>
+     <a href="/m14chat/m-libclienteweb/m-falloEnLaConexionMqtt-js.html">libclienteweb / falloEnLaConexionMqtt.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-manejaErrores-js.html">js / lib / manejaErrores.js</a>
+     <a href="/m14chat/m-libclienteweb/m-manejaErrores-js.html">libclienteweb / manejaErrores.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-muestraError-js.html">js / lib / muestraError.js</a>
+     <a href="/m14chat/m-libclienteweb/m-muestraError-js.html">libclienteweb / muestraError.js</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m14chat/m-js/m-lib/m-ProblemDetailsError-js.html">js / lib / ProblemDetailsError.js</a>
+     <a href="/m14chat/m-libclienteweb/m-ProblemDetailsError-js.html">libclienteweb / ProblemDetailsError.js</a>
     </p>
    </li>
    </ol>
    </nav>
   </div>
      <section >
-         <h1 >1. js / lib / conexionMqttPerdida.js</h1><table class="codeShow">
+         <h1 >A. libclienteweb / conexionMqttPerdida.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1495,7 +1433,7 @@
 </table>
       </section>
      <section >
-         <h1 >2. js / lib / creaIdCliente.js</h1><table class="codeShow">
+         <h1 >B. libclienteweb / creaIdCliente.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1520,7 +1458,7 @@
 </table>
       </section>
      <section >
-         <h1 >3. js / lib / enviaMensajeMqtt.js</h1><table class="codeShow">
+         <h1 >C. libclienteweb / enviaMensajeMqtt.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1547,7 +1485,7 @@
 </table>
       </section>
      <section >
-         <h1 >4. js / lib / falloEnLaConexionMqtt.js</h1><table class="codeShow">
+         <h1 >D. libclienteweb / falloEnLaConexionMqtt.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1561,15 +1499,15 @@
   <tr><td class="codeShow_order">2</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> {{errorMessage: string}} res</span></pre></td></tr>
   <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
   <tr><td class="codeShow_order">4</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> falloEnLaConexionMqtt(res) {</pre></td></tr>
-  <tr><td class="codeShow_order">5</td><td><pre> <span class="codeReserved">const</span> mensaje = <span class="codeString">"Fallo en conexión MQTT: "</span> + res.errorMessage</pre></td></tr>
-  <tr><td class="codeShow_order">6</td><td><pre> console.error(mensaje)</pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> console.error(res)</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> <span class="codeReserved">const</span> mensaje = <span class="codeString">"Fallo en conexión MQTT: "</span> + res.errorMessage</pre></td></tr>
   <tr><td class="codeShow_order">7</td><td><pre> alert(mensaje)</pre></td></tr>
   <tr><td class="codeShow_order">8</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >5. js / lib / manejaErrores.js</h1><table class="codeShow">
+         <h1 >E. libclienteweb / manejaErrores.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1590,7 +1528,7 @@
   <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre> Response.prototype.json = <span class="codeReserved">function</span> () {</pre></td></tr>
   <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeComment">// Llamamos al método original usando el contexto (this) de la respuesta</span></pre></td></tr>
-  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> originalJson.apply(<span class="codeReserved">this</span>, arguments)</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">return</span> originalJson.call(<span class="codeReserved">this</span>)</pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre>   .<span class="codeReserved">catch</span>((<span class="codeComment">/** <span class="codeReserved">@type</span> {any} */</span> error) =&gt; {</pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>    <span class="codeComment">// Corrige un error de Chrome que evita el manejo correcto de errores.</span></pre></td></tr>
   <tr><td class="codeShow_order">15</td><td><pre>    <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(error)</pre></td></tr>
@@ -1599,13 +1537,13 @@
   <tr><td class="codeShow_order">18</td><td><pre>}</pre></td></tr>
   <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">20</td><td><pre>window.onerror = <span class="codeReserved">function</span> (</pre></td></tr>
-  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {string} */</span> _message,</pre></td></tr>
-  <tr><td class="codeShow_order">22</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {string} */</span> _url,</pre></td></tr>
-  <tr><td class="codeShow_order">23</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {number} */</span> _line,</pre></td></tr>
-  <tr><td class="codeShow_order">24</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {number} */</span> _column,</pre></td></tr>
-  <tr><td class="codeShow_order">25</td><td><pre>  <span class="codeComment">/** <span class="codeReserved">@type</span> {Error} */</span> errorObject</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre> <span class="codeComment">/** <span class="codeReserved">@type</span> {Event | string} */</span> _event,</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> <span class="codeComment">/** <span class="codeReserved">@type</span> {string | undefined} */</span> _fuente,</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre> <span class="codeComment">/** <span class="codeReserved">@type</span> {number | undefined} */</span> _numeroDeLinea,</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre> <span class="codeComment">/** <span class="codeReserved">@type</span> {number | undefined} */</span> _numeroDeColumna,</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> <span class="codeComment">/** <span class="codeReserved">@type</span> {Error | undefined} */</span> error</pre></td></tr>
   <tr><td class="codeShow_order">26</td><td><pre>) {</pre></td></tr>
-  <tr><td class="codeShow_order">27</td><td><pre> muestraError(errorObject)</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> muestraError(error)</pre></td></tr>
   <tr><td class="codeShow_order">28</td><td><pre> <span class="codeReserved">return</span> <span class="codeReserved">true</span></pre></td></tr>
   <tr><td class="codeShow_order">29</td><td><pre>}</pre></td></tr>
   <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
@@ -1613,12 +1551,11 @@
   <tr><td class="codeShow_order">32</td><td><pre> muestraError(event.reason)</pre></td></tr>
   <tr><td class="codeShow_order">33</td><td><pre> event.preventDefault()</pre></td></tr>
   <tr><td class="codeShow_order">34</td><td><pre>})</pre></td></tr>
-  <tr><td class="codeShow_order">35</td><td><pre></pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >6. js / lib / muestraError.js</h1><table class="codeShow">
+         <h1 >F. libclienteweb / muestraError.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1632,46 +1569,48 @@
   <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">3</td><td><pre><span class="codeComment">/**</span></pre></td></tr>
   <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment"> * Muestra los datos de una Error en la consola y en un cuadro de alerta.</span></pre></td></tr>
-  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { ProblemDetailsError | Error | <span class="codeReserved">null</span> } error descripción del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment"> * <span class="codeReserved">@param</span> { unknown } error descripción del error.</span></pre></td></tr>
   <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment"> */</span></pre></td></tr>
   <tr><td class="codeShow_order">7</td><td><pre><span class="codeReserved">export</span> <span class="codeReserved">function</span> muestraError(error) {</pre></td></tr>
   <tr><td class="codeShow_order">8</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> (error === <span class="codeReserved">null</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetailsError) {</pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre>  console.error(<span class="codeString">"Error"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">12</td><td><pre>  alert(<span class="codeString">"Error"</span>)</pre></td></tr>
-  <tr><td class="codeShow_order">13</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">14</td><td><pre> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (error <span class="codeReserved">instanceof</span> ProblemDetailsError) {</pre></td></tr>
-  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">const</span> problemDetails = error.problemDetails</pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">18</td><td><pre>  <span class="codeReserved">let</span> mensaje =</pre></td></tr>
-  <tr><td class="codeShow_order">19</td><td><pre>   <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span> ? problemDetails[<span class="codeString">"title"</span>] : <span class="codeString">""</span></pre></td></tr>
-  <tr><td class="codeShow_order">20</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span>) {</pre></td></tr>
-  <tr><td class="codeShow_order">21</td><td><pre>   <span class="codeReserved">if</span> (mensaje !== <span class="codeString">""</span>) {</pre></td></tr>
-  <tr><td class="codeShow_order">22</td><td><pre>    mensaje += <span class="codeString">"\n\n"</span></pre></td></tr>
-  <tr><td class="codeShow_order">23</td><td><pre>   }</pre></td></tr>
-  <tr><td class="codeShow_order">24</td><td><pre>   mensaje += problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
-  <tr><td class="codeShow_order">25</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">26</td><td><pre>  <span class="codeReserved">if</span> (mensaje === <span class="codeString">""</span>) {</pre></td></tr>
-  <tr><td class="codeShow_order">27</td><td><pre>   mensaje = <span class="codeString">"Error"</span></pre></td></tr>
-  <tr><td class="codeShow_order">28</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">29</td><td><pre>  console.error(error, problemDetails)</pre></td></tr>
-  <tr><td class="codeShow_order">30</td><td><pre>  alert(mensaje)</pre></td></tr>
-  <tr><td class="codeShow_order">31</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">32</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeReserved">const</span> problemDetails = error.problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeReserved">let</span> mensaje =</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>   <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span> ? problemDetails[<span class="codeString">"title"</span>] : <span class="codeString">""</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   <span class="codeReserved">if</span> (mensaje !== <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>    mensaje += <span class="codeString">"\n"</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>   }</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>   mensaje += problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>  <span class="codeReserved">if</span> (mensaje === <span class="codeString">""</span>) {</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>   mensaje = <span class="codeString">"Error"</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>  console.error(error, problemDetails)</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre>  alert(mensaje)</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre> } <span class="codeReserved">else</span> <span class="codeReserved">if</span> (</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  <span class="codeReserved">typeof</span> error === <span class="codeString">"object"</span> && error !== <span class="codeReserved">null</span> && <span class="codeString">"message"</span> <span class="codeReserved">in</span> error</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> ) {</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>  console.error(error)</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre>  alert(error.message)</pre></td></tr>
   <tr><td class="codeShow_order">33</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">34</td><td><pre>  console.error(error)</pre></td></tr>
-  <tr><td class="codeShow_order">35</td><td><pre>  alert(error.message)</pre></td></tr>
-  <tr><td class="codeShow_order">36</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">37</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre> } <span class="codeReserved">else</span> {</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>  console.error(<span class="codeString">"Error"</span>, error)</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre>  alert(<span class="codeString">"Error"</span>)</pre></td></tr>
   <tr><td class="codeShow_order">38</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">39</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
       </section>
      <section >
-         <h1 >7. js / lib / ProblemDetailsError.js</h1><table class="codeShow">
+         <h1 >G. libclienteweb / ProblemDetailsError.js</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -1686,24 +1625,27 @@
   <tr><td class="codeShow_order">3</td><td><pre> <span class="codeComment">/**</span></pre></td></tr>
   <tr><td class="codeShow_order">4</td><td><pre><span class="codeComment">  * Detalle de los errores devueltos por un servicio.</span></pre></td></tr>
   <tr><td class="codeShow_order">5</td><td><pre><span class="codeComment">  * Crea una instancia de ProblemDetailsError.</span></pre></td></tr>
-  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment">  * <span class="codeReserved">@param</span> {object} problemDetails Objeto con la descripcipon del error.</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre><span class="codeComment">  * <span class="codeReserved">@param</span> {any} problemDetails Objeto con la descripcipon del error.</span></pre></td></tr>
   <tr><td class="codeShow_order">7</td><td><pre><span class="codeComment">  */</span></pre></td></tr>
   <tr><td class="codeShow_order">8</td><td><pre> <span class="codeReserved">constructor</span>(problemDetails) {</pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">10</td><td><pre>  super(<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span></pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre>   ? problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
-  <tr><td class="codeShow_order">12</td><td><pre>   : (<span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span></pre></td></tr>
-  <tr><td class="codeShow_order">13</td><td><pre>    ? problemDetails[<span class="codeString">"title"</span>]</pre></td></tr>
-  <tr><td class="codeShow_order">14</td><td><pre>    : <span class="codeString">"Error"</span>))</pre></td></tr>
-  <tr><td class="codeShow_order">15</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">16</td><td><pre>  <span class="codeReserved">this</span>.problemDetails = problemDetails</pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">18</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>  super(</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>   <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"detail"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>    ? problemDetails[<span class="codeString">"detail"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>    : (</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>     <span class="codeReserved">typeof</span> problemDetails[<span class="codeString">"title"</span>] === <span class="codeString">"string"</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>      ? problemDetails[<span class="codeString">"title"</span>]</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>      : <span class="codeString">"Error"</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>    )</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>  )</pre></td></tr>
   <tr><td class="codeShow_order">19</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">20</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>  <span class="codeReserved">this</span>.problemDetails = problemDetails</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre> }</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>}</pre></td></tr>
  </tbody>
 </table>
-      </section>
       </section>
       </section>
      <section >

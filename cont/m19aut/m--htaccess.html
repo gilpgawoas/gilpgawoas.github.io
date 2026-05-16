@@ -1,0 +1,38 @@
+<div class="lectura">
+ <ul>
+  <li>
+   <p>
+    Este archivo configura las respuestas del servidor..
+   </p>
+  </li>
+  <li>
+   <p>
+    Lo utilizan principalmente servidores como Apache o Nginx.
+   </p>
+  </li>
+  <li>
+   <p>
+    Configura el mime type para el archivo de manifiesto y sedhabilita el uso
+    de la cache general de http..
+   </p>
+  </li>
+ </ul>
+</div>
+<table class="codeShow">
+ <caption style="text-align: left">
+  <button type=button title="Copiar al portapapeles"
+    onclick="copyToClipboard(this)">
+   <span class="material-symbols-outlined">
+    content_copy
+   </span>
+  </button>
+ </caption>
+ <tbody>
+  <tr><td class="codeShow_order">1</td><td><pre>AddType application/manifest+json .webmanifest</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre>ExpiresActive On</pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre>Header set Cache-Control "max-age=1, must-revalidate"</pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre></pre></td></tr>
+ </tbody>
+</table>

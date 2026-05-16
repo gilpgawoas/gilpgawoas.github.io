@@ -3,9 +3,11 @@
 
 <head>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
  <title>Carpeta « js / custom » - GilPG AWOAS</title>
@@ -85,10 +87,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -144,50 +149,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -231,7 +192,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -743,7 +709,7 @@
 </head>
 
 <body class="print">
-   <h1 >A. Carpeta « js / custom »</h1>
+   <h1 >F. Carpeta « js / custom »</h1>
    <div class="lectura"> 
     <p class="noPrint">
      <a target="_blank" rel="noreferrer"
@@ -790,29 +756,25 @@
   <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeReserved">if</span> (<span class="codeReserved">this</span>.cargado === <span class="codeReserved">false</span>) {</pre></td></tr>
   <tr><td class="codeShow_order">13</td><td><pre>   <span class="codeReserved">this</span>.innerHTML = <span class="codeComment">/* html */</span></pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>    <span class="codeString">`&lt;<span class="codeReserved">nav</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">15</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">ul</span> style=&quot;<span class="codeReserved">display</span>: <span class="codeReserved">flex</span>;</span></pre></td></tr>
-  <tr><td class="codeShow_order">16</td><td><pre><span class="codeString">                 flex-wrap: wrap;</span></pre></td></tr>
-  <tr><td class="codeShow_order">17</td><td><pre><span class="codeString">                 <span class="codeReserved">padding</span>:0;</span></pre></td></tr>
-  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString">                 <span class="codeReserved">gap</span>: 0.5em;</span></pre></td></tr>
-  <tr><td class="codeShow_order">19</td><td><pre><span class="codeString">                 <span class="codeReserved">list-style-type</span>: none&quot;&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">20</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;ocupado&quot;&gt;&lt;<span class="codeReserved">progress</span> max=&quot;100&quot;&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">21</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aIndex&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;index.html&quot;&gt;Inicio&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aAdmin&quot; hidden&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">        &lt;<span class="codeReserved">a</span> href=&quot;administrador.html&quot;&gt;Para administradores&lt;/<span class="codeReserved">a</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">24</td><td><pre><span class="codeString">       &lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">25</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aCliente&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;cliente.html&quot;&gt;Para clientes&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">26</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;san&quot; hidden&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">27</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aPerfil&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;perfil.html&quot;&gt;Perfil&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">28</td><td><pre><span class="codeString">      &lt;/<span class="codeReserved">ul</span>&gt;</span></pre></td></tr>
-  <tr><td class="codeShow_order">29</td><td><pre><span class="codeString">     &lt;/<span class="codeReserved">nav</span>&gt;`</span></pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre><span class="codeString">      &lt;<span class="codeReserved">ul</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span>&gt;&lt;<span class="codeReserved">a</span> href=&quot;index.html&quot;&gt;Inicio&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;ocupado&quot;&gt;&lt;<span class="codeReserved">progress</span> max=&quot;100&quot;&gt;Cargando&hellip;&lt;/<span class="codeReserved">progress</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aAdmin&quot; hidden&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre><span class="codeString">        &lt;<span class="codeReserved">a</span> href=&quot;administrador.html&quot;&gt;Para administradores&lt;/<span class="codeReserved">a</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre><span class="codeString">       &lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aCliente&quot; hidden&gt;&lt;<span class="codeReserved">a</span> href=&quot;cliente.html&quot;&gt;Para clientes&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;san&quot; hidden&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre><span class="codeString">       &lt;<span class="codeReserved">li</span> id=&quot;aPerfil&quot;&gt;&lt;<span class="codeReserved">a</span> href=&quot;perfil.html&quot;&gt;Perfil&lt;/<span class="codeReserved">a</span>&gt;&lt;/<span class="codeReserved">li</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre><span class="codeString">      &lt;/<span class="codeReserved">ul</span>&gt;</span></pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre><span class="codeString">     &lt;/<span class="codeReserved">nav</span>&gt;`</span></pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>   <span class="codeReserved">this</span>.cargado = <span class="codeReserved">true</span></pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre>  }</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> }</pre></td></tr>
   <tr><td class="codeShow_order">30</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">31</td><td><pre>   <span class="codeReserved">this</span>.cargado = <span class="codeReserved">true</span></pre></td></tr>
-  <tr><td class="codeShow_order">32</td><td><pre>  }</pre></td></tr>
-  <tr><td class="codeShow_order">33</td><td><pre> }</pre></td></tr>
-  <tr><td class="codeShow_order">34</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">35</td><td><pre>}</pre></td></tr>
-  <tr><td class="codeShow_order">36</td><td><pre></pre></td></tr>
-  <tr><td class="codeShow_order">37</td><td><pre>customElements.define(<span class="codeString">"mi-nav"</span>, MiNav)</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre>}</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre></pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>customElements.define(<span class="codeString">"mi-nav"</span>, MiNav)</pre></td></tr>
  </tbody>
 </table>
       </section>

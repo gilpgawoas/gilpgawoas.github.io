@@ -8,61 +8,61 @@
   </button>
  </caption>
  <tbody>
-  <tr><td>1</td><td>&lt;<span class="codeReserved">definitions</span> name=“PrecioProd“</td></tr>
-  <tr><td>2</td><td> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></td></tr>
-  <tr><td>3</td><td> xmlns:tns=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></td></tr>
-  <tr><td>4</td><td> xmlns:xsd1=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></td></tr>
-  <tr><td>5</td><td> xmlns:soap=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/soap/&quot;</span></td></tr>
-  <tr><td>6</td><td> xmlns=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/&quot;</span>&gt;</td></tr>
-  <tr><td>7</td><td> &lt;<span class="codeReserved">types</span>&gt;</td></tr>
-  <tr><td>8</td><td>  &lt;<span class="codeReserved">schema</span> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></td></tr>
-  <tr><td>9</td><td>   xmlns=<span class="codeString">&quot;http:&#47;/www.w3.org/2000/10/XMLSchema&quot;</span>&gt;</td></tr>
-  <tr><td>10</td><td>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;SolPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>11</td><td>    &lt;<span class="codeReserved">complexType</span>&gt;</td></tr>
-  <tr><td>12</td><td>     &lt;<span class="codeReserved">all</span>&gt;</td></tr>
-  <tr><td>13</td><td>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;productoId&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;decimal&quot;</span>/&gt;</td></tr>
-  <tr><td>14</td><td>     &lt;/<span class="codeReserved">all</span>&gt;</td></tr>
-  <tr><td>15</td><td>    &lt;/<span class="codeReserved">complexType</span>&gt;</td></tr>
-  <tr><td>16</td><td>   &lt;/<span class="codeReserved">element</span>&gt;</td></tr>
-  <tr><td>17</td><td>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;PrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>18</td><td>    &lt;<span class="codeReserved">complexType</span>&gt;</td></tr>
-  <tr><td>19</td><td>     &lt;<span class="codeReserved">all</span>&gt;</td></tr>
-  <tr><td>20</td><td>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;precio&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;float&quot;</span>/&gt;</td></tr>
-  <tr><td>21</td><td>     &lt;/<span class="codeReserved">all</span>&gt;</td></tr>
-  <tr><td>22</td><td>    &lt;/<span class="codeReserved">complexType</span>&gt;</td></tr>
-  <tr><td>23</td><td>   &lt;/<span class="codeReserved">element</span>&gt;</td></tr>
-  <tr><td>24</td><td>  &lt;/<span class="codeReserved">schema</span>&gt;</td></tr>
-  <tr><td>25</td><td> &lt;/<span class="codeReserved">types</span>&gt;</td></tr>
-  <tr><td>26</td><td> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;InputGetPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>27</td><td>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:SolPrecioProd&quot;</span>/&gt;</td></tr>
-  <tr><td>28</td><td> &lt;/<span class="codeReserved">message</span>&gt;</td></tr>
-  <tr><td>29</td><td> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;OutputGetPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>30</td><td>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:PrecioProd&quot;</span>/&gt;</td></tr>
-  <tr><td>31</td><td> &lt;/<span class="codeReserved">message</span>&gt;</td></tr>
-  <tr><td>32</td><td> &lt;<span class="codeReserved">portType</span> name=<span class="codeString">&quot;PortTypePrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>33</td><td>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>34</td><td>   &lt;<span class="codeReserved">input</span> message=<span class="codeString">&quot;tns:InputGetPrecioProd&quot;</span>/&gt;</td></tr>
-  <tr><td>35</td><td>   &lt;<span class="codeReserved">output</span> message=<span class="codeString">&quot;tns:OutputGetPrecioProd&quot;</span>/&gt;</td></tr>
-  <tr><td>36</td><td>  &lt;/<span class="codeReserved">operation</span>&gt;</td></tr>
-  <tr><td>37</td><td> &lt;/<span class="codeReserved">portType</span>&gt;</td></tr>
-  <tr><td>38</td><td> &lt;<span class="codeReserved">binding</span> name=<span class="codeString">&quot;BindPrecioProdSoap&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;tns:PortTypePrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>39</td><td>  &lt;<span class="codeReserved">soap</span>:binding style=<span class="codeString">&quot;document&quot;</span> transport=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/soap/http&quot;</span>/&gt;</td></tr>
-  <tr><td>40</td><td>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>41</td><td>   &lt;<span class="codeReserved">soap</span>:operation soapAction=<span class="codeString">&quot;http:&#47;/example.com/GetPrecioProd&quot;</span>/&gt;</td></tr>
-  <tr><td>42</td><td>   &lt;<span class="codeReserved">input</span>&gt;</td></tr>
-  <tr><td>43</td><td>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</td></tr>
-  <tr><td>44</td><td>   &lt;/<span class="codeReserved">input</span>&gt;</td></tr>
-  <tr><td>45</td><td>   &lt;<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>46</td><td>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</td></tr>
-  <tr><td>47</td><td>   &lt;/<span class="codeReserved">output</span>&gt;</td></tr>
-  <tr><td>48</td><td>  &lt;/<span class="codeReserved">operation</span>&gt;</td></tr>
-  <tr><td>49</td><td> &lt;/<span class="codeReserved">binding</span>&gt;</td></tr>
-  <tr><td>50</td><td> &lt;<span class="codeReserved">service</span> name=<span class="codeString">&quot;ServPrecioProd&quot;</span>&gt;</td></tr>
-  <tr><td>51</td><td>  &lt;<span class="codeReserved">documentation</span>&gt;Devuelve el precio de un producto.&lt;/<span class="codeReserved">documentation</span>&gt;</td></tr>
-  <tr><td>52</td><td>  &lt;<span class="codeReserved">port</span> name=<span class="codeString">&quot;PuertoPrecioProd&quot;</span> binding=<span class="codeString">&quot;tns:BindPrecioProdSoap&quot;</span>&gt;</td></tr>
-  <tr><td>53</td><td>   &lt;<span class="codeReserved">soap</span>:address location=<span class="codeString">&quot;http:&#47;/example.com/precioprod&quot;</span>/&gt;</td></tr>
-  <tr><td>54</td><td>  &lt;/<span class="codeReserved">port</span>&gt;</td></tr>
-  <tr><td>55</td><td> &lt;/<span class="codeReserved">service</span>&gt;</td></tr>
-  <tr><td>56</td><td>&lt;/<span class="codeReserved">definitions</span>&gt;</td></tr>
+  <tr><td class="codeShow_order">1</td><td><pre>&lt;<span class="codeReserved">definitions</span> name=“PrecioProd“</pre></td></tr>
+  <tr><td class="codeShow_order">2</td><td><pre> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">3</td><td><pre> xmlns:tns=<span class="codeString">&quot;http:&#47;/example.com/stockquote.wsdl&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">4</td><td><pre> xmlns:xsd1=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">5</td><td><pre> xmlns:soap=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/soap/&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">6</td><td><pre> xmlns=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/wsdl/&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">7</td><td><pre> &lt;<span class="codeReserved">types</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">8</td><td><pre>  &lt;<span class="codeReserved">schema</span> targetNamespace=<span class="codeString">&quot;http:&#47;/example.com/stockquote.xsd&quot;</span></pre></td></tr>
+  <tr><td class="codeShow_order">9</td><td><pre>   xmlns=<span class="codeString">&quot;http:&#47;/www.w3.org/2000/10/XMLSchema&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">10</td><td><pre>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;SolPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>    &lt;<span class="codeReserved">complexType</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>     &lt;<span class="codeReserved">all</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;productoId&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;decimal&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">14</td><td><pre>     &lt;/<span class="codeReserved">all</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">15</td><td><pre>    &lt;/<span class="codeReserved">complexType</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">16</td><td><pre>   &lt;/<span class="codeReserved">element</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">17</td><td><pre>   &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;PrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">18</td><td><pre>    &lt;<span class="codeReserved">complexType</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">19</td><td><pre>     &lt;<span class="codeReserved">all</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">20</td><td><pre>      &lt;<span class="codeReserved">element</span> name=<span class="codeString">&quot;precio&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;float&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">21</td><td><pre>     &lt;/<span class="codeReserved">all</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">22</td><td><pre>    &lt;/<span class="codeReserved">complexType</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">23</td><td><pre>   &lt;/<span class="codeReserved">element</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">24</td><td><pre>  &lt;/<span class="codeReserved">schema</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">25</td><td><pre> &lt;/<span class="codeReserved">types</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">26</td><td><pre> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;InputGetPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">27</td><td><pre>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:SolPrecioProd&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">28</td><td><pre> &lt;/<span class="codeReserved">message</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">29</td><td><pre> &lt;<span class="codeReserved">message</span> name=<span class="codeString">&quot;OutputGetPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">30</td><td><pre>  &lt;<span class="codeReserved">part</span> name=<span class="codeString">&quot;body&quot;</span> element=<span class="codeString">&quot;xsd1:PrecioProd&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">31</td><td><pre> &lt;/<span class="codeReserved">message</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">32</td><td><pre> &lt;<span class="codeReserved">portType</span> name=<span class="codeString">&quot;PortTypePrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">33</td><td><pre>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">34</td><td><pre>   &lt;<span class="codeReserved">input</span> message=<span class="codeString">&quot;tns:InputGetPrecioProd&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">35</td><td><pre>   &lt;<span class="codeReserved">output</span> message=<span class="codeString">&quot;tns:OutputGetPrecioProd&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">36</td><td><pre>  &lt;/<span class="codeReserved">operation</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">37</td><td><pre> &lt;/<span class="codeReserved">portType</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">38</td><td><pre> &lt;<span class="codeReserved">binding</span> name=<span class="codeString">&quot;BindPrecioProdSoap&quot;</span> <span class="codeReserved">type</span>=<span class="codeString">&quot;tns:PortTypePrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">39</td><td><pre>  &lt;<span class="codeReserved">soap</span>:binding style=<span class="codeString">&quot;document&quot;</span> transport=<span class="codeString">&quot;http:&#47;/schemas.xmlsoap.org/soap/http&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">40</td><td><pre>  &lt;<span class="codeReserved">operation</span> name=<span class="codeString">&quot;GetPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">41</td><td><pre>   &lt;<span class="codeReserved">soap</span>:operation soapAction=<span class="codeString">&quot;http:&#47;/example.com/GetPrecioProd&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">42</td><td><pre>   &lt;<span class="codeReserved">input</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">43</td><td><pre>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">44</td><td><pre>   &lt;/<span class="codeReserved">input</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">45</td><td><pre>   &lt;<span class="codeReserved">output</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">46</td><td><pre>    &lt;<span class="codeReserved">soap</span>:body use=<span class="codeString">&quot;literal&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">47</td><td><pre>   &lt;/<span class="codeReserved">output</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">48</td><td><pre>  &lt;/<span class="codeReserved">operation</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">49</td><td><pre> &lt;/<span class="codeReserved">binding</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">50</td><td><pre> &lt;<span class="codeReserved">service</span> name=<span class="codeString">&quot;ServPrecioProd&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">51</td><td><pre>  &lt;<span class="codeReserved">documentation</span>&gt;Devuelve el precio de un producto.&lt;/<span class="codeReserved">documentation</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">52</td><td><pre>  &lt;<span class="codeReserved">port</span> name=<span class="codeString">&quot;PuertoPrecioProd&quot;</span> binding=<span class="codeString">&quot;tns:BindPrecioProdSoap&quot;</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">53</td><td><pre>   &lt;<span class="codeReserved">soap</span>:address location=<span class="codeString">&quot;http:&#47;/example.com/precioprod&quot;</span>/&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">54</td><td><pre>  &lt;/<span class="codeReserved">port</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">55</td><td><pre> &lt;/<span class="codeReserved">service</span>&gt;</pre></td></tr>
+  <tr><td class="codeShow_order">56</td><td><pre>&lt;/<span class="codeReserved">definitions</span>&gt;</pre></td></tr>
  </tbody>
 </table>

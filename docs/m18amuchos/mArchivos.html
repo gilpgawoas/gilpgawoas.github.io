@@ -2,13 +2,82 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 
 <head>
+ <title>G. Archivos</title>
+ <style>
+ /* Activa transiciones de vistas
+   * entre documentos para esta
+   * página. */
+ @view-transition {
+  navigation: auto;
+ }
+
+ @keyframes aparece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+ }
+
+ @keyframes desvanece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+ }
+
+ ::view-transition-old(root) {
+  animation-duration: 0.7s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 1;
+  animation-name: desvanece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+
+ ::view-transition-new(root) {
+  /* animation-delay: 1s; */
+  animation-duration: 1s;
+  background-color: var(--colFondo);
+  will-change: opacity;
+  opacity: 0;
+  animation-name: aparece;
+  animation-fill-mode: both;
+  mix-blend-mode: screen;
+  isolation: isolate;
+  animation-timing-function: ease-out;
+ }
+</style>
  <meta charset="UTF-8">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+<!-- <meta name="theme-color" content="#039623"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="32x32" href="/favicon.ico">
-<meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <title>G. Archivos - GilPG AWOAS</title>
  <meta name="description" content="Archivos">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
@@ -86,10 +155,13 @@
   --anchoThumb: 7px;
   --borderRadiusThumb: 3.5px;
   --gap: 0.5rem;
-  --fontMono: 'Xanh Mono', monospace;
-  --fontSans: 'Patrick Hand', sans-serif;
+  /* --fontMono: 'Xanh Mono', monospace; */
+  --fontMono: monospace;
+  /* --fontSans: 'Patrick Hand', sans-serif; */
+  --fontSans: sans-serif;
   /* --fontSerif: 'Purple Purse', serif; */
-  --fontSerif: Georgia, 'Times New Roman', Times, serif;
+  /* --fontSerif: Georgia, 'Times New Roman', Times, serif; */
+  --fontSerif: serif;
   font-family: var(--fontSerif);
   color: var(--colLetra);
   background-color: var(--colFondo);
@@ -145,50 +217,6 @@
   }
  }
 
- /* xanh-mono-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* xanh-mono-italic - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Xanh Mono';
-  font-style: italic;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/xanh-mono-v18-latin_latin-ext-italic.woff2') format('woff2');
- }
-
- /* patrick-hand-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Patrick Hand';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/patrick-hand-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
- /* purple-purse-regular - latin_latin-ext */
- @font-face {
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-display: swap;
-  font-family: 'Purple Purse';
-  font-style: normal;
-  font-weight: 400;
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  src: url('/fonts/purple-purse-v23-latin_latin-ext-regular.woff2') format('woff2');
- }
-
  @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -232,7 +260,12 @@
   background-color: var(--colThumbActivo);
  }
 
+ :root {
+  background-color: var(--colFondo);
+ }
+
  body {
+  background-color: var(--colFondo);
   margin-top: 0;
  }
 
@@ -847,37 +880,6 @@
  }
 </style>
  
- <style>
- /* Activa transiciones de vistas
-   * entre documentos para esta
-   * página. */
- @view-transition {
-  navigation: auto;
- }
-
- @keyframes aparece {
-  from {
-   opacity: 0;
-  }
- }
-
- @keyframes desvanece {
-  to {
-   opacity: 0;
-  }
- }
-
- ::view-transition-old(root) {
-  animation-duration: 1s;
-  animation-name: desvanece;
- }
-
- ::view-transition-new(root) {
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-name: aparece;
- }
-</style>
 </head>
 
 <body  class="xmenu">
@@ -898,6 +900,53 @@
   <li>
    <p><a href="m-modifica-html.html">modifica.html</a></p>
   </li>
+    <li>
+     <details>
+      <summary>api</summary>
+      <ul>
+  <li>
+   <p><a href="m-api/m-Bd-php.html">Bd.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-rolCheckboxes-php.html">rolCheckboxes.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-agrega-php.html">usuario-agrega.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-elimina-php.html">usuario-elimina.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-modifica-php.html">usuario-modifica.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-vista-agrega-php.html">usuario-vista-agrega.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-vista-index-php.html">usuario-vista-index.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuario-vista-modifica-php.html">usuario-vista-modifica.php</a></p>
+  </li>
+  <li>
+   <p><a href="m-api/m-usuRolElimina-php.html">usuRolElimina.php</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary>dompurify</summary>
+      <ul>
+  <li>
+   <p><a href="m-dompurify/m-purify-min-js.html">purify.min.js</a></p>
+  </li>
+  <li>
+   <p><a href="m-dompurify/m-purify-min-js-map.html">purify.min.js.map</a></p>
+  </li>
+      </ul>
+     </details>
+    </li>
     <li>
      <details>
       <summary>errors</summary>
@@ -925,143 +974,102 @@
     </li>
     <li>
      <details>
-      <summary>js</summary>
-      <ul>
-    <li>
-     <details>
-      <summary>lib</summary>
+      <summary>libclienteweb</summary>
       <ul>
   <li>
-   <p><a href="m-js/m-lib/m-accionElimina-js.html">accionElimina.js</a></p>
+   <p><a href="m-libclienteweb/m-configuraAccionElimina-js.html">configuraAccionElimina.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-consume-js.html">consume.js</a></p>
+   <p><a href="m-libclienteweb/m-configuraSubmitAccion-js.html">configuraSubmitAccion.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-descargaVista-js.html">descargaVista.js</a></p>
+   <p><a href="m-libclienteweb/m-consume-js.html">consume.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-enviaFormRecibeJson-js.html">enviaFormRecibeJson.js</a></p>
+   <p><a href="m-libclienteweb/m-descargaVista-js.html">descargaVista.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-manejaErrores-js.html">manejaErrores.js</a></p>
+   <p><a href="m-libclienteweb/m-manejaErrores-js.html">manejaErrores.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-muestraError-js.html">muestraError.js</a></p>
+   <p><a href="m-libclienteweb/m-muestraError-js.html">muestraError.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-muestraObjeto-js.html">muestraObjeto.js</a></p>
+   <p><a href="m-libclienteweb/m-muestraObjeto-js.html">muestraObjeto.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
+   <p><a href="m-libclienteweb/m-ProblemDetailsError-js.html">ProblemDetailsError.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-recibeJson-js.html">recibeJson.js</a></p>
+   <p><a href="m-libclienteweb/m-recibeJson-js.html">recibeJson.js</a></p>
   </li>
   <li>
-   <p><a href="m-js/m-lib/m-submitAccion-js.html">submitAccion.js</a></p>
+   <p><a href="m-libclienteweb/m-submitFormRecibeJson-js.html">submitFormRecibeJson.js</a></p>
   </li>
-      </ul>
-     </details>
-    </li>
       </ul>
      </details>
     </li>
     <li>
      <details>
-      <summary>php</summary>
+      <summary>libservidorphp</summary>
       <ul>
   <li>
-   <p><a href="m-php/m-Bd-php.html">Bd.php</a></p>
+   <p><a href="m-libservidorphp/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-rolCheckboxes-php.html">rolCheckboxes.php</a></p>
+   <p><a href="m-libservidorphp/m-devuelveCreated-php.html">devuelveCreated.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-agrega-php.html">usuario-agrega.php</a></p>
+   <p><a href="m-libservidorphp/m-devuelveJson-php.html">devuelveJson.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-elimina-php.html">usuario-elimina.php</a></p>
+   <p><a href="m-libservidorphp/m-devuelveNoContent-php.html">devuelveNoContent.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-modifica-php.html">usuario-modifica.php</a></p>
+   <p><a href="m-libservidorphp/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-vista-agrega-php.html">usuario-vista-agrega.php</a></p>
+   <p><a href="m-libservidorphp/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-vista-index-php.html">usuario-vista-index.php</a></p>
+   <p><a href="m-libservidorphp/m-manejaErrores-php.html">manejaErrores.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuario-vista-modifica-php.html">usuario-vista-modifica.php</a></p>
+   <p><a href="m-libservidorphp/m-NOT_FOUND-php.html">NOT_FOUND.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-usuRolElimina-php.html">usuRolElimina.php</a></p>
-  </li>
-    <li>
-     <details>
-      <summary>lib</summary>
-      <ul>
-  <li>
-   <p><a href="m-php/m-lib/m-BAD_REQUEST-php.html">BAD_REQUEST.php</a></p>
+   <p><a href="m-libservidorphp/m-ProblemDetailsException-php.html">ProblemDetailsException.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-devuelveCreated-php.html">devuelveCreated.php</a></p>
+   <p><a href="m-libservidorphp/m-recibeArray-php.html">recibeArray.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-devuelveJson-php.html">devuelveJson.php</a></p>
+   <p><a href="m-libservidorphp/m-recibeEntero-php.html">recibeEntero.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-devuelveNoContent-php.html">devuelveNoContent.php</a></p>
+   <p><a href="m-libservidorphp/m-recibeEnteroObligatorio-php.html">recibeEnteroObligatorio.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-devuelveResultadoNoJson-php.html">devuelveResultadoNoJson.php</a></p>
+   <p><a href="m-libservidorphp/m-recibeTexto-php.html">recibeTexto.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-INTERNAL_SERVER_ERROR-php.html">INTERNAL_SERVER_ERROR.php</a></p>
+   <p><a href="m-libservidorphp/m-recibeTextoObligatorio-php.html">recibeTextoObligatorio.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-manejaErrores-php.html">manejaErrores.php</a></p>
+   <p><a href="m-libservidorphp/m-rolAgrega-php.html">rolAgrega.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-NOT_FOUND-php.html">NOT_FOUND.php</a></p>
+   <p><a href="m-libservidorphp/m-rolBusca-php.html">rolBusca.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-ProblemDetailsException-php.html">ProblemDetailsException.php</a></p>
+   <p><a href="m-libservidorphp/m-rolIdsParaUsuId-php.html">rolIdsParaUsuId.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-recibeArray-php.html">recibeArray.php</a></p>
+   <p><a href="m-libservidorphp/m-usuRolAgrega-php.html">usuRolAgrega.php</a></p>
   </li>
   <li>
-   <p><a href="m-php/m-lib/m-recibeEntero-php.html">recibeEntero.php</a></p>
+   <p><a href="m-libservidorphp/m-validaEntidadObligatoria-php.html">validaEntidadObligatoria.php</a></p>
   </li>
-  <li>
-   <p><a href="m-php/m-lib/m-recibeEnteroObligatorio-php.html">recibeEnteroObligatorio.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-recibeTexto-php.html">recibeTexto.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-recibeTextoObligatorio-php.html">recibeTextoObligatorio.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolAgrega-php.html">rolAgrega.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolBusca-php.html">rolBusca.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-rolIdsParaUsuId-php.html">rolIdsParaUsuId.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-usuRolAgrega-php.html">usuRolAgrega.php</a></p>
-  </li>
-  <li>
-   <p><a href="m-php/m-lib/m-validaEntidadObligatoria-php.html">validaEntidadObligatoria.php</a></p>
-  </li>
-      </ul>
-     </details>
-    </li>
       </ul>
      </details>
     </li>
@@ -1115,7 +1123,7 @@
    
      <p>
       <a class="paginaAnterior" href="/m17auno/mTresumen.html"
-        title="O. Resumen"><span
+        title="Q. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
@@ -1176,12 +1184,17 @@
    </li>
    <li>
     <p>
-     <a href="/m18amuchos/m-php/">Carpeta « php »</a>
+     <a href="/m18amuchos/m-api/">Carpeta « api »</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m18amuchos/m-js/">Carpeta « js »</a>
+     <a href="/m18amuchos/m-libclienteweb/">Carpeta « libclienteweb »</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-libservidorphp/">Carpeta « libservidorphp »</a>
     </p>
    </li>
    <li>
@@ -1192,6 +1205,11 @@
    <li>
     <p>
      <a href="/m18amuchos/m-jsconfig-json.html">jsconfig.json</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m18amuchos/m-dompurify/">Carpeta « dompurify »</a>
     </p>
    </li>
    <li>
