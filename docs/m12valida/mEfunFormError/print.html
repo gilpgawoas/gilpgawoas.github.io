@@ -821,8 +821,8 @@
   <h1>index.html</h1>
   <pre class="resaltado"><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
         class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -856,8 +856,8 @@ alert(json)</code></pre>
   <h1>index.html</h1>
   <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
      class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -868,23 +868,26 @@ alert(json)</code></pre>
  <div class="resaltado">
   <details>
    <summary>
-    POST /srv/valida.php HTTP/1.1
+    POST /api/valida.php HTTP/1.1
    </summary>
    Accept: application/json, application/problem+json<br>
-   Accept-Encoding: gzip, deflate<br>
-   Accept-Language: es-ES,es;q=0.9,en;q=0.8<br>
+   Accept-Encoding: gzip, deflate, br, zstd<br>
+   Accept-Language: es-MX,es-ES;q=0.9,es;q=0.8,en;q=0.7,gl;q=0.6,pt;q=0.5<br>
    Connection: keep-alive<br>
-   Content-Length: 230<br>
-   Content-Type: multipart/form-data;<br>
-   boundary=----WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-   Cookie:
-   __gsas=ID=329641bd2728ff51:T=1743534294:RT=1743534294:S=ALNI_MavjA3FPY-hDE5wNZO5LxFSOVeIIQ;
-   __test=6409d42a9d124b0fcecbb489e113453c<br>
+   Content-Length: 15<br>
+   Content-Type: application/x-www-form-urlencoded<br>
+   Cookie: __test=610630da28570bec7a7a24ad4391af68<br>
    Host: srvvalida.rf.gd<br>
-   Origin: http://srvvalida.rf.gd<br>
-   Referer: http://srvvalida.rf.gd/?i=1<br>
-   User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-   (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+   Origin: https://srvvalida.rf.gd<br>
+   Referer: https://srvvalida.rf.gd/?i=1<br>
+   Sec-Fetch-Dest: empty<br>
+   Sec-Fetch-Mode: cors<br>
+   Sec-Fetch-Site: same-origin<br>
+   User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+   like Gecko) Chrome/148.0.0.0 Safari/537.36<br>
+   sec-ch-ua: "Chromium";v="148", "Google Chrome";v="148", "Not/A)Brand";v="99"<br>
+   sec-ch-ua-mobile: ?0<br>
+   sec-ch-ua-platform: "Windows"
   </details>
   <br>
   <details>
@@ -892,45 +895,38 @@ alert(json)</code></pre>
     saludo:<br>
     nombre:
    </summary>
-   ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-   Content-Disposition: form-data; name="saludo"<br>
-   <br>
-   <br>
-   ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-   Content-Disposition: form-data; name="nombre"<br>
-   <br>
-   <br>
-   ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN--
+   saludo=&amp;nombre=
   </details>
  </div>
 </section>
 <section>
- <h1>srv/valida.php</h1>
- <pre class="resaltado"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <h1>api/valida.php</h1>
+ <pre class="resaltado"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">"saludo"</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">"nombre"</span>);</span>
+
 <span><span class="codeReserved">if</span> (</span>
 <span> $saludo === <span class="codeReserved">false</span></span>
-<span> || $saludo === <span class="codeString">&quot;&quot;</span></span>
-<span>) {</span>
-<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
-<span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;errors&#47;faltasaludo.html&quot;</span>,</span>
-<span>  title: <span class="codeString">&quot;Falta el saludo.&quot;</span>,</span>
-<span> );</span>
-<span>}</span>
+<span> || $saludo === <span class="codeString">""</span></span>
+<span>)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</span>
+<span>  <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</span>
+<span>  <span class="codeString">"title"</span> =&gt; <span class="codeString">"Falta el saludo."</span>,</span>
+<span>  <span class="codeString">"type"</span> =&gt; <span class="codeString">"/erros/faltasaludo.html"</span></span>
+<span> ]);</span>
+
 <span><span class="codeReserved">if</span> (</span>
 <span> $nombre === <span class="codeReserved">false</span></span>
-<span> || $nombre === <span class="codeString">&quot;&quot;</span></span>
-<span>) {</span>
-<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
-<span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;errors&#47;faltanombre.html&quot;</span>,</span>
-<span>  title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</span>
-<span> );</span>
-<span>}</span>
-<span>$resultado =</span>
-<span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span>devuelveJson($resultado);</span></code></pre>
+<span> || $nombre === <span class="codeString">""</span></span>
+<span>)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</span>
+<span>  <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</span>
+<span>  <span class="codeString">"title"</span> =&gt; <span class="codeString">"Falta el nombre."</span>,</span>
+<span>  <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/faltanombre.html"</span></span>
+<span> ]);</span>
+
+<span>$resultado = <span class="codeString">"{$saludo} {$nombre}."</span>;</span>
+
+<span>devuelveJson($resultado);</code></pre>
  <p class="resaltado2">Despierta y recibe request.</p>
 </section>
       </section>
@@ -939,15 +935,15 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
 <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre><code class="language-php"><span class="resaltado">$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span class="resaltado">$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
@@ -980,39 +976,34 @@ alert(json)</code></pre>
   <div>
    <details>
     <summary>
-     POST /srv/valida.php HTTP/1.1
+     POST /api/valida.php HTTP/1.1
     </summary>
     Accept: application/json, application/problem+json<br>
-    Accept-Encoding: gzip, deflate<br>
-    Accept-Language: es-ES,es;q=0.9,en;q=0.8<br>
+    Accept-Encoding: gzip, deflate, br, zstd<br>
+    Accept-Language: es-MX,es-ES;q=0.9,es;q=0.8,en;q=0.7,gl;q=0.6,pt;q=0.5<br>
     Connection: keep-alive<br>
-    Content-Length: 230<br>
-    Content-Type: multipart/form-data;<br>
-    boundary=----WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Cookie:
-    __gsas=ID=329641bd2728ff51:T=1743534294:RT=1743534294:S=ALNI_MavjA3FPY-hDE5wNZO5LxFSOVeIIQ;
-    __test=6409d42a9d124b0fcecbb489e113453c<br>
+    Content-Length: 15<br>
+    Content-Type: application/x-www-form-urlencoded<br>
+    Cookie: __test=610630da28570bec7a7a24ad4391af68<br>
     Host: srvvalida.rf.gd<br>
-    Origin: http://srvvalida.rf.gd<br>
-    Referer: http://srvvalida.rf.gd/?i=1<br>
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-    (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
-   </details>
+    Origin: https://srvvalida.rf.gd<br>
+    Referer: https://srvvalida.rf.gd/?i=1<br>
+    Sec-Fetch-Dest: empty<br>
+    Sec-Fetch-Mode: cors<br>
+    Sec-Fetch-Site: same-origin<br>
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/148.0.0.0 Safari/537.36<br>
+    sec-ch-ua: "Chromium";v="148", "Google Chrome";v="148", "Not/A)Brand";v="99"<br>
+    sec-ch-ua-mobile: ?0<br>
+    sec-ch-ua-platform: "Windows"
+    </details>
    <br>
    <details>
     <summary class="resaltado">
      saludo:<br>
      nombre:
     </summary>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Content-Disposition: form-data; name="saludo"<br>
-    <br>
-    <br>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Content-Disposition: form-data; name="nombre"<br>
-    <br>
-    <br>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN--
+    saludo=&amp;nombre=
    </details>
   </div>
  </section>
@@ -1032,15 +1023,15 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
 <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span class="resaltado"><span class="codeReserved">if</span> (</span>
@@ -1083,15 +1074,15 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
 <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
@@ -1126,8 +1117,8 @@ alert(json)</code></pre>
     HTTP/1.1 400 Bad Request
    </summary>
    Server: openresty<br>
-   Date: Fri, 02 May 2025 13:53:21 GMT<br>
-   Content-Type: application/problem+json<br>
+   Date: Sun, 17 May 2026 22:01:18 GMT<br>
+   Content-Type: application/problem+json; charset=utf-8<br>
    Transfer-Encoding: chunked<br>
    Connection: keep-alive
   </details>
@@ -1140,8 +1131,8 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -1155,8 +1146,8 @@ alert(json)</code></pre>
     HTTP/1.1 400 Bad Request
    </summary>
    Server: openresty<br>
-   Date: Fri, 02 May 2025 13:53:21 GMT<br>
-   Content-Type: application/problem+json<br>
+   Date: Sun, 17 May 2026 22:01:18 GMT<br>
+   Content-Type: application/problem+json; charset=utf-8<br>
    Transfer-Encoding: chunked<br>
    Connection: keep-alive
   </details>
@@ -1164,7 +1155,7 @@ alert(json)</code></pre>
  </div>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
@@ -1198,8 +1189,8 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -1235,16 +1226,16 @@ alert(json)</code></pre>
  <div class="resaltado">
   <details>
    <summary>
-    POST http://srvvalida.rf.gd/php/valida.php 400 (Bad Request)
-    enviaFormRecibeJson.js:10
+    POST http://srvvalida.rf.gd/api/valida.php 400 (Bad Request)
+    submitFormRecibeJson.js:31
    </summary>
-   enviaFormRecibeJson @ enviaFormRecibeJson.js:10<br>
+   submitFormRecibeJson @ submitFormRecibeJson.js:31<br>
    submit @ ?i=1:56
   </details>
   <details>
    <summary>
-    ProblemDetailsError: Falta el saludo. muestraError.js:29<br>
-    at consume (consume.js:16:10)<br>
+    ProblemDetailsError: Falta el saludo. muestraError.js:24<br>
+    at consume (consume.js:18:10)<br>
     at async HTMLFormElement.submit (?i=1:55:22)
     <details>
      <summary>
@@ -1267,8 +1258,8 @@ alert(json)</code></pre>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -1278,16 +1269,16 @@ alert(json)</code></pre>
  <div class="resaltado">
   <details>
    <summary>
-    POST http://srvvalida.rf.gd/php/valida.php 400 (Bad Request)
-    enviaFormRecibeJson.js:10
+    POST http://srvvalida.rf.gd/api/valida.php 400 (Bad Request)
+    submitFormRecibeJson.js:31
    </summary>
-   enviaFormRecibeJson @ enviaFormRecibeJson.js:10<br>
+   submitFormRecibeJson @ submitFormRecibeJson.js:31<br>
    submit @ ?i=1:56
   </details>
   <details>
    <summary>
-    ProblemDetailsError: Falta el saludo. muestraError.js:29<br>
-    at consume (consume.js:16:10)<br>
+    ProblemDetailsError: Falta el saludo. muestraError.js:24<br>
+    at consume (consume.js:18:10)<br>
     at async HTMLFormElement.submit (?i=1:55:22)
     <details>
      <summary>

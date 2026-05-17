@@ -936,8 +936,8 @@
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -951,8 +951,8 @@ alert(json)</code></pre>
     HTTP/1.1 400 Bad Request
    </summary>
    Server: openresty<br>
-   Date: Fri, 02 May 2025 13:53:21 GMT<br>
-   Content-Type: application/problem+json<br>
+   Date: Sun, 17 May 2026 22:01:18 GMT<br>
+   Content-Type: application/problem+json; charset=utf-8<br>
    Transfer-Encoding: chunked<br>
    Connection: keep-alive
   </details>
@@ -960,7 +960,7 @@ alert(json)</code></pre>
  </div>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>

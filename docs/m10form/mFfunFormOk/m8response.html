@@ -936,15 +936,15 @@
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
   class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/procesa.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/procesa.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv/procesa.php</h1>
+ <h1>api/procesa.php</h1>
  <pre><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span>$resultado =</span>
@@ -971,12 +971,12 @@ alert(json)</code></pre>
      HTTP/1.1 200 OK
     </summary>
     Server: openresty<br>
-    Date: Fri, 02 May 2025 13:14:10 GMT<br>
-    Content-Type: application/json<br>
+    Date: Sun, 17 May 2026 21:24:23 GMT<br>
+    Content-Type: application/json; charset=utf-8<br>
     Transfer-Encoding: chunked<br>
     Connection: keep-alive<br>
     Cache-Control: max-age=0<br>
-    Expires: Fri, 02 May 2025 13:14:10 GMT
+    Expires: Sun, 17 May 2026 21:24:23 GMT
    </details>
    "Hola pp."
   </div>

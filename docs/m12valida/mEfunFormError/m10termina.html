@@ -936,8 +936,8 @@
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -947,16 +947,16 @@ alert(json)</code></pre>
  <div class="resaltado">
   <details>
    <summary>
-    POST http://srvvalida.rf.gd/php/valida.php 400 (Bad Request)
-    enviaFormRecibeJson.js:10
+    POST http://srvvalida.rf.gd/api/valida.php 400 (Bad Request)
+    submitFormRecibeJson.js:31
    </summary>
-   enviaFormRecibeJson @ enviaFormRecibeJson.js:10<br>
+   submitFormRecibeJson @ submitFormRecibeJson.js:31<br>
    submit @ ?i=1:56
   </details>
   <details>
    <summary>
-    ProblemDetailsError: Falta el saludo. muestraError.js:29<br>
-    at consume (consume.js:16:10)<br>
+    ProblemDetailsError: Falta el saludo. muestraError.js:24<br>
+    at consume (consume.js:18:10)<br>
     at async HTMLFormElement.submit (?i=1:55:22)
     <details>
      <summary>

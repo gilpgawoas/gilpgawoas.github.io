@@ -936,15 +936,15 @@
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span
    class="codeReserved">await</span> consume(
- enviaFormRecibeJson(
-  <span class="codeString">"php/valida.php"</span>, formulario))</span>
+ submitFormRecibeJson(
+  <span class="codeString">"api/valida.php"</span>, formulario))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
 <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv/valida.php</h1>
+ <h1>api/valida.php</h1>
  <pre><code class="language-php"><span class="resaltado">$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
 <span class="resaltado">$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
 <span><span class="codeReserved">if</span> (</span>
@@ -977,39 +977,34 @@ alert(json)</code></pre>
   <div>
    <details>
     <summary>
-     POST /srv/valida.php HTTP/1.1
+     POST /api/valida.php HTTP/1.1
     </summary>
     Accept: application/json, application/problem+json<br>
-    Accept-Encoding: gzip, deflate<br>
-    Accept-Language: es-ES,es;q=0.9,en;q=0.8<br>
+    Accept-Encoding: gzip, deflate, br, zstd<br>
+    Accept-Language: es-MX,es-ES;q=0.9,es;q=0.8,en;q=0.7,gl;q=0.6,pt;q=0.5<br>
     Connection: keep-alive<br>
-    Content-Length: 230<br>
-    Content-Type: multipart/form-data;<br>
-    boundary=----WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Cookie:
-    __gsas=ID=329641bd2728ff51:T=1743534294:RT=1743534294:S=ALNI_MavjA3FPY-hDE5wNZO5LxFSOVeIIQ;
-    __test=6409d42a9d124b0fcecbb489e113453c<br>
+    Content-Length: 15<br>
+    Content-Type: application/x-www-form-urlencoded<br>
+    Cookie: __test=610630da28570bec7a7a24ad4391af68<br>
     Host: srvvalida.rf.gd<br>
-    Origin: http://srvvalida.rf.gd<br>
-    Referer: http://srvvalida.rf.gd/?i=1<br>
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-    (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
-   </details>
+    Origin: https://srvvalida.rf.gd<br>
+    Referer: https://srvvalida.rf.gd/?i=1<br>
+    Sec-Fetch-Dest: empty<br>
+    Sec-Fetch-Mode: cors<br>
+    Sec-Fetch-Site: same-origin<br>
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/148.0.0.0 Safari/537.36<br>
+    sec-ch-ua: "Chromium";v="148", "Google Chrome";v="148", "Not/A)Brand";v="99"<br>
+    sec-ch-ua-mobile: ?0<br>
+    sec-ch-ua-platform: "Windows"
+    </details>
    <br>
    <details>
     <summary class="resaltado">
      saludo:<br>
      nombre:
     </summary>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Content-Disposition: form-data; name="saludo"<br>
-    <br>
-    <br>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN<br>
-    Content-Disposition: form-data; name="nombre"<br>
-    <br>
-    <br>
-    ------WebKitFormBoundaryWv6BXE9Yr1Q8AqnN--
+    saludo=&amp;nombre=
    </details>
   </div>
  </section>

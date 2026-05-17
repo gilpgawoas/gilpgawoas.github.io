@@ -2,14 +2,22 @@
  <ul>
   <li>
    <p>
-    Se introduce la función <code>enviaFormRecibeJson</code>, que permite enviar
+    Se introduce la función <code>submitFormRecibeJson</code>, que permite
+    enviar
     los datos capturados en un formulario hacia una URL.
    </p>
   </li>
   <li>
    <p>
-    Se utiliza el formato <q>mutipart/form-data</q>, lo cual permite transmitir
-    el contenido de archivos.
+    Si la forma no tiene archivos, se usa el formato
+    <q>application/x-www-form-urlencoded</q>.
+   </p>
+  </li>
+  <li>
+   <p>
+    Si la forma tiene archivos, se utiliza el formato
+    <q>mutipart/form-data</q>, lo cual permite transmitir el contenido de
+    archivos.
    </p>
   </li>
   <li>
