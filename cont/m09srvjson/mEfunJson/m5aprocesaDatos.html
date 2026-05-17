@@ -6,7 +6,7 @@
 }
 <span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
  enviaJsonRecibeJson(
-  <span class="codeString">"php/json.php"</span>, datos))</span>
+  <span class="codeString">"api/json.php"</span>, datos))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(json)</code></pre>
@@ -27,7 +27,7 @@ alert(json)</code></pre>
  </dl>
 </section>
 <section>
- <h1>srv/json.php</h1>
+ <h1>api/json.php</h1>
  <pre><code class="language-php"><span>$json = leeJson();</span>
 <span>$saludo = $json-&gt;saludo;</span>
 <span>$nombre = $json-&gt;nombre;</span>

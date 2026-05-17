@@ -935,7 +935,7 @@
    <h1 >3. El servicio procesa la request y genera la response</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado3"><span class="codeReserved">await</span> consume(
- recibeJson(<span class="codeString">"php/devuelve.php"</span>))</span>
+ recibeJson(<span class="codeString">"api/devuelve.php"</span>))</span>
 <span class="codeReserved">const</span> json =
  <span class="codeReserved">await</span> respuesta.json()
 alert(
@@ -944,7 +944,7 @@ alert(
  <p class="resaltado3">Hace wait esperando response.</p>
 </section>
 <section>
- <h1>srv&#47;devuelve.php</h1>
+ <h1>api&#47;devuelve.php</h1>
  <pre><code class="language-php"><span class="resaltado">devuelveJson([</span>
 <span class="resaltado"> <span class="codeString">&quot;nombre&quot;</span> =&gt; <span class="codeString">&quot;pp&quot;</span>,</span>
 <span class="resaltado"> <span class="codeString">&quot;mensaje&quot;</span> =&gt; <span class="codeString">&quot;Hola.&quot;</span></span>
@@ -960,12 +960,12 @@ alert(
     HTTP/1.1 200 OK
    </summary>
    Server: openresty<br>
-   Date: Fri, 02 May 2025 03:41:22 GMT<br>
-   Content-Type: application/json<br>
+   Date: Sun, 17 May 2026 19:17:52 GMT<br>
+   Content-Type: application/json; charset=utf-8<br>
    Transfer-Encoding: chunked<br>
    Connection: keep-alive<br>
    Cache-Control: max-age=0<br>
-   Expires: Fri, 02 May 2025 03:41:22 GMT<br>
+   Expires: Sun, 17 May 2026 19:17:52 GMT
   </details>
   {"nombre":"pp","mensaje":"Hola."}
  </div>

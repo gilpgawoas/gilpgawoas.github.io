@@ -934,15 +934,15 @@
  <div id="principal">
    <h1 >2. Se invoca el servicio en el servidor</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
-<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
-<span><span class="codeReserved">if</span> (resp.ok) {</span>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span class="resaltado"> <span class="codeReserved">await</span> fetch(<span class="codeString">"servicio.php"</span>)</span>
+<span><span class="codeReserved">if</span> (respuesta.ok) {</span>
 <span> <span class="codeReserved">const</span> texto =</span>
-<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span>  <span class="codeReserved">await</span> respuesta.text()</span>
 <span> alert(texto)</span>
 <span>} <span class="codeReserved">else</span> {</span>
-<span> throw <span class="codeReserved">new</span> Error(</span>
-<span>  resp.statusText)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(</span>
+<span>  respuesta.statusText)</span>
 <span>}</span></code></pre>
  <p class="resaltado2">Ejecuta fetch y envía request (solicitud).</p>
 </section>

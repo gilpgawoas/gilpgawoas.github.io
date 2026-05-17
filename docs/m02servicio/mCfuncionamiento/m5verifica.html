@@ -934,17 +934,17 @@
  <div id="principal">
    <h1 >5. Verifica si la conexión terminó con éxito</h1><section>
  <h1>index.html</h1>
- <pre><code class="language-javascript"><span><span class="codeReserved">const</span> resp =</span>
-<span> <span class="codeReserved">await</span> fetch(<span class="codeString">&quot;servicio.php&quot;</span>)</span>
-<span class="resaltado"><span class="codeReserved">if</span> (resp.ok) {</span>
+ <pre><code class="language-javascript"><span><span class="codeReserved">const</span> respuesta =</span>
+<span> <span class="codeReserved">await</span> fetch(<span class="codeString">"servicio.php"</span>)</span>
+<span class="resaltado"><span class="codeReserved">if</span> (respuesta.ok) {</span>
 <span> <span class="codeReserved">const</span> texto =</span>
-<span>  <span class="codeReserved">await</span> resp.text()</span>
+<span>  <span class="codeReserved">await</span> respuesta.text()</span>
 <span> alert(texto)</span>
 <span>} <span class="codeReserved">else</span> {</span>
-<span> throw <span class="codeReserved">new</span> Error(</span>
-<span>  resp.statusText)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> Error(</span>
+<span>  respuesta.statusText)</span>
 <span>}</span></code></pre>
-</section>
+  </section>
 <section>
  <h1>Memoria</h1>
  <dl style="padding: 0.5rem;">
