@@ -100,6 +100,8 @@ const ARCHIVOS = [
  "/m02servicio/mCfuncionamiento/m7muestra.html",
  "/m02servicio/mCfuncionamiento/m8termina.html",
  "/m02servicio/mDinstrucciones.html",
+ "/m02servicio/mDrespuesta.html",
+ "/m02servicio/mDsolicitud.html",
  "/m02servicio/mHresumen.html",
  "/m03soa/",
  "/m03soa/index.html",

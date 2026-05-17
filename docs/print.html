@@ -1655,6 +1655,16 @@ xdebug.start_with_request = yes
    </li>
    <li>
     <p>
+     <a href="/m02servicio/mDsolicitud.html">Contenido de una solicitud</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="/m02servicio/mDrespuesta.html">Contenido de una respuesta</a>
+    </p>
+   </li>
+   <li>
+    <p>
      <a href="/m02servicio/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
     </p>
    </li>
@@ -2058,7 +2068,192 @@ xdebug.start_with_request = yes
       </section>
       </section>
      <section >
-         <h1 >D. Hazlo funcionar (con videos)</h1><div class="lectura">
+         <h1 >D. Contenido de una solicitud</h1><div class="lectura">
+ <ul>
+  <li>
+   Esta es una petición que un navegador web (el "cliente") le hace a un
+   servidor para obtener un recurso, proporcionando detalles sobre quién hace la
+   petición y cómo prefiere recibir la respuesta.
+  </li>
+ </ul>
+ <dl>
+  <dt>GET /servicio.php HTTP/1.1</dt>
+  <dd>
+   Es la instrucción principal. El navegador está pidiendo leer (método GET) el
+   archivo servicio.php utilizando la versión 1.1 del protocolo HTTP.
+  </dd>
+  <dt>Accept</dt>
+  <dd>*/*</dd>
+  <dd>
+   El navegador indica que puede entender y recibir cualquier tipo de archivo o
+   formato de datos (texto, imágenes, JSON, HTML, etc.).
+  </dd>
+  <dt>Accept-Encoding</dt>
+  <dd>gzip, deflate, br, zstd</dd>
+  <dd>
+   Lista los formatos de compresión que el navegador soporta. El servidor puede
+   usar uno de estos (como gzip o br - Brotli) para comprimir la respuesta y
+   hacer que cargue más rápido.
+  </dd>
+  <dt>Accept-Language</dt>
+  <dd>es-MX,es-ES;q=0.9,es;q=0.8,en;q=0.7,gl;q=0.6,pt;q=0.5</dd>
+  <dd>
+   Son los idiomas que prefiere el usuario. El orden y el valor q (peso) indican
+   la prioridad: prefiere español de México, luego español de España, luego
+   español general, gl es gallego y pt es portugués.
+  </dd>
+  <dt>Connection</dt>
+  <dd>keep-alive</dd>
+  <dd>
+   Le pide al servidor que mantenga la conexión de red abierta después de enviar
+   esta respuesta. Esto ahorra tiempo si el navegador necesita pedir más
+   archivos (como imágenes o scripts) en los siguientes segundos.
+  </dd>
+  <dt>Host</dt>
+  <dd>srvejemplo.rf.gd</dd>
+  <dd>
+   Especifica a qué dominio de internet va dirigida la petición. Es vital porque
+   un mismo servidor físico puede alojar muchas páginas web diferentes.
+  </dd>
+  <dt>Cookie</dt>
+  <dd>__test=05fe05fbd9badf84bcd27287a4645c00</dd>
+  <dd>
+   Envía un pequeño dato temporal que el servidor guardó previamente en el
+   navegador. Se usa para mantener la sesión del usuario o recordar información
+   entre páginas.
+  </dd>
+  <dt>Referer</dt>
+  <dd>https://srvejemplo.rf.gd/</dd>
+  <dd>
+   Le dice al servidor de dónde viene el usuario. En este caso, la petición se
+   disparó mientras el usuario estaba en esa URL exacta.
+  </dd>
+  <dt>Sec-Fetch-Dest</dt>
+  <dd>empty</dd>
+  <dd>
+   Indica que el resultado de la petición no se va a inyectar directamente en el
+   navegador (como pasaría con un &lt;script&gt; o un &lt;iframe&gt;). Suele
+   significar que es una petición hecha por código JavaScript (por ejemplo, con
+   fetch() o XMLHttpRequest).
+  </dd>
+  <dt>Sec-Fetch-Mode</dt>
+  <dd>cors</dd>
+  <dd>
+   Indica que es una solicitud de recursos que sigue las reglas CORS
+   (Cross-Origin Resource Sharing), muy común en peticiones hechas por
+   JavaScript.
+  </dd>
+  <dt>Sec-Fetch-Site</dt>
+  <dd>same-origin</dd>
+  <dd>
+   Confirma que la solicitud se está haciendo hacia el mismo dominio en el que
+   el usuario ya se encuentra (no es una petición hacia un sitio externo de
+   terceros).
+  </dd>
+  <dt>User-Agent</dt>
+  <dd>
+   Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+   like Gecko) Chrome/148.0.0.0 Safari/537.36
+  </dd>
+  <dd>
+   Es la forma clásica en la que el navegador dice qué es. Aquí indica que es
+   Chrome versión 148 elaborado con Mozilla versión 5.0 para un sistema Windows
+   10.0 de 64 bits, con AppleWebKit versión 537.36 y Safari versión 537.36.
+  </dd>
+  <dt>sec-ch-ua</dt>
+  <dd>"Chromium";v="148", "Google Chrome";v="148", "Not/A)Brand";v="99"</dd>
+  <dd>
+   Es una versión moderna y más estructurada del User-Agent. Especifica la marca
+   y versión exacta del motor del navegador.
+  </dd>
+  <dt>sec-ch-ua-mobile</dt>
+  <dd>?0</dd>
+  <dd>
+   Responde si el dispositivo es un teléfono móvil. El ?0 significa "Falso", por
+   lo que es una computadora de escritorio o laptop.
+  </dd>
+  <dt>sec-ch-ua-platform</dt>
+  <dd>"Windows"</dd>
+  <dd>
+   Confirma que el sistema operativo del usuario es Windows.
+  </dd>
+ </dl>
+</div>
+      </section>
+     <section >
+         <h1 >E. Contenido de una respuesta</h1><div class="lectura">
+ <ul>
+  <li>
+   Mientras que la solicitud anterior mostraba lo que el navegador pide, esta
+   respuesta muestra lo que el servidor entrega y las instrucciones que lo
+   acompañan.
+  </li>
+ </ul>
+ <dl>
+  <dt>HTTP/1.1 200 OK</dt>
+  <dd>
+   El navegador está utilizando la versión 1.1 del protocolo HTTP. 00 OK, que
+   significa que la petición fue exitosa.
+  </dd>
+  <dt>Server</dt>
+  <dd>openresty</dd>
+  <dd>
+   Identifica el software que el servidor web está utilizando para procesar tu
+   solicitud. En este caso es OpenResty, que es una plataforma web de alto
+   rendimiento basada en Nginx.
+  </dd>
+  <dt>Date</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la fecha y hora exacta (en la zona horaria GMT) en la que el servidor
+   generó esta respuesta.
+  </dd>
+  <dt>Content-Type</dt>
+  <dd>text/html; charset=UTF-8</dd>
+  <dd>
+   Le dice al navegador qué tipo de archivo está recibiendo y cómo debe
+   interpretarlo. Aquí indica que es un documento web estándar (text/html) y que
+   utiliza la codificación de caracteres UTF-8 (el estándar moderno que soporta
+   casi todos los idiomas y símbolos).
+  </dd>
+  <dt>Transfer-Encoding</dt>
+  <dd>chunked</dd>
+  <dd>
+   Indica que el servidor no enviará el archivo de una sola vez con un tamaño
+   total específico. En su lugar, lo dividirá y enviará en pequeños "fragmentos"
+   (chunks). Esto es muy común en páginas generadas dinámicamente, ya que el
+   servidor puede empezar a enviar la respuesta antes de haber terminado de
+   construirla por completo.
+  </dd>
+  <dt>Connection</dt>
+  <dd>keep-alive</dd>
+  <dd>
+   El servidor acepta la petición del navegador de mantener la conexión TCP
+   abierta. Esto permite que los siguientes archivos que el navegador necesite
+   (como el archivo CSS, imágenes o JavaScript) se descarguen mucho más rápido
+   por esa misma "tubería".
+  </dd>
+  <dt>Cache-Control</dt>
+  <dd>max-age=0</dd>
+  <dd>
+   Es una instrucción sobre cómo el navegador debe almacenar (o no) esta página
+   en su memoria caché. max-age=0 significa que la página caduca en 0 segundos,
+   por lo que el navegador debe verificar con el servidor si hay una versión
+   actualizada antes de intentar mostrar una versión guardada en el futuro.
+  </dd>
+  <dt>Expires</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la forma antigua o clásica de manejar la caché. Indica la fecha y hora
+   exactas en las que el contenido de esta respuesta se considera obsoleto. Si
+   te fijas, la hora es exactamente la misma que la cabecera Date, lo que
+   refuerza la orden de que el contenido caduca inmediatamente.
+  </dd>
+ </dl>
+</div>
+      </section>
+     <section >
+         <h1 >F. Hazlo funcionar (con videos)</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -2161,7 +2356,7 @@ xdebug.start_with_request = yes
 </div>
       </section>
      <section >
-         <h1 >E. Hazlo funcionar (texto)</h1><div class="lectura">
+         <h1 >G. Hazlo funcionar (texto)</h1><div class="lectura">
  <ol>
   <li>
    <p>
@@ -2411,7 +2606,7 @@ xdebug.start_with_request = yes
 </div>
       </section>
      <section >
-         <h1 >F. Archivos</h1><div class="lectura">
+         <h1 >H. Archivos</h1><div class="lectura">
  <ul class="tree">
   <li>
    <p><a href="m-index-html.html">index.html</a></p>
@@ -2423,7 +2618,7 @@ xdebug.start_with_request = yes
 </div>
       </section>
      <section >
-         <h1 >G. index.html</h1><table class="codeShow">
+         <h1 >I. index.html</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2482,7 +2677,7 @@ xdebug.start_with_request = yes
 </table>
       </section>
      <section >
-         <h1 >H. servicio.php</h1><table class="codeShow">
+         <h1 >J. servicio.php</h1><table class="codeShow">
  <caption style="text-align: left">
   <button type=button title="Copiar al portapapeles"
     onclick="copyToClipboard(this)">
@@ -2500,7 +2695,7 @@ xdebug.start_with_request = yes
 </table>
       </section>
      <section >
-         <h1 >I. Resumen</h1><div class="lectura">
+         <h1 >K. Resumen</h1><div class="lectura">
  <ul>
   <li>
    <p>En esta lección se mostró el funcionamiento de un servicio.</p>

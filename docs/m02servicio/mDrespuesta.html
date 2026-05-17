@@ -2,7 +2,7 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 
 <head>
- <title>6. Arquitectura orientada a servicios</title>
+ <title>E. Contenido de una respuesta</title>
  <style>
  /* Activa transiciones de vistas
    * entre documentos para esta
@@ -78,7 +78,7 @@
 <link rel="icon" sizes="32x32" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <meta name="description" content="Contenido de la lección «Arquitectura orientada a servicios».">
+ <meta name="description" content="Contenido de una respuesta.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -884,81 +884,75 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >6. Arquitectura orientada a servicios</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a target="_blank" rel="noreferrer"
-      href="print.html">Versión para imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <nav>
-  <h1>Contenido</h1>
-  
-   <ol type="A">
-    
-   <li>
-    <p>
-     <a href="/m03soa/mAintro.html">Introducción</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mBventajas.html">Ventajas</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mCprincipios.html">Principios de diseño de un servicio</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mDcapas.html">Capas</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mEdiagrama.html"><dfn>Diagrama de Arquitectura</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mFxml/">Introducción a XML</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mJrest/">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mKresumen.html">Resumen</a>
-    </p>
-   </li>
-   </ol>
- </nav>
+   <h1 >E. Contenido de una respuesta</h1><div class="lectura">
+ <ul>
+  <li>
+   Mientras que la solicitud anterior mostraba lo que el navegador pide, esta
+   respuesta muestra lo que el servidor entrega y las instrucciones que lo
+   acompañan.
+  </li>
+ </ul>
+ <dl>
+  <dt>HTTP/1.1 200 OK</dt>
+  <dd>
+   El navegador está utilizando la versión 1.1 del protocolo HTTP. 00 OK, que
+   significa que la petición fue exitosa.
+  </dd>
+  <dt>Server</dt>
+  <dd>openresty</dd>
+  <dd>
+   Identifica el software que el servidor web está utilizando para procesar tu
+   solicitud. En este caso es OpenResty, que es una plataforma web de alto
+   rendimiento basada en Nginx.
+  </dd>
+  <dt>Date</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la fecha y hora exacta (en la zona horaria GMT) en la que el servidor
+   generó esta respuesta.
+  </dd>
+  <dt>Content-Type</dt>
+  <dd>text/html; charset=UTF-8</dd>
+  <dd>
+   Le dice al navegador qué tipo de archivo está recibiendo y cómo debe
+   interpretarlo. Aquí indica que es un documento web estándar (text/html) y que
+   utiliza la codificación de caracteres UTF-8 (el estándar moderno que soporta
+   casi todos los idiomas y símbolos).
+  </dd>
+  <dt>Transfer-Encoding</dt>
+  <dd>chunked</dd>
+  <dd>
+   Indica que el servidor no enviará el archivo de una sola vez con un tamaño
+   total específico. En su lugar, lo dividirá y enviará en pequeños "fragmentos"
+   (chunks). Esto es muy común en páginas generadas dinámicamente, ya que el
+   servidor puede empezar a enviar la respuesta antes de haber terminado de
+   construirla por completo.
+  </dd>
+  <dt>Connection</dt>
+  <dd>keep-alive</dd>
+  <dd>
+   El servidor acepta la petición del navegador de mantener la conexión TCP
+   abierta. Esto permite que los siguientes archivos que el navegador necesite
+   (como el archivo CSS, imágenes o JavaScript) se descarguen mucho más rápido
+   por esa misma "tubería".
+  </dd>
+  <dt>Cache-Control</dt>
+  <dd>max-age=0</dd>
+  <dd>
+   Es una instrucción sobre cómo el navegador debe almacenar (o no) esta página
+   en su memoria caché. max-age=0 significa que la página caduca en 0 segundos,
+   por lo que el navegador debe verificar con el servidor si hay una versión
+   actualizada antes de intentar mostrar una versión guardada en el futuro.
+  </dd>
+  <dt>Expires</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la forma antigua o clásica de manejar la caché. Indica la fecha y hora
+   exactas en las que el contenido de esta respuesta se considera obsoleto. Si
+   te fijas, la hora es exactamente la misma que la cabecera Date, lo que
+   refuerza la orden de que el contenido caduca inmediatamente.
+  </dd>
+ </dl>
 </div>
  <footer>
  <p>
@@ -985,10 +979,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m02servicio/mHresumen.html" title="K. Resumen"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m02servicio/mDsolicitud.html" title="D. Contenido de una solicitud"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m03soa/mAintro.html" title="A. Introducción"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m02servicio/mAvideoinstrucciones.html" title="F. Hazlo funcionar (con videos)"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1007,81 +1001,76 @@
    
    
      <p>
-      <a class="paginaAnterior" href="/m02servicio/mHresumen.html"
+      <a class="paginaAnterior" href="/m01awoas/mJresumen.html"
         title="K. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m03soa/index.html" class="actual">6. Arquitectura orientada a servicios</a></h1>
+   <h1><a href="/m02servicio/index.html">5. Ejemplo de servicio</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m03soa/mAintro.html">Introducción</a>
+     <a href="/m02servicio/mAintro.html">Introducción</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
+     <a href="/m02servicio/mBdeploy.html">Diagrama de despliegue</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mBventajas.html">Ventajas</a>
+     <a href="/m02servicio/mCfuncionamiento/">Funcionamiento</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mCprincipios.html">Principios de diseño de un servicio</a>
+     <a href="/m02servicio/mDsolicitud.html">Contenido de una solicitud</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mDcapas.html">Capas</a>
+     <a href="/m02servicio/mDrespuesta.html" class="actual">Contenido de una respuesta</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mEdiagrama.html"><dfn>Diagrama de Arquitectura</dfn></a>
+     <a href="/m02servicio/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mFxml/">Introducción a XML</a>
+     <a href="/m02servicio/mDinstrucciones.html">Hazlo funcionar (texto)</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
+     <a href="/m02servicio/mArchivos.html">Archivos</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
+     <a href="/m02servicio/m-index-html.html">index.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
+     <a href="/m02servicio/m-servicio-php.html">servicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mJrest/">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mKresumen.html">Resumen</a>
+     <a href="/m02servicio/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m04geolocalizacion.html"
-       title="7. Ejemplo de geolocalización"><span
+     <a class="paginaSiguiente" href="/m03soa/index.html"
+       title="6. Arquitectura orientada a servicios"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1100,9 +1089,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mHresumen.html"
+ let urlAnterior = "/m02servicio/mDsolicitud.html"
  /**@type {string} */
- let urlSiguiente = "/m03soa/mAintro.html"
+ let urlSiguiente = "/m02servicio/mAvideoinstrucciones.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

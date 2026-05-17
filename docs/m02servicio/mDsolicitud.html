@@ -2,7 +2,7 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 
 <head>
- <title>6. Arquitectura orientada a servicios</title>
+ <title>D. Contenido de una solicitud</title>
  <style>
  /* Activa transiciones de vistas
    * entre documentos para esta
@@ -78,7 +78,7 @@
 <link rel="icon" sizes="32x32" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/lib/js/muestra-codigo.js"></script>
- <meta name="description" content="Contenido de la lección «Arquitectura orientada a servicios».">
+ <meta name="description" content="Contenido de una solicitud.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
@@ -884,81 +884,116 @@
 
 <body  class="xmenu">
  <div id="principal">
-   <h1 >6. Arquitectura orientada a servicios</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a target="_blank" rel="noreferrer"
-      href="print.html">Versión para imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <nav>
-  <h1>Contenido</h1>
-  
-   <ol type="A">
-    
-   <li>
-    <p>
-     <a href="/m03soa/mAintro.html">Introducción</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mBventajas.html">Ventajas</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mCprincipios.html">Principios de diseño de un servicio</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mDcapas.html">Capas</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mEdiagrama.html"><dfn>Diagrama de Arquitectura</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mFxml/">Introducción a XML</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mJrest/">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mKresumen.html">Resumen</a>
-    </p>
-   </li>
-   </ol>
- </nav>
+   <h1 >D. Contenido de una solicitud</h1><div class="lectura">
+ <ul>
+  <li>
+   Esta es una petición que un navegador web (el "cliente") le hace a un
+   servidor para obtener un recurso, proporcionando detalles sobre quién hace la
+   petición y cómo prefiere recibir la respuesta.
+  </li>
+ </ul>
+ <dl>
+  <dt>GET /servicio.php HTTP/1.1</dt>
+  <dd>
+   Es la instrucción principal. El navegador está pidiendo leer (método GET) el
+   archivo servicio.php utilizando la versión 1.1 del protocolo HTTP.
+  </dd>
+  <dt>Accept</dt>
+  <dd>*/*</dd>
+  <dd>
+   El navegador indica que puede entender y recibir cualquier tipo de archivo o
+   formato de datos (texto, imágenes, JSON, HTML, etc.).
+  </dd>
+  <dt>Accept-Encoding</dt>
+  <dd>gzip, deflate, br, zstd</dd>
+  <dd>
+   Lista los formatos de compresión que el navegador soporta. El servidor puede
+   usar uno de estos (como gzip o br - Brotli) para comprimir la respuesta y
+   hacer que cargue más rápido.
+  </dd>
+  <dt>Accept-Language</dt>
+  <dd>es-MX,es-ES;q=0.9,es;q=0.8,en;q=0.7,gl;q=0.6,pt;q=0.5</dd>
+  <dd>
+   Son los idiomas que prefiere el usuario. El orden y el valor q (peso) indican
+   la prioridad: prefiere español de México, luego español de España, luego
+   español general, gl es gallego y pt es portugués.
+  </dd>
+  <dt>Connection</dt>
+  <dd>keep-alive</dd>
+  <dd>
+   Le pide al servidor que mantenga la conexión de red abierta después de enviar
+   esta respuesta. Esto ahorra tiempo si el navegador necesita pedir más
+   archivos (como imágenes o scripts) en los siguientes segundos.
+  </dd>
+  <dt>Host</dt>
+  <dd>srvejemplo.rf.gd</dd>
+  <dd>
+   Especifica a qué dominio de internet va dirigida la petición. Es vital porque
+   un mismo servidor físico puede alojar muchas páginas web diferentes.
+  </dd>
+  <dt>Cookie</dt>
+  <dd>__test=05fe05fbd9badf84bcd27287a4645c00</dd>
+  <dd>
+   Envía un pequeño dato temporal que el servidor guardó previamente en el
+   navegador. Se usa para mantener la sesión del usuario o recordar información
+   entre páginas.
+  </dd>
+  <dt>Referer</dt>
+  <dd>https://srvejemplo.rf.gd/</dd>
+  <dd>
+   Le dice al servidor de dónde viene el usuario. En este caso, la petición se
+   disparó mientras el usuario estaba en esa URL exacta.
+  </dd>
+  <dt>Sec-Fetch-Dest</dt>
+  <dd>empty</dd>
+  <dd>
+   Indica que el resultado de la petición no se va a inyectar directamente en el
+   navegador (como pasaría con un &lt;script&gt; o un &lt;iframe&gt;). Suele
+   significar que es una petición hecha por código JavaScript (por ejemplo, con
+   fetch() o XMLHttpRequest).
+  </dd>
+  <dt>Sec-Fetch-Mode</dt>
+  <dd>cors</dd>
+  <dd>
+   Indica que es una solicitud de recursos que sigue las reglas CORS
+   (Cross-Origin Resource Sharing), muy común en peticiones hechas por
+   JavaScript.
+  </dd>
+  <dt>Sec-Fetch-Site</dt>
+  <dd>same-origin</dd>
+  <dd>
+   Confirma que la solicitud se está haciendo hacia el mismo dominio en el que
+   el usuario ya se encuentra (no es una petición hacia un sitio externo de
+   terceros).
+  </dd>
+  <dt>User-Agent</dt>
+  <dd>
+   Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+   like Gecko) Chrome/148.0.0.0 Safari/537.36
+  </dd>
+  <dd>
+   Es la forma clásica en la que el navegador dice qué es. Aquí indica que es
+   Chrome versión 148 elaborado con Mozilla versión 5.0 para un sistema Windows
+   10.0 de 64 bits, con AppleWebKit versión 537.36 y Safari versión 537.36.
+  </dd>
+  <dt>sec-ch-ua</dt>
+  <dd>"Chromium";v="148", "Google Chrome";v="148", "Not/A)Brand";v="99"</dd>
+  <dd>
+   Es una versión moderna y más estructurada del User-Agent. Especifica la marca
+   y versión exacta del motor del navegador.
+  </dd>
+  <dt>sec-ch-ua-mobile</dt>
+  <dd>?0</dd>
+  <dd>
+   Responde si el dispositivo es un teléfono móvil. El ?0 significa "Falso", por
+   lo que es una computadora de escritorio o laptop.
+  </dd>
+  <dt>sec-ch-ua-platform</dt>
+  <dd>"Windows"</dd>
+  <dd>
+   Confirma que el sistema operativo del usuario es Windows.
+  </dd>
+ </dl>
 </div>
  <footer>
  <p>
@@ -985,10 +1020,10 @@
    menu
   </span>
  </button>
- <a class="anterior" href="/m02servicio/mHresumen.html" title="K. Resumen"><span class="material-symbols-outlined">
+ <a class="anterior" href="/m02servicio/mCfuncionamiento/m8termina.html" title="8. Al cerrar el alert, termina el evento"><span class="material-symbols-outlined">
      skip_previous
     </span></a>
- <a class="siguiente" href="/m03soa/mAintro.html" title="A. Introducción"><span class="material-symbols-outlined">
+ <a class="siguiente" href="/m02servicio/mDrespuesta.html" title="E. Contenido de una respuesta"><span class="material-symbols-outlined">
      skip_next
      </span></a>
 </div>
@@ -1007,81 +1042,76 @@
    
    
      <p>
-      <a class="paginaAnterior" href="/m02servicio/mHresumen.html"
+      <a class="paginaAnterior" href="/m01awoas/mJresumen.html"
         title="K. Resumen"><span
         class="material-symbols-outlined">
          arrow_upward
         </span></a>
      </p>
-   <h1><a href="/m03soa/index.html" class="actual">6. Arquitectura orientada a servicios</a></h1>
+   <h1><a href="/m02servicio/index.html">5. Ejemplo de servicio</a></h1>
    
    <ol type="A">
     
    <li>
     <p>
-     <a href="/m03soa/mAintro.html">Introducción</a>
+     <a href="/m02servicio/mAintro.html">Introducción</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mAsoa.html"><dfn>Arquitectura orientada a servicios</dfn></a>
+     <a href="/m02servicio/mBdeploy.html">Diagrama de despliegue</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mBventajas.html">Ventajas</a>
+     <a href="/m02servicio/mCfuncionamiento/">Funcionamiento</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mCprincipios.html">Principios de diseño de un servicio</a>
+     <a href="/m02servicio/mDsolicitud.html" class="actual">Contenido de una solicitud</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mDcapas.html">Capas</a>
+     <a href="/m02servicio/mDrespuesta.html">Contenido de una respuesta</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mEdiagrama.html"><dfn>Diagrama de Arquitectura</dfn></a>
+     <a href="/m02servicio/mAvideoinstrucciones.html">Hazlo funcionar (con videos)</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mFxml/">Introducción a XML</a>
+     <a href="/m02servicio/mDinstrucciones.html">Hazlo funcionar (texto)</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mGsoap/">Introducción a SOAP</a>
+     <a href="/m02servicio/mArchivos.html">Archivos</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mHwsdl/">Introducción a WSDL</a>
+     <a href="/m02servicio/m-index-html.html">index.html</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mIdefUddi.html"><dfn>UDDI</dfn></a>
+     <a href="/m02servicio/m-servicio-php.html">servicio.php</a>
     </p>
    </li>
    <li>
     <p>
-     <a href="/m03soa/mJrest/">Introducción a REST</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="/m03soa/mKresumen.html">Resumen</a>
+     <a href="/m02servicio/mHresumen.html">Resumen</a>
     </p>
    </li>
    </ol>
    
     <p>
-     <a class="paginaSiguiente" href="/m04geolocalizacion.html"
-       title="7. Ejemplo de geolocalización"><span
+     <a class="paginaSiguiente" href="/m03soa/index.html"
+       title="6. Arquitectura orientada a servicios"><span
        class="material-symbols-outlined">
         arrow_downward
        </span></a>
@@ -1100,9 +1130,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02servicio/mHresumen.html"
+ let urlAnterior = "/m02servicio/mCfuncionamiento/m8termina.html"
  /**@type {string} */
- let urlSiguiente = "/m03soa/mAintro.html"
+ let urlSiguiente = "/m02servicio/mDrespuesta.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

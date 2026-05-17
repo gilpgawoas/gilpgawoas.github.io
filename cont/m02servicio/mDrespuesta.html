@@ -1,0 +1,70 @@
+<div class="lectura">
+ <ul>
+  <li>
+   Mientras que la solicitud anterior mostraba lo que el navegador pide, esta
+   respuesta muestra lo que el servidor entrega y las instrucciones que lo
+   acompañan.
+  </li>
+ </ul>
+ <dl>
+  <dt>HTTP/1.1 200 OK</dt>
+  <dd>
+   El navegador está utilizando la versión 1.1 del protocolo HTTP. 00 OK, que
+   significa que la petición fue exitosa.
+  </dd>
+  <dt>Server</dt>
+  <dd>openresty</dd>
+  <dd>
+   Identifica el software que el servidor web está utilizando para procesar tu
+   solicitud. En este caso es OpenResty, que es una plataforma web de alto
+   rendimiento basada en Nginx.
+  </dd>
+  <dt>Date</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la fecha y hora exacta (en la zona horaria GMT) en la que el servidor
+   generó esta respuesta.
+  </dd>
+  <dt>Content-Type</dt>
+  <dd>text/html; charset=UTF-8</dd>
+  <dd>
+   Le dice al navegador qué tipo de archivo está recibiendo y cómo debe
+   interpretarlo. Aquí indica que es un documento web estándar (text/html) y que
+   utiliza la codificación de caracteres UTF-8 (el estándar moderno que soporta
+   casi todos los idiomas y símbolos).
+  </dd>
+  <dt>Transfer-Encoding</dt>
+  <dd>chunked</dd>
+  <dd>
+   Indica que el servidor no enviará el archivo de una sola vez con un tamaño
+   total específico. En su lugar, lo dividirá y enviará en pequeños "fragmentos"
+   (chunks). Esto es muy común en páginas generadas dinámicamente, ya que el
+   servidor puede empezar a enviar la respuesta antes de haber terminado de
+   construirla por completo.
+  </dd>
+  <dt>Connection</dt>
+  <dd>keep-alive</dd>
+  <dd>
+   El servidor acepta la petición del navegador de mantener la conexión TCP
+   abierta. Esto permite que los siguientes archivos que el navegador necesite
+   (como el archivo CSS, imágenes o JavaScript) se descarguen mucho más rápido
+   por esa misma "tubería".
+  </dd>
+  <dt>Cache-Control</dt>
+  <dd>max-age=0</dd>
+  <dd>
+   Es una instrucción sobre cómo el navegador debe almacenar (o no) esta página
+   en su memoria caché. max-age=0 significa que la página caduca en 0 segundos,
+   por lo que el navegador debe verificar con el servidor si hay una versión
+   actualizada antes de intentar mostrar una versión guardada en el futuro.
+  </dd>
+  <dt>Expires</dt>
+  <dd>Fri, 15 May 2026 21:02:57 GMT</dd>
+  <dd>
+   Es la forma antigua o clásica de manejar la caché. Indica la fecha y hora
+   exactas en las que el contenido de esta respuesta se considera obsoleto. Si
+   te fijas, la hora es exactamente la misma que la cabecera Date, lo que
+   refuerza la orden de que el contenido caduca inmediatamente.
+  </dd>
+ </dl>
+</div>
