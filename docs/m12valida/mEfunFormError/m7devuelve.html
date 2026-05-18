@@ -3,19 +3,72 @@
 
 <head>
  <title>7. El servicio devuelve la response, que es recibida en el cliente</title>
- 
  <meta charset="UTF-8">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
-<!-- <meta name="theme-color" content="#039623"> -->
+<meta name="theme-color" media="(prefers-color-scheme: light)"
+ content="#039623">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#039623">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+ if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/sw.js").
+   then(registro => {
+    console.log("Service Worker registrado.")
+    console.log(registro)
+   }).
+   catch(muestraError)
+ }
+
+ function muestraError(e) {
+  console.error(e)
+  alert(e.message)
+ }
+
+</script>
+<!-- <link rel="preload"
+ href="/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2" as="font"
+ crossorigin>
+<link rel="preload"
+ href="/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf" as="font"
+ crossorigin> -->
 <link rel="icon" sizes="32x32" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/lib/js/muestra-codigo.js"></script>
+<script src="/lib/js/muestra-codigo.js" defer></script>
  <meta name="description" content="Muestra como el servicio devuelve la response, que es recibida en el cliente.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
+
+ :root {
+  --colLetra: black;
+  --colFondo: white;
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+   --colLetra: white;
+   /* --colFondo: #272727; */
+   --colFondo: black;
+  }
+ }
+
+ :root {
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+ }
+
+ body {
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+ }
+
  :root {
   --marginTop: 0.25rem;
   --padTop: 0;
@@ -28,8 +81,6 @@
   --padNav: 0.75rem 0.5rem;
   --anchoNav: 300px;
   --anchoLectura: 900px;
-  --colLetra: black;
-  --colFondo: white;
   --colPush: var(--colFondo);
   --colPushHover: var(--colFondo);
   --colPushFocus: var(--colFondo);
@@ -103,20 +154,10 @@
   scrollbar-color: var(--colThumb) var(--colScrollbar);
  }
 
- @media (prefers-color-scheme: light) {
-  :root {
-   --colLetra: black;
-   --colFondo: white;
-  }
- }
-
  /* https://paletton.com/#uid=74W0u0kaVz84jP27qHbeJtFiHpX */
  @media (prefers-color-scheme: dark) {
 
   :root {
-   --colLetra: white;
-   /* --colFondo: #272727; */
-   --colFondo: black;
    --colPushActive: #e3f5d4;
    --colFondoPush: #bbe697;
    --colFondoPushHover: #d0eeb7;
@@ -153,6 +194,7 @@
 
  @font-face {
   font-family: 'Material Symbols Outlined';
+  font-display: swap;
   font-style: normal;
   src:
    url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
@@ -593,6 +635,7 @@
   font-size: small;
  }
 </style>
+ 
  <style>
  body {
   scroll-padding-top: var(--padTop);
@@ -931,7 +974,28 @@
 </head>
 
 <body  class="xmenu noTransition pruebaDeEscritorio">
- <div id="principal">
+ <script>
+ {
+
+  const LOCAL_STORAGE_MENU = "menu"
+  const MENU = "menu"
+  const XMENU = "xmenu"
+
+  const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
+  if (menu) {
+   if (menu === MENU) {
+    document.body.classList.remove(XMENU)
+    document.body.classList.add(MENU)
+   } else {
+    document.body.classList.remove(MENU)
+    document.body.classList.add(XMENU)
+   }
+  }
+
+ }
+
+</script>
+<div id="principal">
    <h1 >7. El servicio devuelve la response, que es recibida en el cliente</h1><section>
  <h1>index.html</h1>
  <pre><code class="language-javascript"><span class="codeReserved">const</span> respuesta = <span class="resaltado"><span
@@ -961,32 +1025,33 @@ alert(json)</code></pre>
 </section>
 <section>
  <h1>api/valida.php</h1>
- <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">&quot;saludo&quot;</span>);</span>
-<span>$nombre = recibeTexto(<span class="codeString">&quot;nombre&quot;</span>);</span>
+ <pre class="resaltado3"><code class="language-php"><span>$saludo = recibeTexto(<span class="codeString">"saludo"</span>);</span>
+<span>$nombre = recibeTexto(<span class="codeString">"nombre"</span>);</span>
+
 <span><span class="codeReserved">if</span> (</span>
 <span> $saludo === <span class="codeReserved">false</span></span>
-<span> || $saludo === <span class="codeString">&quot;&quot;</span></span>
-<span>) {</span>
-<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
-<span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;error&#47;faltasaludo.html&quot;</span>,</span>
-<span>  title: <span class="codeString">&quot;Falta el saludo.&quot;</span>,</span>
-<span> );</span>
-<span>}</span>
+<span> || $saludo === <span class="codeString">""</span></span>
+<span>)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</span>
+<span>  <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</span>
+<span>  <span class="codeString">"title"</span> =&gt; <span class="codeString">"Falta el saludo."</span>,</span>
+<span>  <span class="codeString">"type"</span> =&gt; <span class="codeString">"/erros/faltasaludo.html"</span></span>
+<span> ]);</span>
+
 <span><span class="codeReserved">if</span> (</span>
 <span> $nombre === <span class="codeReserved">false</span></span>
-<span> || $nombre === <span class="codeString">&quot;&quot;</span></span>
-<span>) {</span>
-<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetails(</span>
-<span>  status: ProblemDetails::BadRequest,</span>
-<span>  type: <span class="codeString">&quot;&#47;error&#47;faltanombre.html&quot;</span>,</span>
-<span>  title: <span class="codeString">&quot;Falta el nombre.&quot;</span>,</span>
-<span> );</span>
-<span>}</span>
-<span>$resultado =</span>
-<span> <span class="codeString">&quot;{$saludo} {$nombre}.&quot;</span>;</span>
-<span>devuelveJson($resultado);</span></code></pre>
- <p class="resaltado3">Devuelve response y se duerme.</p>
+<span> || $nombre === <span class="codeString">""</span></span>
+<span>)</span>
+<span> <span class="codeReserved">throw</span> <span class="codeReserved">new</span> ProblemDetailsException([</span>
+<span>  <span class="codeString">"status"</span> =&gt; BAD_REQUEST,</span>
+<span>  <span class="codeString">"title"</span> =&gt; <span class="codeString">"Falta el nombre."</span>,</span>
+<span>  <span class="codeString">"type"</span> =&gt; <span class="codeString">"/errors/faltanombre.html"</span></span>
+<span> ]);</span>
+
+<span>$resultado = <span class="codeString">"{$saludo} {$nombre}."</span>;</span>
+
+<span>devuelveJson($resultado);</code></pre>
+<p class="resaltado3">Devuelve response y se duerme.</p>
 </section>
  <footer>
  <p>
@@ -1105,7 +1170,6 @@ alert(json)</code></pre>
  
 </nav>
  <script>
- registraServiceWorker("/sw.js")
  const LOCAL_STORAGE_MENU = "menu"
  const MENU = "menu"
  const MENU_UNDO = "menu-undo"
@@ -1113,7 +1177,6 @@ alert(json)</code></pre>
  const XMENU_UNDO = "xmenu-undo"
  const SCROLL = "scroll"
  const nav = document.querySelector("#nav")
- const abre = document.querySelector("#abre")
 
  /**@type {string} */
  let urlAnterior = "/m12valida/mEfunFormError/m6aborta.html"
@@ -1134,38 +1197,9 @@ alert(json)</code></pre>
  document.addEventListener("touchstart", iniciaTouch)
  document.addEventListener("touchmove", desplazaTouch)
  addEventListener("scroll", onScroll)
- if (abre) {
-  abre.addEventListener("click", cambiaMenu)
- }
  const cambian = Array.from(document.querySelectorAll(".cambiaMenu"))
  for (const c of cambian) {
   c.addEventListener("click", cambiaMenu)
- }
- const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
- if (menu) {
-  if (menu === MENU) {
-   document.body.classList.remove(XMENU)
-   document.body.classList.add(MENU)
-  } else {
-   document.body.classList.remove(MENU)
-   document.body.classList.add(XMENU)
-  }
- }
-
- function registraServiceWorker(url) {
-  if (navigator.serviceWorker) {
-   navigator.serviceWorker.register(url).
-    then(registro => {
-     console.log("Service Worker registrado.")
-     console.log(registro)
-    }).
-    catch(muestraError)
-  }
- }
-
- function muestraError(e) {
-  console.error(e)
-  alert(e.message)
  }
 
  async function copyToClipboard(button) {

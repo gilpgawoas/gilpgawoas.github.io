@@ -64,6 +64,7 @@ const ARCHIVOS = [
  "/img/source_control.png",
  "/",
  "/index.html",
+ "/jsconfig.json",
  "/lib/js/muestra-codigo.js",
  "/m00instrucciones.html",
  "/m00previos.html",

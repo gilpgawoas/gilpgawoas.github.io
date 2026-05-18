@@ -3,85 +3,72 @@
 
 <head>
  <title>D. La función devuelveJson</title>
- <style>
- /* Activa transiciones de vistas
-   * entre documentos para esta
-   * página. */
- @view-transition {
-  navigation: auto;
- }
-
- @keyframes aparece {
-  0% {
-   background-color: var(--colFondo);
-   opacity: 0;
-  }
-
-  50% {
-   background-color: var(--colFondo);
-   opacity: 0.5;
-  }
-
-  100% {
-   background-color: var(--colFondo);
-   opacity: 1;
-  }
- }
-
- @keyframes desvanece {
-  0% {
-   background-color: var(--colFondo);
-   opacity: 1;
-  }
-
-  50% {
-   background-color: var(--colFondo);
-   opacity: 0.5;
-  }
-
-  100% {
-   background-color: var(--colFondo);
-   opacity: 0;
-  }
- }
-
- ::view-transition-old(root) {
-  animation-duration: 0.7s;
-  background-color: var(--colFondo);
-  will-change: opacity;
-  opacity: 1;
-  animation-name: desvanece;
-  animation-fill-mode: both;
-  mix-blend-mode: screen;
-  isolation: isolate;
-  animation-timing-function: ease-out;
- }
-
- ::view-transition-new(root) {
-  /* animation-delay: 1s; */
-  animation-duration: 1s;
-  background-color: var(--colFondo);
-  will-change: opacity;
-  opacity: 0;
-  animation-name: aparece;
-  animation-fill-mode: both;
-  mix-blend-mode: screen;
-  isolation: isolate;
-  animation-timing-function: ease-out;
- }
-</style>
  <meta charset="UTF-8">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
-<!-- <meta name="theme-color" content="#039623"> -->
+<meta name="theme-color" media="(prefers-color-scheme: light)"
+ content="#039623">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#039623">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+ if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/sw.js").
+   then(registro => {
+    console.log("Service Worker registrado.")
+    console.log(registro)
+   }).
+   catch(muestraError)
+ }
+
+ function muestraError(e) {
+  console.error(e)
+  alert(e.message)
+ }
+
+</script>
+<!-- <link rel="preload"
+ href="/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2" as="font"
+ crossorigin>
+<link rel="preload"
+ href="/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].ttf" as="font"
+ crossorigin> -->
 <link rel="icon" sizes="32x32" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/lib/js/muestra-codigo.js"></script>
+<script src="/lib/js/muestra-codigo.js" defer></script>
  <meta name="description" content="Se presenta la función devuelveJson.">
  <meta name="og:image" content="https://gilpgawoas.github.io/img/icono/icono2048.png">
  <style>
  /* https://paletton.com/#uid=74W0u0kllllaFw0g0qFqFg0w0aF */
+
+ :root {
+  --colLetra: black;
+  --colFondo: white;
+ }
+
+ @media (prefers-color-scheme: light) {
+  :root {
+   --colLetra: black;
+   --colFondo: white;
+  }
+ }
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+   --colLetra: white;
+   /* --colFondo: #272727; */
+   --colFondo: black;
+  }
+ }
+
+ :root {
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+ }
+
+ body {
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+ }
+
  :root {
   --marginTop: 0.25rem;
   --padTop: 0;
@@ -94,8 +81,6 @@
   --padNav: 0.75rem 0.5rem;
   --anchoNav: 300px;
   --anchoLectura: 900px;
-  --colLetra: black;
-  --colFondo: white;
   --colPush: var(--colFondo);
   --colPushHover: var(--colFondo);
   --colPushFocus: var(--colFondo);
@@ -169,20 +154,10 @@
   scrollbar-color: var(--colThumb) var(--colScrollbar);
  }
 
- @media (prefers-color-scheme: light) {
-  :root {
-   --colLetra: black;
-   --colFondo: white;
-  }
- }
-
  /* https://paletton.com/#uid=74W0u0kaVz84jP27qHbeJtFiHpX */
  @media (prefers-color-scheme: dark) {
 
   :root {
-   --colLetra: white;
-   /* --colFondo: #272727; */
-   --colFondo: black;
    --colPushActive: #e3f5d4;
    --colFondoPush: #bbe697;
    --colFondoPushHover: #d0eeb7;
@@ -219,6 +194,7 @@
 
  @font-face {
   font-family: 'Material Symbols Outlined';
+  font-display: swap;
   font-style: normal;
   src:
    url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
@@ -660,6 +636,67 @@
  }
 </style>
  <style>
+ /* Activa transiciones de vistas
+   * entre documentos para esta
+   * página. */
+ @view-transition {
+  navigation: auto;
+ }
+
+ @keyframes aparece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+ }
+
+ @keyframes desvanece {
+  0% {
+   background-color: var(--colFondo);
+   opacity: 1;
+  }
+
+  50% {
+   background-color: var(--colFondo);
+   opacity: 0.5;
+  }
+
+  100% {
+   background-color: var(--colFondo);
+   opacity: 0;
+  }
+ }
+
+ ::view-transition-old(root) {
+  animation-duration: 1s;
+  background-color: var(--colFondo);
+  opacity: 1;
+  animation-name: desvanece;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+ }
+
+ ::view-transition-new(root) {
+  /* animation-delay: 1s; */
+  animation-duration: 1s;
+  background-color: var(--colFondo);
+  opacity: 0;
+  animation-name: aparece;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+ }
+</style>
+ <style>
  body {
   scroll-padding-top: var(--padTop);
  }
@@ -883,7 +920,28 @@
 </head>
 
 <body  class="xmenu">
- <div id="principal">
+ <script>
+ {
+
+  const LOCAL_STORAGE_MENU = "menu"
+  const MENU = "menu"
+  const XMENU = "xmenu"
+
+  const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
+  if (menu) {
+   if (menu === MENU) {
+    document.body.classList.remove(XMENU)
+    document.body.classList.add(MENU)
+   } else {
+    document.body.classList.remove(MENU)
+    document.body.classList.add(XMENU)
+   }
+  }
+
+ }
+
+</script>
+<div id="principal">
    <h1 >D. La función <dfn><code>devuelveJson</code></dfn></h1><div class="lectura">
  <ul>
   <li>
@@ -1066,7 +1124,6 @@
  
 </nav>
  <script>
- registraServiceWorker("/sw.js")
  const LOCAL_STORAGE_MENU = "menu"
  const MENU = "menu"
  const MENU_UNDO = "menu-undo"
@@ -1074,7 +1131,6 @@
  const XMENU_UNDO = "xmenu-undo"
  const SCROLL = "scroll"
  const nav = document.querySelector("#nav")
- const abre = document.querySelector("#abre")
 
  /**@type {string} */
  let urlAnterior = "/m08srvdevuelve/mBrecibeJson.html"
@@ -1095,38 +1151,9 @@
  document.addEventListener("touchstart", iniciaTouch)
  document.addEventListener("touchmove", desplazaTouch)
  addEventListener("scroll", onScroll)
- if (abre) {
-  abre.addEventListener("click", cambiaMenu)
- }
  const cambian = Array.from(document.querySelectorAll(".cambiaMenu"))
  for (const c of cambian) {
   c.addEventListener("click", cambiaMenu)
- }
- const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
- if (menu) {
-  if (menu === MENU) {
-   document.body.classList.remove(XMENU)
-   document.body.classList.add(MENU)
-  } else {
-   document.body.classList.remove(MENU)
-   document.body.classList.add(XMENU)
-  }
- }
-
- function registraServiceWorker(url) {
-  if (navigator.serviceWorker) {
-   navigator.serviceWorker.register(url).
-    then(registro => {
-     console.log("Service Worker registrado.")
-     console.log(registro)
-    }).
-    catch(muestraError)
-  }
- }
-
- function muestraError(e) {
-  console.error(e)
-  alert(e.message)
  }
 
  async function copyToClipboard(button) {
