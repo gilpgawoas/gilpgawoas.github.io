@@ -194,7 +194,7 @@
 
  @font-face {
   font-family: 'Material Symbols Outlined';
-  font-display: swap;
+  font-display: block;
   font-style: normal;
   src:
    url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
@@ -677,23 +677,25 @@
   }
  }
 
- ::view-transition-old(root) {
+
+ ::view-transition-group(encabezado),
+ ::view-transition-group(contenido) {
   animation-duration: 1s;
-  background-color: var(--colFondo);
+  mix-blend-mode: normal !important;
+  animation-fill-mode: both;
+  overflow: hidden;
+  animation-timing-function: linear;
+ }
+
+ ::view-transition-old(root) {
   opacity: 1;
   animation-name: desvanece;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
  }
 
  ::view-transition-new(root) {
   /* animation-delay: 1s; */
-  animation-duration: 1s;
-  background-color: var(--colFondo);
   opacity: 0;
   animation-name: aparece;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
  }
 </style>
  <style>
@@ -962,9 +964,9 @@
   <tr><td class="codeShow_order">8</td><td><pre> header(<span class="codeString">"Content-Type: application/problem+json; charset=utf-8"</span>);</pre></td></tr>
   <tr><td class="codeShow_order">9</td><td><pre></pre></td></tr>
   <tr><td class="codeShow_order">10</td><td><pre> echo <span class="codeString">'{'</span> .</pre></td></tr>
-  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeString">"status: "</span> . INTERNAL_SERVER_ERROR .</pre></td></tr>
-  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeString">'&quot;title&quot;: &quot;El resultado no puede representarse como JSON.&quot;'</span> .</pre></td></tr>
-  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">'&quot;type&quot;: &quot;/errors/resultadonojson.html&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">11</td><td><pre>  <span class="codeString">'&quot;status&quot;: '</span> . INTERNAL_SERVER_ERROR .</pre></td></tr>
+  <tr><td class="codeShow_order">12</td><td><pre>  <span class="codeString">',&quot;title&quot;: &quot;El resultado no puede representarse como JSON.&quot;'</span> .</pre></td></tr>
+  <tr><td class="codeShow_order">13</td><td><pre>  <span class="codeString">',&quot;type&quot;: &quot;/errors/resultadonojson.html&quot;'</span> .</pre></td></tr>
   <tr><td class="codeShow_order">14</td><td><pre>  <span class="codeString">'}'</span>;</pre></td></tr>
   <tr><td class="codeShow_order">15</td><td><pre>}</pre></td></tr>
   <tr><td class="codeShow_order">16</td><td><pre></pre></td></tr>

@@ -194,7 +194,7 @@
 
  @font-face {
   font-family: 'Material Symbols Outlined';
-  font-display: swap;
+  font-display: block;
   font-style: normal;
   src:
    url(/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2) format('woff2'),
@@ -677,23 +677,25 @@
   }
  }
 
- ::view-transition-old(root) {
+
+ ::view-transition-group(encabezado),
+ ::view-transition-group(contenido) {
   animation-duration: 1s;
-  background-color: var(--colFondo);
+  mix-blend-mode: normal !important;
+  animation-fill-mode: both;
+  overflow: hidden;
+  animation-timing-function: linear;
+ }
+
+ ::view-transition-old(root) {
   opacity: 1;
   animation-name: desvanece;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
  }
 
  ::view-transition-new(root) {
   /* animation-delay: 1s; */
-  animation-duration: 1s;
-  background-color: var(--colFondo);
   opacity: 0;
   animation-name: aparece;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
  }
 </style>
  <style>
